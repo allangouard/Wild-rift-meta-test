@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator && location.protocol.startsWith('http')){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=110', {scope:'./'}).then(r=>{r.update();document.addEventListener('visibilitychange',()=>{if(!document.hidden)r.update()})}).catch(e=>console.warn('Installation hors-ligne indisponible',e)))};
