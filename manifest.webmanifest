@@ -3,7 +3,7 @@
   "name": "Wild Rift Draft Intelligence",
   "short_name": "WR Draft",
   "description": "Drafts, builds et runes pour Wild Rift",
-  "start_url": "./index.html?app=v84",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#080f1d",
