@@ -4,7 +4,7 @@
  */
 (function(){
   'use strict';
-  const VERSION='12.4', SOURCE='https://wrchina.gg';
+  const VERSION='12.4.1', SOURCE='https://wrchina.gg';
   const PATTERNS=[
     {id:'magic', label:'Dégâts magiques',rx:/魔法伤害|魔法傷害/g},
     {id:'physical',label:'Dégâts physiques',rx:/物理伤害|物理傷害/g},
@@ -65,10 +65,12 @@
   function init(){
     const host=document.getElementById('simpleApp');if(!host||document.getElementById('wrdi124'))return;
     const style=document.createElement('style');style.textContent=css;document.head.appendChild(style);
-    const box=document.createElement('section');box.id='wrdi124';box.hidden=true;
+    const box=document.createElement('section');box.id='wrdi124';box.hidden=false;
     box.innerHTML='<h3>🔍 Menaces déduites des compétences — V12.4</h3><p class="wrdi124-muted">Lecture des descriptions de Wild Rift. Les mentions trouvées ne déterminent ni le type de build réellement acheté ni la part des dégâts subis.</p><button id="wrdi124-run" type="button">Analyser les kits adverses</button><div id="wrdi124-out" aria-live="polite"></div>';
-    // Inséré dans la zone de draft existante, pas comme un quatrième grand module.
-    const section=host.querySelector('.simple-card');if(section)section.appendChild(box);else host.appendChild(box);
+    // Le panneau doit suivre le module Menaces V12, pas la carte de sélection.
+    // La V12.3 déplace ce module dans son onglet ; son contenu suit ce déplacement.
+    const advisor=document.getElementById('wrdiV12DraftAdvisor');
+    if(advisor)advisor.appendChild(box);else {host.appendChild(box);box.insertAdjacentHTML('afterbegin','<p class="wrdi124-muted">Interface Menaces indisponible : diagnostic affiché ici en secours.</p>');}
     const out=box.querySelector('#wrdi124-out');let data=[],running=false;
     box.querySelector('#wrdi124-run').addEventListener('click',async()=>{
       if(running)return;const picks=selections().filter(x=>x.side==='adversaire');
@@ -85,14 +87,9 @@
         out.innerHTML=html;
       }finally{running=false}
     });
-    // Unification non intrusive : afficher dans l'onglet Menaces existant.
-    const isThreatButton=b=>b.tagName==='BUTTON'&&/menaces/i.test(b.textContent||'');
-    function wire(){const all=[...host.querySelectorAll('button')];for(const b of all){if(!isThreatButton(b)||b.dataset.wrdi124Wired)return;b.dataset.wrdi124Wired='1';b.addEventListener('click',()=>{box.hidden=false;},false)}
-      for(const b of all){if(!/\bBuild\b|Champions/i.test(b.textContent||'')||b.dataset.wrdi124Other)return;b.dataset.wrdi124Other='1';b.addEventListener('click',()=>{box.hidden=true},false)}
-    }
-    wire();const observer=new MutationObserver(wire);observer.observe(host,{subtree:true,childList:true});
-    // En cas de réorganisation de l'interface, le diagnostic reste accessible via l'onglet Menaces.
-    window.WRDIChampionThreatsV124={infer,readDraft:selections,getLastAudit:()=>data};
+    // Pas de masquage par clic : la visibilité est gérée par l'onglet parent V12.3.
+    // Ainsi le bouton reste visible à la suite de l'ancien diagnostic Menaces.
+    window.WRDIChampionThreatsV124={infer,readDraft:selections,getLastAudit:()=>data,version:VERSION};
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
