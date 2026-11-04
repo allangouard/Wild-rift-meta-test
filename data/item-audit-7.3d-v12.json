@@ -1,0 +1,4574 @@
+{
+  "schema": "wrdi-item-audit-v12-step17-v1",
+  "generatedAt": "2026-11-04",
+  "targetPatch": "7.3d",
+  "game": "League of Legends: Wild Rift mobile",
+  "sourcePatch": "7.2a (unverified historical file)",
+  "verificationState": "NOT VERIFIED: inventory and review queue only",
+  "policy": {
+    "recommendationEnabled": false,
+    "simulationEnabled": false,
+    "requireEvidenceForEveryItem": true,
+    "neverTreatMissingPassiveAsZero": true,
+    "newItemsMayBeMissing": true
+  },
+  "officialPatchReviewQueue": [
+    {
+      "patch": "7.3",
+      "date": "2026-09-21",
+      "url": "https://wildrift.leagueoflegends.com/en-us/news/game-updates/",
+      "scope": "full update; must review new/removed items"
+    },
+    {
+      "patch": "7.3a",
+      "date": "2026-09-29",
+      "url": "https://wildrift.leagueoflegends.com/en-us/news/game-updates/",
+      "scope": "balance changes"
+    },
+    {
+      "patch": "7.3b",
+      "date": "2026-10-14",
+      "url": "https://wildrift.leagueoflegends.com/en-us/news/game-updates/",
+      "scope": "item and rune updates"
+    },
+    {
+      "patch": "7.3c",
+      "date": "2026-10-21",
+      "url": "https://wildrift.leagueoflegends.com/en-us/news/game-updates/",
+      "scope": "review whether Summoners Rift items changed"
+    },
+    {
+      "patch": "7.3d",
+      "date": "2026-10-28",
+      "url": "https://wildrift.leagueoflegends.com/en-us/news/game-updates/",
+      "scope": "item balance changes"
+    }
+  ],
+  "counts": {
+    "historicalRecords": 195,
+    "historicalCandidatesWithPassiveNames": 71,
+    "verifiedCurrentPatchItems": 0,
+    "verifiedCurrentPatchPassives": 0
+  },
+  "items": [
+    {
+      "id": "bloodthirster",
+      "historicalName": "Bloodthirster",
+      "historicalCost": 3000,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Bloody"
+      ],
+      "historicalBaseStats": {
+        "attackDamage": 55,
+        "critChancePct": 25,
+        "health": 250
+      },
+      "flags": [
+        "conditional-stat-review",
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "guardian-angel",
+      "historicalName": "Guardian Angel",
+      "historicalCost": 3200,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackDamage": 45,
+        "armor": 40
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "magnetic-blaster",
+      "historicalName": "Magnetic Blaster",
+      "historicalCost": 3000,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Fervor"
+      ],
+      "historicalBaseStats": {
+        "attackDamage": 25,
+        "critChancePct": 25,
+        "attackSpeedPct": 25
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "blade-of-the-ruined-king",
+      "historicalName": "Blade of the Ruined King",
+      "historicalCost": 3200,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Thirst"
+      ],
+      "historicalBaseStats": {
+        "attackDamage": 40,
+        "attackSpeedPct": 35
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "runaan-s-hurricane",
+      "historicalName": "Runaan's Hurricane",
+      "historicalCost": 2900,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackSpeedPct": 35,
+        "critChancePct": 25
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "youmuu-s-ghostblade",
+      "historicalName": "Youmuu's Ghostblade",
+      "historicalCost": 3000,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Slice"
+      ],
+      "historicalBaseStats": {
+        "attackDamage": 55,
+        "abilityHaste": 15
+      },
+      "flags": [
+        "conditional-stat-review",
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "duskblade-of-draktharr",
+      "historicalName": "Duskblade of Draktharr",
+      "historicalCost": 3000,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Razor"
+      ],
+      "historicalBaseStats": {
+        "attackDamage": 55,
+        "abilityHaste": 10
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "infinity-edge",
+      "historicalName": "Infinity Edge",
+      "historicalCost": 3400,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackDamage": 65,
+        "critChancePct": 25
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "mortal-reminder",
+      "historicalName": "Mortal Reminder",
+      "historicalCost": 3300,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Last Whisper"
+      ],
+      "historicalBaseStats": {
+        "attackDamage": 25,
+        "critChancePct": 25,
+        "attackSpeedPct": 15
+      },
+      "flags": [
+        "conditional-stat-review",
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "lord-dominik-s-regards",
+      "historicalName": "Lord Dominik's Regards",
+      "historicalCost": 3300,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackDamage": 25,
+        "critChancePct": 25,
+        "armorPenPct": 36
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "black-cleaver",
+      "historicalName": "Black Cleaver",
+      "historicalCost": 3000,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 400,
+        "attackDamage": 40,
+        "abilityHaste": 20
+      },
+      "flags": [
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "manamune-awe-lv1-ez-390-mana",
+      "historicalName": "Manamune (Awe - lv1 EZ 390 Mana)",
+      "historicalCost": 2700,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Awe"
+      ],
+      "historicalBaseStats": {
+        "attackDamage": 25,
+        "mana": 300,
+        "abilityHaste": 20
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "manamune-awe-lv15-ez-1076-mana",
+      "historicalName": "Manamune (Awe - lv15 EZ 1076 Mana)",
+      "historicalCost": 2700,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Awe"
+      ],
+      "historicalBaseStats": {
+        "attackDamage": 25,
+        "mana": 300,
+        "abilityHaste": 20
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "muramana-awe-lv1-ez-390-mana",
+      "historicalName": "Muramana (Awe - lv1 EZ 390 Mana)",
+      "historicalCost": 2700,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Awe"
+      ],
+      "historicalBaseStats": {
+        "attackDamage": 25,
+        "mana": 1000,
+        "abilityHaste": 20
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "muramana-awe-lv15-ez-1076-mana",
+      "historicalName": "Muramana (Awe - lv15 EZ 1076 Mana)",
+      "historicalCost": 2700,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Awe"
+      ],
+      "historicalBaseStats": {
+        "attackDamage": 25,
+        "mana": 1000,
+        "abilityHaste": 20
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "trinity-force",
+      "historicalName": "Trinity Force",
+      "historicalCost": 3333,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Fervor"
+      ],
+      "historicalBaseStats": {
+        "health": 333,
+        "attackDamage": 30,
+        "attackSpeedPct": 30,
+        "abilityHaste": 20
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "maw-of-malmortius",
+      "historicalName": "Maw of Malmortius",
+      "historicalCost": 3000,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackDamage": 55,
+        "magicResistance": 45,
+        "abilityHaste": 10
+      },
+      "flags": [
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "death-s-dance",
+      "historicalName": "Death's Dance",
+      "historicalCost": 3100,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackDamage": 35,
+        "armor": 40,
+        "abilityHaste": 15
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "phantom-dancer",
+      "historicalName": "Phantom Dancer",
+      "historicalCost": 2900,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Shadowwalk"
+      ],
+      "historicalBaseStats": {
+        "attackDamage": 20,
+        "critChancePct": 25,
+        "attackSpeedPct": 40
+      },
+      "flags": [
+        "conditional-stat-review",
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "nashor-s-tooth-adaptive-ad",
+      "historicalName": "Nashor's Tooth (Adaptive: AD)",
+      "historicalCost": 2800,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Magic Fang"
+      ],
+      "historicalBaseStats": {
+        "attackSpeedPct": 45,
+        "abilityHaste": 20
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "wit-s-end",
+      "historicalName": "Wit's End",
+      "historicalCost": 2800,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackSpeedPct": 45,
+        "magicResistance": 45
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "essence-reaver",
+      "historicalName": "Essence Reaver",
+      "historicalCost": 3000,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackDamage": 40,
+        "critChancePct": 25,
+        "abilityHaste": 20
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "serylda-s-grudge",
+      "historicalName": "Serylda's Grudge",
+      "historicalCost": 3300,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Last Whisper"
+      ],
+      "historicalBaseStats": {
+        "attackDamage": 40,
+        "abilityHaste": 15
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "navori-quickblades",
+      "historicalName": "Navori Quickblades",
+      "historicalCost": 2800,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "critChancePct": 25,
+        "attackSpeedPct": 45,
+        "moveSpeedPct": 5
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "edge-of-night",
+      "historicalName": "Edge of Night",
+      "historicalCost": 3000,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Gouge"
+      ],
+      "historicalBaseStats": {
+        "health": 250,
+        "attackDamage": 50
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "divine-sunderer",
+      "historicalName": "Divine Sunderer",
+      "historicalCost": 3400,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 425,
+        "attackDamage": 25,
+        "abilityHaste": 25
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "serpent-s-fang",
+      "historicalName": "Serpent's Fang",
+      "historicalCost": 2800,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Stab"
+      ],
+      "historicalBaseStats": {
+        "attackDamage": 50,
+        "abilityHaste": 10
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "chempunk-chainsword",
+      "historicalName": "Chempunk Chainsword",
+      "historicalCost": 2800,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 400,
+        "attackDamage": 45,
+        "abilityHaste": 15
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "the-collector",
+      "historicalName": "The Collector",
+      "historicalCost": 3000,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Killer"
+      ],
+      "historicalBaseStats": {
+        "attackDamage": 45,
+        "critChancePct": 25
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "sterak-s-gage-heavy-handed-lv1-ire-58-ad",
+      "historicalName": "Sterak's Gage (Heavy Handed - lv1 IRE 58 AD)",
+      "historicalCost": 3200,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Heavy Handed"
+      ],
+      "historicalBaseStats": {
+        "health": 400
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "sterak-s-gage-heavy-handed-lv15-ire-122-ad",
+      "historicalName": "Sterak's Gage (Heavy Handed - lv15 IRE 122 AD)",
+      "historicalCost": 3200,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Heavy Handed"
+      ],
+      "historicalBaseStats": {
+        "health": 400
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "spear-of-shojin",
+      "historicalName": "Spear of Shojin",
+      "historicalCost": 3100,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Dragonforce"
+      ],
+      "historicalBaseStats": {
+        "health": 450,
+        "attackDamage": 40
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "titanic-hydra",
+      "historicalName": "Titanic Hydra",
+      "historicalCost": 3000,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 450,
+        "attackDamage": 40
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "terminus",
+      "historicalName": "Terminus",
+      "historicalCost": 3300,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackDamage": 40,
+        "attackSpeedPct": 30
+      },
+      "flags": [
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "sundered-sky",
+      "historicalName": "Sundered Sky",
+      "historicalCost": 2900,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackDamage": 40,
+        "abilityHaste": 15,
+        "health": 350
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "eclipse",
+      "historicalName": "Eclipse",
+      "historicalCost": 3000,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackDamage": 65,
+        "abilityHaste": 20
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "soul-transfer",
+      "historicalName": "Soul Transfer",
+      "historicalCost": 3200,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackDamage": 25,
+        "critChancePct": 25,
+        "attackSpeedPct": 30
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "hullbreaker",
+      "historicalName": "Hullbreaker",
+      "historicalCost": 3100,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Set Sail"
+      ],
+      "historicalBaseStats": {
+        "health": 400,
+        "attackDamage": 50
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "luden-s-echo",
+      "historicalName": "Luden's Echo",
+      "historicalCost": 2800,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityPower": 100,
+        "mana": 500,
+        "abilityHaste": 10
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "morellonomicon",
+      "historicalName": "Morellonomicon",
+      "historicalCost": 2650,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS",
+        "SUPPORT ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 300,
+        "abilityPower": 75,
+        "abilityHaste": 15
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "rabadon-s-deathcap-overkill",
+      "historicalName": "Rabadon's Deathcap (Overkill)",
+      "historicalCost": 3400,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Overkill"
+      ],
+      "historicalBaseStats": {
+        "abilityPower": 130
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "rylai-s-crystal-scepter",
+      "historicalName": "Rylai's Crystal Scepter",
+      "historicalCost": 2700,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 350,
+        "abilityPower": 65
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "liandry-s-torment",
+      "historicalName": "Liandry's Torment",
+      "historicalCost": 3000,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 300,
+        "abilityPower": 70
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "rod-of-ages",
+      "historicalName": "Rod of Ages",
+      "historicalCost": 2700,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 350,
+        "abilityPower": 50,
+        "mana": 400
+      },
+      "flags": [
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "lich-bane",
+      "historicalName": "Lich Bane",
+      "historicalCost": 2800,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Bane"
+      ],
+      "historicalBaseStats": {
+        "abilityPower": 100,
+        "abilityHaste": 10
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "nashor-s-tooth-adaptive-ap",
+      "historicalName": "Nashor's Tooth (Adaptive: AP)",
+      "historicalCost": 2800,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Magic Fang"
+      ],
+      "historicalBaseStats": {
+        "attackSpeedPct": 45,
+        "abilityHaste": 20
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "archangel-s-staff-awe-lv1-kass-480-mp",
+      "historicalName": "Archangel's Staff (Awe - lv1 Kass 480 MP)",
+      "historicalCost": 3000,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Awe"
+      ],
+      "historicalBaseStats": {
+        "abilityPower": 60,
+        "mana": 500,
+        "abilityHaste": 25
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "archangel-s-staff-awe-lv15-kass-1390-mp",
+      "historicalName": "Archangel's Staff (Awe - lv15 Kass 1390 MP)",
+      "historicalCost": 3000,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Awe"
+      ],
+      "historicalBaseStats": {
+        "abilityPower": 60,
+        "mana": 500,
+        "abilityHaste": 25
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "seraph-s-embrace-awe-lv1-kass-480-mp",
+      "historicalName": "Seraph's Embrace (Awe - lv1 Kass 480 MP)",
+      "historicalCost": 3000,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Awe"
+      ],
+      "historicalBaseStats": {
+        "abilityPower": 60,
+        "mana": 1200,
+        "abilityHaste": 25
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "seraph-s-embrace-awe-lv15-kass-1390-mp",
+      "historicalName": "Seraph's Embrace (Awe - lv15 Kass 1390 MP)",
+      "historicalCost": 3000,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Awe"
+      ],
+      "historicalBaseStats": {
+        "abilityPower": 60,
+        "mana": 1200,
+        "abilityHaste": 25
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "ardent-censer",
+      "historicalName": "Ardent Censer",
+      "historicalCost": 2700,
+      "historicalCategory": [
+        "SUPPORT ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Ardent"
+      ],
+      "historicalBaseStats": {
+        "health": 250,
+        "abilityPower": 45,
+        "abilityHaste": 10,
+        "healShieldPct": 5,
+        "manaRegenPct": 50
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "harmonic-echo",
+      "historicalName": "Harmonic Echo",
+      "historicalCost": 2800,
+      "historicalCategory": [
+        "SUPPORT ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 100,
+        "abilityPower": 50,
+        "mana": 300,
+        "abilityHaste": 15,
+        "healShieldPct": 5,
+        "manaRegenPct": 50
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "infinity-orb",
+      "historicalName": "Infinity Orb",
+      "historicalCost": 3100,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Balanced"
+      ],
+      "historicalBaseStats": {
+        "abilityPower": 110
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "staff-of-flowing-waters",
+      "historicalName": "Staff of Flowing Waters",
+      "historicalCost": 2500,
+      "historicalCategory": [
+        "SUPPORT ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 100,
+        "abilityPower": 50,
+        "abilityHaste": 15,
+        "healShieldPct": 5,
+        "manaRegenPct": 50
+      },
+      "flags": [
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "oceanid-s-trident",
+      "historicalName": "Oceanid's Trident",
+      "historicalCost": 2600,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS",
+        "SUPPORT ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 200,
+        "abilityPower": 80,
+        "abilityHaste": 10
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "imperial-mandate",
+      "historicalName": "Imperial Mandate",
+      "historicalCost": 2500,
+      "historicalCategory": [
+        "SUPPORT ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 200,
+        "abilityPower": 50,
+        "abilityHaste": 20
+      },
+      "flags": [
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "cosmic-drive",
+      "historicalName": "Cosmic Drive",
+      "historicalCost": 3000,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Hyperdrive"
+      ],
+      "historicalBaseStats": {
+        "abilityPower": 70,
+        "health": 300,
+        "abilityHaste": 25
+      },
+      "flags": [
+        "conditional-stat-review",
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "riftmaker",
+      "historicalName": "Riftmaker",
+      "historicalCost": 3100,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Assimilation",
+        "Void Infusion"
+      ],
+      "historicalBaseStats": {
+        "health": 350,
+        "abilityPower": 70,
+        "abilityHaste": 15
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "horizon-focus",
+      "historicalName": "Horizon Focus",
+      "historicalCost": 2700,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityPower": 80,
+        "abilityHaste": 25
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "malignance-scorn",
+      "historicalName": "Malignance (Scorn)",
+      "historicalCost": 2700,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Scorn"
+      ],
+      "historicalBaseStats": {
+        "abilityPower": 90,
+        "mana": 500,
+        "abilityHaste": 15
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "guinsoo-s-rageblade-adaptive-ap",
+      "historicalName": "Guinsoo's Rageblade (Adaptive: AP)",
+      "historicalCost": 3100,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Surge",
+        "Chaos"
+      ],
+      "historicalBaseStats": {
+        "attackSpeedPct": 30
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "guinsoo-s-rageblade-adaptive-ap-seething-strike",
+      "historicalName": "Guinsoo's Rageblade (Adaptive: AP, Seething Strike)",
+      "historicalCost": 3100,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Surge",
+        "Chaos",
+        "Seething Strike"
+      ],
+      "historicalBaseStats": {
+        "attackSpeedPct": 30
+      },
+      "flags": [
+        "conditional-stat-review",
+        "unmapped-stats"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "sunfire-aegis",
+      "historicalName": "Sunfire Aegis",
+      "historicalCost": 2900,
+      "historicalCategory": [
+        "DEFENSE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 425,
+        "armor": 20,
+        "abilityHaste": 15
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "randuin-s-omen",
+      "historicalName": "Randuin's Omen",
+      "historicalCost": 2800,
+      "historicalCategory": [
+        "DEFENSE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 400,
+        "armor": 75
+      },
+      "flags": [
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "thornmail",
+      "historicalName": "Thornmail",
+      "historicalCost": 2700,
+      "historicalCategory": [
+        "DEFENSE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 200,
+        "armor": 75
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "warmog-s-armor",
+      "historicalName": "Warmog's Armor",
+      "historicalCost": 2850,
+      "historicalCategory": [
+        "DEFENSE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 700,
+        "healthRegenPct": 100,
+        "abilityHaste": 20
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "iceborn-gauntlet",
+      "historicalName": "Iceborn Gauntlet",
+      "historicalCost": 3100,
+      "historicalCategory": [
+        "DEFENSE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 250,
+        "armor": 50,
+        "mana": 250,
+        "abilityHaste": 30
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "dead-man-s-plate",
+      "historicalName": "Dead Man's Plate",
+      "historicalCost": 2800,
+      "historicalCategory": [
+        "DEFENSE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Relentless"
+      ],
+      "historicalBaseStats": {
+        "health": 350,
+        "armor": 70
+      },
+      "flags": [
+        "conditional-stat-review",
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "zeke-s-convergence",
+      "historicalName": "Zeke's Convergence",
+      "historicalCost": 2700,
+      "historicalCategory": [
+        "DEFENSE ITEMS",
+        "SUPPORT ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 350,
+        "armor": 40,
+        "mana": 150,
+        "abilityHaste": 15
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "winter-s-approach-awe-lv1-voli-390-mp",
+      "historicalName": "Winter's Approach (Awe - lv1 Voli 390 MP)",
+      "historicalCost": 2600,
+      "historicalCategory": [
+        "DEFENSE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Awe"
+      ],
+      "historicalBaseStats": {
+        "health": 350,
+        "mana": 500,
+        "abilityHaste": 15
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "winter-s-approach-awe-lv15-voli-1300-mp",
+      "historicalName": "Winter's Approach (Awe - lv15 Voli 1300 MP)",
+      "historicalCost": 2600,
+      "historicalCategory": [
+        "DEFENSE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Awe"
+      ],
+      "historicalBaseStats": {
+        "health": 350,
+        "mana": 500,
+        "abilityHaste": 15
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "fimbulwinter-awe-lv1-voli-390-mp",
+      "historicalName": "Fimbulwinter (Awe - lv1 Voli 390 MP)",
+      "historicalCost": 2600,
+      "historicalCategory": [
+        "DEFENSE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Awe"
+      ],
+      "historicalBaseStats": {
+        "health": 350,
+        "mana": 1200,
+        "abilityHaste": 15
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "fimbulwinter-awe-lv15-voli-1300-mp",
+      "historicalName": "Fimbulwinter (Awe - lv15 Voli 1300 MP)",
+      "historicalCost": 2600,
+      "historicalCategory": [
+        "DEFENSE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Awe"
+      ],
+      "historicalBaseStats": {
+        "health": 350,
+        "mana": 1200,
+        "abilityHaste": 15
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "force-of-nature",
+      "historicalName": "Force of Nature",
+      "historicalCost": 2750,
+      "historicalCategory": [
+        "DEFENSE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Storm"
+      ],
+      "historicalBaseStats": {
+        "health": 350,
+        "magicResistance": 60
+      },
+      "flags": [
+        "conditional-stat-review",
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "frozen-heart",
+      "historicalName": "Frozen Heart",
+      "historicalCost": 2650,
+      "historicalCategory": [
+        "DEFENSE ITEMS",
+        "SUPPORT ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "armor": 80,
+        "mana": 250,
+        "abilityHaste": 20
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "dawnshroud",
+      "historicalName": "Dawnshroud",
+      "historicalCost": 2700,
+      "historicalCategory": [
+        "DEFENSE ITEMS",
+        "SUPPORT ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 250,
+        "armor": 50,
+        "magicResistance": 30
+      },
+      "flags": [
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "amaranth-s-twinguard",
+      "historicalName": "Amaranth's Twinguard",
+      "historicalCost": 3100,
+      "historicalCategory": [
+        "DEFENSE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "armor": 60,
+        "magicResistance": 60
+      },
+      "flags": [
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "mantle-of-the-twelfth-hour",
+      "historicalName": "Mantle of the Twelfth Hour",
+      "historicalCost": 2900,
+      "historicalCategory": [
+        "DEFENSE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 200,
+        "armor": 40,
+        "magicResistance": 40
+      },
+      "flags": [
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "searing-crown",
+      "historicalName": "Searing Crown",
+      "historicalCost": 2700,
+      "historicalCategory": [
+        "DEFENSE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 300,
+        "armor": 50
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "heartsteel",
+      "historicalName": "Heartsteel",
+      "historicalCost": 2800,
+      "historicalCategory": [
+        "DEFENSE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 700,
+        "healthRegenPct": 150,
+        "abilityHaste": 20
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "redemption",
+      "historicalName": "Redemption",
+      "historicalCost": 2600,
+      "historicalCategory": [
+        "SUPPORT ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 150,
+        "abilityPower": 50,
+        "abilityHaste": 15,
+        "healShieldPct": 5,
+        "manaRegenPct": 50
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "radiant-virtue",
+      "historicalName": "Radiant Virtue",
+      "historicalCost": 2850,
+      "historicalCategory": [
+        "DEFENSE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 300,
+        "armor": 45,
+        "abilityHaste": 15
+      },
+      "flags": [
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "gluttonous-greaves-balanced-of-power-ad-convertion-0-stacks",
+      "historicalName": "Gluttonous Greaves (Balanced of Power - AD, Convertion - 0 Stacks)",
+      "historicalCost": 1000,
+      "historicalCategory": [
+        "BOOTS"
+      ],
+      "historicalPassiveCandidates": [
+        "Balanced of Power",
+        "Convertion"
+      ],
+      "historicalBaseStats": {
+        "moveSpeed": 45
+      },
+      "flags": [
+        "conditional-stat-review",
+        "unmapped-stats"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "gluttonous-greaves-balanced-of-power-ad-convertion-full-stacks",
+      "historicalName": "Gluttonous Greaves (Balanced of Power - AD, Convertion - Full Stacks)",
+      "historicalCost": 1000,
+      "historicalCategory": [
+        "BOOTS"
+      ],
+      "historicalPassiveCandidates": [
+        "Balanced of Power",
+        "Convertion"
+      ],
+      "historicalBaseStats": {
+        "moveSpeed": 45
+      },
+      "flags": [
+        "conditional-stat-review",
+        "unmapped-stats"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "gluttonous-greaves-balanced-of-power-ap-convertion-0-stacks",
+      "historicalName": "Gluttonous Greaves (Balanced of Power - AP, Convertion - 0 Stacks)",
+      "historicalCost": 1000,
+      "historicalCategory": [
+        "BOOTS"
+      ],
+      "historicalPassiveCandidates": [
+        "Balanced of Power",
+        "Convertion"
+      ],
+      "historicalBaseStats": {
+        "moveSpeed": 45
+      },
+      "flags": [
+        "conditional-stat-review",
+        "unmapped-stats"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "gluttonous-greaves-balanced-of-power-ap-convertion-full-stacks",
+      "historicalName": "Gluttonous Greaves (Balanced of Power - AP, Convertion - Full Stacks)",
+      "historicalCost": 1000,
+      "historicalCategory": [
+        "BOOTS"
+      ],
+      "historicalPassiveCandidates": [
+        "Balanced of Power",
+        "Convertion"
+      ],
+      "historicalBaseStats": {
+        "moveSpeed": 45
+      },
+      "flags": [
+        "conditional-stat-review",
+        "unmapped-stats"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "berserker-s-greaves",
+      "historicalName": "Berserker's Greaves",
+      "historicalCost": 1200,
+      "historicalCategory": [
+        "BOOTS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackSpeedPct": 30,
+        "moveSpeed": 45
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "mercury-s-treads",
+      "historicalName": "Mercury's Treads",
+      "historicalCost": 1200,
+      "historicalCategory": [
+        "BOOTS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 150,
+        "magicResistance": 25,
+        "tenacityPct": 15,
+        "moveSpeed": 45
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "plated-steelcaps",
+      "historicalName": "Plated Steelcaps",
+      "historicalCost": 1200,
+      "historicalCategory": [
+        "BOOTS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 150,
+        "armor": 25,
+        "moveSpeed": 45
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "ionian-boots-of-lucidity",
+      "historicalName": "Ionian Boots of Lucidity",
+      "historicalCost": 1000,
+      "historicalCategory": [
+        "BOOTS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityHaste": 15,
+        "moveSpeed": 45,
+        "manaRegenPct": 50
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "boots-of-mana",
+      "historicalName": "Boots of Mana",
+      "historicalCost": 1200,
+      "historicalCategory": [
+        "BOOTS"
+      ],
+      "historicalPassiveCandidates": [
+        "Magic Break"
+      ],
+      "historicalBaseStats": {
+        "abilityPower": 25,
+        "manaRegenPct": 75,
+        "moveSpeed": 45
+      },
+      "flags": [
+        "conditional-stat-review",
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "boots-of-dynamism",
+      "historicalName": "Boots of Dynamism",
+      "historicalCost": 1200,
+      "historicalCategory": [
+        "BOOTS"
+      ],
+      "historicalPassiveCandidates": [
+        "Strike"
+      ],
+      "historicalBaseStats": {
+        "attackDamage": 15,
+        "moveSpeed": 45
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "spectral-sickle-adaptive-ad",
+      "historicalName": "Spectral Sickle (Adaptive - AD)",
+      "historicalCost": 500,
+      "historicalCategory": [
+        "SUPPORT ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Versatile"
+      ],
+      "historicalBaseStats": {},
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "spectral-sickle-adaptive-ap",
+      "historicalName": "Spectral Sickle (Adaptive - AP)",
+      "historicalCost": 500,
+      "historicalCategory": [
+        "SUPPORT ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Versatile"
+      ],
+      "historicalBaseStats": {},
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "relic-shield",
+      "historicalName": "Relic Shield",
+      "historicalCost": 500,
+      "historicalCategory": [
+        "SUPPORT ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 125
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "black-mist-scythe-adaptive-ad",
+      "historicalName": "Black Mist Scythe (Adaptive: AD)",
+      "historicalCost": 500,
+      "historicalCategory": [
+        "SUPPORT ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Versatile"
+      ],
+      "historicalBaseStats": {
+        "abilityHaste": 10
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "black-mist-scythe-adaptive-ap",
+      "historicalName": "Black Mist Scythe (Adaptive: AP)",
+      "historicalCost": 500,
+      "historicalCategory": [
+        "SUPPORT ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Versatile"
+      ],
+      "historicalBaseStats": {
+        "abilityHaste": 10
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "black-mist-scythe-adaptive-ad-soulcast",
+      "historicalName": "Black Mist Scythe (Adaptive: AD, Soulcast)",
+      "historicalCost": 500,
+      "historicalCategory": [
+        "SUPPORT ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Versatile",
+        "Soulcast",
+        "Soulcast"
+      ],
+      "historicalBaseStats": {
+        "abilityHaste": 10
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "black-mist-scythe-adaptive-ap-soulcast",
+      "historicalName": "Black Mist Scythe (Adaptive: AP, Soulcast)",
+      "historicalCost": 500,
+      "historicalCategory": [
+        "SUPPORT ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Versatile",
+        "Soulcast",
+        "Soulcast"
+      ],
+      "historicalBaseStats": {
+        "abilityHaste": 10
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "bulwark-of-the-mountain",
+      "historicalName": "Bulwark of the Mountain",
+      "historicalCost": 500,
+      "historicalCategory": [
+        "SUPPORT ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 175,
+        "abilityHaste": 10
+      },
+      "flags": [
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "vampiric-scepter",
+      "historicalName": "Vampiric Scepter",
+      "historicalCost": 1200,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackDamage": 20,
+        "physicalVampPct": 8
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "zeal",
+      "historicalName": "Zeal",
+      "historicalCost": 1400,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Fervor"
+      ],
+      "historicalBaseStats": {
+        "critChancePct": 15,
+        "attackSpeedPct": 15
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "kirchei-s-shard",
+      "historicalName": "Kirchei's Shard",
+      "historicalCost": 900,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackDamage": 15
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "serrated-dirk",
+      "historicalName": "Serrated Dirk",
+      "historicalCost": 1000,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Sharp"
+      ],
+      "historicalBaseStats": {
+        "attackDamage": 20
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "recurve-bow",
+      "historicalName": "Recurve Bow",
+      "historicalCost": 1400,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackSpeedPct": 30
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "b-f-sword",
+      "historicalName": "B. F. Sword",
+      "historicalCost": 1500,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackDamage": 40
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "cloak-of-agility",
+      "historicalName": "Cloak of Agility",
+      "historicalCost": 1000,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "critChancePct": 20
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "last-whisper",
+      "historicalName": "Last Whisper",
+      "historicalCost": 800,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Last Whisper"
+      ],
+      "historicalBaseStats": {},
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "executioner-s-calling",
+      "historicalName": "Executioner's Calling",
+      "historicalCost": 800,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackDamage": 15
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "phage",
+      "historicalName": "Phage",
+      "historicalCost": 1000,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 150,
+        "attackDamage": 15
+      },
+      "flags": [
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "stinger",
+      "historicalName": "Stinger",
+      "historicalCost": 1200,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackSpeedPct": 30,
+        "abilityHaste": 10
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "caulfield-s-warhammer",
+      "historicalName": "Caulfield's Warhammer",
+      "historicalCost": 1200,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackDamage": 25,
+        "abilityHaste": 10
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "jaurim-s-fist",
+      "historicalName": "Jaurim's Fist",
+      "historicalCost": 1100,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 175,
+        "attackDamage": 15
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "tear-of-the-goddess",
+      "historicalName": "Tear of the Goddess",
+      "historicalCost": 500,
+      "historicalCategory": [
+        "BASIC ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "mana": 200,
+        "abilityHaste": 5
+      },
+      "flags": [
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "aether-wisp",
+      "historicalName": "Aether Wisp",
+      "historicalCost": 950,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Wisp"
+      ],
+      "historicalBaseStats": {
+        "abilityPower": 35
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "lost-chapter",
+      "historicalName": "Lost Chapter",
+      "historicalCost": 1200,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityPower": 35,
+        "mana": 200,
+        "abilityHaste": 10
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "fiendish-codex",
+      "historicalName": "Fiendish Codex",
+      "historicalCost": 900,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityPower": 25,
+        "abilityHaste": 10
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "blasting-wand",
+      "historicalName": "Blasting Wand",
+      "historicalCost": 900,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityPower": 40
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "needlessly-large-rod",
+      "historicalName": "Needlessly Large Rod",
+      "historicalCost": 1400,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityPower": 65
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "haunting-guise",
+      "historicalName": "Haunting Guise",
+      "historicalCost": 1300,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 200,
+        "abilityPower": 30
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "sheen",
+      "historicalName": "Sheen",
+      "historicalCost": 800,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityHaste": 10
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "oblivion-orb",
+      "historicalName": "Oblivion Orb",
+      "historicalCost": 800,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityPower": 35
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "bami-s-cinder",
+      "historicalName": "Bami's Cinder",
+      "historicalCost": 1300,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 250
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "spectre-s-cowl",
+      "historicalName": "Spectre's Cowl",
+      "historicalCost": 1100,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 175,
+        "magicResistance": 20
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "kindlegem",
+      "historicalName": "Kindlegem",
+      "historicalCost": 1000,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 175,
+        "abilityHaste": 10
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "giant-s-belt",
+      "historicalName": "Giant's Belt",
+      "historicalCost": 1000,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 300
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "warden-s-mail",
+      "historicalName": "Warden's Mail",
+      "historicalCost": 1050,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "armor": 35
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "catalyst-of-aeons",
+      "historicalName": "Catalyst of Aeons",
+      "historicalCost": 1100,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 200,
+        "mana": 300
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "chain-vest",
+      "historicalName": "Chain Vest",
+      "historicalCost": 900,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "armor": 40
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "bramble-vest",
+      "historicalName": "Bramble Vest",
+      "historicalCost": 1000,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "armor": 30
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "hexdrinker",
+      "historicalName": "Hexdrinker",
+      "historicalCost": 1200,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackDamage": 20,
+        "magicResistance": 20
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "negatron-cloak",
+      "historicalName": "Negatron Cloak",
+      "historicalCost": 900,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "magicResistance": 40
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "glacial-shroud",
+      "historicalName": "Glacial Shroud",
+      "historicalCost": 1000,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "armor": 20,
+        "mana": 150,
+        "abilityHaste": 10
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "winged-moonplate",
+      "historicalName": "Winged Moonplate",
+      "historicalCost": 900,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Flight"
+      ],
+      "historicalBaseStats": {
+        "health": 150
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "seeker-s-armguard",
+      "historicalName": "Seeker's Armguard",
+      "historicalCost": 1200,
+      "historicalCategory": [
+        "MID TIER ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "armor": 30,
+        "abilityPower": 25
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "nashor-s-talon-adaptive-ad",
+      "historicalName": "Nashor's Talon (Adaptive: AD)",
+      "historicalCost": 800,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Magic Needle"
+      ],
+      "historicalBaseStats": {},
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "nashor-s-talon-adaptive-ap",
+      "historicalName": "Nashor's Talon (Adaptive: AP)",
+      "historicalCost": 800,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Magic Needle"
+      ],
+      "historicalBaseStats": {},
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "noonquiver",
+      "historicalName": "Noonquiver",
+      "historicalCost": 1350,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackDamage": 25,
+        "attackSpeedPct": 15
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "hextech-alternator",
+      "historicalName": "Hextech Alternator",
+      "historicalCost": 1100,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityPower": 45
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "mejai-s-soulstealer",
+      "historicalName": "Mejai's Soulstealer",
+      "historicalCost": 1800,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 70,
+        "abilityPower": 25,
+        "magicPenPct": 7
+      },
+      "flags": [
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "surging-scales",
+      "historicalName": "Surging Scales",
+      "historicalCost": 1300,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "armor": 40
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "boots-of-speed",
+      "historicalName": "Boots of Speed",
+      "historicalCost": 400,
+      "historicalCategory": [
+        "BASIC ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "moveSpeed": 25
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "long-sword",
+      "historicalName": "Long Sword",
+      "historicalCost": 500,
+      "historicalCategory": [
+        "BASIC ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackDamage": 12
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "brawler-s-gloves",
+      "historicalName": "Brawler's Gloves",
+      "historicalCost": 500,
+      "historicalCategory": [
+        "BASIC ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "critChancePct": 10
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "dagger",
+      "historicalName": "Dagger",
+      "historicalCost": 500,
+      "historicalCategory": [
+        "BASIC ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackSpeedPct": 15
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "shimmering-spark",
+      "historicalName": "Shimmering Spark",
+      "historicalCost": 500,
+      "historicalCategory": [
+        "BASIC ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 50
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "amplifying-tome",
+      "historicalName": "Amplifying Tome",
+      "historicalCost": 500,
+      "historicalCategory": [
+        "BASIC ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityPower": 20
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "ruby-crystal",
+      "historicalName": "Ruby Crystal",
+      "historicalCost": 500,
+      "historicalCategory": [
+        "BASIC ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 150
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "cloth-armor",
+      "historicalName": "Cloth Armor",
+      "historicalCost": 500,
+      "historicalCategory": [
+        "BASIC ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "armor": 20
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "null-magic-mantle",
+      "historicalName": "Null-Magic Mantle",
+      "historicalCost": 500,
+      "historicalCategory": [
+        "BASIC ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "magicResistance": 20
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "ring-of-revelation",
+      "historicalName": "Ring of Revelation",
+      "historicalCost": 300,
+      "historicalCategory": [
+        "BASIC ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityHaste": 5
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "forbidden-idol",
+      "historicalName": "Forbidden Idol",
+      "historicalCost": 900,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 100,
+        "abilityHaste": 5,
+        "healShieldPct": 4,
+        "manaRegenPct": 25
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "kaenic-rookern",
+      "historicalName": "Kaenic Rookern",
+      "historicalCost": 2800,
+      "historicalCategory": [
+        "DEFENSE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 350,
+        "magicResistance": 75,
+        "healthRegenPct": 100
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "yordle-trap",
+      "historicalName": "Yordle Trap",
+      "historicalCost": 2600,
+      "historicalCategory": [
+        "DEFENSE ITEMS",
+        "SUPPORT ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 350,
+        "armor": 40,
+        "abilityHaste": 15
+      },
+      "flags": [
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "guinsoo-s-rageblade-adaptive-ad",
+      "historicalName": "Guinsoo's Rageblade (Adaptive: AD)",
+      "historicalCost": 3100,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Surge",
+        "Chaos"
+      ],
+      "historicalBaseStats": {
+        "attackSpeedPct": 30
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "guinsoo-s-rageblade-adaptive-ad-seething-strike",
+      "historicalName": "Guinsoo's Rageblade (Adaptive: AD, Seething Strike)",
+      "historicalCost": 3100,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Surge",
+        "Chaos",
+        "Seething Strike"
+      ],
+      "historicalBaseStats": {
+        "attackSpeedPct": 30
+      },
+      "flags": [
+        "conditional-stat-review",
+        "unmapped-stats"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "abyssal-mask",
+      "historicalName": "Abyssal Mask",
+      "historicalCost": 3000,
+      "historicalCategory": [
+        "DEFENSE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 400,
+        "magicResistance": 55,
+        "abilityHaste": 10
+      },
+      "flags": [
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "hollow-radiance",
+      "historicalName": "Hollow Radiance",
+      "historicalCost": 2800,
+      "historicalCategory": [
+        "DEFENSE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 400,
+        "magicResistance": 40,
+        "abilityHaste": 15
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "kraken-slayer",
+      "historicalName": "Kraken Slayer",
+      "historicalCost": 2800,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Cloud Stride"
+      ],
+      "historicalBaseStats": {
+        "attackDamage": 40,
+        "attackSpeedPct": 30
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "knight-s-vow",
+      "historicalName": "Knight's Vow",
+      "historicalCost": 2600,
+      "historicalCategory": [
+        "SUPPORT ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "armor": 40,
+        "health": 400,
+        "abilityHaste": 10
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "overlord-s-bloodmail",
+      "historicalName": "Overlord's Bloodmail",
+      "historicalCost": 3200,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [
+        "Tyranny"
+      ],
+      "historicalBaseStats": {
+        "attackDamage": 30,
+        "health": 450
+      },
+      "flags": [
+        "conditional-stat-review"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "unending-despair",
+      "historicalName": "Unending Despair",
+      "historicalCost": 3000,
+      "historicalCategory": [
+        "DEFENSE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 200,
+        "armor": 45,
+        "magicResistance": 45
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "experimental-hexplate",
+      "historicalName": "Experimental Hexplate",
+      "historicalCost": 3000,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 400,
+        "attackDamage": 35,
+        "attackSpeedPct": 20
+      },
+      "flags": [
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "stridebreaker",
+      "historicalName": "Stridebreaker",
+      "historicalCost": 3100,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackDamage": 40,
+        "health": 400,
+        "attackSpeedPct": 15
+      },
+      "flags": [
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "goredrinker",
+      "historicalName": "Goredrinker",
+      "historicalCost": 3100,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackDamage": 40,
+        "health": 350,
+        "abilityHaste": 15,
+        "omnivampPct": 8
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "quicksilver-sash",
+      "historicalName": "Quicksilver Sash",
+      "historicalCost": 1100,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "magicResistance": 30
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "mercurial-scimitar",
+      "historicalName": "Mercurial Scimitar",
+      "historicalCost": 3100,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackDamage": 45,
+        "magicResistance": 40,
+        "physicalVampPct": 10
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "galeforce",
+      "historicalName": "Galeforce",
+      "historicalCost": 3100,
+      "historicalCategory": [
+        "PHYSICAL DAMAGE ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "attackDamage": 50,
+        "attackSpeedPct": 15,
+        "critChancePct": 25,
+        "moveSpeedPct": 5
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "hextech-rocketbelt",
+      "historicalName": "Hextech Rocketbelt",
+      "historicalCost": 2700,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityPower": 70,
+        "health": 250,
+        "abilityHaste": 20
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "zhonya-s-hourglass",
+      "historicalName": "Zhonya's Hourglass",
+      "historicalCost": 3300,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityPower": 110,
+        "armor": 40
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "gargoyle-stoneplate",
+      "historicalName": "Gargoyle Stoneplate",
+      "historicalCost": 2900,
+      "historicalCategory": [
+        "DEFENSE ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "armor": 45,
+        "magicResistance": 45,
+        "health": 200,
+        "abilityHaste": 10
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "locket-of-the-iron-solari",
+      "historicalName": "Locket of the Iron Solari",
+      "historicalCost": 2600,
+      "historicalCategory": [
+        "SUPPORT ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 200,
+        "armor": 30,
+        "magicResistance": 30,
+        "abilityHaste": 10
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "shurelya-s-battlesong",
+      "historicalName": "Shurelya's Battlesong",
+      "historicalCost": 2600,
+      "historicalCategory": [
+        "SUPPORT ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityPower": 55,
+        "abilityHaste": 20,
+        "manaRegenPct": 50,
+        "moveSpeedPct": 5
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "mikael-s-blessing",
+      "historicalName": "Mikael's Blessing",
+      "historicalCost": 2500,
+      "historicalCategory": [
+        "SUPPORT ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 300,
+        "abilityHaste": 15,
+        "healShieldPct": 6,
+        "manaRegenPct": 50
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "dusk-and-dawn",
+      "historicalName": "Dusk and Dawn",
+      "historicalCost": 3100,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityPower": 70,
+        "health": 350,
+        "abilityHaste": 20,
+        "attackSpeedPct": 25
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "blackfire-torch",
+      "historicalName": "Blackfire Torch",
+      "historicalCost": 2800,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityPower": 80,
+        "mana": 500,
+        "abilityHaste": 20
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "void-amethyst",
+      "historicalName": "Void Amethyst",
+      "historicalCost": 1000,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityPower": 20,
+        "magicPenPct": 10
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "void-staff",
+      "historicalName": "Void Staff",
+      "historicalCost": 3000,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityPower": 95,
+        "magicPenPct": 40
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "cryptbloom",
+      "historicalName": "Cryptbloom",
+      "historicalCost": 3000,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityPower": 75,
+        "magicPenPct": 30,
+        "abilityHaste": 20
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "bloodletter-s-curse",
+      "historicalName": "Bloodletter's Curse",
+      "historicalCost": 2900,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityPower": 65,
+        "health": 350,
+        "abilityHaste": 15
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "verdant-barrier",
+      "historicalName": "Verdant Barrier",
+      "historicalCost": 1600,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityPower": 40,
+        "magicResistance": 25
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "banshee-s-veil",
+      "historicalName": "Banshee's Veil",
+      "historicalCost": 3000,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityPower": 105,
+        "magicResistance": 40
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "stormsurge",
+      "historicalName": "Stormsurge",
+      "historicalCost": 2900,
+      "historicalCategory": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityPower": 90,
+        "flatMagicPen": 15,
+        "moveSpeedPct": 6
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "fated-ashes",
+      "historicalName": "Fated Ashes",
+      "historicalCost": 900,
+      "historicalCategory": [
+        "MID TIER ITEMS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityPower": 40
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "spellslinger-s-shoes",
+      "historicalName": "Spellslinger's Shoes",
+      "historicalCost": 2200,
+      "historicalCategory": [
+        "BOOTS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "abilityPower": 40,
+        "manaRegenPct": 100,
+        "flatMagicPen": 18,
+        "magicPenPct": 8,
+        "moveSpeed": 45
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "chainlaced-crushers",
+      "historicalName": "Chainlaced Crushers",
+      "historicalCost": 2200,
+      "historicalCategory": [
+        "BOOTS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 150,
+        "magicResistance": 35,
+        "tenacityPct": 30,
+        "moveSpeed": 45
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "gunmetal-greaves-noxian-gait-melee",
+      "historicalName": "Gunmetal Greaves (Noxian Gait - Melee)",
+      "historicalCost": 2200,
+      "historicalCategory": [
+        "BOOTS"
+      ],
+      "historicalPassiveCandidates": [
+        "Noxian Gait"
+      ],
+      "historicalBaseStats": {
+        "attackSpeedPct": 50,
+        "physicalVampPct": 5,
+        "moveSpeed": 45
+      },
+      "flags": [
+        "conditional-stat-review",
+        "unmapped-stats"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "gunmetal-greaves-noxian-gait-range",
+      "historicalName": "Gunmetal Greaves (Noxian Gait - Range)",
+      "historicalCost": 2200,
+      "historicalCategory": [
+        "BOOTS"
+      ],
+      "historicalPassiveCandidates": [
+        "Noxian Gait"
+      ],
+      "historicalBaseStats": {
+        "attackSpeedPct": 50,
+        "physicalVampPct": 5,
+        "moveSpeed": 45
+      },
+      "flags": [
+        "conditional-stat-review",
+        "unmapped-stats"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "armored-advance",
+      "historicalName": "Armored Advance",
+      "historicalCost": 2200,
+      "historicalCategory": [
+        "BOOTS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "health": 150,
+        "armor": 35,
+        "moveSpeed": 45
+      },
+      "flags": [],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "immortal-treads-balanced-of-power-ad-convertion-0-stacks",
+      "historicalName": "Immortal Treads (Balanced of Power - AD, Convertion - 0 Stacks)",
+      "historicalCost": 2000,
+      "historicalCategory": [
+        "BOOTS"
+      ],
+      "historicalPassiveCandidates": [
+        "Balanced of Power",
+        "Convertion"
+      ],
+      "historicalBaseStats": {
+        "moveSpeed": 45
+      },
+      "flags": [
+        "conditional-stat-review",
+        "unmapped-stats"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "immortal-treads-balanced-of-power-ad-convertion-full-stacks",
+      "historicalName": "Immortal Treads (Balanced of Power - AD, Convertion - Full Stacks)",
+      "historicalCost": 2000,
+      "historicalCategory": [
+        "BOOTS"
+      ],
+      "historicalPassiveCandidates": [
+        "Balanced of Power",
+        "Convertion"
+      ],
+      "historicalBaseStats": {
+        "moveSpeed": 45
+      },
+      "flags": [
+        "conditional-stat-review",
+        "unmapped-stats"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "immortal-treads-balanced-of-power-ap-convertion-0-stacks",
+      "historicalName": "Immortal Treads (Balanced of Power - AP, Convertion - 0 Stacks)",
+      "historicalCost": 2000,
+      "historicalCategory": [
+        "BOOTS"
+      ],
+      "historicalPassiveCandidates": [
+        "Balanced of Power",
+        "Convertion"
+      ],
+      "historicalBaseStats": {
+        "moveSpeed": 45
+      },
+      "flags": [
+        "conditional-stat-review",
+        "unmapped-stats"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "immortal-treads-balanced-of-power-ap-convertion-full-stacks",
+      "historicalName": "Immortal Treads (Balanced of Power - AP, Convertion - Full Stacks)",
+      "historicalCost": 2000,
+      "historicalCategory": [
+        "BOOTS"
+      ],
+      "historicalPassiveCandidates": [
+        "Balanced of Power",
+        "Convertion"
+      ],
+      "historicalBaseStats": {
+        "moveSpeed": 45
+      },
+      "flags": [
+        "conditional-stat-review",
+        "unmapped-stats"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "armorcrusher-boots",
+      "historicalName": "Armorcrusher Boots",
+      "historicalCost": 2200,
+      "historicalCategory": [
+        "BOOTS"
+      ],
+      "historicalPassiveCandidates": [
+        "Strike"
+      ],
+      "historicalBaseStats": {
+        "attackDamage": 20,
+        "armorPenPct": 6,
+        "moveSpeed": 45
+      },
+      "flags": [
+        "conditional-stat-review",
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    },
+    {
+      "id": "crimson-lucidity",
+      "historicalName": "Crimson Lucidity",
+      "historicalCost": 2000,
+      "historicalCategory": [
+        "BOOTS"
+      ],
+      "historicalPassiveCandidates": [],
+      "historicalBaseStats": {
+        "manaRegenPct": 75,
+        "abilityHaste": 25,
+        "moveSpeed": 45
+      },
+      "flags": [
+        "multiple-source-variants"
+      ],
+      "currentPatchPresence": "unknown",
+      "currentPatchStats": "unverified",
+      "currentPatchPassives": "unverified",
+      "currentPatchActive": "unverified",
+      "currentPatchRestrictions": "unverified",
+      "combatRuleStatus": "blocked",
+      "evidence": []
+    }
+  ],
+  "unmatchedCoverageIds": []
+}
