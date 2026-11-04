@@ -16,3 +16,4 @@ Cette livraison constitue une **refonte de l'architecture**, pas une base exhaus
 
 ## Validation
 La syntaxe JavaScript a été contrôlée avec Node. Les interactions en jeu et l'exécution sur Samsung doivent être validées séparément.
+Mise à jour de publication V12
