@@ -1,95 +1,66 @@
-/* Wild Rift Draft Intelligence V12.4 — audit des menaces depuis les kits.
- * Wild Rift mobile uniquement. Extraction indicative de texte chinois, PAS simulation.
- * Ne remplace pas les recommandations ou les règles d'objets existantes.
+/* WRDI V12.5 — lecture contextuelle des kits Wild Rift.
+ * Remplace V12.4.1 ; aucune modification de l'optimiseur d'objets.
+ * Extraction linguistique indicative, valeurs des patchs NON certifiées.
  */
-(function(){
-  'use strict';
-  const VERSION='12.4.1', SOURCE='https://wrchina.gg';
-  const PATTERNS=[
-    {id:'magic', label:'Dégâts magiques',rx:/魔法伤害|魔法傷害/g},
-    {id:'physical',label:'Dégâts physiques',rx:/物理伤害|物理傷害/g},
-    {id:'true',label:'Dégâts véritables',rx:/真实伤害|真實傷害/g},
-    {id:'stun',label:'Étourdissement',rx:/眩晕|暈眩|晕眩/g},
-    {id:'knockup',label:'Projection',rx:/击飞|擊飛/g},
-    {id:'root',label:'Immobilisation',rx:/禁锢|禁錮/g},
-    {id:'slow',label:'Ralentissement',rx:/减速|減速/g},
-    {id:'shield',label:'Bouclier',rx:/护盾|護盾/g},
-    {id:'heal',label:'Soin / récupération de PV',rx:/治疗|治療|回复生命值|回復生命值|恢复生命值|恢復生命值/g},
-    {id:'maxhp',label:'Référence aux PV max',rx:/最大生命值|最大生命/g},
-    {id:'overtime',label:'Effet périodique (« par seconde »)',rx:/每秒/g},
-    {id:'dash',label:'Déplacement / dash',rx:/冲刺|衝刺|位移|突进|突進/g}
-  ];
-  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  function text(x){if(typeof x==='string')return x;if(typeof x==='number')return String(x);return '';}
-  function abilities(raw){
-    const a=raw?.abilities||raw?.skills||[];
-    const arr=Array.isArray(a)?a:Object.entries(a).map(([slot,v])=>({...v,slot}));
-    return arr.map((v,i)=>{
-      const r=v?.raw||{};
-      const slot=text(v?.slot||v?.key||v?.slot_name||(['P','Q','W','E','R'][i]||'?'));
-      const desc=text(r.desc_cn||v?.desc_cn||r.description_cn||v?.description_cn||v?.desc||v?.description);
-      const name=text(r.name_cn||v?.name_cn||v?.name||slot);
-      return {slot,name,descriptionPresent:!!desc.trim(),description:desc};
-    });
-  }
-  function infer(raw){
-    const skills=abilities(raw), signals=[];
-    for(const p of PATTERNS){
-      const found=[];
-      for(const s of skills){if(!s.descriptionPresent)continue;p.rx.lastIndex=0;if(p.rx.test(s.description))found.push(s.slot);}
-      if(found.length)signals.push({id:p.id,label:p.label,skills:found,confidence:'mention dans une description source ; condition et importance non évaluées'});
-    }
-    return {skills,signals,sourceVersion:text(raw?.version)||'non indiquée'};
-  }
-  async function fetchJson(url){const c=new AbortController();const t=setTimeout(()=>c.abort(),14000);try{const r=await fetch(url,{signal:c.signal,cache:'no-store'});if(!r.ok)throw Error('HTTP '+r.status);return r.json()}finally{clearTimeout(t)}}
-  function selections(){
-    const extract=(container,start)=>[...document.querySelectorAll('#'+container+' [data-simple-slot]')].map(b=>{
-      const slot=Number(b.dataset.simpleSlot);
-      const n=b.querySelector('.slot-text'),r=b.querySelector('.slot-role');
-      const label=n?n.textContent.replace(r?.textContent||'','').trim():'';
-      return {slot,id:'',name:label==='Choisir…'?'':label,side:start===0?'allie':'adversaire'};
-    });
-    let ids=[];try{ids=JSON.parse(localStorage.getItem('wrdi_draft_v76')||'[]')}catch(e){}
-    const visible=[...extract('simpleAllies',0),...extract('simpleEnemies',5)];
-    return visible.map(c=>({...c,id:String(ids[c.slot]||'')})).filter(c=>c.id&&c.name);
-  }
-  function detailProfile(c,result){
-    const signals=result.signals;
-    const info=signals.length?signals.map(s=>'<li><strong>'+esc(s.label)+'</strong> — sort(s) '+esc(s.skills.join(', '))+'</li>').join(''):'<li>Aucun terme reconnu dans les descriptions disponibles. Cela ne prouve pas l’absence d’une menace.</li>';
-    const coverage=result.skills.filter(x=>x.descriptionPresent).length;
-    return '<details class="wrdi124-champion"><summary>'+esc(c.name)+' · '+coverage+'/'+result.skills.length+' descriptions · '+signals.length+' signaux</summary>'+ 
-      '<p class="wrdi124-muted">Fiche source : '+esc(result.sourceVersion)+' · rôle dans la draft : '+esc(c.side)+' · identification lexicale non vérifiée comme calcul d’impact.</p><ul>'+info+'</ul>'+ 
-      '<details><summary>Voir les preuves par compétence</summary>'+result.skills.map(s=>'<p><b>'+esc(s.slot)+' — '+esc(s.name)+'</b> : '+(s.descriptionPresent?esc(s.description):'Description absente')+'</p>').join('')+'</details></details>';
-  }
-  const css='#wrdi124{margin-top:16px;padding:14px;border:1px solid #456474;border-radius:16px;background:#102736;color:#e4eef6}#wrdi124 h3{margin:0 0 8px}#wrdi124 p{line-height:1.5}#wrdi124 .wrdi124-muted{color:#aac0d0;font-size:13px}#wrdi124 .wrdi124-champion{border:1px solid #375367;border-radius:12px;padding:10px;margin:10px 0}#wrdi124 summary{cursor:pointer;font-weight:700}#wrdi124 li{margin:7px 0}#wrdi124 button{padding:10px;border:1px solid #3b958c;border-radius:9px;background:#146f68;color:white;font-weight:700}';
-  function init(){
-    const host=document.getElementById('simpleApp');if(!host||document.getElementById('wrdi124'))return;
-    const style=document.createElement('style');style.textContent=css;document.head.appendChild(style);
-    const box=document.createElement('section');box.id='wrdi124';box.hidden=false;
-    box.innerHTML='<h3>🔍 Menaces déduites des compétences — V12.4</h3><p class="wrdi124-muted">Lecture des descriptions de Wild Rift. Les mentions trouvées ne déterminent ni le type de build réellement acheté ni la part des dégâts subis.</p><button id="wrdi124-run" type="button">Analyser les kits adverses</button><div id="wrdi124-out" aria-live="polite"></div>';
-    // Le panneau doit suivre le module Menaces V12, pas la carte de sélection.
-    // La V12.3 déplace ce module dans son onglet ; son contenu suit ce déplacement.
-    const advisor=document.getElementById('wrdiV12DraftAdvisor');
-    if(advisor)advisor.appendChild(box);else {host.appendChild(box);box.insertAdjacentHTML('afterbegin','<p class="wrdi124-muted">Interface Menaces indisponible : diagnostic affiché ici en secours.</p>');}
-    const out=box.querySelector('#wrdi124-out');let data=[],running=false;
-    box.querySelector('#wrdi124-run').addEventListener('click',async()=>{
-      if(running)return;const picks=selections().filter(x=>x.side==='adversaire');
-      if(!picks.length){out.textContent='Sélectionne des adversaires dans la draft.';return}
-      running=true;out.textContent='Lecture des compétences adverses…';
-      try{
-        const results=await Promise.all(picks.map(async c=>{try{const raw=await fetchJson(SOURCE+'/api/champion/'+encodeURIComponent(c.id)+'.json');return {...c,result:infer(raw)}}catch(e){return {...c,error:String(e)}}}));
-        data=results;
-        let html='<p class="wrdi124-muted">'+results.filter(x=>x.result).length+'/'+picks.length+' fiches accessibles. Le module ne remplace pas encore le score d’objets de V12.</p>';
-        const amumu=results.find(x=>x.name.toLowerCase()==='amumu');
-        if(amumu?.result){const x=amumu.result.signals.map(s=>s.id);html+='<p><b>Contrôle Amumu :</b> '+(x.includes('magic')?'dégâts magiques mentionnés':'dégâts magiques non détectés')+' ; '+(x.includes('true')?'dégâts véritables mentionnés':'dégâts véritables non détectés')+' ; '+(x.includes('stun')?'étourdissements mentionnés':'étourdissements non détectés')+'. La classe Tank ne suffit donc pas à décrire son kit.</p>'}
-        for(const c of results){html+=c.error?'<p>⚠ '+esc(c.name)+' : '+esc(c.error)+'</p>':detailProfile(c,c.result)}
-        html+='<p class="wrdi124-muted">Prudence : texte source parfois ancien (fiche 7.3 vs index plus récent), chinois non traduit, regex susceptibles de manquer des synonymes ou de relever une condition. Aucun pourcentage de dégâts physiques/magiques n’est estimé. Les menaces ne changent pas encore les builds recommandés.</p>';
-        out.innerHTML=html;
-      }finally{running=false}
-    });
-    // Pas de masquage par clic : la visibilité est gérée par l'onglet parent V12.3.
-    // Ainsi le bouton reste visible à la suite de l'ancien diagnostic Menaces.
-    window.WRDIChampionThreatsV124={infer,readDraft:selections,getLastAudit:()=>data,version:VERSION};
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
-})();
+(function(root){
+'use strict';
+const VERSION='12.5', SOURCE='https://wrchina.gg';
+const fmt={magic:'Dégâts magiques infligés',physical:'Dégâts physiques infligés',true:'Dégâts véritables conditionnels ou infligés',stun:'Étourdissement',knockup:'Projection',root:'Immobilisation',slow:'Ralentissement',shield:'Bouclier',heal:'Soin',maxhp:'Dégâts liés aux PV maximum (mention)',overtime:'Dégâts/effet périodique (mention)',dash:'Mobilité / rapprochement',physicalMitigation:'Réduction de dégâts physiques reçus'};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const txt=v=>typeof v==='string'?v:'';
+function abilities(raw){const a=raw?.abilities||raw?.skills||[];const arr=Array.isArray(a)?a:Object.entries(a).map(([slot,v])=>({...v,slot}));return arr.map((v,i)=>{const r=v?.raw||{};const slot=txt(v?.slot||v?.key||v?.slot_name||(['P','Q','W','E','R'][i]||'?'));return {slot:({'0':'P','1':'Q','2':'W','3':'E','4':'R',Passiva:'P'}[slot]||slot),name:txt(r.name_cn||v?.name_cn||v?.name||slot),description:txt(r.desc_cn||v?.desc_cn||r.description_cn||v?.description_cn||v?.desc||v?.description)};});}
+function detectSkill(s){
+ const chunks=s.description.split(/[。；;\n]/).map(x=>x.trim()).filter(Boolean),found=[];
+ function add(id,evidence,qualifier){if(!found.some(x=>x.id===id))found.push({id,slot:s.slot,evidence:evidence.slice(0,190),qualifier:qualifier||'mention lexicale ; effet/impact à valider'});}
+ for(const clause of chunks){
+  // Mitigations and damage descriptions must not be conflated.
+  const received=/所受|受到|承受|减免|減免|抵御|抵禦|减少|減少|降低伤害|降低傷害/.test(clause);
+  const physical=/物理伤害|物理傷害/.test(clause),magic=/魔法伤害|魔法傷害/.test(clause),trueD=/真实伤害|真實傷害/.test(clause);
+  if(physical && received && /所受物理伤害|所受物理傷害|受到的物理伤害|承受物理伤害|物理伤害减少|物理傷害減少/.test(clause))add('physicalMitigation',clause,'réduction des dégâts reçus, pas des dégâts infligés');
+  // Damage on the enemy can mention the enemy "receiving" damage: distinguish the subject.
+  const wearerReceived=/^(?:被动[:：])?\s*(?:自身|自己|所受|受到|承受)/.test(clause)||/所受物理伤害|所受物理傷害/.test(clause);
+  if(physical && !wearerReceived && !(/物理伤害减少|物理傷害減少/.test(clause)))add('physical',clause);
+  if(magic && !(/自身受到魔法伤害|自身承受魔法伤害|所受魔法伤害减少/.test(clause)))add('magic',clause);
+  if(trueD && !(/自身受到真实伤害|所受真实伤害减少/.test(clause)))add('true',clause,/额外|額外|其后续|其後續|时|時|若|如果/.test(clause)?'déclenchement conditionnel à vérifier':'dégâts mentionnés, condition à vérifier');
+  if(/击晕|擊暈|眩晕|暈眩|晕眩/.test(clause))add('stun',clause);
+  if(/击飞|擊飛/.test(clause))add('knockup',clause);
+  if(/禁锢|禁錮/.test(clause))add('root',clause);
+  if(/减速|減速|移速降低|移动速度降低|移動速度降低/.test(clause))add('slow',clause);
+  if(/护盾|護盾/.test(clause))add('shield',clause);
+  if(/治疗|治療|回复生命值|回復生命值|恢复生命值|恢復生命值/.test(clause))add('heal',clause);
+  if(/最大生命值|最大生命/.test(clause))add('maxhp',clause);
+  if(/每秒|持续造成|持續造成/.test(clause))add('overtime',clause);
+  if(/冲刺|衝刺|位移|突进|突進|拉向|位移至/.test(clause))add('dash',clause);
+ }
+ return found;
+}
+function infer(raw){const skills=abilities(raw),all=skills.flatMap(detectSkill),signals=[];for(const id of Object.keys(fmt)){const hits=all.filter(x=>x.id===id);if(hits.length)signals.push({id,label:fmt[id],skills:[...new Set(hits.map(x=>x.slot))],evidence:hits});}return {skills,signals,sourceVersion:txt(raw?.version)||'non indiquée',descriptionCount:skills.filter(x=>x.description.trim()).length};}
+function interpret(results){const found=results.filter(x=>x.result),get=id=>found.filter(c=>c.result.signals.some(s=>s.id===id)).map(x=>x.name);return {magic:get('magic'),physical:get('physical'),true:get('true'),cc:[...new Set([...get('stun'),...get('root'),...get('knockup')])],mitigation:get('physicalMitigation'),missing:results.filter(x=>x.error).map(x=>x.name)};}
+function selections(){let ids=[];try{ids=JSON.parse(localStorage.getItem('wrdi_draft_v76')||'[]')}catch(_){}if(!Array.isArray(ids))return [];return ids.slice(5,10).map((id,i)=>{const slot=document.querySelector('[data-simple-slot="'+(i+5)+'"]');const n=slot?.querySelector('.slot-text')?.textContent||'';const role=slot?.querySelector('.slot-role')?.textContent||'';return {id:String(id||''),name:n.replace(role,'').trim()||('ID '+id)};}).filter(x=>x.id);}
+async function get(url){const c=new AbortController(),t=setTimeout(()=>c.abort(),14000);try{const r=await fetch(url,{signal:c.signal,cache:'no-store'});if(!r.ok)throw Error('HTTP '+r.status);return r.json()}finally{clearTimeout(t)}}
+function node(tag,text,cls){const e=document.createElement(tag);e.textContent=text;if(cls)e.className=cls;return e;}
+function init(){const advisor=document.getElementById('wrdiV12DraftAdvisor');const host=advisor||document.getElementById('wrdiPane_threats');if(!host||document.getElementById('wrdi125'))return;
+ const style=node('style',`#wrdi125{margin-top:16px;padding:14px;border:1px solid #456474;border-radius:14px;background:#102736;color:#e4eef6}#wrdi125 p{line-height:1.5}#wrdi125 .quiet{color:#b6ccd7;font-size:13px}#wrdi125 .ch{padding:10px;margin:10px 0;border:1px solid #426273;border-radius:10px}#wrdi125 summary{cursor:pointer;font-weight:700}#wrdi125 button{border:1px solid #3b958c;background:#146f68;color:white;border-radius:9px;padding:11px;font-weight:700}#wrdi125 li{margin:7px 0;overflow-wrap:anywhere}`);document.head.appendChild(style);
+ const box=node('section','');box.id='wrdi125';box.appendChild(node('h3','🔎 Analyse contextuelle des kits — V12.5'));box.appendChild(node('p','Détecte les effets des sorts ennemis et leur contexte. Pas de simulation de DPS ni de classement automatique des équipements.','quiet'));
+ const run=node('button','Analyser les kits adverses');run.type='button';box.appendChild(run);const out=node('div','');out.setAttribute('aria-live','polite');box.appendChild(out);host.appendChild(box);
+ let last=[],busy=false,signature='';
+ const render=()=>{out.replaceChildren();out.appendChild(node('p',`${last.filter(x=>x.result).length}/${last.length} fiches lues · effets extraits à partir de descriptions chinoises (patch de chaque fiche non certifié).`,'quiet'));
+ const s=interpret(last);const summary=node('div','');summary.appendChild(node('h4','Conséquences possibles pour Galio'));
+ if(s.magic.length)summary.appendChild(node('p','Menaces magiques décrites : '+s.magic.join(', ')+'. La RM peut réduire leurs dégâts magiques, mais pas les dégâts véritables.'));
+ if(s.physical.length)summary.appendChild(node('p','Menaces physiques décrites : '+s.physical.join(', ')+'. L’armure peut être pertinente selon les dégâts réellement subis.'));
+ if(s.true.length)summary.appendChild(node('p','Dégâts véritables mentionnés : '+s.true.join(', ')+'. Ni armure ni RM ne les réduisent directement ; vérifier les conditions d’application.'));
+ if(s.cc.length)summary.appendChild(node('p','Contrôles détectés : '+s.cc.join(', ')+'. Examiner les possibilités de protection/anti-contrôle disponibles et réellement compatibles.'));
+ if(s.mitigation.length)summary.appendChild(node('p','Effets défensifs contre le physique : '+s.mitigation.join(', ')+'. Ce n’est PAS une menace physique infligée.'));
+ if(!last.some(x=>x.result))summary.appendChild(node('p','Aucune fiche accessible : pas de conclusion défensive possible.'));
+ const note=node('p','Liaison avec les objets : Rayonnement du vide ou d’autres objets de RM peuvent devenir des candidats si le danger magique est pertinent ; aucun choix n’est automatique tant que les quantités de dégâts, leurs déclenchements et les builds ennemis ne sont pas validés.','quiet');summary.appendChild(note);out.appendChild(summary);
+ for(const c of last){const d=document.createElement('details');d.className='ch';d.appendChild(node('summary',c.name+(c.result?' · '+c.result.descriptionCount+'/'+c.result.skills.length+' descriptions · '+c.result.signals.length+' types détectés':' · échec de lecture')));if(c.error){d.appendChild(node('p',c.error));out.appendChild(d);continue;}d.appendChild(node('p','Version interne de fiche : '+c.result.sourceVersion+'. Une mention dans un sort ne représente pas une proportion de dégâts.','quiet'));
+ if(!c.result.signals.length)d.appendChild(node('p','Aucun mot-clé reconnu. Cela ne prouve pas l’absence de menace.'));
+ for(const signal of c.result.signals){const detail=document.createElement('details');detail.appendChild(node('summary',signal.label+' — '+signal.skills.join(', ')));for(const hit of signal.evidence){detail.appendChild(node('p',hit.slot+' : '+hit.evidence));detail.appendChild(node('p',hit.qualifier,'quiet'));}d.appendChild(detail);}out.appendChild(d);}
+ out.appendChild(node('p','Interprétation lexicale indicative. Un texte peut mentionner la réduction de dégâts reçus, un bonus conditionnel ou des dégâts liés à un objet. Les compétences à plusieurs formes, les ratios, les passifs et les mises à jour de patch nécessitent encore une validation.','quiet'));
+ };
+ async function analyze(force=false){const picks=selections();const sig=picks.map(x=>x.id).join(',');if(!picks.length){out.textContent='Sélectionne les adversaires dans la draft.';return;}if(busy||(!force&&sig===signature&&last.length))return;busy=true;run.disabled=true;out.textContent='Lecture des kits adverses…';try{last=await Promise.all(picks.map(async c=>{try{return {...c,result:infer(await get(SOURCE+'/api/champion/'+encodeURIComponent(c.id)+'.json'))}}catch(e){return {...c,error:String(e)}}}));signature=sig;render();}finally{busy=false;run.disabled=false;}}
+ run.addEventListener('click',()=>analyze(true));const main=document.getElementById('simpleRun');if(main)main.addEventListener('click',()=>analyze(false));
+ root.WRDIChampionThreatsV125={infer,detectSkill,interpret,analyze,getLastAudit:()=>last,version:VERSION};
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})(typeof window!=='undefined'?window:globalThis);
