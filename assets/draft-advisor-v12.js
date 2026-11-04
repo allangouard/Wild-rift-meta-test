@@ -64,7 +64,7 @@
   root.WRDIDraftAdvisorV12 = {analyze,validate,normalize};
   if (typeof document === 'undefined') return;
   function start() {
-    const draftSection = document.getElementById('draft');
+    const draftSection = document.querySelector('#simpleApp .simple-card');
     if (!draftSection || document.getElementById('wrdiV12DraftAdvisor')) return;
     const box = document.createElement('div');
     box.className='panel'; box.id='wrdiV12DraftAdvisor';
