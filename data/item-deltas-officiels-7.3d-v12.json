@@ -1,0 +1,118 @@
+{
+  "schema": "wrdi-official-item-patch-delta-v1",
+  "game": "Wild Rift mobile",
+  "patch": "7.3d",
+  "source": {
+    "publisher": "Riot Games",
+    "date": "2026-10-28",
+    "url": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/"
+  },
+  "status": "OFFICIAL_PATCH_DELTAS_ONLY_NOT_FULL_ITEM_VERIFICATION",
+  "safeForOptimizer": false,
+  "rules": [
+    "Do not use as a complete item definition",
+    "Do not automatically merge by localized name without a stable item ID",
+    "Do not assume other attributes unchanged since 7.2a",
+    "Changes may depend on in-game rollout"
+  ],
+  "items": [
+    {
+      "name_fr": "Chasseur de monstres",
+      "identityVerified": false,
+      "fullPassiveVerified": false,
+      "changes": [
+        {
+          "field": "barrage_ouverture_crit_normal_pct",
+          "previous": 80,
+          "current": 85,
+          "unit": "percent",
+          "sourceUrl": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/"
+        },
+        {
+          "field": "barrage_ouverture_degats_bruts_pct",
+          "previous": 15,
+          "current": 17.5,
+          "unit": "percent",
+          "sourceUrl": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/"
+        }
+      ]
+    },
+    {
+      "name_fr": "Pourfendeur divin",
+      "identityVerified": false,
+      "fullPassiveVerified": false,
+      "changes": [
+        {
+          "field": "prix_po",
+          "previous": 3400,
+          "current": 3300,
+          "unit": "PO",
+          "sourceUrl": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/"
+        }
+      ]
+    },
+    {
+      "name_fr": "Faux spectrale",
+      "identityVerified": false,
+      "fullPassiveVerified": false,
+      "changes": [
+        {
+          "field": "degats_attaque",
+          "previous": 50,
+          "current": 55,
+          "unit": "flat",
+          "sourceUrl": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/"
+        }
+      ]
+    },
+    {
+      "name_fr": "Diadème des murmures",
+      "identityVerified": false,
+      "fullPassiveVerified": false,
+      "changes": [
+        {
+          "field": "efficacite_soins_boucliers_pct",
+          "previous": 8,
+          "current": 6,
+          "unit": "percent",
+          "sourceUrl": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/"
+        }
+      ]
+    },
+    {
+      "name_fr": "Diadème musical",
+      "identityVerified": false,
+      "fullPassiveVerified": false,
+      "changes": [
+        {
+          "field": "efficacite_soins_boucliers_pct",
+          "previous": 8,
+          "current": 6,
+          "unit": "percent",
+          "sourceUrl": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/"
+        }
+      ]
+    },
+    {
+      "name_fr": "Lame tempête",
+      "identityVerified": false,
+      "fullPassiveVerified": false,
+      "changes": [
+        {
+          "field": "eclair_degats",
+          "previous": 120,
+          "current": 100,
+          "unit": "flat",
+          "sourceUrl": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/"
+        },
+        {
+          "field": "eclair_vitesse_deplacement_pct",
+          "previous": 45,
+          "current": 35,
+          "unit": "percent",
+          "sourceUrl": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/"
+        }
+      ]
+    }
+  ]
+}
