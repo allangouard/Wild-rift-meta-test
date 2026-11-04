@@ -1,16 +1,45 @@
 <!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#102a32"><title>Catalogue client V12 | Wild Rift Draft Intelligence</title>
 <style>
 :root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#091a23;color:#e7f2f3;font:15px/1.5 system-ui,-apple-system,sans-serif}main{max-width:1000px;margin:auto;padding:16px}header{padding:18px;background:#122e38;border-bottom:2px solid #276774}h1{font-size:1.45rem;margin:0 0 6px}h2{font-size:1.15rem;margin:8px 0}.muted{color:#a5c1c8}a{color:#8edcdf}section{background:#122b35;border:1px solid #315764;border-radius:14px;padding:16px;margin:18px 0}label{display:block;margin:9px 0 4px}select,input,button{font:inherit;border-radius:8px;padding:10px;background:#163944;color:#f5fcfe;border:1px solid #52848d;max-width:100%}select,input{width:100%}button{cursor:pointer;background:#236b75}button.secondary{background:#233842}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.item{padding:10px;border:1px solid #36616a;border-radius:10px;background:#173440}.item h3{font-size:1rem;margin:0 0 5px}.item p{margin:4px 0}.stat{color:#8de0c4}.warn{color:#ffd48d}.bad{color:#ff9696}.good{color:#8ee8a9}small{font-size:12px}ul{padding-left:20px}.build{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px}details{margin:8px 0}summary{cursor:pointer}#results{margin-top:12px}#cards{margin-top:12px}.pill{display:inline-block;padding:2px 7px;background:#264f5b;border-radius:20px;margin-right:4px;font-size:12px}
+
+/* Icônes seulement dans le sélecteur et les six cases du build */
+.build{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.slot-button{width:100%;min-height:80px;display:flex;align-items:center;gap:10px;text-align:left;background:#163944;border:1px solid #427986;border-radius:12px;padding:10px;cursor:pointer}
+.slot-button:focus-visible,.pick-item:focus-visible{outline:3px solid #94e6da;outline-offset:2px}
+.slot-button .slot-title{font-size:13px;font-weight:650;line-height:1.3;overflow-wrap:anywhere}
+.item-icon{width:48px;height:48px;flex:0 0 48px;border-radius:9px;object-fit:cover;border:1px solid #9b8350;background:#0c2730}
+.item-icon.empty{border:1px dashed #60818a;display:grid;place-items:center;color:#8fa9af;font-size:23px}
+.slot-label{font-size:12px;color:#aac6cb;margin-bottom:6px}
+.picker-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:flex-end;justify-content:center;z-index:30}
+.picker-overlay.open{display:flex}
+.picker-dialog{width:100%;max-width:780px;max-height:88vh;background:#102b35;border:1px solid #477982;border-radius:17px 17px 0 0;display:flex;flex-direction:column;padding:16px;box-shadow:0 5px 40px #0008}
+.picker-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.picker-top h3{margin:0;font-size:1.07rem}
+.picker-list{overflow:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;padding:12px 1px;min-height:0}
+.pick-item{display:flex;gap:9px;align-items:center;text-align:left;min-height:66px;padding:8px;background:#183b45;border:1px solid #355e68;border-radius:10px;cursor:pointer}
+.pick-item[aria-pressed=true]{border-color:#75d6a0;background:#215247}
+.pick-item .pick-info{font-size:13px;font-weight:600;line-height:1.28}
+.pick-item .pick-price{display:block;font-size:11px;color:#a5c1c8;font-weight:400}
+.pick-item .item-icon{width:44px;height:44px;flex-basis:44px}
+@media(min-width:600px){.picker-overlay{align-items:center}.picker-dialog{border-radius:17px;max-height:80vh}}
 </style></head><body><header><main><h1>📚 Catalogue d’objets — Wild Rift 7.3d</h1><a href="./index.html">← Retour à Draft Intelligence</a><p class="muted">Données transcrites des captures du client fournies par le joueur. Consultation et contrôle des incompatibilités ; aucun calcul de dégâts ni validation d’un build optimal.</p></main></header><main>
 <section><h2>🧩 Vérifier un build</h2><p class="muted">Choisis jusqu’à 6 objets parmi les fiches disponibles. Des noms d’objets supplémentaires, nécessaires aux restrictions, sont proposés même si leur fiche détaillée reste à compléter.</p><div class="build" id="slots"></div><button id="clear" class="secondary" type="button">Effacer le build</button><div id="results" aria-live="polite"></div></section>
 <section><h2>🔎 Fiches client</h2><label for="search">Rechercher</label><input id="search" type="search" placeholder="Galio, Rookern, Rabadon…"><label for="category">Catalogue</label><select id="category"><option value="all">Magie + défense</option><option value="magic">35 fiches de la première collecte</option><option value="defense">24 nouvelles fiches défensives</option></select><p class="muted" id="count"></p><div id="cards" class="grid"></div></section><p class="muted">Données du client déclaré à jour 7.3d. Ce catalogue est partiel ; les prix inconnus ne sont pas inventés. L’optimiseur de la page principale reste indépendant de ces fiches pour éviter de simuler des passifs sans modèle validé.</p>
-</main><script src="./assets/client-catalog-v12.js?v=25"></script><script>
+</main>
+<div id="pickerOverlay" class="picker-overlay" role="presentation">
+ <div id="pickerDialog" class="picker-dialog" role="dialog" aria-modal="true" aria-labelledby="pickerTitle">
+  <div class="picker-top"><h3 id="pickerTitle">Choisir un objet</h3><button type="button" id="pickerClose" class="secondary" aria-label="Fermer">✕</button></div>
+  <label for="pickerSearch">Rechercher un objet</label><input type="search" id="pickerSearch" placeholder="Nom de l’objet…" autocomplete="off">
+  <div id="pickerList" class="picker-list"></div>
+ </div>
+</div>
+<script src="./assets/client-catalog-v12.js?v=26"></script><script>
 (async function(){
 const status=document.getElementById('results'),slots=document.getElementById('slots');
 function el(tag,txt,cls){const x=document.createElement(tag);if(txt!=null)x.textContent=txt;if(cls)x.className=cls;return x;}
 function norm(s){return String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();}
 try {
-const [c,r]=await Promise.all(['./data/items-client-7.3d-v12.json?v=25','./data/item-restrictions-client-7.3d-v12.json?v=25'].map(async path=>{const res=await fetch(path,{cache:'no-store'});if(!res.ok)throw Error(path+': HTTP '+res.status);return res.json()}));
+const [c,r]=await Promise.all(['./data/items-client-7.3d-v12.json?v=26','./data/item-restrictions-client-7.3d-v12.json?v=26'].map(async path=>{const res=await fetch(path,{cache:'no-store'});if(!res.ok)throw Error(path+': HTTP '+res.status);return res.json()}));
 const data=c.items||[],lookup=WRDIClientCatalogV12.combineItems(data),choices=new Map(data.map(i=>[i.id,i.name_fr]));
 const extra={'black_cleaver':'Couperet noir','seryldas_grudge':'Rancune de Serylda','mortal_reminder':'Rappel mortel','lord_dominiks_regards':'Salutations de Dominik','terminus':'Terminus','maw_of_malmortius':'Gueule de Malmortius','immortal_shieldbow':'Arc-bouclier immortel','trinity_force':'Force de la trinité','divine_sunderer':'Pourfendeur divin','essence_reaver':'Faux spectrale','manamune':'Manamune','muramana':'Muramana','youmuus_ghostblade':'Lame spectre de Youmuu','edge_of_night':'Manteau de la nuit'};
 for(const [k,v] of Object.entries(extra))if(!choices.has(k))choices.set(k,v);
@@ -20,7 +49,40 @@ let picked=Array(6).fill('');
 function validate(){const result=WRDIClientCatalogV12.validateBuild(picked,r);status.replaceChildren();status.append(el('p',result.valid?'✅ Combinaison autorisée par les restrictions connues.':'⛔ Combinaison interdite par les règles vérifiées.',result.valid?'good':'bad'));
 if(result.valid)status.append(el('small','Ce contrôle ne certifie pas que le build est efficace ni que des restrictions non représentées n’existent pas.','muted'));
 for(const error of result.errors){const p=el('p',error.message+' '+(error.members||[]).map(x=>choices.get(x)||x).join(' + '),'bad');status.append(p);}}
-function buildSlots(){slots.replaceChildren();picked.forEach((value,n)=>{const box=el('div'),lab=el('label','Emplacement '+(n+1));const sel=el('select');sel.setAttribute('aria-label','Emplacement '+(n+1));sel.append(new Option('— Aucun objet —',''));for(const [id,label] of sorted)sel.append(new Option(label+(lookup.has(id)?'':' · fiche à compléter'),id));sel.value=value;sel.addEventListener('change',()=>{picked[n]=sel.value;validate()});box.append(lab,sel);slots.append(box)});validate()}
+function iconOf(id){
+ const wrap=el('span',null,'item-icon empty');wrap.textContent='⚔';
+ // Seuls les objets dont une capture client a été extraite ont une icône locale.
+ if(!lookup.has(id))return wrap;
+ const img=el('img',null,'item-icon');img.alt='';img.loading='lazy';img.src='./assets/item-icons/'+id+'.webp';
+ img.onerror=()=>{img.replaceWith(wrap)};
+ return img;
+}
+const overlay=document.getElementById('pickerOverlay'),pickerList=document.getElementById('pickerList'),pickerSearch=document.getElementById('pickerSearch');
+let currentSlot=-1,returnFocus=null;
+function closePicker(){overlay.classList.remove('open');currentSlot=-1;pickerSearch.value='';if(returnFocus&&returnFocus.isConnected)returnFocus.focus()}
+function pickerEntries(){
+ const q=norm(pickerSearch.value);pickerList.replaceChildren();
+ const filtered=[['','— Aucun objet —'],...sorted].filter(([id,name])=>norm(name).includes(q));
+ for(const [id,name] of filtered){
+  const btn=el('button',null,'pick-item');btn.type='button';btn.setAttribute('aria-pressed',String(picked[currentSlot]===id));
+  btn.append(iconOf(id));const info=el('span',name,'pick-info');
+  if(id){const it=lookup.get(id);info.append(el('small',it?(it.price_gold==null?'Prix non confirmé':it.price_gold+' PO'):'Fiche à compléter','pick-price'))}
+  btn.append(info);btn.addEventListener('click',()=>{if(currentSlot<0)return;picked[currentSlot]=id;closePicker();buildSlots()});pickerList.append(btn)
+ }
+}
+function openPicker(n){currentSlot=n;returnFocus=document.activeElement;document.getElementById('pickerTitle').textContent='Choisir l’objet · Emplacement '+(n+1);overlay.classList.add('open');pickerEntries();pickerSearch.focus()}
+function buildSlots(){slots.replaceChildren();picked.forEach((value,n)=>{
+ const box=el('div');box.append(el('div','Emplacement '+(n+1),'slot-label'));
+ const btn=el('button',null,'slot-button');btn.type='button';btn.setAttribute('aria-label','Choisir un objet pour l’emplacement '+(n+1));
+ if(value)btn.append(iconOf(value));else btn.append(el('span','+','item-icon empty'));
+ btn.append(el('span',value?(choices.get(value)||value):'Choisir un objet','slot-title'));
+ btn.addEventListener('click',()=>openPicker(n));box.append(btn);slots.append(box)
+ });validate()}
+pickerSearch.addEventListener('input',pickerEntries);
+document.getElementById('pickerClose').addEventListener('click',closePicker);
+overlay.addEventListener('click',e=>{if(e.target===overlay)closePicker()});
+document.addEventListener('keydown',e=>{if(!overlay.classList.contains('open'))return;if(e.key==='Escape'){closePicker();return}if(e.key==='Tab'){
+const focusables=[document.getElementById('pickerClose'),pickerSearch,...pickerList.querySelectorAll('button')];const first=focusables[0],last=focusables[focusables.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
 document.getElementById('clear').addEventListener('click',()=>{picked=Array(6).fill('');buildSlots()});buildSlots();
 function render(){const q=norm(document.getElementById('search').value),cat=document.getElementById('category').value,filtered=data.filter((i,index)=>(cat==='all'||(cat==='magic'?index<35:index>=35))&&norm(i.name_fr).includes(q));const cards=document.getElementById('cards');cards.replaceChildren();document.getElementById('count').textContent=filtered.length+' fiche(s) affichée(s) sur '+data.length;
 for(const item of filtered){const card=el('article',null,'item');card.append(el('h3',item.name_fr));const stat=Object.entries(item.stats||{}).map(([k,v])=>k+' : '+v).join(' · ');card.append(el('p',stat||'Statistiques à compléter','stat'));card.append(el('small',item.price_gold==null?'Prix non confirmé':'Prix : '+item.price_gold+' PO','muted'));const details=el('details'),sum=el('summary','Passifs ('+(item.passives||[]).length+')');details.append(sum);for(const p of item.passives||[]){details.append(el('b',p.name));details.append(el('p',p.description_fr))}card.append(details);cards.append(card)}}
