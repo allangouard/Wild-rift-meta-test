@@ -4,6 +4,22 @@
 'use strict';
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,Number.isFinite(Number(x))?Number(x):a));
 function magicMultiplier(mr){return mr>=0?100/(100+mr):2-100/(100-mr);}
+/* Hypothèse explicitement illustrative : dégâts connus répartis uniformément
+   sur N secondes entières. La mécanique +2%/seconde, plafond +8% vient du client.
+   La chronologie des coups n'est pas connue : il ne s'agit pas d'un DPS mesuré. */
+function riftmakerEstimate(duration, damageAfterMr, options={}) {
+ const seconds=clamp(duration,0,20), base=Math.max(0,Number(damageAfterMr)||0);
+ const melee=options.melee!==false;
+ if(seconds<=0 || base<=0)return {base,averageAmplification:0,extraDamage:0,amplifiedDamage:base,postFullStackDamage:0,estimatedOmnivampHealing:0,fullStackSeconds:0,fullStackReached:false,assumption:'Dégâts connus répartis uniformément sur le combat; ennemis champions uniquement.'};
+ const whole=Math.floor(seconds);
+ const slices=[];
+ for(let i=0;i<whole;i++) slices.push({length:1,bonus:Math.min(.08,.02*(i+1)),full:i>=3});
+ if(seconds>whole) slices.push({length:seconds-whole,bonus:Math.min(.08,.02*(whole+1)),full:whole>=3});
+ const weighted=slices.reduce((sum,x)=>sum+x.length*x.bonus,0)/seconds;
+ const postFullStackFraction=slices.reduce((sum,x)=>sum+(x.full?x.length:0),0)/seconds;
+ const fullDamage=base*postFullStackFraction*1.08;
+ return {base,averageAmplification:weighted,extraDamage:base*weighted,amplifiedDamage:base*(1+weighted),postFullStackDamage:fullDamage,estimatedOmnivampHealing:fullDamage*(melee?.10:.06),fullStackSeconds:seconds*postFullStackFraction,fullStackReached:postFullStackFraction>0,assumption:'Dégâts connus répartis uniformément entre les secondes, déclenchement de 2% puis 4%, 6%, 8%; 10% omnivamp mêlée uniquement à pleine puissance. Soins théoriques avant anti-soins et PV manquants.'};
+}
 function simulate(ids,catalog,stats,scenario){
  const selected=new Set(ids.filter(Boolean));const byId=new Map(catalog.map(x=>[x.id,x]));
  const active=id=>selected.has(id)&&byId.has(id);
@@ -59,14 +75,16 @@ function simulate(ids,catalog,stats,scenario){
  if(active('abyssal_mask')){
   notes.push('Masque abyssal : +12 % de dégâts magiques uniquement à portée de 650 unités ; non ajouté au total pour éviter le double compte.');
  }
- if(active('riftmaker'))notes.push('Créateur de failles : conversion PV→AP déjà comptée par le laboratoire ; amplification et omnivamp non simulés.');
+ if(active('riftmaker'))notes.push('Créateur de failles : conversion PV→AP déjà comptée dans la puissance effective. Amplification/omnivamp estimés séparément avec distribution uniforme des dégâts; ne pas les rajouter automatiquement au combo.');
  if(active('bloodletters_curse'))notes.push('Malédiction du sanguinaire : réduction de RM par applications successives non simulée sans chronologie de sorts.');
  if(active('morellonomicon')||active('thornmail'))notes.push('Hémorragie : effet anti-soins à 50 % non quantifié sans soins adverses connus.');
  const total=entries.reduce((n,e)=>n+e.magicAfterMr,0),heal=entries.reduce((n,e)=>n+e.healingRaw,0);
  const unmodeled=ids.filter(Boolean).filter(id=>{
   const i=byId.get(id);return i&&(i.passives||[]).length&&!entries.some(e=>e.id===id)&&!['rabadons_deathcap'].includes(id);
  }).map(id=>byId.get(id).name_fr);
- return {entries,totalMagicAfterMr:total,totalPotentialHealing:heal,unmodeled,notes,assumptions:{duration,autos,secondary,hitsTaken,targetPct,withinRange},isComplete:false};
+ const knownDamage=Math.max(0,Number(scenario.comboAfterMr)||0)+total;
+ const riftmaker=active('riftmaker')?riftmakerEstimate(duration,knownDamage,{melee:true}):null;
+ return {entries,totalMagicAfterMr:total,totalPotentialHealing:heal,riftmaker,unmodeled,notes,assumptions:{duration,autos,secondary,hitsTaken,targetPct,withinRange},isComplete:false};
 }
-return {simulate,magicMultiplier};
+return {simulate,magicMultiplier,riftmakerEstimate};
 });
