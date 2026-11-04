@@ -1,0 +1,7264 @@
+{
+  "schema": "wrdi-historical-items-review-v1",
+  "source": {
+    "file": "items_7_2a.yml.txt",
+    "claimedPatch": "7.2a",
+    "independentlyVerified": false
+  },
+  "policy": {
+    "historicalOnly": true,
+    "autoUseForBuilds": false,
+    "autoSimulatePassives": false,
+    "notes": "Source YAML; les stats et passifs ne sont pas validés pour le patch actuel."
+  },
+  "counts": {
+    "entries": 238,
+    "nameGroups": 195,
+    "categories": {
+      "PHYSICAL DAMAGE ITEMS": 58,
+      "MAGIC DAMAGE ITEMS": 27,
+      "MAGIC DAMAGE ITEMS, SUPPORT ITEMS": 2,
+      "SUPPORT ITEMS": 18,
+      "DEFENSE ITEMS": 28,
+      "DEFENSE ITEMS, SUPPORT ITEMS": 6,
+      "SUPPORT ITEMS, ACTIVE ITEMS": 4,
+      "BOOTS": 25,
+      "MID TIER ITEMS": 48,
+      "BASIC ITEMS": 12,
+      "MID TIER ITEMS, ACTIVE ITEMS": 1,
+      "PHYSICAL DAMAGE ITEMS, ACTIVE ITEMS": 6,
+      "MAGIC DAMAGE ITEMS, ACTIVE ITEMS": 2,
+      "DEFENSE ITEMS, ACTIVE ITEMS": 1
+    }
+  },
+  "groups": [
+    {
+      "name": "Bloodthirster",
+      "entryIndices": [
+        0,
+        1
+      ],
+      "entries": [
+        {
+          "sourceIndex": 0,
+          "name": "Bloodthirster",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 55
+            },
+            {
+              "type": "% Critical Rate",
+              "value": 25
+            },
+            {
+              "type": "Max Health",
+              "value": 250
+            },
+            {
+              "passive": "Bloody",
+              "type": "% Physical Vamp",
+              "value": 8
+            }
+          ],
+          "formula": "(55*41.67+25*50.0+250*3.33+8*45.82)/3000",
+          "amount": "158.03%"
+        },
+        {
+          "sourceIndex": 1,
+          "name": "Bloodthirster (Bloody[Crit])",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 55
+            },
+            {
+              "type": "% Critical Rate",
+              "value": 25
+            },
+            {
+              "type": "Max Health",
+              "value": 250
+            },
+            {
+              "passive": "Bloody",
+              "type": "% Physical Vamp",
+              "value": 8
+            },
+            {
+              "passive": "Bloody[Crit]",
+              "type": "% Physical Vamp",
+              "value": 4
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(55*41.67+25*50.0+250*3.33+8*45.82+4*45.82)/3000",
+          "amount": "164.14%"
+        }
+      ]
+    },
+    {
+      "name": "Guardian Angel",
+      "entryIndices": [
+        2
+      ],
+      "entries": [
+        {
+          "sourceIndex": 2,
+          "name": "Guardian Angel",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3200,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 45
+            },
+            {
+              "type": "Armor",
+              "value": 40
+            }
+          ],
+          "formula": "(45*41.67+40*25.0)/3200",
+          "amount": "89.85%"
+        }
+      ]
+    },
+    {
+      "name": "Magnetic Blaster",
+      "entryIndices": [
+        3
+      ],
+      "entries": [
+        {
+          "sourceIndex": 3,
+          "name": "Magnetic Blaster",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 25
+            },
+            {
+              "type": "% Critical Rate",
+              "value": 25
+            },
+            {
+              "type": "% Attack Speed",
+              "value": 25
+            },
+            {
+              "passive": "Fervor",
+              "type": "% Move Speed",
+              "value": 5
+            }
+          ],
+          "formula": "(25*41.67+25*50.0+25*33.33+5*15.0)/3000",
+          "amount": "106.67%"
+        }
+      ]
+    },
+    {
+      "name": "Blade of the Ruined King",
+      "entryIndices": [
+        4
+      ],
+      "entries": [
+        {
+          "sourceIndex": 4,
+          "name": "Blade of the Ruined King",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3200,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 40
+            },
+            {
+              "type": "% Attack Speed",
+              "value": 35
+            },
+            {
+              "passive": "Thirst",
+              "type": "% Omnivamp",
+              "value": 10
+            }
+          ],
+          "formula": "(40*41.67+35*33.33+10*46)/3200",
+          "amount": "102.92%"
+        }
+      ]
+    },
+    {
+      "name": "Runaan's Hurricane",
+      "entryIndices": [
+        5
+      ],
+      "entries": [
+        {
+          "sourceIndex": 5,
+          "name": "Runaan's Hurricane",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 2900,
+          "stats": [
+            {
+              "type": "% Attack Speed",
+              "value": 35
+            },
+            {
+              "type": "% Critical Rate",
+              "value": 25
+            }
+          ],
+          "formula": "(35*33.33+25*50.0)/2900",
+          "amount": "83.33%"
+        }
+      ]
+    },
+    {
+      "name": "Youmuu's Ghostblade",
+      "entryIndices": [
+        6,
+        7,
+        8
+      ],
+      "entries": [
+        {
+          "sourceIndex": 6,
+          "name": "Youmuu's Ghostblade",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 55
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            },
+            {
+              "passive": "Slice",
+              "type": "Armor Penetration",
+              "value": 15
+            }
+          ],
+          "formula": "(55*41.67+15*60.0+15*20.82)/3000",
+          "amount": "116.81%"
+        },
+        {
+          "sourceIndex": 7,
+          "name": "Youmuu's Ghostblade (Momentum)",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 55
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            },
+            {
+              "passive": "Slice",
+              "type": "Armor Penetration",
+              "value": 15
+            },
+            {
+              "passive": "Momentum",
+              "type": "Move Speed",
+              "value": 40
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(55*41.67+15*60.0+15*20.82+40*16.0)/3000",
+          "amount": "138.14%"
+        },
+        {
+          "sourceIndex": 8,
+          "name": "Youmuu's Ghostblade (Haste)",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 55
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            },
+            {
+              "passive": "Slice",
+              "type": "Armor Penetration",
+              "value": 15
+            },
+            {
+              "passive": "Haste",
+              "type": "% Attack Speed",
+              "value": 25
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(55*41.67+15*60.0+15*20.82+25*33.33)/3000",
+          "amount": "144.58%"
+        }
+      ]
+    },
+    {
+      "name": "Duskblade of Draktharr",
+      "entryIndices": [
+        9
+      ],
+      "entries": [
+        {
+          "sourceIndex": 9,
+          "name": "Duskblade of Draktharr",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 55
+            },
+            {
+              "type": "Ability Haste",
+              "value": 10
+            },
+            {
+              "passive": "Razor",
+              "type": "Armor Penetration",
+              "value": 18
+            }
+          ],
+          "formula": "(55*41.67+10*60.0+18*20.82)/3000",
+          "amount": "108.89%"
+        }
+      ]
+    },
+    {
+      "name": "Infinity Edge",
+      "entryIndices": [
+        10
+      ],
+      "entries": [
+        {
+          "sourceIndex": 10,
+          "name": "Infinity Edge",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3400,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 65
+            },
+            {
+              "type": "% Critical Rate",
+              "value": 25
+            }
+          ],
+          "formula": "(65*41.67+25*50.0)/3400",
+          "amount": "116.43%"
+        }
+      ]
+    },
+    {
+      "name": "Mortal Reminder",
+      "entryIndices": [
+        11,
+        13
+      ],
+      "entries": [
+        {
+          "sourceIndex": 11,
+          "name": "Mortal Reminder",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3300,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 25
+            },
+            {
+              "type": "% Critical Rate",
+              "value": 25
+            },
+            {
+              "type": "% Attack Speed",
+              "value": 15
+            },
+            {
+              "passive": "Last Whisper",
+              "type": "% Armor Penetration",
+              "value": 30
+            }
+          ],
+          "formula": "(25*41.67+25*50.0+15*33.33+30*66.67)/3300",
+          "amount": "145.21%"
+        },
+        {
+          "sourceIndex": 13,
+          "name": "Mortal Reminder (Last Whisper[Crit])",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3300,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 25
+            },
+            {
+              "type": "% Critical Rate",
+              "value": 25
+            },
+            {
+              "type": "% Attack Speed",
+              "value": 15
+            },
+            {
+              "passive": "Last Whisper",
+              "type": "% Armor Penetration",
+              "value": 30
+            },
+            {
+              "passive": "Last Whisper[Crit]",
+              "type": "% Armor Penetration",
+              "value": 6
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(25*41.67+25*50.0+15*33.33+30*66.67+6*66.67)/3300",
+          "amount": "157.33%"
+        }
+      ]
+    },
+    {
+      "name": "Lord Dominik's Regards",
+      "entryIndices": [
+        12
+      ],
+      "entries": [
+        {
+          "sourceIndex": 12,
+          "name": "Lord Dominik's Regards",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3300,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 25
+            },
+            {
+              "type": "% Critical Rate",
+              "value": 25
+            },
+            {
+              "type": "% Armor Penetration",
+              "value": 36
+            }
+          ],
+          "formula": "(25*41.67+25*50.0+36*66.67)/3300",
+          "amount": "142.18%"
+        }
+      ]
+    },
+    {
+      "name": "Black Cleaver",
+      "entryIndices": [
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "entries": [
+        {
+          "sourceIndex": 14,
+          "name": "Black Cleaver",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 400
+            },
+            {
+              "type": "Attack Damage",
+              "value": 40
+            },
+            {
+              "type": "Ability Haste",
+              "value": 20
+            }
+          ],
+          "formula": "(400*3.33+40*41.67+20*60.0)/3000",
+          "amount": "139.96%"
+        },
+        {
+          "sourceIndex": 15,
+          "name": "Black Cleaver (Chase / 0Stacks - Melee)",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 400
+            },
+            {
+              "type": "Attack Damage",
+              "value": 40
+            },
+            {
+              "type": "Ability Haste",
+              "value": 20
+            },
+            {
+              "passive": "Chase",
+              "type": "Move Speed",
+              "value": 20
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(400*3.33+40*41.67+20*60.0+20*16.0)/3000",
+          "amount": "150.63%"
+        },
+        {
+          "sourceIndex": 16,
+          "name": "Black Cleaver (Chase / 0Stacks - Range)",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 400
+            },
+            {
+              "type": "Attack Damage",
+              "value": 40
+            },
+            {
+              "type": "Ability Haste",
+              "value": 20
+            },
+            {
+              "passive": "Chase",
+              "type": "Move Speed",
+              "value": 10
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(400*3.33+40*41.67+20*60.0+10*16.0)/3000",
+          "amount": "145.29%"
+        },
+        {
+          "sourceIndex": 17,
+          "name": "Black Cleaver (Chase - Sunder / 5Stacks - Melee)",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 400
+            },
+            {
+              "type": "Attack Damage",
+              "value": 40
+            },
+            {
+              "type": "Ability Haste",
+              "value": 20
+            },
+            {
+              "passive": "Chase",
+              "type": "Move Speed",
+              "value": 60
+            },
+            {
+              "passive": "Sunder",
+              "type": "% Armor Penetration",
+              "value": 30
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(400*3.33+40*41.67+20*60.0+60*16.0+30*66.67)/3000",
+          "amount": "238.63%"
+        },
+        {
+          "sourceIndex": 18,
+          "name": "Black Cleaver (Chase - Sunder / 5Stacks - Range)",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 400
+            },
+            {
+              "type": "Attack Damage",
+              "value": 40
+            },
+            {
+              "type": "Ability Haste",
+              "value": 20
+            },
+            {
+              "passive": "Chase",
+              "type": "Move Speed",
+              "value": 30
+            },
+            {
+              "passive": "Sunder",
+              "type": "% Armor Penetration",
+              "value": 30
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(400*3.33+40*41.67+20*60.0+30*16.0+30*66.67)/3000",
+          "amount": "222.63%"
+        }
+      ]
+    },
+    {
+      "name": "Manamune (Awe - lv1 EZ 390 Mana)",
+      "entryIndices": [
+        19
+      ],
+      "entries": [
+        {
+          "sourceIndex": 19,
+          "name": "Manamune (Awe - lv1 EZ 390 Mana)",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 2700,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 25
+            },
+            {
+              "type": "Max Mana",
+              "value": 300
+            },
+            {
+              "type": "Ability Haste",
+              "value": 20
+            },
+            {
+              "formula": "(390+300)*0.02",
+              "passive": "Awe",
+              "ratio": 0.02,
+              "ref": 390,
+              "ref_type": "Max Mana",
+              "type": "Attack Damage",
+              "value": 13.8
+            }
+          ],
+          "formula": "(25*41.67+300*0.22+20*60.0+13.8*41.67)/2700",
+          "amount": "106.77%"
+        }
+      ]
+    },
+    {
+      "name": "Manamune (Awe - lv15 EZ 1076 Mana)",
+      "entryIndices": [
+        20
+      ],
+      "entries": [
+        {
+          "sourceIndex": 20,
+          "name": "Manamune (Awe - lv15 EZ 1076 Mana)",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 2700,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 25
+            },
+            {
+              "type": "Max Mana",
+              "value": 300
+            },
+            {
+              "type": "Ability Haste",
+              "value": 20
+            },
+            {
+              "formula": "(1076+300)*0.02",
+              "passive": "Awe",
+              "ratio": 0.02,
+              "ref": 1076,
+              "ref_type": "Max Mana",
+              "type": "Attack Damage",
+              "value": 27.52
+            }
+          ],
+          "formula": "(25*41.67+300*0.22+20*60.0+27.52*41.67)/2700",
+          "amount": "127.94%"
+        }
+      ]
+    },
+    {
+      "name": "Muramana (Awe - lv1 EZ 390 Mana)",
+      "entryIndices": [
+        21
+      ],
+      "entries": [
+        {
+          "sourceIndex": 21,
+          "name": "Muramana (Awe - lv1 EZ 390 Mana)",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 2700,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 25
+            },
+            {
+              "type": "Max Mana",
+              "value": 1000
+            },
+            {
+              "type": "Ability Haste",
+              "value": 20
+            },
+            {
+              "formula": "(390+1000)*0.02",
+              "passive": "Awe",
+              "ratio": 0.02,
+              "ref": 390,
+              "ref_type": "Max Mana",
+              "type": "Attack Damage",
+              "value": 27.8
+            }
+          ],
+          "formula": "(25*41.67+1000*0.22+20*60.0+27.8*41.67)/2700",
+          "amount": "134.08%"
+        }
+      ]
+    },
+    {
+      "name": "Muramana (Awe - lv15 EZ 1076 Mana)",
+      "entryIndices": [
+        22
+      ],
+      "entries": [
+        {
+          "sourceIndex": 22,
+          "name": "Muramana (Awe - lv15 EZ 1076 Mana)",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 2700,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 25
+            },
+            {
+              "type": "Max Mana",
+              "value": 1000
+            },
+            {
+              "type": "Ability Haste",
+              "value": 20
+            },
+            {
+              "formula": "(1076+1000)*0.02",
+              "passive": "Awe",
+              "ratio": 0.02,
+              "ref": 1076,
+              "ref_type": "Max Mana",
+              "type": "Attack Damage",
+              "value": 41.52
+            }
+          ],
+          "formula": "(25*41.67+1000*0.22+20*60.0+41.52*41.67)/2700",
+          "amount": "155.26%"
+        }
+      ]
+    },
+    {
+      "name": "Trinity Force",
+      "entryIndices": [
+        23
+      ],
+      "entries": [
+        {
+          "sourceIndex": 23,
+          "name": "Trinity Force",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3333,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 333
+            },
+            {
+              "type": "Attack Damage",
+              "value": 30
+            },
+            {
+              "type": "% Attack Speed",
+              "value": 30
+            },
+            {
+              "type": "Ability Haste",
+              "value": 20
+            },
+            {
+              "passive": "Fervor",
+              "type": "% Move Speed",
+              "value": 5
+            }
+          ],
+          "formula": "(333*3.33+30*41.67+30*33.33+20*60.0+5*15.0)/3333",
+          "amount": "139.03%"
+        }
+      ]
+    },
+    {
+      "name": "Maw of Malmortius",
+      "entryIndices": [
+        24,
+        25
+      ],
+      "entries": [
+        {
+          "sourceIndex": 24,
+          "name": "Maw of Malmortius",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 55
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 45
+            },
+            {
+              "type": "Ability Haste",
+              "value": 10
+            }
+          ],
+          "formula": "(55*41.67+45*25.0+10*60.0)/3000",
+          "amount": "133.89%"
+        },
+        {
+          "sourceIndex": 25,
+          "name": "Maw of Malmortius (Lifeline)",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 55
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 45
+            },
+            {
+              "type": "Ability Haste",
+              "value": 10
+            },
+            {
+              "passive": "Lifeline",
+              "type": "% Omnivamp",
+              "value": 10
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(55*41.67+45*25.0+10*60.0+10*46)/3000",
+          "amount": "149.23%"
+        }
+      ]
+    },
+    {
+      "name": "Death's Dance",
+      "entryIndices": [
+        26
+      ],
+      "entries": [
+        {
+          "sourceIndex": 26,
+          "name": "Death's Dance",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3100,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 35
+            },
+            {
+              "type": "Armor",
+              "value": 40
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            }
+          ],
+          "formula": "(35*41.67+40*25.0+15*60.0)/3100",
+          "amount": "108.34%"
+        }
+      ]
+    },
+    {
+      "name": "Phantom Dancer",
+      "entryIndices": [
+        27,
+        28
+      ],
+      "entries": [
+        {
+          "sourceIndex": 27,
+          "name": "Phantom Dancer",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 2900,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 20
+            },
+            {
+              "type": "% Critical Rate",
+              "value": 25
+            },
+            {
+              "type": "% Attack Speed",
+              "value": 40
+            },
+            {
+              "passive": "Shadowwalk",
+              "type": "% Move Speed",
+              "value": 5
+            }
+          ],
+          "formula": "(20*41.67+25*50.0+40*33.33+5*15.0)/2900",
+          "amount": "120.40%"
+        },
+        {
+          "sourceIndex": 28,
+          "name": "Phantom Dancer (Spectral Waltz)",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 2900,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 20
+            },
+            {
+              "type": "% Critical Rate",
+              "value": 25
+            },
+            {
+              "type": "% Attack Speed",
+              "value": 40
+            },
+            {
+              "passive": "Shadowwalk",
+              "type": "% Move Speed",
+              "value": 5
+            },
+            {
+              "passive": "Spectral Waltz",
+              "type": "% Move Speed",
+              "value": 7
+            },
+            {
+              "passive": "Spectral Waltz",
+              "type": "% Attack Speed",
+              "value": 25
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(20*41.67+25*50.0+40*33.33+5*15.0+7*15.0+25*33.33)/2900",
+          "amount": "152.75%"
+        }
+      ]
+    },
+    {
+      "name": "Nashor's Tooth (Adaptive: AD)",
+      "entryIndices": [
+        29
+      ],
+      "entries": [
+        {
+          "sourceIndex": 29,
+          "name": "Nashor's Tooth (Adaptive: AD)",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 2800,
+          "stats": [
+            {
+              "type": "% Attack Speed",
+              "value": 45
+            },
+            {
+              "type": "Ability Haste",
+              "value": 20
+            },
+            {
+              "passive": "Magic Fang",
+              "type": "Attack Damage",
+              "value": 25
+            }
+          ],
+          "formula": "(45*33.33+20*60.0+25*41.67)/2800",
+          "amount": "133.63%"
+        }
+      ]
+    },
+    {
+      "name": "Wit's End",
+      "entryIndices": [
+        30
+      ],
+      "entries": [
+        {
+          "sourceIndex": 30,
+          "name": "Wit's End",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 2800,
+          "stats": [
+            {
+              "type": "% Attack Speed",
+              "value": 45
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 45
+            }
+          ],
+          "formula": "(45*33.33+45*25.0)/2800",
+          "amount": "93.74%"
+        }
+      ]
+    },
+    {
+      "name": "Essence Reaver",
+      "entryIndices": [
+        31
+      ],
+      "entries": [
+        {
+          "sourceIndex": 31,
+          "name": "Essence Reaver",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 40
+            },
+            {
+              "type": "% Critical Rate",
+              "value": 25
+            },
+            {
+              "type": "Ability Haste",
+              "value": 20
+            }
+          ],
+          "formula": "(40*41.67+25*50.0+20*60.0)/3000",
+          "amount": "137.23%"
+        }
+      ]
+    },
+    {
+      "name": "Serylda's Grudge",
+      "entryIndices": [
+        32
+      ],
+      "entries": [
+        {
+          "sourceIndex": 32,
+          "name": "Serylda's Grudge",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3300,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 40
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            },
+            {
+              "passive": "Last Whisper",
+              "type": "% Armor Penetration",
+              "value": 33
+            }
+          ],
+          "formula": "(40*41.67+15*60.0+33*66.67)/3300",
+          "amount": "144.45%"
+        }
+      ]
+    },
+    {
+      "name": "Navori Quickblades",
+      "entryIndices": [
+        33
+      ],
+      "entries": [
+        {
+          "sourceIndex": 33,
+          "name": "Navori Quickblades",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 2800,
+          "stats": [
+            {
+              "type": "% Critical Rate",
+              "value": 25
+            },
+            {
+              "type": "% Attack Speed",
+              "value": 45
+            },
+            {
+              "type": "% Move Speed",
+              "value": 5
+            }
+          ],
+          "formula": "(25*50.0+45*33.33+5*15.0)/2800",
+          "amount": "100.89%"
+        }
+      ]
+    },
+    {
+      "name": "Edge of Night",
+      "entryIndices": [
+        34
+      ],
+      "entries": [
+        {
+          "sourceIndex": 34,
+          "name": "Edge of Night",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 250
+            },
+            {
+              "type": "Attack Damage",
+              "value": 50
+            },
+            {
+              "passive": "Gouge",
+              "type": "Armor Penetration",
+              "value": 8
+            }
+          ],
+          "formula": "(250*3.33+50*41.67+8*20.82)/3000",
+          "amount": "102.75%"
+        }
+      ]
+    },
+    {
+      "name": "Divine Sunderer",
+      "entryIndices": [
+        35
+      ],
+      "entries": [
+        {
+          "sourceIndex": 35,
+          "name": "Divine Sunderer",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3400,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 425
+            },
+            {
+              "type": "Attack Damage",
+              "value": 25
+            },
+            {
+              "type": "Ability Haste",
+              "value": 25
+            }
+          ],
+          "formula": "(425*3.33+25*41.67+25*60.0)/3400",
+          "amount": "116.38%"
+        }
+      ]
+    },
+    {
+      "name": "Serpent's Fang",
+      "entryIndices": [
+        36
+      ],
+      "entries": [
+        {
+          "sourceIndex": 36,
+          "name": "Serpent's Fang",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 2800,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 50
+            },
+            {
+              "type": "Ability Haste",
+              "value": 10
+            },
+            {
+              "passive": "Stab",
+              "type": "Armor Penetration",
+              "value": 15
+            }
+          ],
+          "formula": "(50*41.67+10*60.0+15*20.82)/2800",
+          "amount": "106.99%"
+        }
+      ]
+    },
+    {
+      "name": "Chempunk Chainsword",
+      "entryIndices": [
+        37
+      ],
+      "entries": [
+        {
+          "sourceIndex": 37,
+          "name": "Chempunk Chainsword",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 2800,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 400
+            },
+            {
+              "type": "Attack Damage",
+              "value": 45
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            }
+          ],
+          "formula": "(400*3.33+45*41.67+15*60.0)/2800",
+          "amount": "146.68%"
+        }
+      ]
+    },
+    {
+      "name": "The Collector",
+      "entryIndices": [
+        38
+      ],
+      "entries": [
+        {
+          "sourceIndex": 38,
+          "name": "The Collector",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 45
+            },
+            {
+              "type": "% Critical Rate",
+              "value": 25
+            },
+            {
+              "passive": "Killer",
+              "type": "Armor Penetration",
+              "value": 10
+            }
+          ],
+          "formula": "(45*41.67+25*50.0+10*20.82)/3000",
+          "amount": "111.11%"
+        }
+      ]
+    },
+    {
+      "name": "Sterak's Gage (Heavy Handed - lv1 IRE 58 AD)",
+      "entryIndices": [
+        39
+      ],
+      "entries": [
+        {
+          "sourceIndex": 39,
+          "name": "Sterak's Gage (Heavy Handed - lv1 IRE 58 AD)",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3200,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 400
+            },
+            {
+              "formula": "58*0.5",
+              "passive": "Heavy Handed",
+              "ratio": 0.5,
+              "ref": 58,
+              "type": "Attack Damage",
+              "value": 29.0
+            }
+          ],
+          "formula": "(400*3.33+29.0*41.67)/3200",
+          "amount": "79.39%"
+        }
+      ]
+    },
+    {
+      "name": "Sterak's Gage (Heavy Handed - lv15 IRE 122 AD)",
+      "entryIndices": [
+        40
+      ],
+      "entries": [
+        {
+          "sourceIndex": 40,
+          "name": "Sterak's Gage (Heavy Handed - lv15 IRE 122 AD)",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3200,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 400
+            },
+            {
+              "formula": "122*0.5",
+              "passive": "Heavy Handed",
+              "ratio": 0.5,
+              "ref": 122,
+              "type": "Attack Damage",
+              "value": 61.0
+            }
+          ],
+          "formula": "(400*3.33+61.0*41.67)/3200",
+          "amount": "121.06%"
+        }
+      ]
+    },
+    {
+      "name": "Spear of Shojin",
+      "entryIndices": [
+        41
+      ],
+      "entries": [
+        {
+          "sourceIndex": 41,
+          "name": "Spear of Shojin",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3100,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 450
+            },
+            {
+              "type": "Attack Damage",
+              "value": 40
+            },
+            {
+              "passive": "Dragonforce",
+              "type": "Ability Haste",
+              "value": 20
+            }
+          ],
+          "formula": "(450*3.33+40*41.67+20*60.0)/3100",
+          "amount": "140.82%"
+        }
+      ]
+    },
+    {
+      "name": "Titanic Hydra",
+      "entryIndices": [
+        42
+      ],
+      "entries": [
+        {
+          "sourceIndex": 42,
+          "name": "Titanic Hydra",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 450
+            },
+            {
+              "type": "Attack Damage",
+              "value": 40
+            }
+          ],
+          "formula": "(450*3.33+40*41.67)/3000",
+          "amount": "105.51%"
+        }
+      ]
+    },
+    {
+      "name": "Terminus",
+      "entryIndices": [
+        43,
+        44,
+        45
+      ],
+      "entries": [
+        {
+          "sourceIndex": 43,
+          "name": "Terminus",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3300,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 40
+            },
+            {
+              "type": "% Attack Speed",
+              "value": 30
+            }
+          ],
+          "formula": "(40*41.67+30*33.33)/3300",
+          "amount": "80.81%"
+        },
+        {
+          "sourceIndex": 44,
+          "name": "Terminus (Juxtaposition - lv1)",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3300,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 40
+            },
+            {
+              "type": "% Attack Speed",
+              "value": 30
+            },
+            {
+              "passive": "Juxtaposition",
+              "type": "Armor",
+              "value": 15
+            },
+            {
+              "passive": "Juxtaposition",
+              "type": "Magic Resistance",
+              "value": 15
+            },
+            {
+              "passive": "Juxtaposition",
+              "type": "% Armor Penetration",
+              "value": 33
+            },
+            {
+              "passive": "Juxtaposition",
+              "type": "% Magic Penetration",
+              "value": 33
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(40*41.67+30*33.33+15*25.0+15*25.0+33*66.67+33*50.0)/3300",
+          "amount": "220.21%"
+        },
+        {
+          "sourceIndex": 45,
+          "name": "Terminus (Juxtaposition - lv15)",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3300,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 40
+            },
+            {
+              "type": "% Attack Speed",
+              "value": 30
+            },
+            {
+              "passive": "Juxtaposition",
+              "type": "Armor",
+              "value": 24
+            },
+            {
+              "passive": "Juxtaposition",
+              "type": "Magic Resistance",
+              "value": 24
+            },
+            {
+              "passive": "Juxtaposition",
+              "type": "% Armor Penetration",
+              "value": 33
+            },
+            {
+              "passive": "Juxtaposition",
+              "type": "% Magic Penetration",
+              "value": 33
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(40*41.67+30*33.33+24*25.0+24*25.0+33*66.67+33*50.0)/3300",
+          "amount": "233.84%"
+        }
+      ]
+    },
+    {
+      "name": "Sundered Sky",
+      "entryIndices": [
+        46
+      ],
+      "entries": [
+        {
+          "sourceIndex": 46,
+          "name": "Sundered Sky",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 2900,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 40
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            },
+            {
+              "type": "Max Health",
+              "value": 350
+            }
+          ],
+          "formula": "(40*41.67+15*60.0+350*3.33)/2900",
+          "amount": "128.70%"
+        }
+      ]
+    },
+    {
+      "name": "Eclipse",
+      "entryIndices": [
+        47
+      ],
+      "entries": [
+        {
+          "sourceIndex": 47,
+          "name": "Eclipse",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 65
+            },
+            {
+              "type": "Ability Haste",
+              "value": 20
+            }
+          ],
+          "formula": "(65*41.67+20*60.0)/3000",
+          "amount": "130.28%"
+        }
+      ]
+    },
+    {
+      "name": "Soul Transfer",
+      "entryIndices": [
+        48
+      ],
+      "entries": [
+        {
+          "sourceIndex": 48,
+          "name": "Soul Transfer",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3200,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 25
+            },
+            {
+              "type": "% Critical Rate",
+              "value": 25
+            },
+            {
+              "type": "% Attack Speed",
+              "value": 30
+            }
+          ],
+          "formula": "(25*41.67+25*50.0+30*33.33)/3200",
+          "amount": "102.86%"
+        }
+      ]
+    },
+    {
+      "name": "Hullbreaker",
+      "entryIndices": [
+        49
+      ],
+      "entries": [
+        {
+          "sourceIndex": 49,
+          "name": "Hullbreaker",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3100,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 400
+            },
+            {
+              "type": "Attack Damage",
+              "value": 50
+            },
+            {
+              "passive": "Set Sail",
+              "type": "% Move Speed",
+              "value": 5
+            }
+          ],
+          "formula": "(400*3.33+50*41.67+5*15.0)/3100",
+          "amount": "112.60%"
+        }
+      ]
+    },
+    {
+      "name": "Luden's Echo",
+      "entryIndices": [
+        50
+      ],
+      "entries": [
+        {
+          "sourceIndex": 50,
+          "name": "Luden's Echo",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 2800,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 100
+            },
+            {
+              "type": "Max Mana",
+              "value": 500
+            },
+            {
+              "type": "Ability Haste",
+              "value": 10
+            }
+          ],
+          "formula": "(100*25.0+500*0.22+10*60.0)/2800",
+          "amount": "114.64%"
+        }
+      ]
+    },
+    {
+      "name": "Morellonomicon",
+      "entryIndices": [
+        51
+      ],
+      "entries": [
+        {
+          "sourceIndex": 51,
+          "name": "Morellonomicon",
+          "category": "MAGIC DAMAGE ITEMS, SUPPORT ITEMS",
+          "cost": 2650,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 300
+            },
+            {
+              "type": "Ability Power",
+              "value": 75
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            }
+          ],
+          "formula": "(300*3.33+75*25.0+15*60.0)/2650",
+          "amount": "142.42%"
+        }
+      ]
+    },
+    {
+      "name": "Rabadon's Deathcap (Overkill)",
+      "entryIndices": [
+        52
+      ],
+      "entries": [
+        {
+          "sourceIndex": 52,
+          "name": "Rabadon's Deathcap (Overkill)",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 3400,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 130
+            },
+            {
+              "formula": "130*0.3",
+              "passive": "Overkill",
+              "ratio": 0.3,
+              "ref_type": "Ability Power",
+              "type": "Ability Power",
+              "value": 39.0
+            }
+          ],
+          "formula": "(130*25.0+39.0*25.0)/3400",
+          "amount": "124.26%"
+        }
+      ]
+    },
+    {
+      "name": "Rylai's Crystal Scepter",
+      "entryIndices": [
+        53
+      ],
+      "entries": [
+        {
+          "sourceIndex": 53,
+          "name": "Rylai's Crystal Scepter",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 2700,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 350
+            },
+            {
+              "type": "Ability Power",
+              "value": 65
+            }
+          ],
+          "formula": "(350*3.33+65*25.0)/2700",
+          "amount": "103.35%"
+        }
+      ]
+    },
+    {
+      "name": "Liandry's Torment",
+      "entryIndices": [
+        54
+      ],
+      "entries": [
+        {
+          "sourceIndex": 54,
+          "name": "Liandry's Torment",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 300
+            },
+            {
+              "type": "Ability Power",
+              "value": 70
+            }
+          ],
+          "formula": "(300*3.33+70*25.0)/3000",
+          "amount": "91.63%"
+        }
+      ]
+    },
+    {
+      "name": "Rod of Ages",
+      "entryIndices": [
+        55,
+        56
+      ],
+      "entries": [
+        {
+          "sourceIndex": 55,
+          "name": "Rod of Ages",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 2700,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 350
+            },
+            {
+              "type": "Ability Power",
+              "value": 50
+            },
+            {
+              "type": "Max Mana",
+              "value": 400
+            }
+          ],
+          "formula": "(350*3.33+50*25.0+400*0.22)/2700",
+          "amount": "92.72%"
+        },
+        {
+          "sourceIndex": 56,
+          "name": "Rod of Ages (Veteran)",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 2700,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 350
+            },
+            {
+              "type": "Ability Power",
+              "value": 50
+            },
+            {
+              "type": "Max Mana",
+              "value": 400
+            },
+            {
+              "passive": "Veteran",
+              "type": "Max Health",
+              "value": 150
+            },
+            {
+              "passive": "Veteran",
+              "type": "Ability Power",
+              "value": 40
+            },
+            {
+              "passive": "Veteran",
+              "type": "Max Mana",
+              "value": 300
+            }
+          ],
+          "formula": "(350*3.33+50*25.0+400*0.22+150*3.33+40*25.0+300*0.22)/2700",
+          "amount": "150.70%"
+        }
+      ]
+    },
+    {
+      "name": "Lich Bane",
+      "entryIndices": [
+        57
+      ],
+      "entries": [
+        {
+          "sourceIndex": 57,
+          "name": "Lich Bane",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 2800,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 100
+            },
+            {
+              "type": "Ability Haste",
+              "value": 10
+            },
+            {
+              "passive": "Bane",
+              "type": "% Move Speed",
+              "value": 5
+            }
+          ],
+          "formula": "(100*25.0+10*60.0+5*15.0)/2800",
+          "amount": "113.39%"
+        }
+      ]
+    },
+    {
+      "name": "Nashor's Tooth (Adaptive: AP)",
+      "entryIndices": [
+        58
+      ],
+      "entries": [
+        {
+          "sourceIndex": 58,
+          "name": "Nashor's Tooth (Adaptive: AP)",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 2800,
+          "stats": [
+            {
+              "type": "% Attack Speed",
+              "value": 45
+            },
+            {
+              "type": "Ability Haste",
+              "value": 20
+            },
+            {
+              "passive": "Magic Fang",
+              "type": "Ability Power",
+              "value": 50
+            }
+          ],
+          "formula": "(45*33.33+20*60.0+50*25.0)/2800",
+          "amount": "141.07%"
+        }
+      ]
+    },
+    {
+      "name": "Archangel's Staff (Awe - lv1 Kass 480 MP)",
+      "entryIndices": [
+        59
+      ],
+      "entries": [
+        {
+          "sourceIndex": 59,
+          "name": "Archangel's Staff (Awe - lv1 Kass 480 MP)",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 60
+            },
+            {
+              "type": "Max Mana",
+              "value": 500
+            },
+            {
+              "type": "Ability Haste",
+              "value": 25
+            },
+            {
+              "formula": "(480+500)*0.01",
+              "passive": "Awe",
+              "ratio": 0.01,
+              "ref": 480,
+              "ref_type": "Max Mana",
+              "type": "Ability Power",
+              "value": 9.8
+            }
+          ],
+          "formula": "(60*25.0+500*0.22+25*60.0+9.8*25.0)/3000",
+          "amount": "111.83%"
+        }
+      ]
+    },
+    {
+      "name": "Archangel's Staff (Awe - lv15 Kass 1390 MP)",
+      "entryIndices": [
+        60
+      ],
+      "entries": [
+        {
+          "sourceIndex": 60,
+          "name": "Archangel's Staff (Awe - lv15 Kass 1390 MP)",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 60
+            },
+            {
+              "type": "Max Mana",
+              "value": 500
+            },
+            {
+              "type": "Ability Haste",
+              "value": 25
+            },
+            {
+              "formula": "(1390+500)*0.01",
+              "passive": "Awe",
+              "ratio": 0.01,
+              "ref": 1390,
+              "ref_type": "Max Mana",
+              "type": "Ability Power",
+              "value": 18.9
+            }
+          ],
+          "formula": "(60*25.0+500*0.22+25*60.0+18.9*25.0)/3000",
+          "amount": "119.42%"
+        }
+      ]
+    },
+    {
+      "name": "Seraph's Embrace (Awe - lv1 Kass 480 MP)",
+      "entryIndices": [
+        61
+      ],
+      "entries": [
+        {
+          "sourceIndex": 61,
+          "name": "Seraph's Embrace (Awe - lv1 Kass 480 MP)",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 60
+            },
+            {
+              "type": "Max Mana",
+              "value": 1200
+            },
+            {
+              "type": "Ability Haste",
+              "value": 25
+            },
+            {
+              "formula": "(480+1200)*0.02",
+              "passive": "Awe",
+              "ratio": 0.02,
+              "ref": 480,
+              "ref_type": "Max Mana",
+              "type": "Ability Power",
+              "value": 33.6
+            }
+          ],
+          "formula": "(60*25.0+1200*0.22+25*60.0+33.6*25.0)/3000",
+          "amount": "136.80%"
+        }
+      ]
+    },
+    {
+      "name": "Seraph's Embrace (Awe - lv15 Kass 1390 MP)",
+      "entryIndices": [
+        62
+      ],
+      "entries": [
+        {
+          "sourceIndex": 62,
+          "name": "Seraph's Embrace (Awe - lv15 Kass 1390 MP)",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 60
+            },
+            {
+              "type": "Max Mana",
+              "value": 1200
+            },
+            {
+              "type": "Ability Haste",
+              "value": 25
+            },
+            {
+              "formula": "(1390+1200)*0.02",
+              "passive": "Awe",
+              "ratio": 0.02,
+              "ref": 1390,
+              "ref_type": "Max Mana",
+              "type": "Ability Power",
+              "value": 51.8
+            }
+          ],
+          "formula": "(60*25.0+1200*0.22+25*60.0+51.8*25.0)/3000",
+          "amount": "151.97%"
+        }
+      ]
+    },
+    {
+      "name": "Ardent Censer",
+      "entryIndices": [
+        63
+      ],
+      "entries": [
+        {
+          "sourceIndex": 63,
+          "name": "Ardent Censer",
+          "category": "SUPPORT ITEMS",
+          "cost": 2700,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 250
+            },
+            {
+              "type": "Ability Power",
+              "value": 45
+            },
+            {
+              "type": "Ability Haste",
+              "value": 10
+            },
+            {
+              "passive": "Ardent",
+              "type": "% Move Speed",
+              "value": 5
+            },
+            {
+              "type": "% Heal and shield strength",
+              "value": 5
+            },
+            {
+              "type": "% Mana Regeneration",
+              "value": 50
+            }
+          ],
+          "formula": "(250*3.33+45*25.0+10*60.0+5*15.0+5*41.75+50*4)/2700",
+          "amount": "112.64%"
+        }
+      ]
+    },
+    {
+      "name": "Harmonic Echo",
+      "entryIndices": [
+        64
+      ],
+      "entries": [
+        {
+          "sourceIndex": 64,
+          "name": "Harmonic Echo",
+          "category": "SUPPORT ITEMS",
+          "cost": 2800,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 100
+            },
+            {
+              "type": "Ability Power",
+              "value": 50
+            },
+            {
+              "type": "Max Mana",
+              "value": 300
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            },
+            {
+              "type": "% Heal and shield strength",
+              "value": 5
+            },
+            {
+              "type": "% Mana Regeneration",
+              "value": 50
+            }
+          ],
+          "formula": "(100*3.33+50*25.0+300*0.22+15*60.0+5*41.75+50*4)/2800",
+          "amount": "105.63%"
+        }
+      ]
+    },
+    {
+      "name": "Infinity Orb",
+      "entryIndices": [
+        65
+      ],
+      "entries": [
+        {
+          "sourceIndex": 65,
+          "name": "Infinity Orb",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 3100,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 110
+            },
+            {
+              "passive": "Balanced",
+              "type": "Magic Penetration",
+              "value": 15
+            }
+          ],
+          "formula": "(110*25.0+15*46.66)/3100",
+          "amount": "111.29%"
+        }
+      ]
+    },
+    {
+      "name": "Staff of Flowing Waters",
+      "entryIndices": [
+        66,
+        67,
+        68
+      ],
+      "entries": [
+        {
+          "sourceIndex": 66,
+          "name": "Staff of Flowing Waters",
+          "category": "SUPPORT ITEMS",
+          "cost": 2500,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 100
+            },
+            {
+              "type": "Ability Power",
+              "value": 50
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            },
+            {
+              "type": "% Heal and shield strength",
+              "value": 5
+            },
+            {
+              "type": "% Mana Regeneration",
+              "value": 50
+            }
+          ],
+          "formula": "(100*3.33+50*25.0+15*60.0+5*41.75+50*4)/2500",
+          "amount": "115.67%"
+        },
+        {
+          "sourceIndex": 67,
+          "name": "Staff of Flowing Waters (Rapids - lv1)",
+          "category": "SUPPORT ITEMS",
+          "cost": 2500,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 100
+            },
+            {
+              "type": "Ability Power",
+              "value": 50
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            },
+            {
+              "type": "% Heal and shield strength",
+              "value": 5
+            },
+            {
+              "passive": "Rapids",
+              "type": "Ability Haste",
+              "value": 10
+            },
+            {
+              "passive": "Rapids",
+              "type": "Ability Power",
+              "value": 30
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(100*3.33+50*25.0+15*60.0+5*41.75+10*60.0+30*25.0)/2500",
+          "amount": "161.67%"
+        },
+        {
+          "sourceIndex": 68,
+          "name": "Staff of Flowing Waters (Rapids - lv15)",
+          "category": "SUPPORT ITEMS",
+          "cost": 2500,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 100
+            },
+            {
+              "type": "Ability Power",
+              "value": 50
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            },
+            {
+              "type": "% Heal and shield strength",
+              "value": 5
+            },
+            {
+              "passive": "Rapids",
+              "type": "Ability Haste",
+              "value": 10
+            },
+            {
+              "passive": "Rapids",
+              "type": "Ability Power",
+              "value": 50
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(100*3.33+50*25.0+15*60.0+5*41.75+10*60.0+50*25.0)/2500",
+          "amount": "181.67%"
+        }
+      ]
+    },
+    {
+      "name": "Oceanid's Trident",
+      "entryIndices": [
+        69
+      ],
+      "entries": [
+        {
+          "sourceIndex": 69,
+          "name": "Oceanid's Trident",
+          "category": "MAGIC DAMAGE ITEMS, SUPPORT ITEMS",
+          "cost": 2600,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 200
+            },
+            {
+              "type": "Ability Power",
+              "value": 80
+            },
+            {
+              "type": "Ability Haste",
+              "value": 10
+            }
+          ],
+          "formula": "(200*3.33+80*25.0+10*60.0)/2600",
+          "amount": "125.62%"
+        }
+      ]
+    },
+    {
+      "name": "Imperial Mandate",
+      "entryIndices": [
+        70,
+        71
+      ],
+      "entries": [
+        {
+          "sourceIndex": 70,
+          "name": "Imperial Mandate",
+          "category": "SUPPORT ITEMS",
+          "cost": 2500,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 200
+            },
+            {
+              "type": "Ability Power",
+              "value": 50
+            },
+            {
+              "type": "Ability Haste",
+              "value": 20
+            }
+          ],
+          "formula": "(200*3.33+50*25.0+20*60.0)/2500",
+          "amount": "124.64%"
+        },
+        {
+          "sourceIndex": 71,
+          "name": "Imperial Mandate (Coordinated Fire)",
+          "category": "SUPPORT ITEMS",
+          "cost": 2500,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 200
+            },
+            {
+              "type": "Ability Power",
+              "value": 50
+            },
+            {
+              "type": "Ability Haste",
+              "value": 20
+            },
+            {
+              "passive": "Coordinated Fire",
+              "type": "% Move Speed",
+              "value": 20
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(200*3.33+50*25.0+20*60.0+20*15.0)/2500",
+          "amount": "136.64%"
+        }
+      ]
+    },
+    {
+      "name": "Cosmic Drive",
+      "entryIndices": [
+        72,
+        73
+      ],
+      "entries": [
+        {
+          "sourceIndex": 72,
+          "name": "Cosmic Drive",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 70
+            },
+            {
+              "type": "Max Health",
+              "value": 300
+            },
+            {
+              "type": "Ability Haste",
+              "value": 25
+            },
+            {
+              "passive": "Hyperdrive",
+              "type": "% Move Speed",
+              "value": 5
+            }
+          ],
+          "formula": "(70*25.0+300*3.33+25*60.0+5*15.0)/3000",
+          "amount": "144.13%"
+        },
+        {
+          "sourceIndex": 73,
+          "name": "Cosmic Drive (Spellweaving)",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 70
+            },
+            {
+              "type": "Max Health",
+              "value": 300
+            },
+            {
+              "type": "Ability Haste",
+              "value": 25
+            },
+            {
+              "passive": "Hyperdrive",
+              "type": "% Move Speed",
+              "value": 5
+            },
+            {
+              "passive": "Spellweaving",
+              "type": "Move Speed",
+              "value": 30
+            }
+          ],
+          "formula": "(70*25.0+300*3.33+25*60.0+5*15.0+30*16.0)/3000",
+          "amount": "160.13%"
+        }
+      ]
+    },
+    {
+      "name": "Riftmaker",
+      "entryIndices": [
+        74
+      ],
+      "entries": [
+        {
+          "sourceIndex": 74,
+          "name": "Riftmaker",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 3100,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 350
+            },
+            {
+              "type": "Ability Power",
+              "value": 70
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            },
+            {
+              "passive": "Assimilation",
+              "type": "% Magic Vamp",
+              "value": 11
+            },
+            {
+              "formula": "350*0.02",
+              "passive": "Void Infusion",
+              "ratio": 0.02,
+              "ref_type": "Max Health",
+              "type": "Ability Power",
+              "value": 7.0
+            }
+          ],
+          "formula": "(350*3.33+70*25.0+15*60.0+11*46+7.0*25.0)/3100",
+          "amount": "145.05%"
+        }
+      ]
+    },
+    {
+      "name": "Horizon Focus",
+      "entryIndices": [
+        75
+      ],
+      "entries": [
+        {
+          "sourceIndex": 75,
+          "name": "Horizon Focus",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 2700,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 80
+            },
+            {
+              "type": "Ability Haste",
+              "value": 25
+            }
+          ],
+          "formula": "(80*25.0+25*60.0)/2700",
+          "amount": "129.63%"
+        }
+      ]
+    },
+    {
+      "name": "Malignance (Scorn)",
+      "entryIndices": [
+        76
+      ],
+      "entries": [
+        {
+          "sourceIndex": 76,
+          "name": "Malignance (Scorn)",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 2700,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 90
+            },
+            {
+              "type": "Max Mana",
+              "value": 500
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            },
+            {
+              "passive": "Scorn",
+              "type": "Ability Haste",
+              "value": 20
+            }
+          ],
+          "formula": "(90*25.0+500*0.22+15*60.0+20*60.0)/2700",
+          "amount": "165.19%"
+        }
+      ]
+    },
+    {
+      "name": "Guinsoo's Rageblade (Adaptive: AP)",
+      "entryIndices": [
+        77
+      ],
+      "entries": [
+        {
+          "sourceIndex": 77,
+          "name": "Guinsoo's Rageblade (Adaptive: AP)",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 3100,
+          "stats": [
+            {
+              "type": "% Attack Speed",
+              "value": 30
+            },
+            {
+              "passive": "Surge",
+              "type": "% Move Speed",
+              "value": 5
+            },
+            {
+              "passive": "Chaos",
+              "type": "Ability Power",
+              "value": 50
+            }
+          ],
+          "formula": "(30*33.33+5*15.0+50*25.0)/3100",
+          "amount": "75.00%"
+        }
+      ]
+    },
+    {
+      "name": "Guinsoo's Rageblade (Adaptive: AP, Seething Strike)",
+      "entryIndices": [
+        78
+      ],
+      "entries": [
+        {
+          "sourceIndex": 78,
+          "name": "Guinsoo's Rageblade (Adaptive: AP, Seething Strike)",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 3100,
+          "stats": [
+            {
+              "type": "% Attack Speed",
+              "value": 30
+            },
+            {
+              "passive": "Surge",
+              "type": "% Move Speed",
+              "value": 5
+            },
+            {
+              "passive": "Chaos",
+              "type": "Ability Power",
+              "value": 50
+            },
+            {
+              "passive": "Seething Strike",
+              "type": "% Attack Speed",
+              "value": 32
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(30*33.33+5*15.0+50*25.0+32*33.33)/3100",
+          "amount": "109.40%"
+        }
+      ]
+    },
+    {
+      "name": "Sunfire Aegis",
+      "entryIndices": [
+        79
+      ],
+      "entries": [
+        {
+          "sourceIndex": 79,
+          "name": "Sunfire Aegis",
+          "category": "DEFENSE ITEMS",
+          "cost": 2900,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 425
+            },
+            {
+              "type": "Armor",
+              "value": 20
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            }
+          ],
+          "formula": "(425*3.33+20*25.0+15*60.0)/2900",
+          "amount": "97.08%"
+        }
+      ]
+    },
+    {
+      "name": "Randuin's Omen",
+      "entryIndices": [
+        80,
+        81
+      ],
+      "entries": [
+        {
+          "sourceIndex": 80,
+          "name": "Randuin's Omen",
+          "category": "DEFENSE ITEMS",
+          "cost": 2800,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 400
+            },
+            {
+              "type": "Armor",
+              "value": 75
+            }
+          ],
+          "formula": "(400*3.33+75*25.0)/2800",
+          "amount": "114.54%"
+        },
+        {
+          "sourceIndex": 81,
+          "name": "Randuin's Omen (Countercurrent - 4Stacks)",
+          "category": "DEFENSE ITEMS",
+          "cost": 2800,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 400
+            },
+            {
+              "type": "Armor",
+              "value": 75
+            },
+            {
+              "passive": "Countercurrent",
+              "type": "% Move Speed",
+              "value": 20
+            }
+          ],
+          "formula": "(400*3.33+75*25.0+20*15.0)/2800",
+          "amount": "125.25%"
+        }
+      ]
+    },
+    {
+      "name": "Thornmail",
+      "entryIndices": [
+        82
+      ],
+      "entries": [
+        {
+          "sourceIndex": 82,
+          "name": "Thornmail",
+          "category": "DEFENSE ITEMS",
+          "cost": 2700,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 200
+            },
+            {
+              "type": "Armor",
+              "value": 75
+            }
+          ],
+          "formula": "(200*3.33+75*25.0)/2700",
+          "amount": "94.11%"
+        }
+      ]
+    },
+    {
+      "name": "Warmog's Armor",
+      "entryIndices": [
+        83
+      ],
+      "entries": [
+        {
+          "sourceIndex": 83,
+          "name": "Warmog's Armor",
+          "category": "DEFENSE ITEMS",
+          "cost": 2850,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 700
+            },
+            {
+              "type": "% Health Regen",
+              "value": 100
+            },
+            {
+              "type": "Ability Haste",
+              "value": 20
+            }
+          ],
+          "formula": "(700*3.33+100*3+20*60.0)/2850",
+          "amount": "134.42%"
+        }
+      ]
+    },
+    {
+      "name": "Iceborn Gauntlet",
+      "entryIndices": [
+        84
+      ],
+      "entries": [
+        {
+          "sourceIndex": 84,
+          "name": "Iceborn Gauntlet",
+          "category": "DEFENSE ITEMS",
+          "cost": 3100,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 250
+            },
+            {
+              "type": "Armor",
+              "value": 50
+            },
+            {
+              "type": "Max Mana",
+              "value": 250
+            },
+            {
+              "type": "Ability Haste",
+              "value": 30
+            }
+          ],
+          "formula": "(250*3.33+50*25.0+250*0.22+30*60.0)/3100",
+          "amount": "127.02%"
+        }
+      ]
+    },
+    {
+      "name": "Dead Man's Plate",
+      "entryIndices": [
+        85,
+        86
+      ],
+      "entries": [
+        {
+          "sourceIndex": 85,
+          "name": "Dead Man's Plate",
+          "category": "DEFENSE ITEMS",
+          "cost": 2800,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 350
+            },
+            {
+              "type": "Armor",
+              "value": 70
+            },
+            {
+              "passive": "Relentless",
+              "type": "% Move Speed",
+              "value": 5
+            }
+          ],
+          "formula": "(350*3.33+70*25.0+5*15.0)/2800",
+          "amount": "106.80%"
+        },
+        {
+          "sourceIndex": 86,
+          "name": "Dead Man's Plate (Momentum)",
+          "category": "DEFENSE ITEMS",
+          "cost": 2800,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 350
+            },
+            {
+              "type": "Armor",
+              "value": 70
+            },
+            {
+              "passive": "Relentless",
+              "type": "% Move Speed",
+              "value": 5
+            },
+            {
+              "passive": "Momentum",
+              "type": "Move Speed",
+              "value": 40
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(350*3.33+70*25.0+5*15.0+40*16.0)/2800",
+          "amount": "129.66%"
+        }
+      ]
+    },
+    {
+      "name": "Zeke's Convergence",
+      "entryIndices": [
+        87
+      ],
+      "entries": [
+        {
+          "sourceIndex": 87,
+          "name": "Zeke's Convergence",
+          "category": "DEFENSE ITEMS, SUPPORT ITEMS",
+          "cost": 2700,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 350
+            },
+            {
+              "type": "Armor",
+              "value": 40
+            },
+            {
+              "type": "Max Mana",
+              "value": 150
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            }
+          ],
+          "formula": "(350*3.33+40*25.0+150*0.22+15*60.0)/2700",
+          "amount": "114.76%"
+        }
+      ]
+    },
+    {
+      "name": "Winter's Approach (Awe - lv1 Voli 390 MP)",
+      "entryIndices": [
+        88
+      ],
+      "entries": [
+        {
+          "sourceIndex": 88,
+          "name": "Winter's Approach (Awe - lv1 Voli 390 MP)",
+          "category": "DEFENSE ITEMS",
+          "cost": 2600,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 350
+            },
+            {
+              "type": "Max Mana",
+              "value": 500
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            },
+            {
+              "formula": "(390+500)*0.1",
+              "passive": "Awe",
+              "ratio": 0.1,
+              "ref": 390,
+              "ref_type": "Max Mana",
+              "type": "Max Health",
+              "value": 89.0
+            }
+          ],
+          "formula": "(350*3.33+500*0.22+15*60.0+89.0*3.33)/2600",
+          "amount": "95.07%"
+        }
+      ]
+    },
+    {
+      "name": "Winter's Approach (Awe - lv15 Voli 1300 MP)",
+      "entryIndices": [
+        89
+      ],
+      "entries": [
+        {
+          "sourceIndex": 89,
+          "name": "Winter's Approach (Awe - lv15 Voli 1300 MP)",
+          "category": "DEFENSE ITEMS",
+          "cost": 2600,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 350
+            },
+            {
+              "type": "Max Mana",
+              "value": 500
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            },
+            {
+              "formula": "(1300+500)*0.1",
+              "passive": "Awe",
+              "ratio": 0.1,
+              "ref": 1300,
+              "ref_type": "Max Mana",
+              "type": "Max Health",
+              "value": 180.0
+            }
+          ],
+          "formula": "(350*3.33+500*0.22+15*60.0+180.0*3.33)/2600",
+          "amount": "106.73%"
+        }
+      ]
+    },
+    {
+      "name": "Fimbulwinter (Awe - lv1 Voli 390 MP)",
+      "entryIndices": [
+        90
+      ],
+      "entries": [
+        {
+          "sourceIndex": 90,
+          "name": "Fimbulwinter (Awe - lv1 Voli 390 MP)",
+          "category": "DEFENSE ITEMS",
+          "cost": 2600,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 350
+            },
+            {
+              "type": "Max Mana",
+              "value": 1200
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            },
+            {
+              "formula": "(390+1200)*0.1",
+              "passive": "Awe",
+              "ratio": 0.1,
+              "ref": 390,
+              "ref_type": "Max Mana",
+              "type": "Max Health",
+              "value": 159.0
+            }
+          ],
+          "formula": "(350*3.33+1200*0.22+15*60.0+159.0*3.33)/2600",
+          "amount": "109.96%"
+        }
+      ]
+    },
+    {
+      "name": "Fimbulwinter (Awe - lv15 Voli 1300 MP)",
+      "entryIndices": [
+        91
+      ],
+      "entries": [
+        {
+          "sourceIndex": 91,
+          "name": "Fimbulwinter (Awe - lv15 Voli 1300 MP)",
+          "category": "DEFENSE ITEMS",
+          "cost": 2600,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 350
+            },
+            {
+              "type": "Max Mana",
+              "value": 1200
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            },
+            {
+              "formula": "(1300+1200)*0.1",
+              "passive": "Awe",
+              "ratio": 0.1,
+              "ref": 1300,
+              "ref_type": "Max Mana",
+              "type": "Max Health",
+              "value": 250.0
+            }
+          ],
+          "formula": "(350*3.33+1200*0.22+15*60.0+250.0*3.33)/2600",
+          "amount": "121.62%"
+        }
+      ]
+    },
+    {
+      "name": "Force of Nature",
+      "entryIndices": [
+        92,
+        93
+      ],
+      "entries": [
+        {
+          "sourceIndex": 92,
+          "name": "Force of Nature",
+          "category": "DEFENSE ITEMS",
+          "cost": 2750,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 350
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 60
+            },
+            {
+              "passive": "Storm",
+              "type": "% Move Speed",
+              "value": 5
+            }
+          ],
+          "formula": "(350*3.33+60*25.0+5*15.0)/2750",
+          "amount": "99.65%"
+        },
+        {
+          "sourceIndex": 93,
+          "name": "Force of Nature (Absorb)",
+          "category": "DEFENSE ITEMS",
+          "cost": 2750,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 350
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 60
+            },
+            {
+              "passive": "Storm",
+              "type": "% Move Speed",
+              "value": 5
+            },
+            {
+              "passive": "Absorb",
+              "type": "% Move Speed",
+              "value": 10
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(350*3.33+60*25.0+5*15.0+10*15.0)/2750",
+          "amount": "105.11%"
+        }
+      ]
+    },
+    {
+      "name": "Frozen Heart",
+      "entryIndices": [
+        94
+      ],
+      "entries": [
+        {
+          "sourceIndex": 94,
+          "name": "Frozen Heart",
+          "category": "DEFENSE ITEMS, SUPPORT ITEMS",
+          "cost": 2650,
+          "stats": [
+            {
+              "type": "Armor",
+              "value": 80
+            },
+            {
+              "type": "Max Mana",
+              "value": 250
+            },
+            {
+              "type": "Ability Haste",
+              "value": 20
+            }
+          ],
+          "formula": "(80*25.0+250*0.22+20*60.0)/2650",
+          "amount": "122.83%"
+        }
+      ]
+    },
+    {
+      "name": "Dawnshroud",
+      "entryIndices": [
+        95,
+        96
+      ],
+      "entries": [
+        {
+          "sourceIndex": 95,
+          "name": "Dawnshroud",
+          "category": "DEFENSE ITEMS, SUPPORT ITEMS",
+          "cost": 2700,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 250
+            },
+            {
+              "type": "Armor",
+              "value": 50
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 30
+            }
+          ],
+          "formula": "(250*3.33+50*25.0+30*25.0)/2700",
+          "amount": "104.91%"
+        },
+        {
+          "sourceIndex": 96,
+          "name": "Dawnshroud (Dawnbringer)",
+          "category": "DEFENSE ITEMS, SUPPORT ITEMS",
+          "cost": 2700,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 250
+            },
+            {
+              "type": "Armor",
+              "value": 50
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 30
+            },
+            {
+              "formula": "50*0.2",
+              "passive": "Dawnbringer",
+              "ratio": 0.2,
+              "ref_type": "Armor",
+              "type": "Armor",
+              "value": 10.0
+            },
+            {
+              "formula": "30*0.2",
+              "passive": "Dawnbringer",
+              "ratio": 0.2,
+              "ref_type": "Magic Resistance",
+              "type": "Magic Resistance",
+              "value": 6.0
+            }
+          ],
+          "formula": "(250*3.33+50*25.0+30*25.0+10.0*25.0+6.0*25.0)/2700",
+          "amount": "119.72%"
+        }
+      ]
+    },
+    {
+      "name": "Amaranth's Twinguard",
+      "entryIndices": [
+        97,
+        98
+      ],
+      "entries": [
+        {
+          "sourceIndex": 97,
+          "name": "Amaranth's Twinguard",
+          "category": "DEFENSE ITEMS",
+          "cost": 3100,
+          "stats": [
+            {
+              "type": "Armor",
+              "value": 60
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 60
+            }
+          ],
+          "formula": "(60*25.0+60*25.0)/3100",
+          "amount": "96.77%"
+        },
+        {
+          "sourceIndex": 98,
+          "name": "Amaranth's Twinguard (Endurance)",
+          "category": "DEFENSE ITEMS",
+          "cost": 3100,
+          "stats": [
+            {
+              "type": "Armor",
+              "value": 60
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 60
+            },
+            {
+              "formula": "60*0.3",
+              "passive": "Endurance",
+              "ratio": 0.3,
+              "ref_type": "Armor",
+              "type": "Armor",
+              "value": 18.0
+            },
+            {
+              "formula": "60*0.3",
+              "passive": "Endurance",
+              "ratio": 0.3,
+              "ref_type": "Magic Resistance",
+              "type": "Magic Resistance",
+              "value": 18.0
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(60*25.0+60*25.0+18.0*25.0+18.0*25.0)/3100",
+          "amount": "125.81%"
+        }
+      ]
+    },
+    {
+      "name": "Mantle of the Twelfth Hour",
+      "entryIndices": [
+        99,
+        100
+      ],
+      "entries": [
+        {
+          "sourceIndex": 99,
+          "name": "Mantle of the Twelfth Hour",
+          "category": "DEFENSE ITEMS",
+          "cost": 2900,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 200
+            },
+            {
+              "type": "Armor",
+              "value": 40
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 40
+            }
+          ],
+          "formula": "(200*3.33+40*25.0+40*25.0)/2900",
+          "amount": "91.93%"
+        },
+        {
+          "sourceIndex": 100,
+          "name": "Mantle of the Twelfth Hour (Lifeline)",
+          "category": "DEFENSE ITEMS",
+          "cost": 2900,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 200
+            },
+            {
+              "type": "Armor",
+              "value": 40
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 40
+            },
+            {
+              "passive": "Lifeline",
+              "ratio": null,
+              "type": "Max Health",
+              "value": 180.0
+            },
+            {
+              "formula": "200*0.45",
+              "passive": "Lifeline",
+              "ratio": 0.45,
+              "ref_type": "Max Health",
+              "type": "Max Health",
+              "value": 90.0
+            },
+            {
+              "passive": "Lifeline",
+              "type": "Move Speed",
+              "value": 30
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(200*3.33+40*25.0+40*25.0+180.0*3.33+90.0*3.33+30*16.0)/2900",
+          "amount": "139.49%"
+        }
+      ]
+    },
+    {
+      "name": "Searing Crown",
+      "entryIndices": [
+        101
+      ],
+      "entries": [
+        {
+          "sourceIndex": 101,
+          "name": "Searing Crown",
+          "category": "DEFENSE ITEMS",
+          "cost": 2700,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 300
+            },
+            {
+              "type": "Armor",
+              "value": 50
+            }
+          ],
+          "formula": "(300*3.33+50*25.0)/2700",
+          "amount": "83.30%"
+        }
+      ]
+    },
+    {
+      "name": "Heartsteel",
+      "entryIndices": [
+        102
+      ],
+      "entries": [
+        {
+          "sourceIndex": 102,
+          "name": "Heartsteel",
+          "category": "DEFENSE ITEMS",
+          "cost": 2800,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 700
+            },
+            {
+              "type": "% Health Regen",
+              "value": 150
+            },
+            {
+              "type": "Ability Haste",
+              "value": 20
+            }
+          ],
+          "formula": "(700*3.33+150*3+20*60.0)/2800",
+          "amount": "142.18%"
+        }
+      ]
+    },
+    {
+      "name": "Redemption",
+      "entryIndices": [
+        103
+      ],
+      "entries": [
+        {
+          "sourceIndex": 103,
+          "name": "Redemption",
+          "category": "SUPPORT ITEMS, ACTIVE ITEMS",
+          "cost": 2600,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 150
+            },
+            {
+              "type": "Ability Power",
+              "value": 50
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            },
+            {
+              "type": "% Heal and shield strength",
+              "value": 5
+            },
+            {
+              "type": "% Mana Regeneration",
+              "value": 50
+            }
+          ],
+          "formula": "(150*3.33+50*25.0+15*60.0+5*41.75+50*4)/2600",
+          "amount": "117.62%"
+        }
+      ]
+    },
+    {
+      "name": "Radiant Virtue",
+      "entryIndices": [
+        104,
+        105,
+        106
+      ],
+      "entries": [
+        {
+          "sourceIndex": 104,
+          "name": "Radiant Virtue",
+          "category": "DEFENSE ITEMS",
+          "cost": 2850,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 300
+            },
+            {
+              "type": "Armor",
+              "value": 45
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            }
+          ],
+          "formula": "(300*3.33+45*25.0+15*60.0)/2850",
+          "amount": "106.11%"
+        },
+        {
+          "sourceIndex": 105,
+          "name": "Radiant Virtue (Guiding Light - lv1 Thresh 660 HP)",
+          "category": "DEFENSE ITEMS",
+          "cost": 2850,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 300
+            },
+            {
+              "type": "Armor",
+              "value": 45
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            },
+            {
+              "formula": "(660+300)*0.1",
+              "passive": "Guiding Light",
+              "ratio": 0.1,
+              "ref": 660,
+              "ref_type": "Max Health",
+              "type": "Max Health",
+              "value": 96.0
+            }
+          ],
+          "formula": "(300*3.33+45*25.0+15*60.0+96.0*3.33)/2850",
+          "amount": "117.32%"
+        },
+        {
+          "sourceIndex": 106,
+          "name": "Radiant Virtue (Guiding Light - lv15 Thresh 2340 HP)",
+          "category": "DEFENSE ITEMS",
+          "cost": 2850,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 300
+            },
+            {
+              "type": "Armor",
+              "value": 45
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            },
+            {
+              "formula": "(2340+300)*0.1",
+              "passive": "Guiding Light",
+              "ratio": 0.1,
+              "ref": 2340,
+              "ref_type": "Max Health",
+              "type": "Max Health",
+              "value": 264.0
+            }
+          ],
+          "formula": "(300*3.33+45*25.0+15*60.0+264.0*3.33)/2850",
+          "amount": "136.95%"
+        }
+      ]
+    },
+    {
+      "name": "Gluttonous Greaves (Balanced of Power - AD, Convertion - 0 Stacks)",
+      "entryIndices": [
+        107
+      ],
+      "entries": [
+        {
+          "sourceIndex": 107,
+          "name": "Gluttonous Greaves (Balanced of Power - AD, Convertion - 0 Stacks)",
+          "category": "BOOTS",
+          "cost": 1000,
+          "stats": [
+            {
+              "type": "Move Speed",
+              "value": 45
+            },
+            {
+              "passive": "Balanced of Power",
+              "type": "Attack Damage",
+              "value": 12
+            },
+            {
+              "passive": "Convertion",
+              "type": "% Omnivamp",
+              "value": 5
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(45*16.0+12*41.67+5*46)/1000",
+          "amount": "145.00%"
+        }
+      ]
+    },
+    {
+      "name": "Gluttonous Greaves (Balanced of Power - AD, Convertion - Full Stacks)",
+      "entryIndices": [
+        108
+      ],
+      "entries": [
+        {
+          "sourceIndex": 108,
+          "name": "Gluttonous Greaves (Balanced of Power - AD, Convertion - Full Stacks)",
+          "category": "BOOTS",
+          "cost": 1000,
+          "stats": [
+            {
+              "type": "Move Speed",
+              "value": 45
+            },
+            {
+              "passive": "Balanced of Power",
+              "type": "Attack Damage",
+              "value": 12
+            },
+            {
+              "passive": "Convertion",
+              "type": "% Omnivamp",
+              "value": 10
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(45*16.0+12*41.67+10*46)/1000",
+          "amount": "168.00%"
+        }
+      ]
+    },
+    {
+      "name": "Gluttonous Greaves (Balanced of Power - AP, Convertion - 0 Stacks)",
+      "entryIndices": [
+        109
+      ],
+      "entries": [
+        {
+          "sourceIndex": 109,
+          "name": "Gluttonous Greaves (Balanced of Power - AP, Convertion - 0 Stacks)",
+          "category": "BOOTS",
+          "cost": 1000,
+          "stats": [
+            {
+              "type": "Move Speed",
+              "value": 45
+            },
+            {
+              "passive": "Balanced of Power",
+              "type": "Ability Power",
+              "value": 20
+            },
+            {
+              "passive": "Convertion",
+              "type": "% Omnivamp",
+              "value": 5
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(45*16.0+20*25.0+5*46)/1000",
+          "amount": "145.00%"
+        }
+      ]
+    },
+    {
+      "name": "Gluttonous Greaves (Balanced of Power - AP, Convertion - Full Stacks)",
+      "entryIndices": [
+        110
+      ],
+      "entries": [
+        {
+          "sourceIndex": 110,
+          "name": "Gluttonous Greaves (Balanced of Power - AP, Convertion - Full Stacks)",
+          "category": "BOOTS",
+          "cost": 1000,
+          "stats": [
+            {
+              "type": "Move Speed",
+              "value": 45
+            },
+            {
+              "passive": "Balanced of Power",
+              "type": "Ability Power",
+              "value": 20
+            },
+            {
+              "passive": "Convertion",
+              "type": "% Omnivamp",
+              "value": 10
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(45*16.0+20*25.0+10*46)/1000",
+          "amount": "168.00%"
+        }
+      ]
+    },
+    {
+      "name": "Berserker's Greaves",
+      "entryIndices": [
+        111
+      ],
+      "entries": [
+        {
+          "sourceIndex": 111,
+          "name": "Berserker's Greaves",
+          "category": "BOOTS",
+          "cost": 1200,
+          "stats": [
+            {
+              "type": "% Attack Speed",
+              "value": 30
+            },
+            {
+              "type": "Move Speed",
+              "value": 45
+            }
+          ],
+          "formula": "(30*33.33+45*16.0)/1200",
+          "amount": "143.33%"
+        }
+      ]
+    },
+    {
+      "name": "Mercury's Treads",
+      "entryIndices": [
+        112
+      ],
+      "entries": [
+        {
+          "sourceIndex": 112,
+          "name": "Mercury's Treads",
+          "category": "BOOTS",
+          "cost": 1200,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 150
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 25
+            },
+            {
+              "type": "% Tenacity",
+              "value": 15
+            },
+            {
+              "type": "Move Speed",
+              "value": 45
+            }
+          ],
+          "formula": "(150*3.33+25*25.0+15*10.33+45*16.0)/1200",
+          "amount": "166.62%"
+        }
+      ]
+    },
+    {
+      "name": "Plated Steelcaps",
+      "entryIndices": [
+        113
+      ],
+      "entries": [
+        {
+          "sourceIndex": 113,
+          "name": "Plated Steelcaps",
+          "category": "BOOTS",
+          "cost": 1200,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 150
+            },
+            {
+              "type": "Armor",
+              "value": 25
+            },
+            {
+              "type": "Move Speed",
+              "value": 45
+            }
+          ],
+          "formula": "(150*3.33+25*25.0+45*16.0)/1200",
+          "amount": "153.71%"
+        }
+      ]
+    },
+    {
+      "name": "Ionian Boots of Lucidity",
+      "entryIndices": [
+        114
+      ],
+      "entries": [
+        {
+          "sourceIndex": 114,
+          "name": "Ionian Boots of Lucidity",
+          "category": "BOOTS",
+          "cost": 1000,
+          "stats": [
+            {
+              "type": "Ability Haste",
+              "value": 15
+            },
+            {
+              "type": "Move Speed",
+              "value": 45
+            },
+            {
+              "type": "% Mana Regeneration",
+              "value": 50
+            }
+          ],
+          "formula": "(15*60.0+45*16.0+50*4)/1000",
+          "amount": "182.00%"
+        }
+      ]
+    },
+    {
+      "name": "Boots of Mana",
+      "entryIndices": [
+        115,
+        116
+      ],
+      "entries": [
+        {
+          "sourceIndex": 115,
+          "name": "Boots of Mana",
+          "category": "BOOTS",
+          "cost": 1200,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 25
+            },
+            {
+              "type": "% Mana Regeneration",
+              "value": 75
+            },
+            {
+              "type": "Move Speed",
+              "value": 45
+            },
+            {
+              "passive": "Magic Break",
+              "type": "Magic Penetration",
+              "value": 8
+            }
+          ],
+          "formula": "(25*25.0+75*4+45*16.0+8*46.66)/1200",
+          "amount": "168.19%"
+        },
+        {
+          "sourceIndex": 116,
+          "name": "Boots of Mana (Equilibrium)",
+          "category": "BOOTS",
+          "cost": 1200,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 25
+            },
+            {
+              "type": "Move Speed",
+              "value": 45
+            },
+            {
+              "passive": "Equilibrium",
+              "type": "% Health Regen",
+              "value": 50
+            },
+            {
+              "passive": "Magic Break",
+              "type": "Magic Penetration",
+              "value": 8
+            }
+          ],
+          "formula": "(25*25.0+45*16.0+50*3+8*46.66)/1200",
+          "amount": "155.69%"
+        }
+      ]
+    },
+    {
+      "name": "Boots of Dynamism",
+      "entryIndices": [
+        117
+      ],
+      "entries": [
+        {
+          "sourceIndex": 117,
+          "name": "Boots of Dynamism",
+          "category": "BOOTS",
+          "cost": 1200,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 15
+            },
+            {
+              "type": "Move Speed",
+              "value": 45
+            },
+            {
+              "passive": "Strike",
+              "type": "Armor Penetration",
+              "value": 10
+            }
+          ],
+          "formula": "(15*41.67+45*16.0+10*20.82)/1200",
+          "amount": "129.44%"
+        }
+      ]
+    },
+    {
+      "name": "Spectral Sickle (Adaptive - AD)",
+      "entryIndices": [
+        118
+      ],
+      "entries": [
+        {
+          "sourceIndex": 118,
+          "name": "Spectral Sickle (Adaptive - AD)",
+          "category": "SUPPORT ITEMS",
+          "cost": 500,
+          "stats": [
+            {
+              "passive": "Versatile",
+              "type": "Attack Damage",
+              "value": 10
+            }
+          ],
+          "formula": "(10*41.67)/500",
+          "amount": "83.34%"
+        }
+      ]
+    },
+    {
+      "name": "Spectral Sickle (Adaptive - AP)",
+      "entryIndices": [
+        119
+      ],
+      "entries": [
+        {
+          "sourceIndex": 119,
+          "name": "Spectral Sickle (Adaptive - AP)",
+          "category": "SUPPORT ITEMS",
+          "cost": 500,
+          "stats": [
+            {
+              "passive": "Versatile",
+              "type": "Ability Power",
+              "value": 20
+            }
+          ],
+          "formula": "(20*25.0)/500",
+          "amount": "100.00%"
+        }
+      ]
+    },
+    {
+      "name": "Relic Shield",
+      "entryIndices": [
+        120
+      ],
+      "entries": [
+        {
+          "sourceIndex": 120,
+          "name": "Relic Shield",
+          "category": "SUPPORT ITEMS",
+          "cost": 500,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 125
+            }
+          ],
+          "formula": "(125*3.33)/500",
+          "amount": "83.25%"
+        }
+      ]
+    },
+    {
+      "name": "Black Mist Scythe (Adaptive: AD)",
+      "entryIndices": [
+        121
+      ],
+      "entries": [
+        {
+          "sourceIndex": 121,
+          "name": "Black Mist Scythe (Adaptive: AD)",
+          "category": "SUPPORT ITEMS",
+          "cost": 500,
+          "stats": [
+            {
+              "type": "Ability Haste",
+              "value": 10
+            },
+            {
+              "passive": "Versatile",
+              "type": "Attack Damage",
+              "value": 14
+            }
+          ],
+          "formula": "(10*60.0+14*41.67)/500",
+          "amount": "236.68%"
+        }
+      ]
+    },
+    {
+      "name": "Black Mist Scythe (Adaptive: AP)",
+      "entryIndices": [
+        122
+      ],
+      "entries": [
+        {
+          "sourceIndex": 122,
+          "name": "Black Mist Scythe (Adaptive: AP)",
+          "category": "SUPPORT ITEMS",
+          "cost": 500,
+          "stats": [
+            {
+              "type": "Ability Haste",
+              "value": 10
+            },
+            {
+              "passive": "Versatile",
+              "type": "Ability Power",
+              "value": 28
+            }
+          ],
+          "formula": "(10*60.0+28*25.0)/500",
+          "amount": "260.00%"
+        }
+      ]
+    },
+    {
+      "name": "Black Mist Scythe (Adaptive: AD, Soulcast)",
+      "entryIndices": [
+        123
+      ],
+      "entries": [
+        {
+          "sourceIndex": 123,
+          "name": "Black Mist Scythe (Adaptive: AD, Soulcast)",
+          "category": "SUPPORT ITEMS",
+          "cost": 500,
+          "stats": [
+            {
+              "type": "Ability Haste",
+              "value": 10
+            },
+            {
+              "passive": "Versatile",
+              "type": "Attack Damage",
+              "value": 14
+            },
+            {
+              "passive": "Soulcast",
+              "type": "Max Health",
+              "value": 250
+            },
+            {
+              "passive": "Soulcast",
+              "type": "Attack Damage",
+              "value": 20
+            }
+          ],
+          "formula": "(10*60.0+14*41.67+250*3.33+20*41.67)/500",
+          "amount": "569.86%"
+        }
+      ]
+    },
+    {
+      "name": "Black Mist Scythe (Adaptive: AP, Soulcast)",
+      "entryIndices": [
+        124
+      ],
+      "entries": [
+        {
+          "sourceIndex": 124,
+          "name": "Black Mist Scythe (Adaptive: AP, Soulcast)",
+          "category": "SUPPORT ITEMS",
+          "cost": 500,
+          "stats": [
+            {
+              "type": "Ability Haste",
+              "value": 10
+            },
+            {
+              "passive": "Versatile",
+              "type": "Ability Power",
+              "value": 28
+            },
+            {
+              "passive": "Soulcast",
+              "type": "Max Health",
+              "value": 250
+            },
+            {
+              "passive": "Soulcast",
+              "type": "Ability Power",
+              "value": 40
+            }
+          ],
+          "formula": "(10*60.0+28*25.0+250*3.33+40*25.0)/500",
+          "amount": "626.50%"
+        }
+      ]
+    },
+    {
+      "name": "Bulwark of the Mountain",
+      "entryIndices": [
+        125,
+        126,
+        127
+      ],
+      "entries": [
+        {
+          "sourceIndex": 125,
+          "name": "Bulwark of the Mountain",
+          "category": "SUPPORT ITEMS",
+          "cost": 500,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 175
+            },
+            {
+              "type": "Ability Haste",
+              "value": 10
+            }
+          ],
+          "formula": "(175*3.33+10*60.0)/500",
+          "amount": "236.55%"
+        },
+        {
+          "sourceIndex": 126,
+          "name": "Bulwark of the Mountain (Adaptive: AD, Soulcast)",
+          "category": "SUPPORT ITEMS",
+          "cost": 500,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 175
+            },
+            {
+              "type": "Ability Haste",
+              "value": 10
+            },
+            {
+              "passive": "Soulcast",
+              "type": "Max Health",
+              "value": 250
+            },
+            {
+              "passive": "Soulcast",
+              "type": "Attack Damage",
+              "value": 20
+            }
+          ],
+          "formula": "(175*3.33+10*60.0+250*3.33+20*41.67)/500",
+          "amount": "569.73%"
+        },
+        {
+          "sourceIndex": 127,
+          "name": "Bulwark of the Mountain (Adaptive: AP, Soulcast)",
+          "category": "SUPPORT ITEMS",
+          "cost": 500,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 175
+            },
+            {
+              "type": "Ability Haste",
+              "value": 10
+            },
+            {
+              "passive": "Soulcast",
+              "type": "Max Health",
+              "value": 250
+            },
+            {
+              "passive": "Soulcast",
+              "type": "Ability Power",
+              "value": 40
+            }
+          ],
+          "formula": "(175*3.33+10*60.0+250*3.33+40*25.0)/500",
+          "amount": "603.05%"
+        }
+      ]
+    },
+    {
+      "name": "Vampiric Scepter",
+      "entryIndices": [
+        128
+      ],
+      "entries": [
+        {
+          "sourceIndex": 128,
+          "name": "Vampiric Scepter",
+          "category": "MID TIER ITEMS",
+          "cost": 1200,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 20
+            },
+            {
+              "type": "% Physical Vamp",
+              "value": 8
+            }
+          ],
+          "formula": "Base Item",
+          "amount": "100%"
+        }
+      ]
+    },
+    {
+      "name": "Zeal",
+      "entryIndices": [
+        129
+      ],
+      "entries": [
+        {
+          "sourceIndex": 129,
+          "name": "Zeal",
+          "category": "MID TIER ITEMS",
+          "cost": 1400,
+          "stats": [
+            {
+              "type": "% Critical Rate",
+              "value": 15
+            },
+            {
+              "type": "% Attack Speed",
+              "value": 15
+            },
+            {
+              "passive": "Fervor",
+              "type": "% Move Speed",
+              "value": 5
+            }
+          ],
+          "formula": "(15*50.0+15*33.33+5*15.0)/1400",
+          "amount": "94.64%"
+        }
+      ]
+    },
+    {
+      "name": "Kirchei's Shard",
+      "entryIndices": [
+        130
+      ],
+      "entries": [
+        {
+          "sourceIndex": 130,
+          "name": "Kirchei's Shard",
+          "category": "MID TIER ITEMS",
+          "cost": 900,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 15
+            }
+          ],
+          "formula": "(15*41.67)/900",
+          "amount": "69.45%"
+        }
+      ]
+    },
+    {
+      "name": "Serrated Dirk",
+      "entryIndices": [
+        131
+      ],
+      "entries": [
+        {
+          "sourceIndex": 131,
+          "name": "Serrated Dirk",
+          "category": "MID TIER ITEMS",
+          "cost": 1000,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 20
+            },
+            {
+              "passive": "Sharp",
+              "type": "Armor Penetration",
+              "value": 8
+            }
+          ],
+          "formula": "Base Item",
+          "amount": "100%"
+        }
+      ]
+    },
+    {
+      "name": "Recurve Bow",
+      "entryIndices": [
+        132
+      ],
+      "entries": [
+        {
+          "sourceIndex": 132,
+          "name": "Recurve Bow",
+          "category": "MID TIER ITEMS",
+          "cost": 1400,
+          "stats": [
+            {
+              "type": "% Attack Speed",
+              "value": 30
+            }
+          ],
+          "formula": "(30*33.33)/1400",
+          "amount": "71.42%"
+        }
+      ]
+    },
+    {
+      "name": "B. F. Sword",
+      "entryIndices": [
+        133
+      ],
+      "entries": [
+        {
+          "sourceIndex": 133,
+          "name": "B. F. Sword",
+          "category": "MID TIER ITEMS",
+          "cost": 1500,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 40
+            }
+          ],
+          "formula": "(40*41.67)/1500",
+          "amount": "111.12%"
+        }
+      ]
+    },
+    {
+      "name": "Cloak of Agility",
+      "entryIndices": [
+        134
+      ],
+      "entries": [
+        {
+          "sourceIndex": 134,
+          "name": "Cloak of Agility",
+          "category": "MID TIER ITEMS",
+          "cost": 1000,
+          "stats": [
+            {
+              "type": "% Critical Rate",
+              "value": 20
+            }
+          ],
+          "formula": "(20*50.0)/1000",
+          "amount": "100.00%"
+        }
+      ]
+    },
+    {
+      "name": "Last Whisper",
+      "entryIndices": [
+        135
+      ],
+      "entries": [
+        {
+          "sourceIndex": 135,
+          "name": "Last Whisper",
+          "category": "MID TIER ITEMS",
+          "cost": 800,
+          "stats": [
+            {
+              "passive": "Last Whisper",
+              "type": "% Armor Penetration",
+              "value": 12
+            }
+          ],
+          "formula": "Base Item",
+          "amount": "100%"
+        }
+      ]
+    },
+    {
+      "name": "Executioner's Calling",
+      "entryIndices": [
+        136
+      ],
+      "entries": [
+        {
+          "sourceIndex": 136,
+          "name": "Executioner's Calling",
+          "category": "MID TIER ITEMS",
+          "cost": 800,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 15
+            }
+          ],
+          "formula": "(15*41.67)/800",
+          "amount": "78.13%"
+        }
+      ]
+    },
+    {
+      "name": "Phage",
+      "entryIndices": [
+        137,
+        138,
+        139,
+        140,
+        141
+      ],
+      "entries": [
+        {
+          "sourceIndex": 137,
+          "name": "Phage",
+          "category": "MID TIER ITEMS",
+          "cost": 1000,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 150
+            },
+            {
+              "type": "Attack Damage",
+              "value": 15
+            }
+          ],
+          "formula": "(150*3.33+15*41.67)/1000",
+          "amount": "112.46%"
+        },
+        {
+          "sourceIndex": 138,
+          "name": "Phage (Rage - AA - Melee)",
+          "category": "MID TIER ITEMS",
+          "cost": 1000,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 150
+            },
+            {
+              "type": "Attack Damage",
+              "value": 15
+            },
+            {
+              "passive": "Rage",
+              "type": "Move Speed",
+              "value": 20
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(150*3.33+15*41.67+20*16.0)/1000",
+          "amount": "144.46%"
+        },
+        {
+          "sourceIndex": 139,
+          "name": "Phage (Rage - AA - Range)",
+          "category": "MID TIER ITEMS",
+          "cost": 1000,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 150
+            },
+            {
+              "type": "Attack Damage",
+              "value": 15
+            },
+            {
+              "passive": "Rage",
+              "type": "Move Speed",
+              "value": 10
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(150*3.33+15*41.67+10*16.0)/1000",
+          "amount": "128.46%"
+        },
+        {
+          "sourceIndex": 140,
+          "name": "Phage (Rage - Kill - Melee)",
+          "category": "MID TIER ITEMS",
+          "cost": 1000,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 150
+            },
+            {
+              "type": "Attack Damage",
+              "value": 15
+            },
+            {
+              "passive": "Rage",
+              "type": "Move Speed",
+              "value": 60
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(150*3.33+15*41.67+60*16.0)/1000",
+          "amount": "208.46%"
+        },
+        {
+          "sourceIndex": 141,
+          "name": "Phage (Rage - Kill - Range)",
+          "category": "MID TIER ITEMS",
+          "cost": 1000,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 150
+            },
+            {
+              "type": "Attack Damage",
+              "value": 15
+            },
+            {
+              "passive": "Rage",
+              "type": "Move Speed",
+              "value": 30
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(150*3.33+15*41.67+30*16.0)/1000",
+          "amount": "160.46%"
+        }
+      ]
+    },
+    {
+      "name": "Stinger",
+      "entryIndices": [
+        142
+      ],
+      "entries": [
+        {
+          "sourceIndex": 142,
+          "name": "Stinger",
+          "category": "MID TIER ITEMS",
+          "cost": 1200,
+          "stats": [
+            {
+              "type": "% Attack Speed",
+              "value": 30
+            },
+            {
+              "type": "Ability Haste",
+              "value": 10
+            }
+          ],
+          "formula": "(30*33.33+10*60.0)/1200",
+          "amount": "133.33%"
+        }
+      ]
+    },
+    {
+      "name": "Caulfield's Warhammer",
+      "entryIndices": [
+        143
+      ],
+      "entries": [
+        {
+          "sourceIndex": 143,
+          "name": "Caulfield's Warhammer",
+          "category": "MID TIER ITEMS",
+          "cost": 1200,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 25
+            },
+            {
+              "type": "Ability Haste",
+              "value": 10
+            }
+          ],
+          "formula": "(25*41.67+10*60.0)/1200",
+          "amount": "136.81%"
+        }
+      ]
+    },
+    {
+      "name": "Jaurim's Fist",
+      "entryIndices": [
+        144
+      ],
+      "entries": [
+        {
+          "sourceIndex": 144,
+          "name": "Jaurim's Fist",
+          "category": "MID TIER ITEMS",
+          "cost": 1100,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 175
+            },
+            {
+              "type": "Attack Damage",
+              "value": 15
+            }
+          ],
+          "formula": "(175*3.33+15*41.67)/1100",
+          "amount": "109.80%"
+        }
+      ]
+    },
+    {
+      "name": "Tear of the Goddess",
+      "entryIndices": [
+        145,
+        146
+      ],
+      "entries": [
+        {
+          "sourceIndex": 145,
+          "name": "Tear of the Goddess",
+          "category": "BASIC ITEMS",
+          "cost": 500,
+          "stats": [
+            {
+              "type": "Max Mana",
+              "value": 200
+            },
+            {
+              "type": "Ability Haste",
+              "value": 5
+            }
+          ],
+          "formula": "(200*0.22+5*60.0)/500",
+          "amount": "68.80%"
+        },
+        {
+          "sourceIndex": 146,
+          "name": "Tear of the Goddess (Mana Charge)",
+          "category": "BASIC ITEMS",
+          "cost": 500,
+          "stats": [
+            {
+              "type": "Max Mana",
+              "value": 200
+            },
+            {
+              "type": "Ability Haste",
+              "value": 5
+            },
+            {
+              "passive": "Mana Charge",
+              "type": "Max Mana",
+              "value": 700
+            }
+          ],
+          "formula": "Base Item",
+          "amount": "100%"
+        }
+      ]
+    },
+    {
+      "name": "Aether Wisp",
+      "entryIndices": [
+        147
+      ],
+      "entries": [
+        {
+          "sourceIndex": 147,
+          "name": "Aether Wisp",
+          "category": "MID TIER ITEMS",
+          "cost": 950,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 35
+            },
+            {
+              "passive": "Wisp",
+              "type": "% Move Speed",
+              "value": 5
+            }
+          ],
+          "formula": "Base Item",
+          "amount": "100%"
+        }
+      ]
+    },
+    {
+      "name": "Lost Chapter",
+      "entryIndices": [
+        148
+      ],
+      "entries": [
+        {
+          "sourceIndex": 148,
+          "name": "Lost Chapter",
+          "category": "MID TIER ITEMS",
+          "cost": 1200,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 35
+            },
+            {
+              "type": "Max Mana",
+              "value": 200
+            },
+            {
+              "type": "Ability Haste",
+              "value": 10
+            }
+          ],
+          "formula": "(35*25.0+200*0.22+10*60.0)/1200",
+          "amount": "126.58%"
+        }
+      ]
+    },
+    {
+      "name": "Fiendish Codex",
+      "entryIndices": [
+        149
+      ],
+      "entries": [
+        {
+          "sourceIndex": 149,
+          "name": "Fiendish Codex",
+          "category": "MID TIER ITEMS",
+          "cost": 900,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 25
+            },
+            {
+              "type": "Ability Haste",
+              "value": 10
+            }
+          ],
+          "formula": "(25*25.0+10*60.0)/900",
+          "amount": "136.11%"
+        }
+      ]
+    },
+    {
+      "name": "Blasting Wand",
+      "entryIndices": [
+        150
+      ],
+      "entries": [
+        {
+          "sourceIndex": 150,
+          "name": "Blasting Wand",
+          "category": "MID TIER ITEMS",
+          "cost": 900,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 40
+            }
+          ],
+          "formula": "(40*25.0)/900",
+          "amount": "111.11%"
+        }
+      ]
+    },
+    {
+      "name": "Needlessly Large Rod",
+      "entryIndices": [
+        151
+      ],
+      "entries": [
+        {
+          "sourceIndex": 151,
+          "name": "Needlessly Large Rod",
+          "category": "MID TIER ITEMS",
+          "cost": 1400,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 65
+            }
+          ],
+          "formula": "(65*25.0)/1400",
+          "amount": "116.07%"
+        }
+      ]
+    },
+    {
+      "name": "Haunting Guise",
+      "entryIndices": [
+        152
+      ],
+      "entries": [
+        {
+          "sourceIndex": 152,
+          "name": "Haunting Guise",
+          "category": "MID TIER ITEMS",
+          "cost": 1300,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 200
+            },
+            {
+              "type": "Ability Power",
+              "value": 30
+            }
+          ],
+          "formula": "(200*3.33+30*25.0)/1300",
+          "amount": "108.92%"
+        }
+      ]
+    },
+    {
+      "name": "Sheen",
+      "entryIndices": [
+        153
+      ],
+      "entries": [
+        {
+          "sourceIndex": 153,
+          "name": "Sheen",
+          "category": "MID TIER ITEMS",
+          "cost": 800,
+          "stats": [
+            {
+              "type": "Ability Haste",
+              "value": 10
+            }
+          ],
+          "formula": "(10*60.0)/800",
+          "amount": "75.00%"
+        }
+      ]
+    },
+    {
+      "name": "Oblivion Orb",
+      "entryIndices": [
+        154
+      ],
+      "entries": [
+        {
+          "sourceIndex": 154,
+          "name": "Oblivion Orb",
+          "category": "MID TIER ITEMS",
+          "cost": 800,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 35
+            }
+          ],
+          "formula": "(35*25.0)/800",
+          "amount": "109.38%"
+        }
+      ]
+    },
+    {
+      "name": "Bami's Cinder",
+      "entryIndices": [
+        155
+      ],
+      "entries": [
+        {
+          "sourceIndex": 155,
+          "name": "Bami's Cinder",
+          "category": "MID TIER ITEMS",
+          "cost": 1300,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 250
+            }
+          ],
+          "formula": "(250*3.33)/1300",
+          "amount": "64.04%"
+        }
+      ]
+    },
+    {
+      "name": "Spectre's Cowl",
+      "entryIndices": [
+        156
+      ],
+      "entries": [
+        {
+          "sourceIndex": 156,
+          "name": "Spectre's Cowl",
+          "category": "MID TIER ITEMS",
+          "cost": 1100,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 175
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 20
+            }
+          ],
+          "formula": "(175*3.33+20*25.0)/1100",
+          "amount": "98.43%"
+        }
+      ]
+    },
+    {
+      "name": "Kindlegem",
+      "entryIndices": [
+        157
+      ],
+      "entries": [
+        {
+          "sourceIndex": 157,
+          "name": "Kindlegem",
+          "category": "MID TIER ITEMS",
+          "cost": 1000,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 175
+            },
+            {
+              "type": "Ability Haste",
+              "value": 10
+            }
+          ],
+          "formula": "(175*3.33+10*60.0)/1000",
+          "amount": "118.27%"
+        }
+      ]
+    },
+    {
+      "name": "Giant's Belt",
+      "entryIndices": [
+        158
+      ],
+      "entries": [
+        {
+          "sourceIndex": 158,
+          "name": "Giant's Belt",
+          "category": "MID TIER ITEMS",
+          "cost": 1000,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 300
+            }
+          ],
+          "formula": "(300*3.33)/1000",
+          "amount": "99.90%"
+        }
+      ]
+    },
+    {
+      "name": "Warden's Mail",
+      "entryIndices": [
+        159
+      ],
+      "entries": [
+        {
+          "sourceIndex": 159,
+          "name": "Warden's Mail",
+          "category": "MID TIER ITEMS",
+          "cost": 1050,
+          "stats": [
+            {
+              "type": "Armor",
+              "value": 35
+            }
+          ],
+          "formula": "(35*25.0)/1050",
+          "amount": "83.33%"
+        }
+      ]
+    },
+    {
+      "name": "Catalyst of Aeons",
+      "entryIndices": [
+        160
+      ],
+      "entries": [
+        {
+          "sourceIndex": 160,
+          "name": "Catalyst of Aeons",
+          "category": "MID TIER ITEMS",
+          "cost": 1100,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 200
+            },
+            {
+              "type": "Max Mana",
+              "value": 300
+            }
+          ],
+          "formula": "(200*3.33+300*0.22)/1100",
+          "amount": "66.55%"
+        }
+      ]
+    },
+    {
+      "name": "Chain Vest",
+      "entryIndices": [
+        161
+      ],
+      "entries": [
+        {
+          "sourceIndex": 161,
+          "name": "Chain Vest",
+          "category": "MID TIER ITEMS",
+          "cost": 900,
+          "stats": [
+            {
+              "type": "Armor",
+              "value": 40
+            }
+          ],
+          "formula": "(40*25.0)/900",
+          "amount": "111.11%"
+        }
+      ]
+    },
+    {
+      "name": "Bramble Vest",
+      "entryIndices": [
+        162
+      ],
+      "entries": [
+        {
+          "sourceIndex": 162,
+          "name": "Bramble Vest",
+          "category": "MID TIER ITEMS",
+          "cost": 1000,
+          "stats": [
+            {
+              "type": "Armor",
+              "value": 30
+            }
+          ],
+          "formula": "(30*25.0)/1000",
+          "amount": "75.00%"
+        }
+      ]
+    },
+    {
+      "name": "Hexdrinker",
+      "entryIndices": [
+        163
+      ],
+      "entries": [
+        {
+          "sourceIndex": 163,
+          "name": "Hexdrinker",
+          "category": "MID TIER ITEMS",
+          "cost": 1200,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 20
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 20
+            }
+          ],
+          "formula": "(20*41.67+20*25.0)/1200",
+          "amount": "111.12%"
+        }
+      ]
+    },
+    {
+      "name": "Negatron Cloak",
+      "entryIndices": [
+        164
+      ],
+      "entries": [
+        {
+          "sourceIndex": 164,
+          "name": "Negatron Cloak",
+          "category": "MID TIER ITEMS",
+          "cost": 900,
+          "stats": [
+            {
+              "type": "Magic Resistance",
+              "value": 40
+            }
+          ],
+          "formula": "(40*25.0)/900",
+          "amount": "111.11%"
+        }
+      ]
+    },
+    {
+      "name": "Glacial Shroud",
+      "entryIndices": [
+        165
+      ],
+      "entries": [
+        {
+          "sourceIndex": 165,
+          "name": "Glacial Shroud",
+          "category": "MID TIER ITEMS",
+          "cost": 1000,
+          "stats": [
+            {
+              "type": "Armor",
+              "value": 20
+            },
+            {
+              "type": "Max Mana",
+              "value": 150
+            },
+            {
+              "type": "Ability Haste",
+              "value": 10
+            }
+          ],
+          "formula": "(20*25.0+150*0.22+10*60.0)/1000",
+          "amount": "113.30%"
+        }
+      ]
+    },
+    {
+      "name": "Winged Moonplate",
+      "entryIndices": [
+        166
+      ],
+      "entries": [
+        {
+          "sourceIndex": 166,
+          "name": "Winged Moonplate",
+          "category": "MID TIER ITEMS",
+          "cost": 900,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 150
+            },
+            {
+              "passive": "Flight",
+              "type": "% Move Speed",
+              "value": 5
+            }
+          ],
+          "formula": "(150*3.33+5*15.0)/900",
+          "amount": "63.83%"
+        }
+      ]
+    },
+    {
+      "name": "Seeker's Armguard",
+      "entryIndices": [
+        167
+      ],
+      "entries": [
+        {
+          "sourceIndex": 167,
+          "name": "Seeker's Armguard",
+          "category": "MID TIER ITEMS, ACTIVE ITEMS",
+          "cost": 1200,
+          "stats": [
+            {
+              "type": "Armor",
+              "value": 30
+            },
+            {
+              "type": "Ability Power",
+              "value": 25
+            }
+          ],
+          "formula": "(30*25.0+25*25.0)/1200",
+          "amount": "114.58%"
+        }
+      ]
+    },
+    {
+      "name": "Nashor's Talon (Adaptive: AD)",
+      "entryIndices": [
+        168
+      ],
+      "entries": [
+        {
+          "sourceIndex": 168,
+          "name": "Nashor's Talon (Adaptive: AD)",
+          "category": "MID TIER ITEMS",
+          "cost": 800,
+          "stats": [
+            {
+              "passive": "Magic Needle",
+              "type": "Attack Damage",
+              "value": 15
+            }
+          ],
+          "formula": "(15*41.67)/800",
+          "amount": "78.13%"
+        }
+      ]
+    },
+    {
+      "name": "Nashor's Talon (Adaptive: AP)",
+      "entryIndices": [
+        169
+      ],
+      "entries": [
+        {
+          "sourceIndex": 169,
+          "name": "Nashor's Talon (Adaptive: AP)",
+          "category": "MID TIER ITEMS",
+          "cost": 800,
+          "stats": [
+            {
+              "passive": "Magic Needle",
+              "type": "Ability Power",
+              "value": 30
+            }
+          ],
+          "formula": "(30*25.0)/800",
+          "amount": "93.75%"
+        }
+      ]
+    },
+    {
+      "name": "Noonquiver",
+      "entryIndices": [
+        170
+      ],
+      "entries": [
+        {
+          "sourceIndex": 170,
+          "name": "Noonquiver",
+          "category": "MID TIER ITEMS",
+          "cost": 1350,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 25
+            },
+            {
+              "type": "% Attack Speed",
+              "value": 15
+            }
+          ],
+          "formula": "(25*41.67+15*33.33)/1350",
+          "amount": "114.20%"
+        }
+      ]
+    },
+    {
+      "name": "Hextech Alternator",
+      "entryIndices": [
+        171
+      ],
+      "entries": [
+        {
+          "sourceIndex": 171,
+          "name": "Hextech Alternator",
+          "category": "MID TIER ITEMS",
+          "cost": 1100,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 45
+            }
+          ],
+          "formula": "(45*25.0)/1100",
+          "amount": "102.27%"
+        }
+      ]
+    },
+    {
+      "name": "Mejai's Soulstealer",
+      "entryIndices": [
+        172,
+        173
+      ],
+      "entries": [
+        {
+          "sourceIndex": 172,
+          "name": "Mejai's Soulstealer",
+          "category": "MID TIER ITEMS",
+          "cost": 1800,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 70
+            },
+            {
+              "type": "Ability Power",
+              "value": 25
+            },
+            {
+              "type": "% Magic Penetration",
+              "value": 7
+            }
+          ],
+          "formula": "(70*3.33+25*25.0+7*50.0)/1800",
+          "amount": "67.12%"
+        },
+        {
+          "sourceIndex": 173,
+          "name": "Mejai's Soulstealer (Fear)",
+          "category": "MID TIER ITEMS",
+          "cost": 1800,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 70
+            },
+            {
+              "type": "Ability Power",
+              "value": 25
+            },
+            {
+              "type": "% Magic Penetration",
+              "value": 7
+            },
+            {
+              "passive": "Fear",
+              "type": "Ability Power",
+              "value": 150
+            },
+            {
+              "passive": "Fear",
+              "type": "% Move Speed",
+              "value": 10
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(70*3.33+25*25.0+7*50.0+150*25.0+10*15.0)/1800",
+          "amount": "283.78%"
+        }
+      ]
+    },
+    {
+      "name": "Surging Scales",
+      "entryIndices": [
+        174
+      ],
+      "entries": [
+        {
+          "sourceIndex": 174,
+          "name": "Surging Scales",
+          "category": "MID TIER ITEMS",
+          "cost": 1300,
+          "stats": [
+            {
+              "type": "Armor",
+              "value": 40
+            }
+          ],
+          "formula": "(40*25.0)/1300",
+          "amount": "76.92%"
+        }
+      ]
+    },
+    {
+      "name": "Boots of Speed",
+      "entryIndices": [
+        175
+      ],
+      "entries": [
+        {
+          "sourceIndex": 175,
+          "name": "Boots of Speed",
+          "category": "BASIC ITEMS",
+          "cost": 400,
+          "stats": [
+            {
+              "type": "Move Speed",
+              "value": 25
+            }
+          ],
+          "formula": "Base Item",
+          "amount": "100%"
+        }
+      ]
+    },
+    {
+      "name": "Long Sword",
+      "entryIndices": [
+        176
+      ],
+      "entries": [
+        {
+          "sourceIndex": 176,
+          "name": "Long Sword",
+          "category": "BASIC ITEMS",
+          "cost": 500,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 12
+            }
+          ],
+          "formula": "Base Item",
+          "amount": "100%"
+        }
+      ]
+    },
+    {
+      "name": "Brawler's Gloves",
+      "entryIndices": [
+        177
+      ],
+      "entries": [
+        {
+          "sourceIndex": 177,
+          "name": "Brawler's Gloves",
+          "category": "BASIC ITEMS",
+          "cost": 500,
+          "stats": [
+            {
+              "type": "% Critical Rate",
+              "value": 10
+            }
+          ],
+          "formula": "Base Item",
+          "amount": "100%"
+        }
+      ]
+    },
+    {
+      "name": "Dagger",
+      "entryIndices": [
+        178
+      ],
+      "entries": [
+        {
+          "sourceIndex": 178,
+          "name": "Dagger",
+          "category": "BASIC ITEMS",
+          "cost": 500,
+          "stats": [
+            {
+              "type": "% Attack Speed",
+              "value": 15
+            }
+          ],
+          "formula": "Base Item",
+          "amount": "100%"
+        }
+      ]
+    },
+    {
+      "name": "Shimmering Spark",
+      "entryIndices": [
+        179
+      ],
+      "entries": [
+        {
+          "sourceIndex": 179,
+          "name": "Shimmering Spark",
+          "category": "BASIC ITEMS",
+          "cost": 500,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 50
+            }
+          ],
+          "formula": "(50*3.33)/500",
+          "amount": "33.30%"
+        }
+      ]
+    },
+    {
+      "name": "Amplifying Tome",
+      "entryIndices": [
+        180
+      ],
+      "entries": [
+        {
+          "sourceIndex": 180,
+          "name": "Amplifying Tome",
+          "category": "BASIC ITEMS",
+          "cost": 500,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 20
+            }
+          ],
+          "formula": "Base Item",
+          "amount": "100%"
+        }
+      ]
+    },
+    {
+      "name": "Ruby Crystal",
+      "entryIndices": [
+        181
+      ],
+      "entries": [
+        {
+          "sourceIndex": 181,
+          "name": "Ruby Crystal",
+          "category": "BASIC ITEMS",
+          "cost": 500,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 150
+            }
+          ],
+          "formula": "Base Item",
+          "amount": "100%"
+        }
+      ]
+    },
+    {
+      "name": "Cloth Armor",
+      "entryIndices": [
+        182
+      ],
+      "entries": [
+        {
+          "sourceIndex": 182,
+          "name": "Cloth Armor",
+          "category": "BASIC ITEMS",
+          "cost": 500,
+          "stats": [
+            {
+              "type": "Armor",
+              "value": 20
+            }
+          ],
+          "formula": "Base Item",
+          "amount": "100%"
+        }
+      ]
+    },
+    {
+      "name": "Null-Magic Mantle",
+      "entryIndices": [
+        183
+      ],
+      "entries": [
+        {
+          "sourceIndex": 183,
+          "name": "Null-Magic Mantle",
+          "category": "BASIC ITEMS",
+          "cost": 500,
+          "stats": [
+            {
+              "type": "Magic Resistance",
+              "value": 20
+            }
+          ],
+          "formula": "Base Item",
+          "amount": "100%"
+        }
+      ]
+    },
+    {
+      "name": "Ring of Revelation",
+      "entryIndices": [
+        184
+      ],
+      "entries": [
+        {
+          "sourceIndex": 184,
+          "name": "Ring of Revelation",
+          "category": "BASIC ITEMS",
+          "cost": 300,
+          "stats": [
+            {
+              "type": "Ability Haste",
+              "value": 5
+            }
+          ],
+          "formula": "Base Item",
+          "amount": "100%"
+        }
+      ]
+    },
+    {
+      "name": "Forbidden Idol",
+      "entryIndices": [
+        185
+      ],
+      "entries": [
+        {
+          "sourceIndex": 185,
+          "name": "Forbidden Idol",
+          "category": "MID TIER ITEMS",
+          "cost": 900,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 100
+            },
+            {
+              "type": "Ability Haste",
+              "value": 5
+            },
+            {
+              "type": "% Heal and shield strength",
+              "value": 4
+            },
+            {
+              "type": "% Mana Regeneration",
+              "value": 25
+            }
+          ],
+          "formula": "Base Item",
+          "amount": "100%"
+        }
+      ]
+    },
+    {
+      "name": "Kaenic Rookern",
+      "entryIndices": [
+        186
+      ],
+      "entries": [
+        {
+          "sourceIndex": 186,
+          "name": "Kaenic Rookern",
+          "category": "DEFENSE ITEMS",
+          "cost": 2800,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 350
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 75
+            },
+            {
+              "type": "% Health Regen",
+              "value": 100
+            }
+          ],
+          "formula": "(350*3.33+75*25.0+100*3)/2800",
+          "amount": "119.30%"
+        }
+      ]
+    },
+    {
+      "name": "Yordle Trap",
+      "entryIndices": [
+        187,
+        188
+      ],
+      "entries": [
+        {
+          "sourceIndex": 187,
+          "name": "Yordle Trap",
+          "category": "DEFENSE ITEMS, SUPPORT ITEMS",
+          "cost": 2600,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 350
+            },
+            {
+              "type": "Armor",
+              "value": 40
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            }
+          ],
+          "formula": "(350*3.33+40*25.0+15*60.0)/2600",
+          "amount": "117.90%"
+        },
+        {
+          "sourceIndex": 188,
+          "name": "Yordle Trap (Catcher)",
+          "category": "DEFENSE ITEMS, SUPPORT ITEMS",
+          "cost": 2600,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 350
+            },
+            {
+              "type": "Armor",
+              "value": 40
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            },
+            {
+              "passive": "Catcher",
+              "type": "% Move Speed",
+              "value": 10
+            }
+          ],
+          "formula": "(350*3.33+40*25.0+15*60.0+10*15.0)/2600",
+          "amount": "123.67%"
+        }
+      ]
+    },
+    {
+      "name": "Guinsoo's Rageblade (Adaptive: AD)",
+      "entryIndices": [
+        189
+      ],
+      "entries": [
+        {
+          "sourceIndex": 189,
+          "name": "Guinsoo's Rageblade (Adaptive: AD)",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3100,
+          "stats": [
+            {
+              "type": "% Attack Speed",
+              "value": 30
+            },
+            {
+              "passive": "Surge",
+              "type": "% Move Speed",
+              "value": 5
+            },
+            {
+              "passive": "Chaos",
+              "type": "Attack Damage",
+              "value": 25
+            }
+          ],
+          "formula": "(30*33.33+5*15.0+25*41.67)/3100",
+          "amount": "68.28%"
+        }
+      ]
+    },
+    {
+      "name": "Guinsoo's Rageblade (Adaptive: AD, Seething Strike)",
+      "entryIndices": [
+        190
+      ],
+      "entries": [
+        {
+          "sourceIndex": 190,
+          "name": "Guinsoo's Rageblade (Adaptive: AD, Seething Strike)",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3100,
+          "stats": [
+            {
+              "type": "% Attack Speed",
+              "value": 30
+            },
+            {
+              "passive": "Surge",
+              "type": "% Move Speed",
+              "value": 5
+            },
+            {
+              "passive": "Chaos",
+              "type": "Attack Damage",
+              "value": 25
+            },
+            {
+              "passive": "Seething Strike",
+              "type": "% Attack Speed",
+              "value": 32
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(30*33.33+5*15.0+25*41.67+32*33.33)/3100",
+          "amount": "102.68%"
+        }
+      ]
+    },
+    {
+      "name": "Abyssal Mask",
+      "entryIndices": [
+        191,
+        192
+      ],
+      "entries": [
+        {
+          "sourceIndex": 191,
+          "name": "Abyssal Mask",
+          "category": "DEFENSE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 400
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 55
+            },
+            {
+              "type": "Ability Haste",
+              "value": 10
+            }
+          ],
+          "formula": "(400*3.33+55*25.0+10*60.0)/3000",
+          "amount": "110.23%"
+        },
+        {
+          "sourceIndex": 192,
+          "name": "Abyssal Mask (Unmake)",
+          "category": "DEFENSE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 400
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 55
+            },
+            {
+              "type": "Ability Haste",
+              "value": 10
+            },
+            {
+              "passive": "Unmake",
+              "type": "Magic Resistance",
+              "value": 45
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(400*3.33+55*25.0+10*60.0+45*25.0)/3000",
+          "amount": "147.73%"
+        }
+      ]
+    },
+    {
+      "name": "Hollow Radiance",
+      "entryIndices": [
+        193
+      ],
+      "entries": [
+        {
+          "sourceIndex": 193,
+          "name": "Hollow Radiance",
+          "category": "DEFENSE ITEMS",
+          "cost": 2800,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 400
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 40
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            }
+          ],
+          "formula": "(400*3.33+40*25.0+15*60.0)/2800",
+          "amount": "115.43%"
+        }
+      ]
+    },
+    {
+      "name": "Kraken Slayer",
+      "entryIndices": [
+        194
+      ],
+      "entries": [
+        {
+          "sourceIndex": 194,
+          "name": "Kraken Slayer",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 2800,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 40
+            },
+            {
+              "type": "% Attack Speed",
+              "value": 30
+            },
+            {
+              "passive": "Cloud Stride",
+              "type": "% Move Speed",
+              "value": 5
+            }
+          ],
+          "formula": "(40*41.67+30*33.33+5*15.0)/2800",
+          "amount": "97.92%"
+        }
+      ]
+    },
+    {
+      "name": "Knight's Vow",
+      "entryIndices": [
+        195
+      ],
+      "entries": [
+        {
+          "sourceIndex": 195,
+          "name": "Knight's Vow",
+          "category": "SUPPORT ITEMS",
+          "cost": 2600,
+          "stats": [
+            {
+              "type": "Armor",
+              "value": 40
+            },
+            {
+              "type": "Max Health",
+              "value": 400
+            },
+            {
+              "type": "Ability Haste",
+              "value": 10
+            }
+          ],
+          "formula": "(40*25.0+400*3.33+10*60.0)/2600",
+          "amount": "112.77%"
+        }
+      ]
+    },
+    {
+      "name": "Overlord's Bloodmail",
+      "entryIndices": [
+        196
+      ],
+      "entries": [
+        {
+          "sourceIndex": 196,
+          "name": "Overlord's Bloodmail",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3200,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 30
+            },
+            {
+              "type": "Max Health",
+              "value": 450
+            },
+            {
+              "formula": "450*0.025",
+              "passive": "Tyranny",
+              "ratio": 0.025,
+              "ref_type": "Max Health",
+              "type": "Attack Damage",
+              "value": 11.25
+            }
+          ],
+          "formula": "(30*41.67+450*3.33+11.25*41.67)/3200",
+          "amount": "100.54%"
+        }
+      ]
+    },
+    {
+      "name": "Unending Despair",
+      "entryIndices": [
+        197
+      ],
+      "entries": [
+        {
+          "sourceIndex": 197,
+          "name": "Unending Despair",
+          "category": "DEFENSE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 200
+            },
+            {
+              "type": "Armor",
+              "value": 45
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 45
+            }
+          ],
+          "formula": "(200*3.33+45*25.0+45*25.0)/3000",
+          "amount": "97.20%"
+        }
+      ]
+    },
+    {
+      "name": "Experimental Hexplate",
+      "entryIndices": [
+        198,
+        199,
+        200,
+        201
+      ],
+      "entries": [
+        {
+          "sourceIndex": 198,
+          "name": "Experimental Hexplate",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 400
+            },
+            {
+              "type": "Attack Damage",
+              "value": 35
+            },
+            {
+              "type": "% Attack Speed",
+              "value": 20
+            }
+          ],
+          "formula": "(400*3.33+35*41.67+20*33.33)/3000",
+          "amount": "115.23%"
+        },
+        {
+          "sourceIndex": 199,
+          "name": "Experimental Hexplate (Hexcharged)",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 400
+            },
+            {
+              "type": "Attack Damage",
+              "value": 35
+            },
+            {
+              "type": "% Attack Speed",
+              "value": 20
+            },
+            {
+              "passive": "Hexcharged",
+              "type": "Ability Haste",
+              "value": 20
+            }
+          ],
+          "formula": "(400*3.33+35*41.67+20*33.33+20*60.0)/3000",
+          "amount": "155.23%"
+        },
+        {
+          "sourceIndex": 200,
+          "name": "Experimental Hexplate (Hexcharged, Overdrive - Melee)",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 400
+            },
+            {
+              "type": "Attack Damage",
+              "value": 35
+            },
+            {
+              "type": "% Attack Speed",
+              "value": 20
+            },
+            {
+              "passive": "Hexcharged",
+              "type": "Ability Haste",
+              "value": 20
+            },
+            {
+              "passive": "Overdrive",
+              "type": "% Attack Speed",
+              "value": 40
+            },
+            {
+              "passive": "Overdrive",
+              "type": "% Move Speed",
+              "value": 20
+            }
+          ],
+          "formula": "(400*3.33+35*41.67+20*33.33+20*60.0+40*33.33+20*15.0)/3000",
+          "amount": "209.67%"
+        },
+        {
+          "sourceIndex": 201,
+          "name": "Experimental Hexplate (Hexcharged, Overdrive - Range)",
+          "category": "PHYSICAL DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 400
+            },
+            {
+              "type": "Attack Damage",
+              "value": 35
+            },
+            {
+              "type": "% Attack Speed",
+              "value": 20
+            },
+            {
+              "passive": "Hexcharged",
+              "type": "Ability Haste",
+              "value": 20
+            },
+            {
+              "passive": "Overdrive",
+              "type": "% Attack Speed",
+              "value": 20
+            },
+            {
+              "passive": "Overdrive",
+              "type": "% Move Speed",
+              "value": 10
+            }
+          ],
+          "formula": "(400*3.33+35*41.67+20*33.33+20*60.0+20*33.33+10*15.0)/3000",
+          "amount": "182.45%"
+        }
+      ]
+    },
+    {
+      "name": "Stridebreaker",
+      "entryIndices": [
+        202,
+        203
+      ],
+      "entries": [
+        {
+          "sourceIndex": 202,
+          "name": "Stridebreaker",
+          "category": "PHYSICAL DAMAGE ITEMS, ACTIVE ITEMS",
+          "cost": 3100,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 40
+            },
+            {
+              "type": "Max Health",
+              "value": 400
+            },
+            {
+              "type": "% Attack Speed",
+              "value": 15
+            }
+          ],
+          "formula": "(40*41.67+400*3.33+15*33.33)/3100",
+          "amount": "112.86%"
+        },
+        {
+          "sourceIndex": 203,
+          "name": "Stridebreaker (Stride)",
+          "category": "PHYSICAL DAMAGE ITEMS, ACTIVE ITEMS",
+          "cost": 3100,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 40
+            },
+            {
+              "type": "Max Health",
+              "value": 400
+            },
+            {
+              "type": "% Attack Speed",
+              "value": 15
+            },
+            {
+              "passive": "Stride",
+              "type": "Move Speed",
+              "value": 20
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(40*41.67+400*3.33+15*33.33+20*16.0)/3100",
+          "amount": "123.19%"
+        }
+      ]
+    },
+    {
+      "name": "Goredrinker",
+      "entryIndices": [
+        204
+      ],
+      "entries": [
+        {
+          "sourceIndex": 204,
+          "name": "Goredrinker",
+          "category": "PHYSICAL DAMAGE ITEMS, ACTIVE ITEMS",
+          "cost": 3100,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 40
+            },
+            {
+              "type": "Max Health",
+              "value": 350
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            },
+            {
+              "type": "% Omnivamp",
+              "value": 8
+            }
+          ],
+          "formula": "(40*41.67+350*3.33+15*60.0+8*46)/3100",
+          "amount": "132.27%"
+        }
+      ]
+    },
+    {
+      "name": "Quicksilver Sash",
+      "entryIndices": [
+        205
+      ],
+      "entries": [
+        {
+          "sourceIndex": 205,
+          "name": "Quicksilver Sash",
+          "category": "PHYSICAL DAMAGE ITEMS, ACTIVE ITEMS",
+          "cost": 1100,
+          "stats": [
+            {
+              "type": "Magic Resistance",
+              "value": 30
+            }
+          ],
+          "formula": "(30*25.0)/1100",
+          "amount": "68.18%"
+        }
+      ]
+    },
+    {
+      "name": "Mercurial Scimitar",
+      "entryIndices": [
+        206
+      ],
+      "entries": [
+        {
+          "sourceIndex": 206,
+          "name": "Mercurial Scimitar",
+          "category": "PHYSICAL DAMAGE ITEMS, ACTIVE ITEMS",
+          "cost": 3100,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 45
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 40
+            },
+            {
+              "type": "% Physical Vamp",
+              "value": 10
+            }
+          ],
+          "formula": "(45*41.67+40*25.0+10*45.82)/3100",
+          "amount": "107.53%"
+        }
+      ]
+    },
+    {
+      "name": "Galeforce",
+      "entryIndices": [
+        207
+      ],
+      "entries": [
+        {
+          "sourceIndex": 207,
+          "name": "Galeforce",
+          "category": "PHYSICAL DAMAGE ITEMS, ACTIVE ITEMS",
+          "cost": 3100,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 50
+            },
+            {
+              "type": "% Attack Speed",
+              "value": 15
+            },
+            {
+              "type": "% Critical Rate",
+              "value": 25
+            },
+            {
+              "type": "% Move Speed",
+              "value": 5
+            }
+          ],
+          "formula": "(50*41.67+15*33.33+25*50.0+5*15.0)/3100",
+          "amount": "126.08%"
+        }
+      ]
+    },
+    {
+      "name": "Hextech Rocketbelt",
+      "entryIndices": [
+        208
+      ],
+      "entries": [
+        {
+          "sourceIndex": 208,
+          "name": "Hextech Rocketbelt",
+          "category": "MAGIC DAMAGE ITEMS, ACTIVE ITEMS",
+          "cost": 2700,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 70
+            },
+            {
+              "type": "Max Health",
+              "value": 250
+            },
+            {
+              "type": "Ability Haste",
+              "value": 20
+            }
+          ],
+          "formula": "(70*25.0+250*3.33+20*60.0)/2700",
+          "amount": "140.09%"
+        }
+      ]
+    },
+    {
+      "name": "Zhonya's Hourglass",
+      "entryIndices": [
+        209
+      ],
+      "entries": [
+        {
+          "sourceIndex": 209,
+          "name": "Zhonya's Hourglass",
+          "category": "MAGIC DAMAGE ITEMS, ACTIVE ITEMS",
+          "cost": 3300,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 110
+            },
+            {
+              "type": "Armor",
+              "value": 40
+            }
+          ],
+          "formula": "(110*25.0+40*25.0)/3300",
+          "amount": "113.64%"
+        }
+      ]
+    },
+    {
+      "name": "Gargoyle Stoneplate",
+      "entryIndices": [
+        210
+      ],
+      "entries": [
+        {
+          "sourceIndex": 210,
+          "name": "Gargoyle Stoneplate",
+          "category": "DEFENSE ITEMS, ACTIVE ITEMS",
+          "cost": 2900,
+          "stats": [
+            {
+              "type": "Armor",
+              "value": 45
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 45
+            },
+            {
+              "type": "Max Health",
+              "value": 200
+            },
+            {
+              "type": "Ability Haste",
+              "value": 10
+            }
+          ],
+          "formula": "(45*25.0+45*25.0+200*3.33+10*60.0)/2900",
+          "amount": "121.24%"
+        }
+      ]
+    },
+    {
+      "name": "Locket of the Iron Solari",
+      "entryIndices": [
+        211
+      ],
+      "entries": [
+        {
+          "sourceIndex": 211,
+          "name": "Locket of the Iron Solari",
+          "category": "SUPPORT ITEMS, ACTIVE ITEMS",
+          "cost": 2600,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 200
+            },
+            {
+              "type": "Armor",
+              "value": 30
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 30
+            },
+            {
+              "type": "Ability Haste",
+              "value": 10
+            }
+          ],
+          "formula": "(200*3.33+30*25.0+30*25.0+10*60.0)/2600",
+          "amount": "106.38%"
+        }
+      ]
+    },
+    {
+      "name": "Shurelya's Battlesong",
+      "entryIndices": [
+        212
+      ],
+      "entries": [
+        {
+          "sourceIndex": 212,
+          "name": "Shurelya's Battlesong",
+          "category": "SUPPORT ITEMS, ACTIVE ITEMS",
+          "cost": 2600,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 55
+            },
+            {
+              "type": "Ability Haste",
+              "value": 20
+            },
+            {
+              "type": "% Mana Regeneration",
+              "value": 50
+            },
+            {
+              "type": "% Move Speed",
+              "value": 5
+            }
+          ],
+          "formula": "(55*25.0+20*60.0+50*4+5*15.0)/2600",
+          "amount": "109.62%"
+        }
+      ]
+    },
+    {
+      "name": "Mikael's Blessing",
+      "entryIndices": [
+        213
+      ],
+      "entries": [
+        {
+          "sourceIndex": 213,
+          "name": "Mikael's Blessing",
+          "category": "SUPPORT ITEMS, ACTIVE ITEMS",
+          "cost": 2500,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 300
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            },
+            {
+              "type": "% Heal and shield strength",
+              "value": 6
+            },
+            {
+              "type": "% Mana Regeneration",
+              "value": 50
+            }
+          ],
+          "formula": "(300*3.33+15*60.0+6*41.75+50*4)/2500",
+          "amount": "93.98%"
+        }
+      ]
+    },
+    {
+      "name": "Dusk and Dawn",
+      "entryIndices": [
+        214
+      ],
+      "entries": [
+        {
+          "sourceIndex": 214,
+          "name": "Dusk and Dawn",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 3100,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 70
+            },
+            {
+              "type": "Max Health",
+              "value": 350
+            },
+            {
+              "type": "Ability Haste",
+              "value": 20
+            },
+            {
+              "type": "% Attack Speed",
+              "value": 25
+            }
+          ],
+          "formula": "(70*25.0+350*3.33+20*60.0+25*33.33)/3100",
+          "amount": "159.64%"
+        }
+      ]
+    },
+    {
+      "name": "Blackfire Torch",
+      "entryIndices": [
+        215
+      ],
+      "entries": [
+        {
+          "sourceIndex": 215,
+          "name": "Blackfire Torch",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 2800,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 80
+            },
+            {
+              "type": "Max Mana",
+              "value": 500
+            },
+            {
+              "type": "Ability Haste",
+              "value": 20
+            }
+          ],
+          "formula": "(80*25.0+500*0.22+20*60.0)/2800",
+          "amount": "118.21%"
+        }
+      ]
+    },
+    {
+      "name": "Void Amethyst",
+      "entryIndices": [
+        216
+      ],
+      "entries": [
+        {
+          "sourceIndex": 216,
+          "name": "Void Amethyst",
+          "category": "MID TIER ITEMS",
+          "cost": 1000,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 20
+            },
+            {
+              "type": "% Magic Penetration",
+              "value": 10
+            }
+          ],
+          "formula": "Base Item",
+          "amount": "100%"
+        }
+      ]
+    },
+    {
+      "name": "Void Staff",
+      "entryIndices": [
+        217
+      ],
+      "entries": [
+        {
+          "sourceIndex": 217,
+          "name": "Void Staff",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 95
+            },
+            {
+              "type": "% Magic Penetration",
+              "value": 40
+            }
+          ],
+          "formula": "(95*25.0+40*50.0)/3000",
+          "amount": "145.83%"
+        }
+      ]
+    },
+    {
+      "name": "Cryptbloom",
+      "entryIndices": [
+        218
+      ],
+      "entries": [
+        {
+          "sourceIndex": 218,
+          "name": "Cryptbloom",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 75
+            },
+            {
+              "type": "% Magic Penetration",
+              "value": 30
+            },
+            {
+              "type": "Ability Haste",
+              "value": 20
+            }
+          ],
+          "formula": "(75*25.0+30*50.0+20*60.0)/3000",
+          "amount": "152.50%"
+        }
+      ]
+    },
+    {
+      "name": "Bloodletter's Curse",
+      "entryIndices": [
+        219
+      ],
+      "entries": [
+        {
+          "sourceIndex": 219,
+          "name": "Bloodletter's Curse",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 2900,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 65
+            },
+            {
+              "type": "Max Health",
+              "value": 350
+            },
+            {
+              "type": "Ability Haste",
+              "value": 15
+            }
+          ],
+          "formula": "(65*25.0+350*3.33+15*60.0)/2900",
+          "amount": "127.26%"
+        }
+      ]
+    },
+    {
+      "name": "Verdant Barrier",
+      "entryIndices": [
+        220
+      ],
+      "entries": [
+        {
+          "sourceIndex": 220,
+          "name": "Verdant Barrier",
+          "category": "MID TIER ITEMS",
+          "cost": 1600,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 40
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 25
+            }
+          ],
+          "formula": "(40*25.0+25*25.0)/1600",
+          "amount": "101.56%"
+        }
+      ]
+    },
+    {
+      "name": "Banshee's Veil",
+      "entryIndices": [
+        221
+      ],
+      "entries": [
+        {
+          "sourceIndex": 221,
+          "name": "Banshee's Veil",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 3000,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 105
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 40
+            }
+          ],
+          "formula": "(105*25.0+40*25.0)/3000",
+          "amount": "120.83%"
+        }
+      ]
+    },
+    {
+      "name": "Stormsurge",
+      "entryIndices": [
+        222
+      ],
+      "entries": [
+        {
+          "sourceIndex": 222,
+          "name": "Stormsurge",
+          "category": "MAGIC DAMAGE ITEMS",
+          "cost": 2900,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 90
+            },
+            {
+              "type": "Magic Penetration",
+              "value": 15
+            },
+            {
+              "type": "% Move Speed",
+              "value": 6
+            }
+          ],
+          "formula": "(90*25.0+15*46.66+6*15.0)/2900",
+          "amount": "104.82%"
+        }
+      ]
+    },
+    {
+      "name": "Fated Ashes",
+      "entryIndices": [
+        223
+      ],
+      "entries": [
+        {
+          "sourceIndex": 223,
+          "name": "Fated Ashes",
+          "category": "MID TIER ITEMS",
+          "cost": 900,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 40
+            }
+          ],
+          "formula": "(40*25.0)/900",
+          "amount": "111.11%"
+        }
+      ]
+    },
+    {
+      "name": "Spellslinger's Shoes",
+      "entryIndices": [
+        224
+      ],
+      "entries": [
+        {
+          "sourceIndex": 224,
+          "name": "Spellslinger's Shoes",
+          "category": "BOOTS",
+          "cost": 2200,
+          "stats": [
+            {
+              "type": "Ability Power",
+              "value": 40
+            },
+            {
+              "type": "% Mana Regeneration",
+              "value": 100
+            },
+            {
+              "type": "Magic Penetration",
+              "value": 18
+            },
+            {
+              "type": "% Magic Penetration",
+              "value": 8
+            },
+            {
+              "type": "Move Speed",
+              "value": 45
+            }
+          ],
+          "formula": "(40*25.0+100*4+18*46.66+8*50.0+45*16.0)/2200",
+          "amount": "152.72%"
+        }
+      ]
+    },
+    {
+      "name": "Chainlaced Crushers",
+      "entryIndices": [
+        225
+      ],
+      "entries": [
+        {
+          "sourceIndex": 225,
+          "name": "Chainlaced Crushers",
+          "category": "BOOTS",
+          "cost": 2200,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 150
+            },
+            {
+              "type": "Magic Resistance",
+              "value": 35
+            },
+            {
+              "type": "% Tenacity",
+              "value": 30
+            },
+            {
+              "type": "Move Speed",
+              "value": 45
+            }
+          ],
+          "formula": "(150*3.33+35*25.0+30*10.33+45*16.0)/2200",
+          "amount": "109.29%"
+        }
+      ]
+    },
+    {
+      "name": "Gunmetal Greaves (Noxian Gait - Melee)",
+      "entryIndices": [
+        226
+      ],
+      "entries": [
+        {
+          "sourceIndex": 226,
+          "name": "Gunmetal Greaves (Noxian Gait - Melee)",
+          "category": "BOOTS",
+          "cost": 2200,
+          "stats": [
+            {
+              "type": "% Attack Speed",
+              "value": 50
+            },
+            {
+              "type": "% Physical Vamp",
+              "value": 5
+            },
+            {
+              "type": "Move Speed",
+              "value": 45
+            },
+            {
+              "passive": "Noxian Gait",
+              "type": "% Move Speed",
+              "value": 15
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(50*33.33+5*45.82+45*16.0+15*15.0)/2200",
+          "amount": "129.12%"
+        }
+      ]
+    },
+    {
+      "name": "Gunmetal Greaves (Noxian Gait - Range)",
+      "entryIndices": [
+        227
+      ],
+      "entries": [
+        {
+          "sourceIndex": 227,
+          "name": "Gunmetal Greaves (Noxian Gait - Range)",
+          "category": "BOOTS",
+          "cost": 2200,
+          "stats": [
+            {
+              "type": "% Attack Speed",
+              "value": 50
+            },
+            {
+              "type": "% Physical Vamp",
+              "value": 5
+            },
+            {
+              "type": "Move Speed",
+              "value": 45
+            },
+            {
+              "passive": "Noxian Gait",
+              "type": "% Move Speed",
+              "value": 10
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(50*33.33+5*45.82+45*16.0+10*15.0)/2200",
+          "amount": "125.71%"
+        }
+      ]
+    },
+    {
+      "name": "Armored Advance",
+      "entryIndices": [
+        228
+      ],
+      "entries": [
+        {
+          "sourceIndex": 228,
+          "name": "Armored Advance",
+          "category": "BOOTS",
+          "cost": 2200,
+          "stats": [
+            {
+              "type": "Max Health",
+              "value": 150
+            },
+            {
+              "type": "Armor",
+              "value": 35
+            },
+            {
+              "type": "Move Speed",
+              "value": 45
+            }
+          ],
+          "formula": "(150*3.33+35*25.0+45*16.0)/2200",
+          "amount": "95.20%"
+        }
+      ]
+    },
+    {
+      "name": "Immortal Treads (Balanced of Power - AD, Convertion - 0 Stacks)",
+      "entryIndices": [
+        229
+      ],
+      "entries": [
+        {
+          "sourceIndex": 229,
+          "name": "Immortal Treads (Balanced of Power - AD, Convertion - 0 Stacks)",
+          "category": "BOOTS",
+          "cost": 2000,
+          "stats": [
+            {
+              "type": "Move Speed",
+              "value": 45
+            },
+            {
+              "passive": "Balanced of Power",
+              "type": "Attack Damage",
+              "value": 12
+            },
+            {
+              "passive": "Convertion",
+              "type": "% Omnivamp",
+              "value": 5
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(45*16.0+12*41.67+5*46)/2000",
+          "amount": "72.50%"
+        }
+      ]
+    },
+    {
+      "name": "Immortal Treads (Balanced of Power - AD, Convertion - Full Stacks)",
+      "entryIndices": [
+        230
+      ],
+      "entries": [
+        {
+          "sourceIndex": 230,
+          "name": "Immortal Treads (Balanced of Power - AD, Convertion - Full Stacks)",
+          "category": "BOOTS",
+          "cost": 2000,
+          "stats": [
+            {
+              "type": "Move Speed",
+              "value": 45
+            },
+            {
+              "passive": "Balanced of Power",
+              "type": "Attack Damage",
+              "value": 12
+            },
+            {
+              "passive": "Convertion",
+              "type": "% Omnivamp",
+              "value": 10
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(45*16.0+12*41.67+10*46)/2000",
+          "amount": "84.00%"
+        }
+      ]
+    },
+    {
+      "name": "Immortal Treads (Balanced of Power - AP, Convertion - 0 Stacks)",
+      "entryIndices": [
+        231
+      ],
+      "entries": [
+        {
+          "sourceIndex": 231,
+          "name": "Immortal Treads (Balanced of Power - AP, Convertion - 0 Stacks)",
+          "category": "BOOTS",
+          "cost": 2000,
+          "stats": [
+            {
+              "type": "Move Speed",
+              "value": 45
+            },
+            {
+              "passive": "Balanced of Power",
+              "type": "Ability Power",
+              "value": 20
+            },
+            {
+              "passive": "Convertion",
+              "type": "% Omnivamp",
+              "value": 5
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(45*16.0+20*25.0+5*46)/2000",
+          "amount": "72.50%"
+        }
+      ]
+    },
+    {
+      "name": "Immortal Treads (Balanced of Power - AP, Convertion - Full Stacks)",
+      "entryIndices": [
+        232
+      ],
+      "entries": [
+        {
+          "sourceIndex": 232,
+          "name": "Immortal Treads (Balanced of Power - AP, Convertion - Full Stacks)",
+          "category": "BOOTS",
+          "cost": 2000,
+          "stats": [
+            {
+              "type": "Move Speed",
+              "value": 45
+            },
+            {
+              "passive": "Balanced of Power",
+              "type": "Ability Power",
+              "value": 20
+            },
+            {
+              "passive": "Convertion",
+              "type": "% Omnivamp",
+              "value": 10
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(45*16.0+20*25.0+10*46)/2000",
+          "amount": "84.00%"
+        }
+      ]
+    },
+    {
+      "name": "Armorcrusher Boots",
+      "entryIndices": [
+        233,
+        234
+      ],
+      "entries": [
+        {
+          "sourceIndex": 233,
+          "name": "Armorcrusher Boots",
+          "category": "BOOTS",
+          "cost": 2200,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 20
+            },
+            {
+              "passive": "Strike",
+              "type": "Armor Penetration",
+              "value": 10
+            },
+            {
+              "type": "% Armor Penetration",
+              "value": 6
+            },
+            {
+              "type": "Move Speed",
+              "value": 45
+            }
+          ],
+          "formula": "(20*41.67+10*20.82+6*66.67+45*16.0)/2200",
+          "amount": "98.26%"
+        },
+        {
+          "sourceIndex": 234,
+          "name": "Armorcrusher Boots (Cloudwalker)",
+          "category": "BOOTS",
+          "cost": 2200,
+          "stats": [
+            {
+              "type": "Attack Damage",
+              "value": 20
+            },
+            {
+              "passive": "Strike",
+              "type": "Armor Penetration",
+              "value": 10
+            },
+            {
+              "type": "% Armor Penetration",
+              "value": 6
+            },
+            {
+              "type": "Move Speed",
+              "value": 45
+            },
+            {
+              "passive": "Cloudwalker",
+              "type": "Move Speed",
+              "value": 20
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(20*41.67+10*20.82+6*66.67+45*16.0+20*16.0)/2200",
+          "amount": "112.80%"
+        }
+      ]
+    },
+    {
+      "name": "Crimson Lucidity",
+      "entryIndices": [
+        235,
+        236,
+        237
+      ],
+      "entries": [
+        {
+          "sourceIndex": 235,
+          "name": "Crimson Lucidity",
+          "category": "BOOTS",
+          "cost": 2000,
+          "stats": [
+            {
+              "type": "% Mana Regeneration",
+              "value": 75
+            },
+            {
+              "type": "Ability Haste",
+              "value": 25
+            },
+            {
+              "type": "Move Speed",
+              "value": 45
+            }
+          ],
+          "formula": "(75*4+25*60.0+45*16.0)/2000",
+          "amount": "126.00%"
+        },
+        {
+          "sourceIndex": 236,
+          "name": "Crimson Lucidity (Noxian Haste - Melee)",
+          "category": "BOOTS",
+          "cost": 2000,
+          "stats": [
+            {
+              "type": "% Mana Regeneration",
+              "value": 75
+            },
+            {
+              "type": "Ability Haste",
+              "value": 25
+            },
+            {
+              "type": "Move Speed",
+              "value": 45
+            },
+            {
+              "passive": "Noxian Haste",
+              "type": "% Move Speed",
+              "value": 10
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(75*4+25*60.0+45*16.0+10*15.0)/2000",
+          "amount": "133.50%"
+        },
+        {
+          "sourceIndex": 237,
+          "name": "Crimson Lucidity (Noxian Haste - Range)",
+          "category": "BOOTS",
+          "cost": 2000,
+          "stats": [
+            {
+              "type": "% Mana Regeneration",
+              "value": 75
+            },
+            {
+              "type": "Ability Haste",
+              "value": 25
+            },
+            {
+              "type": "Move Speed",
+              "value": 45
+            },
+            {
+              "passive": "Noxian Haste",
+              "type": "% Move Speed",
+              "value": 8
+            },
+            {
+              "type": "Unstable Passives' Stats"
+            }
+          ],
+          "formula": "(75*4+25*60.0+45*16.0+8*15.0)/2000",
+          "amount": "132.00%"
+        }
+      ]
+    }
+  ]
+}
