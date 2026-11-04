@@ -1,0 +1,1511 @@
+{
+  "schema": "wrdi.item_catalog_client.v1",
+  "target_game": "Wild Rift mobile",
+  "patch_claimed_by_client_user": "7.3d",
+  "collected_on": "2026-11-04",
+  "source_primary": "screenshots of in-game item descriptions supplied by user",
+  "purpose": "curated candidates for later engine integration, NOT a complete verified ranked catalogue",
+  "do_not_automatically_load_into_build_recommendations": true,
+  "no_patch_deltas_applied": true,
+  "validation_definitions": {
+    "documented": "in-game screenshot gives stats and passives as transcribed; practical interactions still not fully tested",
+    "missing": "not in screenshot or not sufficiently legible"
+  },
+  "global_rules": {
+    "max_equipped_active_items": 1,
+    "incompatibility_pairs_confirmed": [
+      [
+        "void_staff",
+        "cryptbloom"
+      ]
+    ],
+    "other_incompatibilities": "unknown, do not presume exhaustive",
+    "tear_family": "at most one Tear of the Goddess family item; confirmed on in-game text of Bâton de l’archange, extent to variants subject to validation"
+  },
+  "stat_units": {
+    "ap": "ability power",
+    "ah": "ability haste",
+    "as_pct": "attack speed %",
+    "ms_pct": "movement speed %",
+    "mpen_flat": "flat magic penetration",
+    "mpen_pct": "percent magic penetration",
+    "hp": "bonus max HP",
+    "mana": "bonus max mana",
+    "ad": "bonus attack damage"
+  },
+  "item_count": 35,
+  "items": [
+    {
+      "id": "cryptbloom",
+      "name_fr": "Fleur de crypte",
+      "item_type": "legendary",
+      "price_gold": 3000,
+      "stats": {
+        "ap": 75,
+        "mpen_pct": 30,
+        "ah": 20
+      },
+      "passives": [
+        {
+          "name": "La vie par la mort",
+          "description_fr": "Si un champion meurt dans les 3 s après avoir été blessé par le porteur, nova à son emplacement soignant les alliés de 100 + 20 % AP; récupération 60 s.",
+          "mechanics": {
+            "trigger": "enemy_champion_death_within_3s_of_damage",
+            "heal_formula": "100 + 0.20 * ap",
+            "cooldown_s": 60,
+            "effect": "area_heal"
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008835.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": [],
+      "restrictions": [
+        "void_staff"
+      ]
+    },
+    {
+      "id": "void_staff",
+      "name_fr": "Bâton du vide",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "ap": 95,
+        "mpen_pct": 40
+      },
+      "passives": [],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008838.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "not_confirmed"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "unknown"
+      },
+      "notes": [],
+      "restrictions": [
+        "cryptbloom"
+      ]
+    },
+    {
+      "id": "rabadons_deathcap",
+      "name_fr": "Coiffe de Rabadon",
+      "item_type": "legendary",
+      "price_gold": 3400,
+      "stats": {
+        "ap": 130
+      },
+      "passives": [
+        {
+          "name": "Démesure",
+          "description_fr": "Augmente la puissance de 30 %.",
+          "mechanics": {
+            "effect": "ap_multiplier",
+            "value": 1.3
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008841.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": []
+    },
+    {
+      "id": "riftmaker",
+      "name_fr": "Créateur de failles",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 350,
+        "ap": 70,
+        "ah": 15
+      },
+      "passives": [
+        {
+          "name": "Corruption du Néant",
+          "description_fr": "Toutes les 1 s de combat contre des champions : +2 % dégâts, max +8 %. Au maximum : 10 % omnivampirisme pour les mêlées / 6 % pour les distances.",
+          "mechanics": {
+            "damage_amp_per_s_pct": 2,
+            "max_damage_amp_pct": 8,
+            "omnivamp_melee_pct": 10,
+            "omnivamp_ranged_pct": 6
+          }
+        },
+        {
+          "name": "Infusion du Néant",
+          "description_fr": "Gagne de la puissance équivalente à 2 % des PV bonus.",
+          "mechanics": {
+            "bonus_ap_formula": "0.02 * bonus_hp"
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008844.jpg",
+          "1000008847.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "not_confirmed"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "unknown"
+      },
+      "notes": []
+    },
+    {
+      "id": "hollow_radiance",
+      "name_fr": "Rayonnement du vide",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 400,
+        "mr": 40,
+        "ah": 15
+      },
+      "passives": [
+        {
+          "name": "Immolation",
+          "description_fr": "En combat, inflige aux ennemis proches chaque seconde pendant 5 s des dégâts magiques de 20–30 + 1 % des PV bonus. 125 % contre monstres, 200 % contre sbires.",
+          "mechanics": {
+            "damage_formula": "base_20_to_30 + 0.01 * bonus_hp",
+            "tick_s": 1,
+            "duration_s": 5,
+            "monster_multiplier": 1.25,
+            "minion_multiplier": 2
+          }
+        },
+        {
+          "name": "Désolation",
+          "description_fr": "Éliminer un monstre neutre ou un ennemi inflige 30 + 2 % des PV bonus en dégâts magiques dans une zone autour de la cible.",
+          "mechanics": {
+            "damage_formula": "30 + 0.02 * bonus_hp",
+            "trigger": "kill_neutral_monster_or_enemy"
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008850.jpg",
+          "1000008853.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "not_confirmed"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "unknown"
+      },
+      "notes": []
+    },
+    {
+      "id": "unending_despair",
+      "name_fr": "Désespoir infini",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 300,
+        "armor": 40,
+        "mr": 40,
+        "ah": 10
+      },
+      "passives": [
+        {
+          "name": "Affliction",
+          "description_fr": "Toutes les 4 s en combat contre un champion, dégâts magiques de 3 % de ses PV max aux champions proches; soigne de 250 % des dégâts infligés. Non affecté par accélération de compétence des objets.",
+          "mechanics": {
+            "tick_s": 4,
+            "damage_formula": "0.03 * own_max_hp",
+            "heal_multiplier_of_damage_dealt": 2.5,
+            "affected_by_item_haste": false
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008856.jpg",
+          "1000008859.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "not_confirmed"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "unknown"
+      },
+      "notes": []
+    },
+    {
+      "id": "thornmail",
+      "name_fr": "Cotte épineuse",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 200,
+        "armor": 75
+      },
+      "passives": [
+        {
+          "name": "Épines",
+          "description_fr": "Quand touché par une attaque, renvoie des dégâts magiques = 20 + 6 % armure bonus + 1 % PV bonus.",
+          "mechanics": {
+            "damage_formula": "20 + 0.06 * bonus_armor + 0.01 * bonus_hp",
+            "trigger": "attacked"
+          }
+        },
+        {
+          "name": "Entrelacs",
+          "description_fr": "Applique 50 % Hémorragie pendant 3 s aux champions qui vous attaquent ou que vous blessez.",
+          "mechanics": {
+            "grievous_wounds_pct": 50,
+            "duration_s": 3,
+            "trigger": [
+              "attacked_by_champion",
+              "damage_champion"
+            ]
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008862.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "not_confirmed"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "unknown"
+      },
+      "notes": []
+    },
+    {
+      "id": "morellonomicon",
+      "name_fr": "Morellonomicon",
+      "item_type": "legendary",
+      "price_gold": 2650,
+      "stats": {
+        "hp": 300,
+        "ap": 75,
+        "ah": 15
+      },
+      "passives": [
+        {
+          "name": "Affliction",
+          "description_fr": "Les dégâts magiques infligés à un champion lui appliquent 50 % Hémorragie pendant 3 s.",
+          "mechanics": {
+            "grievous_wounds_pct": 50,
+            "duration_s": 3,
+            "trigger": "deal_magic_damage_to_champion"
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008865.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": []
+    },
+    {
+      "id": "liandrys_torment",
+      "name_fr": "Tourment de Liandry",
+      "item_type": "legendary",
+      "price_gold": 3000,
+      "stats": {
+        "hp": 300,
+        "ap": 70
+      },
+      "passives": [
+        {
+          "name": "Tourment",
+          "description_fr": "Compétences blessantes et attaques renforcées : brûlure de 2 % des PV max adverses en dégâts magiques par seconde pendant 3 s.",
+          "mechanics": {
+            "damage_per_tick_formula": "0.02 * target_max_hp",
+            "tick_s": 1,
+            "duration_s": 3
+          }
+        },
+        {
+          "name": "Folie",
+          "description_fr": "En combat contre des champions, +2 % dégâts par seconde jusqu’à +6 % après 3 s.",
+          "mechanics": {
+            "damage_amp_pct_per_s": 2,
+            "max_amp_pct": 6,
+            "ramp_s": 3
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008868.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": []
+    },
+    {
+      "id": "rylais_crystal_scepter",
+      "name_fr": "Sceptre de Rylai",
+      "item_type": "legendary",
+      "price_gold": 2700,
+      "stats": {
+        "hp": 350,
+        "ap": 65
+      },
+      "passives": [
+        {
+          "name": "Glacial",
+          "description_fr": "Compétences blessantes et attaques renforcées ralentissent de 30 % pendant 0,75 s.",
+          "mechanics": {
+            "slow_pct": 30,
+            "duration_s": 0.75,
+            "trigger": [
+              "damage_ability",
+              "empowered_attack"
+            ]
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008871.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": []
+    },
+    {
+      "id": "infinity_orb",
+      "name_fr": "Orbe d’infini",
+      "item_type": "legendary",
+      "price_gold": 3100,
+      "stats": {
+        "ap": 110,
+        "mpen_flat": 15
+      },
+      "passives": [
+        {
+          "name": "Fin inéluctable",
+          "description_fr": "Compétences et attaques renforcées infligent des coups critiques de 20 % dégâts supplémentaires aux cibles ayant moins de 40 % PV.",
+          "mechanics": {
+            "damage_bonus_pct": 20,
+            "condition": "target_hp_pct < 40",
+            "eligible": [
+              "abilities",
+              "empowered_attacks"
+            ]
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008874.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": []
+    },
+    {
+      "id": "lich_bane",
+      "name_fr": "Fléau de liche",
+      "item_type": "legendary",
+      "price_gold": 2800,
+      "stats": {
+        "ap": 100,
+        "ah": 10,
+        "ms_pct": 5
+      },
+      "passives": [
+        {
+          "name": "Lame enchantée",
+          "description_fr": "Après une compétence, prochaine attaque dans les 10 s : +75 % AD de base + 45 % AP en dégâts magiques. Récupération 1,5 s; dégâts réduits contre bâtiments.",
+          "mechanics": {
+            "damage_formula": "0.75 * base_ad + 0.45 * ap",
+            "activation_window_s": 10,
+            "cooldown_s": 1.5
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008877.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": []
+    },
+    {
+      "id": "nashors_tooth",
+      "name_fr": "Dent de Nashor",
+      "item_type": "legendary",
+      "price_gold": 2900,
+      "stats": {
+        "as_pct": 50,
+        "ap": 80,
+        "ah": 15
+      },
+      "passives": [
+        {
+          "name": "Mâchouillis",
+          "description_fr": "Les attaques infligent 15 + 20 % de la puissance bonus en dégâts magiques à l’impact.",
+          "mechanics": {
+            "on_hit_magic_damage_formula": "15 + 0.20 * bonus_ap"
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008880.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": []
+    },
+    {
+      "id": "ludens_echo",
+      "name_fr": "Écho de Luden",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "ap": 100,
+        "mana": 500,
+        "ah": 10
+      },
+      "passives": [
+        {
+          "name": "Écho",
+          "description_fr": "Prochaine compétence ou attaque renforcée blessante : 75 + 8 % AP dégâts magiques à la cible principale et jusqu’à 4 proches. Chaque cible secondaire manquante ajoute 20 + 1,2 % AP à la cible principale. Récupération 9 s.",
+          "mechanics": {
+            "base_damage": "75 + 0.08 * ap",
+            "main_target_extra_per_missing_secondary": "20 + 0.012 * ap",
+            "max_secondary_targets": 4,
+            "cooldown_s": 9
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008883.jpg",
+          "1000008886.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "not_confirmed"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "unknown"
+      },
+      "notes": []
+    },
+    {
+      "id": "hextech_rocketbelt",
+      "name_fr": "Ceinture-roquette Hextech",
+      "item_type": "active",
+      "price_gold": 2700,
+      "stats": {
+        "hp": 250,
+        "ap": 70,
+        "ah": 20
+      },
+      "passives": [
+        {
+          "name": "Protoceinture (actif)",
+          "description_fr": "Dash avant et projectiles en cône : dégâts magiques de 100 + 10 % AP. Projectiles suivants sur même champion/monstre : 10 % des dégâts. Récupération 30 s.",
+          "mechanics": {
+            "active": true,
+            "damage_per_projectile": "100 + 0.10 * ap",
+            "repeat_hit_multiplier": 0.1,
+            "cooldown_s": 30
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008979.jpg",
+          "1000008982.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": []
+    },
+    {
+      "id": "zhonyas_hourglass",
+      "name_fr": "Sablier de Zhonya",
+      "item_type": "active",
+      "price_gold": 3300,
+      "stats": {
+        "armor": 40,
+        "ap": 110
+      },
+      "passives": [
+        {
+          "name": "Stase (active)",
+          "description_fr": "Invulnérable et impossible à cibler pendant 2,5 s, sans pouvoir bouger, attaquer, lancer sorts/objets. Récupération 90 s.",
+          "mechanics": {
+            "active": true,
+            "stasis_s": 2.5,
+            "cooldown_s": 90
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008988.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": []
+    },
+    {
+      "id": "seekers_armguard",
+      "name_fr": "Protège-bras du savant",
+      "item_type": "active",
+      "price_gold": 1400,
+      "stats": {
+        "armor": 20,
+        "ap": 35
+      },
+      "passives": [
+        {
+          "name": "Stase (active)",
+          "description_fr": "Invulnérable et impossible à cibler pendant 2,5 s, sans pouvoir agir; récupération 150 s.",
+          "mechanics": {
+            "active": true,
+            "stasis_s": 2.5,
+            "cooldown_s": 150
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000009011.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": []
+    },
+    {
+      "id": "redemption",
+      "name_fr": "Rédemption",
+      "item_type": "active",
+      "price_gold": 2450,
+      "stats": {
+        "ap": 40,
+        "mana_regen_pct": 50,
+        "ah": 10,
+        "heal_shield_pct": 8
+      },
+      "passives": [
+        {
+          "name": "Intervention (actif)",
+          "description_fr": "Zone : après 2,5 s soigne alliés de 150–350 PV selon niveau allié, inflige aux champions ennemis 10 % de leurs PV max en dégâts bruts; récup 60 s; utilisable mort.",
+          "mechanics": {
+            "active": true,
+            "delay_s": 2.5,
+            "heal_range": "150-350",
+            "damage_formula": "0.10 * enemy_max_hp",
+            "damage_type": "true",
+            "cooldown_s": 60,
+            "usable_while_dead": true
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008973.jpg",
+          "1000008976.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": []
+    },
+    {
+      "id": "dawn_and_dusk",
+      "name_fr": "Aube et crépuscule",
+      "item_type": "legendary",
+      "price_gold": 3100,
+      "stats": {
+        "hp": 300,
+        "as_pct": 20,
+        "ap": 60,
+        "ah": 20
+      },
+      "passives": [
+        {
+          "name": "Lame enchantée",
+          "description_fr": "Après compétence, prochaine attaque inflige 75 % AD de base + 10 % AP en dégâts magiques bonus et soigne 3 % PV bonus + 10 % AP. Applique effets à l’impact une fois de plus après bref délai. Récup 1,5 s. Dégâts réduits aux bâtiments.",
+          "mechanics": {
+            "damage_formula": "0.75 * base_ad + 0.10 * ap",
+            "heal_formula": "0.03 * bonus_hp + 0.10 * ap",
+            "extra_on_hit_application": 1,
+            "cooldown_s": 1.5
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008967.jpg",
+          "1000008970.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": []
+    },
+    {
+      "id": "cosmic_drive",
+      "name_fr": "Volonté cosmique",
+      "item_type": "legendary",
+      "price_gold": 3000,
+      "stats": {
+        "hp": 300,
+        "ap": 70,
+        "ah": 25,
+        "ms_pct": 4
+      },
+      "passives": [
+        {
+          "name": "Danse des sorts",
+          "description_fr": "Dégâts magiques ou bruts aux champions octroient +30 vitesse de déplacement pendant 4 s.",
+          "mechanics": {
+            "flat_ms_bonus": 30,
+            "duration_s": 4,
+            "trigger": "magic_or_true_damage_to_champion"
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008991.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": []
+    },
+    {
+      "id": "banshees_veil",
+      "name_fr": "Voile de la banshee",
+      "item_type": "legendary",
+      "price_gold": 3000,
+      "stats": {
+        "ap": 105,
+        "mr": 40
+      },
+      "passives": [
+        {
+          "name": "Invalidation",
+          "description_fr": "Bouclier antisorts bloque la prochaine compétence ennemie; récupération 30 s.",
+          "mechanics": {
+            "spell_shield": true,
+            "cooldown_s": 30
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008991.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": []
+    },
+    {
+      "id": "archangels_staff",
+      "name_fr": "Bâton de l’archange",
+      "item_type": "legendary",
+      "price_gold": 3000,
+      "stats": {
+        "ap": 60,
+        "mana": 500,
+        "ah": 25
+      },
+      "passives": [
+        {
+          "name": "Effroi",
+          "description_fr": "Gagne de l’AP = 1 % mana maximum, restitue 25 % mana dépensé.",
+          "mechanics": {
+            "ap_bonus_formula": "0.01 * max_mana",
+            "mana_refund_pct": 25
+          }
+        },
+        {
+          "name": "Charge de mana",
+          "description_fr": "Dépenser du mana ajoute 14 mana max, max 700; jusqu’à 3 activations / 10 s; transforme en Étreinte du séraphin.",
+          "mechanics": {
+            "mana_per_stack": 14,
+            "max_bonus_mana": 700,
+            "max_procs_per_10s": 3,
+            "transforms_into": "seraphs_embrace"
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008941.jpg",
+          "1000008944.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": [],
+      "restrictions": [
+        "tear_family"
+      ]
+    },
+    {
+      "id": "seraphs_embrace",
+      "name_fr": "Étreinte du séraphin",
+      "item_type": "transformed",
+      "price_gold": null,
+      "stats": {
+        "ap": 60,
+        "mana": 1200,
+        "ah": 25
+      },
+      "passives": [
+        {
+          "name": "Effroi",
+          "description_fr": "AP supplémentaire égal à 2 % du mana maximum; restitue 25 % du mana dépensé.",
+          "mechanics": {
+            "ap_bonus_formula": "0.02 * max_mana",
+            "mana_refund_pct": 25
+          }
+        },
+        {
+          "name": "Lien vital",
+          "description_fr": "Si les dégâts vous font passer sous 35 % PV, bouclier = 16 % de vos PV max pendant 2 s, récupération 70 s.",
+          "mechanics": {
+            "trigger": "damage_cross_below_35pct_hp",
+            "shield_formula": "0.16 * max_hp",
+            "duration_s": 2,
+            "cooldown_s": 70
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008944.jpg",
+          "1000008996.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "not_confirmed"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "unknown"
+      },
+      "notes": [],
+      "restrictions": [
+        "tear_family"
+      ]
+    },
+    {
+      "id": "blackfire_torch",
+      "name_fr": "Torche noire",
+      "item_type": "legendary",
+      "price_gold": 2800,
+      "stats": {
+        "ap": 80,
+        "mana": 500,
+        "ah": 20
+      },
+      "passives": [
+        {
+          "name": "Flamme funèbre",
+          "description_fr": "Compétences blessantes : brûlure magique de 20 + 2 % AP chaque seconde pendant 3 s. Contre monstres : 40 + 2 % AP par seconde.",
+          "mechanics": {
+            "damage_vs_champion_per_tick": "20 + 0.02 * ap",
+            "damage_vs_monster_per_tick": "40 + 0.02 * ap",
+            "duration_s": 3,
+            "tick_s": 1
+          }
+        },
+        {
+          "name": "Feu noir",
+          "description_fr": "+4 % puissance pour chaque champion ou monstre affecté par Flamme funèbre.",
+          "mechanics": {
+            "ap_bonus_pct_per_affected_target": 4
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008935.jpg",
+          "1000008938.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": []
+    },
+    {
+      "id": "stormsurge",
+      "name_fr": "Onde orageuse",
+      "item_type": "legendary",
+      "price_gold": 2800,
+      "stats": {
+        "ap": 90,
+        "mpen_flat": 15,
+        "ms_pct": 6
+      },
+      "passives": [
+        {
+          "name": "Dresseur d’orage",
+          "description_fr": "Si vous infligez 25 % PV max de la cible en 2,5 s, déclenche Rafale et +25 % vitesse de déplacement bonus pendant 2,5 s. Récup 25 s.",
+          "mechanics": {
+            "trigger": "damage_at_least_25pct_maxhp_within_2_5s",
+            "bonus_ms_pct": 25,
+            "duration_s": 2.5,
+            "cooldown_s": 25
+          }
+        },
+        {
+          "name": "Rafale",
+          "description_fr": "Après 2 s, 125 + 10 % AP dégâts magiques; si cible meurt avant, grande explosion immédiate et +25 PO.",
+          "mechanics": {
+            "damage_formula": "125 + 0.10 * ap",
+            "delay_s": 2,
+            "gold_if_killed_before_blast": 25
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008930.jpg",
+          "1000008935.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": []
+    },
+    {
+      "id": "malignance",
+      "name_fr": "Malfaisance",
+      "item_type": "legendary",
+      "price_gold": 2700,
+      "stats": {
+        "ap": 90,
+        "mana": 500,
+        "ah": 15
+      },
+      "passives": [
+        {
+          "name": "Mépris",
+          "description_fr": "Ultime gagne +20 accélération de compétence.",
+          "mechanics": {
+            "ultimate_haste_bonus": 20
+          }
+        },
+        {
+          "name": "Brouillard de haine",
+          "description_fr": "Dégâts d’ultime à champion brûlent le sol pendant 3 s, dégâts magiques 60 + 5 % AP, réduit RM cible de 10; rayon variable jusqu’aux 800 dégâts.",
+          "mechanics": {
+            "ground_duration_s": 3,
+            "damage_formula": "60 + 0.05 * ap",
+            "mr_reduction_flat": 10,
+            "radius_scaling_unverified": true
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000009014.jpg",
+          "1000009017.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": []
+    },
+    {
+      "id": "horizon_focus",
+      "name_fr": "Concentration lointaine",
+      "item_type": "legendary",
+      "price_gold": 2700,
+      "stats": {
+        "ap": 80,
+        "ah": 25
+      },
+      "passives": [
+        {
+          "name": "Tir hyperprécis",
+          "description_fr": "Toucher un champion avec une compétence à 600 unités de distance le révèle pendant 8 s et augmente vos dégâts contre lui de 10 %.",
+          "mechanics": {
+            "min_distance": 600,
+            "reveal_s": 8,
+            "bonus_damage_pct": 10
+          }
+        },
+        {
+          "name": "Concentration",
+          "description_fr": "Au déclenchement, révèle les champions ennemis dans un rayon de 1200 de la cible pendant 3 s; récupération 12 s.",
+          "mechanics": {
+            "reveal_radius": 1200,
+            "reveal_s": 3,
+            "cooldown_s": 12
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000009020.jpg",
+          "1000009023.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": []
+    },
+    {
+      "id": "rod_of_ages",
+      "name_fr": "Bâton séculaire",
+      "item_type": "legendary",
+      "price_gold": 2700,
+      "stats": {
+        "hp": 350,
+        "ap": 50,
+        "mana": 400
+      },
+      "passives": [
+        {
+          "name": "Éternité",
+          "description_fr": "Rend du mana = 15 % des dégâts subis par champions; soigne 20 % mana dépensé, max 25 PV par compétence.",
+          "mechanics": {
+            "mana_refund_from_damage_taken_pct": 15,
+            "heal_pct_of_mana_spent": 20,
+            "max_heal_per_cast": 25
+          }
+        },
+        {
+          "name": "Vétéran",
+          "description_fr": "Un cumul toutes les 35 s, max 10; chaque cumul ajoute 15 PV, 30 mana, 4 AP.",
+          "mechanics": {
+            "stack_every_s": 35,
+            "max_stacks": 10,
+            "stats_per_stack": {
+              "hp": 15,
+              "mana": 30,
+              "ap": 4
+            }
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000009026.jpg",
+          "1000009029.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": []
+    },
+    {
+      "id": "imperial_mandate",
+      "name_fr": "Mandat impérial",
+      "item_type": "legendary",
+      "price_gold": 2600,
+      "stats": {
+        "ap": 60,
+        "mana_regen_pct": 50,
+        "ah": 20
+      },
+      "passives": [
+        {
+          "name": "Contrôle",
+          "description_fr": "Vos compétences de contrôle de foule gagnent 20 accélération de compétence.",
+          "mechanics": {
+            "cc_ability_haste_bonus": 20
+          }
+        },
+        {
+          "name": "Commandement",
+          "description_fr": "Contrôler un champion ennemi lui applique une marque pendant 4 s, il subit 7 % dégâts bonus.",
+          "mechanics": {
+            "mark_s": 4,
+            "damage_taken_amp_pct": 7
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008999.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": []
+    },
+    {
+      "id": "oceanids_trident",
+      "name_fr": "Trident des Océanides",
+      "item_type": "legendary",
+      "price_gold": 2600,
+      "stats": {
+        "hp": 200,
+        "ap": 80,
+        "ah": 10
+      },
+      "passives": [
+        {
+          "name": "Arme mortelle",
+          "description_fr": "Dégâts de compétence à un champion réduisent pendant 3 s ses boucliers reçus : zone (25 + 5 % AP) % max 45 %, monocible (40 + 5 % AP) % max 60 %. À la première application réduit aussi les boucliers actuels.",
+          "mechanics": {
+            "shield_reduction_aoe_pct_formula": "min(45, 25 + 0.05 * ap)",
+            "shield_reduction_single_pct_formula": "min(60, 40 + 0.05 * ap)",
+            "duration_s": 3,
+            "initial_existing_shield_reduction": true
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000009002.jpg",
+          "1000009005.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": []
+    },
+    {
+      "id": "bloodletters_curse",
+      "name_fr": "Malédiction du sanguinaire",
+      "item_type": "legendary",
+      "price_gold": 2900,
+      "stats": {
+        "hp": 350,
+        "ap": 65,
+        "ah": 15
+      },
+      "passives": [
+        {
+          "name": "Vile décomposition",
+          "description_fr": "Dégâts magiques des compétences ou passifs de champion réduisent RM ennemie de 7,5 % pendant 6 s, jusqu’à 30 %.",
+          "mechanics": {
+            "mr_shred_per_stack_pct": 7.5,
+            "max_mr_shred_pct": 30,
+            "duration_s": 6
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008996.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": []
+    },
+    {
+      "id": "whispering_circlet",
+      "name_fr": "Diadème des murmures",
+      "item_type": "legendary",
+      "price_gold": 2400,
+      "stats": {
+        "hp": 200,
+        "mana": 500,
+        "mana_regen_pct": 50,
+        "heal_shield_pct": 6
+      },
+      "passives": [
+        {
+          "name": "Harmonie",
+          "description_fr": "Gagne 0,25 % de mana max en efficacité bonus des soins/boucliers; restitue 25 % du mana dépensé lors de compétence.",
+          "mechanics": {
+            "heal_shield_bonus_formula_in_pct": "0.0025 * max_mana",
+            "mana_refund_pct": 25
+          }
+        },
+        {
+          "name": "Charge de mana",
+          "description_fr": "Dépenser mana augmente mana max de 14, jusqu’à 700 mana, jusqu’à 3 déclenchements toutes les 10 s; devient Diadème musical.",
+          "mechanics": {
+            "mana_per_stack": 14,
+            "max_bonus_mana": 700,
+            "max_procs_per_10s": 3,
+            "transforms_into": "harmonic_circlet"
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000009008.jpg",
+          "1000009032.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": [],
+      "restrictions": [
+        "tear_family"
+      ]
+    },
+    {
+      "id": "harmonic_circlet",
+      "name_fr": "Diadème musical",
+      "item_type": "transformed",
+      "price_gold": null,
+      "stats": {
+        "hp": 200,
+        "mana": 1200,
+        "mana_regen_pct": 50,
+        "heal_shield_pct": 6
+      },
+      "passives": [
+        {
+          "name": "Harmonie",
+          "description_fr": "Gagne 0,25 % mana max en efficacité des soins/boucliers; restitue 25 % du mana dépensé.",
+          "mechanics": {
+            "heal_shield_bonus_formula_in_pct": "0.0025 * max_mana",
+            "mana_refund_pct": 25
+          }
+        },
+        {
+          "name": "Diadème",
+          "description_fr": "En combat, soigne allié avec le moins de PV dans 800 unités de 0,8 % de son mana max si le porteur ou allié récemment soigné/protégé est en combat.",
+          "mechanics": {
+            "radius": 800,
+            "heal_formula": "0.008 * target_max_mana",
+            "trigger": "combat_if_recently_healed_or_shielded_ally_within_3s"
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000009032.jpg",
+          "1000009035.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "not_confirmed"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "unknown"
+      },
+      "notes": [],
+      "restrictions": [
+        "tear_family"
+      ]
+    },
+    {
+      "id": "guinsoos_rageblade",
+      "name_fr": "Lame enragée de Guinsoo",
+      "item_type": "legendary",
+      "price_gold": 3000,
+      "stats": {
+        "ad": 35,
+        "as_pct": 30,
+        "ap": 30
+      },
+      "passives": [
+        {
+          "name": "Courroux",
+          "description_fr": "Attaques : 30 dégâts magiques supplémentaires à l’impact.",
+          "mechanics": {
+            "on_hit_magic_damage": 30
+          }
+        },
+        {
+          "name": "Frappe furieuse",
+          "description_fr": "Attaques : +8 % vitesse attaque par cumul, jusqu’à 4 (=32 %); puis toutes les 3 attaques applique effets à l’impact 1 fois de plus.",
+          "mechanics": {
+            "as_pct_per_stack": 8,
+            "max_stacks": 4,
+            "extra_on_hit_every_n_attacks_at_max_stacks": 3
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008947.jpg",
+          "1000008950.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": []
+    },
+    {
+      "id": "statikk_shiv",
+      "name_fr": "Poignard de Statikk",
+      "item_type": "legendary",
+      "price_gold": 2900,
+      "stats": {
+        "ad": 40,
+        "as_pct": 30,
+        "ap": 40,
+        "ms_pct": 4
+      },
+      "passives": [
+        {
+          "name": "Électrochoc",
+          "description_fr": "Attaques de base octroient 7 charges énergisantes supplémentaires.",
+          "mechanics": {
+            "energized_charges_per_attack_bonus": 7
+          }
+        },
+        {
+          "name": "Étincelle électrique",
+          "description_fr": "Attaque énergisée lance éclairs en chaîne sur 4–7 cibles, 60 dégâts magiques (90 sur sbires/monstres), applique effets à l’impact sur cibles secondaires.",
+          "mechanics": {
+            "secondary_target_range": "4-7",
+            "champion_magic_damage": 60,
+            "monster_minion_magic_damage": 90,
+            "applies_onhit_secondary": true
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "image_files": [
+          "1000008944.jpg",
+          "1000008947.jpg"
+        ],
+        "validation": "client_description_transcribed",
+        "price_evidence": "category_screenshot"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "visible"
+      },
+      "notes": []
+    }
+  ]
+}
