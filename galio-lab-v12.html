@@ -1,0 +1,61 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b1d26"><title>Galio · Laboratoire V12 Wild Rift</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#091b25;color:#ecf8fa;font:15px/1.45 system-ui,sans-serif}a{color:#8ce3e2}header{background:#12313b;border-bottom:1px solid #39737b;padding:16px}header>div,main{max-width:1070px;margin:auto}main{padding:14px}h1{font-size:22px;margin:5px 0}h2{font-size:19px;margin:6px 0}h3{font-size:17px;margin:0 0 9px}small,.muted{color:#acc5c9}.lead{padding:13px;background:#102e37;border:1px solid #386b71;border-radius:12px;margin:12px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:14px}.card{background:#112d37;border:1px solid #355e68;border-radius:14px;padding:13px;min-width:0}.inputs{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:9px}label{display:block;color:#d6e8e9;font-size:13px}input,button{font:inherit;background:#183944;color:white;border:1px solid #5a8a91;border-radius:9px;padding:9px}input{display:block;width:100%;margin-top:4px}button{cursor:pointer}.slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:12px 0}.slot{min-height:99px;padding:7px 3px;display:flex;flex-direction:column;align-items:center;gap:4px;justify-content:flex-start;text-align:center;font-size:11px;background:#173841}.slot img,.picker-grid img{height:44px;width:44px;object-fit:cover;border-radius:8px}.slot span{max-width:100%;overflow-wrap:anywhere}.good{color:#85e1b1}.bad{color:#ffb4b4}.warn{color:#f9d294}.result{border-top:1px solid #375e66;margin-top:12px;padding-top:10px}.metric{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin:8px 0}.metric strong{font-size:19px}.status{margin:9px 0}.pill{font-size:12px;background:#204550;border-radius:20px;padding:3px 8px;display:inline-block}.overlay{display:none;position:fixed;inset:0;background:#030c11e8;z-index:20;padding:14px}.overlay.open{display:flex;justify-content:center;align-items:center}.modal{background:#12313c;border:1px solid #49828c;border-radius:16px;max-width:690px;width:100%;max-height:92vh;overflow:auto;padding:15px}.modal-head{display:flex;align-items:center;justify-content:space-between;gap:8px}.picker-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:7px;margin-top:12px}.pick{min-width:0;display:flex;align-items:center;flex-direction:column;gap:4px;min-height:100px;background:#193c47;text-align:center;font-size:12px}.pick span{overflow-wrap:anywhere}.actions{display:flex;flex-wrap:wrap;gap:8px}.note{font-size:12px;color:#b6cdd0}
+</style></head><body><header><div><a href="./index.html">← Draft Intelligence</a> · <a href="./catalogue-v12.html">Catalogue d'objets</a><h1>🛡️ Galio — Laboratoire V12</h1><div class="muted">Comparaison expérimentale des statistiques issues du client Wild Rift 7.3d</div></div></header><main>
+<div class="lead"><b>Ce comparateur ne recommande pas encore le meilleur build.</b> Il compare une séquence de dégâts simplifiée et la résistance effective, puis signale les passifs non simulés. Les compétences utilisent des coefficients de référence à un rang donné, pas une simulation complète des rangs, du patch ou des combats.</div>
+<section class="card"><h2>Scénario commun aux trois builds</h2><p class="note">Saisis les statistiques réelles de Galio avant équipement au niveau souhaité. Les valeurs de départ ci-dessous sont <b>des exemples modifiables</b>, pas des statistiques certifiées.</p><div class="inputs">
+<label>Niveau de Galio<input id="level" type="number" min="1" max="15" value="11"></label>
+<label>PV de Galio sans objets<input id="baseHp" type="number" min="1" value="1850"></label>
+<label>Armure sans objets<input id="baseArmor" type="number" value="75"></label>
+<label>RM sans objets<input id="baseMr" type="number" value="55"></label>
+<label>AD sans objets<input id="baseAd" type="number" min="0" value="105"></label>
+<label>PV max de l'ennemi<input id="enemyHp" type="number" min="1" value="3000"></label>
+<label>RM de l'ennemi<input id="enemyMr" type="number" value="100"></label>
+<label>% dégâts physiques subis<input id="physicalPct" type="number" min="0" max="100" value="50"></label>
+</div><p class="note">Modèle : Q (rafales + tornade complète) + E + une Frappe colossale. Ne modélise ni ulti, ni boucliers/soins, ni précision des sorts, ni runes. « PV effectifs » est un indice simplifié selon la répartition des dégâts entrants.</p></section>
+<div id="notice" role="status" class="status"></div><section class="grid" id="builds"></section>
+<div class="lead"><b>À savoir :</b> les profils sont des exemples de comparaison, pas des builds optimisés. Seuls les bonus de statistiques, la conversion de PV en AP de Créateur de failles et l'amplification AP de Rabadon sont calculés. Les autres passifs sont listés comme non simulés. Les objets à prix inconnu sont signalés, sans valeur inventée.</div>
+</main><div class="overlay" id="overlay"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="pickerTitle"><div class="modal-head"><h2 id="pickerTitle">Choisir un objet</h2><button id="close">Fermer</button></div><label>Recherche<input id="search" type="search" placeholder="Nom de l'objet"></label><div id="pickList" class="picker-grid"></div></div></div>
+<script src="./assets/client-catalog-v12.js?v=27"></script><script src="./assets/galio-lab-v12.js?v=27"></script><script>
+(async()=>{
+ const get=id=>document.getElementById(id),el=(tag,txt,cls)=>{const o=document.createElement(tag);if(txt!=null)o.textContent=txt;if(cls)o.className=cls;return o};
+ const normalize=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+ const defaults=[{title:'AP burst',ids:['ludens_echo','infinity_orb','rabadons_deathcap','void_staff','zhonyas_hourglass','']},{title:'Hybride AP / tank',ids:['riftmaker','hollow_radiance','unending_despair','rabadons_deathcap','hextech_rocketbelt','']},{title:'Tank utilitaire',ids:['heartsteel','amaranths_twinguard','unending_despair','frozen_heart','abyssal_mask','redemption']}];
+ try{
+ const [c,r]=await Promise.all(['./data/items-client-7.3d-v12.json?v=27','./data/item-restrictions-client-7.3d-v12.json?v=27'].map(async path=>{let res=await fetch(path,{cache:'no-store'});if(!res.ok)throw Error('HTTP '+res.status);return res.json()}));
+ const list=c.items,byId=new Map(list.map(x=>[x.id,x]));
+ const img=(id)=>{const i=el('img');i.src='./assets/item-icons/'+id+'.webp';i.alt='';i.loading='lazy';i.onerror=()=>i.replaceWith(el('span','⚔️'));return i};
+ let presets=defaults.map(d=>({...d,ids:[...d.ids]})),activeCard=0,activeSlot=0;
+ const overlay=get('overlay'),search=get('search'),pickList=get('pickList');
+ const readScenario=()=>Object.fromEntries(['level','baseHp','baseArmor','baseMr','baseAd','enemyHp','enemyMr','physicalPct'].map(id=>[id,Number(get(id).value)]));
+ function openPicker(card,slot){activeCard=card;activeSlot=slot;get('pickerTitle').textContent=presets[card].title+' — Emplacement '+(slot+1);search.value='';overlay.classList.add('open');renderPicker();search.focus()}
+ function closePicker(){overlay.classList.remove('open')}
+ function renderPicker(){pickList.replaceChildren();let q=normalize(search.value);for(let it of [{id:'',name_fr:'Vider cet emplacement'},...list.filter(x=>x.item_type!=='transformed')]){
+ if(!normalize(it.name_fr).includes(q))continue;
+ const b=el('button',null,'pick');b.type='button';if(it.id)b.append(img(it.id));else b.append(el('span','✕'));
+ b.append(el('span',it.name_fr));if(it.id)b.append(el('small',it.price_gold==null?'Prix inconnu':it.price_gold+' PO'));
+ b.onclick=()=>{presets[activeCard].ids[activeSlot]=it.id;closePicker();render()};pickList.append(b)
+ }}
+ function render(){get('builds').replaceChildren();const sc=readScenario();presets.forEach((p,ci)=>{
+ let result=WRDIGalioLabV12.evaluate(p.ids,list,r,sc,WRDIClientCatalogV12.validateBuild);
+ const card=el('article',null,'card');card.append(el('h3',p.title));let slots=el('div',null,'slots');p.ids.forEach((id,si)=>{
+ let b=el('button',null,'slot');b.type='button';if(id)b.append(img(id));else b.append(el('span','+'));
+ b.append(el('span',id?(byId.get(id)?.name_fr||id):'Objet '+(si+1)));b.onclick=()=>openPicker(ci,si);slots.append(b)});card.append(slots);
+ const msg=el('div',result.valid?'✓ Équipement autorisé':'✕ Équipement interdit',result.valid?'good':'bad');card.append(msg);
+ for(let er of result.validation.errors)card.append(el('div',er.message,'bad'));
+ const block=el('div',null,'result');function metric(name,val){const row=el('div',null,'metric');row.append(el('span',name));row.append(el('strong',val));block.append(row)}
+ const fmt=x=>Number.isFinite(x)?Math.round(x).toLocaleString('fr-FR'):'—';
+ metric('Dégâts combo (partiel)',fmt(result.magicDamage));metric('PV effectifs estimés',fmt(result.ehp));
+ metric('PV / Armure / RM',`${fmt(result.stats.hp)} / ${fmt(result.stats.armor)} / ${fmt(result.stats.mr)}`);
+ metric('Puissance effective',fmt(result.stats.ap));
+ metric('Coût connu',fmt(result.costKnown)+' PO'+(result.missingPrices.length?' + inconnus':''));
+ if(result.missingPrices.length)block.append(el('p','Prix non documentés : '+result.missingPrices.join(', '),'warn note'));
+ if(result.notModeled.length)block.append(el('p','Passifs non simulés : '+result.notModeled.join(' · '),'warn note'));
+ block.append(el('p','Dégâts : Q + E + passive. Aucun classement automatique : cette comparaison est incomplète.','note'));
+ card.append(block);get('builds').append(card)
+ });}
+ for(let id of ['level','baseHp','baseArmor','baseMr','baseAd','enemyHp','enemyMr','physicalPct'])get(id).addEventListener('input',render);
+ search.oninput=renderPicker;get('close').onclick=closePicker;overlay.onclick=e=>{if(e.target===overlay)closePicker()};document.addEventListener('keydown',e=>{if(e.key==='Escape')closePicker()});render();
+ }catch(e){get('notice').textContent='Impossible de charger les catalogues : '+e.message}
+})();
+</script></body></html>
