@@ -1,0 +1,1539 @@
+{
+  "schema": "wrdi-passive-coverage-v1",
+  "catalogSourcePatch": "7.2a",
+  "patchVerified": false,
+  "policy": "ALL historical records are review-required; no passive may be executed or recommended until individually verified against current Wild Rift mobile patch.",
+  "counts": {
+    "catalogRecords": 195,
+    "verifiedItems": 0,
+    "verifiedPassives": 0
+  },
+  "items": [
+    {
+      "id": "bloodthirster",
+      "sourceName": "Bloodthirster",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Bloody"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "guardian-angel",
+      "sourceName": "Guardian Angel",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "magnetic-blaster",
+      "sourceName": "Magnetic Blaster",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Fervor"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "blade-of-the-ruined-king",
+      "sourceName": "Blade of the Ruined King",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Thirst"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "runaan-s-hurricane",
+      "sourceName": "Runaan's Hurricane",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "youmuu-s-ghostblade",
+      "sourceName": "Youmuu's Ghostblade",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Slice"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "duskblade-of-draktharr",
+      "sourceName": "Duskblade of Draktharr",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Razor"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "infinity-edge",
+      "sourceName": "Infinity Edge",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "mortal-reminder",
+      "sourceName": "Mortal Reminder",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Last Whisper"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "lord-dominik-s-regards",
+      "sourceName": "Lord Dominik's Regards",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "black-cleaver",
+      "sourceName": "Black Cleaver",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "manamune-awe-lv1-ez-390-mana",
+      "sourceName": "Manamune (Awe - lv1 EZ 390 Mana)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Awe"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "manamune-awe-lv15-ez-1076-mana",
+      "sourceName": "Manamune (Awe - lv15 EZ 1076 Mana)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Awe"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "muramana-awe-lv1-ez-390-mana",
+      "sourceName": "Muramana (Awe - lv1 EZ 390 Mana)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Awe"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "muramana-awe-lv15-ez-1076-mana",
+      "sourceName": "Muramana (Awe - lv15 EZ 1076 Mana)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Awe"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "trinity-force",
+      "sourceName": "Trinity Force",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Fervor"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "maw-of-malmortius",
+      "sourceName": "Maw of Malmortius",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "death-s-dance",
+      "sourceName": "Death's Dance",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "phantom-dancer",
+      "sourceName": "Phantom Dancer",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Shadowwalk"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "nashor-s-tooth-adaptive-ad",
+      "sourceName": "Nashor's Tooth (Adaptive: AD)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Magic Fang"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "wit-s-end",
+      "sourceName": "Wit's End",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "essence-reaver",
+      "sourceName": "Essence Reaver",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "serylda-s-grudge",
+      "sourceName": "Serylda's Grudge",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Last Whisper"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "navori-quickblades",
+      "sourceName": "Navori Quickblades",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "edge-of-night",
+      "sourceName": "Edge of Night",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Gouge"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "divine-sunderer",
+      "sourceName": "Divine Sunderer",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "serpent-s-fang",
+      "sourceName": "Serpent's Fang",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Stab"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "chempunk-chainsword",
+      "sourceName": "Chempunk Chainsword",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "the-collector",
+      "sourceName": "The Collector",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Killer"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "sterak-s-gage-heavy-handed-lv1-ire-58-ad",
+      "sourceName": "Sterak's Gage (Heavy Handed - lv1 IRE 58 AD)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Heavy Handed"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "sterak-s-gage-heavy-handed-lv15-ire-122-ad",
+      "sourceName": "Sterak's Gage (Heavy Handed - lv15 IRE 122 AD)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Heavy Handed"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "spear-of-shojin",
+      "sourceName": "Spear of Shojin",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Dragonforce"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "titanic-hydra",
+      "sourceName": "Titanic Hydra",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "terminus",
+      "sourceName": "Terminus",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "sundered-sky",
+      "sourceName": "Sundered Sky",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "eclipse",
+      "sourceName": "Eclipse",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "soul-transfer",
+      "sourceName": "Soul Transfer",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "hullbreaker",
+      "sourceName": "Hullbreaker",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Set Sail"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "luden-s-echo",
+      "sourceName": "Luden's Echo",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "morellonomicon",
+      "sourceName": "Morellonomicon",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "rabadon-s-deathcap-overkill",
+      "sourceName": "Rabadon's Deathcap (Overkill)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Overkill"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "rylai-s-crystal-scepter",
+      "sourceName": "Rylai's Crystal Scepter",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "liandry-s-torment",
+      "sourceName": "Liandry's Torment",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "rod-of-ages",
+      "sourceName": "Rod of Ages",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "lich-bane",
+      "sourceName": "Lich Bane",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Bane"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "nashor-s-tooth-adaptive-ap",
+      "sourceName": "Nashor's Tooth (Adaptive: AP)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Magic Fang"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "archangel-s-staff-awe-lv1-kass-480-mp",
+      "sourceName": "Archangel's Staff (Awe - lv1 Kass 480 MP)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Awe"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "archangel-s-staff-awe-lv15-kass-1390-mp",
+      "sourceName": "Archangel's Staff (Awe - lv15 Kass 1390 MP)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Awe"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "seraph-s-embrace-awe-lv1-kass-480-mp",
+      "sourceName": "Seraph's Embrace (Awe - lv1 Kass 480 MP)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Awe"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "seraph-s-embrace-awe-lv15-kass-1390-mp",
+      "sourceName": "Seraph's Embrace (Awe - lv15 Kass 1390 MP)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Awe"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "ardent-censer",
+      "sourceName": "Ardent Censer",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Ardent"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "harmonic-echo",
+      "sourceName": "Harmonic Echo",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "infinity-orb",
+      "sourceName": "Infinity Orb",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Balanced"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "staff-of-flowing-waters",
+      "sourceName": "Staff of Flowing Waters",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "oceanid-s-trident",
+      "sourceName": "Oceanid's Trident",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "imperial-mandate",
+      "sourceName": "Imperial Mandate",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "cosmic-drive",
+      "sourceName": "Cosmic Drive",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Hyperdrive"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "riftmaker",
+      "sourceName": "Riftmaker",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Assimilation",
+        "Void Infusion"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "horizon-focus",
+      "sourceName": "Horizon Focus",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "malignance-scorn",
+      "sourceName": "Malignance (Scorn)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Scorn"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "guinsoo-s-rageblade-adaptive-ap",
+      "sourceName": "Guinsoo's Rageblade (Adaptive: AP)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Surge",
+        "Chaos"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "guinsoo-s-rageblade-adaptive-ap-seething-strike",
+      "sourceName": "Guinsoo's Rageblade (Adaptive: AP, Seething Strike)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Surge",
+        "Chaos",
+        "Seething Strike"
+      ],
+      "unknownStatsCount": 1
+    },
+    {
+      "id": "sunfire-aegis",
+      "sourceName": "Sunfire Aegis",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "randuin-s-omen",
+      "sourceName": "Randuin's Omen",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "thornmail",
+      "sourceName": "Thornmail",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "warmog-s-armor",
+      "sourceName": "Warmog's Armor",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "iceborn-gauntlet",
+      "sourceName": "Iceborn Gauntlet",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "dead-man-s-plate",
+      "sourceName": "Dead Man's Plate",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Relentless"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "zeke-s-convergence",
+      "sourceName": "Zeke's Convergence",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "winter-s-approach-awe-lv1-voli-390-mp",
+      "sourceName": "Winter's Approach (Awe - lv1 Voli 390 MP)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Awe"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "winter-s-approach-awe-lv15-voli-1300-mp",
+      "sourceName": "Winter's Approach (Awe - lv15 Voli 1300 MP)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Awe"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "fimbulwinter-awe-lv1-voli-390-mp",
+      "sourceName": "Fimbulwinter (Awe - lv1 Voli 390 MP)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Awe"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "fimbulwinter-awe-lv15-voli-1300-mp",
+      "sourceName": "Fimbulwinter (Awe - lv15 Voli 1300 MP)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Awe"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "force-of-nature",
+      "sourceName": "Force of Nature",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Storm"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "frozen-heart",
+      "sourceName": "Frozen Heart",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "dawnshroud",
+      "sourceName": "Dawnshroud",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "amaranth-s-twinguard",
+      "sourceName": "Amaranth's Twinguard",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "mantle-of-the-twelfth-hour",
+      "sourceName": "Mantle of the Twelfth Hour",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "searing-crown",
+      "sourceName": "Searing Crown",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "heartsteel",
+      "sourceName": "Heartsteel",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "redemption",
+      "sourceName": "Redemption",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "radiant-virtue",
+      "sourceName": "Radiant Virtue",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "gluttonous-greaves-balanced-of-power-ad-convertion-0-stacks",
+      "sourceName": "Gluttonous Greaves (Balanced of Power - AD, Convertion - 0 Stacks)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Balanced of Power",
+        "Convertion"
+      ],
+      "unknownStatsCount": 1
+    },
+    {
+      "id": "gluttonous-greaves-balanced-of-power-ad-convertion-full-stacks",
+      "sourceName": "Gluttonous Greaves (Balanced of Power - AD, Convertion - Full Stacks)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Balanced of Power",
+        "Convertion"
+      ],
+      "unknownStatsCount": 1
+    },
+    {
+      "id": "gluttonous-greaves-balanced-of-power-ap-convertion-0-stacks",
+      "sourceName": "Gluttonous Greaves (Balanced of Power - AP, Convertion - 0 Stacks)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Balanced of Power",
+        "Convertion"
+      ],
+      "unknownStatsCount": 1
+    },
+    {
+      "id": "gluttonous-greaves-balanced-of-power-ap-convertion-full-stacks",
+      "sourceName": "Gluttonous Greaves (Balanced of Power - AP, Convertion - Full Stacks)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Balanced of Power",
+        "Convertion"
+      ],
+      "unknownStatsCount": 1
+    },
+    {
+      "id": "berserker-s-greaves",
+      "sourceName": "Berserker's Greaves",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "mercury-s-treads",
+      "sourceName": "Mercury's Treads",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "plated-steelcaps",
+      "sourceName": "Plated Steelcaps",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "ionian-boots-of-lucidity",
+      "sourceName": "Ionian Boots of Lucidity",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "boots-of-mana",
+      "sourceName": "Boots of Mana",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Magic Break"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "boots-of-dynamism",
+      "sourceName": "Boots of Dynamism",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Strike"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "spectral-sickle-adaptive-ad",
+      "sourceName": "Spectral Sickle (Adaptive - AD)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Versatile"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "spectral-sickle-adaptive-ap",
+      "sourceName": "Spectral Sickle (Adaptive - AP)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Versatile"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "relic-shield",
+      "sourceName": "Relic Shield",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "black-mist-scythe-adaptive-ad",
+      "sourceName": "Black Mist Scythe (Adaptive: AD)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Versatile"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "black-mist-scythe-adaptive-ap",
+      "sourceName": "Black Mist Scythe (Adaptive: AP)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Versatile"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "black-mist-scythe-adaptive-ad-soulcast",
+      "sourceName": "Black Mist Scythe (Adaptive: AD, Soulcast)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Versatile",
+        "Soulcast",
+        "Soulcast"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "black-mist-scythe-adaptive-ap-soulcast",
+      "sourceName": "Black Mist Scythe (Adaptive: AP, Soulcast)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Versatile",
+        "Soulcast",
+        "Soulcast"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "bulwark-of-the-mountain",
+      "sourceName": "Bulwark of the Mountain",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "vampiric-scepter",
+      "sourceName": "Vampiric Scepter",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "zeal",
+      "sourceName": "Zeal",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Fervor"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "kirchei-s-shard",
+      "sourceName": "Kirchei's Shard",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "serrated-dirk",
+      "sourceName": "Serrated Dirk",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Sharp"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "recurve-bow",
+      "sourceName": "Recurve Bow",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "b-f-sword",
+      "sourceName": "B. F. Sword",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "cloak-of-agility",
+      "sourceName": "Cloak of Agility",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "last-whisper",
+      "sourceName": "Last Whisper",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Last Whisper"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "executioner-s-calling",
+      "sourceName": "Executioner's Calling",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "phage",
+      "sourceName": "Phage",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "stinger",
+      "sourceName": "Stinger",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "caulfield-s-warhammer",
+      "sourceName": "Caulfield's Warhammer",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "jaurim-s-fist",
+      "sourceName": "Jaurim's Fist",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "tear-of-the-goddess",
+      "sourceName": "Tear of the Goddess",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "aether-wisp",
+      "sourceName": "Aether Wisp",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Wisp"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "lost-chapter",
+      "sourceName": "Lost Chapter",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "fiendish-codex",
+      "sourceName": "Fiendish Codex",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "blasting-wand",
+      "sourceName": "Blasting Wand",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "needlessly-large-rod",
+      "sourceName": "Needlessly Large Rod",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "haunting-guise",
+      "sourceName": "Haunting Guise",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "sheen",
+      "sourceName": "Sheen",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "oblivion-orb",
+      "sourceName": "Oblivion Orb",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "bami-s-cinder",
+      "sourceName": "Bami's Cinder",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "spectre-s-cowl",
+      "sourceName": "Spectre's Cowl",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "kindlegem",
+      "sourceName": "Kindlegem",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "giant-s-belt",
+      "sourceName": "Giant's Belt",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "warden-s-mail",
+      "sourceName": "Warden's Mail",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "catalyst-of-aeons",
+      "sourceName": "Catalyst of Aeons",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "chain-vest",
+      "sourceName": "Chain Vest",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "bramble-vest",
+      "sourceName": "Bramble Vest",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "hexdrinker",
+      "sourceName": "Hexdrinker",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "negatron-cloak",
+      "sourceName": "Negatron Cloak",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "glacial-shroud",
+      "sourceName": "Glacial Shroud",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "winged-moonplate",
+      "sourceName": "Winged Moonplate",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Flight"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "seeker-s-armguard",
+      "sourceName": "Seeker's Armguard",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "nashor-s-talon-adaptive-ad",
+      "sourceName": "Nashor's Talon (Adaptive: AD)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Magic Needle"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "nashor-s-talon-adaptive-ap",
+      "sourceName": "Nashor's Talon (Adaptive: AP)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Magic Needle"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "noonquiver",
+      "sourceName": "Noonquiver",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "hextech-alternator",
+      "sourceName": "Hextech Alternator",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "mejai-s-soulstealer",
+      "sourceName": "Mejai's Soulstealer",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "surging-scales",
+      "sourceName": "Surging Scales",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "boots-of-speed",
+      "sourceName": "Boots of Speed",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "long-sword",
+      "sourceName": "Long Sword",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "brawler-s-gloves",
+      "sourceName": "Brawler's Gloves",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "dagger",
+      "sourceName": "Dagger",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "shimmering-spark",
+      "sourceName": "Shimmering Spark",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "amplifying-tome",
+      "sourceName": "Amplifying Tome",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "ruby-crystal",
+      "sourceName": "Ruby Crystal",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "cloth-armor",
+      "sourceName": "Cloth Armor",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "null-magic-mantle",
+      "sourceName": "Null-Magic Mantle",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "ring-of-revelation",
+      "sourceName": "Ring of Revelation",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "forbidden-idol",
+      "sourceName": "Forbidden Idol",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "kaenic-rookern",
+      "sourceName": "Kaenic Rookern",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "yordle-trap",
+      "sourceName": "Yordle Trap",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "guinsoo-s-rageblade-adaptive-ad",
+      "sourceName": "Guinsoo's Rageblade (Adaptive: AD)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Surge",
+        "Chaos"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "guinsoo-s-rageblade-adaptive-ad-seething-strike",
+      "sourceName": "Guinsoo's Rageblade (Adaptive: AD, Seething Strike)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Surge",
+        "Chaos",
+        "Seething Strike"
+      ],
+      "unknownStatsCount": 1
+    },
+    {
+      "id": "abyssal-mask",
+      "sourceName": "Abyssal Mask",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "hollow-radiance",
+      "sourceName": "Hollow Radiance",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "kraken-slayer",
+      "sourceName": "Kraken Slayer",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Cloud Stride"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "knight-s-vow",
+      "sourceName": "Knight's Vow",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "overlord-s-bloodmail",
+      "sourceName": "Overlord's Bloodmail",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Tyranny"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "unending-despair",
+      "sourceName": "Unending Despair",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "experimental-hexplate",
+      "sourceName": "Experimental Hexplate",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "stridebreaker",
+      "sourceName": "Stridebreaker",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "goredrinker",
+      "sourceName": "Goredrinker",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "quicksilver-sash",
+      "sourceName": "Quicksilver Sash",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "mercurial-scimitar",
+      "sourceName": "Mercurial Scimitar",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "galeforce",
+      "sourceName": "Galeforce",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "hextech-rocketbelt",
+      "sourceName": "Hextech Rocketbelt",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "zhonya-s-hourglass",
+      "sourceName": "Zhonya's Hourglass",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "gargoyle-stoneplate",
+      "sourceName": "Gargoyle Stoneplate",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "locket-of-the-iron-solari",
+      "sourceName": "Locket of the Iron Solari",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "shurelya-s-battlesong",
+      "sourceName": "Shurelya's Battlesong",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "mikael-s-blessing",
+      "sourceName": "Mikael's Blessing",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "dusk-and-dawn",
+      "sourceName": "Dusk and Dawn",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "blackfire-torch",
+      "sourceName": "Blackfire Torch",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "void-amethyst",
+      "sourceName": "Void Amethyst",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "void-staff",
+      "sourceName": "Void Staff",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "cryptbloom",
+      "sourceName": "Cryptbloom",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "bloodletter-s-curse",
+      "sourceName": "Bloodletter's Curse",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "verdant-barrier",
+      "sourceName": "Verdant Barrier",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "banshee-s-veil",
+      "sourceName": "Banshee's Veil",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "stormsurge",
+      "sourceName": "Stormsurge",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "fated-ashes",
+      "sourceName": "Fated Ashes",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "spellslinger-s-shoes",
+      "sourceName": "Spellslinger's Shoes",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "chainlaced-crushers",
+      "sourceName": "Chainlaced Crushers",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "gunmetal-greaves-noxian-gait-melee",
+      "sourceName": "Gunmetal Greaves (Noxian Gait - Melee)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Noxian Gait"
+      ],
+      "unknownStatsCount": 1
+    },
+    {
+      "id": "gunmetal-greaves-noxian-gait-range",
+      "sourceName": "Gunmetal Greaves (Noxian Gait - Range)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Noxian Gait"
+      ],
+      "unknownStatsCount": 1
+    },
+    {
+      "id": "armored-advance",
+      "sourceName": "Armored Advance",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "immortal-treads-balanced-of-power-ad-convertion-0-stacks",
+      "sourceName": "Immortal Treads (Balanced of Power - AD, Convertion - 0 Stacks)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Balanced of Power",
+        "Convertion"
+      ],
+      "unknownStatsCount": 1
+    },
+    {
+      "id": "immortal-treads-balanced-of-power-ad-convertion-full-stacks",
+      "sourceName": "Immortal Treads (Balanced of Power - AD, Convertion - Full Stacks)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Balanced of Power",
+        "Convertion"
+      ],
+      "unknownStatsCount": 1
+    },
+    {
+      "id": "immortal-treads-balanced-of-power-ap-convertion-0-stacks",
+      "sourceName": "Immortal Treads (Balanced of Power - AP, Convertion - 0 Stacks)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Balanced of Power",
+        "Convertion"
+      ],
+      "unknownStatsCount": 1
+    },
+    {
+      "id": "immortal-treads-balanced-of-power-ap-convertion-full-stacks",
+      "sourceName": "Immortal Treads (Balanced of Power - AP, Convertion - Full Stacks)",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Balanced of Power",
+        "Convertion"
+      ],
+      "unknownStatsCount": 1
+    },
+    {
+      "id": "armorcrusher-boots",
+      "sourceName": "Armorcrusher Boots",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [
+        "Strike"
+      ],
+      "unknownStatsCount": 0
+    },
+    {
+      "id": "crimson-lucidity",
+      "sourceName": "Crimson Lucidity",
+      "status": "needs-current-patch-verification",
+      "passiveCandidates": [],
+      "unknownStatsCount": 0
+    }
+  ]
+}
