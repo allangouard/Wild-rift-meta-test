@@ -1,0 +1,6742 @@
+{
+  "schema": "wrdi-item-catalog-normalized-v1",
+  "source": {
+    "file": "items_7_2a.yml.txt",
+    "claimedPatch": "7.2a",
+    "independentlyVerified": false
+  },
+  "policy": {
+    "historicalOnly": true,
+    "mayAutoRecommend": false,
+    "maySimulate": false,
+    "reason": "Patch historique 7.2a, identité des groupes et stats/passifs non validés. Ne pas connecter directement à l’optimiseur."
+  },
+  "counts": {
+    "sourceEntries": 238,
+    "sourceGroups": 195,
+    "normalizedRecords": 195,
+    "reviewFlags": {
+      "conditionalInPrimary": 71,
+      "possiblyVariantGroupName": 40,
+      "unknownStats": 12
+    }
+  },
+  "statUnits": {
+    "*Pct": "percentage points, not fractions"
+  },
+  "items": [
+    {
+      "id": "bloodthirster",
+      "sourceName": "Bloodthirster",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3000,
+      "baseStats": {
+        "attackDamage": 55,
+        "critChancePct": 25,
+        "health": 250
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Bloody",
+          "type": "% Physical Vamp",
+          "value": 8
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Bloodthirster",
+          "sourceIndex": 0
+        },
+        {
+          "name": "Bloodthirster (Bloody[Crit])",
+          "sourceIndex": 1
+        }
+      ],
+      "sourcePrimaryIndex": 0,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "guardian-angel",
+      "sourceName": "Guardian Angel",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3200,
+      "baseStats": {
+        "attackDamage": 45,
+        "armor": 40
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Guardian Angel",
+          "sourceIndex": 2
+        }
+      ],
+      "sourcePrimaryIndex": 2,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "magnetic-blaster",
+      "sourceName": "Magnetic Blaster",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3000,
+      "baseStats": {
+        "attackDamage": 25,
+        "critChancePct": 25,
+        "attackSpeedPct": 25
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Fervor",
+          "type": "% Move Speed",
+          "value": 5
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Magnetic Blaster",
+          "sourceIndex": 3
+        }
+      ],
+      "sourcePrimaryIndex": 3,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "blade-of-the-ruined-king",
+      "sourceName": "Blade of the Ruined King",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3200,
+      "baseStats": {
+        "attackDamage": 40,
+        "attackSpeedPct": 35
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Thirst",
+          "type": "% Omnivamp",
+          "value": 10
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Blade of the Ruined King",
+          "sourceIndex": 4
+        }
+      ],
+      "sourcePrimaryIndex": 4,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "runaan-s-hurricane",
+      "sourceName": "Runaan's Hurricane",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 2900,
+      "baseStats": {
+        "attackSpeedPct": 35,
+        "critChancePct": 25
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Runaan's Hurricane",
+          "sourceIndex": 5
+        }
+      ],
+      "sourcePrimaryIndex": 5,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "youmuu-s-ghostblade",
+      "sourceName": "Youmuu's Ghostblade",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3000,
+      "baseStats": {
+        "attackDamage": 55,
+        "abilityHaste": 15
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Slice",
+          "type": "Armor Penetration",
+          "value": 15
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Youmuu's Ghostblade",
+          "sourceIndex": 6
+        },
+        {
+          "name": "Youmuu's Ghostblade (Momentum)",
+          "sourceIndex": 7
+        },
+        {
+          "name": "Youmuu's Ghostblade (Haste)",
+          "sourceIndex": 8
+        }
+      ],
+      "sourcePrimaryIndex": 6,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "duskblade-of-draktharr",
+      "sourceName": "Duskblade of Draktharr",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3000,
+      "baseStats": {
+        "attackDamage": 55,
+        "abilityHaste": 10
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Razor",
+          "type": "Armor Penetration",
+          "value": 18
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Duskblade of Draktharr",
+          "sourceIndex": 9
+        }
+      ],
+      "sourcePrimaryIndex": 9,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "infinity-edge",
+      "sourceName": "Infinity Edge",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3400,
+      "baseStats": {
+        "attackDamage": 65,
+        "critChancePct": 25
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Infinity Edge",
+          "sourceIndex": 10
+        }
+      ],
+      "sourcePrimaryIndex": 10,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "mortal-reminder",
+      "sourceName": "Mortal Reminder",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3300,
+      "baseStats": {
+        "attackDamage": 25,
+        "critChancePct": 25,
+        "attackSpeedPct": 15
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Last Whisper",
+          "type": "% Armor Penetration",
+          "value": 30
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Mortal Reminder",
+          "sourceIndex": 11
+        },
+        {
+          "name": "Mortal Reminder (Last Whisper[Crit])",
+          "sourceIndex": 13
+        }
+      ],
+      "sourcePrimaryIndex": 11,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "lord-dominik-s-regards",
+      "sourceName": "Lord Dominik's Regards",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3300,
+      "baseStats": {
+        "attackDamage": 25,
+        "critChancePct": 25,
+        "armorPenPct": 36
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Lord Dominik's Regards",
+          "sourceIndex": 12
+        }
+      ],
+      "sourcePrimaryIndex": 12,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "black-cleaver",
+      "sourceName": "Black Cleaver",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3000,
+      "baseStats": {
+        "health": 400,
+        "attackDamage": 40,
+        "abilityHaste": 20
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Black Cleaver",
+          "sourceIndex": 14
+        },
+        {
+          "name": "Black Cleaver (Chase / 0Stacks - Melee)",
+          "sourceIndex": 15
+        },
+        {
+          "name": "Black Cleaver (Chase / 0Stacks - Range)",
+          "sourceIndex": 16
+        },
+        {
+          "name": "Black Cleaver (Chase - Sunder / 5Stacks - Melee)",
+          "sourceIndex": 17
+        },
+        {
+          "name": "Black Cleaver (Chase - Sunder / 5Stacks - Range)",
+          "sourceIndex": 18
+        }
+      ],
+      "sourcePrimaryIndex": 14,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "manamune-awe-lv1-ez-390-mana",
+      "sourceName": "Manamune (Awe - lv1 EZ 390 Mana)",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 2700,
+      "baseStats": {
+        "attackDamage": 25,
+        "mana": 300,
+        "abilityHaste": 20
+      },
+      "conditionalStatsUnverified": [
+        {
+          "formula": "(390+300)*0.02",
+          "passive": "Awe",
+          "ratio": 0.02,
+          "ref": 390,
+          "ref_type": "Max Mana",
+          "type": "Attack Damage",
+          "value": 13.8
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Manamune (Awe - lv1 EZ 390 Mana)",
+          "sourceIndex": 19
+        }
+      ],
+      "sourcePrimaryIndex": 19,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "manamune-awe-lv15-ez-1076-mana",
+      "sourceName": "Manamune (Awe - lv15 EZ 1076 Mana)",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 2700,
+      "baseStats": {
+        "attackDamage": 25,
+        "mana": 300,
+        "abilityHaste": 20
+      },
+      "conditionalStatsUnverified": [
+        {
+          "formula": "(1076+300)*0.02",
+          "passive": "Awe",
+          "ratio": 0.02,
+          "ref": 1076,
+          "ref_type": "Max Mana",
+          "type": "Attack Damage",
+          "value": 27.52
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Manamune (Awe - lv15 EZ 1076 Mana)",
+          "sourceIndex": 20
+        }
+      ],
+      "sourcePrimaryIndex": 20,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "muramana-awe-lv1-ez-390-mana",
+      "sourceName": "Muramana (Awe - lv1 EZ 390 Mana)",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 2700,
+      "baseStats": {
+        "attackDamage": 25,
+        "mana": 1000,
+        "abilityHaste": 20
+      },
+      "conditionalStatsUnverified": [
+        {
+          "formula": "(390+1000)*0.02",
+          "passive": "Awe",
+          "ratio": 0.02,
+          "ref": 390,
+          "ref_type": "Max Mana",
+          "type": "Attack Damage",
+          "value": 27.8
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Muramana (Awe - lv1 EZ 390 Mana)",
+          "sourceIndex": 21
+        }
+      ],
+      "sourcePrimaryIndex": 21,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "muramana-awe-lv15-ez-1076-mana",
+      "sourceName": "Muramana (Awe - lv15 EZ 1076 Mana)",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 2700,
+      "baseStats": {
+        "attackDamage": 25,
+        "mana": 1000,
+        "abilityHaste": 20
+      },
+      "conditionalStatsUnverified": [
+        {
+          "formula": "(1076+1000)*0.02",
+          "passive": "Awe",
+          "ratio": 0.02,
+          "ref": 1076,
+          "ref_type": "Max Mana",
+          "type": "Attack Damage",
+          "value": 41.52
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Muramana (Awe - lv15 EZ 1076 Mana)",
+          "sourceIndex": 22
+        }
+      ],
+      "sourcePrimaryIndex": 22,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "trinity-force",
+      "sourceName": "Trinity Force",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3333,
+      "baseStats": {
+        "health": 333,
+        "attackDamage": 30,
+        "attackSpeedPct": 30,
+        "abilityHaste": 20
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Fervor",
+          "type": "% Move Speed",
+          "value": 5
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Trinity Force",
+          "sourceIndex": 23
+        }
+      ],
+      "sourcePrimaryIndex": 23,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "maw-of-malmortius",
+      "sourceName": "Maw of Malmortius",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3000,
+      "baseStats": {
+        "attackDamage": 55,
+        "magicResistance": 45,
+        "abilityHaste": 10
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Maw of Malmortius",
+          "sourceIndex": 24
+        },
+        {
+          "name": "Maw of Malmortius (Lifeline)",
+          "sourceIndex": 25
+        }
+      ],
+      "sourcePrimaryIndex": 24,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "death-s-dance",
+      "sourceName": "Death's Dance",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3100,
+      "baseStats": {
+        "attackDamage": 35,
+        "armor": 40,
+        "abilityHaste": 15
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Death's Dance",
+          "sourceIndex": 26
+        }
+      ],
+      "sourcePrimaryIndex": 26,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "phantom-dancer",
+      "sourceName": "Phantom Dancer",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 2900,
+      "baseStats": {
+        "attackDamage": 20,
+        "critChancePct": 25,
+        "attackSpeedPct": 40
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Shadowwalk",
+          "type": "% Move Speed",
+          "value": 5
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Phantom Dancer",
+          "sourceIndex": 27
+        },
+        {
+          "name": "Phantom Dancer (Spectral Waltz)",
+          "sourceIndex": 28
+        }
+      ],
+      "sourcePrimaryIndex": 27,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "nashor-s-tooth-adaptive-ad",
+      "sourceName": "Nashor's Tooth (Adaptive: AD)",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 2800,
+      "baseStats": {
+        "attackSpeedPct": 45,
+        "abilityHaste": 20
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Magic Fang",
+          "type": "Attack Damage",
+          "value": 25
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Nashor's Tooth (Adaptive: AD)",
+          "sourceIndex": 29
+        }
+      ],
+      "sourcePrimaryIndex": 29,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "wit-s-end",
+      "sourceName": "Wit's End",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 2800,
+      "baseStats": {
+        "attackSpeedPct": 45,
+        "magicResistance": 45
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Wit's End",
+          "sourceIndex": 30
+        }
+      ],
+      "sourcePrimaryIndex": 30,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "essence-reaver",
+      "sourceName": "Essence Reaver",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3000,
+      "baseStats": {
+        "attackDamage": 40,
+        "critChancePct": 25,
+        "abilityHaste": 20
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Essence Reaver",
+          "sourceIndex": 31
+        }
+      ],
+      "sourcePrimaryIndex": 31,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "serylda-s-grudge",
+      "sourceName": "Serylda's Grudge",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3300,
+      "baseStats": {
+        "attackDamage": 40,
+        "abilityHaste": 15
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Last Whisper",
+          "type": "% Armor Penetration",
+          "value": 33
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Serylda's Grudge",
+          "sourceIndex": 32
+        }
+      ],
+      "sourcePrimaryIndex": 32,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "navori-quickblades",
+      "sourceName": "Navori Quickblades",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 2800,
+      "baseStats": {
+        "critChancePct": 25,
+        "attackSpeedPct": 45,
+        "moveSpeedPct": 5
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Navori Quickblades",
+          "sourceIndex": 33
+        }
+      ],
+      "sourcePrimaryIndex": 33,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "edge-of-night",
+      "sourceName": "Edge of Night",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3000,
+      "baseStats": {
+        "health": 250,
+        "attackDamage": 50
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Gouge",
+          "type": "Armor Penetration",
+          "value": 8
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Edge of Night",
+          "sourceIndex": 34
+        }
+      ],
+      "sourcePrimaryIndex": 34,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "divine-sunderer",
+      "sourceName": "Divine Sunderer",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3400,
+      "baseStats": {
+        "health": 425,
+        "attackDamage": 25,
+        "abilityHaste": 25
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Divine Sunderer",
+          "sourceIndex": 35
+        }
+      ],
+      "sourcePrimaryIndex": 35,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "serpent-s-fang",
+      "sourceName": "Serpent's Fang",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 2800,
+      "baseStats": {
+        "attackDamage": 50,
+        "abilityHaste": 10
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Stab",
+          "type": "Armor Penetration",
+          "value": 15
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Serpent's Fang",
+          "sourceIndex": 36
+        }
+      ],
+      "sourcePrimaryIndex": 36,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "chempunk-chainsword",
+      "sourceName": "Chempunk Chainsword",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 2800,
+      "baseStats": {
+        "health": 400,
+        "attackDamage": 45,
+        "abilityHaste": 15
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Chempunk Chainsword",
+          "sourceIndex": 37
+        }
+      ],
+      "sourcePrimaryIndex": 37,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "the-collector",
+      "sourceName": "The Collector",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3000,
+      "baseStats": {
+        "attackDamage": 45,
+        "critChancePct": 25
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Killer",
+          "type": "Armor Penetration",
+          "value": 10
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "The Collector",
+          "sourceIndex": 38
+        }
+      ],
+      "sourcePrimaryIndex": 38,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "sterak-s-gage-heavy-handed-lv1-ire-58-ad",
+      "sourceName": "Sterak's Gage (Heavy Handed - lv1 IRE 58 AD)",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3200,
+      "baseStats": {
+        "health": 400
+      },
+      "conditionalStatsUnverified": [
+        {
+          "formula": "58*0.5",
+          "passive": "Heavy Handed",
+          "ratio": 0.5,
+          "ref": 58,
+          "type": "Attack Damage",
+          "value": 29.0
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Sterak's Gage (Heavy Handed - lv1 IRE 58 AD)",
+          "sourceIndex": 39
+        }
+      ],
+      "sourcePrimaryIndex": 39,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "sterak-s-gage-heavy-handed-lv15-ire-122-ad",
+      "sourceName": "Sterak's Gage (Heavy Handed - lv15 IRE 122 AD)",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3200,
+      "baseStats": {
+        "health": 400
+      },
+      "conditionalStatsUnverified": [
+        {
+          "formula": "122*0.5",
+          "passive": "Heavy Handed",
+          "ratio": 0.5,
+          "ref": 122,
+          "type": "Attack Damage",
+          "value": 61.0
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Sterak's Gage (Heavy Handed - lv15 IRE 122 AD)",
+          "sourceIndex": 40
+        }
+      ],
+      "sourcePrimaryIndex": 40,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "spear-of-shojin",
+      "sourceName": "Spear of Shojin",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3100,
+      "baseStats": {
+        "health": 450,
+        "attackDamage": 40
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Dragonforce",
+          "type": "Ability Haste",
+          "value": 20
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Spear of Shojin",
+          "sourceIndex": 41
+        }
+      ],
+      "sourcePrimaryIndex": 41,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "titanic-hydra",
+      "sourceName": "Titanic Hydra",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3000,
+      "baseStats": {
+        "health": 450,
+        "attackDamage": 40
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Titanic Hydra",
+          "sourceIndex": 42
+        }
+      ],
+      "sourcePrimaryIndex": 42,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "terminus",
+      "sourceName": "Terminus",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3300,
+      "baseStats": {
+        "attackDamage": 40,
+        "attackSpeedPct": 30
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Terminus",
+          "sourceIndex": 43
+        },
+        {
+          "name": "Terminus (Juxtaposition - lv1)",
+          "sourceIndex": 44
+        },
+        {
+          "name": "Terminus (Juxtaposition - lv15)",
+          "sourceIndex": 45
+        }
+      ],
+      "sourcePrimaryIndex": 43,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "sundered-sky",
+      "sourceName": "Sundered Sky",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 2900,
+      "baseStats": {
+        "attackDamage": 40,
+        "abilityHaste": 15,
+        "health": 350
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Sundered Sky",
+          "sourceIndex": 46
+        }
+      ],
+      "sourcePrimaryIndex": 46,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "eclipse",
+      "sourceName": "Eclipse",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3000,
+      "baseStats": {
+        "attackDamage": 65,
+        "abilityHaste": 20
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Eclipse",
+          "sourceIndex": 47
+        }
+      ],
+      "sourcePrimaryIndex": 47,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "soul-transfer",
+      "sourceName": "Soul Transfer",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3200,
+      "baseStats": {
+        "attackDamage": 25,
+        "critChancePct": 25,
+        "attackSpeedPct": 30
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Soul Transfer",
+          "sourceIndex": 48
+        }
+      ],
+      "sourcePrimaryIndex": 48,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "hullbreaker",
+      "sourceName": "Hullbreaker",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3100,
+      "baseStats": {
+        "health": 400,
+        "attackDamage": 50
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Set Sail",
+          "type": "% Move Speed",
+          "value": 5
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Hullbreaker",
+          "sourceIndex": 49
+        }
+      ],
+      "sourcePrimaryIndex": 49,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "luden-s-echo",
+      "sourceName": "Luden's Echo",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 2800,
+      "baseStats": {
+        "abilityPower": 100,
+        "mana": 500,
+        "abilityHaste": 10
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Luden's Echo",
+          "sourceIndex": 50
+        }
+      ],
+      "sourcePrimaryIndex": 50,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "morellonomicon",
+      "sourceName": "Morellonomicon",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS",
+        "SUPPORT ITEMS"
+      ],
+      "goldCost": 2650,
+      "baseStats": {
+        "health": 300,
+        "abilityPower": 75,
+        "abilityHaste": 15
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Morellonomicon",
+          "sourceIndex": 51
+        }
+      ],
+      "sourcePrimaryIndex": 51,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "rabadon-s-deathcap-overkill",
+      "sourceName": "Rabadon's Deathcap (Overkill)",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 3400,
+      "baseStats": {
+        "abilityPower": 130
+      },
+      "conditionalStatsUnverified": [
+        {
+          "formula": "130*0.3",
+          "passive": "Overkill",
+          "ratio": 0.3,
+          "ref_type": "Ability Power",
+          "type": "Ability Power",
+          "value": 39.0
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Rabadon's Deathcap (Overkill)",
+          "sourceIndex": 52
+        }
+      ],
+      "sourcePrimaryIndex": 52,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "rylai-s-crystal-scepter",
+      "sourceName": "Rylai's Crystal Scepter",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 2700,
+      "baseStats": {
+        "health": 350,
+        "abilityPower": 65
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Rylai's Crystal Scepter",
+          "sourceIndex": 53
+        }
+      ],
+      "sourcePrimaryIndex": 53,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "liandry-s-torment",
+      "sourceName": "Liandry's Torment",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 3000,
+      "baseStats": {
+        "health": 300,
+        "abilityPower": 70
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Liandry's Torment",
+          "sourceIndex": 54
+        }
+      ],
+      "sourcePrimaryIndex": 54,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "rod-of-ages",
+      "sourceName": "Rod of Ages",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 2700,
+      "baseStats": {
+        "health": 350,
+        "abilityPower": 50,
+        "mana": 400
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Rod of Ages",
+          "sourceIndex": 55
+        },
+        {
+          "name": "Rod of Ages (Veteran)",
+          "sourceIndex": 56
+        }
+      ],
+      "sourcePrimaryIndex": 55,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "lich-bane",
+      "sourceName": "Lich Bane",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 2800,
+      "baseStats": {
+        "abilityPower": 100,
+        "abilityHaste": 10
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Bane",
+          "type": "% Move Speed",
+          "value": 5
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Lich Bane",
+          "sourceIndex": 57
+        }
+      ],
+      "sourcePrimaryIndex": 57,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "nashor-s-tooth-adaptive-ap",
+      "sourceName": "Nashor's Tooth (Adaptive: AP)",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 2800,
+      "baseStats": {
+        "attackSpeedPct": 45,
+        "abilityHaste": 20
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Magic Fang",
+          "type": "Ability Power",
+          "value": 50
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Nashor's Tooth (Adaptive: AP)",
+          "sourceIndex": 58
+        }
+      ],
+      "sourcePrimaryIndex": 58,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "archangel-s-staff-awe-lv1-kass-480-mp",
+      "sourceName": "Archangel's Staff (Awe - lv1 Kass 480 MP)",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 3000,
+      "baseStats": {
+        "abilityPower": 60,
+        "mana": 500,
+        "abilityHaste": 25
+      },
+      "conditionalStatsUnverified": [
+        {
+          "formula": "(480+500)*0.01",
+          "passive": "Awe",
+          "ratio": 0.01,
+          "ref": 480,
+          "ref_type": "Max Mana",
+          "type": "Ability Power",
+          "value": 9.8
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Archangel's Staff (Awe - lv1 Kass 480 MP)",
+          "sourceIndex": 59
+        }
+      ],
+      "sourcePrimaryIndex": 59,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "archangel-s-staff-awe-lv15-kass-1390-mp",
+      "sourceName": "Archangel's Staff (Awe - lv15 Kass 1390 MP)",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 3000,
+      "baseStats": {
+        "abilityPower": 60,
+        "mana": 500,
+        "abilityHaste": 25
+      },
+      "conditionalStatsUnverified": [
+        {
+          "formula": "(1390+500)*0.01",
+          "passive": "Awe",
+          "ratio": 0.01,
+          "ref": 1390,
+          "ref_type": "Max Mana",
+          "type": "Ability Power",
+          "value": 18.9
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Archangel's Staff (Awe - lv15 Kass 1390 MP)",
+          "sourceIndex": 60
+        }
+      ],
+      "sourcePrimaryIndex": 60,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "seraph-s-embrace-awe-lv1-kass-480-mp",
+      "sourceName": "Seraph's Embrace (Awe - lv1 Kass 480 MP)",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 3000,
+      "baseStats": {
+        "abilityPower": 60,
+        "mana": 1200,
+        "abilityHaste": 25
+      },
+      "conditionalStatsUnverified": [
+        {
+          "formula": "(480+1200)*0.02",
+          "passive": "Awe",
+          "ratio": 0.02,
+          "ref": 480,
+          "ref_type": "Max Mana",
+          "type": "Ability Power",
+          "value": 33.6
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Seraph's Embrace (Awe - lv1 Kass 480 MP)",
+          "sourceIndex": 61
+        }
+      ],
+      "sourcePrimaryIndex": 61,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "seraph-s-embrace-awe-lv15-kass-1390-mp",
+      "sourceName": "Seraph's Embrace (Awe - lv15 Kass 1390 MP)",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 3000,
+      "baseStats": {
+        "abilityPower": 60,
+        "mana": 1200,
+        "abilityHaste": 25
+      },
+      "conditionalStatsUnverified": [
+        {
+          "formula": "(1390+1200)*0.02",
+          "passive": "Awe",
+          "ratio": 0.02,
+          "ref": 1390,
+          "ref_type": "Max Mana",
+          "type": "Ability Power",
+          "value": 51.8
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Seraph's Embrace (Awe - lv15 Kass 1390 MP)",
+          "sourceIndex": 62
+        }
+      ],
+      "sourcePrimaryIndex": 62,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "ardent-censer",
+      "sourceName": "Ardent Censer",
+      "categoryTags": [
+        "SUPPORT ITEMS"
+      ],
+      "goldCost": 2700,
+      "baseStats": {
+        "health": 250,
+        "abilityPower": 45,
+        "abilityHaste": 10,
+        "healShieldPct": 5,
+        "manaRegenPct": 50
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Ardent",
+          "type": "% Move Speed",
+          "value": 5
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Ardent Censer",
+          "sourceIndex": 63
+        }
+      ],
+      "sourcePrimaryIndex": 63,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "harmonic-echo",
+      "sourceName": "Harmonic Echo",
+      "categoryTags": [
+        "SUPPORT ITEMS"
+      ],
+      "goldCost": 2800,
+      "baseStats": {
+        "health": 100,
+        "abilityPower": 50,
+        "mana": 300,
+        "abilityHaste": 15,
+        "healShieldPct": 5,
+        "manaRegenPct": 50
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Harmonic Echo",
+          "sourceIndex": 64
+        }
+      ],
+      "sourcePrimaryIndex": 64,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "infinity-orb",
+      "sourceName": "Infinity Orb",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 3100,
+      "baseStats": {
+        "abilityPower": 110
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Balanced",
+          "type": "Magic Penetration",
+          "value": 15
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Infinity Orb",
+          "sourceIndex": 65
+        }
+      ],
+      "sourcePrimaryIndex": 65,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "staff-of-flowing-waters",
+      "sourceName": "Staff of Flowing Waters",
+      "categoryTags": [
+        "SUPPORT ITEMS"
+      ],
+      "goldCost": 2500,
+      "baseStats": {
+        "health": 100,
+        "abilityPower": 50,
+        "abilityHaste": 15,
+        "healShieldPct": 5,
+        "manaRegenPct": 50
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Staff of Flowing Waters",
+          "sourceIndex": 66
+        },
+        {
+          "name": "Staff of Flowing Waters (Rapids - lv1)",
+          "sourceIndex": 67
+        },
+        {
+          "name": "Staff of Flowing Waters (Rapids - lv15)",
+          "sourceIndex": 68
+        }
+      ],
+      "sourcePrimaryIndex": 66,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "oceanid-s-trident",
+      "sourceName": "Oceanid's Trident",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS",
+        "SUPPORT ITEMS"
+      ],
+      "goldCost": 2600,
+      "baseStats": {
+        "health": 200,
+        "abilityPower": 80,
+        "abilityHaste": 10
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Oceanid's Trident",
+          "sourceIndex": 69
+        }
+      ],
+      "sourcePrimaryIndex": 69,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "imperial-mandate",
+      "sourceName": "Imperial Mandate",
+      "categoryTags": [
+        "SUPPORT ITEMS"
+      ],
+      "goldCost": 2500,
+      "baseStats": {
+        "health": 200,
+        "abilityPower": 50,
+        "abilityHaste": 20
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Imperial Mandate",
+          "sourceIndex": 70
+        },
+        {
+          "name": "Imperial Mandate (Coordinated Fire)",
+          "sourceIndex": 71
+        }
+      ],
+      "sourcePrimaryIndex": 70,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "cosmic-drive",
+      "sourceName": "Cosmic Drive",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 3000,
+      "baseStats": {
+        "abilityPower": 70,
+        "health": 300,
+        "abilityHaste": 25
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Hyperdrive",
+          "type": "% Move Speed",
+          "value": 5
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Cosmic Drive",
+          "sourceIndex": 72
+        },
+        {
+          "name": "Cosmic Drive (Spellweaving)",
+          "sourceIndex": 73
+        }
+      ],
+      "sourcePrimaryIndex": 72,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "riftmaker",
+      "sourceName": "Riftmaker",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 3100,
+      "baseStats": {
+        "health": 350,
+        "abilityPower": 70,
+        "abilityHaste": 15
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Assimilation",
+          "type": "% Magic Vamp",
+          "value": 11
+        },
+        {
+          "formula": "350*0.02",
+          "passive": "Void Infusion",
+          "ratio": 0.02,
+          "ref_type": "Max Health",
+          "type": "Ability Power",
+          "value": 7.0
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Riftmaker",
+          "sourceIndex": 74
+        }
+      ],
+      "sourcePrimaryIndex": 74,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "horizon-focus",
+      "sourceName": "Horizon Focus",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 2700,
+      "baseStats": {
+        "abilityPower": 80,
+        "abilityHaste": 25
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Horizon Focus",
+          "sourceIndex": 75
+        }
+      ],
+      "sourcePrimaryIndex": 75,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "malignance-scorn",
+      "sourceName": "Malignance (Scorn)",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 2700,
+      "baseStats": {
+        "abilityPower": 90,
+        "mana": 500,
+        "abilityHaste": 15
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Scorn",
+          "type": "Ability Haste",
+          "value": 20
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Malignance (Scorn)",
+          "sourceIndex": 76
+        }
+      ],
+      "sourcePrimaryIndex": 76,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "guinsoo-s-rageblade-adaptive-ap",
+      "sourceName": "Guinsoo's Rageblade (Adaptive: AP)",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 3100,
+      "baseStats": {
+        "attackSpeedPct": 30
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Surge",
+          "type": "% Move Speed",
+          "value": 5
+        },
+        {
+          "passive": "Chaos",
+          "type": "Ability Power",
+          "value": 50
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Guinsoo's Rageblade (Adaptive: AP)",
+          "sourceIndex": 77
+        }
+      ],
+      "sourcePrimaryIndex": 77,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "guinsoo-s-rageblade-adaptive-ap-seething-strike",
+      "sourceName": "Guinsoo's Rageblade (Adaptive: AP, Seething Strike)",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 3100,
+      "baseStats": {
+        "attackSpeedPct": 30
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Surge",
+          "type": "% Move Speed",
+          "value": 5
+        },
+        {
+          "passive": "Chaos",
+          "type": "Ability Power",
+          "value": 50
+        },
+        {
+          "passive": "Seething Strike",
+          "type": "% Attack Speed",
+          "value": 32
+        }
+      ],
+      "unmappedStats": [
+        {
+          "type": "Unstable Passives' Stats"
+        }
+      ],
+      "sourceVariants": [
+        {
+          "name": "Guinsoo's Rageblade (Adaptive: AP, Seething Strike)",
+          "sourceIndex": 78
+        }
+      ],
+      "sourcePrimaryIndex": 78,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "sunfire-aegis",
+      "sourceName": "Sunfire Aegis",
+      "categoryTags": [
+        "DEFENSE ITEMS"
+      ],
+      "goldCost": 2900,
+      "baseStats": {
+        "health": 425,
+        "armor": 20,
+        "abilityHaste": 15
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Sunfire Aegis",
+          "sourceIndex": 79
+        }
+      ],
+      "sourcePrimaryIndex": 79,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "randuin-s-omen",
+      "sourceName": "Randuin's Omen",
+      "categoryTags": [
+        "DEFENSE ITEMS"
+      ],
+      "goldCost": 2800,
+      "baseStats": {
+        "health": 400,
+        "armor": 75
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Randuin's Omen",
+          "sourceIndex": 80
+        },
+        {
+          "name": "Randuin's Omen (Countercurrent - 4Stacks)",
+          "sourceIndex": 81
+        }
+      ],
+      "sourcePrimaryIndex": 80,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "thornmail",
+      "sourceName": "Thornmail",
+      "categoryTags": [
+        "DEFENSE ITEMS"
+      ],
+      "goldCost": 2700,
+      "baseStats": {
+        "health": 200,
+        "armor": 75
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Thornmail",
+          "sourceIndex": 82
+        }
+      ],
+      "sourcePrimaryIndex": 82,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "warmog-s-armor",
+      "sourceName": "Warmog's Armor",
+      "categoryTags": [
+        "DEFENSE ITEMS"
+      ],
+      "goldCost": 2850,
+      "baseStats": {
+        "health": 700,
+        "healthRegenPct": 100,
+        "abilityHaste": 20
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Warmog's Armor",
+          "sourceIndex": 83
+        }
+      ],
+      "sourcePrimaryIndex": 83,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "iceborn-gauntlet",
+      "sourceName": "Iceborn Gauntlet",
+      "categoryTags": [
+        "DEFENSE ITEMS"
+      ],
+      "goldCost": 3100,
+      "baseStats": {
+        "health": 250,
+        "armor": 50,
+        "mana": 250,
+        "abilityHaste": 30
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Iceborn Gauntlet",
+          "sourceIndex": 84
+        }
+      ],
+      "sourcePrimaryIndex": 84,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "dead-man-s-plate",
+      "sourceName": "Dead Man's Plate",
+      "categoryTags": [
+        "DEFENSE ITEMS"
+      ],
+      "goldCost": 2800,
+      "baseStats": {
+        "health": 350,
+        "armor": 70
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Relentless",
+          "type": "% Move Speed",
+          "value": 5
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Dead Man's Plate",
+          "sourceIndex": 85
+        },
+        {
+          "name": "Dead Man's Plate (Momentum)",
+          "sourceIndex": 86
+        }
+      ],
+      "sourcePrimaryIndex": 85,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "zeke-s-convergence",
+      "sourceName": "Zeke's Convergence",
+      "categoryTags": [
+        "DEFENSE ITEMS",
+        "SUPPORT ITEMS"
+      ],
+      "goldCost": 2700,
+      "baseStats": {
+        "health": 350,
+        "armor": 40,
+        "mana": 150,
+        "abilityHaste": 15
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Zeke's Convergence",
+          "sourceIndex": 87
+        }
+      ],
+      "sourcePrimaryIndex": 87,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "winter-s-approach-awe-lv1-voli-390-mp",
+      "sourceName": "Winter's Approach (Awe - lv1 Voli 390 MP)",
+      "categoryTags": [
+        "DEFENSE ITEMS"
+      ],
+      "goldCost": 2600,
+      "baseStats": {
+        "health": 350,
+        "mana": 500,
+        "abilityHaste": 15
+      },
+      "conditionalStatsUnverified": [
+        {
+          "formula": "(390+500)*0.1",
+          "passive": "Awe",
+          "ratio": 0.1,
+          "ref": 390,
+          "ref_type": "Max Mana",
+          "type": "Max Health",
+          "value": 89.0
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Winter's Approach (Awe - lv1 Voli 390 MP)",
+          "sourceIndex": 88
+        }
+      ],
+      "sourcePrimaryIndex": 88,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "winter-s-approach-awe-lv15-voli-1300-mp",
+      "sourceName": "Winter's Approach (Awe - lv15 Voli 1300 MP)",
+      "categoryTags": [
+        "DEFENSE ITEMS"
+      ],
+      "goldCost": 2600,
+      "baseStats": {
+        "health": 350,
+        "mana": 500,
+        "abilityHaste": 15
+      },
+      "conditionalStatsUnverified": [
+        {
+          "formula": "(1300+500)*0.1",
+          "passive": "Awe",
+          "ratio": 0.1,
+          "ref": 1300,
+          "ref_type": "Max Mana",
+          "type": "Max Health",
+          "value": 180.0
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Winter's Approach (Awe - lv15 Voli 1300 MP)",
+          "sourceIndex": 89
+        }
+      ],
+      "sourcePrimaryIndex": 89,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "fimbulwinter-awe-lv1-voli-390-mp",
+      "sourceName": "Fimbulwinter (Awe - lv1 Voli 390 MP)",
+      "categoryTags": [
+        "DEFENSE ITEMS"
+      ],
+      "goldCost": 2600,
+      "baseStats": {
+        "health": 350,
+        "mana": 1200,
+        "abilityHaste": 15
+      },
+      "conditionalStatsUnverified": [
+        {
+          "formula": "(390+1200)*0.1",
+          "passive": "Awe",
+          "ratio": 0.1,
+          "ref": 390,
+          "ref_type": "Max Mana",
+          "type": "Max Health",
+          "value": 159.0
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Fimbulwinter (Awe - lv1 Voli 390 MP)",
+          "sourceIndex": 90
+        }
+      ],
+      "sourcePrimaryIndex": 90,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "fimbulwinter-awe-lv15-voli-1300-mp",
+      "sourceName": "Fimbulwinter (Awe - lv15 Voli 1300 MP)",
+      "categoryTags": [
+        "DEFENSE ITEMS"
+      ],
+      "goldCost": 2600,
+      "baseStats": {
+        "health": 350,
+        "mana": 1200,
+        "abilityHaste": 15
+      },
+      "conditionalStatsUnverified": [
+        {
+          "formula": "(1300+1200)*0.1",
+          "passive": "Awe",
+          "ratio": 0.1,
+          "ref": 1300,
+          "ref_type": "Max Mana",
+          "type": "Max Health",
+          "value": 250.0
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Fimbulwinter (Awe - lv15 Voli 1300 MP)",
+          "sourceIndex": 91
+        }
+      ],
+      "sourcePrimaryIndex": 91,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "force-of-nature",
+      "sourceName": "Force of Nature",
+      "categoryTags": [
+        "DEFENSE ITEMS"
+      ],
+      "goldCost": 2750,
+      "baseStats": {
+        "health": 350,
+        "magicResistance": 60
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Storm",
+          "type": "% Move Speed",
+          "value": 5
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Force of Nature",
+          "sourceIndex": 92
+        },
+        {
+          "name": "Force of Nature (Absorb)",
+          "sourceIndex": 93
+        }
+      ],
+      "sourcePrimaryIndex": 92,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "frozen-heart",
+      "sourceName": "Frozen Heart",
+      "categoryTags": [
+        "DEFENSE ITEMS",
+        "SUPPORT ITEMS"
+      ],
+      "goldCost": 2650,
+      "baseStats": {
+        "armor": 80,
+        "mana": 250,
+        "abilityHaste": 20
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Frozen Heart",
+          "sourceIndex": 94
+        }
+      ],
+      "sourcePrimaryIndex": 94,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "dawnshroud",
+      "sourceName": "Dawnshroud",
+      "categoryTags": [
+        "DEFENSE ITEMS",
+        "SUPPORT ITEMS"
+      ],
+      "goldCost": 2700,
+      "baseStats": {
+        "health": 250,
+        "armor": 50,
+        "magicResistance": 30
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Dawnshroud",
+          "sourceIndex": 95
+        },
+        {
+          "name": "Dawnshroud (Dawnbringer)",
+          "sourceIndex": 96
+        }
+      ],
+      "sourcePrimaryIndex": 95,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "amaranth-s-twinguard",
+      "sourceName": "Amaranth's Twinguard",
+      "categoryTags": [
+        "DEFENSE ITEMS"
+      ],
+      "goldCost": 3100,
+      "baseStats": {
+        "armor": 60,
+        "magicResistance": 60
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Amaranth's Twinguard",
+          "sourceIndex": 97
+        },
+        {
+          "name": "Amaranth's Twinguard (Endurance)",
+          "sourceIndex": 98
+        }
+      ],
+      "sourcePrimaryIndex": 97,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "mantle-of-the-twelfth-hour",
+      "sourceName": "Mantle of the Twelfth Hour",
+      "categoryTags": [
+        "DEFENSE ITEMS"
+      ],
+      "goldCost": 2900,
+      "baseStats": {
+        "health": 200,
+        "armor": 40,
+        "magicResistance": 40
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Mantle of the Twelfth Hour",
+          "sourceIndex": 99
+        },
+        {
+          "name": "Mantle of the Twelfth Hour (Lifeline)",
+          "sourceIndex": 100
+        }
+      ],
+      "sourcePrimaryIndex": 99,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "searing-crown",
+      "sourceName": "Searing Crown",
+      "categoryTags": [
+        "DEFENSE ITEMS"
+      ],
+      "goldCost": 2700,
+      "baseStats": {
+        "health": 300,
+        "armor": 50
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Searing Crown",
+          "sourceIndex": 101
+        }
+      ],
+      "sourcePrimaryIndex": 101,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "heartsteel",
+      "sourceName": "Heartsteel",
+      "categoryTags": [
+        "DEFENSE ITEMS"
+      ],
+      "goldCost": 2800,
+      "baseStats": {
+        "health": 700,
+        "healthRegenPct": 150,
+        "abilityHaste": 20
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Heartsteel",
+          "sourceIndex": 102
+        }
+      ],
+      "sourcePrimaryIndex": 102,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "redemption",
+      "sourceName": "Redemption",
+      "categoryTags": [
+        "SUPPORT ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "goldCost": 2600,
+      "baseStats": {
+        "health": 150,
+        "abilityPower": 50,
+        "abilityHaste": 15,
+        "healShieldPct": 5,
+        "manaRegenPct": 50
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Redemption",
+          "sourceIndex": 103
+        }
+      ],
+      "sourcePrimaryIndex": 103,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "radiant-virtue",
+      "sourceName": "Radiant Virtue",
+      "categoryTags": [
+        "DEFENSE ITEMS"
+      ],
+      "goldCost": 2850,
+      "baseStats": {
+        "health": 300,
+        "armor": 45,
+        "abilityHaste": 15
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Radiant Virtue",
+          "sourceIndex": 104
+        },
+        {
+          "name": "Radiant Virtue (Guiding Light - lv1 Thresh 660 HP)",
+          "sourceIndex": 105
+        },
+        {
+          "name": "Radiant Virtue (Guiding Light - lv15 Thresh 2340 HP)",
+          "sourceIndex": 106
+        }
+      ],
+      "sourcePrimaryIndex": 104,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "gluttonous-greaves-balanced-of-power-ad-convertion-0-stacks",
+      "sourceName": "Gluttonous Greaves (Balanced of Power - AD, Convertion - 0 Stacks)",
+      "categoryTags": [
+        "BOOTS"
+      ],
+      "goldCost": 1000,
+      "baseStats": {
+        "moveSpeed": 45
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Balanced of Power",
+          "type": "Attack Damage",
+          "value": 12
+        },
+        {
+          "passive": "Convertion",
+          "type": "% Omnivamp",
+          "value": 5
+        }
+      ],
+      "unmappedStats": [
+        {
+          "type": "Unstable Passives' Stats"
+        }
+      ],
+      "sourceVariants": [
+        {
+          "name": "Gluttonous Greaves (Balanced of Power - AD, Convertion - 0 Stacks)",
+          "sourceIndex": 107
+        }
+      ],
+      "sourcePrimaryIndex": 107,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "gluttonous-greaves-balanced-of-power-ad-convertion-full-stacks",
+      "sourceName": "Gluttonous Greaves (Balanced of Power - AD, Convertion - Full Stacks)",
+      "categoryTags": [
+        "BOOTS"
+      ],
+      "goldCost": 1000,
+      "baseStats": {
+        "moveSpeed": 45
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Balanced of Power",
+          "type": "Attack Damage",
+          "value": 12
+        },
+        {
+          "passive": "Convertion",
+          "type": "% Omnivamp",
+          "value": 10
+        }
+      ],
+      "unmappedStats": [
+        {
+          "type": "Unstable Passives' Stats"
+        }
+      ],
+      "sourceVariants": [
+        {
+          "name": "Gluttonous Greaves (Balanced of Power - AD, Convertion - Full Stacks)",
+          "sourceIndex": 108
+        }
+      ],
+      "sourcePrimaryIndex": 108,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "gluttonous-greaves-balanced-of-power-ap-convertion-0-stacks",
+      "sourceName": "Gluttonous Greaves (Balanced of Power - AP, Convertion - 0 Stacks)",
+      "categoryTags": [
+        "BOOTS"
+      ],
+      "goldCost": 1000,
+      "baseStats": {
+        "moveSpeed": 45
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Balanced of Power",
+          "type": "Ability Power",
+          "value": 20
+        },
+        {
+          "passive": "Convertion",
+          "type": "% Omnivamp",
+          "value": 5
+        }
+      ],
+      "unmappedStats": [
+        {
+          "type": "Unstable Passives' Stats"
+        }
+      ],
+      "sourceVariants": [
+        {
+          "name": "Gluttonous Greaves (Balanced of Power - AP, Convertion - 0 Stacks)",
+          "sourceIndex": 109
+        }
+      ],
+      "sourcePrimaryIndex": 109,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "gluttonous-greaves-balanced-of-power-ap-convertion-full-stacks",
+      "sourceName": "Gluttonous Greaves (Balanced of Power - AP, Convertion - Full Stacks)",
+      "categoryTags": [
+        "BOOTS"
+      ],
+      "goldCost": 1000,
+      "baseStats": {
+        "moveSpeed": 45
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Balanced of Power",
+          "type": "Ability Power",
+          "value": 20
+        },
+        {
+          "passive": "Convertion",
+          "type": "% Omnivamp",
+          "value": 10
+        }
+      ],
+      "unmappedStats": [
+        {
+          "type": "Unstable Passives' Stats"
+        }
+      ],
+      "sourceVariants": [
+        {
+          "name": "Gluttonous Greaves (Balanced of Power - AP, Convertion - Full Stacks)",
+          "sourceIndex": 110
+        }
+      ],
+      "sourcePrimaryIndex": 110,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "berserker-s-greaves",
+      "sourceName": "Berserker's Greaves",
+      "categoryTags": [
+        "BOOTS"
+      ],
+      "goldCost": 1200,
+      "baseStats": {
+        "attackSpeedPct": 30,
+        "moveSpeed": 45
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Berserker's Greaves",
+          "sourceIndex": 111
+        }
+      ],
+      "sourcePrimaryIndex": 111,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "mercury-s-treads",
+      "sourceName": "Mercury's Treads",
+      "categoryTags": [
+        "BOOTS"
+      ],
+      "goldCost": 1200,
+      "baseStats": {
+        "health": 150,
+        "magicResistance": 25,
+        "tenacityPct": 15,
+        "moveSpeed": 45
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Mercury's Treads",
+          "sourceIndex": 112
+        }
+      ],
+      "sourcePrimaryIndex": 112,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "plated-steelcaps",
+      "sourceName": "Plated Steelcaps",
+      "categoryTags": [
+        "BOOTS"
+      ],
+      "goldCost": 1200,
+      "baseStats": {
+        "health": 150,
+        "armor": 25,
+        "moveSpeed": 45
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Plated Steelcaps",
+          "sourceIndex": 113
+        }
+      ],
+      "sourcePrimaryIndex": 113,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "ionian-boots-of-lucidity",
+      "sourceName": "Ionian Boots of Lucidity",
+      "categoryTags": [
+        "BOOTS"
+      ],
+      "goldCost": 1000,
+      "baseStats": {
+        "abilityHaste": 15,
+        "moveSpeed": 45,
+        "manaRegenPct": 50
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Ionian Boots of Lucidity",
+          "sourceIndex": 114
+        }
+      ],
+      "sourcePrimaryIndex": 114,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "boots-of-mana",
+      "sourceName": "Boots of Mana",
+      "categoryTags": [
+        "BOOTS"
+      ],
+      "goldCost": 1200,
+      "baseStats": {
+        "abilityPower": 25,
+        "manaRegenPct": 75,
+        "moveSpeed": 45
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Magic Break",
+          "type": "Magic Penetration",
+          "value": 8
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Boots of Mana",
+          "sourceIndex": 115
+        },
+        {
+          "name": "Boots of Mana (Equilibrium)",
+          "sourceIndex": 116
+        }
+      ],
+      "sourcePrimaryIndex": 115,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "boots-of-dynamism",
+      "sourceName": "Boots of Dynamism",
+      "categoryTags": [
+        "BOOTS"
+      ],
+      "goldCost": 1200,
+      "baseStats": {
+        "attackDamage": 15,
+        "moveSpeed": 45
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Strike",
+          "type": "Armor Penetration",
+          "value": 10
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Boots of Dynamism",
+          "sourceIndex": 117
+        }
+      ],
+      "sourcePrimaryIndex": 117,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "spectral-sickle-adaptive-ad",
+      "sourceName": "Spectral Sickle (Adaptive - AD)",
+      "categoryTags": [
+        "SUPPORT ITEMS"
+      ],
+      "goldCost": 500,
+      "baseStats": {},
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Versatile",
+          "type": "Attack Damage",
+          "value": 10
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Spectral Sickle (Adaptive - AD)",
+          "sourceIndex": 118
+        }
+      ],
+      "sourcePrimaryIndex": 118,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "spectral-sickle-adaptive-ap",
+      "sourceName": "Spectral Sickle (Adaptive - AP)",
+      "categoryTags": [
+        "SUPPORT ITEMS"
+      ],
+      "goldCost": 500,
+      "baseStats": {},
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Versatile",
+          "type": "Ability Power",
+          "value": 20
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Spectral Sickle (Adaptive - AP)",
+          "sourceIndex": 119
+        }
+      ],
+      "sourcePrimaryIndex": 119,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "relic-shield",
+      "sourceName": "Relic Shield",
+      "categoryTags": [
+        "SUPPORT ITEMS"
+      ],
+      "goldCost": 500,
+      "baseStats": {
+        "health": 125
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Relic Shield",
+          "sourceIndex": 120
+        }
+      ],
+      "sourcePrimaryIndex": 120,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "black-mist-scythe-adaptive-ad",
+      "sourceName": "Black Mist Scythe (Adaptive: AD)",
+      "categoryTags": [
+        "SUPPORT ITEMS"
+      ],
+      "goldCost": 500,
+      "baseStats": {
+        "abilityHaste": 10
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Versatile",
+          "type": "Attack Damage",
+          "value": 14
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Black Mist Scythe (Adaptive: AD)",
+          "sourceIndex": 121
+        }
+      ],
+      "sourcePrimaryIndex": 121,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "black-mist-scythe-adaptive-ap",
+      "sourceName": "Black Mist Scythe (Adaptive: AP)",
+      "categoryTags": [
+        "SUPPORT ITEMS"
+      ],
+      "goldCost": 500,
+      "baseStats": {
+        "abilityHaste": 10
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Versatile",
+          "type": "Ability Power",
+          "value": 28
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Black Mist Scythe (Adaptive: AP)",
+          "sourceIndex": 122
+        }
+      ],
+      "sourcePrimaryIndex": 122,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "black-mist-scythe-adaptive-ad-soulcast",
+      "sourceName": "Black Mist Scythe (Adaptive: AD, Soulcast)",
+      "categoryTags": [
+        "SUPPORT ITEMS"
+      ],
+      "goldCost": 500,
+      "baseStats": {
+        "abilityHaste": 10
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Versatile",
+          "type": "Attack Damage",
+          "value": 14
+        },
+        {
+          "passive": "Soulcast",
+          "type": "Max Health",
+          "value": 250
+        },
+        {
+          "passive": "Soulcast",
+          "type": "Attack Damage",
+          "value": 20
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Black Mist Scythe (Adaptive: AD, Soulcast)",
+          "sourceIndex": 123
+        }
+      ],
+      "sourcePrimaryIndex": 123,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "black-mist-scythe-adaptive-ap-soulcast",
+      "sourceName": "Black Mist Scythe (Adaptive: AP, Soulcast)",
+      "categoryTags": [
+        "SUPPORT ITEMS"
+      ],
+      "goldCost": 500,
+      "baseStats": {
+        "abilityHaste": 10
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Versatile",
+          "type": "Ability Power",
+          "value": 28
+        },
+        {
+          "passive": "Soulcast",
+          "type": "Max Health",
+          "value": 250
+        },
+        {
+          "passive": "Soulcast",
+          "type": "Ability Power",
+          "value": 40
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Black Mist Scythe (Adaptive: AP, Soulcast)",
+          "sourceIndex": 124
+        }
+      ],
+      "sourcePrimaryIndex": 124,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "bulwark-of-the-mountain",
+      "sourceName": "Bulwark of the Mountain",
+      "categoryTags": [
+        "SUPPORT ITEMS"
+      ],
+      "goldCost": 500,
+      "baseStats": {
+        "health": 175,
+        "abilityHaste": 10
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Bulwark of the Mountain",
+          "sourceIndex": 125
+        },
+        {
+          "name": "Bulwark of the Mountain (Adaptive: AD, Soulcast)",
+          "sourceIndex": 126
+        },
+        {
+          "name": "Bulwark of the Mountain (Adaptive: AP, Soulcast)",
+          "sourceIndex": 127
+        }
+      ],
+      "sourcePrimaryIndex": 125,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "vampiric-scepter",
+      "sourceName": "Vampiric Scepter",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1200,
+      "baseStats": {
+        "attackDamage": 20,
+        "physicalVampPct": 8
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Vampiric Scepter",
+          "sourceIndex": 128
+        }
+      ],
+      "sourcePrimaryIndex": 128,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "zeal",
+      "sourceName": "Zeal",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1400,
+      "baseStats": {
+        "critChancePct": 15,
+        "attackSpeedPct": 15
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Fervor",
+          "type": "% Move Speed",
+          "value": 5
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Zeal",
+          "sourceIndex": 129
+        }
+      ],
+      "sourcePrimaryIndex": 129,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "kirchei-s-shard",
+      "sourceName": "Kirchei's Shard",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 900,
+      "baseStats": {
+        "attackDamage": 15
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Kirchei's Shard",
+          "sourceIndex": 130
+        }
+      ],
+      "sourcePrimaryIndex": 130,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "serrated-dirk",
+      "sourceName": "Serrated Dirk",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1000,
+      "baseStats": {
+        "attackDamage": 20
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Sharp",
+          "type": "Armor Penetration",
+          "value": 8
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Serrated Dirk",
+          "sourceIndex": 131
+        }
+      ],
+      "sourcePrimaryIndex": 131,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "recurve-bow",
+      "sourceName": "Recurve Bow",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1400,
+      "baseStats": {
+        "attackSpeedPct": 30
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Recurve Bow",
+          "sourceIndex": 132
+        }
+      ],
+      "sourcePrimaryIndex": 132,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "b-f-sword",
+      "sourceName": "B. F. Sword",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1500,
+      "baseStats": {
+        "attackDamage": 40
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "B. F. Sword",
+          "sourceIndex": 133
+        }
+      ],
+      "sourcePrimaryIndex": 133,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "cloak-of-agility",
+      "sourceName": "Cloak of Agility",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1000,
+      "baseStats": {
+        "critChancePct": 20
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Cloak of Agility",
+          "sourceIndex": 134
+        }
+      ],
+      "sourcePrimaryIndex": 134,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "last-whisper",
+      "sourceName": "Last Whisper",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 800,
+      "baseStats": {},
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Last Whisper",
+          "type": "% Armor Penetration",
+          "value": 12
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Last Whisper",
+          "sourceIndex": 135
+        }
+      ],
+      "sourcePrimaryIndex": 135,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "executioner-s-calling",
+      "sourceName": "Executioner's Calling",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 800,
+      "baseStats": {
+        "attackDamage": 15
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Executioner's Calling",
+          "sourceIndex": 136
+        }
+      ],
+      "sourcePrimaryIndex": 136,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "phage",
+      "sourceName": "Phage",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1000,
+      "baseStats": {
+        "health": 150,
+        "attackDamage": 15
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Phage",
+          "sourceIndex": 137
+        },
+        {
+          "name": "Phage (Rage - AA - Melee)",
+          "sourceIndex": 138
+        },
+        {
+          "name": "Phage (Rage - AA - Range)",
+          "sourceIndex": 139
+        },
+        {
+          "name": "Phage (Rage - Kill - Melee)",
+          "sourceIndex": 140
+        },
+        {
+          "name": "Phage (Rage - Kill - Range)",
+          "sourceIndex": 141
+        }
+      ],
+      "sourcePrimaryIndex": 137,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "stinger",
+      "sourceName": "Stinger",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1200,
+      "baseStats": {
+        "attackSpeedPct": 30,
+        "abilityHaste": 10
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Stinger",
+          "sourceIndex": 142
+        }
+      ],
+      "sourcePrimaryIndex": 142,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "caulfield-s-warhammer",
+      "sourceName": "Caulfield's Warhammer",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1200,
+      "baseStats": {
+        "attackDamage": 25,
+        "abilityHaste": 10
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Caulfield's Warhammer",
+          "sourceIndex": 143
+        }
+      ],
+      "sourcePrimaryIndex": 143,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "jaurim-s-fist",
+      "sourceName": "Jaurim's Fist",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1100,
+      "baseStats": {
+        "health": 175,
+        "attackDamage": 15
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Jaurim's Fist",
+          "sourceIndex": 144
+        }
+      ],
+      "sourcePrimaryIndex": 144,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "tear-of-the-goddess",
+      "sourceName": "Tear of the Goddess",
+      "categoryTags": [
+        "BASIC ITEMS"
+      ],
+      "goldCost": 500,
+      "baseStats": {
+        "mana": 200,
+        "abilityHaste": 5
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Tear of the Goddess",
+          "sourceIndex": 145
+        },
+        {
+          "name": "Tear of the Goddess (Mana Charge)",
+          "sourceIndex": 146
+        }
+      ],
+      "sourcePrimaryIndex": 145,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "aether-wisp",
+      "sourceName": "Aether Wisp",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 950,
+      "baseStats": {
+        "abilityPower": 35
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Wisp",
+          "type": "% Move Speed",
+          "value": 5
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Aether Wisp",
+          "sourceIndex": 147
+        }
+      ],
+      "sourcePrimaryIndex": 147,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "lost-chapter",
+      "sourceName": "Lost Chapter",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1200,
+      "baseStats": {
+        "abilityPower": 35,
+        "mana": 200,
+        "abilityHaste": 10
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Lost Chapter",
+          "sourceIndex": 148
+        }
+      ],
+      "sourcePrimaryIndex": 148,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "fiendish-codex",
+      "sourceName": "Fiendish Codex",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 900,
+      "baseStats": {
+        "abilityPower": 25,
+        "abilityHaste": 10
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Fiendish Codex",
+          "sourceIndex": 149
+        }
+      ],
+      "sourcePrimaryIndex": 149,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "blasting-wand",
+      "sourceName": "Blasting Wand",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 900,
+      "baseStats": {
+        "abilityPower": 40
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Blasting Wand",
+          "sourceIndex": 150
+        }
+      ],
+      "sourcePrimaryIndex": 150,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "needlessly-large-rod",
+      "sourceName": "Needlessly Large Rod",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1400,
+      "baseStats": {
+        "abilityPower": 65
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Needlessly Large Rod",
+          "sourceIndex": 151
+        }
+      ],
+      "sourcePrimaryIndex": 151,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "haunting-guise",
+      "sourceName": "Haunting Guise",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1300,
+      "baseStats": {
+        "health": 200,
+        "abilityPower": 30
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Haunting Guise",
+          "sourceIndex": 152
+        }
+      ],
+      "sourcePrimaryIndex": 152,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "sheen",
+      "sourceName": "Sheen",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 800,
+      "baseStats": {
+        "abilityHaste": 10
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Sheen",
+          "sourceIndex": 153
+        }
+      ],
+      "sourcePrimaryIndex": 153,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "oblivion-orb",
+      "sourceName": "Oblivion Orb",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 800,
+      "baseStats": {
+        "abilityPower": 35
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Oblivion Orb",
+          "sourceIndex": 154
+        }
+      ],
+      "sourcePrimaryIndex": 154,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "bami-s-cinder",
+      "sourceName": "Bami's Cinder",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1300,
+      "baseStats": {
+        "health": 250
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Bami's Cinder",
+          "sourceIndex": 155
+        }
+      ],
+      "sourcePrimaryIndex": 155,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "spectre-s-cowl",
+      "sourceName": "Spectre's Cowl",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1100,
+      "baseStats": {
+        "health": 175,
+        "magicResistance": 20
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Spectre's Cowl",
+          "sourceIndex": 156
+        }
+      ],
+      "sourcePrimaryIndex": 156,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "kindlegem",
+      "sourceName": "Kindlegem",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1000,
+      "baseStats": {
+        "health": 175,
+        "abilityHaste": 10
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Kindlegem",
+          "sourceIndex": 157
+        }
+      ],
+      "sourcePrimaryIndex": 157,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "giant-s-belt",
+      "sourceName": "Giant's Belt",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1000,
+      "baseStats": {
+        "health": 300
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Giant's Belt",
+          "sourceIndex": 158
+        }
+      ],
+      "sourcePrimaryIndex": 158,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "warden-s-mail",
+      "sourceName": "Warden's Mail",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1050,
+      "baseStats": {
+        "armor": 35
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Warden's Mail",
+          "sourceIndex": 159
+        }
+      ],
+      "sourcePrimaryIndex": 159,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "catalyst-of-aeons",
+      "sourceName": "Catalyst of Aeons",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1100,
+      "baseStats": {
+        "health": 200,
+        "mana": 300
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Catalyst of Aeons",
+          "sourceIndex": 160
+        }
+      ],
+      "sourcePrimaryIndex": 160,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "chain-vest",
+      "sourceName": "Chain Vest",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 900,
+      "baseStats": {
+        "armor": 40
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Chain Vest",
+          "sourceIndex": 161
+        }
+      ],
+      "sourcePrimaryIndex": 161,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "bramble-vest",
+      "sourceName": "Bramble Vest",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1000,
+      "baseStats": {
+        "armor": 30
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Bramble Vest",
+          "sourceIndex": 162
+        }
+      ],
+      "sourcePrimaryIndex": 162,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "hexdrinker",
+      "sourceName": "Hexdrinker",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1200,
+      "baseStats": {
+        "attackDamage": 20,
+        "magicResistance": 20
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Hexdrinker",
+          "sourceIndex": 163
+        }
+      ],
+      "sourcePrimaryIndex": 163,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "negatron-cloak",
+      "sourceName": "Negatron Cloak",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 900,
+      "baseStats": {
+        "magicResistance": 40
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Negatron Cloak",
+          "sourceIndex": 164
+        }
+      ],
+      "sourcePrimaryIndex": 164,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "glacial-shroud",
+      "sourceName": "Glacial Shroud",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1000,
+      "baseStats": {
+        "armor": 20,
+        "mana": 150,
+        "abilityHaste": 10
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Glacial Shroud",
+          "sourceIndex": 165
+        }
+      ],
+      "sourcePrimaryIndex": 165,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "winged-moonplate",
+      "sourceName": "Winged Moonplate",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 900,
+      "baseStats": {
+        "health": 150
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Flight",
+          "type": "% Move Speed",
+          "value": 5
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Winged Moonplate",
+          "sourceIndex": 166
+        }
+      ],
+      "sourcePrimaryIndex": 166,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "seeker-s-armguard",
+      "sourceName": "Seeker's Armguard",
+      "categoryTags": [
+        "MID TIER ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "goldCost": 1200,
+      "baseStats": {
+        "armor": 30,
+        "abilityPower": 25
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Seeker's Armguard",
+          "sourceIndex": 167
+        }
+      ],
+      "sourcePrimaryIndex": 167,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "nashor-s-talon-adaptive-ad",
+      "sourceName": "Nashor's Talon (Adaptive: AD)",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 800,
+      "baseStats": {},
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Magic Needle",
+          "type": "Attack Damage",
+          "value": 15
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Nashor's Talon (Adaptive: AD)",
+          "sourceIndex": 168
+        }
+      ],
+      "sourcePrimaryIndex": 168,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "nashor-s-talon-adaptive-ap",
+      "sourceName": "Nashor's Talon (Adaptive: AP)",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 800,
+      "baseStats": {},
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Magic Needle",
+          "type": "Ability Power",
+          "value": 30
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Nashor's Talon (Adaptive: AP)",
+          "sourceIndex": 169
+        }
+      ],
+      "sourcePrimaryIndex": 169,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "noonquiver",
+      "sourceName": "Noonquiver",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1350,
+      "baseStats": {
+        "attackDamage": 25,
+        "attackSpeedPct": 15
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Noonquiver",
+          "sourceIndex": 170
+        }
+      ],
+      "sourcePrimaryIndex": 170,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "hextech-alternator",
+      "sourceName": "Hextech Alternator",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1100,
+      "baseStats": {
+        "abilityPower": 45
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Hextech Alternator",
+          "sourceIndex": 171
+        }
+      ],
+      "sourcePrimaryIndex": 171,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "mejai-s-soulstealer",
+      "sourceName": "Mejai's Soulstealer",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1800,
+      "baseStats": {
+        "health": 70,
+        "abilityPower": 25,
+        "magicPenPct": 7
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Mejai's Soulstealer",
+          "sourceIndex": 172
+        },
+        {
+          "name": "Mejai's Soulstealer (Fear)",
+          "sourceIndex": 173
+        }
+      ],
+      "sourcePrimaryIndex": 172,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "surging-scales",
+      "sourceName": "Surging Scales",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1300,
+      "baseStats": {
+        "armor": 40
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Surging Scales",
+          "sourceIndex": 174
+        }
+      ],
+      "sourcePrimaryIndex": 174,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "boots-of-speed",
+      "sourceName": "Boots of Speed",
+      "categoryTags": [
+        "BASIC ITEMS"
+      ],
+      "goldCost": 400,
+      "baseStats": {
+        "moveSpeed": 25
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Boots of Speed",
+          "sourceIndex": 175
+        }
+      ],
+      "sourcePrimaryIndex": 175,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "long-sword",
+      "sourceName": "Long Sword",
+      "categoryTags": [
+        "BASIC ITEMS"
+      ],
+      "goldCost": 500,
+      "baseStats": {
+        "attackDamage": 12
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Long Sword",
+          "sourceIndex": 176
+        }
+      ],
+      "sourcePrimaryIndex": 176,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "brawler-s-gloves",
+      "sourceName": "Brawler's Gloves",
+      "categoryTags": [
+        "BASIC ITEMS"
+      ],
+      "goldCost": 500,
+      "baseStats": {
+        "critChancePct": 10
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Brawler's Gloves",
+          "sourceIndex": 177
+        }
+      ],
+      "sourcePrimaryIndex": 177,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "dagger",
+      "sourceName": "Dagger",
+      "categoryTags": [
+        "BASIC ITEMS"
+      ],
+      "goldCost": 500,
+      "baseStats": {
+        "attackSpeedPct": 15
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Dagger",
+          "sourceIndex": 178
+        }
+      ],
+      "sourcePrimaryIndex": 178,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "shimmering-spark",
+      "sourceName": "Shimmering Spark",
+      "categoryTags": [
+        "BASIC ITEMS"
+      ],
+      "goldCost": 500,
+      "baseStats": {
+        "health": 50
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Shimmering Spark",
+          "sourceIndex": 179
+        }
+      ],
+      "sourcePrimaryIndex": 179,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "amplifying-tome",
+      "sourceName": "Amplifying Tome",
+      "categoryTags": [
+        "BASIC ITEMS"
+      ],
+      "goldCost": 500,
+      "baseStats": {
+        "abilityPower": 20
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Amplifying Tome",
+          "sourceIndex": 180
+        }
+      ],
+      "sourcePrimaryIndex": 180,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "ruby-crystal",
+      "sourceName": "Ruby Crystal",
+      "categoryTags": [
+        "BASIC ITEMS"
+      ],
+      "goldCost": 500,
+      "baseStats": {
+        "health": 150
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Ruby Crystal",
+          "sourceIndex": 181
+        }
+      ],
+      "sourcePrimaryIndex": 181,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "cloth-armor",
+      "sourceName": "Cloth Armor",
+      "categoryTags": [
+        "BASIC ITEMS"
+      ],
+      "goldCost": 500,
+      "baseStats": {
+        "armor": 20
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Cloth Armor",
+          "sourceIndex": 182
+        }
+      ],
+      "sourcePrimaryIndex": 182,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "null-magic-mantle",
+      "sourceName": "Null-Magic Mantle",
+      "categoryTags": [
+        "BASIC ITEMS"
+      ],
+      "goldCost": 500,
+      "baseStats": {
+        "magicResistance": 20
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Null-Magic Mantle",
+          "sourceIndex": 183
+        }
+      ],
+      "sourcePrimaryIndex": 183,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "ring-of-revelation",
+      "sourceName": "Ring of Revelation",
+      "categoryTags": [
+        "BASIC ITEMS"
+      ],
+      "goldCost": 300,
+      "baseStats": {
+        "abilityHaste": 5
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Ring of Revelation",
+          "sourceIndex": 184
+        }
+      ],
+      "sourcePrimaryIndex": 184,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "forbidden-idol",
+      "sourceName": "Forbidden Idol",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 900,
+      "baseStats": {
+        "health": 100,
+        "abilityHaste": 5,
+        "healShieldPct": 4,
+        "manaRegenPct": 25
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Forbidden Idol",
+          "sourceIndex": 185
+        }
+      ],
+      "sourcePrimaryIndex": 185,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "kaenic-rookern",
+      "sourceName": "Kaenic Rookern",
+      "categoryTags": [
+        "DEFENSE ITEMS"
+      ],
+      "goldCost": 2800,
+      "baseStats": {
+        "health": 350,
+        "magicResistance": 75,
+        "healthRegenPct": 100
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Kaenic Rookern",
+          "sourceIndex": 186
+        }
+      ],
+      "sourcePrimaryIndex": 186,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "yordle-trap",
+      "sourceName": "Yordle Trap",
+      "categoryTags": [
+        "DEFENSE ITEMS",
+        "SUPPORT ITEMS"
+      ],
+      "goldCost": 2600,
+      "baseStats": {
+        "health": 350,
+        "armor": 40,
+        "abilityHaste": 15
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Yordle Trap",
+          "sourceIndex": 187
+        },
+        {
+          "name": "Yordle Trap (Catcher)",
+          "sourceIndex": 188
+        }
+      ],
+      "sourcePrimaryIndex": 187,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "guinsoo-s-rageblade-adaptive-ad",
+      "sourceName": "Guinsoo's Rageblade (Adaptive: AD)",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3100,
+      "baseStats": {
+        "attackSpeedPct": 30
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Surge",
+          "type": "% Move Speed",
+          "value": 5
+        },
+        {
+          "passive": "Chaos",
+          "type": "Attack Damage",
+          "value": 25
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Guinsoo's Rageblade (Adaptive: AD)",
+          "sourceIndex": 189
+        }
+      ],
+      "sourcePrimaryIndex": 189,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "guinsoo-s-rageblade-adaptive-ad-seething-strike",
+      "sourceName": "Guinsoo's Rageblade (Adaptive: AD, Seething Strike)",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3100,
+      "baseStats": {
+        "attackSpeedPct": 30
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Surge",
+          "type": "% Move Speed",
+          "value": 5
+        },
+        {
+          "passive": "Chaos",
+          "type": "Attack Damage",
+          "value": 25
+        },
+        {
+          "passive": "Seething Strike",
+          "type": "% Attack Speed",
+          "value": 32
+        }
+      ],
+      "unmappedStats": [
+        {
+          "type": "Unstable Passives' Stats"
+        }
+      ],
+      "sourceVariants": [
+        {
+          "name": "Guinsoo's Rageblade (Adaptive: AD, Seething Strike)",
+          "sourceIndex": 190
+        }
+      ],
+      "sourcePrimaryIndex": 190,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "abyssal-mask",
+      "sourceName": "Abyssal Mask",
+      "categoryTags": [
+        "DEFENSE ITEMS"
+      ],
+      "goldCost": 3000,
+      "baseStats": {
+        "health": 400,
+        "magicResistance": 55,
+        "abilityHaste": 10
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Abyssal Mask",
+          "sourceIndex": 191
+        },
+        {
+          "name": "Abyssal Mask (Unmake)",
+          "sourceIndex": 192
+        }
+      ],
+      "sourcePrimaryIndex": 191,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "hollow-radiance",
+      "sourceName": "Hollow Radiance",
+      "categoryTags": [
+        "DEFENSE ITEMS"
+      ],
+      "goldCost": 2800,
+      "baseStats": {
+        "health": 400,
+        "magicResistance": 40,
+        "abilityHaste": 15
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Hollow Radiance",
+          "sourceIndex": 193
+        }
+      ],
+      "sourcePrimaryIndex": 193,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "kraken-slayer",
+      "sourceName": "Kraken Slayer",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 2800,
+      "baseStats": {
+        "attackDamage": 40,
+        "attackSpeedPct": 30
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Cloud Stride",
+          "type": "% Move Speed",
+          "value": 5
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Kraken Slayer",
+          "sourceIndex": 194
+        }
+      ],
+      "sourcePrimaryIndex": 194,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "knight-s-vow",
+      "sourceName": "Knight's Vow",
+      "categoryTags": [
+        "SUPPORT ITEMS"
+      ],
+      "goldCost": 2600,
+      "baseStats": {
+        "armor": 40,
+        "health": 400,
+        "abilityHaste": 10
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Knight's Vow",
+          "sourceIndex": 195
+        }
+      ],
+      "sourcePrimaryIndex": 195,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "overlord-s-bloodmail",
+      "sourceName": "Overlord's Bloodmail",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3200,
+      "baseStats": {
+        "attackDamage": 30,
+        "health": 450
+      },
+      "conditionalStatsUnverified": [
+        {
+          "formula": "450*0.025",
+          "passive": "Tyranny",
+          "ratio": 0.025,
+          "ref_type": "Max Health",
+          "type": "Attack Damage",
+          "value": 11.25
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Overlord's Bloodmail",
+          "sourceIndex": 196
+        }
+      ],
+      "sourcePrimaryIndex": 196,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "unending-despair",
+      "sourceName": "Unending Despair",
+      "categoryTags": [
+        "DEFENSE ITEMS"
+      ],
+      "goldCost": 3000,
+      "baseStats": {
+        "health": 200,
+        "armor": 45,
+        "magicResistance": 45
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Unending Despair",
+          "sourceIndex": 197
+        }
+      ],
+      "sourcePrimaryIndex": 197,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "experimental-hexplate",
+      "sourceName": "Experimental Hexplate",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS"
+      ],
+      "goldCost": 3000,
+      "baseStats": {
+        "health": 400,
+        "attackDamage": 35,
+        "attackSpeedPct": 20
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Experimental Hexplate",
+          "sourceIndex": 198
+        },
+        {
+          "name": "Experimental Hexplate (Hexcharged)",
+          "sourceIndex": 199
+        },
+        {
+          "name": "Experimental Hexplate (Hexcharged, Overdrive - Melee)",
+          "sourceIndex": 200
+        },
+        {
+          "name": "Experimental Hexplate (Hexcharged, Overdrive - Range)",
+          "sourceIndex": 201
+        }
+      ],
+      "sourcePrimaryIndex": 198,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "stridebreaker",
+      "sourceName": "Stridebreaker",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "goldCost": 3100,
+      "baseStats": {
+        "attackDamage": 40,
+        "health": 400,
+        "attackSpeedPct": 15
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Stridebreaker",
+          "sourceIndex": 202
+        },
+        {
+          "name": "Stridebreaker (Stride)",
+          "sourceIndex": 203
+        }
+      ],
+      "sourcePrimaryIndex": 202,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "goredrinker",
+      "sourceName": "Goredrinker",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "goldCost": 3100,
+      "baseStats": {
+        "attackDamage": 40,
+        "health": 350,
+        "abilityHaste": 15,
+        "omnivampPct": 8
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Goredrinker",
+          "sourceIndex": 204
+        }
+      ],
+      "sourcePrimaryIndex": 204,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "quicksilver-sash",
+      "sourceName": "Quicksilver Sash",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "goldCost": 1100,
+      "baseStats": {
+        "magicResistance": 30
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Quicksilver Sash",
+          "sourceIndex": 205
+        }
+      ],
+      "sourcePrimaryIndex": 205,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "mercurial-scimitar",
+      "sourceName": "Mercurial Scimitar",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "goldCost": 3100,
+      "baseStats": {
+        "attackDamage": 45,
+        "magicResistance": 40,
+        "physicalVampPct": 10
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Mercurial Scimitar",
+          "sourceIndex": 206
+        }
+      ],
+      "sourcePrimaryIndex": 206,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "galeforce",
+      "sourceName": "Galeforce",
+      "categoryTags": [
+        "PHYSICAL DAMAGE ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "goldCost": 3100,
+      "baseStats": {
+        "attackDamage": 50,
+        "attackSpeedPct": 15,
+        "critChancePct": 25,
+        "moveSpeedPct": 5
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Galeforce",
+          "sourceIndex": 207
+        }
+      ],
+      "sourcePrimaryIndex": 207,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "hextech-rocketbelt",
+      "sourceName": "Hextech Rocketbelt",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "goldCost": 2700,
+      "baseStats": {
+        "abilityPower": 70,
+        "health": 250,
+        "abilityHaste": 20
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Hextech Rocketbelt",
+          "sourceIndex": 208
+        }
+      ],
+      "sourcePrimaryIndex": 208,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "zhonya-s-hourglass",
+      "sourceName": "Zhonya's Hourglass",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "goldCost": 3300,
+      "baseStats": {
+        "abilityPower": 110,
+        "armor": 40
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Zhonya's Hourglass",
+          "sourceIndex": 209
+        }
+      ],
+      "sourcePrimaryIndex": 209,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "gargoyle-stoneplate",
+      "sourceName": "Gargoyle Stoneplate",
+      "categoryTags": [
+        "DEFENSE ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "goldCost": 2900,
+      "baseStats": {
+        "armor": 45,
+        "magicResistance": 45,
+        "health": 200,
+        "abilityHaste": 10
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "sourceIndex": 210
+        }
+      ],
+      "sourcePrimaryIndex": 210,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "locket-of-the-iron-solari",
+      "sourceName": "Locket of the Iron Solari",
+      "categoryTags": [
+        "SUPPORT ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "goldCost": 2600,
+      "baseStats": {
+        "health": 200,
+        "armor": 30,
+        "magicResistance": 30,
+        "abilityHaste": 10
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Locket of the Iron Solari",
+          "sourceIndex": 211
+        }
+      ],
+      "sourcePrimaryIndex": 211,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "shurelya-s-battlesong",
+      "sourceName": "Shurelya's Battlesong",
+      "categoryTags": [
+        "SUPPORT ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "goldCost": 2600,
+      "baseStats": {
+        "abilityPower": 55,
+        "abilityHaste": 20,
+        "manaRegenPct": 50,
+        "moveSpeedPct": 5
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Shurelya's Battlesong",
+          "sourceIndex": 212
+        }
+      ],
+      "sourcePrimaryIndex": 212,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "mikael-s-blessing",
+      "sourceName": "Mikael's Blessing",
+      "categoryTags": [
+        "SUPPORT ITEMS",
+        "ACTIVE ITEMS"
+      ],
+      "goldCost": 2500,
+      "baseStats": {
+        "health": 300,
+        "abilityHaste": 15,
+        "healShieldPct": 6,
+        "manaRegenPct": 50
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Mikael's Blessing",
+          "sourceIndex": 213
+        }
+      ],
+      "sourcePrimaryIndex": 213,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "dusk-and-dawn",
+      "sourceName": "Dusk and Dawn",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 3100,
+      "baseStats": {
+        "abilityPower": 70,
+        "health": 350,
+        "abilityHaste": 20,
+        "attackSpeedPct": 25
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Dusk and Dawn",
+          "sourceIndex": 214
+        }
+      ],
+      "sourcePrimaryIndex": 214,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "blackfire-torch",
+      "sourceName": "Blackfire Torch",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 2800,
+      "baseStats": {
+        "abilityPower": 80,
+        "mana": 500,
+        "abilityHaste": 20
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Blackfire Torch",
+          "sourceIndex": 215
+        }
+      ],
+      "sourcePrimaryIndex": 215,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "void-amethyst",
+      "sourceName": "Void Amethyst",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1000,
+      "baseStats": {
+        "abilityPower": 20,
+        "magicPenPct": 10
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Void Amethyst",
+          "sourceIndex": 216
+        }
+      ],
+      "sourcePrimaryIndex": 216,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "void-staff",
+      "sourceName": "Void Staff",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 3000,
+      "baseStats": {
+        "abilityPower": 95,
+        "magicPenPct": 40
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Void Staff",
+          "sourceIndex": 217
+        }
+      ],
+      "sourcePrimaryIndex": 217,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "cryptbloom",
+      "sourceName": "Cryptbloom",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 3000,
+      "baseStats": {
+        "abilityPower": 75,
+        "magicPenPct": 30,
+        "abilityHaste": 20
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Cryptbloom",
+          "sourceIndex": 218
+        }
+      ],
+      "sourcePrimaryIndex": 218,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "bloodletter-s-curse",
+      "sourceName": "Bloodletter's Curse",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 2900,
+      "baseStats": {
+        "abilityPower": 65,
+        "health": 350,
+        "abilityHaste": 15
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Bloodletter's Curse",
+          "sourceIndex": 219
+        }
+      ],
+      "sourcePrimaryIndex": 219,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "verdant-barrier",
+      "sourceName": "Verdant Barrier",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 1600,
+      "baseStats": {
+        "abilityPower": 40,
+        "magicResistance": 25
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Verdant Barrier",
+          "sourceIndex": 220
+        }
+      ],
+      "sourcePrimaryIndex": 220,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "banshee-s-veil",
+      "sourceName": "Banshee's Veil",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 3000,
+      "baseStats": {
+        "abilityPower": 105,
+        "magicResistance": 40
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Banshee's Veil",
+          "sourceIndex": 221
+        }
+      ],
+      "sourcePrimaryIndex": 221,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "stormsurge",
+      "sourceName": "Stormsurge",
+      "categoryTags": [
+        "MAGIC DAMAGE ITEMS"
+      ],
+      "goldCost": 2900,
+      "baseStats": {
+        "abilityPower": 90,
+        "flatMagicPen": 15,
+        "moveSpeedPct": 6
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Stormsurge",
+          "sourceIndex": 222
+        }
+      ],
+      "sourcePrimaryIndex": 222,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "fated-ashes",
+      "sourceName": "Fated Ashes",
+      "categoryTags": [
+        "MID TIER ITEMS"
+      ],
+      "goldCost": 900,
+      "baseStats": {
+        "abilityPower": 40
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Fated Ashes",
+          "sourceIndex": 223
+        }
+      ],
+      "sourcePrimaryIndex": 223,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "spellslinger-s-shoes",
+      "sourceName": "Spellslinger's Shoes",
+      "categoryTags": [
+        "BOOTS"
+      ],
+      "goldCost": 2200,
+      "baseStats": {
+        "abilityPower": 40,
+        "manaRegenPct": 100,
+        "flatMagicPen": 18,
+        "magicPenPct": 8,
+        "moveSpeed": 45
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Spellslinger's Shoes",
+          "sourceIndex": 224
+        }
+      ],
+      "sourcePrimaryIndex": 224,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "chainlaced-crushers",
+      "sourceName": "Chainlaced Crushers",
+      "categoryTags": [
+        "BOOTS"
+      ],
+      "goldCost": 2200,
+      "baseStats": {
+        "health": 150,
+        "magicResistance": 35,
+        "tenacityPct": 30,
+        "moveSpeed": 45
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Chainlaced Crushers",
+          "sourceIndex": 225
+        }
+      ],
+      "sourcePrimaryIndex": 225,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "gunmetal-greaves-noxian-gait-melee",
+      "sourceName": "Gunmetal Greaves (Noxian Gait - Melee)",
+      "categoryTags": [
+        "BOOTS"
+      ],
+      "goldCost": 2200,
+      "baseStats": {
+        "attackSpeedPct": 50,
+        "physicalVampPct": 5,
+        "moveSpeed": 45
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Noxian Gait",
+          "type": "% Move Speed",
+          "value": 15
+        }
+      ],
+      "unmappedStats": [
+        {
+          "type": "Unstable Passives' Stats"
+        }
+      ],
+      "sourceVariants": [
+        {
+          "name": "Gunmetal Greaves (Noxian Gait - Melee)",
+          "sourceIndex": 226
+        }
+      ],
+      "sourcePrimaryIndex": 226,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "gunmetal-greaves-noxian-gait-range",
+      "sourceName": "Gunmetal Greaves (Noxian Gait - Range)",
+      "categoryTags": [
+        "BOOTS"
+      ],
+      "goldCost": 2200,
+      "baseStats": {
+        "attackSpeedPct": 50,
+        "physicalVampPct": 5,
+        "moveSpeed": 45
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Noxian Gait",
+          "type": "% Move Speed",
+          "value": 10
+        }
+      ],
+      "unmappedStats": [
+        {
+          "type": "Unstable Passives' Stats"
+        }
+      ],
+      "sourceVariants": [
+        {
+          "name": "Gunmetal Greaves (Noxian Gait - Range)",
+          "sourceIndex": 227
+        }
+      ],
+      "sourcePrimaryIndex": 227,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "armored-advance",
+      "sourceName": "Armored Advance",
+      "categoryTags": [
+        "BOOTS"
+      ],
+      "goldCost": 2200,
+      "baseStats": {
+        "health": 150,
+        "armor": 35,
+        "moveSpeed": 45
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Armored Advance",
+          "sourceIndex": 228
+        }
+      ],
+      "sourcePrimaryIndex": 228,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "immortal-treads-balanced-of-power-ad-convertion-0-stacks",
+      "sourceName": "Immortal Treads (Balanced of Power - AD, Convertion - 0 Stacks)",
+      "categoryTags": [
+        "BOOTS"
+      ],
+      "goldCost": 2000,
+      "baseStats": {
+        "moveSpeed": 45
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Balanced of Power",
+          "type": "Attack Damage",
+          "value": 12
+        },
+        {
+          "passive": "Convertion",
+          "type": "% Omnivamp",
+          "value": 5
+        }
+      ],
+      "unmappedStats": [
+        {
+          "type": "Unstable Passives' Stats"
+        }
+      ],
+      "sourceVariants": [
+        {
+          "name": "Immortal Treads (Balanced of Power - AD, Convertion - 0 Stacks)",
+          "sourceIndex": 229
+        }
+      ],
+      "sourcePrimaryIndex": 229,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "immortal-treads-balanced-of-power-ad-convertion-full-stacks",
+      "sourceName": "Immortal Treads (Balanced of Power - AD, Convertion - Full Stacks)",
+      "categoryTags": [
+        "BOOTS"
+      ],
+      "goldCost": 2000,
+      "baseStats": {
+        "moveSpeed": 45
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Balanced of Power",
+          "type": "Attack Damage",
+          "value": 12
+        },
+        {
+          "passive": "Convertion",
+          "type": "% Omnivamp",
+          "value": 10
+        }
+      ],
+      "unmappedStats": [
+        {
+          "type": "Unstable Passives' Stats"
+        }
+      ],
+      "sourceVariants": [
+        {
+          "name": "Immortal Treads (Balanced of Power - AD, Convertion - Full Stacks)",
+          "sourceIndex": 230
+        }
+      ],
+      "sourcePrimaryIndex": 230,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "immortal-treads-balanced-of-power-ap-convertion-0-stacks",
+      "sourceName": "Immortal Treads (Balanced of Power - AP, Convertion - 0 Stacks)",
+      "categoryTags": [
+        "BOOTS"
+      ],
+      "goldCost": 2000,
+      "baseStats": {
+        "moveSpeed": 45
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Balanced of Power",
+          "type": "Ability Power",
+          "value": 20
+        },
+        {
+          "passive": "Convertion",
+          "type": "% Omnivamp",
+          "value": 5
+        }
+      ],
+      "unmappedStats": [
+        {
+          "type": "Unstable Passives' Stats"
+        }
+      ],
+      "sourceVariants": [
+        {
+          "name": "Immortal Treads (Balanced of Power - AP, Convertion - 0 Stacks)",
+          "sourceIndex": 231
+        }
+      ],
+      "sourcePrimaryIndex": 231,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "immortal-treads-balanced-of-power-ap-convertion-full-stacks",
+      "sourceName": "Immortal Treads (Balanced of Power - AP, Convertion - Full Stacks)",
+      "categoryTags": [
+        "BOOTS"
+      ],
+      "goldCost": 2000,
+      "baseStats": {
+        "moveSpeed": 45
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Balanced of Power",
+          "type": "Ability Power",
+          "value": 20
+        },
+        {
+          "passive": "Convertion",
+          "type": "% Omnivamp",
+          "value": 10
+        }
+      ],
+      "unmappedStats": [
+        {
+          "type": "Unstable Passives' Stats"
+        }
+      ],
+      "sourceVariants": [
+        {
+          "name": "Immortal Treads (Balanced of Power - AP, Convertion - Full Stacks)",
+          "sourceIndex": 232
+        }
+      ],
+      "sourcePrimaryIndex": 232,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": true
+      }
+    },
+    {
+      "id": "armorcrusher-boots",
+      "sourceName": "Armorcrusher Boots",
+      "categoryTags": [
+        "BOOTS"
+      ],
+      "goldCost": 2200,
+      "baseStats": {
+        "attackDamage": 20,
+        "armorPenPct": 6,
+        "moveSpeed": 45
+      },
+      "conditionalStatsUnverified": [
+        {
+          "passive": "Strike",
+          "type": "Armor Penetration",
+          "value": 10
+        }
+      ],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Armorcrusher Boots",
+          "sourceIndex": 233
+        },
+        {
+          "name": "Armorcrusher Boots (Cloudwalker)",
+          "sourceIndex": 234
+        }
+      ],
+      "sourcePrimaryIndex": 233,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    },
+    {
+      "id": "crimson-lucidity",
+      "sourceName": "Crimson Lucidity",
+      "categoryTags": [
+        "BOOTS"
+      ],
+      "goldCost": 2000,
+      "baseStats": {
+        "manaRegenPct": 75,
+        "abilityHaste": 25,
+        "moveSpeed": 45
+      },
+      "conditionalStatsUnverified": [],
+      "unmappedStats": [],
+      "sourceVariants": [
+        {
+          "name": "Crimson Lucidity",
+          "sourceIndex": 235
+        },
+        {
+          "name": "Crimson Lucidity (Noxian Haste - Melee)",
+          "sourceIndex": 236
+        },
+        {
+          "name": "Crimson Lucidity (Noxian Haste - Range)",
+          "sourceIndex": 237
+        }
+      ],
+      "sourcePrimaryIndex": 235,
+      "review": {
+        "historicalOnly": true,
+        "patchValidated": false,
+        "itemIdentityValidated": false,
+        "baseStatsValidated": false,
+        "passivesExecutable": false,
+        "costConflict": false,
+        "possibleVariantName": false
+      }
+    }
+  ]
+}
