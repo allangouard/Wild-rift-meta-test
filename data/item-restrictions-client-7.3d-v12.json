@@ -1,0 +1,129 @@
+{
+  "schema": "wrdi.item_restrictions.v1",
+  "game": "Wild Rift mobile",
+  "patch_client_reported": "7.3d",
+  "source": "direct user tests of in-game equip restrictions",
+  "note": "Equipping rules are user-confirmed; names may differ in external API. Restrictions are not passive stack simulation.",
+  "max_active_items": 1,
+  "groups": [
+    {
+      "id": "magic_pen",
+      "label_fr": "Pénétration magique",
+      "max": 1,
+      "members": [
+        "void_staff",
+        "cryptbloom",
+        "bloodletters_curse"
+      ]
+    },
+    {
+      "id": "physical_pen",
+      "label_fr": "Pénétration physique",
+      "max": 1,
+      "members": [
+        "black_cleaver",
+        "seryldas_grudge",
+        "mortal_reminder",
+        "lord_dominiks_regards",
+        "terminus"
+      ]
+    },
+    {
+      "id": "lifeline",
+      "label_fr": "Lien vital",
+      "max": 1,
+      "members": [
+        "maw_of_malmortius",
+        "steraks_gage",
+        "immortal_shieldbow",
+        "mantle_of_the_twelfth_hour"
+      ]
+    },
+    {
+      "id": "spellblade",
+      "label_fr": "Lame enchantée",
+      "max": 1,
+      "members": [
+        "trinity_force",
+        "divine_sunderer",
+        "lich_bane",
+        "essence_reaver",
+        "dawn_and_dusk",
+        "iceborn_gauntlet"
+      ]
+    },
+    {
+      "id": "immolate",
+      "label_fr": "Immolation",
+      "max": 1,
+      "members": [
+        "hollow_radiance",
+        "sunfire_aegis"
+      ]
+    },
+    {
+      "id": "tear",
+      "label_fr": "Larme de la déesse",
+      "max": 1,
+      "members": [
+        "archangels_staff",
+        "seraphs_embrace",
+        "whispering_circlet",
+        "harmonic_circlet",
+        "winters_approach",
+        "fimbulwinter",
+        "manamune",
+        "muramana"
+      ]
+    },
+    {
+      "id": "momentum",
+      "label_fr": "Élan",
+      "max": 1,
+      "members": [
+        "youmuus_ghostblade",
+        "dead_mans_plate"
+      ]
+    },
+    {
+      "id": "spellshield",
+      "label_fr": "Invalidation",
+      "max": 1,
+      "members": [
+        "banshees_veil",
+        "edge_of_night"
+      ]
+    }
+  ],
+  "extra_exclusion_pairs": [
+    [
+      "bloodletters_curse",
+      "terminus"
+    ]
+  ],
+  "transformations": [
+    [
+      "archangels_staff",
+      "seraphs_embrace"
+    ],
+    [
+      "whispering_circlet",
+      "harmonic_circlet"
+    ],
+    [
+      "winters_approach",
+      "fimbulwinter"
+    ],
+    [
+      "manamune",
+      "muramana"
+    ]
+  ],
+  "all_active_items_one_slot": true,
+  "known_active_item_ids": [
+    "zhonyas_hourglass",
+    "hextech_rocketbelt",
+    "redemption",
+    "seekers_armguard"
+  ]
+}

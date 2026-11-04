@@ -1,5 +1,5 @@
 {
-  "schema": "wrdi.item_catalog_client.v1",
+  "schema": "wrdi.item_catalog_client.v2",
   "target_game": "Wild Rift mobile",
   "patch_claimed_by_client_user": "7.3d",
   "collected_on": "2026-11-04",
@@ -12,15 +12,8 @@
     "missing": "not in screenshot or not sufficiently legible"
   },
   "global_rules": {
-    "max_equipped_active_items": 1,
-    "incompatibility_pairs_confirmed": [
-      [
-        "void_staff",
-        "cryptbloom"
-      ]
-    ],
-    "other_incompatibilities": "unknown, do not presume exhaustive",
-    "tear_family": "at most one Tear of the Goddess family item; confirmed on in-game text of Bâton de l’archange, extent to variants subject to validation"
+    "restrictions_file": "item-restrictions-client-7.3d-v12.json",
+    "max_equipped_active_items": 1
   },
   "stat_units": {
     "ap": "ability power",
@@ -33,7 +26,7 @@
     "mana": "bonus max mana",
     "ad": "bonus attack damage"
   },
-  "item_count": 35,
+  "item_count": 59,
   "items": [
     {
       "id": "cryptbloom",
@@ -80,7 +73,7 @@
       "id": "void_staff",
       "name_fr": "Bâton du vide",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 3000,
       "stats": {
         "ap": 95,
         "mpen_pct": 40
@@ -98,7 +91,7 @@
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "unknown"
+        "price": "user-confirmed"
       },
       "notes": [],
       "restrictions": [
@@ -143,7 +136,7 @@
       "id": "riftmaker",
       "name_fr": "Créateur de failles",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 3100,
       "stats": {
         "hp": 350,
         "ap": 70,
@@ -181,7 +174,7 @@
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "unknown"
+        "price": "user-confirmed"
       },
       "notes": []
     },
@@ -189,7 +182,7 @@
       "id": "hollow_radiance",
       "name_fr": "Rayonnement du vide",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 2800,
       "stats": {
         "hp": 400,
         "mr": 40,
@@ -229,7 +222,7 @@
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "unknown"
+        "price": "user-confirmed"
       },
       "notes": []
     },
@@ -237,7 +230,7 @@
       "id": "unending_despair",
       "name_fr": "Désespoir infini",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 3000,
       "stats": {
         "hp": 300,
         "armor": 40,
@@ -269,7 +262,7 @@
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "unknown"
+        "price": "user-confirmed"
       },
       "notes": []
     },
@@ -277,7 +270,7 @@
       "id": "thornmail",
       "name_fr": "Cotte épineuse",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 2850,
       "stats": {
         "hp": 200,
         "armor": 75
@@ -316,7 +309,7 @@
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "unknown"
+        "price": "user-confirmed"
       },
       "notes": []
     },
@@ -556,7 +549,7 @@
       "id": "ludens_echo",
       "name_fr": "Écho de Luden",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 2800,
       "stats": {
         "ap": 100,
         "mana": 500,
@@ -587,7 +580,7 @@
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "unknown"
+        "price": "user-confirmed"
       },
       "notes": []
     },
@@ -1506,6 +1499,934 @@
         "price": "visible"
       },
       "notes": []
+    },
+    {
+      "id": "deaths_dance",
+      "name_fr": "Danse de la mort",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "ad": 50,
+        "armor": 45,
+        "ah": 15
+      },
+      "passives": [
+        {
+          "name": "Cautérisation",
+          "description_fr": "Diffère sur 3 s 30 % des dégâts physiques et magiques subis (12 % pour distance) sous forme de dégâts bruts.",
+          "mechanics": {
+            "melee_fraction": 0.3,
+            "ranged_fraction": 0.12,
+            "delay_s": 3
+          }
+        },
+        {
+          "name": "Massacre",
+          "description_fr": "Élimination dans les 3 s après avoir blessé : purge les dégâts différés, rend 90 % de l’AD bonus en PV sur 2 s.",
+          "mechanics": {
+            "assist_window_s": 3,
+            "heal_bonus_ad_ratio": 0.9,
+            "heal_duration_s": 2
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "validation": "description_transcribed_from_conversation"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "missing"
+      },
+      "notes": []
+    },
+    {
+      "id": "amaranths_twinguard",
+      "name_fr": "Gémeaux d’Amaranth",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 300,
+        "armor": 50,
+        "mr": 50
+      },
+      "passives": [
+        {
+          "name": "Endurcissement",
+          "description_fr": "1 cumul par seconde de combat champion (5 max) ; à 5 : +20 % ténacité, +30 % armure bonus, +30 % RM bonus, taille +20 %.",
+          "mechanics": {
+            "stacks_max": 5,
+            "stack_interval_s": 1,
+            "tenacity_at_max_pct": 20,
+            "bonus_armor_at_max_pct": 30,
+            "bonus_mr_at_max_pct": 30,
+            "size_at_max_pct": 20
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "validation": "description_transcribed_from_conversation"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "missing"
+      },
+      "notes": []
+    },
+    {
+      "id": "steraks_gage",
+      "name_fr": "Gage de Sterak",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 400,
+        "tenacity_pct": 20
+      },
+      "passives": [
+        {
+          "name": "Force de géant",
+          "description_fr": "AD bonus égal à 50 % de l’AD de base.",
+          "mechanics": {
+            "bonus_ad_from_base_ad": 0.5
+          }
+        },
+        {
+          "name": "Lien vital",
+          "description_fr": "Sous 35 % PV suite à des dégâts : bouclier égal à 75 % PV bonus durant 5 s ; récupération 70 s.",
+          "mechanics": {
+            "threshold_hp_pct": 35,
+            "shield_bonus_hp_ratio": 0.75,
+            "duration_s": 5,
+            "cooldown_s": 70
+          }
+        },
+        {
+          "name": "Fureur de Sterak",
+          "description_fr": "Après Lien vital, taille et renforcement pendant 8 s.",
+          "mechanics": {
+            "duration_s": 8
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "validation": "description_transcribed_from_conversation"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "missing"
+      },
+      "notes": []
+    },
+    {
+      "id": "guardian_angel",
+      "name_fr": "Ange gardien",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "ad": 45,
+        "armor": 40
+      },
+      "passives": [
+        {
+          "name": "Résurrection",
+          "description_fr": "Après coup fatal : 4 s de stase puis 50 % des PV de base et 100 % du mana max ; récupération 180 s.",
+          "mechanics": {
+            "stasis_s": 4,
+            "revive_base_hp_ratio": 0.5,
+            "revive_max_mana_ratio": 1,
+            "cooldown_s": 180
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "validation": "description_transcribed_from_conversation"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "missing"
+      },
+      "notes": []
+    },
+    {
+      "id": "overlords_bloodmail",
+      "name_fr": "Armure sanguine",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 450,
+        "ad": 30
+      },
+      "passives": [
+        {
+          "name": "Tyrannie",
+          "description_fr": "AD supplémentaire égal à 2,5 % des PV bonus.",
+          "mechanics": {
+            "bonus_ad_from_bonus_hp": 0.025
+          }
+        },
+        {
+          "name": "Représailles",
+          "description_fr": "Jusqu’à +9 % AD selon PV manquants ; maximum sous 30 % PV.",
+          "mechanics": {
+            "bonus_ad_pct_max": 9,
+            "max_at_below_hp_pct": 30
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "validation": "description_transcribed_from_conversation"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "missing"
+      },
+      "notes": []
+    },
+    {
+      "id": "titanic_hydra",
+      "name_fr": "Hydre titanesque",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 450,
+        "ad": 40
+      },
+      "passives": [
+        {
+          "name": "Fendoir",
+          "description_fr": "Toutes les 1,75 s, attaque : 25 +3 % PV bonus à la cible et 80 +10 % PV bonus derrière ; dégâts à distance 75 %.",
+          "mechanics": {
+            "interval_s": 1.75,
+            "primary_base": 25,
+            "primary_bonus_hp_ratio": 0.03,
+            "splash_base": 80,
+            "splash_bonus_hp_ratio": 0.1,
+            "ranged_multiplier": 0.75
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "validation": "description_transcribed_from_conversation"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "missing"
+      },
+      "notes": []
+    },
+    {
+      "id": "iceborn_gauntlet",
+      "name_fr": "Gantelet givrant",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 300,
+        "armor": 50,
+        "mana": 250,
+        "ah": 30
+      },
+      "passives": [
+        {
+          "name": "Lame enchantée",
+          "description_fr": "Après sort, attaque dans les 10 s : dégâts physiques 100 % AD de base +25 % armure bonus en zone, glace 2 s ralentissant 30 %, récupération 1,5 s.",
+          "mechanics": {
+            "window_s": 10,
+            "base_ad_ratio": 1,
+            "bonus_armor_ratio": 0.25,
+            "slow_pct": 30,
+            "slow_s": 2,
+            "cooldown_s": 1.5
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "validation": "description_transcribed_from_conversation"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "missing"
+      },
+      "notes": []
+    },
+    {
+      "id": "sunfire_aegis",
+      "name_fr": "Égide solaire",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 350,
+        "armor": 40,
+        "ah": 15
+      },
+      "passives": [
+        {
+          "name": "Immolation",
+          "description_fr": "En combat : 20 +1,5 % PV bonus dégâts magiques/s proches ; 130 % monstres, 175–250 % sbires.",
+          "mechanics": {
+            "base_magic_dps": 20,
+            "bonus_hp_ratio": 0.015,
+            "monster_multiplier": 1.3,
+            "minion_multiplier_range": [
+              1.75,
+              2.5
+            ]
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "validation": "description_transcribed_from_conversation"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "missing"
+      },
+      "notes": []
+    },
+    {
+      "id": "warmogs_armor",
+      "name_fr": "Armure de Warmog",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 700,
+        "hp_regen_pct": 100,
+        "ah": 20
+      },
+      "passives": [
+        {
+          "name": "Béni",
+          "description_fr": "Augmente de 30 % les soins et boucliers reçus.",
+          "mechanics": {
+            "received_heal_shield_amp_pct": 30
+          }
+        },
+        {
+          "name": "Cœur de Warmog",
+          "description_fr": "Si au moins 1250 PV bonus : après 5 s sans dégâts, récupère 3,5 % PV max/s.",
+          "mechanics": {
+            "threshold_bonus_hp": 1250,
+            "time_without_damage_s": 5,
+            "regen_max_hp_pct_per_s": 3.5
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "validation": "description_transcribed_from_conversation"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "missing"
+      },
+      "notes": []
+    },
+    {
+      "id": "kaenic_rookern",
+      "name_fr": "Rookern kaénique",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 350,
+        "hp_regen_pct": 100,
+        "mr": 80
+      },
+      "passives": [
+        {
+          "name": "Fléau des mages",
+          "description_fr": "Après 12 s sans subir de dégâts magiques : bouclier magique de 50–150 +14 % PV max.",
+          "mechanics": {
+            "no_magic_damage_s": 12,
+            "flat_shield_range": [
+              50,
+              150
+            ],
+            "max_hp_ratio": 0.14,
+            "shield_type": "magic_only"
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "validation": "description_transcribed_from_conversation"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "missing"
+      },
+      "notes": []
+    },
+    {
+      "id": "heartsteel",
+      "name_fr": "Cœur d’acier",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 700,
+        "hp_regen_pct": 150,
+        "ah": 20
+      },
+      "passives": [
+        {
+          "name": "Consommation colossale",
+          "description_fr": "À moins de 700 unités d’un champion, charge 2,5 s : attaque 140 +3,5 % PV max dégâts physiques, gagne définitivement 15 % des dégâts infligés en PV max ; récupération 20 s par cible.",
+          "mechanics": {
+            "range": 700,
+            "charge_s": 2.5,
+            "flat_physical_damage": 140,
+            "max_hp_damage_ratio": 0.035,
+            "permanent_hp_from_damage": 0.15,
+            "cooldown_per_target_s": 20
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "validation": "description_transcribed_from_conversation"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "missing"
+      },
+      "notes": []
+    },
+    {
+      "id": "force_of_nature",
+      "name_fr": "Force de la nature",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 400,
+        "mr": 60,
+        "ms_pct": 4
+      },
+      "passives": [
+        {
+          "name": "Absorption",
+          "description_fr": "Dégâts de compétence ennemis : 1 cumul de 7 s (max 4) ; frapper un champion réinitialise durée ; à 4 : +6 % déplacement et +70 RM.",
+          "mechanics": {
+            "max_stacks": 4,
+            "stack_duration_s": 7,
+            "ms_at_max_pct": 6,
+            "mr_at_max": 70
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "validation": "description_transcribed_from_conversation"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "missing"
+      },
+      "notes": []
+    },
+    {
+      "id": "dead_mans_plate",
+      "name_fr": "Plaque du mort",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 350,
+        "armor": 70,
+        "ms_pct": 4
+      },
+      "passives": [
+        {
+          "name": "Élan",
+          "description_fr": "Mouvement : jusqu’à 100 charges donnant jusqu’à +40 vitesse de déplacement ; attaque consomme tout.",
+          "mechanics": {
+            "stacks_max": 100,
+            "move_speed_at_max": 40
+          }
+        },
+        {
+          "name": "Écrasement",
+          "description_fr": "Attaques : jusqu’à 100 dégâts magiques selon charges ; mêlée à 100 : ralentissement 75 % durant 1 s.",
+          "mechanics": {
+            "magic_damage_max": 100,
+            "melee_slow_at_max_pct": 75,
+            "slow_s": 1
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "validation": "description_transcribed_from_conversation"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "missing"
+      },
+      "notes": []
+    },
+    {
+      "id": "randuins_omen",
+      "name_fr": "Présage de Randuin",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 400,
+        "armor": 75
+      },
+      "passives": [
+        {
+          "name": "Contre-courant",
+          "description_fr": "Recevoir critique physique : +5 % déplacement et résistance aux ralentissements par charge (max 4).",
+          "mechanics": {
+            "stack_max": 4,
+            "ms_pct_per_stack": 5,
+            "slow_resist_pct_per_stack": 5
+          }
+        },
+        {
+          "name": "Vigueur",
+          "description_fr": "Dégâts physiques des coups critiques subis réduits de 30 %.",
+          "mechanics": {
+            "physical_crit_damage_reduction_pct": 30
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "validation": "description_transcribed_from_conversation"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "missing"
+      },
+      "notes": []
+    },
+    {
+      "id": "dawnshroud",
+      "name_fr": "Linceul de l’aube",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 250,
+        "armor": 50,
+        "mr": 30
+      },
+      "passives": [
+        {
+          "name": "Héraut de l’aube",
+          "description_fr": "À 400 unités d’un ennemi, immobilisation donnée ou subie : révèle ennemis proches 3 s, 40 +2,5 % PV bonus dégâts magiques, +20 % armure et RM temporaires ; CD 3 s.",
+          "mechanics": {
+            "activation_range": 400,
+            "reveal_s": 3,
+            "flat_magic_damage": 40,
+            "bonus_hp_ratio": 0.025,
+            "armor_mr_amp_pct": 20,
+            "cooldown_s": 3
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "validation": "description_transcribed_from_conversation"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "missing"
+      },
+      "notes": []
+    },
+    {
+      "id": "radiant_virtue",
+      "name_fr": "Vertu radieuse",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 300,
+        "armor": 30,
+        "mr": 30,
+        "ah": 10
+      },
+      "passives": [
+        {
+          "name": "Lumière directrice",
+          "description_fr": "Ultime : +10 % PV max pendant 6 s et soins aux alliés proches (1200 unités) de 2,5 % PV max durant l’effet ; réduit de moitié à distance ; CD 60 s.",
+          "mechanics": {
+            "ult_trigger": true,
+            "max_hp_pct": 10,
+            "duration_s": 6,
+            "radius": 1200,
+            "heal_max_hp_ratio": 0.025,
+            "ranged_heal_multiplier": 0.5,
+            "cooldown_s": 60
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "validation": "description_transcribed_from_conversation"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "missing"
+      },
+      "notes": []
+    },
+    {
+      "id": "winters_approach",
+      "name_fr": "Hiver imminent",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 500,
+        "mana": 500,
+        "ah": 15
+      },
+      "passives": [
+        {
+          "name": "Effroi",
+          "description_fr": "PV bonus égaux à 15 % mana max ; restitue 15 % du mana dépensé.",
+          "mechanics": {
+            "bonus_hp_from_max_mana": 0.15,
+            "mana_refund_ratio": 0.15
+          }
+        },
+        {
+          "name": "Charge de mana",
+          "description_fr": "14 mana max par déclenchement jusqu’à +700, puis devient Fimbulvetr ; jusqu’à 3 déclenchements en 10 s.",
+          "mechanics": {
+            "mana_per_trigger": 14,
+            "stack_cap_mana": 700,
+            "max_triggers_per_10s": 3,
+            "transforms_into": "fimbulwinter"
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "validation": "description_transcribed_from_conversation"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "missing"
+      },
+      "notes": []
+    },
+    {
+      "id": "fimbulwinter",
+      "name_fr": "Fimbulvetr",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 500,
+        "mana": 1200,
+        "ah": 15
+      },
+      "passives": [
+        {
+          "name": "Effroi",
+          "description_fr": "PV bonus égaux à 15 % mana max ; restitue 15 % du mana dépensé.",
+          "mechanics": {
+            "bonus_hp_from_max_mana": 0.15,
+            "mana_refund_ratio": 0.15
+          }
+        },
+        {
+          "name": "Colosse gelé",
+          "description_fr": "Immobilisation : bouclier de 120 +4,5 % mana max pendant 3 s ; +80 % si plusieurs ennemis proches ; moitié à distance ; CD 8 s.",
+          "mechanics": {
+            "flat_shield": 120,
+            "max_mana_ratio": 0.045,
+            "duration_s": 3,
+            "multi_enemy_multiplier": 1.8,
+            "ranged_multiplier": 0.5,
+            "cooldown_s": 8
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "validation": "description_transcribed_from_conversation"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "missing"
+      },
+      "notes": [
+        "Évolution de Hiver imminent : ne pas proposer comme achat indépendant."
+      ]
+    },
+    {
+      "id": "mantle_of_the_twelfth_hour",
+      "name_fr": "Manteau de l’heure ultime",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 600,
+        "ah": 20
+      },
+      "passives": [
+        {
+          "name": "Lien vital",
+          "description_fr": "Sous 30 % PV : pendant 5 s +200–300 PV max, +10 % vitesse, +20 % ténacité, +10 % taille ; soins totaux 200–400 +120 % armure bonus +120 % RM bonus +15 % PV ; CD 70 s.",
+          "mechanics": {
+            "threshold_hp_pct": 30,
+            "temporary_hp_range": [
+              200,
+              300
+            ],
+            "ms_pct": 10,
+            "tenacity_pct": 20,
+            "size_pct": 10,
+            "duration_s": 5,
+            "heal_flat_range": [
+              200,
+              400
+            ],
+            "heal_bonus_armor_ratio": 1.2,
+            "heal_bonus_mr_ratio": 1.2,
+            "heal_hp_ratio": 0.15,
+            "cooldown_s": 70
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "validation": "description_transcribed_from_conversation"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "missing"
+      },
+      "notes": []
+    },
+    {
+      "id": "knights_vow",
+      "name_fr": "Vœu du chevalier",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 200,
+        "hp_regen_pct": 100,
+        "armor": 40,
+        "ah": 10
+      },
+      "passives": [
+        {
+          "name": "Serment",
+          "description_fr": "À l’achat, choisir un allié.",
+          "mechanics": {
+            "bind_ally_at_purchase": true
+          }
+        },
+        {
+          "name": "Sacrifice",
+          "description_fr": "Allié désigné à proximité : redirige 12 % des dégâts subis par lui et soigne le porteur de 10 % des dégâts infligés par cet allié à des champions.",
+          "mechanics": {
+            "redirect_ally_damage_ratio": 0.12,
+            "heal_ally_damage_ratio": 0.1
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "validation": "description_transcribed_from_conversation"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "missing"
+      },
+      "notes": []
+    },
+    {
+      "id": "yordle_trap",
+      "name_fr": "Piège à yordles",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 200,
+        "armor": 20,
+        "mr": 20,
+        "ah": 15
+      },
+      "passives": [
+        {
+          "name": "Attrapeur",
+          "description_fr": "Ralentir/immobiliser champion : renforcement 8 s (4 s distance), +20 vitesse ; porteur et alliés proches +30 % vitesse d’attaque (20 % à distance) ; élimination pendant buff +20 PO.",
+          "mechanics": {
+            "melee_duration_s": 8,
+            "ranged_duration_s": 4,
+            "flat_move_speed": 20,
+            "melee_as_aura_pct": 30,
+            "ranged_as_aura_pct": 20,
+            "kill_gold": 20
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "validation": "description_transcribed_from_conversation"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "missing"
+      },
+      "notes": []
+    },
+    {
+      "id": "zekes_convergence",
+      "name_fr": "Convergence de Zeke",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 300,
+        "armor": 25,
+        "mr": 25,
+        "ah": 10
+      },
+      "passives": [
+        {
+          "name": "Convergence",
+          "description_fr": "+10 accélération d’ultime.",
+          "mechanics": {
+            "ultimate_haste": 10
+          }
+        },
+        {
+          "name": "Tempête cryopyrique",
+          "description_fr": "Ultime : tempête 5 s, 150 dégâts magiques/s dans 350 unités, ralentit 30 % ; si personne à portée, attente jusqu’à 5 s ; CD 30 s.",
+          "mechanics": {
+            "ult_trigger": true,
+            "duration_s": 5,
+            "magic_dps": 150,
+            "radius": 350,
+            "slow_pct": 30,
+            "delay_if_no_enemy_max_s": 5,
+            "cooldown_s": 30
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "validation": "description_transcribed_from_conversation"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "missing"
+      },
+      "notes": []
+    },
+    {
+      "id": "abyssal_mask",
+      "name_fr": "Masque abyssal",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "hp": 350,
+        "mr": 45,
+        "ah": 10
+      },
+      "passives": [
+        {
+          "name": "Anéantissement",
+          "description_fr": "Dégâts magiques infligés aux champions ennemis à moins de 650 unités augmentés de 12 % ; effet non cumulable.",
+          "mechanics": {
+            "radius": 650,
+            "magic_damage_amp_pct": 12,
+            "same_effect_stacks": false
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "validation": "description_transcribed_from_conversation"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "missing"
+      },
+      "notes": []
+    },
+    {
+      "id": "frozen_heart",
+      "name_fr": "Cœur gelé",
+      "item_type": "legendary",
+      "price_gold": null,
+      "stats": {
+        "armor": 80,
+        "mana": 400,
+        "ah": 20
+      },
+      "passives": [
+        {
+          "name": "Caresse de l’hiver",
+          "description_fr": "Réduit de 25 % la vitesse d’attaque des champions ennemis situés à moins de 650 unités.",
+          "mechanics": {
+            "radius": 650,
+            "enemy_attack_speed_reduction_pct": 25
+          }
+        }
+      ],
+      "evidence": {
+        "kind": "user_client_screenshot",
+        "client_patch_reported": "7.3d",
+        "validation": "description_transcribed_from_conversation"
+      },
+      "completeness": {
+        "description": "documented",
+        "interactions": "not_fully_tested",
+        "price": "missing"
+      },
+      "notes": []
     }
-  ]
+  ],
+  "catalog_status": "partial_checked_client_7.3d"
 }
