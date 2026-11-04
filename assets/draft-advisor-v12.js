@@ -1,11 +1,10 @@
-/* Wild Rift Draft Intelligence V12 — première liaison à la draft.
-   Conseils conditionnels, NON optimisation démontrée. Aucun appel LoL PC.
-   Utilise l'inventaire en jeu 7.3d et les restrictions confirmées.
+/* Wild Rift Draft Intelligence V12 — connexion à la draft principale.
+   Conseils conditionnels, non optimisation démontrée. Wild Rift mobile 7.3d.
+   Dépend des données 7.3d et des exclusions confirmées par le client.
 */
 (function (root) {
   'use strict';
   const normalize = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[’']/g, '').replace(/[^a-z0-9]/g, '');
-  const have = (a, f) => a.some(x => x.flags.includes(f));
   function validate(ids, restrictions) {
     const chosen = ids.filter(Boolean), problems = [];
     if (new Set(chosen).size !== chosen.length) problems.push('Objet présent plusieurs fois');
@@ -25,16 +24,17 @@
     for (const c of enemies.filter(Boolean)) {
       const name = typeof c === 'string' ? c : (c.name || c.id || '');
       const id = typeof c === 'string' ? c : (c.id || c.name || '');
-      const flags = profileMap[normalize(id)] || profileMap[normalize(name)];
+      const flags = profileMap[normalize(name)] || profileMap[normalize(id)];
       if (Array.isArray(flags)) known.push({name, flags});
       else unknown.push(name);
     }
     const count = flag => known.filter(x => x.flags.includes(flag)).length;
-    const signals = {ap:count('ap'),ad:count('ad'),tank:count('tank'),heal:count('heal')+count('sustain'),shield:count('shield'),crit:count('crit'),cc:count('cc'),assassin:count('assassin'),burn:count('burn')};
-    const byId = new Map((catalog.items || []).map(x => [x.id,x]));
+    const heal = known.filter(x => x.flags.includes('heal') || x.flags.includes('sustain')).length;
+    const signals = {ap:count('ap'),ad:count('ad'),tank:count('tank'),heal,shield:count('shield'),crit:count('crit'),cc:count('cc'),assassin:count('assassin'),burn:count('burn')};
+    const byId = new Map((catalog.items || []).map(x => [x.id, x]));
     const choices = [];
-    const add = (id, why, priority) => {if (byId.has(id) && !choices.some(x=>x.id===id)) choices.push({id, why, priority});};
-    const ownNorm = normalize(own.id || own.name || own);
+    const add = (id, why, priority) => { if (byId.has(id) && !choices.some(x => x.id === id)) choices.push({id,why,priority}); };
+    const ownNorm = normalize(own.name || own.id || own);
     if (ownNorm === 'galio') {
       add('riftmaker','PV, puissance et dégâts prolongés (effets partiellement simulés)',80);
       if (signals.ap >= 2 || signals.burn >= 1) add('hollow_radiance','résistance magique et dégâts de proximité',75);
@@ -52,37 +52,38 @@
       add('hollow_radiance','résistance magique et dégâts de proximité',49);
       add('liandrys_torment','pression magique en combat prolongé',48);
     }
-    choices.sort((a,b)=>b.priority-a.priority);
+    choices.sort((a,b) => b.priority-a.priority);
     const selected = [], alternates = [];
     for (const item of choices) {
-      if (validate([...selected.map(x=>x.id),item.id],restrictions).length) {alternates.push({...item,excluded:true});continue;}
+      if (validate([...selected.map(x=>x.id),item.id],restrictions).length) { alternates.push({...item,excluded:true}); continue; }
       if (selected.length < 5) selected.push(item); else alternates.push(item);
     }
-    const equipmentValid = validate(selected.map(x=>x.id),restrictions);
-    return {own:ownNorm, picked:enemies.filter(Boolean).length,known,unknown,signals,selected,alternates,equipmentValid,byId};
+    return {own:ownNorm,picked:enemies.filter(Boolean).length,known,unknown,signals,selected,alternates,equipmentValid:validate(selected.map(x=>x.id),restrictions),byId};
   }
   root.WRDIDraftAdvisorV12 = {analyze,validate,normalize};
   if (typeof document === 'undefined') return;
   function start() {
-    const draftSection = document.querySelector('#simpleApp .simple-card');
-    if (!draftSection || document.getElementById('wrdiV12DraftAdvisor')) return;
+    const host = document.querySelector('#simpleApp .simple-card');
+    if (!host || document.getElementById('wrdiV12DraftAdvisor')) return;
     const box = document.createElement('div');
-    box.className='panel'; box.id='wrdiV12DraftAdvisor';
+    box.className = 'panel';box.id='wrdiV12DraftAdvisor';
     box.innerHTML='<h2>🎯 Assistant de draft V12 — première intégration</h2>'+
-      '<p class="muted">Récupère automatiquement les champions déjà sélectionnés. Conseils conditionnels pour <b>Galio mid</b> seulement ; pas encore un classement optimal ni des runes validées.</p>'+
-      '<button type="button" id="wrdiV12Analyze">Analyser ma draft</button><div id="wrdiV12Result" aria-live="polite" style="margin-top:12px"></div>';
-    draftSection.insertBefore(box,draftSection.children[1] || null);
+      '<p class="muted">Lit les champions déjà sélectionnés. Conseils conditionnels pour <b>Galio mid</b> seulement ; aucun classement optimal démontré.</p>'+
+      '<button type="button" id="wrdiV12Analyze">Analyser ma draft avec le catalogue 7.3d</button><div id="wrdiV12Result" aria-live="polite" style="margin-top:12px"></div>';
+    // Insérer sous les sélections et le bouton historique, dans la carte réellement visible.
+    host.appendChild(box);
     const out=document.getElementById('wrdiV12Result');
     const renderItem=(entry,data)=>{
-      const item=data.byId.get(entry.id), price=Number.isFinite(item.price_gold)? `${item.price_gold} PO`:'prix non confirmé';
+      const item=data.byId.get(entry.id);
+      if (!item) return document.createTextNode('Objet indisponible : '+entry.id);
+      const price=Number.isFinite(item.price_gold)?`${item.price_gold} PO`:'prix non confirmé';
       const image=document.createElement('img');image.src='./assets/item-icons/'+item.id+'.webp';image.alt='';image.loading='lazy';image.width=44;image.height=44;
       image.onerror=()=>{image.style.display='none'};
       const row=document.createElement('div');row.style.cssText='display:flex;gap:10px;align-items:center;border-bottom:1px solid #45636b;padding:8px 0';
       row.appendChild(image);
-      const text=document.createElement('div');
-      const strong=document.createElement('strong');strong.textContent=item.name_fr;
+      const t=document.createElement('div'),strong=document.createElement('strong');strong.textContent=item.name_fr||item.id;
       const desc=document.createElement('div');desc.className='muted';desc.textContent=entry.why+' · '+price;
-      text.append(strong,desc);row.appendChild(text);return row;
+      t.append(strong,desc);row.appendChild(t);return row;
     };
     document.getElementById('wrdiV12Analyze').onclick=async()=>{
       out.textContent='Lecture des données client…';
@@ -92,28 +93,30 @@
         }));
         const picks=JSON.parse(localStorage.getItem('wrdi_draft_v76')||'[]');
         if(!Array.isArray(picks)||picks.length!==10)throw Error('Aucune draft enregistrée dans cette version de l’application.');
+        // app.js expose bien champions (let) et threatProfiles (const) au scope global classique.
         const list=typeof champions!=='undefined'?champions:[];
-        const resolve=id=>{const c=list.find(x=>x.id===id);return {id,name:c?.name||id}};
-        const our=picks[2]?resolve(picks[2]):{id:''}, enemy=picks.slice(5).filter(Boolean).map(resolve);
+        const resolve=id=>{const c=list.find(x=>String(x.id)===String(id));return {id:String(id),name:c?.name||((String(id)==='10099')?'Galio':String(id))}};
+        const our=picks[2]?resolve(picks[2]):{id:'',name:''};
+        const enemy=picks.slice(5).filter(Boolean).map(resolve);
         const base=typeof threatProfiles!=='undefined'?threatProfiles:{};
         const profiles={};for(const [k,v] of Object.entries(base))profiles[normalize(k)]=v;
         const result=analyze(our,enemy,profiles,items,restrictions);
         out.replaceChildren();
         const p=t=>{const e=document.createElement('p');e.className='muted';e.textContent=t;out.appendChild(e)};
-        if(!our.id){p('Sélectionne ton champion mid dans la draft (troisième case alliée).');return}
-        if(result.own!=='galio'){p('Champion sélectionné : '+our.name+'. Les règles de construction détaillées ne sont pas encore validées pour ce champion. Aucun build inventé.');return}
-        p(`Adversaires sélectionnés : ${result.picked}/5 · profils reconnus : ${result.known.length}/5.`);
+        if(!our.id){p('Sélectionne ton champion dans la troisième case alliée (Mid).');return}
+        if(result.own!=='galio'){p('Champion sélectionné : '+our.name+'. Les règles détaillées ne sont pas encore validées pour ce champion. Aucun build inventé.');return}
+        p(`Adversaires sélectionnés : ${result.picked}/5 · profils reconnus : ${result.known.length}/${result.picked}.`);
         if(result.picked<5)p('Draft incomplète : les propositions évolueront une fois les cinq adversaires choisis.');
         if(result.unknown.length)p('Profil non reconnu : '+result.unknown.join(', ')+' ; ces champions ne comptent pas dans les signaux.');
-        const sig=result.signals;p(`Signaux indicatifs (catégories pouvant se recouper) : ${sig.ap} magie · ${sig.ad} physique · ${sig.tank} tanks · ${sig.heal} soins/sustain · ${sig.shield} boucliers · ${sig.crit} critiques · ${sig.cc} contrôles.`);
-        const h=document.createElement('h3');h.textContent='5 objets candidats (ordre provisoire, non ordre d’achat)';out.appendChild(h);
+        const s=result.signals;p(`Signaux indicatifs : ${s.ap} magie · ${s.ad} physique · ${s.tank} tanks · ${s.heal} soins/sustain · ${s.shield} boucliers · ${s.crit} critiques · ${s.cc} contrôles.`);
+        const h=document.createElement('h3');h.textContent='5 objets candidats (non ordre d’achat)';out.appendChild(h);
         result.selected.forEach(x=>out.appendChild(renderItem(x,result)));
-        const remain=document.createElement('p');remain.className='muted';remain.textContent='Le 6e objet, les bottes et les runes restent à déterminer. Les données de champions et les passifs ne suffisent pas encore à garantir le meilleur choix.';out.appendChild(remain);
-        if(result.alternates.length){const a=document.createElement('h3');a.textContent='Options situationnelles / remplacements possibles';out.appendChild(a);result.alternates.slice(0,6).forEach(x=>out.appendChild(renderItem(x,result)))}
-        p(result.equipmentValid.length?'Attention : '+result.equipmentValid.join(' ; '):'Restrictions du client vérifiées : aucune incompatibilité détectée parmi les cinq propositions.');
-        p('Cette présélection repose sur des tags de menaces et des règles explicites. Elle ne simule pas encore les dix kits, le niveau de partie, les builds adverses ni la valeur précise des passifs.');
+        p('6e objet, bottes et runes non déterminés. Les passifs ne sont pas assez complets pour garantir le meilleur build.');
+        if(result.alternates.length){const a=document.createElement('h3');a.textContent='Objets situationnels et remplacements possibles';out.appendChild(a);result.alternates.slice(0,6).forEach(x=>out.appendChild(renderItem(x,result)))}
+        p(result.equipmentValid.length?'Attention : '+result.equipmentValid.join(' ; '):'Aucune incompatibilité détectée parmi ces cinq objets dans les règles client chargées.');
+        p('Présélection par tags de menaces : pas encore de simulation complète des dix kits, builds adverses ou effets uniques.');
       }catch(err){out.textContent='Analyse indisponible : '+err.message+' . Vérifie les fichiers de données et la connexion.'}
     };
   }
-  if (document.readyState==='loading') document.addEventListener('DOMContentLoaded',start); else start();
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
 })(typeof window!=='undefined'?window:globalThis);
