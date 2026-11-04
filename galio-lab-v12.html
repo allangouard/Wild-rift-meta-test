@@ -21,15 +21,15 @@
 <label>Proximité pour les auras<select id="withinRange" style="width:100%;margin-top:4px;padding:9px;background:#183944;color:white;border:1px solid #5a8a91;border-radius:9px"><option value="1">Oui — ennemi à portée</option><option value="0">Non — hors portée</option></select></label>
 </div><p class="note">Ces paramètres servent à calculer séparément certains passifs. Les dégâts supplémentaires ne sont pas ajoutés automatiquement au score de comparaison : déclenchements, réapplications et multiplicateurs ne sont pas tous validés.</p><p class="note">Modèle : Q (rafales + tornade complète) + E + une Frappe colossale. Ne modélise ni ulti, ni boucliers/soins, ni précision des sorts, ni runes. « PV effectifs » est un indice simplifié selon la répartition des dégâts entrants.</p></section>
 <div id="notice" role="status" class="status"></div><section class="grid" id="builds"></section>
-<div class="lead"><b>À savoir :</b> les profils sont des exemples de comparaison, pas des builds optimisés. Seuls les bonus de statistiques, la conversion de PV en AP de Créateur de failles et l'amplification AP de Rabadon sont calculés. Les autres passifs sont listés comme non simulés. Les objets à prix inconnu sont signalés, sans valeur inventée.</div>
+<div class="lead"><b>À savoir :</b> les profils sont des exemples de comparaison, pas des builds optimisés. Le laboratoire calcule certaines contributions de passifs séparément et présente une projection conditionnelle de Créateur de failles. Aucun classement automatique n’est déduit de ces estimations. Les objets à prix inconnu sont signalés, sans valeur inventée.</div>
 </main><div class="overlay" id="overlay"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="pickerTitle"><div class="modal-head"><h2 id="pickerTitle">Choisir un objet</h2><button id="close">Fermer</button></div><label>Recherche<input id="search" type="search" placeholder="Nom de l'objet"></label><div id="pickList" class="picker-grid"></div></div></div>
-<script src="./assets/client-catalog-v12.js?v=27"></script><script src="./assets/galio-lab-v12.js?v=27"></script><script src="./assets/passive-scenarios-v12.js?v=28"></script><script>
+<script src="./assets/client-catalog-v12.js?v=29"></script><script src="./assets/galio-lab-v12.js?v=29"></script><script src="./assets/passive-scenarios-v12.js?v=29"></script><script>
 (async()=>{
  const get=id=>document.getElementById(id),el=(tag,txt,cls)=>{const o=document.createElement(tag);if(txt!=null)o.textContent=txt;if(cls)o.className=cls;return o};
  const normalize=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
  const defaults=[{title:'AP burst',ids:['ludens_echo','infinity_orb','rabadons_deathcap','void_staff','zhonyas_hourglass','']},{title:'Hybride AP / tank',ids:['riftmaker','hollow_radiance','unending_despair','rabadons_deathcap','hextech_rocketbelt','']},{title:'Tank utilitaire',ids:['heartsteel','amaranths_twinguard','unending_despair','frozen_heart','abyssal_mask','redemption']}];
  try{
- const [c,r]=await Promise.all(['./data/items-client-7.3d-v12.json?v=27','./data/item-restrictions-client-7.3d-v12.json?v=27'].map(async path=>{let res=await fetch(path,{cache:'no-store'});if(!res.ok)throw Error('HTTP '+res.status);return res.json()}));
+ const [c,r]=await Promise.all(['./data/items-client-7.3d-v12.json?v=29','./data/item-restrictions-client-7.3d-v12.json?v=29'].map(async path=>{let res=await fetch(path,{cache:'no-store'});if(!res.ok)throw Error('HTTP '+res.status);return res.json()}));
  const list=c.items,byId=new Map(list.map(x=>[x.id,x]));
  const img=(id)=>{const i=el('img');i.src='./assets/item-icons/'+id+'.webp';i.alt='';i.loading='lazy';i.onerror=()=>i.replaceWith(el('span','⚔️'));return i};
  let presets=defaults.map(d=>({...d,ids:[...d.ids]})),activeCard=0,activeSlot=0;
@@ -57,11 +57,19 @@
  metric('Puissance effective',fmt(result.stats.ap));
  metric('Coût connu',fmt(result.costKnown)+' PO'+(result.missingPrices.length?' + inconnus':''));
  if(result.missingPrices.length)block.append(el('p','Prix non documentés : '+result.missingPrices.join(', '),'warn note'));
- const pass=WRDIPassiveScenariosV12.simulate(p.ids,list,{...result.stats,armorBonus:result.stats.armor-sc.baseArmor,effectiveEnemyMr:result.effectiveMr},sc);
+ const pass=WRDIPassiveScenariosV12.simulate(p.ids,list,{...result.stats,armorBonus:result.stats.armor-sc.baseArmor,effectiveEnemyMr:result.effectiveMr},{...sc,comboAfterMr:result.magicDamage});
  const pd=el('details');const summary=el('summary','Passifs calculés séparément — estimation non exhaustive');pd.append(summary);
  for(const x of pass.entries){const line=el('p',`${x.label} : ${fmt(x.magicAfterMr)} dégâts magiques estimés (${fmt(x.raw)} bruts). ${x.explain}`,'note');pd.append(line)}
  if(!pass.entries.length)pd.append(el('p','Aucun passif chiffrable dans ce scénario.','note'));
  pd.append(el('p','Sous-total indicatif des passifs ci-dessus : '+fmt(pass.totalMagicAfterMr)+' dégâts sur la cible. Ce total ne comprend pas le combo Galio et ne constitue pas un classement des builds.','warn note'));
+ if(pass.riftmaker){
+  const r=pass.riftmaker, pct=x=>(x*100).toLocaleString('fr-FR',{maximumFractionDigits:1})+' %';
+  pd.append(el('h4','Créateur de failles — projection conditionnelle'));
+  pd.append(el('p','Dégâts connus utilisés pour la projection : '+fmt(r.base)+' (combo simplifié + passifs chiffrés). Répartition uniforme supposée sur '+sc.duration+' s ; les véritables timings des sorts et déclenchements ne sont pas connus.','warn note'));
+  pd.append(el('p','Amplification moyenne illustrée : +'+pct(r.averageAmplification)+' ; supplément théorique : '+fmt(r.extraDamage)+' dégâts post-RM. Ce supplément est une projection, pas un total validé de combat.','note'));
+  pd.append(el('p','Pleine puissance estimée : '+r.fullStackSeconds.toLocaleString('fr-FR',{maximumFractionDigits:1})+' s ; omnivamp mêlée 10 % uniquement durant cette période. Soins potentiels : '+fmt(r.estimatedOmnivampHealing)+' PV (avant anti-soins, PV manquants et toute réduction propre aux effets de zone).','note'));
+  pd.append(el('p','Cette projection ne s’ajoute PAS aux dégâts combo du tableau : elle ne modélise pas la chronologie exacte, la durée d’engagement réelle, les autres amplifications ni les règles de soins de zone.','warn note'));
+ }
  if(pass.totalPotentialHealing>0)pd.append(el('p','Soins potentiels Désespoir infini avant anti-soins et PV manquants : '+fmt(pass.totalPotentialHealing),'note'));
  for(const n of pass.notes)pd.append(el('p',n,'note'));
  if(pass.unmodeled.length)pd.append(el('p','Autres effets non simulés : '+pass.unmodeled.join(' · '),'warn note'));
