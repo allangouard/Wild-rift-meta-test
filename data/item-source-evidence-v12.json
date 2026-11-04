@@ -1,0 +1,15 @@
+{
+  "schema": "wrdi-source-evidence-v1",
+  "targetPatch": "7.3d",
+  "mode": "ranked",
+  "checkedOn": "2026-11-04",
+  "sources": [
+    {"name":"WildRiftFire item list","url":"https://www.wildriftfire.com/item-list","visiblePatch":"7.2b","classification":"historical-not-current","note":"Page header says Patch 7.2b; cannot certify 7.3d."},
+    {"name":"WildRiftMeta item catalog","url":"https://www.wildriftmeta.com/items/","visiblePatch":"7.2b","dataReviewed":"2026-08-06","classification":"historical-not-current","note":"Site explicitly labels catalog Patch 7.2b."}
+  ],
+  "observations": [
+    {"id":"riftmaker","nameEn":"Riftmaker","sourceUrl":"https://www.wildriftmeta.com/items/riftmaker/","game":"wild-rift-mobile","patch":"7.2b","mode":"unconfirmed","stats":{"health":150,"abilityPower":80,"magicPenPercent":7,"abilityHaste":15},"cost":3200,"passiveSummary":"Assimilation magic vamp 11%; Void Corruption stacks 2.5% magic damage per second, converting bonus damage to true damage at max stacks","statsVerified":false,"passivesVerified":false,"activesVerified":false,"availabilityVerified":false,"passives":[],"conflict":true,"note":"Historical source observation; conflicts with user-provided in-game screenshot. Do not import into live 7.3d catalog."},
+    {"id":"unending-despair","nameEn":"Unending Despair","sourceUrl":"https://www.wildriftmeta.com/items/unending-despair/","game":"wild-rift-mobile","patch":"7.2b","mode":"unconfirmed","stats":{"health":200,"armor":45,"magicResist":45},"cost":3000,"passiveSummary":"Anguish every 4s deals 3% max HP magic damage to nearby champions and heals 250% of damage dealt","statsVerified":false,"passivesVerified":false,"activesVerified":false,"availabilityVerified":false,"passives":[],"conflict":true,"note":"Historical source observation; different stats from earlier in-game screenshot. Not certified 7.3d."}
+  ],
+  "policy": "Never add official patch deltas to a site snapshot. Never equate recently crawled with recently updated. Never mark a passive complete from a partial description."
+}
