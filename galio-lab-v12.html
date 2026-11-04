@@ -12,11 +12,18 @@
 <label>PV max de l'ennemi<input id="enemyHp" type="number" min="1" value="3000"></label>
 <label>RM de l'ennemi<input id="enemyMr" type="number" value="100"></label>
 <label>% dégâts physiques subis<input id="physicalPct" type="number" min="0" max="100" value="50"></label>
-</div><p class="note">Modèle : Q (rafales + tornade complète) + E + une Frappe colossale. Ne modélise ni ulti, ni boucliers/soins, ni précision des sorts, ni runes. « PV effectifs » est un indice simplifié selon la répartition des dégâts entrants.</p></section>
+</div><div class="inputs" style="margin-top:13px">
+<label>Combat simulé (secondes)<input id="duration" type="number" min="0" max="20" value="5"></label>
+<label>Attaques sur la cible<input id="autos" type="number" min="0" max="20" value="1"></label>
+<label>Attaques ennemies reçues<input id="hitsTaken" type="number" min="0" max="20" value="2"></label>
+<label>Autres cibles de Luden<input id="secondary" type="number" min="0" max="4" value="0"></label>
+<label>PV actuels ennemis (%)<input id="targetHpPct" type="number" min="1" max="100" value="65"></label>
+<label>Proximité pour les auras<select id="withinRange" style="width:100%;margin-top:4px;padding:9px;background:#183944;color:white;border:1px solid #5a8a91;border-radius:9px"><option value="1">Oui — ennemi à portée</option><option value="0">Non — hors portée</option></select></label>
+</div><p class="note">Ces paramètres servent à calculer séparément certains passifs. Les dégâts supplémentaires ne sont pas ajoutés automatiquement au score de comparaison : déclenchements, réapplications et multiplicateurs ne sont pas tous validés.</p><p class="note">Modèle : Q (rafales + tornade complète) + E + une Frappe colossale. Ne modélise ni ulti, ni boucliers/soins, ni précision des sorts, ni runes. « PV effectifs » est un indice simplifié selon la répartition des dégâts entrants.</p></section>
 <div id="notice" role="status" class="status"></div><section class="grid" id="builds"></section>
 <div class="lead"><b>À savoir :</b> les profils sont des exemples de comparaison, pas des builds optimisés. Seuls les bonus de statistiques, la conversion de PV en AP de Créateur de failles et l'amplification AP de Rabadon sont calculés. Les autres passifs sont listés comme non simulés. Les objets à prix inconnu sont signalés, sans valeur inventée.</div>
 </main><div class="overlay" id="overlay"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="pickerTitle"><div class="modal-head"><h2 id="pickerTitle">Choisir un objet</h2><button id="close">Fermer</button></div><label>Recherche<input id="search" type="search" placeholder="Nom de l'objet"></label><div id="pickList" class="picker-grid"></div></div></div>
-<script src="./assets/client-catalog-v12.js?v=27"></script><script src="./assets/galio-lab-v12.js?v=27"></script><script>
+<script src="./assets/client-catalog-v12.js?v=27"></script><script src="./assets/galio-lab-v12.js?v=27"></script><script src="./assets/passive-scenarios-v12.js?v=28"></script><script>
 (async()=>{
  const get=id=>document.getElementById(id),el=(tag,txt,cls)=>{const o=document.createElement(tag);if(txt!=null)o.textContent=txt;if(cls)o.className=cls;return o};
  const normalize=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
@@ -27,7 +34,7 @@
  const img=(id)=>{const i=el('img');i.src='./assets/item-icons/'+id+'.webp';i.alt='';i.loading='lazy';i.onerror=()=>i.replaceWith(el('span','⚔️'));return i};
  let presets=defaults.map(d=>({...d,ids:[...d.ids]})),activeCard=0,activeSlot=0;
  const overlay=get('overlay'),search=get('search'),pickList=get('pickList');
- const readScenario=()=>Object.fromEntries(['level','baseHp','baseArmor','baseMr','baseAd','enemyHp','enemyMr','physicalPct'].map(id=>[id,Number(get(id).value)]));
+ const readScenario=()=>({...Object.fromEntries(['level','baseHp','baseArmor','baseMr','baseAd','enemyHp','enemyMr','physicalPct','duration','autos','hitsTaken','secondary','targetHpPct'].map(id=>[id,Number(get(id).value)])),withinRange:get('withinRange').value==='1'});
  function openPicker(card,slot){activeCard=card;activeSlot=slot;get('pickerTitle').textContent=presets[card].title+' — Emplacement '+(slot+1);search.value='';overlay.classList.add('open');renderPicker();search.focus()}
  function closePicker(){overlay.classList.remove('open')}
  function renderPicker(){pickList.replaceChildren();let q=normalize(search.value);for(let it of [{id:'',name_fr:'Vider cet emplacement'},...list.filter(x=>x.item_type!=='transformed')]){
@@ -50,11 +57,20 @@
  metric('Puissance effective',fmt(result.stats.ap));
  metric('Coût connu',fmt(result.costKnown)+' PO'+(result.missingPrices.length?' + inconnus':''));
  if(result.missingPrices.length)block.append(el('p','Prix non documentés : '+result.missingPrices.join(', '),'warn note'));
- if(result.notModeled.length)block.append(el('p','Passifs non simulés : '+result.notModeled.join(' · '),'warn note'));
+ const pass=WRDIPassiveScenariosV12.simulate(p.ids,list,{...result.stats,armorBonus:result.stats.armor-sc.baseArmor,effectiveEnemyMr:result.effectiveMr},sc);
+ const pd=el('details');const summary=el('summary','Passifs calculés séparément — estimation non exhaustive');pd.append(summary);
+ for(const x of pass.entries){const line=el('p',`${x.label} : ${fmt(x.magicAfterMr)} dégâts magiques estimés (${fmt(x.raw)} bruts). ${x.explain}`,'note');pd.append(line)}
+ if(!pass.entries.length)pd.append(el('p','Aucun passif chiffrable dans ce scénario.','note'));
+ pd.append(el('p','Sous-total indicatif des passifs ci-dessus : '+fmt(pass.totalMagicAfterMr)+' dégâts sur la cible. Ce total ne comprend pas le combo Galio et ne constitue pas un classement des builds.','warn note'));
+ if(pass.totalPotentialHealing>0)pd.append(el('p','Soins potentiels Désespoir infini avant anti-soins et PV manquants : '+fmt(pass.totalPotentialHealing),'note'));
+ for(const n of pass.notes)pd.append(el('p',n,'note'));
+ if(pass.unmodeled.length)pd.append(el('p','Autres effets non simulés : '+pass.unmodeled.join(' · '),'warn note'));
+ block.append(pd);
+ if(result.notModeled.length)block.append(el('p','Passifs encore non intégrés au combo : '+result.notModeled.join(' · '),'warn note'));
  block.append(el('p','Dégâts : Q + E + passive. Aucun classement automatique : cette comparaison est incomplète.','note'));
  card.append(block);get('builds').append(card)
  });}
- for(let id of ['level','baseHp','baseArmor','baseMr','baseAd','enemyHp','enemyMr','physicalPct'])get(id).addEventListener('input',render);
+ for(let id of ['level','baseHp','baseArmor','baseMr','baseAd','enemyHp','enemyMr','physicalPct','duration','autos','hitsTaken','secondary','targetHpPct'])get(id).addEventListener('input',render);get('withinRange').addEventListener('change',render);
  search.oninput=renderPicker;get('close').onclick=closePicker;overlay.onclick=e=>{if(e.target===overlay)closePicker()};document.addEventListener('keydown',e=>{if(e.key==='Escape')closePicker()});render();
  }catch(e){get('notice').textContent='Impossible de charger les catalogues : '+e.message}
 })();
