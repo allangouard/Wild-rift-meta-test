@@ -145,7 +145,7 @@ const threatProfiles={
  'syndra':['ap','burst','cc'],'orianna':['ap','poke','cc'],'ahri':['ap','burst','cc'],'veigar':['ap','burst','cc'],'brand':['ap','burn','aoe'],'zyra':['ap','burn','cc'],'vladimir':['ap','sustain','aoe'],'akali':['ap','assassin'],'katarina':['ap','assassin'],'fizz':['ap','assassin'],'ekko':['ap','assassin'],'kennen':['ap','aoe','cc'],'annie':['ap','burst','cc'],'lux':['ap','poke','cc'],'morgana':['ap','cc'],'galio':['ap','cc','tank'],'swain':['ap','sustain','cc'],'aurelion sol':['ap','aoe'],'teemo':['ap','poke'],'lillia':['ap','burn'],'gwen':['ap','sustain'],'evelynn':['ap','assassin'],'diana':['ap','assassin'],'gragas':['ap','cc'],'rumble':['ap','aoe'],'ziggs':['ap','poke'],'hwei':['ap','poke','cc'],
  'zed':['ad','assassin'],'yasuo':['ad','crit'],'yone':['ad','crit','cc'],'talon':['ad','assassin'],'qiyana':['ad','assassin'],'pantheon':['ad','burst','cc'],'jayce':['ad','poke'],'lucian':['ad','crit'],'tristana':['ad','crit'],'jinx':['ad','crit'],'caitlyn':['ad','crit','poke'],'draven':['ad','crit'],'samira':['ad','crit'],'miss fortune':['ad','aoe'],'ashe':['ad','cc'],'vayne':['ad','onhit'],'kai’sa':['hybrid','onhit'],'kai\'sa':['hybrid','onhit'],'ezreal':['hybrid','poke'],'varus':['hybrid','poke'],'kalista':['ad','onhit'],'xayah':['ad','crit'],'sivir':['ad','crit'],'twitch':['ad','onhit'],'zeri':['ad','crit'],'aphelios':['ad','crit'],'graves':['ad','crit'],'master yi':['ad','onhit'],'tryndamere':['ad','crit'],'viego':['ad','onhit'],'lee sin':['ad','burst'],'vi':['ad','cc'],'jarvan iv':['ad','cc'],'hecarim':['ad','engage'],'khazix':['ad','assassin'],"kha'zix":['ad','assassin'],'rengar':['ad','assassin'],'wukong':['ad','cc'],'xin zhao':['ad','engage'],'olaf':['ad','sustain'],'darius':['ad','sustain'],'garen':['ad','tank'],'sett':['ad','tank','cc'],'aatrox':['ad','sustain'],'riven':['ad','cc'],'fiora':['ad','sustain'],'camille':['ad','cc'],'irelia':['ad','onhit'],'nasus':['ad','tank'],'renekton':['ad','sustain'],'ambessa':['ad','assassin'],
  'ornn':['tank','cc'],'malphite':['tank','cc'],'nautilus':['tank','cc'],'leona':['tank','cc'],'alistar':['tank','cc'],'rell':['tank','cc'],'braum':['tank','cc'],'thresh':['tank','cc'],'blitzcrank':['tank','cc'],'sion':['tank','cc'],'maokai':['tank','cc'],'rammus':['tank','cc'],'amumu':['tank','cc'],'sejuani':['tank','cc'],'zac':['tank','cc'],'cho’gath':['tank','cc'],'chogath':['tank','cc'],'dr. mundo':['tank','sustain'],'mundo':['tank','sustain'],'volibear':['tank','sustain'],'shen':['tank','cc'],'poppy':['tank','cc'],'tahm kench':['tank','cc'],
- 'soraka':['heal'],'sona':['heal','shield'],'yuumi':['heal','shield'],'nami':['heal','cc'],'milio':['heal','shield'],'janna':['shield','cc'],'lulu':['shield','cc'],'karma':['shield','poke'],'seraphine':['shield','heal','cc'],'rakan':['shield','cc'],'senna':['heal','ad'],'taric':['heal','tank'],'renata glasc':['shield','cc']
+ 'soraka':['heal'],'sona':['heal','shield'],'yuumi':['heal','shield'],'nami':['heal','cc'],'milio':['heal','shield'],'janna':['shield','cc'],'lulu':['shield','cc'],'karma':['shield','poke'],'seraphine':['shield','heal','cc'],'rakan':['shield','cc'],'senna':['heal','ad'],'taric':['heal','tank'],'renata glasc':['shield','cc'],'bard':['ap','cc'],'pyke':['ad','assassin','cc'],'nilah':['ad','crit'],'smolder':['ad','poke'],'mel':['ap','poke'],'aurora':['ap','burst']
 };
 function normalName(n){return String(n||'').toLocaleLowerCase('fr').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[’‘]/g,"'").trim()}
 function getThreat(n){return threatProfiles[normalName(n)]||null}
@@ -430,7 +430,7 @@ renderDraft=function(){originalRenderDraft();simpleDraft()};
 $('simpleClear').onclick=()=>{draftPicks=Array(10).fill('');saveDraft();renderDraft();$('simpleResults').style.display='none'};
 function simpleItem(id){return (db.items?.items||[]).find(x=>String(x.id)===String(id))}
 function simpleItemName(x){return x?realLabel(x):'Objet non identifié'}
-function simpleCoreSignature(core){return core.items.map(optId).join('-')}
+function simpleCoreSignature(core){return core.items.map(optId).sort().join('-')}
 function simpleWhy(x,c,own){
  const st=optStats(x),m=optMeta(x),why=[];
  if(optVal(st,'Armor')>0&&c.ad>=2)why.push('armure utile contre les '+c.ad+' menaces physiques identifiées');
@@ -444,16 +444,18 @@ function simpleWhy(x,c,own){
  if(optVal(st,'Ad')>0)why.push('+'+optVal(st,'Ad')+' dégâts d’attaque identifiés');
  return why.slice(0,2).join(' ; ')||'alternative issue du catalogue ; effet précis à vérifier en jeu';
 }
-function simpleCandidates(core,mode,c,items){
+function simpleCandidates(core,mode,c,items,own,enemyNames){
  const base=core.items.map(optId),known=new Set(base),stats=optSumStats(base,items),ap=optVal(stats,'Ap'),ad=optVal(stats,'Ad');
- const candidates=items.filter(x=>{
+ const ctx=WRDIDraftIntelligence.context(own,enemyNames,c,base.map(simpleItem).filter(Boolean).map(realLabel));
+ return items.filter(x=>{
   if(!optIsFull(x)||known.has(String(x.id))||optMeta(x).boots)return false;
-  const st=optStats(x);
+  const st=optStats(x);if(!Object.keys(st).length)return false;
   if(ap>ad*1.6&&optVal(st,'Ad')>0&&!optVal(st,'Ap'))return false;
   if(ad>ap*1.6&&optVal(st,'Ap')>0&&!optVal(st,'Ad'))return false;
-  return Object.keys(st).length>0;
- });
- return candidates.map(x=>({x,score:optScore(x,mode,c,stats)})).filter(x=>x.score>0).sort((a,b)=>b.score-a.score);
+  return true;
+ }).map(x=>{const rule=WRDIDraftIntelligence.evaluate(realLabel(x),optStats(x),ctx,mode);
+  return {x,rule,score:optScore(x,mode,c,stats)*.35+rule.score};
+ }).filter(v=>v.score>0&&v.rule.allowed).sort((a,b)=>b.score-a.score);
 }
 async function simpleAnalyze(){
  const out=$('simpleResults'),own=draftPicks[2],enemy=draftPicks.slice(5),items=db.items?.items||[];
@@ -467,7 +469,7 @@ async function simpleAnalyze(){
  if(!mid){out.innerHTML='<p class="warn">Aucun core Mid identifiable pour ce champion dans la source actuelle.</p>';return}
  const valid=new Set(items.map(x=>String(x.id)));
  const cores=(mid.core||[]).filter(x=>Array.isArray(x.items)&&x.items.length===3&&x.items.every(y=>valid.has(optId(y)))&&new Set(x.items.map(optId)).size===3);
- const unique=[...new Map(cores.map(c=>[simpleCoreSignature(c),c])).values()].sort((a,b)=>(engineNum(b.pick)||0)-(engineNum(a.pick)||0));
+ const unique=[...new Map(cores.slice().sort((a,b)=>(engineNum(b.pick)||0)-(engineNum(a.pick)||0)).map(c=>[simpleCoreSignature(c),c])).values()].sort((a,b)=>(engineNum(b.pick)||0)-(engineNum(a.pick)||0));
  if(!unique.length){out.innerHTML='<p class="warn">Aucun core Mid complet et reconnu pour ce champion. Le moteur refuse de substituer un build d’un autre rôle.</p>';return}
  const enemyNames=enemy.map(id=>pickerName(champions.find(x=>String(x.id)===String(id))||{id,name:id})),{counts:c,unknown}=engineNotes(enemyNames);
  const title=pickerName(champions.find(x=>String(x.id)===String(own))||{id:own,name:own});
@@ -488,16 +490,18 @@ async function simpleAnalyze(){
  html+='<div class="simple-result"><h3>🔄 Objets situationnels</h3><p class="muted">Candidats pour compléter ou adapter le core principal. Le moteur tient compte des statistiques reconnues, du coût et des profils adverses.</p>';
  const base=picks[0],candidateGroups=[['🛡️ Défense','survive'],['⚔️ Dégâts','damage'],['⚖️ Polyvalence','balanced']];
  const used=new Set(base.items.map(optId));let count=0;
+ const chosen=[];
  for(const [label,mode] of candidateGroups){
-  const pick=simpleCandidates(base,mode,c,items).find(v=>!used.has(String(v.x.id)));
-  if(!pick)continue;used.add(String(pick.x.id));count++;
-  html+='<div class="simple-sub">'+label+'</div>'+itemChip(pick.x.id)+'<p class="simple-reason"><b>Pourquoi :</b> '+esc(simpleWhy(pick.x,c,own))+'. <b>Quand :</b> si ce besoin devient prioritaire pendant la partie. <b>À la place :</b> d’un emplacement complémentaire, sans remplacer automatiquement les trois objets du core.</p>';
+  const ranked=simpleCandidates(base,mode,c,items,own,enemyNames);
+  const pick=ranked.find(v=>!used.has(String(v.x.id))&&!chosen.some(z=>z.rule.family&&z.rule.family===v.rule.family));
+  if(!pick)continue;used.add(String(pick.x.id));chosen.push(pick);count++;
+  html+='<div class="simple-sub">'+label+'</div>'+itemChip(pick.x.id)+'<p class="simple-reason"><b>Pourquoi :</b> '+esc(pick.rule.reasons.join(' ; ')||simpleWhy(pick.x,c,own))+'. <b>Quand :</b> '+esc(pick.rule.timing)+'. <b>Emplacement :</b> compléter le core, ou remplacer un objet dont le passif est devenu moins utile. Pas de remplacement automatique sans données vérifiées.</p>';
  }
  if(!count)html+='<p class="warn">Aucun objet situationnel avec statistiques suffisamment identifiables.</p>';
  html+='</div>';
  const pages=(mid.runes||[]).filter(r=>Array.isArray(r.runes)&&r.runes.length===5).sort((a,b)=>(engineNum(b.pick)||0)-(engineNum(a.pick)||0));
  html+='<div class="simple-result"><h3>✨ Runes</h3>'+(pages.length?engineEntry(pages[0].runes,'rune')+'<p class="simple-reason">Page Mid observée. Son adaptation exacte à la draft n’est pas encore calculée.</p>':'<p class="warn">Pas de page Mid complète vérifiable.</p>')+'</div>';
- html+='<details><summary>🔬 Ce qui est calculé en arrière-plan</summary><p class="muted">Classement des cores Mid observés ; contrôle de leurs identifiants ; extraction de statistiques des objets ; scores de compléments selon coût, PV, résistances, statistiques offensives et profils de menaces. Les passifs, synergies uniques et ratios de compétences ne sont pas encore simulés de façon fiable. Les suggestions situationnelles restent heuristiques. Les données de catalogue et les profils adverses peuvent être incomplets.</p></details>';
+ html+='<details><summary>🔬 Ce qui est calculé en arrière-plan</summary><p class="muted">Classement des cores Mid observés ; contrôle de leurs identifiants ; extraction de statistiques des objets ; scores de compléments selon coût, PV, résistances, statistiques offensives et profils de menaces. Les profils anti-critiques, anti-soins, tanks, la compatibilité du champion et la redondance sont évalués par des règles explicites ; les passifs, synergies uniques et ratios de compétences ne sont pas encore simulés de façon exhaustive. Les suggestions situationnelles restent heuristiques. Les données de catalogue et les profils adverses peuvent être incomplets.</p></details>';
  out.innerHTML=html;out.scrollIntoView({behavior:'smooth',block:'start'});
  }catch(e){out.innerHTML='<p class="bad">Impossible de charger les cores Mid : '+esc(String(e))+'</p>'}
 }
