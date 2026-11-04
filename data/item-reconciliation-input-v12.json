@@ -1,0 +1,7 @@
+{
+  "historicalFile": "data/items-7.2a-normalized.json",
+  "coverageFile": "data/item-passive-coverage-v12.json",
+  "deltasFile": "data/item-deltas-officiels-7.3d-v12.json",
+  "currentVerifiedRecords": [],
+  "note": "No item may be declared verified without item-specific evidence"
+}

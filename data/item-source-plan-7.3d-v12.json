@@ -1,0 +1,57 @@
+{
+  "schema": "wrdi-v12-current-catalog-source-plan-v1",
+  "targetPatch": "7.3d",
+  "game": "Wild Rift mobile",
+  "mode": "ranked",
+  "status": "SOURCE_DISCOVERY_ONLY_NOT_VERIFIED_ITEM_DATABASE",
+  "policy": {
+    "currentSnapshotsAreAlreadyPatched": true,
+    "neverReapplyPatchDeltas": true,
+    "unknownPassivesBlockRecommendation": true,
+    "doNotMergeAAAARAMItemsIntoRanked": true,
+    "noAssumptionThatHistorical195AreCurrentItems": true
+  },
+  "sources": [
+    {
+      "name": "WildRiftMeta item index",
+      "url": "https://www.wildriftmeta.com/items/",
+      "role": "candidate item inventory and item details",
+      "patchClaim": "not explicitly verified for each item",
+      "verifiedItemCount": 0
+    },
+    {
+      "name": "WildRiftFire items",
+      "url": "https://www.wildriftfire.com/item-list",
+      "role": "secondary inventory comparison",
+      "patchClaim": "7.3d on page",
+      "verifiedItemCount": 0
+    },
+    {
+      "name": "Wild Rift Tools",
+      "url": "https://wildrifttools.com/items/",
+      "role": "secondary item and passive detail comparison",
+      "patchClaim": "7.3c on page; AAA-only items present",
+      "verifiedItemCount": 0
+    },
+    {
+      "name": "Riot 7.3d notes",
+      "url": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/",
+      "role": "official patch changes, not full item definitions",
+      "patchClaim": "7.3d",
+      "verifiedItemCount": 0
+    }
+  ],
+  "baseline": {
+    "historicalSourceEntries": 238,
+    "historicalNormalizedRecords": 195,
+    "passiveCoverageRecords": 195,
+    "officialDeltaItemEntries": 6
+  },
+  "nextWork": [
+    "Extract full individual current item pages",
+    "Identify current ranked-only inventory and stable IDs",
+    "Cross-check all stats prices passive texts with current sources",
+    "Encode mechanics and test; require manual review for conflicting sources"
+  ],
+  "fullyVerifiedCurrentItems": 0
+}
