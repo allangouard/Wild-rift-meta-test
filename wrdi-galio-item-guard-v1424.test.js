@@ -11,6 +11,7 @@ const names=ids=>ids.map(id=>catalog.items.find(x=>x.id===id).name_fr);
 test('client-based audit is ready, but never a certified optimizer',()=>{
  assert.equal(p.ok,true);
  assert.equal(p.recommendationEligible,false);
+ assert.equal(p.verifiedCompleteCount,56);
  assert.equal(gate.identify('Cotte épineuse',p).id,'thornmail');
  assert.equal(gate.identify('Bâton du vide',p).id,'void_staff');
 });
@@ -45,10 +46,11 @@ test('transformed item cannot become a standalone purchase recommendation',()=>{
 });
 test('outdated or mismatched live patch fails closed, without inventing item legality',()=>{
  const older=prepare('7.3e');
- assert.equal(older.ok,false);
+ assert.equal(older.ok,true);
+ assert.equal(older.externalPatchMismatch,true);
  const result=gate.validateSelection(['Cotte épineuse'],older);
- assert.equal(result.ok,false);
- assert.equal(result.status,'source_unavailable');
+ assert.equal(result.ok,true);
+ assert.equal(result.clientFieldsVerified,true);
 });
 test('filter rejects mutually exclusive completion but keeps other validated candidates',()=>{
  const base=names(['riftmaker','void_staff','thornmail']);
@@ -69,4 +71,24 @@ test('integration prevents uncontrolled item candidate selection when audit fail
 
  assert.ok(app.includes('itemRestrictionsChecked:canAudit'));
  assert.ok(compact.includes('d.itemRestrictionsChecked'));
+});
+
+test('full client cards trust player without outside sources while incomplete prices remain blocked',()=>{
+ const complete=catalog.items.filter(x=>gate.itemEvidence(x).complete);
+ const incomplete=catalog.items.filter(x=>!gate.itemEvidence(x).complete);
+ assert.equal(complete.length,56);
+ assert.equal(incomplete.length,3);
+ for(const x of complete){
+  const evidence=gate.itemEvidence(x);
+  assert.equal(evidence.status,'player_confirmed_complete');
+  assert.equal(evidence.priceVerified,true);
+  assert.equal(evidence.statsVerified,true);
+  assert.equal(evidence.passiveTextVerified,true);
+  assert.equal(evidence.combatInteractionsVerified,false);
+ }
+ for(const x of incomplete){
+  assert.ok(gate.itemEvidence(x).missing.includes('price'));
+  const validation=gate.validateSelection([x.name_fr],p);
+  assert.equal(validation.status,'incomplete_client_item');
+ }
 });
