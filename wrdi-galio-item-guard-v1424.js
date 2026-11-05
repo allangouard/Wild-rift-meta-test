@@ -62,14 +62,14 @@ function validateSelection(names,prepared,{requireFullCore=false}={}){
  if(unresolved.length)return {ok:false,status:'unresolved_identity',
   reason:'Objet(s) non rapproché(s) du catalogue client',unresolved,ids:identified.filter(x=>x.ok).map(x=>x.id)};
  const ids=identified.map(x=>x.id);
+ const nonbuyable=identified.filter(x=>x.type==='transformed');
+ if(nonbuyable.length)return {ok:false,status:'transformed_not_buyable',reason:'Transformation, non achetable directement',ids};
  const incomplete=identified.filter(x=>!x.evidence.complete);
  if(incomplete.length)return {ok:false,status:'incomplete_client_item',ids,
   reason:'Fiche client incomplète : '+incomplete.map(x=>x.name+' ('+x.evidence.missing.join(', ')+')').join(' ; '),
   incomplete};
  if(requireFullCore&&ids.length!==3)return {ok:false,status:'incomplete_core',reason:'Core de trois objets requis',ids};
  const check=prepared.core.validateEquipment(ids,prepared.catalog,prepared.rules);
- const nonbuyable=identified.filter(x=>x.type==='transformed');
- if(nonbuyable.length)return {ok:false,status:'transformed_not_buyable',reason:'Transformation, non achetable directement',ids};
  return {ok:check.valid,status:check.valid?'equipment_compatible':'equipment_conflict',
   reason:check.valid?'Sélection compatible selon les restrictions du client '+prepared.patch:check.errors.join('; '),
   ids,errors:check.errors,warnings:check.warnings,
