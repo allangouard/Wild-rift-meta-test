@@ -60,7 +60,11 @@
       "screenshot": "1000010583.jpg",
       "existing_catalog_id": null,
       "verification": "name_icon_price_visible_in_client",
-      "needs_client_details": true
+      "needs_client_details": false,
+      "details_verified": true,
+      "client_details_source": "data/stage-a-defense-active-details-2026-11-05.json",
+      "needs_canonical_id_reconciliation": true,
+      "needs_mechanics_testing": true
     },
     {
       "id": "frozen_heart",
@@ -186,7 +190,11 @@
       "screenshot": "1000010581.jpg",
       "existing_catalog_id": null,
       "verification": "name_icon_price_visible_in_client",
-      "needs_client_details": true
+      "needs_client_details": false,
+      "details_verified": true,
+      "client_details_source": "data/stage-a-defense-active-details-2026-11-05.json",
+      "needs_canonical_id_reconciliation": true,
+      "needs_mechanics_testing": true
     },
     {
       "id": "sunfire_aegis",
@@ -292,6 +300,7 @@
     "Screenshots confirm item displayed names, icons, category and prices only; no detailed item stats or passive effects.",
     "Two shop entries are not in curated 59-item catalog; keep provisional references only, never assume current canonical ID or whether active item rules include them.",
     "The full list of Defence as displayed in three captures; other shop categories might repeat some entries.",
-    "The resources build does not independently identify specific balance patch."
+    "The resources build does not independently identify specific balance patch.",
+    "Both unmatched items now have client-confirmed stats and active descriptions in separate evidence file. External canonical IDs and interactions remain unverified."
   ]
 }
