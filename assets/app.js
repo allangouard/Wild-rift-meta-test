@@ -489,7 +489,14 @@ async function simpleAnalyze(){
  let html='<h2>🏆 Tes recommandations — '+esc(title)+'</h2><p class="muted">Patch '+esc(patches[0])+' · Cores Mid observés · '+(5-unknown.length)+'/5 profils adverses identifiés.</p>';
  if(unknown.length)html+='<p class="warn">Profil(s) non reconnu(s) : '+unknown.map(esc).join(', ')+'. Analyse de draft partielle.</p>';
  const labels=['🥇 Core principal','⚔️ Alternative 2','🛡️ Alternative 3'];
- const picks=unique.slice(0,3);
+ // Un core populaire peut encore comporter une incompatibilite ou un nom non resolu.
+ // Privilegier les cores equipables uniquement si la correspondance est certaine.
+ const verifiedCores=itemSafety?.ok?unique.filter(core=>{
+  const names=core.items.map(optId).map(id=>simpleItemName(simpleItem(id)));
+  return window.WRDI_GalioItemGuardV1424.validateSelection(names,itemSafety,{requireFullCore:true}).ok;
+ }):[];
+ const picks=(verifiedCores.length?verifiedCores:unique).slice(0,3);
+ const coreCompatibilityKnown=verifiedCores.length>0;
  for(let i=0;i<picks.length;i++){
   const core=picks[i],ids=core.items.map(optId),why=[];
   if(i===0)why.push('core Mid le plus joué parmi les combinaisons disponibles dans les données chargées');
@@ -499,6 +506,7 @@ async function simpleAnalyze(){
   if(c.tank>=2)why.push(c.tank+' tanks identifiés : privilégier les dégâts prolongés selon les interactions vérifiées');
   html+='<div class="simple-result"><h3>'+labels[i]+'</h3>'+engineEntry(ids,'item')+'<p class="simple-reason"><b>Pourquoi :</b> '+esc(why.join(' ; '))+'.</p><p class="muted">Ces trois objets sont un core observé, pas une preuve de supériorité contre cette draft.</p></div>';
  }
+ if(!coreCompatibilityKnown)html+='<p class="warn">Aucun core Mid rapproché et certifié compatible dans le catalogue client : core affiché uniquement comme observation historique.</p>';
  if(picks.length<3)html+='<p class="muted">Seulement '+picks.length+' core(s) Mid distinct(s) vérifiables : aucune alternative inventée.</p>';
  html+='<div class="simple-result"><h3>🔄 Objets situationnels</h3><p class="muted">Candidats pour compléter ou adapter le core principal. Le moteur tient compte des statistiques reconnues, du coût et des profils adverses.</p>';
  const base=picks[0],candidateGroups=[['🛡️ Défense','survive'],['⚔️ Dégâts','damage'],['⚖️ Polyvalence','balanced']];
@@ -528,7 +536,7 @@ async function simpleAnalyze(){
  if(typeof window!=='undefined')window.dispatchEvent(new CustomEvent('wrdi:build-result',{
   detail:{champion:title,patch:patches[0],core:base.items.map(optId).map(id=>({id,name:simpleItemName(simpleItem(id))})),
    situational:chosen.map(c=>({id:String(c.x.id),name:simpleItemName(c.x),reason:c.rule.reasons.join(' ; ')||simpleWhy(c.x,c,own),timing:c.rule.timing})),
-   coreType:'most_observed_mid',runeSource:'observed_mid',itemRestrictionsChecked:canAudit,itemRestrictionsMessage:canAudit?'Restrictions du client vérifiées pour les objets proposés':(baseCheck?.reason||itemSafetyReason)} }));
+   coreType:coreCompatibilityKnown?'most_observed_mid_compatible':'observed_mid_unverified',runeSource:'observed_mid',itemRestrictionsChecked:canAudit,itemRestrictionsMessage:canAudit?'Restrictions du client vérifiées pour les objets proposés':(baseCheck?.reason||itemSafetyReason)} }));
  if(!window.WRDI_CompactV1423)out.scrollIntoView({behavior:'smooth',block:'start'});
  }catch(e){out.innerHTML='<p class="bad">Impossible de charger les cores Mid : '+esc(String(e))+'</p>'}
 }
