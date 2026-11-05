@@ -38,6 +38,60 @@
       "tree": "Volonté",
       "primary_row": 3,
       "source_image": "1000010825.jpg"
+    },
+    {
+      "name_fr": "Brutal",
+      "primary_row": 1,
+      "source_image": "1000010877.jpg",
+      "tree": "Précision"
+    },
+    {
+      "name_fr": "Triomphe",
+      "primary_row": 1,
+      "source_image": "1000010877.jpg",
+      "tree": "Précision"
+    },
+    {
+      "name_fr": "Zèle de combat",
+      "primary_row": 1,
+      "source_image": "1000010877.jpg",
+      "tree": "Précision"
+    },
+    {
+      "name_fr": "Baroud d'honneur",
+      "primary_row": 2,
+      "source_image": "1000010879.jpg",
+      "tree": "Précision"
+    },
+    {
+      "name_fr": "Abattage",
+      "primary_row": 2,
+      "source_image": "1000010879.jpg",
+      "tree": "Précision"
+    },
+    {
+      "name_fr": "Coup de grâce",
+      "primary_row": 2,
+      "source_image": "1000010879.jpg",
+      "tree": "Précision"
+    },
+    {
+      "name_fr": "Légende : Alacrité",
+      "primary_row": 3,
+      "source_image": "1000010881.jpg",
+      "tree": "Précision"
+    },
+    {
+      "name_fr": "Légende : Accélération",
+      "primary_row": 3,
+      "source_image": "1000010881.jpg",
+      "tree": "Précision"
+    },
+    {
+      "name_fr": "Légende : Sangsue",
+      "primary_row": 3,
+      "source_image": "1000010881.jpg",
+      "tree": "Précision"
     }
   ],
   "policy": {
