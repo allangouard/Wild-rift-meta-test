@@ -42,5 +42,8 @@ test('L onglet Runes charge les scripts V14.7 et le catalogue client',()=>{
  assert.ok(html.includes('./wrdi-rune-bridge-v14.js?v=1470'));
  assert.ok(html.includes('./wrdi-rune-panel-v14.js?v=1470'));
  assert.ok(panel.includes('./data/rune-catalog-client-v14.json'));
- assert.ok(panel.includes("const host=$('runes')"));
+ assert.ok(panel.includes("$('wrdiPane_runes') || $('runes')"));
+ const tabs=fs.readFileSync('assets/unified-interface-v12.js','utf8');
+ assert.ok(tabs.includes("['runes', '✨ Runes']"));
+ assert.ok(tabs.includes('grid-template-columns:repeat(2,minmax(0,1fr))'));
 });
