@@ -11,6 +11,8 @@
  */
 const RULES = require('./data/stage-a-rune-page-rules-2026-11-05.json');
 const INVENTORY = require('./data/stage-a-minor-rune-completeness-2026-11-05.json');
+const VERIFIED_SLOTS = require('./data/stage-a-rune-verified-slots-2026-11-05.json');
+const ROWS_BY_RUNE = new Map(VERIFIED_SLOTS.verified_examples.map(x => [x.name_fr, x.primary_row]));
 const DEFAULT_CATALOGUE = Object.fromEntries(INVENTORY.entries.map(e => [e.name_fr, e.tree]));
 
 function validateRunePage(page, catalogue = DEFAULT_CATALOGUE) {
@@ -33,7 +35,12 @@ function validateRunePage(page, catalogue = DEFAULT_CATALOGUE) {
   }
   const mainTree = trees.length === RULES.primary_count && trees.every(Boolean) && new Set(trees).size === 1 ? trees[0] : null;
   if (mainTree && catalogue[page.secondary] === mainTree) errors.push('La rune secondaire doit appartenir à une autre branche.');
-  return {valid: errors.length === 0, errors, primary_tree: mainTree, secondary_tree: catalogue[page.secondary] || null};
+  const knownRows = primaries.map(name => ROWS_BY_RUNE.get(name));
+  if (mainTree && knownRows.every(row => Number.isInteger(row)) && new Set(knownRows).size !== RULES.primary_count) {
+    errors.push('Il faut choisir une rune de chaque ligne principale (1, 2 et 3).');
+  }
+  return {valid: errors.length === 0, errors, primary_tree: mainTree, secondary_tree: catalogue[page.secondary] || null,
+    primary_rows_verified: mainTree !== null && knownRows.every(row => Number.isInteger(row))};
 }
 
 if (typeof module !== 'undefined' && module.exports) module.exports = { RULES, validateRunePage };
