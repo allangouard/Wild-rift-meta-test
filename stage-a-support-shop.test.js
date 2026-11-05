@@ -49,5 +49,5 @@ test('La couverture complète Support est explicitement confirmée',()=>{
  assert.equal(support.counts.visible_entries,20);
  assert.equal(support.coverage,'complete_20_items_confirmed_by_user_for_current_client');
  assert.equal(support.category_complete_confirmed_by_user,true);
- assert.ok(support.entries.every(x=>x.client_full_details_newly_verified===false));
+ assert.deepEqual(support.entries.filter(x=>x.client_full_details_newly_verified).map(x=>x.name_fr).sort(),['Bénédiction de Mikael','Chant de guerre de Shurelya'].sort());
 });
