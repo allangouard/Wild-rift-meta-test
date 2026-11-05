@@ -149,6 +149,20 @@
       "replication_count": "3 ou plus",
       "precise_hit_count_verified": false,
       "limits": "Disponibilité initiale de la rune, impacts et chronométrage non mesurés indépendamment; ne prouve pas que les ticks comptent comme exactement une touche."
+    },
+    {
+      "test_id": "guardian-r",
+      "rune": "Gardien",
+      "ability": "R — Entrée héroïque",
+      "result": "observed_no",
+      "user_description": "Lancer R seul sur un allié, sans dégâts rapportés sur cet allié, n'a pas déclenché Gardien lors de trois essais ou davantage.",
+      "interpretation": "Selon les essais du joueur, l'ultime R de Galio ne suffit pas à lui seul à déclencher Gardien dans les conditions testées. Le bouclier propre à R ne doit donc pas être assimilé à une activation de Gardien. Un scénario où l'allié subit des dégâts reste à tester séparément.",
+      "client_observation_status": "reported_by_player_in_wild_rift_client",
+      "independently_verified": false,
+      "replicated_by_player": true,
+      "replication_count": "3 ou plus",
+      "damage_trigger_control_tested": false,
+      "limits": "Pas de vérification instrumentée de la disponibilité de Gardien, de la proximité, du patch et des conditions exactes. Le test avec des dégâts sur l'allié n'a pas été rapporté."
     }
   ]
 }
