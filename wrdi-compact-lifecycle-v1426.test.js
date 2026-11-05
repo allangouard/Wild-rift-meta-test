@@ -36,6 +36,7 @@ test('single screen responds to both error events and ends loading on timeout',(
  assert.ok(compact.includes('if(buildDone&&runeDone)'));
  assert.ok(compact.includes('Analyse terminée'));
  assert.ok(compact.includes('clearTimeout(pendingTimer)'));
+ assert.ok(compact.includes('},true);'));
 });
 test('successful rune and item recommendations remain available',()=>{
  assert.ok(compact.includes("addEventListener('wrdi:build-result'"));
