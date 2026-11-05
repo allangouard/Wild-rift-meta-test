@@ -20,7 +20,7 @@
     const css = create('style');
     css.textContent = `
       #wrdiUnifiedV123 { margin-top:18px; }
-      #wrdiUnifiedV123 .wrdi-tabs { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:12px 0 14px; }
+      #wrdiUnifiedV123 .wrdi-tabs { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:12px 0 14px; }
       #wrdiUnifiedV123 .wrdi-tab { min-width:0;border:1px solid #477681;border-radius:10px;background:#163443;color:#dceaf1;padding:12px 5px;font-size:clamp(12px,3.3vw,15px);font-weight:700; }
       #wrdiUnifiedV123 .wrdi-tab[aria-selected="true"] { background:#177b72;border-color:#51b8a9;color:white; }
       #wrdiUnifiedV123 .wrdi-pane[hidden] { display:none !important; }
@@ -48,7 +48,8 @@
     const definitions = [
       ['build', '⚔️ Build'],
       ['threats', '🛡️ Menaces'],
-      ['champions', '🧬 Champions']
+      ['champions', '🧬 Champions'],
+      ['runes', '✨ Runes']
     ];
     const panes = {};
     const buttons = {};
@@ -90,6 +91,10 @@
     } else {
       panes.champions.appendChild(create('p','wrdi-message','Module « Connaissance des champions » non trouvé. Vérifie le chargement de champion-intelligence-v12.js.'));
     }
+
+    // Les runes V14.7 et V14.8 apparaissent ici, à côté des autres résultats.
+    // Le panneau sera créé au chargement par wrdi-rune-panel-v14.js.
+    panes.runes.appendChild(create('p','wrdi-subnote','Catalogue client des 52 runes et scénarios Galio V14.8.'));
 
     mainCard.appendChild(workspace);
     // « Build » est l'écran principal. Les autres restent consultables sans écraser les résultats.
