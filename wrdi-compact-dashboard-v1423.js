@@ -44,12 +44,19 @@ function init(){
  if(workspace)advanced.append(workspace);
  card.append(shell,advanced);
  const signature=()=>{try{return localStorage.getItem('wrdi_draft_v76')||'';}catch{return '';}};
- let activeSignature='',haveBuild=false,haveRunes=false;
+ let activeSignature='',haveBuild=false,haveRunes=false,buildDone=false,runeDone=false,pendingTimer=null,sequence=0;
+ const settleStatus=()=>{
+  if(buildDone&&runeDone){if(pendingTimer){clearTimeout(pendingTimer);pendingTimer=null;}status.textContent='Analyse terminée · vérifie les recommandations disponibles';}
+  else status.textContent=(buildDone?'Objets terminés · runes en cours…':runeDone?'Runes terminées · objets en cours…':'Analyse des objets et des runes…');
+ };
+ const failure=(section,message)=>{
+  section.replaceChildren(el('h3',section===runes?'✨ Runes':'⚔️ Build'),el('p',String(message||'Analyse indisponible.')));
+ };
  const fillRow=(parent,data)=>{const row=el('div');row.className='run-row';data.forEach(name=>{const p=el('span',name);p.className='run-pill';row.append(p);});parent.append(row);};
  root.addEventListener('wrdi:build-result',event=>{
   const d=event.detail;
   if(!d||!Array.isArray(d.core)||!d.core.length||signature()!==activeSignature)return;
-  haveBuild=true;core.replaceChildren();
+  haveBuild=true;buildDone=true;core.replaceChildren();
   core.append(el('h3','⚔️ Core Mid observé'));
   fillRow(core,d.core.map(x=>x.name));
   const help=el('p','Trois objets Mid observés, pas encore un build complet optimisé.');help.className='small';core.append(help);
@@ -64,16 +71,16 @@ function init(){
    if(x.timing){const when=el('p','Quand : '+x.timing);when.className='small';item.append(when);}
    items.append(item);
   }
-  status.textContent=haveRunes?'Build et runes prêts · choix expérimentaux':'Build prêt · analyse des runes en cours ou indisponible';
+  settleStatus();
  });
  root.addEventListener('wrdi:rune-result',event=>{
   const d=event.detail;
   if(!d||d.draftFingerprint!==activeSignature)return;
-  haveRunes=true;runes.replaceChildren(el('h3','✨ Runes conseillées'));
+  haveRunes=true;runeDone=true;runes.replaceChildren(el('h3','✨ Runes conseillées'));
   if(!d.ok||!d.legal||!d.fullKitCoverage){
-   runes.append(el('p','Page automatique indisponible : draft ou données incomplètes.'));return;
+   runes.append(el('p','Page automatique indisponible : draft ou données incomplètes.'));settleStatus();return;
   }
-  if(d.championId!=='10099'){runes.append(el('p','Adaptation automatique actuellement disponible uniquement pour Galio mid.'));return;}
+  if(d.championId!=='10099'){runes.append(el('p','Adaptation automatique actuellement disponible uniquement pour Galio mid.'));settleStatus();return;}
   fillRow(runes,names(d.page));
   const caption=el('p','Page Galio tactique expérimentale · structure légale vérifiée.');caption.className='small';runes.append(caption);
   if(d.changes.length){
@@ -84,24 +91,44 @@ function init(){
    for(const p of d.alternatives){alt.append(el('p',p.label));fillRow(alt,names(p.page));}
    runes.append(alt);
   }
-  status.textContent=haveBuild?'Build et runes prêts · choix expérimentaux':'Runes prêtes · attente du build';
+  settleStatus();
+ });
+ root.addEventListener('wrdi:build-error',event=>{
+  const d=event.detail;
+  if(!d||d.draftFingerprint!==activeSignature||buildDone)return;
+  buildDone=true;failure(core,d.message);items.replaceChildren();settleStatus();
+ });
+ root.addEventListener('wrdi:rune-error',event=>{
+  const d=event.detail;
+  if(!d||d.draftFingerprint!==activeSignature||runeDone)return;
+  runeDone=true;failure(runes,d.message);settleStatus();
  });
  run.addEventListener('click',()=>{
-  activeSignature=signature();haveBuild=false;haveRunes=false;
+  activeSignature=signature();haveBuild=false;haveRunes=false;buildDone=false;runeDone=false;
+  sequence++;const current=sequence;
+  if(pendingTimer)clearTimeout(pendingTimer);
+  pendingTimer=setTimeout(()=>{
+   if(current!==sequence||signature()!==activeSignature)return;
+   if(!buildDone){buildDone=true;failure(core,'Analyse des objets indisponible ou trop longue. Vérifie les sources dans les détails techniques.');}
+   if(!runeDone){runeDone=true;failure(runes,'Analyse des runes indisponible ou trop longue. Tu peux relancer avec la même draft.');}
+   settleStatus();
+  },25000);
   core.replaceChildren();items.replaceChildren();
   runes.replaceChildren(el('h3','✨ Runes conseillées'),el('p','Analyse en cours…'));
-  status.textContent='Analyse des objets et des runes…';
+  settleStatus();
   const picks=(()=>{try{return JSON.parse(activeSignature);}catch{return [];}})();
   const lab=document.getElementById('wrdiAutoKit1414');
   const button=lab?.querySelector('button');
   if(picks.length===10&&picks.every(Boolean)&&String(picks[2])==='10099'&&button&&!button.disabled){
    button.click();
   }else{
-   runes.replaceChildren(el('h3','✨ Runes conseillées'),el('p','Complète les dix champions avec Galio mid pour l’adaptation automatique.'));
+   runeDone=true;
+   runes.replaceChildren(el('h3','✨ Runes conseillées'),el('p',button?.disabled?'Une analyse des runes est déjà en cours. Relance-la si elle ne se termine pas.':'Complète les dix champions avec Galio mid pour l’adaptation automatique.'));
+   settleStatus();
   }
  });
  document.getElementById('simpleClear')?.addEventListener('click',()=>{
-  activeSignature='';haveBuild=false;haveRunes=false;
+  activeSignature='';haveBuild=false;haveRunes=false;buildDone=false;runeDone=false;sequence++;if(pendingTimer){clearTimeout(pendingTimer);pendingTimer=null;}
   core.replaceChildren();items.replaceChildren();runes.replaceChildren();
   status.textContent='Aucune analyse lancée.';
  });
