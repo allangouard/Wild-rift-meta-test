@@ -1,0 +1,103 @@
+{
+  "schema": "wrdi.stage_a.runes_batch4_v1",
+  "game": "Wild Rift mobile",
+  "locale": "fr-FR",
+  "source": "Captures de tooltips directement fournies par l'utilisateur depuis le client Wild Rift",
+  "recorded_at": "2026-11-05",
+  "entries": [
+    {
+      "id": "revitalization",
+      "name_fr": "Revitalisation",
+      "tree": "Volonté",
+      "screenshot": "1000010825.jpg",
+      "stats": {
+        "healing_and_shielding_effect_increase_pct": 5,
+        "additional_healing_and_shielding_effect_when_target_below_40pct_hp_pct": 10,
+        "target_hp_threshold_pct": 40
+      },
+      "conditions": [
+        "Augmente l'efficacité des soins et boucliers que vous lancez.",
+        "Bonus conditionnel lorsque les PV de la cible sont inférieurs à 40 %.",
+        "Le cumul arithmétique des deux bonus reste à distinguer d'une validation en partie."
+      ]
+    },
+    {
+      "id": "anti_magic_orb",
+      "name_fr": "Orbe anti-magie",
+      "tree": "Volonté",
+      "screenshot": "1000010823.jpg",
+      "stats": {
+        "hp_threshold_pct": 35,
+        "shield_min": 60,
+        "shield_max": 180,
+        "shield_duration_seconds": 4,
+        "cooldown_seconds": 60
+      },
+      "conditions": [
+        "Procure un bouclier préalable lorsque des dégâts risquent de faire passer les PV sous 35 % des PV max.",
+        "Le texte client ne précise pas que le bouclier est limité aux dégâts magiques."
+      ]
+    },
+    {
+      "id": "font_of_life",
+      "name_fr": "Fontaine de vie",
+      "tree": "Volonté",
+      "screenshot": "1000010821.jpg",
+      "stats": {
+        "ally_heal_ally_max_hp_pct": 1.5,
+        "ally_heal_caster_ap_pct": 5,
+        "self_heal_self_max_hp_pct": 1,
+        "self_heal_caster_ap_pct": 5,
+        "cooldown_seconds": 20,
+        "melee_healing_effectiveness_pct": 130
+      },
+      "conditions": [
+        "Attaque ou compétence touchant un champion ennemi.",
+        "Soigne le lanceur et le champion allié proche ayant le moins de PV.",
+        "Ne se déclenche pas si vous ou vos alliés à proximité avez tous vos PV, ou si aucun allié n'est à proximité."
+      ]
+    },
+    {
+      "id": "overgrowth",
+      "name_fr": "Surcroissance",
+      "tree": "Volonté",
+      "screenshot": "1000010819.jpg",
+      "stats": {
+        "nearby_minions_or_monsters_dying_per_stack": 3,
+        "permanent_max_hp_per_stack": 3,
+        "stack_threshold_for_bonus_pct": 30,
+        "bonus_max_hp_pct_at_threshold": 3
+      },
+      "conditions": [
+        "Les sbires ou monstres concernés doivent mourir à proximité.",
+        "Le gain de 3 PV max par cumul est permanent et cumulable sans plafond indiqué.",
+        "Le bonus de 3 % de PV max survient à 30 effets cumulés."
+      ]
+    },
+    {
+      "id": "second_wind",
+      "name_fr": "Second souffle",
+      "tree": "Volonté",
+      "screenshot": "1000010817.jpg",
+      "stats": {
+        "passive_hp_per_interval": 5,
+        "passive_interval_seconds": 5,
+        "after_champion_damage_base_heal": 3,
+        "after_champion_damage_missing_hp_pct": 1.5,
+        "after_champion_damage_heal_duration_seconds": 5,
+        "melee_after_damage_effect_multiplier": 2
+      },
+      "conditions": [
+        "Régénération passive de 5 PV toutes les 5 secondes.",
+        "Après avoir subi des dégâts d'un champion ennemi, régénération supplémentaire calculée sur les PV manquants, sur 5 secondes.",
+        "L'effet conditionnel est doublé pour les champions de mêlée."
+      ]
+    }
+  ],
+  "policy": {
+    "client_tooltips_verified": true,
+    "not_whole_tree_complete": true,
+    "not_enabled_for_automatic_recommendation": true,
+    "not_claimed_combat_calibrated": true
+  }
+}
