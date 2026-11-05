@@ -43,3 +43,8 @@ jobs:
         run: |
           node --check wrdi-galio-readiness-v14.js
           node --test wrdi-galio-readiness-v14.test.js
+      - name: Verifier et tester le duel Galio V14.6
+        run: |
+          node --check wrdi-galio-item-duel-v14.js
+          node --check wrdi-diagnostic-v14.js
+          node --test wrdi-galio-item-duel-v14.test.js
