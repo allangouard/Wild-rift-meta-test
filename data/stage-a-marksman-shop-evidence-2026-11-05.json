@@ -355,9 +355,11 @@
         "Assassin"
       ],
       "external_numeric_id_verified": false,
-      "details_verified": false,
+      "details_verified": true,
       "details_verification_scope": "none",
-      "shop_restriction_markers": []
+      "shop_restriction_markers": [],
+      "client_full_details_newly_verified": true,
+      "detail_evidence_file": "data/stage-a-standalone-actives-batch2-2026-11-05.json"
     },
     {
       "name_fr": "Lame du roi déchu",
