@@ -221,3 +221,8 @@ jobs:
           node --check assets/app.js
           node --check wrdi-compact-dashboard-v1423.js
           node --test wrdi-galio-five-item-optimizer-v1429.test.js
+      - name: Tester roles, anti-critiques et objets actifs V14.30
+        run: |
+          node --check wrdi-galio-five-item-optimizer-v1429.js
+          node --check assets/app.js
+          node --test wrdi-galio-item-context-v1430.test.js
