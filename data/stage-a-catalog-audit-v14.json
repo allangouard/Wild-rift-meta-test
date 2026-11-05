@@ -66,7 +66,13 @@
     "runes_current_patch": "not audited as complete independent catalog",
     "patch_deltas_integrated": false,
     "restrictions_known_groups": 8,
-    "known_active_items": 4
+    "known_active_items": 4,
+    "magic_shop_rows_newly_verified": 29,
+    "magic_shop_price_matches_existing": 29,
+    "magic_shop_name_matches_existing": 29,
+    "magic_shop_screenshot_evidence": "data/stage-a-magic-shop-evidence-2026-11-05.json",
+    "magic_shop_screen_scope": "subset: listing visible in 3 screenshots; not proof of full shop or item details",
+    "prices_newly_filled_this_batch": 0
   },
   "gates": [
     {
