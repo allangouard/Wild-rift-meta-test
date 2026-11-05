@@ -117,6 +117,7 @@ function create({root, storage, fetchJson, core, coordinator} = {}) {
       sourcePatch: last.patch || null,
       cores: x.cores.map(c => ({
         ids: c.ids || [],
+        names: c.names || [],
         classification: c.classification || null,
         unresolvedIds: c.unresolvedIds || [],
         pick: c.pick ?? null,
