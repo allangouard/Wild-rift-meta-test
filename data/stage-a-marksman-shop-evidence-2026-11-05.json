@@ -338,9 +338,11 @@
       "provisional_identity_candidate": "galeforce",
       "also_visible_in_categories": [],
       "external_numeric_id_verified": false,
-      "details_verified": false,
-      "details_verification_scope": "none",
-      "shop_restriction_markers": []
+      "details_verified": true,
+      "details_verification_scope": "direct_client_screenshot_name_stats_active_cooldown_only",
+      "shop_restriction_markers": [],
+      "client_full_details_newly_verified": true,
+      "detail_evidence_file": "data/stage-a-marksman-galeforce-detail-2026-11-05.json"
     },
     {
       "name_fr": "Cimeterre mercuriel",
