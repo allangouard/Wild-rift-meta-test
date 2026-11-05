@@ -80,3 +80,5 @@ jobs:
         run: node --test stage-a-abyssal-mask-details.test.js
       - name: Tester reconciliation des inventaires et fiches deja verifiees
         run: node --test stage-a-reconciliation-status.test.js
+      - name: Tester structure des runes Galio issue du client Wild Rift
+        run: node --test stage-a-galio-runes-layout.test.js
