@@ -80,3 +80,26 @@ test('04 - Rapport associe a une autre draft refuse', async () => {
   await assert.rejects(x.config.loadEnemyBuilds(x.snapshot), /perime/);
   assert.equal(x.counters().buildCalls, 1);
 });
+
+test('05 - Noms transmis dans le meme ordre, sans modifier le rapport V12', async () => {
+  const profiles = enemyIds.map(id => ({
+    champion: {id}, roleMatched: true,
+    cores: [{
+      ids: ['a', 'b', 'c'], names: ['Cotte épineuse', null, 'Unknown item'],
+      unresolvedIds: ['b'], classification: {primary: 'tank'}, pick: 12, win: 51
+    }]
+  }));
+  const before = structuredClone(profiles);
+  const x = fixture({profiles});
+  const rows = await x.config.loadEnemyBuilds(x.snapshot);
+  for (const row of rows) assert.deepEqual(row.cores, profiles[0].cores);
+  assert.deepEqual(profiles, before);
+  assert.equal(x.counters().buildCalls, 0);
+});
+
+test('06 - Ancien rapport sans noms accepte', async () => {
+  const x = fixture();
+  const rows = await x.config.loadEnemyBuilds(x.snapshot);
+  assert.deepEqual(rows[0].cores[0].names, []);
+  assert.deepEqual(rows[0].cores[0].ids, ['item1', 'item2', 'item3']);
+});
