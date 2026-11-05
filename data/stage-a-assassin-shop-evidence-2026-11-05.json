@@ -1,0 +1,136 @@
+{
+  "schema": "wrdi.stage_a.client_shop_category_evidence.v1",
+  "date": "2026-11-05",
+  "game": "Wild Rift mobile",
+  "client_app_version": "7.3.0.2813",
+  "client_resource_version": "7.3.60.133",
+  "category": "Assassin",
+  "screenshot_count": 1,
+  "images": [
+    "1000010659.jpg"
+  ],
+  "visible_named_entries": 10,
+  "visible_prices": 10,
+  "matched_existing": 1,
+  "not_in_curated_59": 9,
+  "coverage": "partial; no evidence that full Assassin category is visible",
+  "entries": [
+    {
+      "name_fr": "Crochet de serpent",
+      "price_gold": 2800,
+      "candidate_id": "serpents_fang",
+      "existing_catalog_id": null,
+      "screenshot": "1000010659.jpg",
+      "shop_short_description_fr": "Antiboucliers",
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "verification": "visible_name_icon_price_short_description_from_user_client"
+    },
+    {
+      "name_fr": "Lame spectre de Youmuu",
+      "price_gold": 2900,
+      "candidate_id": "youmuus_ghostblade",
+      "existing_catalog_id": null,
+      "screenshot": "1000010659.jpg",
+      "shop_short_description_fr": "Augmente la vitesse de déplacement.",
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "verification": "visible_name_icon_price_short_description_from_user_client"
+    },
+    {
+      "name_fr": "Manamune",
+      "price_gold": 2900,
+      "candidate_id": "manamune",
+      "existing_catalog_id": null,
+      "screenshot": "1000010659.jpg",
+      "shop_short_description_fr": "Convertit le mana en dégâts d'attaque.",
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "verification": "visible_name_icon_price_short_description_from_user_client"
+    },
+    {
+      "name_fr": "Épée vespérale de Draktharr",
+      "price_gold": 3000,
+      "candidate_id": "duskblade_of_draktharr",
+      "existing_catalog_id": null,
+      "screenshot": "1000010659.jpg",
+      "shop_short_description_fr": "Les attaques infligent des dégâts supplémentaires.",
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "verification": "visible_name_icon_price_short_description_from_user_client"
+    },
+    {
+      "name_fr": "Gueule de Malmortius",
+      "price_gold": 3000,
+      "candidate_id": "maw_of_malmortius",
+      "existing_catalog_id": null,
+      "screenshot": "1000010659.jpg",
+      "shop_short_description_fr": "Vous gagnez un bouclier magique lorsque vous subissez des dégâts.",
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "verification": "visible_name_icon_price_short_description_from_user_client"
+    },
+    {
+      "name_fr": "Manteau de la nuit",
+      "price_gold": 3000,
+      "candidate_id": "edge_of_night",
+      "existing_catalog_id": null,
+      "screenshot": "1000010659.jpg",
+      "shop_short_description_fr": "Bloque une compétence ennemie.",
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "verification": "visible_name_icon_price_short_description_from_user_client"
+    },
+    {
+      "name_fr": "Percepteur",
+      "price_gold": 3000,
+      "candidate_id": "the_collector",
+      "existing_catalog_id": null,
+      "screenshot": "1000010659.jpg",
+      "shop_short_description_fr": "Vous exécutez les champions qui ont peu de PV.",
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "verification": "visible_name_icon_price_short_description_from_user_client"
+    },
+    {
+      "name_fr": "Cimeterre mercuriel",
+      "price_gold": 3100,
+      "candidate_id": "mercurial_scimitar",
+      "existing_catalog_id": null,
+      "screenshot": "1000010659.jpg",
+      "shop_short_description_fr": "Dissipe les contrôles de foule.",
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "verification": "visible_name_icon_price_short_description_from_user_client"
+    },
+    {
+      "name_fr": "Rancune de Serylda",
+      "price_gold": 3100,
+      "candidate_id": "seryldas_grudge",
+      "existing_catalog_id": null,
+      "screenshot": "1000010659.jpg",
+      "shop_short_description_fr": "Pénétration d'armure (%) et ralentissements.",
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "verification": "visible_name_icon_price_short_description_from_user_client"
+    },
+    {
+      "name_fr": "Ange gardien",
+      "price_gold": 3200,
+      "candidate_id": "guardian_angel",
+      "existing_catalog_id": "guardian_angel",
+      "screenshot": "1000010659.jpg",
+      "shop_short_description_fr": "Vous ramène à la vie si vous mourez.",
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "verification": "visible_name_icon_price_short_description_from_user_client"
+    }
+  ],
+  "notes": [
+    "User screenshot confirms only 10 visible rows and prices; completeness of category cannot be concluded.",
+    "Duplicate items across shop categories are one item, not separate identities.",
+    "Descriptions are short shop summaries, not verified full stats/passives.",
+    "Candidate IDs are provisional names, no external numeric ID verified.",
+    "No recommendations are enabled by this evidence."
+  ]
+}
