@@ -62,7 +62,8 @@
       "price_confirmed_from_client": true,
       "full_item_stats_verified": true,
       "external_numeric_id_verified": false,
-      "client_full_details_newly_verified": false
+      "client_full_details_newly_verified": true,
+      "detail_evidence_file": "data/stage-a-abyssal-mask-details-2026-11-05.json"
     },
     {
       "name_fr": "Encensoir ardent",
