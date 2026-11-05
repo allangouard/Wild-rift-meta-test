@@ -1,0 +1,25 @@
+name: Tests Wild Rift V14
+
+on:
+  push:
+    branches:
+      - v14-development
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Recuperer le code
+        uses: actions/checkout@v4
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verifier la syntaxe
+        run: node --check wrdi-core-v14.js
+      - name: Executer les tests
+        run: node wrdi-core-v14.test.js
