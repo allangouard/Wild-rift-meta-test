@@ -1,0 +1,130 @@
+/* WRDI V14.29 — five-item Galio mid qualitative draft optimizer.
+ * Sources: ONLY player-supplied Wild Rift client items + equip restrictions.
+ * No observed/popular builds, external item metadata, damage forecasts or winrate.
+ * Beam search explores full legal combinations rather than picking one of several
+ * relevant options. Boots/enchantments handled separately (not in these 5 slots).
+ */
+(function(root,factory){
+ const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;
+ else root.WRDI_GalioFiveItemOptimizerV1429=api;
+})(typeof globalThis!=='undefined'?globalThis:this,function(){
+'use strict';
+const VERSION='14.29.0-alpha.1';
+const num=v=>typeof v==='number'&&Number.isFinite(v)?Math.max(0,v):0;
+const count=v=>Math.min(5,num(v));
+const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9]/g,'');
+function features(item){
+ const stats=item.stats||{},passives=(item.passives||[]).map(p=>p.mechanics||{});
+ const has=k=>passives.some(p=>num(p[k])>0);
+ return {ap:num(stats.ap),hp:num(stats.hp),armor:num(stats.armor),mr:num(stats.mr),
+  ah:num(stats.ah),ad:num(stats.ad),as:num(stats.as_pct),magicPen:num(stats.mpen_pct),
+  antiheal:has('grievous_wounds_pct'),
+  maxHp:passives.some(p=>String(p.damage_per_tick_formula||'').includes('target_max_hp')),
+  ramp:has('max_amp_pct')||has('max_damage_amp_pct'),shred:has('mr_shred_per_stack_pct'),
+  shieldCut:passives.some(p=>p.effect==='shield_reduction'||has('shield_reduction_pct')),
+  slow:passives.some(p=>has('slow_pct')||p.effect==='slow'),
+  protective:passives.some(p=>p.effect==='area_heal'||p.effect==='ally_shield'),
+  active:passives.some(p=>p.active===true)};
+}
+function eligible(prepared){
+ if(!prepared?.ok||!Array.isArray(prepared.catalog?.items))return [];
+ return prepared.catalog.items.filter(item=>item.item_type==='legendary'&&
+  item.completeness?.description==='documented'&&item.stats&&
+  (item.passives||[]).every(p=>typeof p.description_fr==='string')&&
+  num(item.stats.ad)===0&&num(item.stats.as_pct)<40&&
+  (num(item.stats.ap)>=40||num(item.stats.hp)>=200||num(item.stats.armor)>=40||num(item.stats.mr)>=40))
+ .map(item=>({...item,feature:features(item)}));
+}
+function weights(threats={}){
+ return {physical:count(threats.ad),magic:count(threats.ap),tank:count(threats.tank),
+  heal:Math.max(count(threats.heal),count(threats.sustain)>=2?1:0),
+  shield:count(threats.shield),cc:count(threats.cc),burst:count(threats.burst)};
+}
+function calculate(items,threats){
+ const t=weights(threats),fs=items.map(x=>x.feature||features(x));
+ const total=key=>fs.reduce((v,x)=>v+x[key],0);
+ const n=key=>fs.filter(x=>x[key]).length;
+ // Galio is an AP engage/peel mid. Prefer a coherent blend of offense and durability.
+ // Explicit diminishing returns prevent blindly stacking five objects of the same role.
+ let score=0;const reasons=[];
+ const hp=Math.min(1150,total('hp')),ap=Math.min(280,total('ap'));
+ const ah=Math.min(70,total('ah')),armor=total('armor'),mr=total('mr');
+ score+=ap/38+hp/175+ah/23;
+ if(items.length>=3){
+  if(ap<80)score-=7;
+  if(hp<300)score-=5;
+  if(total('ap')===0)score-=12;
+ }
+ if(t.physical>=2)score+=Math.min(140,armor)/(42/(Math.min(t.physical,4)/2));
+ if(t.magic>=2)score+=Math.min(140,mr)/(42/(Math.min(t.magic,4)/2));
+ if(t.physical>=2&&armor>0)reasons.push('Armure face aux menaces physiques');
+ if(t.magic>=2&&mr>0)reasons.push('Résistance magique face aux menaces magiques');
+ if(t.heal>0&&n('antiheal')){score+=3+Math.min(2,t.heal);reasons.push('Blessures graves contre les soins');}
+ if(t.tank>=2&&n('maxHp')){score+=5;reasons.push('Effet documenté sur les PV max des tanks');}
+ if(t.tank>=2&&n('ramp')){score+=2;reasons.push('Passif de combat prolongé');}
+ if(t.tank>=2&&n('shred')){score+=2;reasons.push('Réduction progressive de résistance magique');}
+ if(t.shield>0&&n('shieldCut')){score+=3;reasons.push('Réduction de bouclier documentée');}
+ if(t.burst>=2)score+=Math.min(1.5,Math.min(armor,mr)/100);
+ if(t.cc>=2&&n('protective'))score+=1;
+ // Repeated counters do not make their effect independently twice as valuable.
+ score-=Math.max(0,n('antiheal')-1)*5;
+ score-=Math.max(0,n('maxHp')-1)*3;
+ score-=Math.max(0,n('shred')-1)*2;
+ score-=Math.max(0,n('shieldCut')-1)*3;
+ // Every item is a limited slot. Don't allow excessively stacked defense to
+ // crowd out all AP contribution, but permit mixed defenses when both needed.
+ if(items.length>=4&&total('ap')<90)score-=7;
+ const stats={hp:total('hp'),ap:total('ap'),armor,mr,ah:total('ah')};
+ return {score:Math.round(score*100)/100,reasons,stats,needs:t};
+}
+function optimize({prepared,threats={},slots=5,beamWidth=100}={}){
+ if(!prepared?.ok||!prepared.core?.validateEquipment)return {ok:false,reason:'Catalogue client indisponible'};
+ if(slots!==5)return {ok:false,reason:'Ce moteur construit exactement cinq objets principaux'};
+ const pool=eligible(prepared);
+ if(pool.length<slots)return {ok:false,reason:'Pas assez de fiches d’objets achetables et pertinentes pour Galio',poolSize:pool.length};
+ let beam=[{items:[],ids:[],score:0}];
+ for(let depth=1;depth<=slots;depth++){
+  const candidates=[];
+  for(const partial of beam){
+   const last=partial.items.length?pool.indexOf(partial.items.at(-1)):-1;
+   for(let i=last+1;i<pool.length;i++){
+    const item=pool[i];if(partial.ids.includes(item.id))continue;
+    const ids=[...partial.ids,item.id];
+    if(!prepared.core.validateEquipment(ids,prepared.catalog,prepared.rules).valid)continue;
+    const items=[...partial.items,item],measure=calculate(items,threats);
+    candidates.push({items,ids,score:measure.score,measure});
+   }
+  }
+  if(!candidates.length)return {ok:false,reason:'Impossible de constituer cinq objets compatibles',depth};
+  candidates.sort((a,b)=>b.score-a.score||a.ids.join('|').localeCompare(b.ids.join('|')));
+  beam=candidates.slice(0,Math.max(20,Math.min(200,beamWidth)));
+ }
+ // Do not present duplicate combinations as situational options. Instead explain
+ // how a legal alternative changes the needs addressed by the chosen five.
+ const winner=beam[0];
+ const others=beam.slice(1).filter(x=>x.ids.some(id=>!winner.ids.includes(id))).slice(0,3);
+ const result=x=>({items:x.items.map((item,i)=>({
+  id:item.id,name:item.name_fr,priceGold:num(item.price_gold)||null,
+  slot:i+1,reason:reasonFor(item,threats)})),
+  suitability:x.score,reasons:x.measure.reasons,stats:x.measure.stats,
+  legal:true,source:'player_client_items_only'});
+ return {ok:true,game:'Wild Rift mobile',version:VERSION,
+  main:result(winner),alternatives:others.map(result),
+  evaluatedPool:pool.length,slots:5,bootsSeparate:true,
+  noPopularityData:true,noDamageForecast:true,winRate:null,
+  theoreticalOnly:true,method:'legal_five_item_beam_search'};
+}
+function reasonFor(item,threats){
+ const f=item.feature||features(item),t=weights(threats),r=[];
+ if(t.heal&&f.antiheal)r.push('Anti-soins');
+ if(t.tank>=2&&f.maxHp)r.push('Contre les PV max');
+ if(t.tank>=2&&f.shred)r.push('Réduction de RM');
+ if(t.physical>=2&&f.armor)r.push('Protection physique');
+ if(t.magic>=2&&f.mr)r.push('Protection magique');
+ if(f.ap)r.push('Puissance pour Galio');
+ if(f.hp)r.push('Survie en engagement');
+ if(f.ah)r.push('Disponibilité des contrôles');
+ return r.slice(0,2).join(' · ')||'Utilité situationnelle documentée';
+}
+return Object.freeze({VERSION,features,eligible,weights,calculate,optimize,reasonFor});
+});
