@@ -20,7 +20,11 @@
       "result": "observed_yes",
       "user_description": "effet observé",
       "interpretation": "Effet de Souverain des glaces signalé après Z de Galio.",
-      "limits": "Aucune vidéo ou répétition documentée ; récupération et autres conditions non attestées."
+      "limits": "Aucune vidéo ou répétition documentée ; récupération et autres conditions non attestées.",
+      "client_observation_status": "confirmed_by_player_in_wild_rift_client",
+      "client_observation_verified_by_player": true,
+      "independently_verified": false,
+      "provenance": "user_reported_training_observation_via_chat"
     },
     {
       "test_id": "colossus-e",
@@ -29,7 +33,11 @@
       "result": "observed_yes",
       "user_description": "bouclier supplémentaire observé",
       "interpretation": "Bouclier supplémentaire signalé après E de Galio.",
-      "limits": "Observation manuelle ; distinction du bouclier passif à confirmer indépendamment."
+      "limits": "Observation manuelle ; distinction du bouclier passif à confirmer indépendamment.",
+      "client_observation_status": "confirmed_by_player_in_wild_rift_client",
+      "client_observation_verified_by_player": true,
+      "independently_verified": false,
+      "provenance": "user_reported_training_observation_via_chat"
     },
     {
       "test_id": "electrocute-combo",
