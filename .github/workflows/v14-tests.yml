@@ -210,3 +210,8 @@ jobs:
           node --check wrdi-galio-item-context-v1427.js
           node --check assets/app.js
           node --test wrdi-galio-item-context-v1427.test.js
+      - name: Tester comparaison contextuelle des objets Galio V14.28
+        run: |
+          node --check wrdi-galio-item-comparator-v1428.js
+          node --check assets/app.js
+          node --test wrdi-galio-item-comparator-v1428.test.js
