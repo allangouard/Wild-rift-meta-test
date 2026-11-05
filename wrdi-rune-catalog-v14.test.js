@@ -19,9 +19,11 @@ test('Quatre arbres valides et Sorcellerie bien orthographiée',()=>{
 test('Identifiants internes non confondus avec les identifiants officiels',()=>{
  for(const r of C.all){assert.match(r.id,/^wr:(minor|keystone):/);assert.equal(r.external_game_id,null);assert.ok(r.source_path);assert.ok(r.name_fr);}
 });
-test('Vingt-six positions vérifiées, dont Précision et Sorcellerie complètes',()=>{
+test('Trente-deux positions vérifiées, dont Domination, Précision, Sorcellerie complètes',()=>{
  const expected={
-  'Coup bas':1,'Assaut enchaîné':2,'Chasseur acharné':3,
+  'Coup bas':1,'Ruée offensive':1,'Attaque renforcée':1,
+  'Assaut enchaîné':2,'Tyran':2,'Orgueil':2,
+  'Arracheur d\'œil':3,'Chasseur acharné':3,'Balise zombie':3,
   'Courage du colosse':1,'Second souffle':2,'Revitalisation':3,
   'Brutal':1,'Triomphe':1,'Zèle de combat':1,
   "Baroud d'honneur":2,'Abattage':2,'Coup de grâce':2,
@@ -39,8 +41,9 @@ test('Vingt-six positions vérifiées, dont Précision et Sorcellerie complètes
    assert.equal(r.primary_row_status,'not_verified');
   }
  }
- assert.equal(C.minor.filter(r=>r.primary_row!==null).length,26);
+ assert.equal(C.minor.filter(r=>r.primary_row!==null).length,32);
  assert.equal(C.minor.filter(r=>r.tree==='Précision'&&r.primary_row!==null).length,9);
+ assert.equal(C.minor.filter(r=>r.tree==='Domination'&&r.primary_row!==null).length,9);
  assert.equal(C.minor.filter(r=>r.tree==='Sorcellerie'&&r.primary_row!==null).length,11);
 });
 test('Ne jamais signaler l optimiseur prêt avant réconciliation',()=>{
