@@ -96,6 +96,17 @@ function mount(){
    const detailed=root.WRDI_GalioCuratedMatchupsV1420?.refine({tenKits:inspected,baseline:specific,championNames:names});
    const five=root.WRDI_GalioFiveRunesV1421?.analyze({kitData:inspected,championNames:names,pages:displayPages,bridge,catalog});
    const swap=root.WRDI_GalioRuneSwapV1422?.adapt({kitData:inspected,championNames:names,curatedMid:detailed,five,pages:displayPages,bridge,catalog,playerEvidence});
+   if(typeof root.dispatchEvent==='function'){
+    const selected=swap?.ok&&swap.pages.length?swap.pages[0]:null;
+    root.dispatchEvent(new CustomEvent('wrdi:rune-result',{detail:{
+      ok:!!selected,championId:String(picks[2]),draftFingerprint:fingerprint,
+      page:selected?.page||null,changes:selected?.changes||[],
+      alternatives:swap?.ok?swap.pages.slice(1,3).map(x=>({label:x.label,page:x.page,changes:x.changes})):[],
+      label:selected?.label||null,source:'exploratory_draft_fit',legal:!!selected&&bridge.validate(selected.page,catalog).valid,
+      fullKitCoverage:inspected.coverage.available===10,reason:(selected?.changes||[]).map(x=>x.reason).slice(0,2),
+      warnings:['Page tactique expérimentale, pas de winrate certifié.']
+    }}));
+   }
    const count=el('p',evaluation.coverage.available+'/10 kits exploitables · 7 pages légales · 5 runes examinées par page. Aucune meilleure page certifiée.');
    count.style.fontWeight='700';out.append(count);
    if(playerEvidence?.ok)out.append(el('p','✅ V14.17 — '+playerEvidence.positiveCount+' tests positifs et '+playerEvidence.negativeCount+' tests négatifs validés en jeu, dans les conditions rapportées. Aucun classement méta déduit.'));
