@@ -3,10 +3,10 @@ const assert=require('node:assert/strict');
 const evidence=require('./data/stage-a-fighter-shop-evidence-2026-11-05.json');
 const catalog=require('./data/items-client-7.3d-v12.json');
 const mapped=new Map(catalog.items.map(x=>[x.id,x]));
-test('Combattant : 22 noms lisibles et 20 prix visuellement confirmes',()=>{
+test('Combattant : 22 noms lisibles et 22 prix visuellement confirmes',()=>{
  assert.equal(evidence.entries.length,22);
- assert.equal(evidence.entries.filter(e=>e.price_status==='visible').length,20);
- assert.equal(evidence.entries.filter(e=>e.price_status==='obscured').length,2);
+ assert.equal(evidence.entries.filter(e=>e.price_status==='visible').length,22);
+ assert.equal(evidence.entries.filter(e=>e.price_status==='obscured').length,0);
  assert.equal(new Set(evidence.entries.map(e=>e.name_fr)).size,22);
 });
 test('Identifications du catalogue actuel preservent prix existants',()=>{
@@ -22,9 +22,12 @@ test('Les 17 non-catalogues ne deviennent pas des IDs verifies',()=>{
  assert.equal(missing.length,17);
  assert.ok(missing.every(e=>e.canonical_external_id_verified===false&&e.candidate_id));
 });
-test('Les prix masques sont absents et non deduits des sources historiques',()=>{
- const clipped=evidence.entries.filter(e=>e.price_gold===null);
- assert.deepEqual(clipped.map(e=>e.name_fr).sort(),['Estropieur','Éviscérateur'].sort());
+test('Estropieur et Éviscérateur confirmes à 3100 PO par le client',()=>{
+ for(const name of ['Estropieur','Éviscérateur']){
+  const entry=evidence.entries.find(e=>e.name_fr===name);
+  assert.equal(entry.price_gold,3100);
+  assert.equal(entry.screenshot,'1793885107169.jpeg');
+ }
 });
 test('Force de la trinite conserve 3333 PO du client',()=>{
  const x=evidence.entries.find(e=>e.name_fr==='Force de la trinité');
