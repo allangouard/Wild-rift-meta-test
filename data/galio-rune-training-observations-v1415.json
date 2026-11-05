@@ -163,6 +163,25 @@
       "replication_count": "3 ou plus",
       "damage_trigger_control_tested": false,
       "limits": "Pas de vérification instrumentée de la disponibilité de Gardien, de la proximité, du patch et des conditions exactes. Le test avec des dégâts sur l'allié n'a pas été rapporté."
+    },
+    {
+      "test_id": "revitalize-r",
+      "rune": "Revitalisation",
+      "ability": "R — Entrée héroïque",
+      "result": "inconclusive",
+      "user_description": "Impossible de mesurer directement la valeur du bouclier dans le client Wild Rift ; aucune comparaison chiffrée avec/sans rune n'a été effectuée.",
+      "interpretation": "L'effet du catalogue client indique +5 % d'efficacité des soins/boucliers, avec +10 % supplémentaires si la cible a moins de 40 % PV. L'ultime de Galio accorde aux alliés un bouclier magique lié à Bouclier de Durand. Une amplification est attendue théoriquement mais non confirmée par un test direct sur le client actuel.",
+      "external_evidence_urls": [
+        "https://wrpocket.app/en/runes/revitalize",
+        "https://www.wildriftfire.com/guide/galio",
+        "https://wiki.leagueoflegends.com/en-us/WR:Galio"
+      ],
+      "evidence_type": "client_tooltip_plus_external_description_inference_not_direct_gameplay_validation",
+      "independently_verified": false,
+      "replicated": false,
+      "shield_value_measured": false,
+      "automatic_certification": false,
+      "limits": "Aucune mesure du bouclier, aucun test contrôlé avec/sans rune; les pourcentages décrivent la rune et ne prouvent pas l'interaction ou son calcul exact avec le R de Galio."
     }
   ]
 }
