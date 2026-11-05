@@ -1,0 +1,460 @@
+{
+  "schema": "wrdi.stage_a.client_shop_category_evidence.v1",
+  "date": "2026-11-05",
+  "game": "Wild Rift mobile",
+  "client_app_version": "7.3.0.2813",
+  "client_resource_version": "7.3.60.133",
+  "category": "Tireur",
+  "screenshots": [
+    "1000010662.jpg",
+    "1000010665.jpg",
+    "1000010668.jpg"
+  ],
+  "coverage": "28 visible entries across three captures; user has not yet confirmed category complete",
+  "counts": {
+    "entries": 28,
+    "prices_visible": 27,
+    "prices_not_visible": 1,
+    "matches_curated_59": 4,
+    "not_in_curated_59": 24,
+    "overlap_with_other_shop_categories": 11
+  },
+  "entries": [
+    {
+      "name_fr": "Chasseur de monstres",
+      "price_gold": 2650,
+      "price_visibility": "visible",
+      "screenshot": "1000010662.jpg",
+      "shop_short_description_fr": "Après avoir utilisé votre compétence ultime, vos prochaines attaques infligent un coup critique.",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "monster_hunter",
+      "also_visible_in_categories": [],
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "details_verification_scope": "none",
+      "shop_restriction_markers": []
+    },
+    {
+      "name_fr": "Canon ultrarapide",
+      "price_gold": 2650,
+      "price_visibility": "visible",
+      "screenshot": "1000010662.jpg",
+      "shop_short_description_fr": "Augmente la portée et les dégâts d'attaque.",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "rapid_firecannon",
+      "also_visible_in_categories": [],
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "details_verification_scope": "none",
+      "shop_restriction_markers": [],
+      "notes": "yellow_N_badge_visible_uninterpreted"
+    },
+    {
+      "name_fr": "Ouragan de Runaan",
+      "price_gold": null,
+      "price_visibility": "covered_by_lock_icon",
+      "screenshot": "1000010662.jpg",
+      "shop_short_description_fr": "Les attaques à distance touchent 3 cibles.",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "runaans_hurricane",
+      "also_visible_in_categories": [],
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "details_verification_scope": "none",
+      "shop_restriction_markers": [
+        "padlock_visible_access_condition_unresolved"
+      ]
+    },
+    {
+      "name_fr": "Danseur fantôme",
+      "price_gold": 2650,
+      "price_visibility": "visible",
+      "screenshot": "1000010662.jpg",
+      "shop_short_description_fr": "Vitesses de déplacement et d'attaque.",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "phantom_dancer",
+      "also_visible_in_categories": [],
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "details_verification_scope": "none",
+      "shop_restriction_markers": []
+    },
+    {
+      "name_fr": "Prestelames navori",
+      "price_gold": 2650,
+      "price_visibility": "visible",
+      "screenshot": "1000010662.jpg",
+      "shop_short_description_fr": "Les attaques réduisent les délais de récupération des compétences de base.",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "navori_quickblades",
+      "also_visible_in_categories": [],
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "details_verification_scope": "none",
+      "shop_restriction_markers": []
+    },
+    {
+      "name_fr": "Au bout du rouleau",
+      "price_gold": 2800,
+      "price_visibility": "visible",
+      "screenshot": "1000010662.jpg",
+      "shop_short_description_fr": "Les attaques de base infligent des dégâts supplémentaires.",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "wits_end",
+      "also_visible_in_categories": [],
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "details_verification_scope": "none",
+      "shop_restriction_markers": []
+    },
+    {
+      "name_fr": "Poignard de Statikk",
+      "price_gold": 2900,
+      "price_visibility": "visible",
+      "screenshot": "1000010662.jpg",
+      "shop_short_description_fr": "Les attaques énergisées infligent des dégâts en chaîne.",
+      "existing_catalog_id": "statikk_shiv",
+      "provisional_identity_candidate": null,
+      "also_visible_in_categories": [
+        "Magie"
+      ],
+      "external_numeric_id_verified": false,
+      "details_verified": true,
+      "details_verification_scope": "curated_earlier_partial_client_catalog_only",
+      "shop_restriction_markers": []
+    },
+    {
+      "name_fr": "Lunettes Hextech C44",
+      "price_gold": 2900,
+      "price_visibility": "visible",
+      "screenshot": "1000010662.jpg",
+      "shop_short_description_fr": "Augmente la portée et les dégâts d'attaque.",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "hextech_c44",
+      "also_visible_in_categories": [],
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "details_verification_scope": "none",
+      "shop_restriction_markers": [],
+      "notes": "yellow_N_badge_visible_uninterpreted"
+    },
+    {
+      "name_fr": "Tueur de krakens",
+      "price_gold": 2900,
+      "price_visibility": "visible",
+      "screenshot": "1000010662.jpg",
+      "shop_short_description_fr": "Vous infligez des dégâts physiques supplémentaires.",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "kraken_slayer",
+      "also_visible_in_categories": [],
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "details_verification_scope": "none",
+      "shop_restriction_markers": []
+    },
+    {
+      "name_fr": "Dent de Nashor",
+      "price_gold": 2900,
+      "price_visibility": "visible",
+      "screenshot": "1000010662.jpg",
+      "shop_short_description_fr": "Les attaques infligent des dégâts supplémentaires.",
+      "existing_catalog_id": "nashors_tooth",
+      "provisional_identity_candidate": null,
+      "also_visible_in_categories": [
+        "Magie"
+      ],
+      "external_numeric_id_verified": false,
+      "details_verified": true,
+      "details_verification_scope": "curated_earlier_partial_client_catalog_only",
+      "shop_restriction_markers": []
+    },
+    {
+      "name_fr": "Manamune",
+      "price_gold": 2900,
+      "price_visibility": "visible",
+      "screenshot": "1000010665.jpg",
+      "shop_short_description_fr": "Convertit le mana en dégâts d'attaque.",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "manamune",
+      "also_visible_in_categories": [
+        "Combattant",
+        "Assassin"
+      ],
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "details_verification_scope": "none",
+      "shop_restriction_markers": []
+    },
+    {
+      "name_fr": "Flèches des Yun Tal",
+      "price_gold": 3000,
+      "price_visibility": "visible",
+      "screenshot": "1000010665.jpg",
+      "shop_short_description_fr": "Les attaques gagnent des chances de coup critique.",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "yun_tal_wildarrows",
+      "also_visible_in_categories": [],
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "details_verification_scope": "none",
+      "shop_restriction_markers": []
+    },
+    {
+      "name_fr": "Lame enragée de Guinsoo",
+      "price_gold": 3000,
+      "price_visibility": "visible",
+      "screenshot": "1000010665.jpg",
+      "shop_short_description_fr": "Applique les effets à l'impact.",
+      "existing_catalog_id": "guinsoos_rageblade",
+      "provisional_identity_candidate": null,
+      "also_visible_in_categories": [
+        "Magie"
+      ],
+      "external_numeric_id_verified": false,
+      "details_verified": true,
+      "details_verification_scope": "curated_earlier_partial_client_catalog_only",
+      "shop_restriction_markers": []
+    },
+    {
+      "name_fr": "Rappel mortel",
+      "price_gold": 3000,
+      "price_visibility": "visible",
+      "screenshot": "1000010665.jpg",
+      "shop_short_description_fr": "Pénétration d'armure (%) et réduction des soins ennemis.",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "mortal_reminder",
+      "also_visible_in_categories": [],
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "details_verification_scope": "none",
+      "shop_restriction_markers": []
+    },
+    {
+      "name_fr": "Gueule de Malmortius",
+      "price_gold": 3000,
+      "price_visibility": "visible",
+      "screenshot": "1000010665.jpg",
+      "shop_short_description_fr": "Vous gagnez un bouclier magique lorsque vous subissez des dégâts.",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "maw_of_malmortius",
+      "also_visible_in_categories": [
+        "Combattant",
+        "Assassin"
+      ],
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "details_verification_scope": "none",
+      "shop_restriction_markers": []
+    },
+    {
+      "name_fr": "Faux spectrale",
+      "price_gold": 3000,
+      "price_visibility": "visible",
+      "screenshot": "1000010665.jpg",
+      "shop_short_description_fr": "Après l'utilisation d'une compétence, votre prochaine attaque inflige des dégâts bonus.",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "essence_reaver",
+      "also_visible_in_categories": [],
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "details_verification_scope": "none",
+      "shop_restriction_markers": []
+    },
+    {
+      "name_fr": "Arc-bouclier immortel",
+      "price_gold": 3000,
+      "price_visibility": "visible",
+      "screenshot": "1000010665.jpg",
+      "shop_short_description_fr": "Vous gagnez un bouclier quand vos PV sont bas.",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "immortal_shieldbow",
+      "also_visible_in_categories": [],
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "details_verification_scope": "none",
+      "shop_restriction_markers": [],
+      "notes": "yellow_N_badge_visible_uninterpreted"
+    },
+    {
+      "name_fr": "Percepteur",
+      "price_gold": 3000,
+      "price_visibility": "visible",
+      "screenshot": "1000010665.jpg",
+      "shop_short_description_fr": "Vous exécutez les champions qui ont peu de PV.",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "the_collector",
+      "also_visible_in_categories": [
+        "Assassin"
+      ],
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "details_verification_scope": "none",
+      "shop_restriction_markers": []
+    },
+    {
+      "name_fr": "Terminus",
+      "price_gold": 3000,
+      "price_visibility": "visible",
+      "screenshot": "1000010665.jpg",
+      "shop_short_description_fr": "Augmente votre pénétration d'armure, votre pénétration magique, votre armure et votre résistance magique.",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "terminus",
+      "also_visible_in_categories": [],
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "details_verification_scope": "none",
+      "shop_restriction_markers": []
+    },
+    {
+      "name_fr": "Lame tempête",
+      "price_gold": 3000,
+      "price_visibility": "visible",
+      "screenshot": "1000010665.jpg",
+      "shop_short_description_fr": "Les attaques énergisées infligent des dégâts supplémentaires et confèrent de la vitesse de déplacement.",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "stormrazor",
+      "also_visible_in_categories": [],
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "details_verification_scope": "none",
+      "shop_restriction_markers": []
+    },
+    {
+      "name_fr": "Force du vent",
+      "price_gold": 3100,
+      "price_visibility": "visible",
+      "screenshot": "1000010668.jpg",
+      "shop_short_description_fr": "Octroie une ruée et des dégâts supplémentaires.",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "galeforce",
+      "also_visible_in_categories": [],
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "details_verification_scope": "none",
+      "shop_restriction_markers": []
+    },
+    {
+      "name_fr": "Cimeterre mercuriel",
+      "price_gold": 3100,
+      "price_visibility": "visible",
+      "screenshot": "1000010668.jpg",
+      "shop_short_description_fr": "Dissipe les contrôles de foule.",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "mercurial_scimitar",
+      "also_visible_in_categories": [
+        "Combattant",
+        "Assassin"
+      ],
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "details_verification_scope": "none",
+      "shop_restriction_markers": []
+    },
+    {
+      "name_fr": "Lame du roi déchu",
+      "price_gold": 3100,
+      "price_visibility": "visible",
+      "screenshot": "1000010668.jpg",
+      "shop_short_description_fr": "Les attaques infligent des dégâts supplémentaires.",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "blade_of_the_ruined_king",
+      "also_visible_in_categories": [
+        "Combattant"
+      ],
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "details_verification_scope": "none",
+      "shop_restriction_markers": []
+    },
+    {
+      "name_fr": "Ange gardien",
+      "price_gold": 3200,
+      "price_visibility": "visible",
+      "screenshot": "1000010668.jpg",
+      "shop_short_description_fr": "Vous ramène à la vie si vous mourez.",
+      "existing_catalog_id": "guardian_angel",
+      "provisional_identity_candidate": null,
+      "also_visible_in_categories": [
+        "Combattant",
+        "Assassin"
+      ],
+      "external_numeric_id_verified": false,
+      "details_verified": true,
+      "details_verification_scope": "curated_earlier_partial_client_catalog_only",
+      "shop_restriction_markers": []
+    },
+    {
+      "name_fr": "Soif-de-sang",
+      "price_gold": 3200,
+      "price_visibility": "visible",
+      "screenshot": "1000010668.jpg",
+      "shop_short_description_fr": "Vous gagnez du vol de vie et convertissez les soins excédentaires en bouclier.",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "bloodthirster",
+      "also_visible_in_categories": [
+        "Combattant"
+      ],
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "details_verification_scope": "none",
+      "shop_restriction_markers": []
+    },
+    {
+      "name_fr": "Salutations de Dominik",
+      "price_gold": 3300,
+      "price_visibility": "visible",
+      "screenshot": "1000010668.jpg",
+      "shop_short_description_fr": "Pénétration d'armure et dégâts bonus.",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "lord_dominiks_regards",
+      "also_visible_in_categories": [],
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "details_verification_scope": "none",
+      "shop_restriction_markers": []
+    },
+    {
+      "name_fr": "Force de la trinité",
+      "price_gold": 3333,
+      "price_visibility": "visible",
+      "screenshot": "1000010668.jpg",
+      "shop_short_description_fr": "Équilibré.",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "trinity_force",
+      "also_visible_in_categories": [
+        "Combattant"
+      ],
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "details_verification_scope": "none",
+      "shop_restriction_markers": []
+    },
+    {
+      "name_fr": "Lame d'infini",
+      "price_gold": 3400,
+      "price_visibility": "visible",
+      "screenshot": "1000010668.jpg",
+      "shop_short_description_fr": "Augmente les dégâts des coups critiques.",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "infinity_edge",
+      "also_visible_in_categories": [],
+      "external_numeric_id_verified": false,
+      "details_verified": false,
+      "details_verification_scope": "none",
+      "shop_restriction_markers": []
+    }
+  ],
+  "notable_ambiguities": [
+    "Ouragan de Runaan displays a padlock over price and its accessibility is not verified. Do not assume price or availability.",
+    "Yellow N symbols on some shop items are visually present but meaning is not established by this capture.",
+    "One or more rows beyond screenshot bounds might exist; do not claim exhaustive Tireur category until user confirms.",
+    "Items repeating across roles belong to one global shop identity; price matching is a consistency check, not evidence of independent items.",
+    "Shop descriptions are short qualitative summaries, not complete passive or stat sheets.",
+    "Provisional English-name ID candidates are not current WR China numeric IDs."
+  ],
+  "policy": {
+    "do_not_automatically_load_into_build_recommendations": true,
+    "no_inferred_price_for_locked_item": true,
+    "no_item_stats_or_effect_calculation_from_short_description": true
+  }
+}
