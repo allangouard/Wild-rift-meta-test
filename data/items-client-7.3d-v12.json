@@ -1504,7 +1504,7 @@
       "id": "deaths_dance",
       "name_fr": "Danse de la mort",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 3300,
       "stats": {
         "ad": 50,
         "armor": 45,
@@ -1533,12 +1533,16 @@
       "evidence": {
         "kind": "user_client_screenshot",
         "client_patch_reported": "7.3d",
-        "validation": "description_transcribed_from_conversation"
+        "validation": "description_transcribed_from_conversation",
+        "price_evidence": "client_shop_screenshot_2026-11-05",
+        "price_image_files": [
+          "1000010579.jpg"
+        ]
       },
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "missing"
+        "price": "visible_client_shop"
       },
       "notes": []
     },
@@ -1546,7 +1550,7 @@
       "id": "amaranths_twinguard",
       "name_fr": "Gémeaux d’Amaranth",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 3200,
       "stats": {
         "hp": 300,
         "armor": 50,
@@ -1569,12 +1573,16 @@
       "evidence": {
         "kind": "user_client_screenshot",
         "client_patch_reported": "7.3d",
-        "validation": "description_transcribed_from_conversation"
+        "validation": "description_transcribed_from_conversation",
+        "price_evidence": "client_shop_screenshot_2026-11-05",
+        "price_image_files": [
+          "1000010579.jpg"
+        ]
       },
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "missing"
+        "price": "visible_client_shop"
       },
       "notes": []
     },
@@ -1582,7 +1590,7 @@
       "id": "steraks_gage",
       "name_fr": "Gage de Sterak",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 3200,
       "stats": {
         "hp": 400,
         "tenacity_pct": 20
@@ -1616,12 +1624,16 @@
       "evidence": {
         "kind": "user_client_screenshot",
         "client_patch_reported": "7.3d",
-        "validation": "description_transcribed_from_conversation"
+        "validation": "description_transcribed_from_conversation",
+        "price_evidence": "client_shop_screenshot_2026-11-05",
+        "price_image_files": [
+          "1000010579.jpg"
+        ]
       },
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "missing"
+        "price": "visible_client_shop"
       },
       "notes": []
     },
@@ -1629,7 +1641,7 @@
       "id": "guardian_angel",
       "name_fr": "Ange gardien",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 3200,
       "stats": {
         "ad": 45,
         "armor": 40
@@ -1649,12 +1661,16 @@
       "evidence": {
         "kind": "user_client_screenshot",
         "client_patch_reported": "7.3d",
-        "validation": "description_transcribed_from_conversation"
+        "validation": "description_transcribed_from_conversation",
+        "price_evidence": "client_shop_screenshot_2026-11-05",
+        "price_image_files": [
+          "1000010579.jpg"
+        ]
       },
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "missing"
+        "price": "visible_client_shop"
       },
       "notes": []
     },
@@ -1662,7 +1678,7 @@
       "id": "overlords_bloodmail",
       "name_fr": "Armure sanguine",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 3200,
       "stats": {
         "hp": 450,
         "ad": 30
@@ -1687,12 +1703,16 @@
       "evidence": {
         "kind": "user_client_screenshot",
         "client_patch_reported": "7.3d",
-        "validation": "description_transcribed_from_conversation"
+        "validation": "description_transcribed_from_conversation",
+        "price_evidence": "client_shop_screenshot_2026-11-05",
+        "price_image_files": [
+          "1000010579.jpg"
+        ]
       },
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "missing"
+        "price": "visible_client_shop"
       },
       "notes": []
     },
@@ -1700,7 +1720,7 @@
       "id": "titanic_hydra",
       "name_fr": "Hydre titanesque",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 3000,
       "stats": {
         "hp": 450,
         "ad": 40
@@ -1722,12 +1742,16 @@
       "evidence": {
         "kind": "user_client_screenshot",
         "client_patch_reported": "7.3d",
-        "validation": "description_transcribed_from_conversation"
+        "validation": "description_transcribed_from_conversation",
+        "price_evidence": "client_shop_screenshot_2026-11-05",
+        "price_image_files": [
+          "1000010579.jpg"
+        ]
       },
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "missing"
+        "price": "visible_client_shop"
       },
       "notes": []
     },
@@ -1735,7 +1759,7 @@
       "id": "iceborn_gauntlet",
       "name_fr": "Gantelet givrant",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 3000,
       "stats": {
         "hp": 300,
         "armor": 50,
@@ -1759,12 +1783,16 @@
       "evidence": {
         "kind": "user_client_screenshot",
         "client_patch_reported": "7.3d",
-        "validation": "description_transcribed_from_conversation"
+        "validation": "description_transcribed_from_conversation",
+        "price_evidence": "client_shop_screenshot_2026-11-05",
+        "price_image_files": [
+          "1000010579.jpg"
+        ]
       },
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "missing"
+        "price": "visible_client_shop"
       },
       "notes": []
     },
@@ -1772,7 +1800,7 @@
       "id": "sunfire_aegis",
       "name_fr": "Égide solaire",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 2900,
       "stats": {
         "hp": 350,
         "armor": 40,
@@ -1796,12 +1824,16 @@
       "evidence": {
         "kind": "user_client_screenshot",
         "client_patch_reported": "7.3d",
-        "validation": "description_transcribed_from_conversation"
+        "validation": "description_transcribed_from_conversation",
+        "price_evidence": "client_shop_screenshot_2026-11-05",
+        "price_image_files": [
+          "1000010581.jpg"
+        ]
       },
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "missing"
+        "price": "visible_client_shop"
       },
       "notes": []
     },
@@ -1809,7 +1841,7 @@
       "id": "warmogs_armor",
       "name_fr": "Armure de Warmog",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 2850,
       "stats": {
         "hp": 700,
         "hp_regen_pct": 100,
@@ -1836,12 +1868,16 @@
       "evidence": {
         "kind": "user_client_screenshot",
         "client_patch_reported": "7.3d",
-        "validation": "description_transcribed_from_conversation"
+        "validation": "description_transcribed_from_conversation",
+        "price_evidence": "client_shop_screenshot_2026-11-05",
+        "price_image_files": [
+          "1000010581.jpg"
+        ]
       },
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "missing"
+        "price": "visible_client_shop"
       },
       "notes": []
     },
@@ -1849,7 +1885,7 @@
       "id": "kaenic_rookern",
       "name_fr": "Rookern kaénique",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 2800,
       "stats": {
         "hp": 350,
         "hp_regen_pct": 100,
@@ -1873,12 +1909,16 @@
       "evidence": {
         "kind": "user_client_screenshot",
         "client_patch_reported": "7.3d",
-        "validation": "description_transcribed_from_conversation"
+        "validation": "description_transcribed_from_conversation",
+        "price_evidence": "client_shop_screenshot_2026-11-05",
+        "price_image_files": [
+          "1000010581.jpg"
+        ]
       },
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "missing"
+        "price": "visible_client_shop"
       },
       "notes": []
     },
@@ -1886,7 +1926,7 @@
       "id": "heartsteel",
       "name_fr": "Cœur d’acier",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 2800,
       "stats": {
         "hp": 700,
         "hp_regen_pct": 150,
@@ -1909,12 +1949,16 @@
       "evidence": {
         "kind": "user_client_screenshot",
         "client_patch_reported": "7.3d",
-        "validation": "description_transcribed_from_conversation"
+        "validation": "description_transcribed_from_conversation",
+        "price_evidence": "client_shop_screenshot_2026-11-05",
+        "price_image_files": [
+          "1000010581.jpg"
+        ]
       },
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "missing"
+        "price": "visible_client_shop"
       },
       "notes": []
     },
@@ -1922,7 +1966,7 @@
       "id": "force_of_nature",
       "name_fr": "Force de la nature",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 2800,
       "stats": {
         "hp": 400,
         "mr": 60,
@@ -1943,12 +1987,16 @@
       "evidence": {
         "kind": "user_client_screenshot",
         "client_patch_reported": "7.3d",
-        "validation": "description_transcribed_from_conversation"
+        "validation": "description_transcribed_from_conversation",
+        "price_evidence": "client_shop_screenshot_2026-11-05",
+        "price_image_files": [
+          "1000010581.jpg"
+        ]
       },
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "missing"
+        "price": "visible_client_shop"
       },
       "notes": []
     },
@@ -1956,7 +2004,7 @@
       "id": "dead_mans_plate",
       "name_fr": "Plaque du mort",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 2800,
       "stats": {
         "hp": 350,
         "armor": 70,
@@ -1984,12 +2032,16 @@
       "evidence": {
         "kind": "user_client_screenshot",
         "client_patch_reported": "7.3d",
-        "validation": "description_transcribed_from_conversation"
+        "validation": "description_transcribed_from_conversation",
+        "price_evidence": "client_shop_screenshot_2026-11-05",
+        "price_image_files": [
+          "1000010581.jpg"
+        ]
       },
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "missing"
+        "price": "visible_client_shop"
       },
       "notes": []
     },
@@ -1997,7 +2049,7 @@
       "id": "randuins_omen",
       "name_fr": "Présage de Randuin",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 2800,
       "stats": {
         "hp": 400,
         "armor": 75
@@ -2023,12 +2075,16 @@
       "evidence": {
         "kind": "user_client_screenshot",
         "client_patch_reported": "7.3d",
-        "validation": "description_transcribed_from_conversation"
+        "validation": "description_transcribed_from_conversation",
+        "price_evidence": "client_shop_screenshot_2026-11-05",
+        "price_image_files": [
+          "1000010581.jpg"
+        ]
       },
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "missing"
+        "price": "visible_client_shop"
       },
       "notes": []
     },
@@ -2036,7 +2092,7 @@
       "id": "dawnshroud",
       "name_fr": "Linceul de l’aube",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 2700,
       "stats": {
         "hp": 250,
         "armor": 50,
@@ -2059,12 +2115,16 @@
       "evidence": {
         "kind": "user_client_screenshot",
         "client_patch_reported": "7.3d",
-        "validation": "description_transcribed_from_conversation"
+        "validation": "description_transcribed_from_conversation",
+        "price_evidence": "client_shop_screenshot_2026-11-05",
+        "price_image_files": [
+          "1000010583.jpg"
+        ]
       },
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "missing"
+        "price": "visible_client_shop"
       },
       "notes": []
     },
@@ -2072,7 +2132,7 @@
       "id": "radiant_virtue",
       "name_fr": "Vertu radieuse",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 2650,
       "stats": {
         "hp": 300,
         "armor": 30,
@@ -2097,12 +2157,16 @@
       "evidence": {
         "kind": "user_client_screenshot",
         "client_patch_reported": "7.3d",
-        "validation": "description_transcribed_from_conversation"
+        "validation": "description_transcribed_from_conversation",
+        "price_evidence": "client_shop_screenshot_2026-11-05",
+        "price_image_files": [
+          "1000010583.jpg"
+        ]
       },
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "missing"
+        "price": "visible_client_shop"
       },
       "notes": []
     },
@@ -2110,7 +2174,7 @@
       "id": "winters_approach",
       "name_fr": "Hiver imminent",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 2600,
       "stats": {
         "hp": 500,
         "mana": 500,
@@ -2139,12 +2203,16 @@
       "evidence": {
         "kind": "user_client_screenshot",
         "client_patch_reported": "7.3d",
-        "validation": "description_transcribed_from_conversation"
+        "validation": "description_transcribed_from_conversation",
+        "price_evidence": "client_shop_screenshot_2026-11-05",
+        "price_image_files": [
+          "1000010583.jpg"
+        ]
       },
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "missing"
+        "price": "visible_client_shop"
       },
       "notes": []
     },
@@ -2198,7 +2266,7 @@
       "id": "mantle_of_the_twelfth_hour",
       "name_fr": "Manteau de l’heure ultime",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 2550,
       "stats": {
         "hp": 600,
         "ah": 20
@@ -2231,12 +2299,16 @@
       "evidence": {
         "kind": "user_client_screenshot",
         "client_patch_reported": "7.3d",
-        "validation": "description_transcribed_from_conversation"
+        "validation": "description_transcribed_from_conversation",
+        "price_evidence": "client_shop_screenshot_2026-11-05",
+        "price_image_files": [
+          "1000010583.jpg"
+        ]
       },
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "missing"
+        "price": "visible_client_shop"
       },
       "notes": []
     },
@@ -2244,7 +2316,7 @@
       "id": "knights_vow",
       "name_fr": "Vœu du chevalier",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 2450,
       "stats": {
         "hp": 200,
         "hp_regen_pct": 100,
@@ -2271,12 +2343,16 @@
       "evidence": {
         "kind": "user_client_screenshot",
         "client_patch_reported": "7.3d",
-        "validation": "description_transcribed_from_conversation"
+        "validation": "description_transcribed_from_conversation",
+        "price_evidence": "client_shop_screenshot_2026-11-05",
+        "price_image_files": [
+          "1000010583.jpg"
+        ]
       },
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "missing"
+        "price": "visible_client_shop"
       },
       "notes": []
     },
@@ -2284,7 +2360,7 @@
       "id": "yordle_trap",
       "name_fr": "Piège à yordles",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 2400,
       "stats": {
         "hp": 200,
         "armor": 20,
@@ -2308,12 +2384,16 @@
       "evidence": {
         "kind": "user_client_screenshot",
         "client_patch_reported": "7.3d",
-        "validation": "description_transcribed_from_conversation"
+        "validation": "description_transcribed_from_conversation",
+        "price_evidence": "client_shop_screenshot_2026-11-05",
+        "price_image_files": [
+          "1000010583.jpg"
+        ]
       },
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "missing"
+        "price": "visible_client_shop"
       },
       "notes": []
     },
@@ -2321,7 +2401,7 @@
       "id": "zekes_convergence",
       "name_fr": "Convergence de Zeke",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 2400,
       "stats": {
         "hp": 300,
         "armor": 25,
@@ -2353,12 +2433,16 @@
       "evidence": {
         "kind": "user_client_screenshot",
         "client_patch_reported": "7.3d",
-        "validation": "description_transcribed_from_conversation"
+        "validation": "description_transcribed_from_conversation",
+        "price_evidence": "client_shop_screenshot_2026-11-05",
+        "price_image_files": [
+          "1000010583.jpg"
+        ]
       },
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "missing"
+        "price": "visible_client_shop"
       },
       "notes": []
     },
@@ -2366,7 +2450,7 @@
       "id": "abyssal_mask",
       "name_fr": "Masque abyssal",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 2400,
       "stats": {
         "hp": 350,
         "mr": 45,
@@ -2386,12 +2470,16 @@
       "evidence": {
         "kind": "user_client_screenshot",
         "client_patch_reported": "7.3d",
-        "validation": "description_transcribed_from_conversation"
+        "validation": "description_transcribed_from_conversation",
+        "price_evidence": "client_shop_screenshot_2026-11-05",
+        "price_image_files": [
+          "1000010583.jpg"
+        ]
       },
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "missing"
+        "price": "visible_client_shop"
       },
       "notes": []
     },
@@ -2399,7 +2487,7 @@
       "id": "frozen_heart",
       "name_fr": "Cœur gelé",
       "item_type": "legendary",
-      "price_gold": null,
+      "price_gold": 2550,
       "stats": {
         "armor": 80,
         "mana": 400,
@@ -2418,12 +2506,16 @@
       "evidence": {
         "kind": "user_client_screenshot",
         "client_patch_reported": "7.3d",
-        "validation": "description_transcribed_from_conversation"
+        "validation": "description_transcribed_from_conversation",
+        "price_evidence": "client_shop_screenshot_2026-11-05",
+        "price_image_files": [
+          "1000010583.jpg"
+        ]
       },
       "completeness": {
         "description": "documented",
         "interactions": "not_fully_tested",
-        "price": "missing"
+        "price": "visible_client_shop"
       },
       "notes": []
     }
