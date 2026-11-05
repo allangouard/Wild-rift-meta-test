@@ -64,3 +64,5 @@ jobs:
         run: node --test stage-a-cross-category-inventory.test.js
       - name: Tester trois objets actifs client et leurs restrictions
         run: node --test stage-a-standalone-actives-batch2.test.js
+      - name: Verify stage A new item details
+        run: node --test stage-a-fighter-active-details-batch3.test.js stage-a-marksman-galeforce-detail.test.js
