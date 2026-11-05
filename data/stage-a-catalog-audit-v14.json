@@ -48,7 +48,7 @@
     "magic_shop_price_matches_existing": 29,
     "magic_shop_name_matches_existing": 29,
     "magic_shop_screenshot_evidence": "data/stage-a-magic-shop-evidence-2026-11-05.json",
-    "magic_shop_screen_scope": "subset: listing visible in 3 screenshots; not proof of full shop or item details",
+    "magic_shop_screen_scope": "all 29 shop entries confirmed complete by user, 2026-11-05",
     "prices_newly_filled_this_batch": 0,
     "defense_shop_rows_newly_verified": 30,
     "defense_shop_matching_curated_entries": 28,
@@ -98,7 +98,21 @@
     "support_shop_shared_with_other_categories": 14,
     "support_shop_evidence": "data/stage-a-support-shop-evidence-2026-11-05.json",
     "support_shop_complete_client_confirmed": true,
-    "support_shop_status": "20/20 shop entries complete per explicit user confirmation, names/prices captured; detailed mechanics pending"
+    "support_shop_status": "20/20 shop entries complete per explicit user confirmation, names/prices captured; detailed mechanics pending",
+    "magic_shop_complete_client_confirmed": true,
+    "defense_shop_complete_client_confirmed": true,
+    "fighter_shop_complete_client_confirmed": true,
+    "defense_shop_screen_scope": "all 30 shop entries confirmed complete by user, 2026-11-05",
+    "fighter_shop_screen_scope": "all 22 shop entries confirmed complete by user, 2026-11-05",
+    "all_six_categories_current_client_complete": true,
+    "all_six_categories_current_client_rows": 139,
+    "all_six_categories_unique_items": 102,
+    "all_six_categories_unique_prices_verified": 101,
+    "all_six_categories_missing_prices": [
+      "Ouragan de Runaan (melee character shop locked)"
+    ],
+    "all_six_categories_conflicting_prices": 0,
+    "all_six_categories_inventory_file": "data/stage-a-cross-category-inventory-v14.json"
   },
   "gates": [
     {
@@ -168,6 +182,7 @@
     "2026-11-05: Tireur: 28 visible names, 27 visible prices; Ouragan de Runaan shows padlock not price; 4 items in 59 curated, 24 other provisional, 11 overlap other shop categories. Complete category not confirmed.",
     "2026-11-05: user confirms 28 Tideur shop entries complete and Runaan's Hurricane ranged-only; lock shown because Galio is melee; unknown price remains unknown.",
     "2026-11-05: Support: 20 shop entries visible and 20 prices confirmed; 13 match original curated 59 and 7 provisional; 14 overlap Magie/Défense; category completeness not yet confirmed. Shurelya, Mikael, Écho harmonieux and other unmapped entries require full details/identity validation.",
-    "2026-11-05: user explicitly confirms Support category exhaustive at 20 named and priced entries."
+    "2026-11-05: user explicitly confirms Support category exhaustive at 20 named and priced entries.",
+    "2026-11-05: user expressly confirms all 29 Magie, 30 Défense and 22 Combattant entries exhaustive, joining prior exhaustive Assassin/Tireur/Support. Consolidated six-category inventory 139 rows -> 102 unique listed objects, 101 priced, Runaan price masked. No effect/patch ID certification implied."
   ]
 }
