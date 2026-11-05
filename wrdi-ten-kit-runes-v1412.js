@@ -29,7 +29,8 @@ function inspect(picks,records){
   const row=byId.get(String(id)),data=row?.result;
   const valid=!!data&&Array.isArray(data.signals)&&Number(data.descriptionCount)>=1&&!row.error;
   return {id:String(id),role:LABELS[i],side:i<5?'ally':'enemy',
-   signals:valid?signalIds(data):[],available:valid,
+   signals:valid?signalIds(data):[],
+   abilitySignals:valid?data.signals.map(x=>({id:String(x?.id||''),slots:Array.isArray(x?.skills)?x.skills.map(String):[]})).filter(x=>x.id):[],available:valid,
    sourceVersion:valid?(data.sourceVersion||null):null,
    reason:valid?null:String(row?.error||'Fiche non lue ou sans description exploitable')};
  });
