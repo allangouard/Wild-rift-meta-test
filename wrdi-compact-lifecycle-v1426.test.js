@@ -8,7 +8,7 @@ const html=fs.readFileSync('index-v1426.html','utf8');
 test('mobile V14.26 loads refreshed scripts',()=>{
  assert.ok(html.includes('assets/app.js?v=14260'));
  assert.ok(html.includes('wrdi-ten-kit-panel-v1414.js?v=14260'));
- assert.ok(html.includes('wrdi-compact-dashboard-v1423.js?v=14260'));
+ assert.ok(html.includes('wrdi-compact-dashboard-v1423.js?v=14261'));
 });
 test('build analysis reports all early exits and exceptions',()=>{
  const fn=app.slice(app.indexOf('async function simpleAnalyze(){'),app.indexOf("\n$('simpleRun').onclick=simpleAnalyze;"));
