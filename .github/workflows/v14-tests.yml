@@ -215,3 +215,9 @@ jobs:
           node --check wrdi-galio-item-comparator-v1428.js
           node --check assets/app.js
           node --test wrdi-galio-item-comparator-v1428.test.js
+      - name: Tester les cinq objets Galio sans builds populaires V14.29
+        run: |
+          node --check wrdi-galio-five-item-optimizer-v1429.js
+          node --check assets/app.js
+          node --check wrdi-compact-dashboard-v1423.js
+          node --test wrdi-galio-five-item-optimizer-v1429.test.js
