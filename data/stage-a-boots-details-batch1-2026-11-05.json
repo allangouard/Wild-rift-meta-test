@@ -1,0 +1,241 @@
+{
+  "schema": "wrdi.stage_a.boots_detail_evidence.v1",
+  "captured_on": "2026-11-05",
+  "game": "Wild Rift mobile",
+  "app_version": "7.3.0.2813",
+  "resource_version": "7.3.60.133",
+  "records": [
+    {
+      "name_fr": "Bottes dynamiques",
+      "screenshot": "1000010614.jpg",
+      "stats": {
+        "attack_damage": 15,
+        "armor_pen_flat": 10,
+        "movement_speed": 45
+      },
+      "passives": [],
+      "price_gold": 1200,
+      "client_description_visible": true,
+      "external_id_verified": false,
+      "interactions_tested": false
+    },
+    {
+      "name_fr": "Bottes de mana",
+      "screenshot": "1000010617.jpg",
+      "stats": {
+        "ap": 25,
+        "magic_pen_flat": 8,
+        "mana_regeneration_pct": 75,
+        "movement_speed": 45
+      },
+      "passives": [
+        {
+          "name_fr": "Équilibrium",
+          "effect": "sans mana : +50 % régénération de base des PV",
+          "no_mana_health_regen_pct": 50
+        },
+        {
+          "name_fr": "Brute épaisse",
+          "effect": "attaques et compétences actives : +18 dégâts bruts aux sbires",
+          "minion_bonus_true_damage": 18
+        }
+      ],
+      "price_gold": 1200,
+      "client_description_visible": true,
+      "external_id_verified": false,
+      "interactions_tested": false
+    },
+    {
+      "name_fr": "Coques en acier",
+      "screenshot": "1000010620.jpg",
+      "stats": {
+        "hp": 150,
+        "armor": 25,
+        "movement_speed": 45
+      },
+      "passives": [
+        {
+          "name_fr": "Blocage",
+          "effect": "dégâts infligés par les attaques de champions réduits de 10 %",
+          "champion_attack_damage_reduction_pct": 10
+        }
+      ],
+      "price_gold": 1200,
+      "client_description_visible": true,
+      "external_id_verified": false,
+      "interactions_tested": false
+    },
+    {
+      "name_fr": "Sandales de Mercure",
+      "screenshot": "1000010623.jpg",
+      "stats": {
+        "hp": 150,
+        "mr": 25,
+        "tenacity_pct": 30,
+        "movement_speed": 45
+      },
+      "passives": [],
+      "price_gold": 1200,
+      "client_description_visible": true,
+      "external_id_verified": false,
+      "interactions_tested": false
+    },
+    {
+      "name_fr": "Jambières du berzerker",
+      "screenshot": "1000010626.jpg",
+      "stats": {
+        "attack_speed_pct": 35,
+        "movement_speed": 45
+      },
+      "passives": [
+        {
+          "name_fr": "Lame bénie",
+          "effect": "les attaques rendent 10 PV à l’impact",
+          "on_attack_heal": 10
+        }
+      ],
+      "price_gold": 1200,
+      "client_description_visible": true,
+      "external_id_verified": false,
+      "interactions_tested": false
+    },
+    {
+      "name_fr": "Bottes de lucidité",
+      "screenshot": "1000010629.jpg",
+      "stats": {
+        "mana_regeneration_pct": 50,
+        "ability_haste": 15,
+        "movement_speed": 45
+      },
+      "passives": [
+        {
+          "name_fr": "Invocation",
+          "effect": "réduit de 15 % les délais de récupération des sorts",
+          "spell_cooldown_reduction_pct": 15,
+          "scope": "ambiguous_spell_term_do_not_infer"
+        }
+      ],
+      "price_gold": 1000,
+      "client_description_visible": true,
+      "external_id_verified": false,
+      "interactions_tested": false
+    },
+    {
+      "name_fr": "Jambières gloutonnes",
+      "screenshot": "1000010632.jpg",
+      "stats": {
+        "movement_speed": 45
+      },
+      "passives": [
+        {
+          "name_fr": "Équilibre des pouvoirs",
+          "effect": "+12 dégâts d’attaque OU +20 puissance (bonus adaptatif)",
+          "adaptive_attack_damage": 12,
+          "adaptive_ap": 20
+        },
+        {
+          "name_fr": "Conversion",
+          "effect": "+5 % omnivampirisme ; éliminations de champions : +0,5 % supplémentaire, jusqu’à +5 % supplémentaire",
+          "omnivamp_pct": 5,
+          "per_champion_takedown_bonus_pct": 0.5,
+          "bonus_cap_pct": 5
+        }
+      ],
+      "price_gold": 1000,
+      "client_description_visible": true,
+      "external_id_verified": false,
+      "interactions_tested": false
+    },
+    {
+      "name_fr": "Bottes Brise-armure",
+      "screenshot": "1000010635.jpg",
+      "stats": {
+        "attack_damage": 20,
+        "armor_pen_flat": 10,
+        "armor_pen_pct": 6,
+        "movement_speed": 45
+      },
+      "passives": [
+        {
+          "name_fr": "La tête dans les nuages",
+          "effect": "+20 vitesse de déplacement hors combat",
+          "out_of_combat_movement_speed": 20
+        }
+      ],
+      "price_gold": 2200,
+      "client_description_visible": true,
+      "external_id_verified": false,
+      "interactions_tested": false
+    },
+    {
+      "name_fr": "Avancée blindée",
+      "screenshot": "1000010638.jpg",
+      "stats": {
+        "hp": 150,
+        "armor": 30,
+        "movement_speed": 45
+      },
+      "passives": [
+        {
+          "name_fr": "Blocage",
+          "effect": "dégâts des attaques de champions réduits de 10 %",
+          "champion_attack_damage_reduction_pct": 10
+        },
+        {
+          "name_fr": "Endurance noxienne",
+          "effect": "après dégâts physiques d’un champion : bouclier physique de 20–140 + 5 % des PV max durant 5 sec ; récupération 12 sec",
+          "damage_type_trigger": "physical_from_champion",
+          "shield_damage_type": "physical",
+          "shield_base_range": [
+            20,
+            140
+          ],
+          "shield_max_health_pct": 5,
+          "shield_duration_seconds": 5,
+          "cooldown_seconds": 12
+        }
+      ],
+      "price_gold": 2200,
+      "client_description_visible": true,
+      "external_id_verified": false,
+      "interactions_tested": false
+    },
+    {
+      "name_fr": "Broyeuses à chaînes",
+      "screenshot": "1000010641.jpg",
+      "stats": {
+        "hp": 150,
+        "mr": 30,
+        "tenacity_pct": 30,
+        "movement_speed": 45
+      },
+      "passives": [
+        {
+          "name_fr": "Persévérance noxienne",
+          "effect": "après dégâts magiques d’un champion : bouclier magique de 20–140 + 5 % des PV max durant 5 sec ; récupération 12 sec",
+          "damage_type_trigger": "magic_from_champion",
+          "shield_damage_type": "magic",
+          "shield_base_range": [
+            20,
+            140
+          ],
+          "shield_max_health_pct": 5,
+          "shield_duration_seconds": 5,
+          "cooldown_seconds": 12
+        }
+      ],
+      "price_gold": 2200,
+      "client_description_visible": true,
+      "external_id_verified": false,
+      "interactions_tested": false
+    }
+  ],
+  "notes": [
+    "Statistiques et texte transcrits directement des captures du client : pas de tests de fonctionnement.",
+    "Le terme « sorts » d'Invocation reste tel qu'affiché ; sa portée précise n'est pas déduite.",
+    "Les coûts sont les prix totaux du magasin, pas nécessairement les coûts d'amélioration.",
+    "Fiches non reliées à des identifiants externes ; ne pas charger dans un moteur de recommandations.",
+    "Données limitées aux captures 1000010614.jpg à 1000010641.jpg; autres images à examiner séparément."
+  ],
+  "recommendation_eligible": false
+}
