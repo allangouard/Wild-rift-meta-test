@@ -32,13 +32,14 @@ function mount(){
   const kitEngine=root.WRDIChampionThreatsV125;
   const picks=ids();
   const fingerprint=JSON.stringify(picks);
+  const reportFailure=(message)=>{if(typeof root.dispatchEvent==='function')root.dispatchEvent(new CustomEvent('wrdi:rune-error',{detail:{draftFingerprint:fingerprint,message:String(message)}}));};
   out.replaceChildren();
   if(!engine||!oldAdvisor||!bridge||typeof kitEngine?.infer!=='function'){
-   out.append(el('p','Module de kits indisponible : vérifie que les scripts V14.12 sont chargés.'));
+   out.append(el('p','Module de kits indisponible : vérifie que les scripts V14.12 sont chargés.'));reportFailure('Module d’analyse des kits manquant.');
    return;
   }
   const check=engine.inspect(picks,[]);
-  if(!check.ok){out.append(el('p',check.errors.join(' ; ')));return;}
+  if(!check.ok){out.append(el('p',check.errors.join(' ; ')));reportFailure(check.errors.join(' ; '));return;}
   const token=++seq;
   btn.disabled=true;
   out.append(el('p','Lecture des fiches des 10 champions Wild Rift…'));
@@ -47,38 +48,38 @@ function mount(){
   try{
    const results=await Promise.all(picks.map(id=>fetchOne(id,controller.signal,kitEngine.infer)));
    if(token!==seq||JSON.stringify(ids())!==fingerprint){
-    out.replaceChildren(el('p','La draft a changé : relance l’analyse des kits.'));return;
+    out.replaceChildren(el('p','La draft a changé : relance l’analyse des kits.'));reportFailure('La draft a changé, relance l’analyse.');return;
    }
    const inspected=engine.inspect(picks,results);
-   const resp=await fetch('./data/rune-catalog-client-v14.json',{cache:'no-store'});
+   const resp=await fetch('./data/rune-catalog-client-v14.json',{cache:'no-store',signal:controller.signal});
    if(!resp.ok)throw Error('Catalogue des runes indisponible : '+resp.status);
    const catalog=await resp.json();
    if(token!==seq||JSON.stringify(ids())!==fingerprint){
-    out.replaceChildren(el('p','La draft a changé pendant le chargement du catalogue.'));return;
+    out.replaceChildren(el('p','La draft a changé pendant le chargement du catalogue.'));reportFailure('Draft modifiée pendant la lecture du catalogue.');return;
    }
    const comparison=engine.analyzeCandidates(inspected,{advisor:oldAdvisor,picks,catalog,bridge});
    out.replaceChildren();
-   if(!comparison.ok){out.append(el('p','Comparaison bloquée : '+(comparison.errors||[]).join(' ; ')));return;}
+   if(!comparison.ok){out.append(el('p','Comparaison bloquée : '+(comparison.errors||[]).join(' ; ')));reportFailure((comparison.errors||[]).join(' ; ')||'Comparaison indisponible');return;}
    const matrix=root.WRDI_GalioRuneMatrixV1413;
    const evidenceEngine=root.WRDI_GalioRuneEvidenceV1414;
    if(!matrix||!evidenceEngine){
-    out.append(el('p','Matrice de runes V14.14 indisponible.'));return;
+    out.append(el('p','Matrice de runes V14.14 indisponible.'));reportFailure('Matrice des runes indisponible.');return;
    }
    let playerEvidence=null;
    try{
-    const recorded=await fetch('./data/galio-rune-training-observations-v1415.json',{cache:'no-store'});
+    const recorded=await fetch('./data/galio-rune-training-observations-v1415.json',{cache:'no-store',signal:controller.signal});
     if(recorded.ok && root.WRDI_GalioPlayerEvidenceV1416){
      playerEvidence=root.WRDI_GalioPlayerEvidenceV1416.summarize(await recorded.json());
     }
    }catch(e){/* Observations optionally unavailable; preserve exploratory analysis. */}
    if(token!==seq||JSON.stringify(ids())!==fingerprint){
-    out.replaceChildren(el('p','Draft modifiée pendant la lecture des observations.'));return;
+    out.replaceChildren(el('p','Draft modifiée pendant la lecture des observations.'));reportFailure('Draft modifiée pendant la lecture des observations.');return;
    }
    const evaluation=evidenceEngine.compare({kitData:inspected,comparison,matrix,catalog,bridge,playerEvidence});
-   if(!evaluation.ok){out.append(el('p','Vérification des runes bloquée : '+evaluation.errors.join(' ; ')));return;}
+   if(!evaluation.ok){out.append(el('p','Vérification des runes bloquée : '+evaluation.errors.join(' ; ')));reportFailure(evaluation.errors.join(' ; '));return;}
    const draftEngine=root.WRDI_GalioDraftRuneV1418;
    const ordered=draftEngine?.compare({kitData:inspected,pages:evaluation.pages,playerEvidence,bridge,catalog});
-   if(ordered && !ordered.ok){out.append(el('p','Analyse des menaces indisponible : '+ordered.error));return;}
+   if(ordered && !ordered.ok){out.append(el('p','Analyse des menaces indisponible : '+ordered.error));reportFailure(ordered.error);return;}
    const specific=root.WRDI_GalioAbilityThreatV1419?.refine({kitData:inspected,baseline:ordered});
    const displayPages=specific?.ok?specific.pages:(ordered?.pages||evaluation.pages);
    const lookupNames=()=>{
@@ -229,7 +230,7 @@ function mount(){
    out.append(warnings);
    out.append(el('p',evaluation.interpretation));
   }catch(e){
-   if(token===seq)out.replaceChildren(el('p','Erreur de lecture : '+String(e?.message||e)));
+   if(token===seq){out.replaceChildren(el('p','Erreur de lecture : '+String(e?.message||e)));reportFailure('Analyse des runes interrompue : '+String(e?.message||e));}
   }finally{clearTimeout(timeout);if(token===seq)btn.disabled=false;}
  });
 }
