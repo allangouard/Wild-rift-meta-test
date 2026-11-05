@@ -38,9 +38,15 @@
       "result": "observed_yes",
       "user_description": "Oui j’ai vu la rune s'active apres mon A",
       "interpretation": "Le joueur rapporte le déclenchement d’Électrocution après A dans l’enchaînement E → passif → A.",
-      "limits": "La vidéo 1000010924.mp4 a été examinée mais ne permet pas de distinguer visuellement avec certitude le proc ni de déterminer le compteur d’événements admissibles. Contrôle à deux touches et répétitions encore nécessaires.",
+      "limits": "Déclenchement du combo E → passif → A confirmé directement en jeu par le joueur. La contribution précise de chaque touche et le résultat du contrôle à deux touches restent non déterminés ; pas de vérification indépendante.",
       "media_reference": "1000010924.mp4",
-      "provenance": "user_report_with_video_inspected_not_independently_confirmed"
+      "provenance": "user_report_with_video_inspected_not_independently_confirmed",
+      "client_observation_verified_by_player": true,
+      "client_observation_status": "confirmed_by_player_in_wild_rift_client",
+      "user_confirmation": "Le joueur confirme explicitement avoir vu Électrocution s'activer après A sur le client Wild Rift.",
+      "independently_verified": false,
+      "replicated": false,
+      "precise_hit_count_verified": false
     }
   ]
 }
