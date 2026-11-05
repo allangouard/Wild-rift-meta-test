@@ -134,3 +134,8 @@ jobs:
           node --check wrdi-ten-kit-runes-v1412.js
           node --check wrdi-ten-kit-panel-v1412.js
           node --test wrdi-ten-kit-runes-v1412.test.js
+      - name: Tester matrice Galio et runes documentee V14.13
+        run: |
+          node --check wrdi-galio-rune-matrix-v1413.js
+          node --check wrdi-galio-rune-matrix-panel-v1413.js
+          node --test wrdi-galio-rune-matrix-v1413.test.js
