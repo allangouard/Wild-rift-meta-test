@@ -8,6 +8,8 @@ const minorAudit = require('./data/stage-a-minor-rune-completeness-2026-11-05.js
 const keystoneBatch = require('./data/stage-a-keystones-batch2-2026-11-05.json');
 const electrocution = require('./data/stage-a-rune-electrocution-2026-11-05.json');
 const rules = require('./data/stage-a-rune-page-rules-2026-11-05.json');
+const verifiedSlots = require('./data/stage-a-rune-verified-slots-2026-11-05.json');
+const slotByName = new Map(verifiedSlots.verified_examples.map(e => [e.name_fr, e]));
 
 const SOURCE_MINOR = [...new Set(minorAudit.entries.map(e => e.source))];
 const TREE_KEYS = Object.freeze({
@@ -25,6 +27,8 @@ function buildRuneCatalog() {
       const tree = entry.tree || source.tree;
       if (!TREE_KEYS[tree]) throw Error('Unknown client rune tree: ' + tree);
       if (!entry.id || !entry.name_fr) throw Error('Missing source rune name/id in ' + path);
+      const evidence = slotByName.get(entry.name_fr);
+      if (evidence && evidence.tree !== tree) throw Error('Slot evidence tree mismatch: '+ entry.name_fr);
       minor.push({
         id: 'wr:minor:' + TREE_KEYS[tree] + ':' + entry.id,
         local_source_id: entry.id,
@@ -32,8 +36,8 @@ function buildRuneCatalog() {
         name_fr: entry.name_fr,
         category: 'minor',
         tree,
-        primary_row: null,
-        primary_row_status: 'not_verified',
+        primary_row: evidence ? evidence.primary_row : null,
+        primary_row_status: evidence ? 'client_screenshot_verified' : 'not_verified',
         screenshot: entry.screenshot || null,
         source_path: path,
         client_effect_data: entry.mechanics || entry.stats || entry.effect || null,
