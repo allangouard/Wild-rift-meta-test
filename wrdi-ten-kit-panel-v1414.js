@@ -79,7 +79,8 @@ function mount(){
    const draftEngine=root.WRDI_GalioDraftRuneV1418;
    const ordered=draftEngine?.compare({kitData:inspected,pages:evaluation.pages,playerEvidence,bridge,catalog});
    if(ordered && !ordered.ok){out.append(el('p','Analyse des menaces indisponible : '+ordered.error));return;}
-   const displayPages=ordered?.pages||evaluation.pages;
+   const specific=root.WRDI_GalioAbilityThreatV1419?.refine({kitData:inspected,baseline:ordered});
+   const displayPages=specific?.ok?specific.pages:(ordered?.pages||evaluation.pages);
    const count=el('p',evaluation.coverage.available+'/10 kits exploitables · 7 pages légales · 5 runes examinées par page. Aucune meilleure page certifiée.');
    count.style.fontWeight='700';out.append(count);
    if(playerEvidence?.ok)out.append(el('p','✅ V14.17 — '+playerEvidence.positiveCount+' tests positifs et '+playerEvidence.negativeCount+' tests négatifs validés en jeu, dans les conditions rapportées. Aucun classement méta déduit.'));
@@ -89,6 +90,21 @@ function mount(){
     out.append(el('p','Ordre exploratoire fondé sur les signaux des 10 kits. Ce n’est ni un winrate ni une preuve de supériorité. Les observations de runes en jeu restent validées uniquement dans leurs conditions.'));
    }else{
     out.append(el('p','V14.18 : classement contextuel suspendu (fiches de champions manquantes ou aucun signal utilisable). Les 7 pages restent consultables sans ordre de puissance.'));
+   }
+   if(specific?.ok){
+    out.append(el('h3','🔍 V14.19 — Menaces par rôle et compétence'));
+    if(specific.comparisonAvailable)out.append(el('p','Ordre expérimental recalculé à partir des combinaisons de compétences adverses, sans estimer la puissance ou les chances de victoire.'));
+    else out.append(el('p','Aucun classement fiable par compétences : fiches absentes ou signaux insuffisants.'));
+    const profileDetails=el('details');profileDetails.append(el('summary','Voir les menaces précises des 5 adversaires'));
+    for(const p of specific.profiles){
+     const box=el('div');box.style.cssText='padding:8px 0;border-bottom:1px solid #345661';
+     box.append(el('strong',p.role+' · Champion '+p.id));
+     if(!p.available)box.append(el('p','Compétences indisponibles : aucune menace inférée.'));
+     else if(!p.findings.length)box.append(el('p','Aucun profil combiné détecté ; ne signifie pas champion inoffensif.'));
+     else for(const f of p.findings)box.append(el('p',f.label+' · Compétences signalées : '+(f.abilities.join(', ')||'emplacement inconnu')+' · '+f.reason));
+     profileDetails.append(box);
+    }
+    out.append(profileDetails);
    }
    const galio=el('p','Kit Galio : '+(comparison.galio.ccMentioned?'mentions de contrôle détectées':'contrôle non confirmé par la lecture lexicale')+' ; mobilité '+(comparison.galio.dashMentioned?'mentionnée':'non détectée')+' ; bouclier '+(comparison.galio.shieldMentioned?'mentionné':'non détecté')+'.');
    out.append(galio);
@@ -107,6 +123,10 @@ function mount(){
      el('p','Principales ('+c.page.primaryTree+') : '+c.page.primary.join(' · ')),
      el('p','Secondaire : '+c.page.secondary));
     box.append(el('p',c.conditionalOrIndirectCount+'/5 runes avec une interaction étudiée · '+c.notYetStudiedCount+'/5 à étudier. Ce chiffre n’est pas une note de puissance.'));
+    if(specific?.comparisonAvailable){
+     box.append(el('p','Adéquation rôle/compétence (hypothèse) : '+(c.roleCompatibility??'non classée')));
+     for(const threat of c.abilityThreats||[])box.append(el('p',(threat.impact>0?'+':'')+threat.impact+' · '+threat.role+' / '+threat.championId+' · '+threat.reason));
+    }
     if(ordered?.comparisonAvailable){
      const exp=c.contributions||[];
      box.append(el('p','Adéquation tactique exploratoire : '+(exp.length?exp.map(x=>(x.impact>0?'+':'')+x.impact+' · '+x.label+' ('+x.count+')').join(' ; '):'Aucun signal particulier associé à cette page.')));
@@ -134,7 +154,7 @@ function mount(){
    for(const c of displayPages.slice(3))remaining.append(renderPage(c,false));
    out.append(remaining);
    const warnings=el('details');warnings.append(el('summary','Limites et qualité des données'));
-   for(const w of [...comparison.warnings,...evaluation.warnings,...(ordered?.warnings||[])])warnings.append(el('p','• '+w));
+   for(const w of [...comparison.warnings,...evaluation.warnings,...(ordered?.warnings||[]),...(specific?.warnings||[])])warnings.append(el('p','• '+w));
    out.append(warnings);
    out.append(el('p',evaluation.interpretation));
   }catch(e){
