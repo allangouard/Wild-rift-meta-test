@@ -1,0 +1,33 @@
+{
+  "schema": "wrdi.stage_a.rune_page_rules.v1",
+  "game": "Wild Rift mobile",
+  "locale": "fr-FR",
+  "verified_on": "2026-11-05",
+  "evidence": {
+    "user_statement": "Une rune fondamentale, trois runes principales d'une même branche et une rune secondaire choisie dans l'une des trois autres branches. La secondaire ne peut pas être de la branche principale.",
+    "screenshot": "1000010857.jpg",
+    "screenshot_case": {
+      "primary_tree": "Domination",
+      "secondary_tree": "Volonté"
+    },
+    "classification_source": "data/stage-a-minor-rune-completeness-2026-11-05.json"
+  },
+  "trees": [
+    "Domination",
+    "Précision",
+    "Volonté",
+    "Sorcellerie"
+  ],
+  "keystone_count": 1,
+  "primary_count": 3,
+  "secondary_count": 1,
+  "require_all_primary_in_same_tree": true,
+  "secondary_tree_must_differ_from_primary": true,
+  "secondary_tree_allowed_options_count": 3,
+  "primary_runes_one_from_each_row": true,
+  "notes": [
+    "Screenshot shows three rows of primary tree runes, with one selected in each row.",
+    "Fundamental rune selection is separate from minor-tree classification.",
+    "The rule is explicitly confirmed by the user; does not imply all rune/champion exception mechanics have been tested."
+  ]
+}
