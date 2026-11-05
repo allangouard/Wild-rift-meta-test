@@ -206,13 +206,23 @@
   "known_gaps": [
     "Palier basique masqué sous le bord inférieur, requiert une capture supplémentaire.",
     "Détails des 13 autres bottes non visibles et non vérifiés.",
-    "Aucun enchantement de bottes isolé/documenté dans ces deux captures.",
     "Aucun identifiant canonique externe vérifié : identités provisoires par nom FR et capture uniquement.",
     "Ne pas confondre coût total affiché et coût d’amélioration à payer.",
-    "Versions de ressources ≠ sous-patch d’équilibrage prouvé."
+    "Versions de ressources ≠ sous-patch d’équilibrage prouvé.",
+    "Les objets actifs autonomes doivent être catalogués dans les catégories de boutique concernées et non comme enchantements de bottes."
   ],
   "policy": {
     "do_not_load_into_build_recommendations": true,
     "no_inferred_stats_from_short_descriptions": true
+  },
+  "item_system_confirmed_by_client_user": {
+    "boots_are_separate_equipment_category": true,
+    "boot_enchantments_exist": false,
+    "active_items_are_standalone_shop_items": true,
+    "examples": [
+      "Médaillon de l’Iron Solari",
+      "Lithoplastron de gargouille"
+    ],
+    "source": "explicit user clarification 2026-11-05"
   }
 }
