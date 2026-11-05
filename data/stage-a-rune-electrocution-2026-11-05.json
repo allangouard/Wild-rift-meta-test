@@ -1,0 +1,41 @@
+{
+  "schema": "wrdi.stage_a.client_rune_detail.v1",
+  "game": "Wild Rift mobile",
+  "date": "2026-11-05",
+  "source_image": "1000010750.jpg",
+  "source": "user-supplied in-game Galio selected keystone tooltip",
+  "champion_context": "Galio",
+  "category": "rune_fundamentale",
+  "name_fr": "Électrocution",
+  "subtitle_fr": "Dégâts de burst",
+  "effect": {
+    "target": "same_enemy_champion",
+    "trigger": "hit_same_enemy_champion_three_times_with_basic_attacks_or_abilities",
+    "required_hits": 3,
+    "window_seconds": 3,
+    "damage_type": "adaptive",
+    "damage_base_range": {
+      "min": 60,
+      "max": 210
+    },
+    "damage_base_scaling": "champion_level_icon_in_tooltip",
+    "bonus_ad_ratio_pct": 10,
+    "ap_ratio_pct": 5,
+    "cooldown_seconds": {
+      "min": 13,
+      "max": 20
+    },
+    "cooldown_scaling": "champion_level_icon_in_tooltip"
+  },
+  "exact_text_fr": "Touchez un même champion ennemi avec 3 attaques de base ou compétences en moins de 3 sec pour lui infliger des dégâts adaptatifs supplémentaires. Dégâts : 60-210 (niveau) + 10% dégâts d'attaque bonus + 5% puissance. Délai de récupération : 20-13 sec (niveau).",
+  "policy": {
+    "client_tooltip_verified": true,
+    "actual_combat_damage_not_experimentally_tested": true,
+    "never_use_lol_pc_values": true,
+    "no_automatic_rune_build_recommendations_yet": true
+  },
+  "open_questions": [
+    "Exact champion-level interpolation of damage and cooldown not stated.",
+    "Tooltip doesn't state whether separate hits from one ability count multiple times; do not infer."
+  ]
+}
