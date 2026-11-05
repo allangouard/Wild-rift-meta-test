@@ -86,3 +86,5 @@ jobs:
         run: node --test stage-a-rune-electrocution.test.js
       - name: Tester les 13 runes fondamentales Wild Rift
         run: node --test stage-a-keystones-batch2.test.js
+      - name: Tester dix runes Inspiration Wild Rift
+        run: node --test stage-a-inspiration-runes.test.js
