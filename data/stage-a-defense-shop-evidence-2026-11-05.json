@@ -33,7 +33,11 @@
       "screenshot": "1000010583.jpg",
       "existing_catalog_id": "zekes_convergence",
       "verification": "name_icon_price_visible_in_client",
-      "price_was_missing": true
+      "price_was_missing": true,
+      "client_full_details_newly_verified": true,
+      "full_item_stats_verified": true,
+      "detail_evidence_file": "data/stage-a-support-defense-batch6-2026-11-05.json",
+      "external_numeric_id_verified": false
     },
     {
       "id": "yordle_trap",
@@ -84,7 +88,11 @@
       "screenshot": "1000010583.jpg",
       "existing_catalog_id": "frozen_heart",
       "verification": "name_icon_price_visible_in_client",
-      "price_was_missing": true
+      "price_was_missing": true,
+      "client_full_details_newly_verified": true,
+      "full_item_stats_verified": true,
+      "detail_evidence_file": "data/stage-a-support-defense-batch7-2026-11-05.json",
+      "external_numeric_id_verified": false
     },
     {
       "id": "mantle_of_the_twelfth_hour",
