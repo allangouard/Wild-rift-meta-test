@@ -9,7 +9,7 @@
  else root.WRDI_GalioFiveItemOptimizerV1429=api;
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
-const VERSION='14.30.0-alpha.1';
+const VERSION='14.31.0-alpha.1';
 const num=v=>typeof v==='number'&&Number.isFinite(v)?Math.max(0,v):0;
 const count=v=>Math.min(5,num(v));
 const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9]/g,'');
@@ -47,7 +47,10 @@ function weights(threats={}){
   heal:Math.max(count(threats.heal),count(threats.sustain)>=2?1:0),
   shield:count(threats.shield),cc:count(threats.cc),burst:count(threats.burst),
   assassin:count(threats.assassin),crit:count(threats.crit),
-  frontlineNeed:count(threats.frontlineNeed),waveclearNeed:count(threats.waveclearNeed)};
+  frontlineNeed:count(threats.frontlineNeed),waveclearNeed:count(threats.waveclearNeed),
+  lanePhysical:count(threats.lanePhysical),laneMagic:count(threats.laneMagic),
+  laneAllIn:count(threats.laneAllIn),jungleAllIn:count(threats.jungleAllIn),
+  peelNeed:count(threats.peelNeed),critPotential:count(threats.critPotential)};
 }
 function calculate(items,threats){
  const t=weights(threats),fs=items.map(x=>x.feature||features(x));
@@ -67,9 +70,11 @@ function calculate(items,threats){
   if(ap<40)score-=frontline?1:5;
   if(hp<300)score-=frontline?8:5;
  }
- const physWeight=t.physical+(assassination?Math.min(t.assassin,3)*0.7:0);
+ const physWeight=t.physical+(assassination?Math.min(t.assassin,3)*0.7:0)+
+  (t.lanePhysical&&t.laneAllIn?1.2:0)+(t.jungleAllIn&&t.physical>=2?0.4:0);
  if(physWeight>=2)score+=Math.min(170,armor)*(frontline?0.075:0.055)*Math.min(1.6,physWeight/2.5);
- if(t.magic>=2)score+=Math.min(160,mr)*(frontline?0.073:0.055)*Math.min(1.5,t.magic/2.5);
+ const magicWeight=t.magic+(t.laneMagic&&t.laneAllIn?1.2:0);
+ if(magicWeight>=2)score+=Math.min(160,mr)*(frontline?0.073:0.055)*Math.min(1.5,magicWeight/2.5);
  if(frontline&&items.length>=4&&hp<700)score-=5;
  if(frontline&&items.length>=4&&armor+mr<80)score-=5;
  if(t.physical>=2&&armor>0)reasons.push('Armure face aux menaces physiques');
@@ -85,9 +90,12 @@ function calculate(items,threats){
  if(t.crit>0&&n('critMitigation')){score+=3+Math.min(2,t.crit);reasons.push('Réduction de dégâts critiques documentée');}
  // Context-sensitive passive: Randuin without confirmed critical attacks has
  // less utility than an armor item with a generally applicable passive.
- if(!t.crit)score-=n('critMitigation')*5;
+ if(!t.crit)score-=n('critMitigation')*7;
  if(t.waveclearNeed>0&&n('waveclear')){score+=3;reasons.push('Immolation facilitant la gestion des vagues');}
  if(t.cc>=2&&n('protective'))score+=1;
+ if(t.peelNeed&&n('protective'))score+=Math.min(2,t.peelNeed);
+ if(t.lanePhysical&&t.laneAllIn&&armor>0)reasons.push('Tenue de lane contre un engagement physique');
+ if(t.laneMagic&&t.laneAllIn&&mr>0)reasons.push('Tenue de lane contre un engagement magique');
  if(frontline&&n('hybridDefense')&&t.physical>=1&&t.magic>=1)score+=2;
  score-=Math.max(0,n('antiheal')-1)*5;
  score-=Math.max(0,n('maxHp')-1)*3;
@@ -140,7 +148,10 @@ function reasonFor(item,threats){
  const f=item.feature||features(item),t=weights(threats),r=[];
  if(t.heal&&f.antiheal)r.push('Anti-soins');
  if(t.assassin>=2&&f.stasis)r.push('Stase contre assassins');
- if(t.crit&&f.critMitigation)r.push('Contre dégâts critiques');
+ if(t.crit&&f.critMitigation)r.push('Contre dégâts critiques confirmés');
+ if(!t.crit&&f.critMitigation)r.push('Passif anti-critiques non confirmé (seule armure évaluée)');
+ if(t.lanePhysical&&t.laneAllIn&&f.armor)r.push('Protection face au mid physique');
+ if(t.laneMagic&&t.laneAllIn&&f.mr)r.push('Protection face au mid magique');
  if(t.frontlineNeed&&f.hybridDefense)r.push('Résistances pour première ligne');
  if(t.waveclearNeed&&f.waveclear)r.push('Nettoyage de vague');
  if(t.tank>=2&&f.maxHp)r.push('Contre les PV max');
