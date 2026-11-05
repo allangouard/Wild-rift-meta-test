@@ -74,6 +74,6 @@ test('app Galio route branches before external API patch check and external popu
 test('compact UI shows five-item build and alternatives',()=>{
  const ui=fs.readFileSync('wrdi-compact-dashboard-v1423.js','utf8');
  assert.ok(ui.includes('Build conseillé · 5 objets'));
- assert.ok(ui.includes('Variantes du build'));
+ assert.ok(ui.includes('Objets situationnels'));
  assert.ok(ui.includes('Bottes séparées'));
 });
