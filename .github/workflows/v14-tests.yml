@@ -52,3 +52,5 @@ jobs:
         run: node --test stage-a-shop-evidence.test.js
       - name: Verifier correspondances historiques et restrictions actifs
         run: node --test stage-a-identity-crosswalk.test.js
+      - name: Verifier les captures Combattant et les prix masques
+        run: node --test stage-a-fighter-shop.test.js
