@@ -1,0 +1,297 @@
+{
+  "schema": "wrdi.stage_a.client_shop_category_evidence.v1",
+  "captured_on": "2026-11-05",
+  "game": "Wild Rift mobile",
+  "mode": "training standard shop",
+  "client_app_version": "7.3.0.2813",
+  "client_resource_version": "7.3.60.133",
+  "category": "Défense",
+  "screenshot_count": 3,
+  "entry_count": 30,
+  "matched_existing_ids": 28,
+  "newly_verified_prices_count": 23,
+  "unresolved_identity_count": 2,
+  "images": [
+    "1000010583.jpg",
+    "1000010581.jpg",
+    "1000010579.jpg"
+  ],
+  "entries": [
+    {
+      "id": "abyssal_mask",
+      "name_fr": "Masque abyssal",
+      "price_gold": 2400,
+      "screenshot": "1000010583.jpg",
+      "existing_catalog_id": "abyssal_mask",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": true
+    },
+    {
+      "id": "zekes_convergence",
+      "name_fr": "Convergence de Zeke",
+      "price_gold": 2400,
+      "screenshot": "1000010583.jpg",
+      "existing_catalog_id": "zekes_convergence",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": true
+    },
+    {
+      "id": "yordle_trap",
+      "name_fr": "Piège à yordles",
+      "price_gold": 2400,
+      "screenshot": "1000010583.jpg",
+      "existing_catalog_id": "yordle_trap",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": true
+    },
+    {
+      "id": "knights_vow",
+      "name_fr": "Vœu du chevalier",
+      "price_gold": 2450,
+      "screenshot": "1000010583.jpg",
+      "existing_catalog_id": "knights_vow",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": true
+    },
+    {
+      "provisional_ref": "medallion_of_the_iron_solari_UNRESOLVED",
+      "name_fr": "Médaillon de l’Iron Solari",
+      "price_gold": 2500,
+      "screenshot": "1000010583.jpg",
+      "existing_catalog_id": null,
+      "verification": "name_icon_price_visible_in_client",
+      "needs_client_details": true
+    },
+    {
+      "id": "frozen_heart",
+      "name_fr": "Cœur gelé",
+      "price_gold": 2550,
+      "screenshot": "1000010583.jpg",
+      "existing_catalog_id": "frozen_heart",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": true
+    },
+    {
+      "id": "mantle_of_the_twelfth_hour",
+      "name_fr": "Manteau de l’heure ultime",
+      "price_gold": 2550,
+      "screenshot": "1000010583.jpg",
+      "existing_catalog_id": "mantle_of_the_twelfth_hour",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": true
+    },
+    {
+      "id": "winters_approach",
+      "name_fr": "Hiver imminent",
+      "price_gold": 2600,
+      "screenshot": "1000010583.jpg",
+      "existing_catalog_id": "winters_approach",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": true
+    },
+    {
+      "id": "radiant_virtue",
+      "name_fr": "Vertu radieuse",
+      "price_gold": 2650,
+      "screenshot": "1000010583.jpg",
+      "existing_catalog_id": "radiant_virtue",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": true
+    },
+    {
+      "id": "dawnshroud",
+      "name_fr": "Linceul de l’aube",
+      "price_gold": 2700,
+      "screenshot": "1000010583.jpg",
+      "existing_catalog_id": "dawnshroud",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": true
+    },
+    {
+      "id": "hollow_radiance",
+      "name_fr": "Rayonnement du vide",
+      "price_gold": 2800,
+      "screenshot": "1000010581.jpg",
+      "existing_catalog_id": "hollow_radiance",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": false
+    },
+    {
+      "id": "randuins_omen",
+      "name_fr": "Présage de Randuin",
+      "price_gold": 2800,
+      "screenshot": "1000010581.jpg",
+      "existing_catalog_id": "randuins_omen",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": true
+    },
+    {
+      "id": "dead_mans_plate",
+      "name_fr": "Plaque du mort",
+      "price_gold": 2800,
+      "screenshot": "1000010581.jpg",
+      "existing_catalog_id": "dead_mans_plate",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": true
+    },
+    {
+      "id": "force_of_nature",
+      "name_fr": "Force de la nature",
+      "price_gold": 2800,
+      "screenshot": "1000010581.jpg",
+      "existing_catalog_id": "force_of_nature",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": true
+    },
+    {
+      "id": "heartsteel",
+      "name_fr": "Cœur d’acier",
+      "price_gold": 2800,
+      "screenshot": "1000010581.jpg",
+      "existing_catalog_id": "heartsteel",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": true
+    },
+    {
+      "id": "kaenic_rookern",
+      "name_fr": "Rookern kaénique",
+      "price_gold": 2800,
+      "screenshot": "1000010581.jpg",
+      "existing_catalog_id": "kaenic_rookern",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": true
+    },
+    {
+      "id": "thornmail",
+      "name_fr": "Cotte épineuse",
+      "price_gold": 2850,
+      "screenshot": "1000010581.jpg",
+      "existing_catalog_id": "thornmail",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": false
+    },
+    {
+      "id": "warmogs_armor",
+      "name_fr": "Armure de Warmog",
+      "price_gold": 2850,
+      "screenshot": "1000010581.jpg",
+      "existing_catalog_id": "warmogs_armor",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": true
+    },
+    {
+      "provisional_ref": "gargoyle_stoneplate_UNRESOLVED",
+      "name_fr": "Lithoplastron de gargouille",
+      "price_gold": 2900,
+      "screenshot": "1000010581.jpg",
+      "existing_catalog_id": null,
+      "verification": "name_icon_price_visible_in_client",
+      "needs_client_details": true
+    },
+    {
+      "id": "sunfire_aegis",
+      "name_fr": "Égide solaire",
+      "price_gold": 2900,
+      "screenshot": "1000010581.jpg",
+      "existing_catalog_id": "sunfire_aegis",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": true
+    },
+    {
+      "id": "banshees_veil",
+      "name_fr": "Voile de la banshee",
+      "price_gold": 3000,
+      "screenshot": "1000010579.jpg",
+      "existing_catalog_id": "banshees_veil",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": false
+    },
+    {
+      "id": "unending_despair",
+      "name_fr": "Désespoir infini",
+      "price_gold": 3000,
+      "screenshot": "1000010579.jpg",
+      "existing_catalog_id": "unending_despair",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": false
+    },
+    {
+      "id": "iceborn_gauntlet",
+      "name_fr": "Gantelet givrant",
+      "price_gold": 3000,
+      "screenshot": "1000010579.jpg",
+      "existing_catalog_id": "iceborn_gauntlet",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": true
+    },
+    {
+      "id": "titanic_hydra",
+      "name_fr": "Hydre titanesque",
+      "price_gold": 3000,
+      "screenshot": "1000010579.jpg",
+      "existing_catalog_id": "titanic_hydra",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": true
+    },
+    {
+      "id": "overlords_bloodmail",
+      "name_fr": "Armure sanguine",
+      "price_gold": 3200,
+      "screenshot": "1000010579.jpg",
+      "existing_catalog_id": "overlords_bloodmail",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": true
+    },
+    {
+      "id": "guardian_angel",
+      "name_fr": "Ange gardien",
+      "price_gold": 3200,
+      "screenshot": "1000010579.jpg",
+      "existing_catalog_id": "guardian_angel",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": true
+    },
+    {
+      "id": "steraks_gage",
+      "name_fr": "Gage de Sterak",
+      "price_gold": 3200,
+      "screenshot": "1000010579.jpg",
+      "existing_catalog_id": "steraks_gage",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": true
+    },
+    {
+      "id": "amaranths_twinguard",
+      "name_fr": "Gémeaux d’Amaranth",
+      "price_gold": 3200,
+      "screenshot": "1000010579.jpg",
+      "existing_catalog_id": "amaranths_twinguard",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": true
+    },
+    {
+      "id": "zhonyas_hourglass",
+      "name_fr": "Sablier de Zhonya",
+      "price_gold": 3300,
+      "screenshot": "1000010579.jpg",
+      "existing_catalog_id": "zhonyas_hourglass",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": false
+    },
+    {
+      "id": "deaths_dance",
+      "name_fr": "Danse de la mort",
+      "price_gold": 3300,
+      "screenshot": "1000010579.jpg",
+      "existing_catalog_id": "deaths_dance",
+      "verification": "name_icon_price_visible_in_client",
+      "price_was_missing": true
+    }
+  ],
+  "notes": [
+    "Screenshots confirm item displayed names, icons, category and prices only; no detailed item stats or passive effects.",
+    "Two shop entries are not in curated 59-item catalog; keep provisional references only, never assume current canonical ID or whether active item rules include them.",
+    "The full list of Defence as displayed in three captures; other shop categories might repeat some entries.",
+    "The resources build does not independently identify specific balance patch."
+  ]
+}
