@@ -84,12 +84,10 @@ function boot(){
    const token=++sequence;
    explorerOutput.replaceChildren();
    const scenarios=root.WRDI_GalioRuneScenariosV14;
-   const core=root.WRDI_CoreV14;
-   const coordinator=root.WRDI_CoordinatorV14;
-   const adapters=root.WRDI_AdaptersV14;
-   const summaryApi=root.WRDI_ThreatSummaryV14;
-   if(!scenarios||!core||!coordinator||!adapters||!summaryApi){
-    explorerOutput.appendChild(make('p','Modules V14.8 et diagnostic V14 manquants.'));
+   const runeDraft=root.WRDI_RuneDraftAdapterV1410;
+   const kitApi=root.WRDIChampionThreatsV125;
+   if(!scenarios||!runeDraft){
+    explorerOutput.appendChild(make('p','Module de runes V14.10 manquant.'));
     return;
    }
    let picks=[];
@@ -102,24 +100,24 @@ function boot(){
    runButton.disabled=true;
    explorerOutput.appendChild(make('p','Lecture des données de draft…'));
    try{
-    const app=adapters.create({root,storage:localStorage,fetchJson:load,core,coordinator});
-    const report=await app.run();
+    const analysis=await runeDraft.run({
+     picks,getAudit:()=>kitApi?.getLastAudit?.()||null,
+     analyze:kitApi?.analyze?.bind(kitApi),
+     isCurrent:()=>localStorage.getItem('wrdi_draft_v76')===fingerprint
+    });
     if(token!==sequence)return;
-    if(localStorage.getItem('wrdi_draft_v76')!==fingerprint){
-     explorerOutput.replaceChildren(make('p','La draft a changé : relance la comparaison.'));
+    if(!analysis.ok){
+     explorerOutput.replaceChildren(make('p','Analyse de runes indisponible : '+(analysis.reason||analysis.status)));
      return;
     }
-    if(!report.ok){
-     explorerOutput.replaceChildren(make('p','Rapport V14 indisponible : '+(report.reason||report.errors?.join(' ; ')||report.status)));
-     return;
-    }
-    const summary=summaryApi.summarize(report);
+    const summary=analysis.summary;
     const result=scenarios.evaluate({championId:picks[2],summary,catalog,bridge});
     explorerOutput.replaceChildren();
     if(!result.ok){
      explorerOutput.appendChild(make('p','Comparaison impossible : '+result.blockers.join(' ; ')));
      return;
     }
+    explorerOutput.appendChild(make('p',summary.enemyKitSignalsAvailable?'Kits adverses récupérés : indications contextuelles non calibrées.':'Kits adverses indisponibles : ces trois pages sont génériques, sans adaptation à cette draft.'));
     for(const c of result.candidates){
      const box=make('section');box.style.cssText='margin:12px 0;padding:12px;border:1px solid #4b6976;border-radius:8px';
      box.appendChild(make('h4',c.label));
