@@ -183,7 +183,7 @@ else host.appendChild(panel);
               line('PV effectifs physiques (modèle isolé) : '+Math.round(item.ehp.physical)+' · gain '+Math.round(item.ehp.physicalGain)+'.',card);
               line('PV effectifs magiques (modèle isolé) : '+Math.round(item.ehp.magic)+' · gain '+Math.round(item.ehp.magicGain)+'.',card);
               if(item.id==='thornmail'){
-                line('Épines : '+item.mechanics.onAttackReturnRaw.toFixed(1)+' dégâts magiques BRUTS par attaque déclenchante, avant résistances adverses.',card);
+                line('Épines : '+item.mechanics.onAttackReturnRaw.toFixed(1)+' dégâts magiques bruts dans ce calcul PARTIEL (20 de base + bonus de la Cotte uniquement). Les autres bonus PV/armure de Galio ne sont pas renseignés : ce chiffre ne représente pas les dégâts totaux du passif.',card);
                 line('Entrelacs : '+item.mechanics.healingReductionPct+' % Hémorragie pendant '+item.mechanics.durationSeconds+' s sous conditions de déclenchement.',card);
               }else{
                 line('Affliction : '+item.mechanics.oneProcRaw.toFixed(1)+' dégâts magiques BRUTS par déclenchement hypothétique de '+item.mechanics.tickSeconds+' s.',card);
