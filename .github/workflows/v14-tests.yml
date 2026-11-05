@@ -118,3 +118,9 @@ jobs:
         run: |
           node --check assets/unified-interface-v149.js
           node --test wrdi-runes-entry-v149.test.js
+      - name: Tester la correction runes V14.10 indépendante des objets
+        run: |
+          node --check wrdi-rune-draft-adapter-v1410.js
+          node --check wrdi-rune-panel-v14.js
+          node --check wrdi-galio-rune-scenarios-v14.js
+          node --test wrdi-rune-draft-adapter-v1410.test.js
