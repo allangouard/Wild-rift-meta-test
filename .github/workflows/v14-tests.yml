@@ -78,3 +78,5 @@ jobs:
         run: node --test stage-a-support-defense-batch7.test.js
       - name: Tester Masque abyssal et non-cumul
         run: node --test stage-a-abyssal-mask-details.test.js
+      - name: Tester reconciliation des inventaires et fiches deja verifiees
+        run: node --test stage-a-reconciliation-status.test.js
