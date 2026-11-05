@@ -60,19 +60,20 @@ function init(){
   haveBuild=true;buildDone=true;core.replaceChildren();
   core.append(el('h3',d.fullBuild?'⚔️ Build conseillé · 5 objets':'⚔️ Core Mid observé'));
   fillRow(core,d.core.map((x,i)=>d.purchaseOrderEstablished?(i+1)+'. '+x.name:x.name));
-  const help=el('p',d.fullBuild?'Cinq objets sélectionnés ensemble. L’ordre d’achat est une priorité théorique pour la lane puis les combats, à réévaluer en partie. Bottes séparées ; l’objet actif compte parmi les cinq.':'Trois objets Mid observés, pas encore un build complet optimisé.');help.className='small';core.append(help);
+  const help=el('p',d.fullBuild?'Cinq objets sélectionnés ensemble. L’ordre d’achat est préparé avant la partie selon la draft. Bottes séparées ; l’objet actif compte parmi les cinq.':'Trois objets Mid observés, pas encore un build complet optimisé.');help.className='small';core.append(help);
   if(d.fullBuild&&Array.isArray(d.buildReasons)&&d.buildReasons.length){
    const reasons=el('p',d.buildReasons.slice(0,2).join(' · '));reasons.className='small';core.append(reasons);
   }
   const statusLine=el('p',d.itemRestrictionsChecked?'Fiches complètes du client validées ; compatibilité des objets contrôlée.':'Compatibilité des objets non démontrée : '+(d.itemRestrictionsMessage||'données incomplètes'));
   statusLine.className='small';core.append(statusLine);
-  items.replaceChildren(el('h3',d.fullBuild?'🔄 Variantes du build':'🔄 Objets situationnels'));
-  if(!d.situational?.length)items.append(el('p',d.fullBuild?'Aucune variante complète vérifiable.':'Aucun objet complémentaire suffisamment documenté.'));
+  items.replaceChildren(el('h3','🔄 Objets situationnels'));
+  if(!d.situational?.length)items.append(el('p','Aucun remplacement conditionnel suffisamment justifié.'));
   for(const x of d.situational||[]){
    const item=el('div');item.className='run-sub';
-   const headline=el('strong',x.name);item.append(headline);
+   const headline=el('strong',x.replace?'Remplacer '+x.replace+' par '+x.name:x.name);item.append(headline);
+   if(x.condition){const when=el('p',x.condition);item.append(when);}
    const why=el('p',x.reason||'Alternative conditionnelle');why.className='small';item.append(why);
-   if(x.timing&&!d.fullBuild){const when=el('p','Quand : '+x.timing);when.className='small';item.append(when);}
+   if(x.timing&&!x.condition){const when=el('p','Quand : '+x.timing);when.className='small';item.append(when);}
    items.append(item);
   }
   settleStatus();
