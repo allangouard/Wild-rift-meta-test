@@ -58,8 +58,8 @@ test('no scenario hardcoded by champion identity in scoring engine',()=>{
 test('app sends ally frontline requirement and crit evidence, without inserting a champion-specific counter',()=>{
  const app=fs.readFileSync('assets/app.js','utf8');
  const section=app.slice(app.indexOf('async function wrdiGalioFiveCatalogAnalyze('),app.indexOf('async function simpleAnalyze(){'));
- assert.ok(section.includes('allyProfiles.counts.tank===0'));
- assert.ok(section.includes('analysis.counts.crit||0'));
+ assert.ok(section.includes('WRDI_GalioTeamContextV1431?.make'));
+ assert.ok(section.includes('teamContext.threats'));
  assert.ok(section.includes('frontlineNeed'));
  assert.ok(!section.includes("if(enemyNames.includes('Zed'))"));
 });
