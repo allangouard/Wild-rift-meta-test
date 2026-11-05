@@ -1,0 +1,110 @@
+{
+  "schema": "wrdi.stage_a.support_passives_batch5.v1",
+  "game": "Wild Rift mobile",
+  "date": "2026-11-05",
+  "client_app_version": "7.3.0.2813",
+  "client_resource_version": "7.3.60.133",
+  "source": "Three item detail screenshots supplied directly from the user's Wild Rift client",
+  "items": [
+    {
+      "name_fr": "Bâton des flots",
+      "catalog_id": "staff_of_flowing_water",
+      "price_gold": 2400,
+      "image": "1000010716.jpg",
+      "stats": {
+        "ability_power": 50,
+        "mana_regeneration_pct": 50,
+        "ability_haste": 10,
+        "heal_shield_power_pct": 8
+      },
+      "passives": [
+        {
+          "name_fr": "Rapides",
+          "trigger": "cast_heal_or_shield_on_ally",
+          "beneficiaries": [
+            "caster",
+            "target_allied_champion"
+          ],
+          "granted_ability_haste": 15,
+          "granted_ability_power": 40,
+          "duration_seconds": 6
+        }
+      ],
+      "full_description_visible": true,
+      "external_numeric_id_verified": false
+    },
+    {
+      "name_fr": "Piège à yordles",
+      "catalog_id": "yordle_trap",
+      "price_gold": 2400,
+      "image": "1000010713.jpg",
+      "stats": {
+        "hp": 200,
+        "armor": 20,
+        "magic_resistance": 20,
+        "ability_haste": 15
+      },
+      "passives": [
+        {
+          "name_fr": "Attrapeur",
+          "trigger": "slow_or_immobilize_enemy_champion",
+          "empower_duration_melee_seconds": 8,
+          "empower_duration_ranged_seconds": 4,
+          "bonus_movement_speed_flat": 20,
+          "empowered_effect": {
+            "beneficiaries": "caster_and_nearby_allied_champions",
+            "attack_speed_bonus_melee_pct": 30,
+            "attack_speed_bonus_ranged_pct": 20
+          },
+          "visible_additional_gold": {
+            "bonus_gold": 20,
+            "visible_condition_fragment": "Vous gagnez 20 PO bonus si vous ou vos alliés éliminez un champion",
+            "condition_or_additional_text_truncated": true
+          }
+        }
+      ],
+      "full_description_visible": false,
+      "external_numeric_id_verified": false
+    },
+    {
+      "name_fr": "Vœu du chevalier",
+      "catalog_id": "knights_vow",
+      "price_gold": 2450,
+      "image": "1000010710.jpg",
+      "stats": {
+        "hp": 200,
+        "hp_regeneration_pct": 100,
+        "armor": 40,
+        "ability_haste": 10
+      },
+      "passives": [
+        {
+          "name_fr": "Sacrifice",
+          "trigger": "designated_allied_champion_is_nearby",
+          "damage_redirect_pct": 12,
+          "damage_redirect_direction": "from_designated_ally_to_item_owner",
+          "healing_pct_of_designated_ally_damage_to_champions": 10,
+          "damage_heal_basis": "not_specified_pre_or_post_mitigation"
+        },
+        {
+          "name_fr": "Serment",
+          "trigger": "on_item_purchase_or_repurchase",
+          "effect": "designate_one_allied_champion_for_protection"
+        }
+      ],
+      "full_description_visible": true,
+      "external_numeric_id_verified": false
+    }
+  ],
+  "policy": {
+    "do_not_automatically_load_into_build_recommendations": true,
+    "mechanics_interactions_experimentally_validated": false,
+    "external_numeric_ids_verified": false
+  },
+  "open_questions": [
+    "Piège à yordles: bottom of gold-on-kill line is cut off; do not infer any additional restrictions or details from the cropped portion.",
+    "Piège à yordles: difference in attack-speed bonus for the owner vs ranged beneficiaries is stated but specific treatment across mixed compositions still requires testing.",
+    "Vœu du chevalier: distance threshold for being 'nearby' is not specified; do not invent a range.",
+    "Bâton des flots: no separate cooldown is printed; do not add one."
+  ]
+}
