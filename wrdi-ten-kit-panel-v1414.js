@@ -64,10 +64,22 @@ function mount(){
    if(!matrix||!evidenceEngine){
     out.append(el('p','Matrice de runes V14.14 indisponible.'));return;
    }
-   const evaluation=evidenceEngine.compare({kitData:inspected,comparison,matrix,catalog,bridge});
+   let playerEvidence=null;
+   try{
+    const recorded=await fetch('./data/galio-rune-training-observations-v1415.json',{cache:'no-store'});
+    if(recorded.ok && root.WRDI_GalioPlayerEvidenceV1416){
+     playerEvidence=root.WRDI_GalioPlayerEvidenceV1416.summarize(await recorded.json());
+    }
+   }catch(e){/* Observations optionally unavailable; preserve exploratory analysis. */}
+   if(token!==seq||JSON.stringify(ids())!==fingerprint){
+    out.replaceChildren(el('p','Draft modifiée pendant la lecture des observations.'));return;
+   }
+   const evaluation=evidenceEngine.compare({kitData:inspected,comparison,matrix,catalog,bridge,playerEvidence});
    if(!evaluation.ok){out.append(el('p','Vérification des runes bloquée : '+evaluation.errors.join(' ; ')));return;}
    const count=el('p',evaluation.coverage.available+'/10 kits exploitables · 7 pages légales · 5 runes examinées par page. Aucune meilleure page certifiée.');
    count.style.fontWeight='700';out.append(count);
+   if(playerEvidence?.ok)out.append(el('p','✅ V14.17 — '+playerEvidence.positiveCount+' tests positifs et '+playerEvidence.negativeCount+' tests négatifs validés en jeu, dans les conditions rapportées. Aucun classement méta déduit.'));
+   else out.append(el('p','Observations en jeu indisponibles : lecture documentaire uniquement.'));
    const galio=el('p','Kit Galio : '+(comparison.galio.ccMentioned?'mentions de contrôle détectées':'contrôle non confirmé par la lecture lexicale')+' ; mobilité '+(comparison.galio.dashMentioned?'mentionnée':'non détectée')+' ; bouclier '+(comparison.galio.shieldMentioned?'mentionné':'non détecté')+'.');
    out.append(galio);
    const show=el('details');show.append(el('summary','Voir les 10 fiches et leurs limites'));
@@ -90,7 +102,9 @@ function mount(){
     const details=el('details');details.append(el('summary','Voir les cinq runes et les déclenchements'));
     for(const rune of c.runes){
      const item=el('details');
-     item.append(el('summary',rune.name+' · '+(rune.evidenceStatus==='not_yet_studied'?'Interaction non étudiée':'Interaction conditionnelle/non certifiée')));
+     const confirmed=(rune.playerObservations||[]);
+     item.append(el('summary',rune.name+' · '+(confirmed.length?confirmed.length+' observation(s) validée(s) en jeu':rune.evidenceStatus==='not_yet_studied'?'Interaction non étudiée':'Interaction documentaire conditionnelle')));
+     for(const obs of confirmed)item.append(el('p',(obs.triggered?'✅ Activation observée':'⛔ Pas d’activation observée')+' · '+obs.condition+' (conditions testées uniquement)'));
      if(!rune.interactions.length)item.append(el('p','Aucune interaction directe documentée à ce stade ; cela ne signifie pas que la rune est inefficace.'));
      for(const link of rune.interactions)item.append(el('p',link.ability+' · '+link.status+' : '+link.condition+' '+link.reason));
      details.append(item);
