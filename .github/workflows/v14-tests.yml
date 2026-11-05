@@ -48,3 +48,5 @@ jobs:
           node --check wrdi-galio-item-duel-v14.js
           node --check wrdi-diagnostic-v14.js
           node --test wrdi-galio-item-duel-v14.test.js
+      - name: Verifier les captures et prix du catalogue etape A
+        run: node --test stage-a-shop-evidence.test.js
