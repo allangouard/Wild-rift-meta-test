@@ -199,3 +199,9 @@ jobs:
         run: |
           node --check wrdi-galio-item-guard-v1424.js
           node --test wrdi-galio-item-guard-v1424.test.js
+      - name: Tester fin de chargement analyses build runes V14.26
+        run: |
+          node --check assets/app.js
+          node --check wrdi-ten-kit-panel-v1414.js
+          node --check wrdi-compact-dashboard-v1423.js
+          node --test wrdi-compact-lifecycle-v1426.test.js
