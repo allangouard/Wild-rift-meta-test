@@ -125,7 +125,10 @@
       "canonical_external_id_verified": false,
       "proof": "shop_list_name_icon_price_visible",
       "price_status": "visible",
-      "details_verified": false
+      "details_verified": true,
+      "client_full_details_newly_verified": true,
+      "detail_evidence_file": "data/stage-a-standalone-actives-batch2-2026-11-05.json",
+      "external_numeric_id_verified": false
     },
     {
       "name_fr": "Lame du roi déchu",
