@@ -9,7 +9,7 @@
     "1000010671.jpg",
     "1000010674.jpg"
   ],
-  "coverage": "20 visible entries; full category not yet explicitly confirmed by user",
+  "coverage": "complete_20_items_confirmed_by_user_for_current_client",
   "counts": {
     "visible_entries": 20,
     "visible_prices": 20,
@@ -314,11 +314,13 @@
     "Icon next to Shurelya, Mikael, Redemption and Locket suggests a distinctive item type, but cannot independently certify active mechanics without detail screens.",
     "Écho harmonieux is the displayed purchasable item; do not silently equate it with Diadème musical or its transformations.",
     "Échos d'Helia shows a yellow N marker; semantics not inferred.",
-    "Full shop category completeness requires user's confirmation.",
-    "The external numeric IDs of new entries are not verified; provisional candidates must not feed recommendations."
+    "The external numeric IDs of new entries are not verified; provisional candidates must not feed recommendations.",
+    "User explicitly confirms the 20 listed items comprise full Support category of current mobile Wild Rift client; stats/passives and external IDs remain independently unverified."
   ],
   "policy": {
     "do_not_automatically_load_into_build_recommendations": true,
     "no_assumptions_from_unread_full_details": true
-  }
+  },
+  "category_complete_confirmed_by_user": true,
+  "category_complete_confirmation_date": "2026-11-05"
 }
