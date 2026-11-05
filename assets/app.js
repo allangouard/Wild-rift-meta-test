@@ -476,13 +476,14 @@ async function wrdiGalioFiveCatalogAnalyze({out,enemy,reportFailure}){
   const analysis=engineNotes(enemyNames);
   const allyIds=draftPicks.slice(0,5).filter((_,i)=>i!==2);
   const allyNames=allyIds.map(id=>pickerName(champions.find(x=>String(x.id)===String(id))||{id,name:String(id)}));
-  const allyProfiles=engineNotes(allyNames);
-  // Threat profiles are general kit archetypes, not predictions of enemy items.
-  // A full team without a dedicated tank gives Galio greater frontline responsibility.
-  const fullAllyDraft=allyIds.length===4&&allyIds.every(Boolean);
-  const frontlineNeed=fullAllyDraft&&allyProfiles.unknown.length===0&&allyProfiles.counts.tank===0?2:0;
-  const knownCritPotential=analysis.counts.crit||0;
-  const draftNeeds={...analysis.counts,crit:knownCritPotential,frontlineNeed};
+  const teamContext=window.WRDI_GalioTeamContextV1431?.make({
+   enemies:enemyNames,
+   allies:[...allyNames.slice(0,2),'Galio',...allyNames.slice(2)],
+   lookup:getThreat
+  });
+  if(!teamContext?.ok)throw Error('Analyse des fonctions d’équipe indisponible');
+  // Use role-sensitive draft features; never infer real enemy item purchases.
+  const draftNeeds=teamContext.threats;
   const outcome=optimizer.optimize({prepared,threats:draftNeeds});
   if(!outcome.ok)throw Error(outcome.reason||'Construction du build impossible');
   const main=outcome.main;
@@ -506,10 +507,10 @@ async function wrdiGalioFiveCatalogAnalyze({out,enemy,reportFailure}){
    core:main.items.map(i=>({id:i.id,name:i.name,reason:i.reason})),
    situational:alternatives.map(a=>({id:a.changed[0]||'',name:a.changed.join(' + ')||'Combinaison alternative',
      reason:a.reason,timing:'Selon les menaces prioritaires'})),
-   alternatives,buildReasons:main.reasons,
+   alternatives,buildReasons:[...teamContext.reasons.slice(0,2),...main.reasons].slice(0,3),
    itemRestrictionsChecked:true,
    itemRestrictionsMessage:'Cinq objets légaux du catalogue vérifié, bottes séparées',
-   noPopularityData:true,noDamageForecast:true
+   noPopularityData:true,noDamageForecast:true,teamContextVersion:teamContext.version
   }}));
  }catch(e){
   const msg='Build Galio indisponible : '+String(e?.message||e);
