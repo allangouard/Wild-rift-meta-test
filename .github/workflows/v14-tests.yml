@@ -163,3 +163,8 @@ jobs:
           node --check wrdi-galio-draft-runes-v1418.js
           node --check wrdi-ten-kit-panel-v1414.js
           node --test wrdi-galio-draft-runes-v1418.test.js
+      - name: Tester classification des menaces par role et competence V14.19
+        run: |
+          node --check wrdi-galio-ability-threat-v1419.js
+          node --check wrdi-ten-kit-panel-v1414.js
+          node --test wrdi-galio-ability-threat-v1419.test.js
