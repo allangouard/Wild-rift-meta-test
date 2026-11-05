@@ -78,6 +78,35 @@
       "precise_hit_count_verified": false,
       "activation_window_seconds_verified": false,
       "limits": "Les activations après ces combos sont confirmées par le joueur ; pas de vérification instrumentée du nombre exact de touches admissibles, de leur fenêtre de 3 secondes ou du cooldown pour chaque essai. Aucun résultat concernant Rush phasique."
+    },
+    {
+      "test_id": "phase-combo",
+      "rune": "Rush phasique",
+      "ability": "E → P → A et autres combos de trois interactions",
+      "result": "observed_yes",
+      "user_description": "Activation observée avec E → passif → A ; plusieurs autres combos à trois interactions ont également déclenché Rush phasique.",
+      "interpretation": "Le joueur observe des déclenchements répétés de Rush phasique lors de différents enchaînements comprenant trois interactions. La contribution individuelle de chaque événement, la fenêtre temporelle exacte et le délai de récupération ne sont pas mesurés.",
+      "client_observation_status": "confirmed_by_player_in_wild_rift_client",
+      "client_observation_verified_by_player": true,
+      "independently_verified": false,
+      "replicated_by_player": true,
+      "replication_count": "plusieurs essais, nombre exact non précisé",
+      "activation_window_seconds_verified": false,
+      "limits": "Aucune mesure chronométrée ou preuve instrumentée ; ne démontre pas l'activation avec seulement deux interactions."
+    },
+    {
+      "test_id": "phase-q-ticks",
+      "rune": "Rush phasique",
+      "ability": "A uniquement (Vents de guerre, tornade et dégâts répétés)",
+      "result": "observed_no",
+      "user_description": "Aucune activation avec A seul sur trois essais ou davantage.",
+      "interpretation": "Dans les conditions rapportées par le joueur, les dégâts successifs de A seul n'ont pas suffi à déclencher Rush phasique. Cela ne démontre pas à lui seul comment chaque tick est comptabilisé ni toutes les conditions de déclenchement.",
+      "client_observation_status": "reported_by_player_in_wild_rift_client",
+      "independently_verified": false,
+      "replicated_by_player": true,
+      "replication_count": "3 ou plus",
+      "activation_window_seconds_verified": false,
+      "limits": "Disponibilité de la rune et autres conditions initiales non enregistrées de façon instrumentée ; pas de vidéo fournie pour ces essais."
     }
   ]
 }
