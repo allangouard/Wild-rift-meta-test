@@ -84,3 +84,5 @@ jobs:
         run: node --test stage-a-galio-runes-layout.test.js
       - name: Tester rune fondamentale Electrocution issue du client Wild Rift
         run: node --test stage-a-rune-electrocution.test.js
+      - name: Tester les 13 runes fondamentales Wild Rift
+        run: node --test stage-a-keystones-batch2.test.js
