@@ -126,7 +126,8 @@ function init(){
    runes.replaceChildren(el('h3','✨ Runes conseillées'),el('p',button?.disabled?'Une analyse des runes est déjà en cours. Relance-la si elle ne se termine pas.':'Complète les dix champions avec Galio mid pour l’adaptation automatique.'));
    settleStatus();
   }
- });
+ },true);
+
  document.getElementById('simpleClear')?.addEventListener('click',()=>{
   activeSignature='';haveBuild=false;haveRunes=false;buildDone=false;runeDone=false;sequence++;if(pendingTimer){clearTimeout(pendingTimer);pendingTimer=null;}
   core.replaceChildren();items.replaceChildren();runes.replaceChildren();
