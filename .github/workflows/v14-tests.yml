@@ -39,3 +39,7 @@ jobs:
         run: |
           node --check wrdi-threat-summary-v14.js
           node --test wrdi-threat-summary-v14.test.js
+      - name: Verifier et tester la preparation Galio V14.5
+        run: |
+          node --check wrdi-galio-readiness-v14.js
+          node --test wrdi-galio-readiness-v14.test.js
