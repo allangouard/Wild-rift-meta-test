@@ -205,3 +205,8 @@ jobs:
           node --check wrdi-ten-kit-panel-v1414.js
           node --check wrdi-compact-dashboard-v1423.js
           node --test wrdi-compact-lifecycle-v1426.test.js
+      - name: Tester pertinence des passifs client Galio V14.27
+        run: |
+          node --check wrdi-galio-item-context-v1427.js
+          node --check assets/app.js
+          node --test wrdi-galio-item-context-v1427.test.js
