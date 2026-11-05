@@ -28,6 +28,7 @@ function init(){
  body.wrdi-compact-v1423 #draft,body.wrdi-compact-v1423 #optimizer,body.wrdi-compact-v1423 #builds,
  body.wrdi-compact-v1423 #champions,body.wrdi-compact-v1423 #items,body.wrdi-compact-v1423 #runes,body.wrdi-compact-v1423 #sources{display:none!important}
  body.wrdi-compact-v1423 #simpleApp > details.simple-card{display:none}
+ body.wrdi-compact-v1423 #wrdiDiagnostic143{display:none!important}
  body.wrdi-compact-v1423 #simpleResults{display:none!important}
  body.wrdi-compact-v1423 #wrdiTechnicalV1423>summary{color:#b7ccd0;padding:10px 0;font-size:13px}
  body.wrdi-compact-v1423 #wrdiTechnicalV1423 #simpleResults{display:block!important}
@@ -59,7 +60,7 @@ function init(){
   haveBuild=true;buildDone=true;core.replaceChildren();
   core.append(el('h3',d.fullBuild?'⚔️ Build conseillé · 5 objets':'⚔️ Core Mid observé'));
   fillRow(core,d.core.map(x=>x.name));
-  const help=el('p',d.fullBuild?'Cinq objets principaux choisis ensemble selon Galio mid et les menaces. Bottes et enchantement à sélectionner séparément.':'Trois objets Mid observés, pas encore un build complet optimisé.');help.className='small';core.append(help);
+  const help=el('p',d.fullBuild?'Cinq objets comparés ensemble pour Galio mid. Pas encore d’ordre d’achat validé. Bottes séparées ; les objets actifs du client comptent parmi les cinq.':'Trois objets Mid observés, pas encore un build complet optimisé.');help.className='small';core.append(help);
   if(d.fullBuild&&Array.isArray(d.buildReasons)&&d.buildReasons.length){
    const reasons=el('p',d.buildReasons.slice(0,2).join(' · '));reasons.className='small';core.append(reasons);
   }
