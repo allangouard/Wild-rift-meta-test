@@ -8,7 +8,7 @@
     {
       "id": "axiom_arcanist",
       "name_fr": "Arcaniste axiomatique",
-      "tree": "Inspiration",
+      "tree": "Sorcellerie",
       "screenshot": "1000010835.jpg",
       "stats": {
         "ultimate_damage_healing_shield_increase_pct": 10,
