@@ -153,3 +153,8 @@ jobs:
         run: |
           node --check wrdi-galio-player-evidence-v1416.js
           node --test wrdi-galio-player-evidence-v1416.test.js
+      - name: Tester integration des observations de runes Galio V14.17
+        run: |
+          node --check wrdi-galio-rune-evidence-v1414.js
+          node --check wrdi-ten-kit-panel-v1414.js
+          node --test wrdi-galio-rune-integrated-v1417.test.js
