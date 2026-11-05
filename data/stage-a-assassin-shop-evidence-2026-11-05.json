@@ -100,8 +100,10 @@
       "screenshot": "1000010659.jpg",
       "shop_short_description_fr": "Dissipe les contrôles de foule.",
       "external_numeric_id_verified": false,
-      "details_verified": false,
-      "verification": "visible_name_icon_price_short_description_from_user_client"
+      "details_verified": true,
+      "verification": "visible_name_icon_price_short_description_from_user_client",
+      "client_full_details_newly_verified": true,
+      "detail_evidence_file": "data/stage-a-standalone-actives-batch2-2026-11-05.json"
     },
     {
       "name_fr": "Rancune de Serylda",
