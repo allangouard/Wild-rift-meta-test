@@ -92,6 +92,72 @@
       "primary_row": 3,
       "source_image": "1000010881.jpg",
       "tree": "Précision"
+    },
+    {
+      "name_fr": "Arcaniste axiomatique",
+      "tree": "Sorcellerie",
+      "primary_row": 1,
+      "source_image": "1000010883.jpg"
+    },
+    {
+      "name_fr": "Ruban de mana",
+      "tree": "Sorcellerie",
+      "primary_row": 1,
+      "source_image": "1000010883.jpg"
+    },
+    {
+      "name_fr": "Botaniste",
+      "tree": "Sorcellerie",
+      "primary_row": 1,
+      "source_image": "1000010883.jpg"
+    },
+    {
+      "name_fr": "Saut Hextech",
+      "tree": "Sorcellerie",
+      "primary_row": 1,
+      "source_image": "1000010891.jpg"
+    },
+    {
+      "name_fr": "Transcendance",
+      "tree": "Sorcellerie",
+      "primary_row": 2,
+      "source_image": "1000010885.jpg"
+    },
+    {
+      "name_fr": "Célérité",
+      "tree": "Sorcellerie",
+      "primary_row": 2,
+      "source_image": "1000010885.jpg"
+    },
+    {
+      "name_fr": "Concentration absolue",
+      "tree": "Sorcellerie",
+      "primary_row": 2,
+      "source_image": "1000010885.jpg"
+    },
+    {
+      "name_fr": "Brûlure",
+      "tree": "Sorcellerie",
+      "primary_row": 3,
+      "source_image": "1000010887.jpg"
+    },
+    {
+      "name_fr": "Manteau nuageux",
+      "tree": "Sorcellerie",
+      "primary_row": 3,
+      "source_image": "1000010887.jpg"
+    },
+    {
+      "name_fr": "Tempête menaçante",
+      "tree": "Sorcellerie",
+      "primary_row": 3,
+      "source_image": "1000010887.jpg"
+    },
+    {
+      "name_fr": "Pot de graines ixtali",
+      "tree": "Sorcellerie",
+      "primary_row": 3,
+      "source_image": "1000010889.jpg"
     }
   ],
   "policy": {
