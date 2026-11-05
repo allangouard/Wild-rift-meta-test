@@ -1,0 +1,218 @@
+{
+  "schema": "wrdi.stage_a.client_boots_shop_evidence.v1",
+  "game": "Wild Rift mobile",
+  "mode": "training standard shop",
+  "date": "2026-11-05",
+  "client_app_version": "7.3.0.2813",
+  "client_resource_version": "7.3.60.133",
+  "shop_category": "Bottes",
+  "screenshots": [
+    "1000010593.jpg",
+    "1000010591.jpg"
+  ],
+  "coverage": {
+    "upper_tier_visible": 7,
+    "intermediate_tier_visible": 7,
+    "basic_tier_visible": 0,
+    "complete_current_shop_inventory": false,
+    "description_details_fully_documented": 1
+  },
+  "entries": [
+    {
+      "shop_order": 1,
+      "tier": "upper",
+      "name_fr": "Sandales immortelles",
+      "price_gold": 2000,
+      "screenshot": "1000010593.jpg",
+      "shop_short_description_fr": "Inflige des dégâts supplémentaires ou octroie une augmentation des soins et des boucliers",
+      "canonical_external_id": null,
+      "source_level": "client_list_icon_name_price_description_visible",
+      "stats_verified": false
+    },
+    {
+      "shop_order": 2,
+      "tier": "upper",
+      "name_fr": "Lucidité pourpre",
+      "price_gold": 2000,
+      "screenshot": "1000010593.jpg",
+      "shop_short_description_fr": "Réduit les délais de récupération des compétences",
+      "canonical_external_id": null,
+      "source_level": "client_list_icon_name_price_description_visible",
+      "stats_verified": false
+    },
+    {
+      "shop_order": 3,
+      "tier": "upper",
+      "name_fr": "Jambières de métal",
+      "price_gold": 2200,
+      "screenshot": "1000010593.jpg",
+      "shop_short_description_fr": "Augmente la vitesse d’attaque et la vitesse de déplacement",
+      "canonical_external_id": null,
+      "source_level": "client_list_icon_name_price_description_visible",
+      "stats_verified": false
+    },
+    {
+      "shop_order": 4,
+      "tier": "upper",
+      "name_fr": "Broyeuses à chaînes",
+      "price_gold": 2200,
+      "screenshot": "1000010593.jpg",
+      "shop_short_description_fr": "Octroie un bouclier magique lorsque vous subissez des dégâts magiques",
+      "canonical_external_id": null,
+      "source_level": "client_list_icon_name_price_description_visible",
+      "stats_verified": false
+    },
+    {
+      "shop_order": 5,
+      "tier": "upper",
+      "name_fr": "Avancée blindée",
+      "price_gold": 2200,
+      "screenshot": "1000010593.jpg",
+      "shop_short_description_fr": "Confère de l’armure et un bouclier",
+      "canonical_external_id": null,
+      "source_level": "client_list_icon_name_price_description_visible",
+      "stats_verified": false
+    },
+    {
+      "shop_order": 6,
+      "tier": "upper",
+      "name_fr": "Chaussures de lanceur de sorts",
+      "price_gold": 2200,
+      "screenshot": "1000010593.jpg",
+      "shop_short_description_fr": "Inflige des dégâts supplémentaires aux sbires",
+      "canonical_external_id": null,
+      "source_level": "client_list_icon_name_price_description_visible",
+      "stats_verified": true
+    },
+    {
+      "shop_order": 7,
+      "tier": "upper",
+      "name_fr": "Bottes Brise-armure",
+      "price_gold": 2200,
+      "screenshot": "1000010593.jpg",
+      "shop_short_description_fr": "Octroie de la vitesse de déplacement hors combat",
+      "canonical_external_id": null,
+      "source_level": "client_list_icon_name_price_description_visible",
+      "stats_verified": false
+    },
+    {
+      "shop_order": 8,
+      "tier": "intermediate",
+      "name_fr": "Jambières gloutonnes",
+      "price_gold": 1000,
+      "screenshot": "1000010591.jpg",
+      "shop_short_description_fr": "Force adaptative, omnivampirisme",
+      "canonical_external_id": null,
+      "source_level": "client_list_icon_name_price_description_visible",
+      "stats_verified": false
+    },
+    {
+      "shop_order": 9,
+      "tier": "intermediate",
+      "name_fr": "Bottes de lucidité",
+      "price_gold": 1000,
+      "screenshot": "1000010591.jpg",
+      "shop_short_description_fr": "Réduit les délais de récupération des compétences",
+      "canonical_external_id": null,
+      "source_level": "client_list_icon_name_price_description_visible",
+      "stats_verified": false
+    },
+    {
+      "shop_order": 10,
+      "tier": "intermediate",
+      "name_fr": "Jambières du berzerker",
+      "price_gold": 1200,
+      "screenshot": "1000010591.jpg",
+      "shop_short_description_fr": "Augmente la vitesse d’attaque",
+      "canonical_external_id": null,
+      "source_level": "client_list_icon_name_price_description_visible",
+      "stats_verified": false
+    },
+    {
+      "shop_order": 11,
+      "tier": "intermediate",
+      "name_fr": "Sandales de Mercure",
+      "price_gold": 1200,
+      "screenshot": "1000010591.jpg",
+      "shop_short_description_fr": "Augmente la résistance magique",
+      "canonical_external_id": null,
+      "source_level": "client_list_icon_name_price_description_visible",
+      "stats_verified": false
+    },
+    {
+      "shop_order": 12,
+      "tier": "intermediate",
+      "name_fr": "Coques en acier",
+      "price_gold": 1200,
+      "screenshot": "1000010591.jpg",
+      "shop_short_description_fr": "Réduit les dégâts des attaques de champion",
+      "canonical_external_id": null,
+      "source_level": "client_list_icon_name_price_description_visible",
+      "stats_verified": false
+    },
+    {
+      "shop_order": 13,
+      "tier": "intermediate",
+      "name_fr": "Bottes de mana",
+      "price_gold": 1200,
+      "screenshot": "1000010591.jpg",
+      "shop_short_description_fr": "Puissance, Pénétration magique, Régénération du mana",
+      "canonical_external_id": null,
+      "source_level": "client_list_icon_name_price_description_visible",
+      "stats_verified": false
+    },
+    {
+      "shop_order": 14,
+      "tier": "intermediate",
+      "name_fr": "Bottes dynamiques",
+      "price_gold": 1200,
+      "screenshot": "1000010591.jpg",
+      "shop_short_description_fr": "Dégâts d’attaque, Pénétration d’armure",
+      "canonical_external_id": null,
+      "source_level": "client_list_icon_name_price_description_visible",
+      "stats_verified": false
+    }
+  ],
+  "detailed_item": {
+    "name_fr": "Chaussures de lanceur de sorts",
+    "tier": "upper",
+    "price_gold": 2200,
+    "screenshot": "1000010593.jpg",
+    "stats": {
+      "ap": 35,
+      "magic_pen_flat": 18,
+      "magic_pen_pct": 8,
+      "mana_regen_pct": 100,
+      "movement_speed_flat": 45
+    },
+    "passives": [
+      {
+        "name_fr": "Équilibrium",
+        "description_fr": "Les champions sans mana gagnent 50 % de régénération de base des PV.",
+        "trigger": "champion_without_mana",
+        "effect": "base_health_regeneration_pct",
+        "value": 50
+      },
+      {
+        "name_fr": "Brute épaisse",
+        "description_fr": "Les attaques et les compétences actives infligent 18 points de dégâts bruts supplémentaires aux sbires.",
+        "trigger": "attacks_or_active_abilities_vs_minions",
+        "bonus_true_damage": 18
+      }
+    ],
+    "external_id_status": "unmapped",
+    "mechanics_interactions_tested": false
+  },
+  "known_gaps": [
+    "Palier basique masqué sous le bord inférieur, requiert une capture supplémentaire.",
+    "Détails des 13 autres bottes non visibles et non vérifiés.",
+    "Aucun enchantement de bottes isolé/documenté dans ces deux captures.",
+    "Aucun identifiant canonique externe vérifié : identités provisoires par nom FR et capture uniquement.",
+    "Ne pas confondre coût total affiché et coût d’amélioration à payer.",
+    "Versions de ressources ≠ sous-patch d’équilibrage prouvé."
+  ],
+  "policy": {
+    "do_not_load_into_build_recommendations": true,
+    "no_inferred_stats_from_short_descriptions": true
+  }
+}
