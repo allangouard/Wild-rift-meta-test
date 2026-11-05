@@ -238,3 +238,9 @@ jobs:
           node --check assets/app.js
           node --check wrdi-compact-dashboard-v1423.js
           node --test wrdi-galio-purchase-order-v1432.test.js
+      - name: Tester plan pregame et objets situationnels V14.33
+        run: |
+          node --check wrdi-galio-contingencies-v1433.js
+          node --check assets/app.js
+          node --check wrdi-compact-dashboard-v1423.js
+          node --test wrdi-galio-contingencies-v1433.test.js
