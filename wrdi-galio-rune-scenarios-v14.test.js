@@ -50,7 +50,7 @@ test('V14.8 visible dans l onglet Runes et sans injection de score inventé',()=
  const panel=fs.readFileSync('wrdi-rune-panel-v14.js','utf8');
  assert.ok(html.includes('./wrdi-galio-rune-scenarios-v14.js?v=1480'));
  assert.ok(panel.includes('Examiner les runes avec la draft'));
- assert.ok(panel.includes('summaryApi.summarize(report)'));
+ assert.ok(panel.includes('runeDraft.run('));
  assert.ok(panel.includes('scenarios.evaluate('));
  assert.ok(!panel.includes('score de victoire :'));
 });
