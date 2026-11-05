@@ -100,3 +100,5 @@ jobs:
         run: node --test stage-a-runes-batch7.test.js
       - name: Tester les 39 runes secondaires et leurs arbres
         run: node --test stage-a-minor-rune-completeness.test.js
+      - name: Tester les regles de selection des pages de runes V14
+        run: node --test wrdi-rune-page-rules-v14.test.js
