@@ -89,3 +89,25 @@ test('Domination : Assaut enchaîné et Tyran sont dans la même ligne',()=>{
  assert.equal(r.valid,false);
  assert.ok(r.errors.some(e=>e.includes('chaque ligne')));
 });
+
+test('Volonté : Démolition, Second souffle, Surcroissance sélectionnées sur trois lignes distinctes',()=>{
+ const result=validateRunePage({keystone:'Électrocution',primary:['Démolition','Second souffle','Surcroissance'],secondary:'Brutal'});
+ assert.equal(result.valid,true,JSON.stringify(result.errors));
+ assert.equal(result.primary_rows_verified,true);
+ assert.equal(result.primary_tree,'Volonté');
+});
+test('Volonté : Démolition et Fontaine de vie sont exclusives sur la ligne 1',()=>{
+ const result=validateRunePage({keystone:'Électrocution',primary:['Démolition','Fontaine de vie','Revitalisation'],secondary:'Brutal'});
+ assert.equal(result.valid,false);
+ assert.ok(result.errors.some(e=>e.includes('chaque ligne')));
+});
+test('Volonté : Second souffle et Plaque d os sont exclusives sur la ligne 2',()=>{
+ const result=validateRunePage({keystone:'Électrocution',primary:['Courage du colosse','Second souffle',"Plaque d'os"],secondary:'Brutal'});
+ assert.equal(result.valid,false);
+ assert.ok(result.errors.some(e=>e.includes('chaque ligne')));
+});
+test('Volonté : Surcroissance et Persévérance sont exclusives sur la ligne 3',()=>{
+ const result=validateRunePage({keystone:'Électrocution',primary:['Inébranlable','Surcroissance','Persévérance'],secondary:'Brutal'});
+ assert.equal(result.valid,false);
+ assert.ok(result.errors.some(e=>e.includes('chaque ligne')));
+});
