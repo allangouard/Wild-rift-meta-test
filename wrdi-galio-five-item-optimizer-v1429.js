@@ -9,7 +9,10 @@
  else root.WRDI_GalioFiveItemOptimizerV1429=api;
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
-const VERSION='14.31.0-alpha.1';
+const VERSION='14.34.0-alpha.1';
+const synergyEngine=(typeof require==='function'
+ ? require('./wrdi-galio-kit-item-synergy-v1434.js')
+ : (typeof globalThis!=='undefined'?globalThis.WRDI_GalioKitItemSynergyV1434:null));
 const num=v=>typeof v==='number'&&Number.isFinite(v)?Math.max(0,v):0;
 const count=v=>Math.min(5,num(v));
 const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9]/g,'');
@@ -104,8 +107,19 @@ function calculate(items,threats){
  score-=Math.max(0,n('critMitigation')-1)*4;
  // Sustained tank Galio need not be punished for having only 1 AP item.
  if(!frontline&&items.length>=4&&total('ap')<90)score-=6;
+ // Kit-to-passive compatibility: direct activations and conditional usefulness
+ // use Galio's actual cast/taunt/knock-up/empowered attack/engage kit.
+ // Nothing is assigned by the name of an enemy champion or popular build.
+ let synergy=null;
+ if(synergyEngine?.build){
+  synergy=synergyEngine.build(items,t);
+  if(synergy.ok){
+   score+=synergy.score*0.7;
+   if(synergy.combinations.length)reasons.push(...synergy.combinations.slice(0,2));
+  }
+ }
  const stats={hp:total('hp'),ap:total('ap'),armor,mr,ah:total('ah')};
- return {score:Math.round(score*100)/100,reasons,stats,needs:t};
+ return {score:Math.round(score*100)/100,reasons,stats,needs:t,synergy};
 }
 function optimize({prepared,threats={},slots=5,beamWidth=100}={}){
  if(!prepared?.ok||!prepared.core?.validateEquipment)return {ok:false,reason:'Catalogue client indisponible'};
@@ -146,6 +160,13 @@ function optimize({prepared,threats={},slots=5,beamWidth=100}={}){
 }
 function reasonFor(item,threats){
  const f=item.feature||features(item),t=weights(threats),r=[];
+ const synergy=synergyEngine?.evaluate?.(item,t);
+ if(synergy?.ok){
+  const direct=synergy.entries.find(x=>x.level==='direct');
+  const conditional=synergy.entries.find(x=>x.level==='conditional');
+  const chosen=direct||conditional;
+  if(chosen)r.push(chosen.reason);
+ }
  if(t.heal&&f.antiheal)r.push('Anti-soins');
  if(t.assassin>=2&&f.stasis)r.push('Stase contre assassins');
  if(t.crit&&f.critMitigation)r.push('Contre dégâts critiques confirmés');
