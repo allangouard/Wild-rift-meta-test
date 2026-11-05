@@ -102,3 +102,5 @@ jobs:
         run: node --test stage-a-minor-rune-completeness.test.js
       - name: Tester les regles de selection des pages de runes V14
         run: node --test wrdi-rune-page-rules-v14.test.js
+      - name: Auditer 52 runes et bloquer identifiants ou emplacements inventes
+        run: node --test wrdi-rune-catalog-v14.test.js
