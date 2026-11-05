@@ -10,7 +10,7 @@
     "1000010665.jpg",
     "1000010668.jpg"
   ],
-  "coverage": "28 visible entries across three captures; user has not yet confirmed category complete",
+  "coverage": "complete_28_items_confirmed_by_user_for_current_client",
   "counts": {
     "entries": 28,
     "prices_visible": 27,
@@ -62,8 +62,17 @@
       "details_verified": false,
       "details_verification_scope": "none",
       "shop_restriction_markers": [
-        "padlock_visible_access_condition_unresolved"
-      ]
+        "ranged_champions_only_confirmed_by_user"
+      ],
+      "restriction": {
+        "eligible_attack_range_class": "ranged",
+        "ineligible_attack_range_class": "melee",
+        "example_ineligible_champion": "Galio",
+        "confirmation": "user's firsthand in-game explanation, 2026-11-05",
+        "restriction_source": "user_confirmed",
+        "price_gold": null,
+        "price_status": "unverified_due_to_ineligible_melee_champion"
+      }
     },
     {
       "name_fr": "Danseur fantôme",
@@ -445,16 +454,20 @@
     }
   ],
   "notable_ambiguities": [
-    "Ouragan de Runaan displays a padlock over price and its accessibility is not verified. Do not assume price or availability.",
     "Yellow N symbols on some shop items are visually present but meaning is not established by this capture.",
-    "One or more rows beyond screenshot bounds might exist; do not claim exhaustive Tireur category until user confirms.",
     "Items repeating across roles belong to one global shop identity; price matching is a consistency check, not evidence of independent items.",
     "Shop descriptions are short qualitative summaries, not complete passive or stat sheets.",
-    "Provisional English-name ID candidates are not current WR China numeric IDs."
+    "Provisional English-name ID candidates are not current WR China numeric IDs.",
+    "Ouragan de Runaan locked for Galio because melee champions cannot buy it; user confirms ranged-only rule. Price remains unreadable; do not infer."
   ],
   "policy": {
     "do_not_automatically_load_into_build_recommendations": true,
     "no_inferred_price_for_locked_item": true,
     "no_item_stats_or_effect_calculation_from_short_description": true
-  }
+  },
+  "category_complete_confirmed_by_user": true,
+  "category_complete_confirmation_date": "2026-11-05",
+  "notes": [
+    "User expressly confirms 28 entries comprise entire Tireur category on current game client; full stats and passives not yet certified."
+  ]
 }
