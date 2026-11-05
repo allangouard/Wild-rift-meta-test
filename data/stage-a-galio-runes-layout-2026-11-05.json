@@ -1,0 +1,56 @@
+{
+  "schema": "wrdi.stage_a.rune_page_visual_evidence.v1",
+  "date": "2026-11-05",
+  "game": "Wild Rift mobile",
+  "champion": "Galio",
+  "context": "Equipements du haut du classement",
+  "client_app_version": "7.3.0.2813",
+  "client_resource_version": "7.3.60.133",
+  "source_image": "1000010744.jpg",
+  "evidence": "user-supplied in-game screenshot",
+  "observed": {
+    "keystone_row": {
+      "selected_count": 1,
+      "visible_icon_count": 13,
+      "names_not_readable": true
+    },
+    "primary_minor_tree": {
+      "selected": "Domination",
+      "selected_runes": 3,
+      "rows": 3,
+      "columns_per_row": 3,
+      "selected_columns_left_to_right": [
+        2,
+        3,
+        1
+      ]
+    },
+    "secondary_minor_tree": {
+      "selected": "Précision",
+      "selected_runes": 1,
+      "rows": 3,
+      "columns_per_row": 3,
+      "selected_row": 1,
+      "selected_column": 1
+    },
+    "total_selected_runes": 5,
+    "tree_categories_visible": [
+      "Domination",
+      "Précision",
+      "Volonté",
+      "Inspiration"
+    ],
+    "tree_name_evidence": "category icons recognizable; text names not shown on screenshot, so treat as provisional category mapping"
+  },
+  "inferences_not_proven": [
+    "Cannot certify all five runes' exact names or passives from grey or colored icons alone.",
+    "Cannot prove whether all archetype permutations and special rune limitations work from one example.",
+    "Cannot assume PC League rune structure.",
+    "Number of keystone options reflects this Galio screen only, not universal availability."
+  ],
+  "next_evidence": "Tap the selected keystone, the selected small runes, or open a rune details panel to show the client French name and effect. Prefer broad overview of all rune choices and rules before detailed capture of every rune.",
+  "policy": {
+    "do_not_enable_rune_optimizer_from_single_screenshot": true,
+    "keep_sources_separate_from_wrchina": true
+  }
+}
