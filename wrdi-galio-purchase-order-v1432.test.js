@@ -9,7 +9,7 @@ const guard=require('./wrdi-galio-item-guard-v1424.js');
 const optimizer=require('./wrdi-galio-five-item-optimizer-v1429.js');
 const prepared=guard.prepare({catalog,rules:restrictions,core,livePatch:'7.3d'});
 const id=x=>catalog.items.find(i=>i.id===x);
-const choices=['sunfire_aegis','hollow_radiance','riftmaker','zhonyas_hourglass','rabadons_deathcap'];
+const choices=['sunfire_aegis','unending_despair','riftmaker','zhonyas_hourglass','rabadons_deathcap'];
 const run=(threats,items=choices)=>order.order({prepared,items,threats});
 test('uses five verified items, same composition, 120 permutations, no popularity',()=>{
  const r=run({ad:3,ap:2,lanePhysical:1,laneAllIn:1,jungleAllIn:1,frontlineNeed:2});
