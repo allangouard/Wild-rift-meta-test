@@ -487,9 +487,12 @@ async function wrdiGalioFiveCatalogAnalyze({out,enemy,reportFailure}){
   const outcome=optimizer.optimize({prepared,threats:draftNeeds});
   if(!outcome.ok)throw Error(outcome.reason||'Construction du build impossible');
   const main=outcome.main;
-  const explanations=main.items.map(i=>'<li>'+esc(i.name)+' — '+esc(i.reason)+'</li>').join('');
+  const ordering=window.WRDI_GalioPurchaseOrderV1432?.order({prepared,items:main.items,threats:draftNeeds});
+  // Final five-item composition is unchanged: only order of purchase differs.
+  const orderedItems=ordering?.ok?ordering.items:main.items;
+  const explanations=orderedItems.map(i=>'<li>'+esc(i.name)+' — '+esc(i.reason)+'</li>').join('');
   out.innerHTML='<h2>Galio mid — cinq objets conseillés</h2>'+
-   '<p class="muted">Analyse théorique des fiches du client uniquement, sans builds populaires. Cinq objets sans ordre d’achat ; les bottes sont séparées.</p>'+
+   '<p class="muted">Analyse théorique des fiches du client uniquement, sans builds populaires. Ordre d’achat initial théorique, à adapter pendant la partie. Bottes séparées.</p>'+
    '<ol>'+explanations+'</ol>'+
    '<p>'+esc(main.reasons.slice(0,3).join(' · ')||'Synergies de Galio mid et restrictions vérifiées.')+'</p>'+
    (analysis.unknown.length?'<p class="warn">Profils adverses partiels : '+esc(analysis.unknown.join(', '))+'</p>':'')+
@@ -503,8 +506,9 @@ async function wrdiGalioFiveCatalogAnalyze({out,enemy,reportFailure}){
   window.dispatchEvent(new CustomEvent('wrdi:build-result',{detail:{
    champion:'Galio',patch:catalog.patch_claimed_by_client_user,
    draftFingerprint:JSON.stringify(draftPicks),source:'player_client_only',
-   fullBuild:true,bootsSeparate:true,purchaseOrderEstablished:false,
-   core:main.items.map(i=>({id:i.id,name:i.name,reason:i.reason})),
+   fullBuild:true,bootsSeparate:true,purchaseOrderEstablished:ordering?.ok===true,
+   purchaseOrderConfidence:ordering?.priorityConfidence||'unavailable',
+   core:orderedItems.map(i=>({id:i.id,name:i.name,reason:i.reason,phase:i.phase||null})),
    situational:alternatives.map(a=>({id:a.changed[0]||'',name:a.changed.join(' + ')||'Combinaison alternative',
      reason:a.reason,timing:'Selon les menaces prioritaires'})),
    alternatives,buildReasons:[...teamContext.reasons.slice(0,2),...main.reasons].slice(0,3),
