@@ -11,13 +11,13 @@ const bridge=require('./wrdi-rune-bridge-v14.js');
 const catalog=require('./data/rune-catalog-client-v14.json');
 const picks=['101','102','10099','103','104','201','202','203','204','205'];
 function run(playerEvidence){
- const rows=picks.map(id=>({id,result:{signals:[],descriptionCount:5,sourceVersion:'unverified'}}));
+ const rows=picks.map((id,i)=>({id,result:{signals:(i===2?[{id:'stun'}]:i===5?[{id:'dash'}]:[]),descriptionCount:5,sourceVersion:'unverified'}}));
  const kitData=ten.inspect(picks,rows);
  const comparison=ten.analyzeCandidates(kitData,{advisor,picks,catalog,bridge});
  return evidence.compare({kitData,comparison,matrix,catalog,bridge,playerEvidence});
 }
 test('confirmed positive and negative observations appear for each relevant rune',()=>{
- const r=run(player.summarize(data));assert.equal(r.ok,true);
+ const r=run(player.summarize(data));assert.equal(r.ok,true,JSON.stringify(r.errors));
  const find=name=>r.pages.flatMap(x=>x.runes).find(x=>x.name===name);
  const phase=find('Rush phasique');
  assert.ok(phase.playerObservations.some(x=>x.testId==='phase-combo'&&x.triggered===true));
