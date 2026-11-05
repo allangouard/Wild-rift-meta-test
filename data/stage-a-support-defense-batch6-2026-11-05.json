@@ -1,0 +1,125 @@
+{
+  "schema": "wrdi.stage_a.support_defense_details_batch6.v1",
+  "game": "Wild Rift mobile",
+  "date": "2026-11-05",
+  "client_app_version": "7.3.0.2813",
+  "client_resource_version": "7.3.60.133",
+  "source": "three user-uploaded in-game detailed screenshots; no inferred combat simulations",
+  "items": [
+    {
+      "name_fr": "Linceul de l'aube",
+      "provisional_id": "dawnshroud",
+      "price_gold": 2700,
+      "image": "1000010725.jpg",
+      "stats": {
+        "hp": 250,
+        "armor": 50,
+        "magic_resistance": 30
+      },
+      "passives": [
+        {
+          "name_fr": "Héraut de l'aube",
+          "trigger_conditions": [
+            "immobilize_enemy_champion",
+            "be_immobilized"
+          ],
+          "requires_enemy_champion_within_units": 400,
+          "reveal_nearby_enemy_champions_seconds": 3,
+          "damage_type": "magic",
+          "damage_base": 40,
+          "damage_scaling_bonus_hp_pct": 2.5,
+          "bonus_armor_pct": 20,
+          "bonus_magic_resistance_pct": 20,
+          "bonus_resistances_duration_seconds": "not_stated",
+          "cooldown_seconds": 3,
+          "notes": [
+            "The text ties the 400-unit distance to an enemy champion when immobilization occurs; no separate damage radius shown."
+          ]
+        }
+      ],
+      "complete_visible_description": true
+    },
+    {
+      "name_fr": "Manteau de l'heure ultime",
+      "provisional_id": "mantle_of_the_twelfth_hour",
+      "price_gold": 2550,
+      "image": "1000010722.jpg",
+      "stats": {
+        "hp": 600,
+        "ability_haste": 20
+      },
+      "passives": [
+        {
+          "name_fr": "Lien vital",
+          "trigger": "damage_brings_current_health_below_30pct_threshold",
+          "threshold_health_pct": 30,
+          "bonus_max_hp": {
+            "min": 200,
+            "max": 300,
+            "scaling_formula": "not_specified"
+          },
+          "buff_duration_seconds": 5,
+          "movement_speed_pct": 10,
+          "tenacity_pct": 20,
+          "size_increase_pct": 10,
+          "healing_during_buff": {
+            "base_min": 200,
+            "base_max": 400,
+            "base_scaling_formula": "level_icon_exact_formula_unknown",
+            "bonus_armor_multiplier_pct": 120,
+            "bonus_magic_resistance_multiplier_pct": 120,
+            "max_hp_multiplier_pct": 15,
+            "base_hp_reference": "not_explicitly_specified",
+            "delivery_schedule": "not_explicitly_specified"
+          },
+          "cooldown_seconds": 70
+        }
+      ],
+      "complete_visible_description": true
+    },
+    {
+      "name_fr": "Convergence de Zeke",
+      "provisional_id": "zekes_convergence",
+      "price_gold": 2400,
+      "image": "1000010731.jpg",
+      "stats": {
+        "armor": 25,
+        "magic_resistance": 25,
+        "ability_haste": 10,
+        "hp": null
+      },
+      "stats_source_note": "Screenshot top is cropped, HP 300 in prior catalog but NOT verified by this newly uploaded screenshot; pending uncropped screenshot.",
+      "passives": [
+        {
+          "name_fr": "Convergence",
+          "ultimate_haste": 10
+        },
+        {
+          "name_fr": "Tempête cryopyrique",
+          "trigger": "cast_ultimate",
+          "storm_duration_seconds": 5,
+          "storm_damage_magic_per_second": 150,
+          "storm_effect_radius_units": 350,
+          "storm_slow_pct": 30,
+          "if_no_enemy_champion_in_range_at_ult_cast": "delay_storm_until_champion_enters_range_or_maximum_5_seconds",
+          "delayed_trigger_max_seconds": 5,
+          "cooldown_seconds": 30
+        }
+      ],
+      "complete_visible_description": false,
+      "missing_visibility": [
+        "top_HP_stat"
+      ]
+    }
+  ],
+  "policy": {
+    "external_numeric_ids_verified": false,
+    "mechanics_experimentally_calibrated": false,
+    "do_not_automatically_load_into_build_recommendations": true
+  },
+  "open_questions": [
+    "Convergence de Zeke top of stats cropped: 300 HP appears in previous catalog but is not newly screenshot-verified.",
+    "Linceul de l'aube +20% armor/MR duration is not specified; no duration invented.",
+    "Manteau de l'heure ultime healing timing and max-HP reference are not specified; do not treat as calibrated periodic heal."
+  ]
+}
