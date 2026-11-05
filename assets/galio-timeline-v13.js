@@ -3,7 +3,7 @@
  * Ne remplace pas V13.0–V13.2 ; réutilise leurs objets et les descriptions structurées du catalogue 7.3d.
  */
 (function(root){'use strict';
-const VERSION='13.3.0', CAT='./data/items-client-7.3d-v12.json', DRAFT='wrdi_draft_v76';
+const VERSION='13.5B-13.3', CAT='./data/items-client-7.3d-v12.json', DRAFT='wrdi_draft_v76';
 const SKILLS={q:{base:[70,115,160,205],ap:.75,name:'A/Q · impact initial'},w:{base:[40,80,120,160],ap:.55,name:'Z/W · relâchement'},e:{base:[90,140,190,240],ap:.80,name:'E · impact'},r:{base:[150,250,350],ap:.70,name:'R · impact'}};
 const num=(x,d=0)=>x===null||x===undefined||x===''?d:Number.isFinite(Number(x))?Number(x):d;
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,num(x,a)));
@@ -64,7 +64,7 @@ function simulate(input,data){
 function node(tag,value){const e=document.createElement(tag);if(value!==undefined)e.textContent=String(value);return e;}
 function init(){const host=document.getElementById('wrdiPane_build'),button=document.getElementById('simpleRun');if(!host||!button||document.getElementById('wrdiGalioV133'))return;
  const panel=node('section');panel.id='wrdiGalioV133';panel.style.cssText='border:1px solid #5a9ba3;border-radius:14px;padding:14px;margin:16px 0;background:#112d38;color:#e7f0f3';host.prepend(panel);
- const state={duration:10,targetMr:60,baseHp:2000,apExternal:0,hitRate:100,proximity:true,timestamps:{e:.5,q:1.2,w:2,r:3}};
+ const state={duration:10,targetMr:60,baseHp:2406,autoHp:true,apExternal:0,hitRate:100,proximity:true,timestamps:{e:.5,q:1.2,w:2,r:3}};
  let catalog=null,error='',renderTimer=0;
  function info(s){const p=node('p',s);p.style.cssText='font-size:13px;line-height:1.55;color:#c5dbe3';panel.append(p);}
  function field(container,label,get,set,min,max,step='1'){const l=node('label');l.style.cssText='display:flex;flex-direction:column;gap:4px;min-width:126px;flex:1;font-size:12px';l.append(node('span',label));const el=node('input');el.type='number';el.step=step;el.min=min;el.max=max;el.value=get();el.style.cssText='box-sizing:border-box;width:100%;background:#244b59;color:white;border:1px solid #7395a1;border-radius:6px;padding:9px';el.addEventListener('change',()=>{set(clamp(el.value,min,max));render()});l.append(el);container.append(l);}
@@ -72,8 +72,10 @@ function init(){const host=document.getElementById('wrdiPane_build'),button=docu
  function render(){panel.replaceChildren(node('h3','⏱️ V13.3 · Chronologie des impacts Galio'));if(!galio()){info('Sélectionne Galio mid et analyse ta draft.');return;}if(error){info('Catalogue inaccessible : '+error);return;}if(!catalog){info('Chargement du catalogue…');return;}
  const variants=root.WRDI_GalioV13?.last?.results, previous=root.WRDI_GalioV131?.last;
  if(!Array.isArray(variants)||!variants.length||!previous){info('En attente de V13.0 et V13.1 : lance « Analyser ma draft ».');return;}
- info('Chaque impact est calculé à son instant supposé. Les temps sont modifiables et ne correspondent pas à une animation officiellement vérifiée. Données d’objets revendiquées 7.3d.');
- const c=node('div');c.style.cssText='display:flex;flex-wrap:wrap;gap:9px';for(const [k,label,min,max] of [['duration','Durée du combat (s)',1,20],['targetMr','RM de la cible',0,500],['baseHp','PV de Galio hors objets (hyp.)',1,10000],['apExternal','AP hors objets',0,2000],['hitRate','Impacts réussis (%)',0,100]])field(c,label,()=>state[k],v=>state[k]=v,min,max);panel.append(c);
+ info('Chaque impact est calculé à son instant supposé. Galio : PV de base Riot 7.3 par niveau en mode automatique ; autres statistiques restant à valider en jeu. Objets catalogue déclaré 7.3d.');
+ if(state.autoHp)state.baseHp=root.WRDI_GalioV135?.levelStats(root.WRDI_GalioV135.level)?.hp??2406;
+ const c=node('div');c.style.cssText='display:flex;flex-wrap:wrap;gap:9px';for(const [k,label,min,max] of [['duration','Durée du combat (s)',1,20],['targetMr','RM de la cible',0,500],['apExternal','AP hors objets',0,2000],['hitRate','Impacts réussis (%)',0,100]])field(c,label,()=>state[k],v=>state[k]=v,min,max);panel.append(c);
+ const hpBox=node('div');hpBox.style.cssText='margin:8px 0';const hpToggle=node('label');const hpCheck=node('input');hpCheck.type='checkbox';hpCheck.checked=state.autoHp;hpCheck.addEventListener('change',()=>{state.autoHp=hpCheck.checked;render()});hpToggle.append(hpCheck,node('span',' PV de Galio automatiques selon le niveau V13.4 (Riot 7.3)'));hpBox.append(hpToggle);const hpL=node('label');hpL.append(node('span','PV de Galio hors objets : '));const hpInput=node('input');hpInput.type='number';hpInput.min=1;hpInput.max=10000;hpInput.value=state.baseHp;hpInput.disabled=state.autoHp;hpInput.style.cssText='max-width:125px;padding:8px;background:#244b59;color:#fff';hpInput.addEventListener('change',()=>{state.baseHp=clamp(hpInput.value,1,10000);render()});hpL.append(hpInput);hpBox.append(hpL);panel.append(hpBox);
  const times=node('div');times.style.cssText='display:flex;flex-wrap:wrap;gap:9px;margin-top:10px';for(const [k,label] of [['e','E · impact à (s)'],['q','A/Q · impact à (s)'],['w','Z/W · impact à (s)'],['r','R · impact à (s)']])field(times,label,()=>state.timestamps[k],v=>state.timestamps[k]=v,0,20,'.1');panel.append(times);
  const box=node('label');box.style.cssText='display:flex;gap:8px;align-items:center;margin-top:10px;font-size:12px';const check=node('input');check.type='checkbox';check.checked=state.proximity;check.addEventListener('change',()=>{state.proximity=check.checked;render()});box.append(check,node('span','Cible toujours à portée des auras et de Désespoir'));panel.append(box);
  const outputs=[];const wrap=node('div');wrap.style.cssText='overflow-x:auto;margin:14px 0';const table=node('table');table.style.cssText='border-collapse:collapse;min-width:650px;width:100%;font-size:12px';const hdr=node('tr');for(const label of ['Build V13.0','AP','Dégâts directs','Aura min–max','Désespoir','Soins potentiels','Total partiel min–max']){const th=node('th',label);th.style.cssText='padding:8px 5px;border-bottom:1px solid #7199a5;text-align:left';hdr.append(th)}table.append(hdr);

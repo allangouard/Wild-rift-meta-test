@@ -3,7 +3,7 @@
    Les coefficients ne sont pas certifiés sur un sous-patch identique aux objets 7.3d.
 */
 (function(root){'use strict';
-const VERSION='13.4.0';
+const VERSION='13.5B-13.4';
 const BASE={q:[70,115,160,205],w:[40,80,120,160],e:[90,140,190,240],r:[150,250,350]};
 const RATIO={q:.75,w:.55,e:.8,r:.7};
 const CD={q:[12,10,9,7],w:[18,17,16,15],e:[10,9,8,7],r:[90,80,70]};
@@ -36,6 +36,7 @@ function calculate(input,catalog){
  const rift=ids.includes('riftmaker')?itemPass(mapItems(catalog).get('riftmaker'),'Corruption du Néant'):null;
  const amp=t=>rift&&number(rift.damage_amp_per_s_pct)>0?Math.min(number(rift.max_damage_amp_pct),Math.floor(Math.max(0,t))*number(rift.damage_amp_per_s_pct))/100:0;
  const events=[],issues=[];const repeat=input.repeat!==false;
+ if(hitRate<1)issues.push('Taux de touches inférieur à 100 % : réductions de recharge du passif NON attribuées automatiquement (succès de chaque lancement non connu).');
  for(const id of [...new Set(sequence)]){
   const rank=Math.floor(number(skills[id])),at=number(start[id],NaN);if(!BASE[id]||!rank)continue;
   if(rank<1||rank>BASE[id].length){issues.push('Rang incorrect : '+id);continue;}
@@ -62,7 +63,7 @@ function calculate(input,catalog){
  for(const evt of timeline){
   if(evt.kind==='hit'){
    // Réduction uniquement si le passif est en recharge (sinon l'état prêt ne s'accumule pas).
-   if(readyAt>evt.time)readyAt=Math.max(evt.time,readyAt-3);
+   if(hitRate===1&&readyAt>evt.time)readyAt=Math.max(evt.time,readyAt-3);
   }else if(evt.time+1e-8>=readyAt){
    passiveCount++;
    // Données Wild Rift croisées : 15 + 10*(niveau-1) + AD totale +45% AP +60% RM bonus.
@@ -80,15 +81,16 @@ function calculate(input,catalog){
 function el(tag,text){const d=document.createElement(tag);if(text!==undefined)d.textContent=String(text);return d;}
 function init(){const parent=document.getElementById('wrdiPane_build'),v133=document.getElementById('wrdiGalioV133');if(!parent||!v133||document.getElementById('wrdiGalioV134'))return;
  const panel=el('section');panel.id='wrdiGalioV134';panel.style.cssText='border:1px solid #5a9ba3;border-radius:14px;padding:14px;margin:16px 0;background:#112d38;color:#e7f0f3';parent.insertBefore(panel,v133);
- const state={level:13,targetHp:2500,totalAd:100,tornadoFraction:100,attacks:'0.8,3.2,7.0',repeat:true};let catalog=null,err='';
- function field(host,title,key,min,max,step){const l=el('label');l.style.cssText='display:flex;flex-direction:column;gap:5px;min-width:125px;flex:1';l.append(el('span',title));const i=el('input');i.type=key==='attacks'?'text':'number';i.value=state[key];if(key!=='attacks'){i.min=min;i.max=max;i.step=step||1;}i.style.cssText='width:100%;box-sizing:border-box;padding:9px;background:#244b59;color:#fff;border:1px solid #7395a1;border-radius:6px';i.addEventListener('change',()=>{state[key]=key==='attacks'?i.value:limit(i.value,min,max);render()});l.append(i);host.append(l);}
+ const state={level:13,targetHp:2500,totalAd:root.WRDI_GalioV135?.levelStats(13)?.ad??101.2,manualAd:false,tornadoFraction:100,attacks:'0.8,3.2,7.0',repeat:true};let catalog=null,err='';
+ function field(host,title,key,min,max,step){const l=el('label');l.style.cssText='display:flex;flex-direction:column;gap:5px;min-width:125px;flex:1';l.append(el('span',title));const i=el('input');i.type=key==='attacks'?'text':'number';i.value=state[key];if(key!=='attacks'){i.min=min;i.max=max;i.step=step||1;}i.style.cssText='width:100%;box-sizing:border-box;padding:9px;background:#244b59;color:#fff;border:1px solid #7395a1;border-radius:6px';i.addEventListener('change',()=>{state[key]=key==='attacks'?i.value:limit(i.value,min,max);if(key==='totalAd')state.manualAd=true;if(key==='level'){root.WRDI_GalioV135&&(root.WRDI_GalioV135.level=state.level);if(!state.manualAd)state.totalAd=root.WRDI_GalioV135?.levelStats(state.level)?.ad??state.totalAd;root.WRDI_GalioV133?.refresh?.();}render()});l.append(i);host.append(l);}
  function note(s){const p=el('p',s);p.style.cssText='line-height:1.55;color:#c5dbe3;font-size:13px';panel.append(p);}
  function render(){panel.replaceChildren(el('h3','🗿 V13.4 · Passif, tornade et rotations Galio'));
   const old=root.WRDI_GalioV133?.last,baselines=old?.outputs;if(err){note('Catalogue indisponible : '+err);return;}if(!catalog||!Array.isArray(baselines)||!baselines.length){note('En attente de V13.3 : sélectionne Galio mid puis appuie sur « Analyser ma draft ».');return;}
   note('Extension des combats V13.3. Les statistiques ci-dessous sont des hypothèses de test modifiables, pas les valeurs officielles d’un Galio à un niveau donné. Les objets restent ceux du catalogue 7.3d.');
-  const controls=el('div');controls.style.cssText='display:flex;gap:10px;flex-wrap:wrap';field(controls,'Niveau Galio','level',1,15);field(controls,'PV maximum cible','targetHp',100,15000);field(controls,'AD totale Galio (hyp.)','totalAd',0,1000);field(controls,'Présence tornade (%)','tornadoFraction',0,100);field(controls,'Attaques prévues (secondes)','attacks');panel.append(controls);
+  const controls=el('div');controls.style.cssText='display:flex;gap:10px;flex-wrap:wrap';field(controls,'Niveau Galio','level',1,15);field(controls,'PV maximum cible','targetHp',100,15000);field(controls,'AD Galio estimée (modifiable)','totalAd',0,1000);field(controls,'Présence tornade (%)','tornadoFraction',0,100);field(controls,'Attaques prévues (secondes)','attacks');panel.append(controls);
   const c=el('label');c.style.cssText='display:flex;align-items:center;gap:9px;margin:12px 0';const ck=el('input');ck.type='checkbox';ck.checked=state.repeat;ck.addEventListener('change',()=>{state.repeat=ck.checked;render()});c.append(ck,el('span','Autoriser les secondes rotations selon les délais et l’accélération'));panel.append(c);
-  note('Les durées, rangs, RM, timestamps et objets sont repris des V13.1 et V13.3. Change-les dans ces blocs si nécessaire.');
+  note('PV niveau '+state.level+' : '+(root.WRDI_GalioV135?.levelStats(state.level)?.hp??'—')+' (notes Riot 7.3). AD '+fmt(state.totalAd)+' : estimation secondaire, à contrôler en client. Les cooldowns de secondes rotations restent hypothétiques ; l’AP et les objets sont lus depuis V13.3.');
+  const report=root.WRDI_GalioV135?.catalogReport(catalog);if(report)note('Catalogue : '+report.items+' objets, '+report.priced+' prix connus via price_gold, '+report.missingPrices.length+' prix manquants. Les prix ne servent pas encore au classement.');
   const variants=root.WRDI_GalioV13?.last?.results||[],rank=root.WRDI_GalioV131?.last||{},outputs=[];
   const wrap=el('div');wrap.style.cssText='overflow-x:auto';const tb=el('table');tb.style.cssText='border-collapse:collapse;min-width:660px;font-size:12px;width:100%';const tr=el('tr');for(const h of ['Build','Sorts (toutes rotations)','Tornade','Passif','Supplément vs V13.3','Total partiel combiné']){const th=el('th',h);th.style.cssText='padding:8px 5px;border-bottom:1px solid #7595a0;text-align:left';tr.append(th)}tb.append(tr);
   for(const b of baselines){const variant=variants.find(v=>v.name===b.name);if(!variant)continue;const ids=variant.items||variant.result?.ids||[];
