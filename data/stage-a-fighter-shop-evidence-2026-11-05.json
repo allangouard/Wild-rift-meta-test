@@ -260,11 +260,14 @@
     "1793885107169.jpeg"
   ],
   "caveats": [
-    "The initial and final scroll boundaries are not proven covered by these three screenshots.",
-    "Upper edge of first and third screenshot contains partially cropped rows not transcribed.",
     "Force de la trinité shows 3333 PO in screenshot, even if historical sources disagree.",
     "The external canonical ID candidates are preliminary; item properties, restrictions and current patch cannot be inferred from names alone.",
     "No new rows automatically activated for recommendations.",
-    "The prices of Estropieur and Éviscérateur were verified as 3100 PO each by followup screenshot 1793885107169.jpeg."
-  ]
+    "The prices of Estropieur and Éviscérateur were verified as 3100 PO each by followup screenshot 1793885107169.jpeg.",
+    "User confirms all 22 entries comprise full Combattant category for current mobile client."
+  ],
+  "category_complete_confirmed_by_user": true,
+  "category_complete_confirmation_date": "2026-11-05",
+  "coverage": "complete_22_items_confirmed_by_user_for_current_client",
+  "completeness_scope": "names and listing prices only; item descriptions, effects, current numeric IDs and balance patch equivalence not automatically certified"
 }
