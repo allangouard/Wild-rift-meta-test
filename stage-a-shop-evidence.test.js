@@ -66,3 +66,27 @@ test('deux objets actifs de defense documentes sans inventer identifiants',()=>{
  assert.equal(garg.active.cooldown_seconds,60);
  assert.ok(detail.records.every(x=>x.evidence_status.external_item_id==='unknown'));
 });
+
+const boots=require('./data/stage-a-boots-shop-evidence-2026-11-05.json');
+test('inventaire bottes : 14 entrées, 7 supérieures et 7 intermédiaires',()=>{
+ assert.equal(boots.entries.length,14);
+ assert.equal(boots.entries.filter(x=>x.tier==='upper').length,7);
+ assert.equal(boots.entries.filter(x=>x.tier==='intermediate').length,7);
+ assert.equal(new Set(boots.entries.map(x=>x.name_fr)).size,14);
+ assert.equal(boots.coverage.basic_tier_visible,0);
+ assert.equal(boots.coverage.complete_current_shop_inventory,false);
+ assert.equal(boots.policy.do_not_load_into_build_recommendations,true);
+});
+test('Bottes : les prix et captures correspondent au palier',()=>{
+ assert.ok(boots.entries.every(x=>x.price_gold>=1000&&x.price_gold<=2200));
+ assert.ok(boots.entries.every(x=>boots.screenshots.includes(x.screenshot)));
+ assert.ok(boots.entries.every(x=>x.canonical_external_id===null));
+});
+test('Chaussures de lanceur de sorts : description client séparée du modèle vérifié',()=>{
+ const d=boots.detailed_item;
+ assert.equal(d.name_fr,'Chaussures de lanceur de sorts');
+ assert.deepEqual(d.stats,{ap:35,magic_pen_flat:18,magic_pen_pct:8,mana_regen_pct:100,movement_speed_flat:45});
+ assert.equal(d.passives[0].value,50);
+ assert.equal(d.passives[1].bonus_true_damage,18);
+ assert.equal(d.mechanics_interactions_tested,false);
+});
