@@ -1,0 +1,52 @@
+{
+  "schema": "wrdi.stage_a.item_active_detail.v1",
+  "game": "Wild Rift mobile",
+  "date": "2026-11-05",
+  "client_app_version": "7.3.0.2813",
+  "client_resource_version": "7.3.60.133",
+  "item": {
+    "name_fr": "Force du vent",
+    "provisional_id": "galeforce",
+    "category": "Tireur",
+    "price_gold": 3100,
+    "source_image": "1000010695.jpg",
+    "stats": {
+      "attack_damage": 60,
+      "critical_strike_chance_pct": 25,
+      "movement_speed_pct": 4
+    },
+    "active": {
+      "name_fr": "Averse",
+      "trigger": "manual_activation",
+      "effect": [
+        "dash_toward_targeted_direction",
+        "fire_three_projectiles"
+      ],
+      "projectile_count": 3,
+      "targeting_rule": "nearest_lowest_hp_enemy",
+      "targeting_priority": "champions_first",
+      "damage_type": "physical",
+      "displayed_damage_min": 40,
+      "displayed_damage_max": 125,
+      "damage_scaling_bonus_ad_pct": 35,
+      "damage_scaling_level_symbol": "level_or_progression_icon_visible_but_formula_not_specified",
+      "damage_per_projectile_or_total": "unknown_from_screenshot",
+      "damage_aggregation_model_verified": false,
+      "cooldown_seconds": 60
+    },
+    "passives_visible": [],
+    "external_numeric_id_verified": false,
+    "mechanics_tested": false
+  },
+  "policy": {
+    "on_screen_client_data": true,
+    "not_a_certified_combat_model": true,
+    "do_not_automatically_load_into_build_recommendations": true
+  },
+  "open_questions": [
+    "The game text does not explicitly say whether 40–125 + 35% bonus AD is applied per projectile or across all three.",
+    "The icon following 40–125 cannot by itself establish exact level-scaling formula.",
+    "Whether Galio can purchase/use this item is not proven by this screenshot.",
+    "Exact projectile targeting behavior with mixed champion/minion targets not experimentally verified."
+  ]
+}
