@@ -94,3 +94,5 @@ jobs:
         run: node --test stage-a-runes-batch4.test.js
       - name: Tester les dix nouvelles runes du client (lot 5)
         run: node --test stage-a-runes-batch5.test.js
+      - name: Tester les cinq runes Domination et les doublons (lot 6)
+        run: node --test stage-a-runes-batch6.test.js
