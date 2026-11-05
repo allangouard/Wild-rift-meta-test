@@ -299,8 +299,12 @@
   "notes": [
     "Screenshots confirm item displayed names, icons, category and prices only; no detailed item stats or passive effects.",
     "Two shop entries are not in curated 59-item catalog; keep provisional references only, never assume current canonical ID or whether active item rules include them.",
-    "The full list of Defence as displayed in three captures; other shop categories might repeat some entries.",
     "The resources build does not independently identify specific balance patch.",
-    "Both unmatched items now have client-confirmed stats and active descriptions in separate evidence file. External canonical IDs and interactions remain unverified."
-  ]
+    "Both unmatched items now have client-confirmed stats and active descriptions in separate evidence file. External canonical IDs and interactions remain unverified.",
+    "User explicitly confirms 30 displayed items cover complete Défense shop category in their client; overlapping items belong to same global item."
+  ],
+  "category_complete_confirmed_by_user": true,
+  "category_complete_confirmation_date": "2026-11-05",
+  "coverage": "complete_30_items_confirmed_by_user_for_current_client",
+  "completeness_scope": "names and listing prices only; item descriptions, effects, current numeric IDs and balance patch equivalence not automatically certified"
 }
