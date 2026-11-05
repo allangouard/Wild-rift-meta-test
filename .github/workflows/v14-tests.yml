@@ -35,3 +35,7 @@ jobs:
         run: |
           node --check wrdi-diagnostic-v14.js
           node --test wrdi-diagnostic-v14.test.js
+      - name: Verifier et tester la synthese V14.4
+        run: |
+          node --check wrdi-threat-summary-v14.js
+          node --test wrdi-threat-summary-v14.test.js
