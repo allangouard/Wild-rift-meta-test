@@ -61,6 +61,22 @@
       "independently_verified": false,
       "replicated": false,
       "limits": "Un seul essai négatif. Vérifier la disponibilité de la rune au départ, l'impact effectif du E, le passif et l'absence de dégâts supplémentaires. Ne prouve pas à lui seul le nombre exact de touches admissibles."
+    },
+    {
+      "test_id": "phase-multiple-combos",
+      "rune": "Rush phasique",
+      "ability": "A → Z → P ; E → A → Z ; autres combos non détaillés",
+      "result": "observed_yes",
+      "user_description": "J’ai testé plusieurs combo a base de A - Z - passif . E - A - Z , et plusieurs autres sa déclenche a chaque fois. C’est bien 3 interactions a chaque fois",
+      "interpretation": "Le joueur observe des activations répétées de Rush phasique avec plusieurs séquences comprenant trois interactions, notamment A-Z-passif et E-A-Z.",
+      "client_observation_status": "confirmed_by_player_in_wild_rift_client",
+      "client_observation_verified_by_player": true,
+      "independently_verified": false,
+      "replicated_by_player": true,
+      "replication_count": "plusieurs essais, nombre exact non précisé",
+      "precise_hit_count_verified": false,
+      "activation_window_seconds_verified": false,
+      "limits": "Ne prouve pas qu'un événement de chaque compétence constitue exactement une touche admissible, ni que deux seules touches échouent, ni la fenêtre de 4 s. Les détails des autres combos et l'état du cooldown ne sont pas fournis."
     }
   ]
 }
