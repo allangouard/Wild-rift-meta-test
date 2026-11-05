@@ -125,6 +125,80 @@ else host.appendChild(panel);
           line('V14.5 : contrôles indisponibles ('+String(error.message||error)+'). Aucune simulation autorisée.');
         }
       }
+      const duelApi=root.WRDI_GalioItemDuelV14;
+      if(duelApi?.evaluate){
+        const duelPanel=el('section');
+        duelPanel.style.cssText='margin:12px 0;padding:12px;border:1px solid #4d8180;border-radius:10px';
+        duelPanel.appendChild(el('h3','⚖️ V14.6 — Duel défensif Galio : Cotte épineuse / Désespoir infini'));
+        line('Modifie les statistiques AVANT achat pour tester un scénario hypothétique. Elles ne sont pas automatiquement celles de Galio.',duelPanel);
+        const inputs={};
+        for(const [key,label,initial] of [
+          ['hp','PV avant achat',2400],
+          ['armor','Armure avant achat',90],
+          ['mr','Résistance magique avant achat',60]
+        ]){
+          const field=el('label',label+' : ');
+          field.style.cssText='display:block;margin:8px 0';
+          const input=el('input');
+          input.type='number';
+          input.min=key==='hp'?'1':'0';
+          input.value=String(initial);
+          input.setAttribute('aria-label',label);
+          input.style.cssText='width:100%;max-width:180px;margin-left:8px';
+          field.appendChild(input);
+          duelPanel.appendChild(field);
+          inputs[key]=input;
+        }
+        const compareButton=el('button','Comparer ces deux objets (scénario)');
+        compareButton.type='button';
+        const compareOutput=el('div');
+        compareOutput.setAttribute('aria-live','polite');
+        compareOutput.style.cssText='margin-top:12px;overflow-wrap:anywhere';
+        duelPanel.append(compareButton,compareOutput);
+        compareButton.addEventListener('click',async()=>{
+          compareOutput.replaceChildren();
+          compareButton.disabled=true;
+          try{
+            const base={};
+            for(const k of ['hp','armor','mr']){
+              const val=String(inputs[k].value).trim();
+              if(!val)throw Error('Renseigne les trois statistiques avant achat.');
+              base[k]=Number(val);
+            }
+            const [items,rules]=await Promise.all([
+              fetchJson('./data/items-client-7.3d-v12.json'),
+              fetchJson('./data/item-restrictions-client-7.3d-v12.json')
+            ]);
+            if(run!==runNumber)return;
+            const outcome=duelApi.evaluate({core,catalog:items,rules,base});
+            if(!outcome.ok){
+              line('Comparaison indisponible : '+outcome.errors.join(' ; '),compareOutput);
+              return;
+            }
+            for(const item of outcome.items){
+              const card=el('div');
+              card.style.cssText='padding:10px;margin:10px 0;border:1px solid #446b77;border-radius:8px';
+              card.appendChild(el('h4',item.name+' · prix catalogue '+item.priceGold+' PO (7.3d)'));
+              line('Bonus : +'+item.bonus.hp+' PV · +'+item.bonus.armor+' armure · +'+item.bonus.mr+' RM · +'+item.bonus.ah+' accélération de compétence.',card);
+              line('PV effectifs physiques (modèle isolé) : '+Math.round(item.ehp.physical)+' · gain '+Math.round(item.ehp.physicalGain)+'.',card);
+              line('PV effectifs magiques (modèle isolé) : '+Math.round(item.ehp.magic)+' · gain '+Math.round(item.ehp.magicGain)+'.',card);
+              if(item.id==='thornmail'){
+                line('Épines : '+item.mechanics.onAttackReturnRaw.toFixed(1)+' dégâts magiques BRUTS par attaque déclenchante, avant résistances adverses.',card);
+                line('Entrelacs : '+item.mechanics.healingReductionPct+' % Hémorragie pendant '+item.mechanics.durationSeconds+' s sous conditions de déclenchement.',card);
+              }else{
+                line('Affliction : '+item.mechanics.oneProcRaw.toFixed(1)+' dégâts magiques BRUTS par déclenchement hypothétique de '+item.mechanics.tickSeconds+' s.',card);
+                line('Soin indiqué : '+item.mechanics.healMultiplier+' × dégâts RÉELLEMENT infligés (inconnus).',card);
+              }
+              compareOutput.appendChild(card);
+            }
+            list('Hypothèses et limites obligatoires',outcome.assumptions,compareOutput);
+            line('Aucun gagnant ni recommandation automatique : modèle descriptif non calibré.',compareOutput);
+          }catch(error){
+            if(run===runNumber)line('Comparaison indisponible : '+String(error.message||error),compareOutput);
+          }finally{if(run===runNumber)compareButton.disabled=false;}
+        });
+        output.appendChild(duelPanel);
+      }
       report.threats.forEach((t,i)=>{
         const b=report.enemyBuilds[i];
         const card=el('div');
