@@ -90,7 +90,15 @@
     "marksman_shop_evidence": "data/stage-a-marksman-shop-evidence-2026-11-05.json",
     "marksman_shop_complete_client_confirmed": true,
     "marksman_shop_coverage": "complete 28-item category confirmed by user, 2026-11-05",
-    "runaans_hurricane_eligibility": "ranged only, user client confirmation; unavailable to melee Galio; shop price still unverified"
+    "runaans_hurricane_eligibility": "ranged only, user client confirmation; unavailable to melee Galio; shop price still unverified",
+    "support_shop_observed_named": 20,
+    "support_shop_observed_priced": 20,
+    "support_shop_current_curated_matches": 13,
+    "support_shop_not_in_curated_59": 7,
+    "support_shop_shared_with_other_categories": 14,
+    "support_shop_evidence": "data/stage-a-support-shop-evidence-2026-11-05.json",
+    "support_shop_complete_client_confirmed": false,
+    "support_shop_status": "20 visible entries; full category not yet confirmed"
   },
   "gates": [
     {
@@ -158,6 +166,7 @@
     "2026-11-05: Assassin screenshot 10 visible named/priced entries, 1 mapped to 59 curated items and 9 provisional; not exhaustive.",
     "2026-11-05: user expressly confirms Assassin category is complete at 10 listed items; detail/mechanics certification still pending.",
     "2026-11-05: Tireur: 28 visible names, 27 visible prices; Ouragan de Runaan shows padlock not price; 4 items in 59 curated, 24 other provisional, 11 overlap other shop categories. Complete category not confirmed.",
-    "2026-11-05: user confirms 28 Tideur shop entries complete and Runaan's Hurricane ranged-only; lock shown because Galio is melee; unknown price remains unknown."
+    "2026-11-05: user confirms 28 Tideur shop entries complete and Runaan's Hurricane ranged-only; lock shown because Galio is melee; unknown price remains unknown.",
+    "2026-11-05: Support: 20 shop entries visible and 20 prices confirmed; 13 match original curated 59 and 7 provisional; 14 overlap Magie/Défense; category completeness not yet confirmed. Shurelya, Mikael, Écho harmonieux and other unmapped entries require full details/identity validation."
   ]
 }
