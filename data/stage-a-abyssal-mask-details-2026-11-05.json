@@ -1,0 +1,36 @@
+{
+  "schema": "wrdi.stage_a.client_item_detail.v1",
+  "game": "Wild Rift mobile",
+  "date": "2026-11-05",
+  "client_app_version": "7.3.0.2813",
+  "client_resource_version": "7.3.60.133",
+  "source_image": "1000010740.jpg",
+  "name_fr": "Masque abyssal",
+  "catalog_id": "abyssal_mask",
+  "price_gold": 2400,
+  "stats": {
+    "hp": 350,
+    "magic_resistance": 45,
+    "ability_haste": 10
+  },
+  "passives": [
+    {
+      "name_fr": "Anéantissement",
+      "damage_type": "magic",
+      "affected_targets": "enemy_champions",
+      "range_units": 650,
+      "reference": "around_item_holder",
+      "damage_increase_pct": 12,
+      "stacking": "same_effect_does_not_stack"
+    }
+  ],
+  "external_numeric_id_verified": false,
+  "mechanics_experimentally_calibrated": false,
+  "policy": {
+    "do_not_automatically_load_into_build_recommendations": true
+  },
+  "open_questions": [
+    "Tooltip does not quantify whether allied magic damage is affected or only item holder; wording says magic damage dealt to enemy champions within range, without an explicit ownership clause.",
+    "Does not specify how multiplier combines with other damage amplifiers or timing; do not treat as calibrated."
+  ]
+}
