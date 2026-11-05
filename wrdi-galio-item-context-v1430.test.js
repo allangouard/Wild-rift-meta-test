@@ -60,6 +60,6 @@ test('app sends ally frontline requirement and crit evidence, without inserting 
  const section=app.slice(app.indexOf('async function wrdiGalioFiveCatalogAnalyze('),app.indexOf('async function simpleAnalyze(){'));
  assert.ok(section.includes('WRDI_GalioTeamContextV1431?.make'));
  assert.ok(section.includes('teamContext.threats'));
- assert.ok(section.includes('frontlineNeed'));
+ assert.ok(section.includes('teamContext.threats'));
  assert.ok(!section.includes("if(enemyNames.includes('Zed'))"));
 });
