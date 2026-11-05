@@ -63,6 +63,6 @@ test('La page V14.12 expose un bouton autonome, dix requêtes et leurs limites',
  assert.ok(page.includes('./wrdi-ten-kit-panel-v1412.js?v=14120'));
  assert.ok(panel.includes('Analyser automatiquement les 10 kits'));
  assert.ok(panel.includes('Promise.all(picks.map'));
- assert.ok(panel.includes('Fiches adverses'));
+ assert.ok(panel.includes('fiches des 10 champions'));
  assert.ok(!panel.includes('adapters.create('));
 });
