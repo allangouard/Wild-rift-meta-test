@@ -189,3 +189,9 @@ jobs:
           node --check assets/app.js
           node --check wrdi-ten-kit-panel-v1414.js
           node --test wrdi-compact-dashboard-v1423.test.js
+      - name: Tester restrictions des objets Galio V14.24
+        run: |
+          node --check wrdi-galio-item-guard-v1424.js
+          node --check assets/app.js
+          node --check wrdi-compact-dashboard-v1423.js
+          node --test wrdi-galio-item-guard-v1424.test.js
