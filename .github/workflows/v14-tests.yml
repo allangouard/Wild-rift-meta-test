@@ -226,3 +226,9 @@ jobs:
           node --check wrdi-galio-five-item-optimizer-v1429.js
           node --check assets/app.js
           node --test wrdi-galio-item-context-v1430.test.js
+      - name: Tester profil des menaces et besoins Galio V14.31
+        run: |
+          node --check wrdi-galio-team-context-v1431.js
+          node --check wrdi-galio-five-item-optimizer-v1429.js
+          node --check assets/app.js
+          node --test wrdi-galio-team-context-v1431.test.js
