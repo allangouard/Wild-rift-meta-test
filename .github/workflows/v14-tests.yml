@@ -28,4 +28,8 @@ jobs:
         run: node wrdi-core-v14.test.js
       - name: Tester le coordinateur V14.1
         run: node --test wrdi-coordinator-v14.test.js
+              - name: Verifier et tester les adaptateurs V14.2
+        run: |
+          node --check wrdi-adapters-v14.js
+          node --test wrdi-adapters-v14.test.js
   
