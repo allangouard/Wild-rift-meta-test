@@ -68,3 +68,5 @@ jobs:
         run: node --test stage-a-fighter-active-details-batch3.test.js stage-a-marksman-galeforce-detail.test.js
       - name: Tester les details de Redemption
         run: node --test stage-a-redemption-item-details.test.js
+      - name: Tester les trois passifs Support du client
+        run: node --test stage-a-support-passives-batch4.test.js
