@@ -7,7 +7,7 @@ const $=id=>document.getElementById(id);
 const make=(tag,text)=>{const x=document.createElement(tag);if(text!==undefined)x.textContent=text;return x};
 const unique=(xs)=>[...new Set(xs)];
 function boot(){
- const host=$('runes');
+ const host=$('wrdiPane_runes') || $('runes');
  const bridge=root.WRDI_RuneBridgeV14;
  if(!host||!bridge||$('wrdiRunePanel147'))return;
  const card=make('section');card.id='wrdiRunePanel147';card.className='panel';
@@ -17,8 +17,10 @@ function boot(){
  const description=make('p','Vérifie une page de runes possible sur Wild Rift. Ce module ne recommande pas encore de runes selon la draft.');description.className='muted';card.appendChild(description);
  const controls=make('div');card.appendChild(controls);
  const result=make('p','');result.setAttribute('aria-live','polite');card.appendChild(result);
- const existing=host.querySelector('.panel');
- if(existing)existing.appendChild(card);else host.appendChild(card);
+ // Dans la navigation unifiée, le panneau doit être directement visible
+ // dans l'onglet Runes (la page historique #runes est masquée).
+ if(host.id==='wrdiPane_runes')host.appendChild(card);
+ else {const existing=host.querySelector('.panel');if(existing)existing.appendChild(card);else host.appendChild(card);}
  const field=(label,values)=>{
   const wrap=make('label');wrap.style.cssText='display:block;margin:10px 0';
   wrap.appendChild(make('span',label+' '));
