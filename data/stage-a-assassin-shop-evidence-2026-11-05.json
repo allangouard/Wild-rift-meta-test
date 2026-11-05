@@ -13,7 +13,7 @@
   "visible_prices": 10,
   "matched_existing": 1,
   "not_in_curated_59": 9,
-  "coverage": "partial; no evidence that full Assassin category is visible",
+  "coverage": "complete_category_confirmed_by_user_for_current_client",
   "entries": [
     {
       "name_fr": "Crochet de serpent",
@@ -127,10 +127,12 @@
     }
   ],
   "notes": [
-    "User screenshot confirms only 10 visible rows and prices; completeness of category cannot be concluded.",
     "Duplicate items across shop categories are one item, not separate identities.",
     "Descriptions are short shop summaries, not verified full stats/passives.",
     "Candidate IDs are provisional names, no external numeric ID verified.",
-    "No recommendations are enabled by this evidence."
-  ]
+    "No recommendations are enabled by this evidence.",
+    "User explicitly confirms these 10 items are the full Assassin shop category for current Wild Rift client. This confirms inventory coverage, NOT full item stats/passives."
+  ],
+  "category_complete_confirmed_by_user": true,
+  "category_complete_confirmation_date": "2026-11-05"
 }
