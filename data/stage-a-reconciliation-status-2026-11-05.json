@@ -1,0 +1,87 @@
+{
+  "schema": "wrdi.stage_a.reconciliation_status.v1",
+  "date": "2026-11-05",
+  "branch": "v14-development",
+  "game": "Wild Rift mobile",
+  "mode": "ranked Summoner's Rift",
+  "basis": [
+    "data/stage-a-cross-category-inventory-v14.json",
+    "data/stage-a-boots-shop-evidence-2026-11-05.json",
+    "data/stage-a-boots-details-batch1-2026-11-05.json",
+    "data/stage-a-boots-details-batch2-2026-11-05.json",
+    "data/items-client-7.3d-v12.json",
+    "data/item-restrictions-client-7.3d-v12.json",
+    "data/stage-a-support-shop-evidence-2026-11-05.json"
+  ],
+  "catalog_inventory": {
+    "shop_category_rows": 139,
+    "distinct_non_boot_items": 102,
+    "non_boot_known_prices": 101,
+    "non_boot_missing_price_names": [
+      "Ouragan de Runaan"
+    ],
+    "shop_categories_complete_per_user": [
+      "Magie",
+      "Défense",
+      "Combattant",
+      "Assassin",
+      "Tireur",
+      "Support"
+    ],
+    "separate_boot_names": 15,
+    "boot_detail_sources": [
+      "data/stage-a-boots-shop-evidence-2026-11-05.json",
+      "data/stage-a-boots-details-batch1-2026-11-05.json",
+      "data/stage-a-boots-details-batch2-2026-11-05.json"
+    ]
+  },
+  "prior_support_gap_correction": {
+    "names": [
+      "Mandat impérial",
+      "Trident des Océanides",
+      "Morellonomicon",
+      "Vertu radieuse"
+    ],
+    "status": "previously_documented_in_curated_client_catalog",
+    "evidence": "data/items-client-7.3d-v12.json",
+    "note": "Do not ask user to recapture these as wholly missing; interactions and patch reconciliation still pending."
+  },
+  "remaining_work_priorities": [
+    {
+      "id": "runes",
+      "state": "not_confirmed_complete",
+      "requirement": "current-client rune list, selectable families and page constraints; avoid copying PC League rune rules"
+    },
+    {
+      "id": "canonical_identity",
+      "state": "not_verified_for_all_items",
+      "requirement": "reconcile shop French names to source IDs for API builds"
+    },
+    {
+      "id": "complete_mechanics",
+      "state": "not_certified_all_102",
+      "requirement": "normalize complete per-item stats/passives/actives and availability with evidence"
+    },
+    {
+      "id": "patch",
+      "state": "not_integrated",
+      "requirement": "match each source field and official changes to actual ranked mobile patch"
+    },
+    {
+      "id": "legality",
+      "state": "partially_documented",
+      "requirement": "merge verified item restrictions with availability incl melee-only limits, separate active slot"
+    },
+    {
+      "id": "integration",
+      "state": "not_enabled",
+      "requirement": "keep V14 optimizer disabled until datasets validated and tests pass"
+    }
+  ],
+  "safety": {
+    "do_not_autorecommend_from_incomplete_data": true,
+    "do_not_reask_verified_user_client_details_without_patch_change": true,
+    "never_confuse_boots_and_standalone_active_items": true,
+    "do_not_claim_complete_technical_certification_from_shop_inventory": true
+  }
+}
