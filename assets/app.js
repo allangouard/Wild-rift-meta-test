@@ -502,7 +502,12 @@ async function simpleAnalyze(){
  const pages=(mid.runes||[]).filter(r=>Array.isArray(r.runes)&&r.runes.length===5).sort((a,b)=>(engineNum(b.pick)||0)-(engineNum(a.pick)||0));
  html+='<div class="simple-result"><h3>✨ Runes</h3>'+(pages.length?engineEntry(pages[0].runes,'rune')+'<p class="simple-reason">Page Mid observée. Son adaptation exacte à la draft n’est pas encore calculée.</p>':'<p class="warn">Pas de page Mid complète vérifiable.</p>')+'</div>';
  html+='<details><summary>🔬 Ce qui est calculé en arrière-plan</summary><p class="muted">Classement des cores Mid observés ; contrôle de leurs identifiants ; extraction de statistiques des objets ; scores de compléments selon coût, PV, résistances, statistiques offensives et profils de menaces. Les profils anti-critiques, anti-soins, tanks, la compatibilité du champion et la redondance sont évalués par des règles explicites ; les passifs, synergies uniques et ratios de compétences ne sont pas encore simulés de façon exhaustive. Les suggestions situationnelles restent heuristiques. Les données de catalogue et les profils adverses peuvent être incomplets.</p></details>';
- out.innerHTML=html;out.scrollIntoView({behavior:'smooth',block:'start'});
+ out.innerHTML=html;
+ if(typeof window!=='undefined')window.dispatchEvent(new CustomEvent('wrdi:build-result',{
+  detail:{champion:title,patch:patches[0],core:base.items.map(optId).map(id=>({id,name:simpleItemName(simpleItem(id))})),
+   situational:chosen.map(c=>({id:String(c.x.id),name:simpleItemName(c.x),reason:c.rule.reasons.join(' ; ')||simpleWhy(c.x,c,own),timing:c.rule.timing})),
+   coreType:'most_observed_mid',runeSource:'observed_mid'} }));
+ if(!window.WRDI_CompactV1423)out.scrollIntoView({behavior:'smooth',block:'start'});
  }catch(e){out.innerHTML='<p class="bad">Impossible de charger les cores Mid : '+esc(String(e))+'</p>'}
 }
 $('simpleRun').onclick=simpleAnalyze;
