@@ -37,4 +37,3 @@ function validateRunePage(page, catalogue = DEFAULT_CATALOGUE) {
 }
 
 if (typeof module !== 'undefined' && module.exports) module.exports = { RULES, validateRunePage };
-if (typeof window !== 'undefined') window.WRDIRunePageRulesV14 = { RULES, validateRunePage };
