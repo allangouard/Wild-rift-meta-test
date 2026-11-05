@@ -50,3 +50,5 @@ jobs:
           node --test wrdi-galio-item-duel-v14.test.js
       - name: Verifier les captures et prix du catalogue etape A
         run: node --test stage-a-shop-evidence.test.js
+      - name: Verifier correspondances historiques et restrictions actifs
+        run: node --test stage-a-identity-crosswalk.test.js
