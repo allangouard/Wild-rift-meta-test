@@ -1,0 +1,77 @@
+{
+  "schema": "wrdi.stage_a.runes_batch7_v1",
+  "game": "Wild Rift mobile",
+  "locale": "fr-FR",
+  "patch": "client screenshot, patch not inferred",
+  "source": "Captures fournies par l'utilisateur depuis le client Wild Rift",
+  "recorded_at": "2026-11-05",
+  "entries": [
+    {
+      "id": "sudden_impact",
+      "name_fr": "Ruée offensive",
+      "tree": "Domination",
+      "screenshot": "1000010785.jpg",
+      "trigger": "dash_blink_teleport_or_exit_stealth_then_hit_champion_within_4s",
+      "effect": "Après une ruée, un bond, un saut instantané, une téléportation ou après avoir cessé d'être furtif, la prochaine attaque ou compétence touchant un champion ennemi dans les 4 secondes inflige 10–65 points de dégâts bruts supplémentaires. Au niveau 5 : +5 dégâts bruts ; au niveau 9 : +5 dégâts bruts et +10 % vitesse de déplacement pendant 1,5 seconde après avoir infligé des dégâts. Récupération : 15 secondes.",
+      "stats": {
+        "activation_window_s": 4,
+        "true_damage_min": 10,
+        "true_damage_max": 65,
+        "level_5_flat_true_damage_bonus": 5,
+        "level_9_additional_flat_true_damage_bonus": 5,
+        "level_9_move_speed_pct": 10,
+        "level_9_move_speed_duration_s": 1.5,
+        "cooldown_s": 15
+      },
+      "notes": [
+        "Les dégâts de base entre niveaux et le cumul des bonus ne sont pas interpolés sans données supplémentaires."
+      ]
+    },
+    {
+      "id": "eyeball_collector",
+      "name_fr": "Arracheur d'œil",
+      "tree": "Domination",
+      "screenshot": "1000010783.jpg",
+      "trigger": "champion_or_epic_monster_elimination",
+      "effect": "Éliminer un champion ou un monstre épique octroie 1,5 dégâts d'attaque ou 3 puissance (adaptatif), cumulable jusqu'à 8 fois.",
+      "stats": {
+        "adaptive_ad_per_stack": 1.5,
+        "adaptive_ap_per_stack": 3,
+        "max_stacks": 8
+      }
+    },
+    {
+      "id": "chain_assault",
+      "name_fr": "Assaut enchaîné",
+      "tree": "Domination",
+      "screenshot": "1000010781.jpg",
+      "trigger": "active_ability_hits_champion_then_next_two_attacks_or_active_abilities",
+      "effect": "Infliger des dégâts à un champion avec une compétence active lui applique une marque. Vos deux prochaines attaques ou compétences actives sur un ennemi marqué infligent chacune des dégâts adaptatifs supplémentaires égaux à 12–38 (selon niveau) + 3 % des dégâts d'attaque bonus + 1,5 % de la puissance. Récupération : 15 secondes.",
+      "stats": {
+        "marked_followup_hits": 2,
+        "adaptive_damage_per_hit_min": 12,
+        "adaptive_damage_per_hit_max": 38,
+        "bonus_ad_ratio_pct": 3,
+        "ap_ratio_pct": 1.5,
+        "cooldown_s": 15
+      }
+    },
+    {
+      "id": "cheap_shot",
+      "name_fr": "Coup bas",
+      "tree": "Domination",
+      "screenshot": "1000010779.jpg",
+      "trigger": "damage_enemy_with_impaired_movement",
+      "effect": "Inflige 10–45 points de dégâts bruts supplémentaires aux ennemis dont les déplacements sont restreints. Récupération : 5 secondes.",
+      "stats": {
+        "true_damage_min": 10,
+        "true_damage_max": 45,
+        "cooldown_s": 5
+      }
+    }
+  ],
+  "policy": {
+    "not_enabled_for_automatic_recommendation": true,
+    "scaling_between_minimum_and_maximum_not_inferred": true
+  }
+}
