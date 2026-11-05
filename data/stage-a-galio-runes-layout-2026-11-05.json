@@ -46,16 +46,38 @@
   },
   "inferences_not_proven": [
     "Cannot certify all five runes' exact names or passives from grey or colored icons alone.",
-    "Cannot prove whether all archetype permutations and special rune limitations work from one example.",
     "Cannot assume PC League rune structure.",
     "Number of keystone options reflects this Galio screen only, not universal availability."
   ],
-  "next_evidence": "Tap the selected keystone, the selected small runes, or open a rune details panel to show the client French name and effect. Prefer broad overview of all rune choices and rules before detailed capture of every rune.",
+  "next_evidence": "Règle de branche confirmée par l'utilisateur. Cartographie des lignes et exceptions éventuelles à vérifier avant l'optimiseur final.",
   "policy": {
     "do_not_enable_rune_optimizer_from_single_screenshot": true,
     "keep_sources_separate_from_wrchina": true
   },
   "notes": [
     "Selected keystone name and effect verified in separate close-up screenshot; unselected rune icon names remain unreadable."
-  ]
+  ],
+  "confirmed_rules": {
+    "evidence_image": "1000010857.jpg",
+    "user_confirmed": true,
+    "exact_keystone_count": 1,
+    "exact_primary_minor_count": 3,
+    "primary_tree_same_for_all_three": true,
+    "exact_secondary_minor_count": 1,
+    "secondary_tree_must_differ_from_primary": true,
+    "secondary_tree_other_choices": 3,
+    "validated_examples": [
+      {
+        "primary_tree": "Domination",
+        "secondary_tree": "Précision",
+        "evidence_image": "1000010744.jpg"
+      },
+      {
+        "primary_tree": "Domination",
+        "secondary_tree": "Volonté",
+        "evidence_image": "1000010857.jpg"
+      }
+    ],
+    "rules_file": "data/stage-a-rune-page-rules-2026-11-05.json"
+  }
 }
