@@ -1,0 +1,2331 @@
+{
+  "schema": "wrdi.stage_a.cross_category_item_inventory.v1",
+  "source": "user-provided client screenshots; 2026-11-05",
+  "client_app_version": "7.3.0.2813",
+  "client_resource_version": "7.3.60.133",
+  "notes": [
+    "Entries indexed by observed French in-game name; normalize typography for dedupe but not external identity.",
+    "Category completeness explicitly confirmed for Assassin, Tireur and Support only. Magie, Défense, Combattant completeness not yet confirmed.",
+    "14/15? boots are tracked separately from these six shop categories; 15/15 detailed boot values documented.",
+    "Full item stats, passives, numeric external IDs not certified by this listing inventory.",
+    "Locked Runaan has no visible price; it is restricted to ranged, per user firsthand confirmation."
+  ],
+  "counts": {
+    "shop_category_rows": 139,
+    "unique_item_names": 102,
+    "unique_priced_items": 101,
+    "unique_unknown_price_items": 1,
+    "price_conflicts": 0,
+    "confirmed_complete_categories": [
+      "Assassin",
+      "Tireur",
+      "Support"
+    ],
+    "categories_not_yet_confirmed_complete": [
+      "Magie",
+      "Défense",
+      "Combattant"
+    ],
+    "boots_unique_separate": 15
+  },
+  "conflicts": [],
+  "items": [
+    {
+      "name_fr": "Ange gardien",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Ange gardien",
+          "price_gold": 3200,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Combattant",
+          "name_fr": "Ange gardien",
+          "price_gold": 3200,
+          "source": "data/stage-a-fighter-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Assassin",
+          "name_fr": "Ange gardien",
+          "price_gold": 3200,
+          "source": "data/stage-a-assassin-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Tireur",
+          "name_fr": "Ange gardien",
+          "price_gold": 3200,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3200
+      ],
+      "display_price_gold": 3200,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense",
+        "Combattant",
+        "Assassin",
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Arc-bouclier immortel",
+      "category_entries": [
+        {
+          "category": "Tireur",
+          "name_fr": "Arc-bouclier immortel",
+          "price_gold": 3000,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3000
+      ],
+      "display_price_gold": 3000,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Armure de Warmog",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Armure de Warmog",
+          "price_gold": 2850,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2850
+      ],
+      "display_price_gold": 2850,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense"
+      ]
+    },
+    {
+      "name_fr": "Armure sanguine",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Armure sanguine",
+          "price_gold": 3200,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Combattant",
+          "name_fr": "Armure sanguine",
+          "price_gold": 3200,
+          "source": "data/stage-a-fighter-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3200
+      ],
+      "display_price_gold": 3200,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense",
+        "Combattant"
+      ]
+    },
+    {
+      "name_fr": "Au bout du rouleau",
+      "category_entries": [
+        {
+          "category": "Tireur",
+          "name_fr": "Au bout du rouleau",
+          "price_gold": 2800,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2800
+      ],
+      "display_price_gold": 2800,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Aube et crépuscule",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Aube et crépuscule",
+          "price_gold": 3100,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3100
+      ],
+      "display_price_gold": 3100,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie"
+      ]
+    },
+    {
+      "name_fr": "Bâton de l’archange",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Bâton de l’archange",
+          "price_gold": 3000,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3000
+      ],
+      "display_price_gold": 3000,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie"
+      ]
+    },
+    {
+      "name_fr": "Bâton des flots",
+      "category_entries": [
+        {
+          "category": "Support",
+          "name_fr": "Bâton des flots",
+          "price_gold": 2400,
+          "source": "data/stage-a-support-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2400
+      ],
+      "display_price_gold": 2400,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Support"
+      ]
+    },
+    {
+      "name_fr": "Bâton du vide",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Bâton du vide",
+          "price_gold": 3000,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3000
+      ],
+      "display_price_gold": 3000,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie"
+      ]
+    },
+    {
+      "name_fr": "Bâton séculaire",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Bâton séculaire",
+          "price_gold": 2700,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2700
+      ],
+      "display_price_gold": 2700,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie"
+      ]
+    },
+    {
+      "name_fr": "Bénédiction de Mikael",
+      "category_entries": [
+        {
+          "category": "Support",
+          "name_fr": "Bénédiction de Mikael",
+          "price_gold": 2500,
+          "source": "data/stage-a-support-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2500
+      ],
+      "display_price_gold": 2500,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Support"
+      ]
+    },
+    {
+      "name_fr": "Brise-coques",
+      "category_entries": [
+        {
+          "category": "Combattant",
+          "name_fr": "Brise-coques",
+          "price_gold": 3100,
+          "source": "data/stage-a-fighter-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3100
+      ],
+      "display_price_gold": 3100,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Combattant"
+      ]
+    },
+    {
+      "name_fr": "Canon ultrarapide",
+      "category_entries": [
+        {
+          "category": "Tireur",
+          "name_fr": "Canon ultrarapide",
+          "price_gold": 2650,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2650
+      ],
+      "display_price_gold": 2650,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Ceinture-roquette Hextech",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Ceinture-roquette Hextech",
+          "price_gold": 2700,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2700
+      ],
+      "display_price_gold": 2700,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie"
+      ]
+    },
+    {
+      "name_fr": "Chant de guerre de Shurelya",
+      "category_entries": [
+        {
+          "category": "Support",
+          "name_fr": "Chant de guerre de Shurelya",
+          "price_gold": 2500,
+          "source": "data/stage-a-support-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2500
+      ],
+      "display_price_gold": 2500,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Support"
+      ]
+    },
+    {
+      "name_fr": "Chasseur de monstres",
+      "category_entries": [
+        {
+          "category": "Tireur",
+          "name_fr": "Chasseur de monstres",
+          "price_gold": 2650,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2650
+      ],
+      "display_price_gold": 2650,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Cimeterre mercuriel",
+      "category_entries": [
+        {
+          "category": "Combattant",
+          "name_fr": "Cimeterre mercuriel",
+          "price_gold": 3100,
+          "source": "data/stage-a-fighter-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Assassin",
+          "name_fr": "Cimeterre mercuriel",
+          "price_gold": 3100,
+          "source": "data/stage-a-assassin-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Tireur",
+          "name_fr": "Cimeterre mercuriel",
+          "price_gold": 3100,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3100
+      ],
+      "display_price_gold": 3100,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Combattant",
+        "Assassin",
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Cœur d’acier",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Cœur d’acier",
+          "price_gold": 2800,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2800
+      ],
+      "display_price_gold": 2800,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense"
+      ]
+    },
+    {
+      "name_fr": "Cœur gelé",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Cœur gelé",
+          "price_gold": 2550,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Support",
+          "name_fr": "Cœur gelé",
+          "price_gold": 2550,
+          "source": "data/stage-a-support-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2550
+      ],
+      "display_price_gold": 2550,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense",
+        "Support"
+      ]
+    },
+    {
+      "name_fr": "Coiffe de Rabadon",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Coiffe de Rabadon",
+          "price_gold": 3400,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3400
+      ],
+      "display_price_gold": 3400,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie"
+      ]
+    },
+    {
+      "name_fr": "Concentration lointaine",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Concentration lointaine",
+          "price_gold": 2700,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2700
+      ],
+      "display_price_gold": 2700,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie"
+      ]
+    },
+    {
+      "name_fr": "Convergence de Zeke",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Convergence de Zeke",
+          "price_gold": 2400,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Support",
+          "name_fr": "Convergence de Zeke",
+          "price_gold": 2400,
+          "source": "data/stage-a-support-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2400
+      ],
+      "display_price_gold": 2400,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense",
+        "Support"
+      ]
+    },
+    {
+      "name_fr": "Cotte épineuse",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Cotte épineuse",
+          "price_gold": 2850,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2850
+      ],
+      "display_price_gold": 2850,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense"
+      ]
+    },
+    {
+      "name_fr": "Couperet noir",
+      "category_entries": [
+        {
+          "category": "Combattant",
+          "name_fr": "Couperet noir",
+          "price_gold": 3000,
+          "source": "data/stage-a-fighter-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3000
+      ],
+      "display_price_gold": 3000,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Combattant"
+      ]
+    },
+    {
+      "name_fr": "Créateur de failles",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Créateur de failles",
+          "price_gold": 3100,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3100
+      ],
+      "display_price_gold": 3100,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie"
+      ]
+    },
+    {
+      "name_fr": "Crochet de serpent",
+      "category_entries": [
+        {
+          "category": "Assassin",
+          "name_fr": "Crochet de serpent",
+          "price_gold": 2800,
+          "source": "data/stage-a-assassin-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2800
+      ],
+      "display_price_gold": 2800,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Assassin"
+      ]
+    },
+    {
+      "name_fr": "Danse de la mort",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Danse de la mort",
+          "price_gold": 3300,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Combattant",
+          "name_fr": "Danse de la mort",
+          "price_gold": 3300,
+          "source": "data/stage-a-fighter-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3300
+      ],
+      "display_price_gold": 3300,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense",
+        "Combattant"
+      ]
+    },
+    {
+      "name_fr": "Danseur fantôme",
+      "category_entries": [
+        {
+          "category": "Tireur",
+          "name_fr": "Danseur fantôme",
+          "price_gold": 2650,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2650
+      ],
+      "display_price_gold": 2650,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Déchirure céleste",
+      "category_entries": [
+        {
+          "category": "Combattant",
+          "name_fr": "Déchirure céleste",
+          "price_gold": 2900,
+          "source": "data/stage-a-fighter-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2900
+      ],
+      "display_price_gold": 2900,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Combattant"
+      ]
+    },
+    {
+      "name_fr": "Dent de Nashor",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Dent de Nashor",
+          "price_gold": 2900,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Tireur",
+          "name_fr": "Dent de Nashor",
+          "price_gold": 2900,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2900
+      ],
+      "display_price_gold": 2900,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie",
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Désespoir infini",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Désespoir infini",
+          "price_gold": 3000,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3000
+      ],
+      "display_price_gold": 3000,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense"
+      ]
+    },
+    {
+      "name_fr": "Diadème des murmures",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Diadème des murmures",
+          "price_gold": 2400,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Support",
+          "name_fr": "Diadème des murmures",
+          "price_gold": 2400,
+          "source": "data/stage-a-support-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2400
+      ],
+      "display_price_gold": 2400,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie",
+        "Support"
+      ]
+    },
+    {
+      "name_fr": "Écho de Luden",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Écho de Luden",
+          "price_gold": 2800,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2800
+      ],
+      "display_price_gold": 2800,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie"
+      ]
+    },
+    {
+      "name_fr": "Écho harmonieux",
+      "category_entries": [
+        {
+          "category": "Support",
+          "name_fr": "Écho harmonieux",
+          "price_gold": 2500,
+          "source": "data/stage-a-support-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2500
+      ],
+      "display_price_gold": 2500,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Support"
+      ]
+    },
+    {
+      "name_fr": "Échos d'Helia",
+      "category_entries": [
+        {
+          "category": "Support",
+          "name_fr": "Échos d'Helia",
+          "price_gold": 2400,
+          "source": "data/stage-a-support-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2400
+      ],
+      "display_price_gold": 2400,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Support"
+      ]
+    },
+    {
+      "name_fr": "Éclipse",
+      "category_entries": [
+        {
+          "category": "Combattant",
+          "name_fr": "Éclipse",
+          "price_gold": 2900,
+          "source": "data/stage-a-fighter-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2900
+      ],
+      "display_price_gold": 2900,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Combattant"
+      ]
+    },
+    {
+      "name_fr": "Égide solaire",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Égide solaire",
+          "price_gold": 2900,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2900
+      ],
+      "display_price_gold": 2900,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense"
+      ]
+    },
+    {
+      "name_fr": "Encensoir ardent",
+      "category_entries": [
+        {
+          "category": "Support",
+          "name_fr": "Encensoir ardent",
+          "price_gold": 2400,
+          "source": "data/stage-a-support-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2400
+      ],
+      "display_price_gold": 2400,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Support"
+      ]
+    },
+    {
+      "name_fr": "Épée dentelée chimico-punk",
+      "category_entries": [
+        {
+          "category": "Combattant",
+          "name_fr": "Épée dentelée chimico-punk",
+          "price_gold": 2800,
+          "source": "data/stage-a-fighter-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2800
+      ],
+      "display_price_gold": 2800,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Combattant"
+      ]
+    },
+    {
+      "name_fr": "Épée vespérale de Draktharr",
+      "category_entries": [
+        {
+          "category": "Assassin",
+          "name_fr": "Épée vespérale de Draktharr",
+          "price_gold": 3000,
+          "source": "data/stage-a-assassin-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3000
+      ],
+      "display_price_gold": 3000,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Assassin"
+      ]
+    },
+    {
+      "name_fr": "Estropieur",
+      "category_entries": [
+        {
+          "category": "Combattant",
+          "name_fr": "Estropieur",
+          "price_gold": 3100,
+          "source": "data/stage-a-fighter-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3100
+      ],
+      "display_price_gold": 3100,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Combattant"
+      ]
+    },
+    {
+      "name_fr": "Éviscérateur",
+      "category_entries": [
+        {
+          "category": "Combattant",
+          "name_fr": "Éviscérateur",
+          "price_gold": 3100,
+          "source": "data/stage-a-fighter-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3100
+      ],
+      "display_price_gold": 3100,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Combattant"
+      ]
+    },
+    {
+      "name_fr": "Faux spectrale",
+      "category_entries": [
+        {
+          "category": "Tireur",
+          "name_fr": "Faux spectrale",
+          "price_gold": 3000,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3000
+      ],
+      "display_price_gold": 3000,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Fléau de liche",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Fléau de liche",
+          "price_gold": 2800,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2800
+      ],
+      "display_price_gold": 2800,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie"
+      ]
+    },
+    {
+      "name_fr": "Flèches des Yun Tal",
+      "category_entries": [
+        {
+          "category": "Tireur",
+          "name_fr": "Flèches des Yun Tal",
+          "price_gold": 3000,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3000
+      ],
+      "display_price_gold": 3000,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Fleur de crypte",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Fleur de crypte",
+          "price_gold": 3000,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3000
+      ],
+      "display_price_gold": 3000,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie"
+      ]
+    },
+    {
+      "name_fr": "Force de la nature",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Force de la nature",
+          "price_gold": 2800,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2800
+      ],
+      "display_price_gold": 2800,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense"
+      ]
+    },
+    {
+      "name_fr": "Force de la trinité",
+      "category_entries": [
+        {
+          "category": "Combattant",
+          "name_fr": "Force de la trinité",
+          "price_gold": 3333,
+          "source": "data/stage-a-fighter-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Tireur",
+          "name_fr": "Force de la trinité",
+          "price_gold": 3333,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3333
+      ],
+      "display_price_gold": 3333,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Combattant",
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Force du vent",
+      "category_entries": [
+        {
+          "category": "Tireur",
+          "name_fr": "Force du vent",
+          "price_gold": 3100,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3100
+      ],
+      "display_price_gold": 3100,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Gage de Sterak",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Gage de Sterak",
+          "price_gold": 3200,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Combattant",
+          "name_fr": "Gage de Sterak",
+          "price_gold": 3200,
+          "source": "data/stage-a-fighter-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3200
+      ],
+      "display_price_gold": 3200,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense",
+        "Combattant"
+      ]
+    },
+    {
+      "name_fr": "Gantelet givrant",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Gantelet givrant",
+          "price_gold": 3000,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3000
+      ],
+      "display_price_gold": 3000,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense"
+      ]
+    },
+    {
+      "name_fr": "Gémeaux d’Amaranth",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Gémeaux d’Amaranth",
+          "price_gold": 3200,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3200
+      ],
+      "display_price_gold": 3200,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense"
+      ]
+    },
+    {
+      "name_fr": "Gueule de Malmortius",
+      "category_entries": [
+        {
+          "category": "Combattant",
+          "name_fr": "Gueule de Malmortius",
+          "price_gold": 3000,
+          "source": "data/stage-a-fighter-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Assassin",
+          "name_fr": "Gueule de Malmortius",
+          "price_gold": 3000,
+          "source": "data/stage-a-assassin-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Tireur",
+          "name_fr": "Gueule de Malmortius",
+          "price_gold": 3000,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3000
+      ],
+      "display_price_gold": 3000,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Combattant",
+        "Assassin",
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Hexplaque expérimentale",
+      "category_entries": [
+        {
+          "category": "Combattant",
+          "name_fr": "Hexplaque expérimentale",
+          "price_gold": 3000,
+          "source": "data/stage-a-fighter-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3000
+      ],
+      "display_price_gold": 3000,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Combattant"
+      ]
+    },
+    {
+      "name_fr": "Hiver imminent",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Hiver imminent",
+          "price_gold": 2600,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2600
+      ],
+      "display_price_gold": 2600,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense"
+      ]
+    },
+    {
+      "name_fr": "Hydre titanesque",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Hydre titanesque",
+          "price_gold": 3000,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Combattant",
+          "name_fr": "Hydre titanesque",
+          "price_gold": 3000,
+          "source": "data/stage-a-fighter-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3000
+      ],
+      "display_price_gold": 3000,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense",
+        "Combattant"
+      ]
+    },
+    {
+      "name_fr": "Lame d'infini",
+      "category_entries": [
+        {
+          "category": "Tireur",
+          "name_fr": "Lame d'infini",
+          "price_gold": 3400,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3400
+      ],
+      "display_price_gold": 3400,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Lame du roi déchu",
+      "category_entries": [
+        {
+          "category": "Combattant",
+          "name_fr": "Lame du roi déchu",
+          "price_gold": 3100,
+          "source": "data/stage-a-fighter-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Tireur",
+          "name_fr": "Lame du roi déchu",
+          "price_gold": 3100,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3100
+      ],
+      "display_price_gold": 3100,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Combattant",
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Lame enragée de Guinsoo",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Lame enragée de Guinsoo",
+          "price_gold": 3000,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Tireur",
+          "name_fr": "Lame enragée de Guinsoo",
+          "price_gold": 3000,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3000
+      ],
+      "display_price_gold": 3000,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie",
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Lame spectre de Youmuu",
+      "category_entries": [
+        {
+          "category": "Assassin",
+          "name_fr": "Lame spectre de Youmuu",
+          "price_gold": 2900,
+          "source": "data/stage-a-assassin-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2900
+      ],
+      "display_price_gold": 2900,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Assassin"
+      ]
+    },
+    {
+      "name_fr": "Lame tempête",
+      "category_entries": [
+        {
+          "category": "Tireur",
+          "name_fr": "Lame tempête",
+          "price_gold": 3000,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3000
+      ],
+      "display_price_gold": 3000,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Lance de Shojin",
+      "category_entries": [
+        {
+          "category": "Combattant",
+          "name_fr": "Lance de Shojin",
+          "price_gold": 3100,
+          "source": "data/stage-a-fighter-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3100
+      ],
+      "display_price_gold": 3100,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Combattant"
+      ]
+    },
+    {
+      "name_fr": "Linceul de l’aube",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Linceul de l’aube",
+          "price_gold": 2700,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Support",
+          "name_fr": "Linceul de l'aube",
+          "price_gold": 2700,
+          "source": "data/stage-a-support-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2700
+      ],
+      "display_price_gold": 2700,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense",
+        "Support"
+      ]
+    },
+    {
+      "name_fr": "Lithoplastron de gargouille",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Lithoplastron de gargouille",
+          "price_gold": 2900,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2900
+      ],
+      "display_price_gold": 2900,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense"
+      ]
+    },
+    {
+      "name_fr": "Lunettes Hextech C44",
+      "category_entries": [
+        {
+          "category": "Tireur",
+          "name_fr": "Lunettes Hextech C44",
+          "price_gold": 2900,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2900
+      ],
+      "display_price_gold": 2900,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Malédiction du sanguinaire",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Malédiction du sanguinaire",
+          "price_gold": 2900,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2900
+      ],
+      "display_price_gold": 2900,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie"
+      ]
+    },
+    {
+      "name_fr": "Malfaisance",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Malfaisance",
+          "price_gold": 2700,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2700
+      ],
+      "display_price_gold": 2700,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie"
+      ]
+    },
+    {
+      "name_fr": "Manamune",
+      "category_entries": [
+        {
+          "category": "Combattant",
+          "name_fr": "Manamune",
+          "price_gold": 2900,
+          "source": "data/stage-a-fighter-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Assassin",
+          "name_fr": "Manamune",
+          "price_gold": 2900,
+          "source": "data/stage-a-assassin-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Tireur",
+          "name_fr": "Manamune",
+          "price_gold": 2900,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2900
+      ],
+      "display_price_gold": 2900,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Combattant",
+        "Assassin",
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Mandat impérial",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Mandat impérial",
+          "price_gold": 2600,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Support",
+          "name_fr": "Mandat impérial",
+          "price_gold": 2600,
+          "source": "data/stage-a-support-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2600
+      ],
+      "display_price_gold": 2600,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie",
+        "Support"
+      ]
+    },
+    {
+      "name_fr": "Manteau de l’heure ultime",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Manteau de l’heure ultime",
+          "price_gold": 2550,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Support",
+          "name_fr": "Manteau de l'heure ultime",
+          "price_gold": 2550,
+          "source": "data/stage-a-support-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2550
+      ],
+      "display_price_gold": 2550,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense",
+        "Support"
+      ]
+    },
+    {
+      "name_fr": "Manteau de la nuit",
+      "category_entries": [
+        {
+          "category": "Assassin",
+          "name_fr": "Manteau de la nuit",
+          "price_gold": 3000,
+          "source": "data/stage-a-assassin-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3000
+      ],
+      "display_price_gold": 3000,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Assassin"
+      ]
+    },
+    {
+      "name_fr": "Masque abyssal",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Masque abyssal",
+          "price_gold": 2400,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Support",
+          "name_fr": "Masque abyssal",
+          "price_gold": 2400,
+          "source": "data/stage-a-support-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2400
+      ],
+      "display_price_gold": 2400,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense",
+        "Support"
+      ]
+    },
+    {
+      "name_fr": "Médaillon de l’Iron Solari",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Médaillon de l’Iron Solari",
+          "price_gold": 2500,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Support",
+          "name_fr": "Médaillon de l'Iron Solari",
+          "price_gold": 2500,
+          "source": "data/stage-a-support-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2500
+      ],
+      "display_price_gold": 2500,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense",
+        "Support"
+      ]
+    },
+    {
+      "name_fr": "Morellonomicon",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Morellonomicon",
+          "price_gold": 2650,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Support",
+          "name_fr": "Morellonomicon",
+          "price_gold": 2650,
+          "source": "data/stage-a-support-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2650
+      ],
+      "display_price_gold": 2650,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie",
+        "Support"
+      ]
+    },
+    {
+      "name_fr": "Onde orageuse",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Onde orageuse",
+          "price_gold": 2800,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2800
+      ],
+      "display_price_gold": 2800,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie"
+      ]
+    },
+    {
+      "name_fr": "Orbe d’infini",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Orbe d’infini",
+          "price_gold": 3100,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3100
+      ],
+      "display_price_gold": 3100,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie"
+      ]
+    },
+    {
+      "name_fr": "Ouragan de Runaan",
+      "category_entries": [
+        {
+          "category": "Tireur",
+          "name_fr": "Ouragan de Runaan",
+          "price_gold": null,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [],
+      "display_price_gold": null,
+      "price_verified_from_client": false,
+      "unresolved_price": true,
+      "listed_in_categories": [
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Percepteur",
+      "category_entries": [
+        {
+          "category": "Assassin",
+          "name_fr": "Percepteur",
+          "price_gold": 3000,
+          "source": "data/stage-a-assassin-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Tireur",
+          "name_fr": "Percepteur",
+          "price_gold": 3000,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3000
+      ],
+      "display_price_gold": 3000,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Assassin",
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Piège à yordles",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Piège à yordles",
+          "price_gold": 2400,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Support",
+          "name_fr": "Piège à yordles",
+          "price_gold": 2400,
+          "source": "data/stage-a-support-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2400
+      ],
+      "display_price_gold": 2400,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense",
+        "Support"
+      ]
+    },
+    {
+      "name_fr": "Plaque du mort",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Plaque du mort",
+          "price_gold": 2800,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2800
+      ],
+      "display_price_gold": 2800,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense"
+      ]
+    },
+    {
+      "name_fr": "Poignard de Statikk",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Poignard de Statikk",
+          "price_gold": 2900,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Tireur",
+          "name_fr": "Poignard de Statikk",
+          "price_gold": 2900,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2900
+      ],
+      "display_price_gold": 2900,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie",
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Pourfendeur divin",
+      "category_entries": [
+        {
+          "category": "Combattant",
+          "name_fr": "Pourfendeur divin",
+          "price_gold": 3300,
+          "source": "data/stage-a-fighter-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3300
+      ],
+      "display_price_gold": 3300,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Combattant"
+      ]
+    },
+    {
+      "name_fr": "Présage de Randuin",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Présage de Randuin",
+          "price_gold": 2800,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2800
+      ],
+      "display_price_gold": 2800,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense"
+      ]
+    },
+    {
+      "name_fr": "Prestelames navori",
+      "category_entries": [
+        {
+          "category": "Tireur",
+          "name_fr": "Prestelames navori",
+          "price_gold": 2650,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2650
+      ],
+      "display_price_gold": 2650,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Rancune de Serylda",
+      "category_entries": [
+        {
+          "category": "Combattant",
+          "name_fr": "Rancune de Serylda",
+          "price_gold": 3100,
+          "source": "data/stage-a-fighter-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Assassin",
+          "name_fr": "Rancune de Serylda",
+          "price_gold": 3100,
+          "source": "data/stage-a-assassin-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3100
+      ],
+      "display_price_gold": 3100,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Combattant",
+        "Assassin"
+      ]
+    },
+    {
+      "name_fr": "Rappel mortel",
+      "category_entries": [
+        {
+          "category": "Tireur",
+          "name_fr": "Rappel mortel",
+          "price_gold": 3000,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3000
+      ],
+      "display_price_gold": 3000,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Rayonnement du vide",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Rayonnement du vide",
+          "price_gold": 2800,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2800
+      ],
+      "display_price_gold": 2800,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense"
+      ]
+    },
+    {
+      "name_fr": "Rédemption",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Rédemption",
+          "price_gold": 2450,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Support",
+          "name_fr": "Rédemption",
+          "price_gold": 2450,
+          "source": "data/stage-a-support-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2450
+      ],
+      "display_price_gold": 2450,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie",
+        "Support"
+      ]
+    },
+    {
+      "name_fr": "Rookern kaénique",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Rookern kaénique",
+          "price_gold": 2800,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2800
+      ],
+      "display_price_gold": 2800,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense"
+      ]
+    },
+    {
+      "name_fr": "Sablier de Zhonya",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Sablier de Zhonya",
+          "price_gold": 3300,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Défense",
+          "name_fr": "Sablier de Zhonya",
+          "price_gold": 3300,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3300
+      ],
+      "display_price_gold": 3300,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie",
+        "Défense"
+      ]
+    },
+    {
+      "name_fr": "Salutations de Dominik",
+      "category_entries": [
+        {
+          "category": "Tireur",
+          "name_fr": "Salutations de Dominik",
+          "price_gold": 3300,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3300
+      ],
+      "display_price_gold": 3300,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Sceptre de Rylai",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Sceptre de Rylai",
+          "price_gold": 2700,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2700
+      ],
+      "display_price_gold": 2700,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie"
+      ]
+    },
+    {
+      "name_fr": "Soif-de-sang",
+      "category_entries": [
+        {
+          "category": "Combattant",
+          "name_fr": "Soif-de-sang",
+          "price_gold": 3200,
+          "source": "data/stage-a-fighter-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Tireur",
+          "name_fr": "Soif-de-sang",
+          "price_gold": 3200,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3200
+      ],
+      "display_price_gold": 3200,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Combattant",
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Terminus",
+      "category_entries": [
+        {
+          "category": "Tireur",
+          "name_fr": "Terminus",
+          "price_gold": 3000,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3000
+      ],
+      "display_price_gold": 3000,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Torche noire",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Torche noire",
+          "price_gold": 2800,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2800
+      ],
+      "display_price_gold": 2800,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie"
+      ]
+    },
+    {
+      "name_fr": "Tourment de Liandry",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Tourment de Liandry",
+          "price_gold": 3000,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3000
+      ],
+      "display_price_gold": 3000,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie"
+      ]
+    },
+    {
+      "name_fr": "Trident des Océanides",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Trident des Océanides",
+          "price_gold": 2600,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Support",
+          "name_fr": "Trident des Océanides",
+          "price_gold": 2600,
+          "source": "data/stage-a-support-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2600
+      ],
+      "display_price_gold": 2600,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie",
+        "Support"
+      ]
+    },
+    {
+      "name_fr": "Tueur de krakens",
+      "category_entries": [
+        {
+          "category": "Tireur",
+          "name_fr": "Tueur de krakens",
+          "price_gold": 2900,
+          "source": "data/stage-a-marksman-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2900
+      ],
+      "display_price_gold": 2900,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Tireur"
+      ]
+    },
+    {
+      "name_fr": "Vertu radieuse",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Vertu radieuse",
+          "price_gold": 2650,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Support",
+          "name_fr": "Vertu radieuse",
+          "price_gold": 2650,
+          "source": "data/stage-a-support-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2650
+      ],
+      "display_price_gold": 2650,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense",
+        "Support"
+      ]
+    },
+    {
+      "name_fr": "Vœu du chevalier",
+      "category_entries": [
+        {
+          "category": "Défense",
+          "name_fr": "Vœu du chevalier",
+          "price_gold": 2450,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Support",
+          "name_fr": "Vœu du chevalier",
+          "price_gold": 2450,
+          "source": "data/stage-a-support-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        2450
+      ],
+      "display_price_gold": 2450,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Défense",
+        "Support"
+      ]
+    },
+    {
+      "name_fr": "Voile de la banshee",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Voile de la banshee",
+          "price_gold": 3000,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        },
+        {
+          "category": "Défense",
+          "name_fr": "Voile de la banshee",
+          "price_gold": 3000,
+          "source": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3000
+      ],
+      "display_price_gold": 3000,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie",
+        "Défense"
+      ]
+    },
+    {
+      "name_fr": "Volonté cosmique",
+      "category_entries": [
+        {
+          "category": "Magie",
+          "name_fr": "Volonté cosmique",
+          "price_gold": 3000,
+          "source": "data/stage-a-magic-shop-evidence-2026-11-05.json"
+        }
+      ],
+      "prices_verified": [
+        3000
+      ],
+      "display_price_gold": 3000,
+      "price_verified_from_client": true,
+      "unresolved_price": false,
+      "listed_in_categories": [
+        "Magie"
+      ]
+    }
+  ]
+}
