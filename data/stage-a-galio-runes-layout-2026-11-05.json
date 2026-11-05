@@ -12,7 +12,9 @@
     "keystone_row": {
       "selected_count": 1,
       "visible_icon_count": 13,
-      "names_not_readable": true
+      "names_not_readable": true,
+      "selected_name_fr": "Électrocution",
+      "selected_name_source": "data/stage-a-rune-electrocution-2026-11-05.json"
     },
     "primary_minor_tree": {
       "selected": "Domination",
@@ -52,5 +54,8 @@
   "policy": {
     "do_not_enable_rune_optimizer_from_single_screenshot": true,
     "keep_sources_separate_from_wrchina": true
-  }
+  },
+  "notes": [
+    "Selected keystone name and effect verified in separate close-up screenshot; unselected rune icon names remain unreadable."
+  ]
 }
