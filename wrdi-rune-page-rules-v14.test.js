@@ -73,3 +73,19 @@ test('Sorcellerie: une quatrième rune Sorcellerie comme secondaire est refusée
  assert.equal(x.valid,false);
  assert.ok(x.errors.some(e=>e.includes('autre branche')));
 });
+
+test('Domination : trois lignes différentes sont valides',()=>{
+ const r=validateRunePage({keystone:'Électrocution',primary:['Ruée offensive','Orgueil','Balise zombie'],secondary:'Brutal'});
+ assert.equal(r.valid,true,JSON.stringify(r.errors));
+ assert.equal(r.primary_rows_verified,true);
+});
+test('Domination : Coup bas et Attaque renforcée sont dans la même ligne',()=>{
+ const r=validateRunePage({keystone:'Électrocution',primary:['Coup bas','Attaque renforcée','Chasseur acharné'],secondary:'Brutal'});
+ assert.equal(r.valid,false);
+ assert.ok(r.errors.some(e=>e.includes('chaque ligne')));
+});
+test('Domination : Assaut enchaîné et Tyran sont dans la même ligne',()=>{
+ const r=validateRunePage({keystone:'Électrocution',primary:['Coup bas','Assaut enchaîné','Tyran'],secondary:'Triomphe'});
+ assert.equal(r.valid,false);
+ assert.ok(r.errors.some(e=>e.includes('chaque ligne')));
+});
