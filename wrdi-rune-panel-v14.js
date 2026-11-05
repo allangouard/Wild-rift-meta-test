@@ -71,7 +71,22 @@ function boot(){
   const explorer=make('section');
   explorer.style.cssText='margin-top:16px;padding:12px;border:1px solid #527c91;border-radius:10px';
   explorer.appendChild(make('h3','🔎 V14.8 — Pages de runes Galio face à la draft'));
-  explorer.appendChild(make('p','Trois scénarios de runes à comparer, sans classement de winrate ni garantie de meilleur choix.'));
+  explorer.appendChild(make('p','V14.11 : pages alternatives selon les choix tactiques et les informations disponibles. Pas de winrate ou de matchup certifié.'));
+  const tactical=make('div');
+  const tacticalSelect=(label,options)=>{
+   const wrap=make('label');wrap.style.cssText='display:block;margin:10px 0';
+   wrap.appendChild(make('span',label));
+   const el=make('select');el.style.cssText='display:block;width:100%;margin-top:5px';
+   for(const [value,text] of options){const option=make('option',text);option.value=value;el.appendChild(option);}
+   wrap.appendChild(el);tactical.appendChild(wrap);return el;
+  };
+  const goal=tacticalSelect('Objectif de Galio',[
+   ['unknown','Non renseigné'],['engage','Engager les combats'],['roam','Roam / rotations'],['poke','Poke / lane'],['burst','Échanges courts'],['peel','Protéger les alliés'],['longfight','Combats prolongés']]);
+  const lane=tacticalSelect('Situation de lane',[
+   ['unknown','Non renseignée'],['poke','Je subis du harcèlement'],['allin','Je risque un all-in'],['neutral','Lane équilibrée']]);
+  const ally=tacticalSelect('Situation des alliés (ton appréciation)',[
+   ['unknown','Non renseignée'],['followup','Mes alliés peuvent suivre mes engages'],['needs_peel','Mes alliés ont besoin de protection']]);
+  explorer.appendChild(tactical);
   const runButton=make('button','Examiner les runes avec la draft');
   runButton.type='button';
   const explorerOutput=make('div');
@@ -111,28 +126,41 @@ function boot(){
      return;
     }
     const summary=analysis.summary;
-    const result=scenarios.evaluate({championId:picks[2],summary,catalog,bridge});
+    const advisor=root.WRDI_GalioRuneAdvisorV1411;
+    const result=advisor?.decide({
+     championId:picks[2],picks,summary,catalog,bridge,
+     preferences:{goal:goal.value,lane:lane.value,ally:ally.value}
+    })||scenarios.evaluate({championId:picks[2],summary,catalog,bridge});
     explorerOutput.replaceChildren();
     if(!result.ok){
      explorerOutput.appendChild(make('p','Comparaison impossible : '+result.blockers.join(' ; ')));
      return;
     }
-    explorerOutput.appendChild(make('p',summary.enemyKitSignalsAvailable?'Kits adverses récupérés : indications contextuelles non calibrées.':'Kits adverses indisponibles : ces trois pages sont génériques, sans adaptation à cette draft.'));
-    for(const c of result.candidates){
+    explorerOutput.appendChild(make('p',summary.enemyKitSignalsAvailable?'Fiches adverses disponibles : indications lexicales NON validées.':'Fiches adverses indisponibles : aucun avantage de matchup inféré.'));
+    const allCandidates=result.options||result.candidates||[];
+    explorerOutput.appendChild(make('p',result.hasTacticalPreference?'Ordre de lecture indicatif fondé sur les priorités que tu as saisies, pas sur la force des champions.':'Aucune préférence tactique renseignée : alternatives présentées SANS classement.'));
+    const renderCandidate=c=>{
      const box=make('section');box.style.cssText='margin:12px 0;padding:12px;border:1px solid #4b6976;border-radius:8px';
      box.appendChild(make('h4',c.label));
      box.appendChild(make('p','Fondamentale : '+c.page.keystone));
      box.appendChild(make('p','Principales ('+c.page.primaryTree+') : '+c.page.primary.join(' · ')));
      box.appendChild(make('p','Secondaire : '+c.page.secondary));
-     box.appendChild(make('p',c.status==='signal_contextuel_a_examiner'?'Signal de draft à examiner : '+c.evidence:'À tester : '+c.evidence));
+     for(const reason of c.reasons||[])box.appendChild(make('p','• Pourquoi examiner : '+reason));
+     if(!c.reasons?.length)box.appendChild(make('p','Alternative sans signal tactique particulier.'));
      const detail=make('details');detail.appendChild(make('summary','Interactions et limites'));
-     for(const note of [...c.interactions,...c.limits])detail.appendChild(make('p','• '+note));
-     box.appendChild(detail);explorerOutput.appendChild(box);
+     for(const note of [...(c.interactions||[]),...(c.limits||[])])detail.appendChild(make('p','• '+note));
+     box.appendChild(detail);return box;
+    };
+    for(const c of allCandidates.slice(0,3))explorerOutput.appendChild(renderCandidate(c));
+    if(allCandidates.length>3){
+     const more=make('details');more.appendChild(make('summary','Voir les '+(allCandidates.length-3)+' autres pages légales'));
+     for(const c of allCandidates.slice(3))more.appendChild(renderCandidate(c));
+     explorerOutput.appendChild(more);
     }
-    const notes=make('details');notes.appendChild(make('summary','Avertissements et qualité des sources'));
-    for(const warning of result.warnings)notes.appendChild(make('p','• '+warning));
+    const notes=make('details');notes.appendChild(make('summary','Limites de cette comparaison'));
+    for(const warning of result.warnings||[])notes.appendChild(make('p','• '+warning));
     explorerOutput.appendChild(notes);
-    explorerOutput.appendChild(make('p','Ces trois pages sont légales selon le catalogue client. Elles ne constituent PAS encore une recommandation automatique optimale.'));
+    explorerOutput.appendChild(make('p','Comparaison tactique expérimentale : aucune page ne constitue une recommandation méta certifiée.'));
    }catch(error){
     if(token===sequence)explorerOutput.replaceChildren(make('p','Comparaison indisponible : '+String(error.message||error)));
    }finally{if(token===sequence)runButton.disabled=false;}
