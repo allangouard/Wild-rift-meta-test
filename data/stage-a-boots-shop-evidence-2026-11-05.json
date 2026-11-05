@@ -18,14 +18,19 @@
     "1000010632.jpg",
     "1000010635.jpg",
     "1000010638.jpg",
-    "1000010641.jpg"
+    "1000010641.jpg",
+    "1000010600.jpg",
+    "1000010603.jpg",
+    "1000010606.jpg",
+    "1000010609.jpg",
+    "1000010597.jpg"
   ],
   "coverage": {
     "upper_tier_visible": 7,
     "intermediate_tier_visible": 7,
-    "basic_tier_visible": 0,
-    "complete_current_shop_inventory": false,
-    "description_details_fully_documented": 11
+    "basic_tier_visible": 1,
+    "complete_current_shop_inventory": true,
+    "description_details_fully_documented": 14
   },
   "entries": [
     {
@@ -37,7 +42,8 @@
       "shop_short_description_fr": "Inflige des dégâts supplémentaires ou octroie une augmentation des soins et des boucliers",
       "canonical_external_id": null,
       "source_level": "client_list_icon_name_price_description_visible",
-      "stats_verified": false
+      "stats_verified": true,
+      "client_details_source": "data/stage-a-boots-details-batch2-2026-11-05.json"
     },
     {
       "shop_order": 2,
@@ -48,7 +54,8 @@
       "shop_short_description_fr": "Réduit les délais de récupération des compétences",
       "canonical_external_id": null,
       "source_level": "client_list_icon_name_price_description_visible",
-      "stats_verified": false
+      "stats_verified": true,
+      "client_details_source": "data/stage-a-boots-details-batch2-2026-11-05.json"
     },
     {
       "shop_order": 3,
@@ -59,7 +66,8 @@
       "shop_short_description_fr": "Augmente la vitesse d’attaque et la vitesse de déplacement",
       "canonical_external_id": null,
       "source_level": "client_list_icon_name_price_description_visible",
-      "stats_verified": false
+      "stats_verified": true,
+      "client_details_source": "data/stage-a-boots-details-batch2-2026-11-05.json"
     },
     {
       "shop_order": 4,
@@ -191,6 +199,17 @@
       "source_level": "client_list_icon_name_price_description_visible",
       "stats_verified": true,
       "client_details_source": "data/stage-a-boots-details-batch1-2026-11-05.json"
+    },
+    {
+      "shop_order": 15,
+      "tier": "basic",
+      "name_fr": "Bottes de vitesse",
+      "price_gold": 400,
+      "screenshot": "1000010597.jpg",
+      "shop_short_description_fr": "Vitesse de déplacement",
+      "canonical_external_id": null,
+      "source_level": "client_list_name_price_visible",
+      "stats_verified": false
     }
   ],
   "detailed_item": {
@@ -224,12 +243,13 @@
     "mechanics_interactions_tested": false
   },
   "known_gaps": [
-    "Palier basique masqué sous le bord inférieur, requiert une capture supplémentaire.",
     "Détails des 13 autres bottes non visibles et non vérifiés.",
     "Aucun identifiant canonique externe vérifié : identités provisoires par nom FR et capture uniquement.",
     "Ne pas confondre coût total affiché et coût d’amélioration à payer.",
     "Versions de ressources ≠ sous-patch d’équilibrage prouvé.",
-    "Les objets actifs autonomes doivent être catalogués dans les catégories de boutique concernées et non comme enchantements de bottes."
+    "Les objets actifs autonomes doivent être catalogués dans les catégories de boutique concernées et non comme enchantements de bottes.",
+    "Bottes de vitesse : détail de vitesse de déplacement non affiché, seule la description qualitative est visible.",
+    "Toutes les 14 bottes améliorées possèdent une fiche descriptive visible; mécaniques non testées et identifiants externes non certifiés."
   ],
   "policy": {
     "do_not_load_into_build_recommendations": true,
