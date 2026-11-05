@@ -56,3 +56,20 @@ test('Précision: combinaison libre avec l autre arbre, sans doublon de ligne',(
  assert.equal(x.valid,true,JSON.stringify(x.errors));
  assert.equal(x.secondary_tree,'Volonté');
 });
+
+test('Sorcellerie: sélection valide parmi les lignes 4-3-4',()=>{
+ const x=validateRunePage({keystone:'Électrocution',primary:['Saut Hextech','Transcendance','Pot de graines ixtali'],secondary:'Brutal'});
+ assert.equal(x.valid,true,JSON.stringify(x.errors));
+ assert.equal(x.primary_rows_verified,true);
+ assert.equal(x.primary_tree,'Sorcellerie');
+});
+test('Sorcellerie: impossible de combiner deux runes de même ligne',()=>{
+ const x=validateRunePage({keystone:'Électrocution',primary:['Arcaniste axiomatique','Ruban de mana','Brûlure'],secondary:'Triomphe'});
+ assert.equal(x.valid,false);
+ assert.ok(x.errors.some(e=>e.includes('chaque ligne')));
+});
+test('Sorcellerie: une quatrième rune Sorcellerie comme secondaire est refusée',()=>{
+ const x=validateRunePage({keystone:'Électrocution',primary:['Botaniste','Célérité','Tempête menaçante'],secondary:'Brûlure'});
+ assert.equal(x.valid,false);
+ assert.ok(x.errors.some(e=>e.includes('autre branche')));
+});
