@@ -85,9 +85,11 @@
       "provisional_identity_candidate": "staff_of_flowing_water",
       "already_listed_in_categories": [],
       "price_confirmed_from_client": true,
-      "full_item_stats_verified": false,
+      "full_item_stats_verified": true,
       "external_numeric_id_verified": false,
-      "client_full_details_newly_verified": false
+      "client_full_details_newly_verified": true,
+      "details_verified": true,
+      "detail_evidence_file": "data/stage-a-support-passives-batch5-2026-11-05.json"
     },
     {
       "name_fr": "Convergence de Zeke",
@@ -117,7 +119,10 @@
       "price_confirmed_from_client": true,
       "full_item_stats_verified": true,
       "external_numeric_id_verified": false,
-      "client_full_details_newly_verified": false
+      "client_full_details_newly_verified": true,
+      "details_verified": true,
+      "detail_evidence_file": "data/stage-a-support-passives-batch5-2026-11-05.json",
+      "full_description_captured": false
     },
     {
       "name_fr": "Rédemption",
@@ -148,7 +153,9 @@
       "price_confirmed_from_client": true,
       "full_item_stats_verified": true,
       "external_numeric_id_verified": false,
-      "client_full_details_newly_verified": false
+      "client_full_details_newly_verified": true,
+      "details_verified": true,
+      "detail_evidence_file": "data/stage-a-support-passives-batch5-2026-11-05.json"
     },
     {
       "name_fr": "Bénédiction de Mikael",
