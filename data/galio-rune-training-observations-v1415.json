@@ -47,6 +47,20 @@
       "independently_verified": false,
       "replicated": false,
       "precise_hit_count_verified": false
+    },
+    {
+      "test_id": "electrocute-two-hits",
+      "rune": "Électrocution",
+      "ability": "E → P (sans A)",
+      "result": "observed_no",
+      "user_description": "Ça ne s'est pas activé",
+      "interpretation": "Le joueur rapporte qu'aucun déclenchement d'Électrocution n'a eu lieu lors de l'enchaînement E puis attaque renforcée passive sans A.",
+      "client_observation_status": "reported_by_player_in_wild_rift_client",
+      "media_reference": "1000010925.mp4",
+      "video_review": "Vidéo de 5 secondes examinée ; action sur cible visible, mais l'absence d'un effet de rune ne peut être certifiée uniquement à partir des images.",
+      "independently_verified": false,
+      "replicated": false,
+      "limits": "Un seul essai négatif. Vérifier la disponibilité de la rune au départ, l'impact effectif du E, le passif et l'absence de dégâts supplémentaires. Ne prouve pas à lui seul le nombre exact de touches admissibles."
     }
   ]
 }
