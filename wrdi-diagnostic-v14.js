@@ -81,6 +81,25 @@ else host.appendChild(panel);
       line('Cinq adversaires reconnus : '+report.threats.length+'/5');
       line('Recommandations automatiques V14 : désactivées.');
       line('Attention : version des sources WR China non certifiée identique au patch client.');
+      const summaryApi=root.WRDI_ThreatSummaryV14;
+      if(summaryApi?.summarize){
+        const summary=summaryApi.summarize(report);
+        if(summary.ok){
+          const overview=el('section');
+          overview.style.cssText='margin:12px 0;padding:12px;border:1px solid #4d8180;border-radius:10px';
+          overview.appendChild(el('h3','🛡️ V14.4 — Synthèse descriptive de la draft'));
+          line('Mentions dans les cinq kits : magie '+summary.counts.magic+'/5 · physique '+summary.counts.physical+'/5 · dégâts véritables '+summary.counts.true+'/5.',overview);
+          line('Contrôles (étourdissement, projection, immobilisation) '+summary.counts.cc+'/5 · soins '+summary.counts.heal+'/5 · boucliers '+summary.counts.shield+'/5.',overview);
+          line('Mentions liées aux PV maximum '+summary.counts.maxhp+'/5 · effets périodiques '+summary.counts.overtime+'/5.',overview);
+          list('Orientations indicatives des cores adverses',summary.enemies.map(e=>
+            e.name+' : '+(e.orientations.length?e.orientations.join(' / '):'non classée')+
+            ' · '+e.coreCount+' core(s) · '+e.missingNames+' nom(s) d’objet manquant(s)'
+          ),overview);
+          list('Versions et limites de fiabilité',summary.notices,overview);
+          line('Aucun build Galio n’est calculé ni recommandé par cette synthèse.',overview);
+          output.appendChild(overview);
+        }else line('Synthèse V14.4 indisponible : '+summary.error);
+      }else line('Module V14.4 non chargé : synthèse des menaces absente.');
       report.threats.forEach((t,i)=>{
         const b=report.enemyBuilds[i];
         const card=el('div');
