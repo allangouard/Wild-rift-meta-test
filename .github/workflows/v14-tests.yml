@@ -74,3 +74,5 @@ jobs:
         run: node --test stage-a-support-passives-batch5.test.js
       - name: Tester Linceul Manteau et Zeke sur captures client
         run: node --test stage-a-support-defense-batch6.test.js
+      - name: Tester Cœur gelé Diadème et Zeke confirmé
+        run: node --test stage-a-support-defense-batch7.test.js
