@@ -1,0 +1,324 @@
+{
+  "schema": "wrdi.stage_a.client_shop_category_evidence.v1",
+  "date": "2026-11-05",
+  "game": "Wild Rift mobile",
+  "client_app_version": "7.3.0.2813",
+  "client_resource_version": "7.3.60.133",
+  "category": "Support",
+  "screenshots": [
+    "1000010671.jpg",
+    "1000010674.jpg"
+  ],
+  "coverage": "20 visible entries; full category not yet explicitly confirmed by user",
+  "counts": {
+    "visible_entries": 20,
+    "visible_prices": 20,
+    "matched_curated_59": 13,
+    "unmatched_curated_59": 7,
+    "overlap_previous_shop_categories": 14
+  },
+  "entries": [
+    {
+      "name_fr": "Échos d'Helia",
+      "price_gold": 2400,
+      "shop_short_description_fr": "Protégez vos alliés en leur accordant des soins accrus.",
+      "screenshot": "1000010671.jpg",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "echoes_of_helia",
+      "already_listed_in_categories": [],
+      "price_confirmed_from_client": true,
+      "full_item_stats_verified": false,
+      "external_numeric_id_verified": false,
+      "client_full_details_newly_verified": false
+    },
+    {
+      "name_fr": "Diadème des murmures",
+      "price_gold": 2400,
+      "shop_short_description_fr": "Convertit le mana en efficacité des soins et boucliers.",
+      "screenshot": "1000010671.jpg",
+      "existing_catalog_id": "whispering_circlet",
+      "provisional_identity_candidate": null,
+      "already_listed_in_categories": [
+        "Magie"
+      ],
+      "price_confirmed_from_client": true,
+      "full_item_stats_verified": true,
+      "external_numeric_id_verified": false,
+      "client_full_details_newly_verified": false
+    },
+    {
+      "name_fr": "Masque abyssal",
+      "price_gold": 2400,
+      "shop_short_description_fr": "Inflige des dégâts magiques augmentés.",
+      "screenshot": "1000010671.jpg",
+      "existing_catalog_id": "abyssal_mask",
+      "provisional_identity_candidate": null,
+      "already_listed_in_categories": [
+        "Défense"
+      ],
+      "price_confirmed_from_client": true,
+      "full_item_stats_verified": true,
+      "external_numeric_id_verified": false,
+      "client_full_details_newly_verified": false
+    },
+    {
+      "name_fr": "Encensoir ardent",
+      "price_gold": 2400,
+      "shop_short_description_fr": "Augmente la vitesse d'attaque des alliés.",
+      "screenshot": "1000010671.jpg",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "ardent_censer",
+      "already_listed_in_categories": [],
+      "price_confirmed_from_client": true,
+      "full_item_stats_verified": false,
+      "external_numeric_id_verified": false,
+      "client_full_details_newly_verified": false
+    },
+    {
+      "name_fr": "Bâton des flots",
+      "price_gold": 2400,
+      "shop_short_description_fr": "Augmente la puissance et l'accélération de compétence des alliés.",
+      "screenshot": "1000010671.jpg",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "staff_of_flowing_water",
+      "already_listed_in_categories": [],
+      "price_confirmed_from_client": true,
+      "full_item_stats_verified": false,
+      "external_numeric_id_verified": false,
+      "client_full_details_newly_verified": false
+    },
+    {
+      "name_fr": "Convergence de Zeke",
+      "price_gold": 2400,
+      "shop_short_description_fr": "Inflige des dégâts dans une zone et ralentit les ennemis proches.",
+      "screenshot": "1000010671.jpg",
+      "existing_catalog_id": "zekes_convergence",
+      "provisional_identity_candidate": null,
+      "already_listed_in_categories": [
+        "Défense"
+      ],
+      "price_confirmed_from_client": true,
+      "full_item_stats_verified": true,
+      "external_numeric_id_verified": false,
+      "client_full_details_newly_verified": false
+    },
+    {
+      "name_fr": "Piège à yordles",
+      "price_gold": 2400,
+      "shop_short_description_fr": "Appliquer des effets de contrôle de foule aux ennemis renforce vos compétences ainsi que celles des champions alliés.",
+      "screenshot": "1000010671.jpg",
+      "existing_catalog_id": "yordle_trap",
+      "provisional_identity_candidate": null,
+      "already_listed_in_categories": [
+        "Défense"
+      ],
+      "price_confirmed_from_client": true,
+      "full_item_stats_verified": true,
+      "external_numeric_id_verified": false,
+      "client_full_details_newly_verified": false
+    },
+    {
+      "name_fr": "Rédemption",
+      "price_gold": 2450,
+      "shop_short_description_fr": "Soigne les alliés dans une zone.",
+      "screenshot": "1000010671.jpg",
+      "existing_catalog_id": "redemption",
+      "provisional_identity_candidate": null,
+      "already_listed_in_categories": [
+        "Magie"
+      ],
+      "price_confirmed_from_client": true,
+      "full_item_stats_verified": true,
+      "external_numeric_id_verified": false,
+      "client_full_details_newly_verified": false
+    },
+    {
+      "name_fr": "Vœu du chevalier",
+      "price_gold": 2450,
+      "shop_short_description_fr": "Redirige les dégâts vers vous-même et vous rend des PV.",
+      "screenshot": "1000010671.jpg",
+      "existing_catalog_id": "knights_vow",
+      "provisional_identity_candidate": null,
+      "already_listed_in_categories": [
+        "Défense"
+      ],
+      "price_confirmed_from_client": true,
+      "full_item_stats_verified": true,
+      "external_numeric_id_verified": false,
+      "client_full_details_newly_verified": false
+    },
+    {
+      "name_fr": "Bénédiction de Mikael",
+      "price_gold": 2500,
+      "shop_short_description_fr": "Dissipe le contrôle de foule d'un allié.",
+      "screenshot": "1000010671.jpg",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "mikaels_blessing",
+      "already_listed_in_categories": [],
+      "price_confirmed_from_client": true,
+      "full_item_stats_verified": false,
+      "external_numeric_id_verified": false,
+      "client_full_details_newly_verified": false
+    },
+    {
+      "name_fr": "Médaillon de l'Iron Solari",
+      "price_gold": 2500,
+      "shop_short_description_fr": "Bouclier d'équipe.",
+      "screenshot": "1000010674.jpg",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "locket_of_the_iron_solari",
+      "already_listed_in_categories": [
+        "Défense"
+      ],
+      "price_confirmed_from_client": true,
+      "full_item_stats_verified": false,
+      "external_numeric_id_verified": false,
+      "client_full_details_newly_verified": false
+    },
+    {
+      "name_fr": "Chant de guerre de Shurelya",
+      "price_gold": 2500,
+      "shop_short_description_fr": "Octroie aux alliés de la vitesse de déplacement.",
+      "screenshot": "1000010674.jpg",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "shurelyas_battlesong",
+      "already_listed_in_categories": [],
+      "price_confirmed_from_client": true,
+      "full_item_stats_verified": false,
+      "external_numeric_id_verified": false,
+      "client_full_details_newly_verified": false
+    },
+    {
+      "name_fr": "Écho harmonieux",
+      "price_gold": 2500,
+      "shop_short_description_fr": "Améliore votre capacité à protéger vos coéquipiers.",
+      "screenshot": "1000010674.jpg",
+      "existing_catalog_id": null,
+      "provisional_identity_candidate": "harmonic_echo",
+      "already_listed_in_categories": [],
+      "price_confirmed_from_client": true,
+      "full_item_stats_verified": false,
+      "external_numeric_id_verified": false,
+      "client_full_details_newly_verified": false
+    },
+    {
+      "name_fr": "Cœur gelé",
+      "price_gold": 2550,
+      "shop_short_description_fr": "Réduit la vitesse d'attaque des ennemis.",
+      "screenshot": "1000010674.jpg",
+      "existing_catalog_id": "frozen_heart",
+      "provisional_identity_candidate": null,
+      "already_listed_in_categories": [
+        "Défense"
+      ],
+      "price_confirmed_from_client": true,
+      "full_item_stats_verified": true,
+      "external_numeric_id_verified": false,
+      "client_full_details_newly_verified": false
+    },
+    {
+      "name_fr": "Manteau de l'heure ultime",
+      "price_gold": 2550,
+      "shop_short_description_fr": "Augmente vos PV max quand vos PV sont bas.",
+      "screenshot": "1000010674.jpg",
+      "existing_catalog_id": "mantle_of_the_twelfth_hour",
+      "provisional_identity_candidate": null,
+      "already_listed_in_categories": [
+        "Défense"
+      ],
+      "price_confirmed_from_client": true,
+      "full_item_stats_verified": true,
+      "external_numeric_id_verified": false,
+      "client_full_details_newly_verified": false
+    },
+    {
+      "name_fr": "Mandat impérial",
+      "price_gold": 2600,
+      "shop_short_description_fr": "Les contrôles de foule augmentent les dégâts des alliés.",
+      "screenshot": "1000010674.jpg",
+      "existing_catalog_id": "imperial_mandate",
+      "provisional_identity_candidate": null,
+      "already_listed_in_categories": [
+        "Magie"
+      ],
+      "price_confirmed_from_client": true,
+      "full_item_stats_verified": true,
+      "external_numeric_id_verified": false,
+      "client_full_details_newly_verified": false
+    },
+    {
+      "name_fr": "Trident des Océanides",
+      "price_gold": 2600,
+      "shop_short_description_fr": "Réduit les boucliers des ennemis.",
+      "screenshot": "1000010674.jpg",
+      "existing_catalog_id": "oceanids_trident",
+      "provisional_identity_candidate": null,
+      "already_listed_in_categories": [
+        "Magie"
+      ],
+      "price_confirmed_from_client": true,
+      "full_item_stats_verified": true,
+      "external_numeric_id_verified": false,
+      "client_full_details_newly_verified": false
+    },
+    {
+      "name_fr": "Morellonomicon",
+      "price_gold": 2650,
+      "shop_short_description_fr": "Les dégâts magiques réduisent les soins ennemis.",
+      "screenshot": "1000010674.jpg",
+      "existing_catalog_id": "morellonomicon",
+      "provisional_identity_candidate": null,
+      "already_listed_in_categories": [
+        "Magie"
+      ],
+      "price_confirmed_from_client": true,
+      "full_item_stats_verified": true,
+      "external_numeric_id_verified": false,
+      "client_full_details_newly_verified": false
+    },
+    {
+      "name_fr": "Vertu radieuse",
+      "price_gold": 2650,
+      "shop_short_description_fr": "Lorsque vous lancez votre compétence ultime, vous soignez vos alliés.",
+      "screenshot": "1000010674.jpg",
+      "existing_catalog_id": "radiant_virtue",
+      "provisional_identity_candidate": null,
+      "already_listed_in_categories": [
+        "Défense"
+      ],
+      "price_confirmed_from_client": true,
+      "full_item_stats_verified": true,
+      "external_numeric_id_verified": false,
+      "client_full_details_newly_verified": false
+    },
+    {
+      "name_fr": "Linceul de l'aube",
+      "price_gold": 2700,
+      "shop_short_description_fr": "Les immobilisations blessent et révèlent les ennemis alentour.",
+      "screenshot": "1000010674.jpg",
+      "existing_catalog_id": "dawnshroud",
+      "provisional_identity_candidate": null,
+      "already_listed_in_categories": [
+        "Défense"
+      ],
+      "price_confirmed_from_client": true,
+      "full_item_stats_verified": true,
+      "external_numeric_id_verified": false,
+      "client_full_details_newly_verified": false
+    }
+  ],
+  "notes": [
+    "Names, prices, icons and short descriptions transcribed only from the two screenshots.",
+    "Items repeated across shop categories are the same physical item; do not duplicate catalog entities.",
+    "Médaillon is a standalone active item with independent earlier detailed screenshot, not a boot enchantment.",
+    "Icon next to Shurelya, Mikael, Redemption and Locket suggests a distinctive item type, but cannot independently certify active mechanics without detail screens.",
+    "Écho harmonieux is the displayed purchasable item; do not silently equate it with Diadème musical or its transformations.",
+    "Échos d'Helia shows a yellow N marker; semantics not inferred.",
+    "Full shop category completeness requires user's confirmation.",
+    "The external numeric IDs of new entries are not verified; provisional candidates must not feed recommendations."
+  ],
+  "policy": {
+    "do_not_automatically_load_into_build_recommendations": true,
+    "no_assumptions_from_unread_full_details": true
+  }
+}
