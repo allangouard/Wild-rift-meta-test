@@ -107,6 +107,20 @@
       "replication_count": "3 ou plus",
       "activation_window_seconds_verified": false,
       "limits": "Disponibilité de la rune et autres conditions initiales non enregistrées de façon instrumentée ; pas de vidéo fournie pour ces essais."
+    },
+    {
+      "test_id": "glacial-e",
+      "rune": "Souverain des glaces",
+      "ability": "E",
+      "result": "observed_yes",
+      "user_description": "Activation observée après le E de Galio sur trois essais ou davantage.",
+      "interpretation": "Le joueur rapporte un déclenchement répété de Souverain des glaces après la projection E de Galio. Observation cohérente avec un déclenchement sur contrôle réussi, sans démonstration indépendante des conditions exactes.",
+      "client_observation_status": "confirmed_by_player_in_wild_rift_client",
+      "client_observation_verified_by_player": true,
+      "independently_verified": false,
+      "replicated_by_player": true,
+      "replication_count": "3 ou plus",
+      "limits": "Absence de vidéo ou de mesure instrumentée pour ces essais ; E raté, délai de récupération et effet visuel distinct de la compétence non documentés comme contrôles séparés. Version du patch non enregistrée."
     }
   ]
 }
