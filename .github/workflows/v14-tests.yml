@@ -149,3 +149,7 @@ jobs:
           node --check wrdi-rune-proc-lab-v1415.js
           node --check wrdi-rune-proc-lab-panel-v1415.js
           node --test wrdi-rune-proc-lab-v1415.test.js
+      - name: Tester observations Galio confirmees en jeu V14.16
+        run: |
+          node --check wrdi-galio-player-evidence-v1416.js
+          node --test wrdi-galio-player-evidence-v1416.test.js
