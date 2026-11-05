@@ -1,0 +1,106 @@
+{
+  "schema": "wrdi.stage_a.support_passives_batch4.v1",
+  "game": "Wild Rift mobile",
+  "date": "2026-11-05",
+  "client_app_version": "7.3.0.2813",
+  "client_resource_version": "7.3.60.133",
+  "source": "Three full in-game item-detail screenshots supplied by user",
+  "items": [
+    {
+      "name_fr": "Encensoir ardent",
+      "provisional_id": "ardent_censer",
+      "price_gold": 2400,
+      "image": "1000010701.jpg",
+      "stats": {
+        "ability_power": 50,
+        "mana_regeneration_pct": 50,
+        "heal_shield_power_pct": 8,
+        "movement_speed_pct": 4
+      },
+      "passives": [
+        {
+          "name_fr": "Encensoir",
+          "trigger": "heal_or_shield_other_allied_champion",
+          "self_only_trigger_allowed": false,
+          "beneficiaries": [
+            "caster",
+            "healed_or_shielded_allied_champion"
+          ],
+          "duration_seconds": 6,
+          "attack_speed_pct": 30,
+          "bonus_magic_damage_on_each_attack_flat": 25
+        }
+      ],
+      "external_numeric_id_verified": false
+    },
+    {
+      "name_fr": "Échos d'Helia",
+      "provisional_id": "echoes_of_helia",
+      "price_gold": 2400,
+      "image": "1000010704.jpg",
+      "stats": {
+        "hp": 200,
+        "ability_power": 40,
+        "mana_regeneration_pct": 50,
+        "ability_haste": 20
+      },
+      "passives": [
+        {
+          "name_fr": "Siphon d'âme",
+          "soul_fragments": {
+            "source": "pre_mitigation_damage_dealt_to_enemy_champions",
+            "capture_pct": 30,
+            "cap_min": 80,
+            "cap_max": 250,
+            "cap_scaling_indicator": "level_icon; exact formula not described"
+          },
+          "consumption": {
+            "trigger": "heal_or_shield_allied_champion",
+            "consume": "all_stored_fragments",
+            "effect": "heal_allied_champion",
+            "healing_amount_equals_stored_fragments": true
+          }
+        }
+      ],
+      "external_numeric_id_verified": false
+    },
+    {
+      "name_fr": "Écho harmonieux",
+      "provisional_id": "harmonic_echo",
+      "price_gold": 2500,
+      "image": "1000010707.jpg",
+      "stats": {
+        "hp": 200,
+        "ability_power": 40,
+        "mana_regeneration_pct": 50,
+        "ability_haste": 20
+      },
+      "passives": [
+        {
+          "name_fr": "Écho harmonieux",
+          "trigger": "heal_or_shield_allied_champion",
+          "extra_target": {
+            "range_units": 800,
+            "selection_text": "allié le plus proche ... ayant le pourcentage de PV le plus bas",
+            "selection_algorithm": "ambiguous_nearest_vs_lowest_hp_interaction_not_calibrated"
+          },
+          "heal_replication_pct": 30,
+          "shield_replication_pct": 35,
+          "no_eligible_other_allied_champion_fallback": "initial_target_receives_additional_healing_or_shield"
+        }
+      ],
+      "external_numeric_id_verified": false
+    }
+  ],
+  "policy": {
+    "source_confidence": "values_and_trigger_words_from_client_screenshots",
+    "do_not_automatically_load_into_build_recommendations": true,
+    "mechanics_interactions_experimentally_validated": false,
+    "external_numeric_ids_verified": false
+  },
+  "open_questions": [
+    "Échos d'Helia fragment cap ranges 80–250 with level-like icon; exact scaling by level and rounding is not visible.",
+    "Écho harmonieux target selection text combines proximity and lowest HP percentage; exact tie-breaking is not shown.",
+    "No gameplay tests yet verify interactions with self shields, multi-target healing or other item effects."
+  ]
+}
