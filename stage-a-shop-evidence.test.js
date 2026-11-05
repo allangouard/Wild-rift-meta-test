@@ -92,11 +92,11 @@ test('Chaussures de lanceur de sorts : description client séparée du modèle v
 });
 
 const bootDetails=require('./data/stage-a-boots-details-batch1-2026-11-05.json');
-test('dix fiches supplémentaires et onze détails bottes attestés',()=>{
+test('dix fiches du premier lot et quinze fiches détaillées attestées',()=>{
  assert.equal(bootDetails.records.length,10);
- assert.equal(boots.coverage.description_details_fully_documented,14);
+ assert.equal(boots.coverage.description_details_fully_documented,15);
  assert.equal(new Set(bootDetails.records.map(x=>x.name_fr)).size,10);
- assert.equal(boots.entries.filter(x=>x.stats_verified).length,14);
+ assert.equal(boots.entries.filter(x=>x.stats_verified).length,15);
  for(const d of bootDetails.records){
   const index=boots.entries.find(x=>x.name_fr===d.name_fr);
   assert.ok(index,d.name_fr);
