@@ -37,5 +37,5 @@ test('Force de la trinite conserve 3333 PO du client',()=>{
 test('Catégorie complète confirmée mais passifs non vérifiés depuis les listes',()=>{
  assert.equal(evidence.category_complete_confirmed_by_user,true);
  assert.equal(evidence.coverage,'complete_22_items_confirmed_by_user_for_current_client');
- assert.ok(evidence.entries.every(x=>x.details_verified===false));
+ assert.deepEqual(evidence.entries.filter(x=>x.details_verified).map(x=>x.name_fr),['Cimeterre mercuriel']);
 });
