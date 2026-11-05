@@ -1,0 +1,92 @@
+{
+  "schema": "wrdi.stage_a.runes_batch6_v1",
+  "game": "Wild Rift mobile",
+  "locale": "fr-FR",
+  "patch": "client screenshot, patch not inferred",
+  "source": "Captures fournies par l'utilisateur depuis le client Wild Rift",
+  "recorded_at": "2026-11-05",
+  "entries": [
+    {
+      "id": "zombie_ward",
+      "name_fr": "Balise zombie",
+      "tree": "Domination",
+      "screenshot": "1000010795.jpg",
+      "effect": "Détruire une balise ennemie fait apparaître à sa place une Balise zombie qui octroie la vision pendant 120 secondes. Une assistance pour la destruction d'une balise déclenche également l'effet et la progression.",
+      "stats": {
+        "ward_duration_s": 120,
+        "adaptive_ad_per_stack": 3,
+        "adaptive_ap_per_stack": 6,
+        "max_stacks": 5
+      },
+      "trigger": "destruction_or_assist_enemy_ward"
+    },
+    {
+      "id": "eyeball_collection_pride",
+      "name_fr": "Orgueil",
+      "tree": "Domination",
+      "screenshot": "1000010793.jpg",
+      "effect": "Éliminer un champion dans les 3 secondes après lui avoir infligé des dégâts octroie de la force adaptative pendant 30 secondes. Quantité : 5 + 1 par élimination de champion réalisée.",
+      "stats": {
+        "takedown_window_s": 3,
+        "adaptive_force_base": 5,
+        "adaptive_force_per_champion_elimination": 1,
+        "duration_s": 30
+      },
+      "trigger": "champion_elimination_within_damage_window"
+    },
+    {
+      "id": "empowered_attack",
+      "name_fr": "Attaque renforcée",
+      "tree": "Domination",
+      "screenshot": "1000010791.jpg",
+      "effect": "Toutes les 8 secondes, la prochaine attaque contre un champion ennemi inflige 20 à 60 dégâts adaptatifs bonus selon le niveau. Effet réduit à 80 % pour les champions à distance.",
+      "stats": {
+        "cooldown_s": 8,
+        "damage_min": 20,
+        "damage_max": 60,
+        "ranged_multiplier_pct": 80
+      },
+      "trigger": "next_attack_after_cooldown"
+    },
+    {
+      "id": "relentless_hunter",
+      "name_fr": "Chasseur acharné",
+      "tree": "Domination",
+      "screenshot": "1000010789.jpg",
+      "effect": "Gagne 10 de vitesse de déplacement hors combat, puis 2 supplémentaires par élimination de champion ou de monstre épique réalisée, jusqu'à cinq cumuls.",
+      "stats": {
+        "out_of_combat_move_speed_base": 10,
+        "out_of_combat_move_speed_per_stack": 2,
+        "max_stacks": 5
+      },
+      "trigger": "champion_or_epic_monster_kill"
+    },
+    {
+      "id": "tyrant",
+      "name_fr": "Tyran",
+      "tree": "Domination",
+      "screenshot": "1000010787.jpg",
+      "effect": "Contre un champion ayant moins de 50 % de ses PV, les dégâts déclenchent des dégâts adaptatifs supplémentaires égaux à 20–70 (selon niveau) + 6 % de vos dégâts d'attaque bonus + 3 % de votre puissance. Récupération : 10 secondes.",
+      "stats": {
+        "target_hp_below_pct": 50,
+        "adaptive_damage_min": 20,
+        "adaptive_damage_max": 70,
+        "bonus_ad_ratio_pct": 6,
+        "ap_ratio_pct": 3,
+        "cooldown_s": 10
+      },
+      "trigger": "damage_to_low_hp_champion"
+    }
+  ],
+  "policy": {
+    "duplicate_runes_in_upload_skipped": [
+      "Abattage",
+      "Triomphe",
+      "Légende : Alacrité",
+      "Baroud d'honneur",
+      "Brutal"
+    ],
+    "not_enabled_for_automatic_recommendation": true,
+    "scaling_between_minimum_and_maximum_not_inferred": true
+  }
+}
