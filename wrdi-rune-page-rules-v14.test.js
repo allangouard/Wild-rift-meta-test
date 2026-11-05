@@ -37,3 +37,22 @@ test('Les noms français et quatre branches sont ceux du catalogue client',()=>{
  assert.deepEqual(RULES.trees,['Domination','Précision','Volonté','Sorcellerie']);
  assert.equal(RULES.secondary_tree_allowed_options_count,3);
 });
+
+test('Précision: une rune dans chacune des trois lignes est valide',()=>{
+ const x=validateRunePage({keystone:'Électrocution',
+  primary:['Brutal',"Baroud d'honneur",'Légende : Alacrité'],secondary:'Coup bas'});
+ assert.equal(x.valid,true,JSON.stringify(x.errors));
+ assert.equal(x.primary_rows_verified,true);
+});
+test('Précision: deux runes de même ligne principale sont interdites',()=>{
+ const x=validateRunePage({keystone:'Électrocution',
+  primary:['Brutal','Triomphe','Légende : Alacrité'],secondary:'Coup bas'});
+ assert.equal(x.valid,false);
+ assert.ok(x.errors.some(e=>e.includes('chaque ligne')));
+});
+test('Précision: combinaison libre avec l autre arbre, sans doublon de ligne',()=>{
+ const x=validateRunePage({keystone:'Électrocution',
+  primary:['Zèle de combat','Coup de grâce','Légende : Sangsue'],secondary:'Démolition'});
+ assert.equal(x.valid,true,JSON.stringify(x.errors));
+ assert.equal(x.secondary_tree,'Volonté');
+});
