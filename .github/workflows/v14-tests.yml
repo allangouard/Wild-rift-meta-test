@@ -244,3 +244,8 @@ jobs:
           node --check assets/app.js
           node --check wrdi-compact-dashboard-v1423.js
           node --test wrdi-galio-contingencies-v1433.test.js
+      - name: Tester les synergies des passifs du client avec Galio V14.34
+        run: |
+          node --check wrdi-galio-kit-item-synergy-v1434.js
+          node --check wrdi-galio-five-item-optimizer-v1429.js
+          node --test wrdi-galio-kit-item-synergy-v1434.test.js
