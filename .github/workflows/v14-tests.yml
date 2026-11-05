@@ -109,3 +109,8 @@ jobs:
           node --check wrdi-rune-bridge-v14.js
           node --check wrdi-rune-panel-v14.js
           node --test wrdi-rune-bridge-v14.test.js
+      - name: Tester les scenarios de runes Galio V14.8
+        run: |
+          node --check wrdi-galio-rune-scenarios-v14.js
+          node --check wrdi-rune-panel-v14.js
+          node --test wrdi-galio-rune-scenarios-v14.test.js
