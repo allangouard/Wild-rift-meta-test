@@ -70,12 +70,12 @@ function compare({candidates,prepared,threats,coreNames=[]}={}){
  const viable=results.filter(x=>x.audit.ok);
  if(!viable.length)return {ok:false,reason:'Aucun candidat avec fiche complète et compatible',results};
  viable.sort((a,b)=>{
-  const effective=x=>x.audit.score-3*x.audit.redundancy.length;
+  const effective=x=>x.audit.score-5*x.audit.redundancy.length;
   return effective(b)-effective(a)||a.index-b.index;
  });
  const best=viable[0],second=viable[1];
  const points=best.audit.points.filter(x=>x.category==='draft');
- const lead=second?(best.audit.score-3*best.audit.redundancy.length)-(second.audit.score-3*second.audit.redundancy.length):null;
+ const lead=second?(best.audit.score-5*best.audit.redundancy.length)-(second.audit.score-5*second.audit.redundancy.length):null;
  const reason=points.length?points.slice(0,2).map(x=>x.reason).join(' ; '):
   best.audit.points.filter(x=>x.category==='galio_fit').slice(0,2).map(x=>x.reason).join(' ; ')||'Compatibilité documentée ; avantage situationnel non établi';
  const comparative=second&&lead>0?'Préféré à '+second.audit.name+' pour les menaces reconnues : '+reason:
