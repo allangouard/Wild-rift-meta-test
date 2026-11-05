@@ -88,7 +88,7 @@ else host.appendChild(panel);
           const overview=el('section');
           overview.style.cssText='margin:12px 0;padding:12px;border:1px solid #4d8180;border-radius:10px';
           overview.appendChild(el('h3','🛡️ V14.4 — Synthèse descriptive de la draft'));
-          line('Mentions dans les cinq kits : magie '+summary.counts.magic+'/5 · physique '+summary.counts.physical+'/5 · dégâts véritables '+summary.counts.true+'/5.',overview);
+          line('Mots-clés présents dans les kits (pas une répartition de dégâts) : magie '+summary.counts.magic+'/5 · physique '+summary.counts.physical+'/5 · dégâts véritables '+summary.counts.true+'/5.',overview);
           line('Contrôles (étourdissement, projection, immobilisation) '+summary.counts.cc+'/5 · soins '+summary.counts.heal+'/5 · boucliers '+summary.counts.shield+'/5.',overview);
           line('Mentions liées aux PV maximum '+summary.counts.maxhp+'/5 · effets périodiques '+summary.counts.overtime+'/5.',overview);
           list('Orientations indicatives des cores adverses',summary.enemies.map(e=>
@@ -100,6 +100,31 @@ else host.appendChild(panel);
           output.appendChild(overview);
         }else line('Synthèse V14.4 indisponible : '+summary.error);
       }else line('Module V14.4 non chargé : synthèse des menaces absente.');
+      const readinessApi=root.WRDI_GalioReadinessV14;
+      if(readinessApi?.evaluate&&summaryApi?.summarize){
+        try{
+          const [clientItems,clientRules]=await Promise.all([
+            fetchJson('./data/items-client-7.3d-v12.json'),
+            fetchJson('./data/item-restrictions-client-7.3d-v12.json')
+          ]);
+          if(run!==runNumber)return;
+          const readiness=readinessApi.evaluate({
+            report,summary:summaryApi.summarize(report),
+            catalog:clientItems,rules:clientRules,core
+          });
+          const readinessPanel=el('section');
+          readinessPanel.style.cssText='margin:12px 0;padding:12px;border:1px solid #6d776e;border-radius:10px';
+          readinessPanel.appendChild(el('h3','🧪 V14.5 — Contrôle avant simulation Galio'));
+          line('Comparaison chiffrée de builds non certifiée : '+readiness.blockers.length+' condition(s) bloquante(s).',readinessPanel);
+          line('Aucune recommandation V14 ne sera déduite des mots-clés ou des cores adverses.',readinessPanel);
+          list('Conditions à vérifier',readiness.blockers,readinessPanel);
+          list('Limites supplémentaires',readiness.notices,readinessPanel);
+          output.appendChild(readinessPanel);
+        }catch(error){
+          if(run!==runNumber)return;
+          line('V14.5 : contrôles indisponibles ('+String(error.message||error)+'). Aucune simulation autorisée.');
+        }
+      }
       report.threats.forEach((t,i)=>{
         const b=report.enemyBuilds[i];
         const card=el('div');
