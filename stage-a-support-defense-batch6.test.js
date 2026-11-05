@@ -40,11 +40,11 @@ test('Manteau: seuil 30%, 600 PV, soins non interpolés, 70 s cooldown',()=>{
  assert.equal(p.healing_during_buff.max_hp_multiplier_pct,15);
  assert.equal(p.cooldown_seconds,70);
 });
-test('Zeke: stats visibles mais ligne de PV coupée, pas de confirmation artificielle',()=>{
+test('Zeke: 300 PV confirmés directement par le joueur depuis le client',()=>{
  const x=byName.get('Convergence de Zeke');
- assert.equal(x.stats.hp,null);
- assert.equal(x.complete_visible_description,false);
- assert.deepEqual(x.stats,{hp:null,armor:25,magic_resistance:25,ability_haste:10});
+ assert.equal(x.stats.hp,300);
+ assert.equal(x.complete_visible_description,true);
+ assert.deepEqual(x.stats,{hp:300,armor:25,magic_resistance:25,ability_haste:10});
  const old=original.items.find(z=>z.name_fr===x.name_fr);
  assert.equal(old.stats.hp,300);
  assert.equal(x.passives[0].ultimate_haste,10);
