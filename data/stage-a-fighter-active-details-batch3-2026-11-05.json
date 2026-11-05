@@ -1,0 +1,91 @@
+{
+  "schema": "wrdi.stage_a.fighter_activatables_batch3.v1",
+  "game": "Wild Rift mobile",
+  "date": "2026-11-05",
+  "client_app_version": "7.3.0.2813",
+  "client_resource_version": "7.3.60.133",
+  "source": "Directly transcribed from two user screenshots in current conversation",
+  "records": [
+    {
+      "name_fr": "Estropieur",
+      "provisional_id": "stridebreaker",
+      "price_gold": 3100,
+      "screenshot": "1000010692.jpg",
+      "stats": {
+        "hp": 400,
+        "attack_damage": 40,
+        "attack_speed_pct": 25
+      },
+      "active": {
+        "name_fr": "Onde de choc entravante",
+        "trigger": "manual_activation",
+        "effect": [
+          "short_dash",
+          "nearby_enemy_physical_damage",
+          "nearby_enemy_slow"
+        ],
+        "damage_physical_total_ad_pct": 100,
+        "damage_basis": "total_attack_damage_displayed_as_100pct_AD_without_base_qualification",
+        "slow_pct": 40,
+        "slow_duration_seconds": 3,
+        "cooldown_seconds": 25,
+        "dash_distance": "short_not_numeric"
+      },
+      "passives": [
+        {
+          "name_fr": "Foulée",
+          "trigger": "deal_physical_damage",
+          "movement_speed_flat": 20,
+          "duration_seconds": 2
+        }
+      ],
+      "mechanics_experimentally_tested": false,
+      "external_numeric_id_verified": false
+    },
+    {
+      "name_fr": "Éviscérateur",
+      "provisional_id": "goredrinker",
+      "price_gold": 3100,
+      "screenshot": "1000010689.jpg",
+      "stats": {
+        "hp": 350,
+        "attack_damage": 40,
+        "ability_haste": 15
+      },
+      "passives": [
+        {
+          "name_fr": "Éviscération",
+          "omnivamp_pct": 8
+        }
+      ],
+      "active": {
+        "name_fr": "Taillade vorace",
+        "trigger": "manual_activation",
+        "effect": [
+          "area_physical_damage",
+          "heal_for_each_enemy_hit"
+        ],
+        "damage_physical_base_ad_pct": 175,
+        "healing_per_enemy_hit": {
+          "base_attack_damage_pct": 20,
+          "missing_hp_pct": 10
+        },
+        "cooldown_seconds": 12
+      },
+      "mechanics_experimentally_tested": false,
+      "external_numeric_id_verified": false
+    }
+  ],
+  "policy": {
+    "descriptions_source": "current client screenshots",
+    "do_not_automatically_load_into_build_recommendations": true,
+    "no_inferred_scaling_interactions": true,
+    "external_numeric_ids_verified": false
+  },
+  "notes": [
+    "Estropieur is a full independent item; no inference that it is a boot enchantment.",
+    "Éviscérateur healing is per target hit; 10% of missing HP and 20% of base AD cannot be added until contextual values are supplied.",
+    "Estropieur 100% AD in screenshot does not explicitly state 'base'; record separately from Éviscérateur 175% base AD.",
+    "These visible descriptions are not experimentally calibrated combat mechanics."
+  ]
+}
