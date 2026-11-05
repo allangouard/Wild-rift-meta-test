@@ -72,13 +72,25 @@ function evaluate(item,needs={}){
  if(any(m=>positive(m.on_hit_magic_damage)||typeof m.on_hit_magic_damage_formula==='string'))
   push('repeated_on_hit','poor_fit','Un passif reposant sur des attaques répétées n’exploite pas particulièrement son cycle de sorts','Répéter les attaques de base pour rentabiliser le passif');
  const conditions=new Set(entries.map(x=>x.key));
- let score=entries.reduce((n,e)=>n+(e.level==='direct'?1.4:e.level==='poor_fit'?-2:0.7),0);
- if(conditions.has('critical_only')&&!Number(needs.crit))score-=2;
+ // A possible Galio proc is not automatically a useful item for the draft.
+ const utility=(e)=>{
+  if(e.key==='critical_only')return Number(needs.crit)>0?0.7:-2;
+  if(e.key==='magic_heal_reduction')return Number(needs.heal)>0?1.4:0;
+  if(e.key==='damaging_spell_burn')return Number(needs.tank)>=2?1.4:0.6;
+  if(e.key==='long_range_condition')return -2;
+  if(e.key==='repeated_on_hit')return -2;
+  if(e.key==='team_protection')return Number(needs.peelNeed)>0?0.7:0.2;
+  if(e.key==='active_stasis')return Number(needs.assassin)>0||Number(needs.burst)>=2?1:0.3;
+  if(e.key==='sustained_proximity')return Number(needs.frontlineNeed)>0||Number(needs.tank)>=2?0.8:0.4;
+  return e.level==='direct'?1.4:0.7;
+ };
+ let score=entries.reduce((n,e)=>n+utility(e),0);
+
  if(conditions.has('combat_ramp')&&Number(needs.frontlineNeed)>0)score+=0.5;
  if(conditions.has('sustained_proximity')&&Number(needs.frontlineNeed)>0)score+=0.6;
  if(conditions.has('team_protection')&&Number(needs.peelNeed)>0)score+=0.5;
  if(conditions.has('nearby_waveclear')&&Number(needs.lanePhysical)>0)score+=0.4;
- if(conditions.has('long_range_condition'))score-=1;
+
  return {ok:true,itemId:item.id,entries,score:Math.round(score*100)/100,
   evidence:'client_passive_text_plus_galio_kit',procsConfirmedInGame:false,damageSimulated:false,
   conditionallyUseful:entries.some(x=>x.level==='conditional')};
@@ -93,6 +105,13 @@ function build(items,needs={}){
  const add=(v,reason)=>{bonus+=v;combinations.push(reason)};
  if(itemIds.has('riftmaker')&&stats.hp>=500)add(1.5,'Les autres objets PV renforcent la conversion PV → AP décrite sur Créateur de failles');
  if(itemIds.has('rabadons_deathcap')&&stats.ap>=180)add(1.2,'Les autres objets AP renforcent la valeur du multiplicateur de puissance');
+ // Client-documented thresholds cannot be counted as useful before the set qualifies.
+ for(const item of items){
+  const gated=read(item).map(x=>x.m).filter(m=>positive(m.threshold_bonus_hp));
+  if(gated.some(m=>stats.hp<m.threshold_bonus_hp)){
+   bonus-=1.7;combinations.push('Passif à seuil non pleinement exploité : PV bonus insuffisants');
+  }
+ }
  const proximity=analyzed.filter(x=>x.entries.some(e=>e.key==='nearby_waveclear'||e.key==='sustained_proximity'));
  if(proximity.length>=2)add(0.5,'Plusieurs effets de proximité peuvent être utiles lors du même engagement');
  return {ok:true,score:Math.round((analyzed.reduce((sum,x)=>sum+x.score,0)+bonus)*100)/100,
