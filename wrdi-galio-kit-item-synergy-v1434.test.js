@@ -32,6 +32,8 @@ test('item passive compatibility is derived from client mechanics, never hardcod
  assert.ok(has('riftmaker','bonus_hp_to_ap'));
  assert.ok(has('rabadons_deathcap','ap_multiplier'));
  assert.ok(has('abyssal_mask','nearby_magic_amp'));
+ assert.equal(optimizer.features(item('oceanids_trident')).shieldCut,true);
+ assert.equal(optimizer.features(item('riftmaker')).shieldCut,false);
  assert.ok(has('imperial_mandate','team_protection')===false);
 });
 test('long-range and repeated on-hit passives are not rewarded as natural Galio melee engage procs',()=>{
