@@ -1,3 +1,4 @@
+
 name: Tests Wild Rift V14
 
 on:
@@ -19,7 +20,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Verifier la syntaxe
-        run: node --check wrdi-core-v14.js
-      - name: Executer les tests
+      - name: Verifier la syntaxe V14
+        run: |
+          node --check wrdi-core-v14.js
+          node --check wrdi-coordinator-v14.js
+      - name: Tester le moteur V14.0
         run: node wrdi-core-v14.test.js
+      - name: Tester le coordinateur V14.1
+        run: node --test wrdi-coordinator-v14.test.js
+  
