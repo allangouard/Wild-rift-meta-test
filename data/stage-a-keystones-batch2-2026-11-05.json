@@ -304,7 +304,7 @@
     "source_client_tooltips_verified": true,
     "actual_combat_calibration": false,
     "do_not_load_into_automated_recommendations": true,
-    "keystone_names_complete_for_observed_13_options": false
+    "keystone_names_complete_for_observed_13_options": true
   },
   "limitations": [
     "Une 13e rune Électrocution figure dans data/stage-a-rune-electrocution-2026-11-05.json; le présent fichier contient les 12 autres.",
