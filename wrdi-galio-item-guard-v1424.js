@@ -1,17 +1,36 @@
 /* WRDI V14.24 — explicit client item identity and equipment eligibility gate.
- * Wild Rift mobile only. Client item catalog is exploratory and not an
- * automatic recommendation source. Does NOT calculate item damage/passives.
+ * Player-confirmed complete client item records are authoritative for their
+ * displayed price, stats, passive text and rules. Untested proc interactions,
+ * unprovided fields and nonclient items remain unverified.
  */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.WRDI_GalioItemGuardV1424=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
-const VERSION='14.24.0-alpha.1';
+const VERSION='14.25.0-alpha.1';
 const normalize=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9]/g,'');
+function itemEvidence(item){
+ const documented=item?.completeness?.description==='documented';
+ const priceConfirmed=['visible','visible_client_shop','user-confirmed'].includes(item?.completeness?.price);
+ const priceValid=typeof item?.price_gold==='number'&&Number.isFinite(item.price_gold)&&item.price_gold>0;
+ const verifiedSource=['user_client_screenshot','description_transcribed_from_conversation'].includes(item?.evidence?.kind)
+   ||['client_description_transcribed','description_transcribed_from_conversation'].includes(item?.evidence?.validation);
+ const statsPresent=item?.stats&&typeof item.stats==='object'&&Object.values(item.stats).every(v=>typeof v==='number'&&Number.isFinite(v));
+ const passivesPresent=Array.isArray(item?.passives)&&item.passives.every(p=>p?.name&&typeof p.description_fr==='string');
+ const complete=!!(documented&&priceConfirmed&&priceValid&&verifiedSource&&statsPresent&&passivesPresent);
+ return {status:complete?'player_confirmed_complete':'incomplete_needs_verification',complete,
+  priceVerified:priceConfirmed&&priceValid,descriptionVerified:documented&&verifiedSource,
+  statsVerified:!!(documented&&verifiedSource&&statsPresent),
+  passiveTextVerified:!!(documented&&verifiedSource&&passivesPresent),
+  combatInteractionsVerified:false,
+  missing:[!documented?'description':null,!priceConfirmed||!priceValid?'price':null,
+   !statsPresent?'stats':null,!passivesPresent?'passive_description':null,!verifiedSource?'user_source':null].filter(Boolean)};
+}
 function prepare({catalog,rules,core,livePatch}={}){
  if(!core?.validateSources||!core?.validateEquipment)return {ok:false,reason:'Moteur de restrictions indisponible'};
  const audit=core.validateSources(catalog,rules);
  if(!audit.ok)return {ok:false,reason:audit.errors.join('; ')};
- if(!livePatch||String(livePatch).toLowerCase()!==String(audit.patch).toLowerCase())
-  return {ok:false,reason:'Patch de la source directe différent du catalogue client '+audit.patch};
+ // The user's current-client testimony is primary for the verified items.
+ // An external API version string must not invalidate the client's direct observations.
+ const externalPatchMismatch=!!livePatch&&String(livePatch).toLowerCase()!==String(audit.patch).toLowerCase();
  const collisions=new Set(),byName=new Map();
  for(const item of catalog.items){
   const key=normalize(item.name_fr);
@@ -20,8 +39,10 @@ function prepare({catalog,rules,core,livePatch}={}){
   else byName.set(key,item);
  }
  return {ok:true,catalog,rules,core,byName,collisions,patch:audit.patch,
-  recommendationEligible:audit.recommendationEligible,
-  warnings:audit.warnings};
+  recommendationEligible:false, // mechanics-based build optimization is still uncalibrated.
+  verifiedCompleteCount:catalog.items.filter(x=>itemEvidence(x).complete).length,
+  externalPatchMismatch,externalPatch:livePatch||null,
+  warnings:externalPatchMismatch?['Patch de l’API externe différent du patch client confirmé : priorité au client pour les fiches vérifiées.']:[]};
 }
 function identify(name,prepared){
  if(!prepared?.ok)return {ok:false,reason:'Catalogue client indisponible'};
@@ -30,6 +51,7 @@ function identify(name,prepared){
   return {ok:false,reason:'Nom français absent ou ambigu dans le catalogue client',name:String(name||'')};
  const item=prepared.byName.get(key);
  return {ok:true,id:item.id,name:item.name_fr,type:item.item_type,patch:prepared.patch,
+  evidence:itemEvidence(item),
   mechanicsDocumented:Array.isArray(item.passives),interactionsValidated:false};
 }
 function validateSelection(names,prepared,{requireFullCore=false}={}){
@@ -40,6 +62,10 @@ function validateSelection(names,prepared,{requireFullCore=false}={}){
  if(unresolved.length)return {ok:false,status:'unresolved_identity',
   reason:'Objet(s) non rapproché(s) du catalogue client',unresolved,ids:identified.filter(x=>x.ok).map(x=>x.id)};
  const ids=identified.map(x=>x.id);
+ const incomplete=identified.filter(x=>!x.evidence.complete);
+ if(incomplete.length)return {ok:false,status:'incomplete_client_item',ids,
+  reason:'Fiche client incomplète : '+incomplete.map(x=>x.name+' ('+x.evidence.missing.join(', ')+')').join(' ; '),
+  incomplete};
  if(requireFullCore&&ids.length!==3)return {ok:false,status:'incomplete_core',reason:'Core de trois objets requis',ids};
  const check=prepared.core.validateEquipment(ids,prepared.catalog,prepared.rules);
  const nonbuyable=identified.filter(x=>x.type==='transformed');
@@ -47,8 +73,8 @@ function validateSelection(names,prepared,{requireFullCore=false}={}){
  return {ok:check.valid,status:check.valid?'equipment_compatible':'equipment_conflict',
   reason:check.valid?'Sélection compatible selon les restrictions du client '+prepared.patch:check.errors.join('; '),
   ids,errors:check.errors,warnings:check.warnings,
-  recommendationEligible:false, // The audited client catalog explicitly forbids automatic optimization.
-  patch:prepared.patch};
+  recommendationEligible:false, // technical validation != optimal build.
+  clientFieldsVerified:true,patch:prepared.patch};
 }
 function checkCandidate({coreNames,candidateName,prepared}={}){
  const whole=validateSelection([...(coreNames||[]),candidateName],prepared);
@@ -71,5 +97,5 @@ function filterAlternatives({coreNames,candidates,prepared,max=3}={}){
  return {ok:true,selected,rejected,patch:prepared.patch,validatedOptimization:false,
   note:'Compatibilité technique du client seulement, efficacité tactique non certifiée.'};
 }
-return Object.freeze({VERSION,normalize,prepare,identify,validateSelection,checkCandidate,filterAlternatives});
+return Object.freeze({VERSION,normalize,itemEvidence,prepare,identify,validateSelection,checkCandidate,filterAlternatives});
 });
