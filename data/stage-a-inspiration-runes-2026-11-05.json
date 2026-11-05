@@ -1,0 +1,183 @@
+{
+  "schema": "wrdi.stage_a.minor_runes_inspiration_v1",
+  "game": "Wild Rift mobile",
+  "locale": "fr-FR",
+  "date": "2026-11-05",
+  "source": "User-supplied client screenshots, Galio rune selection screen",
+  "tree": "Inspiration",
+  "client_resource_version": "7.3.60.133",
+  "entries": [
+    {
+      "id": "ixtali_seedjar",
+      "name_fr": "Pot de graines ixtali",
+      "screenshot": "1000010855.jpg",
+      "summary": "Remplace la relique par une graine après destruction d'une plante, puis permet de replanter des fruits",
+      "mechanics": {
+        "seed_relic_replacement_seconds": 60,
+        "available_from_match_seconds": 120,
+        "individual_plant_cooldown_seconds": 30,
+        "blast_cone_knockback_increased": false
+      },
+      "notes": [
+        "La graine arrive à maturité et s'autodétruit; durée non indiquée.",
+        "L'énoncé est: les pommes de pin explosives plantées ne vous projettent plus loin lors de leur détonation. Conserver comme 'ne vous projettent plus loin' sans supposer une distance."
+      ]
+    },
+    {
+      "id": "hextech_flashtraption",
+      "name_fr": "Saut Hextech",
+      "screenshot": "1000010853.jpg",
+      "summary": "Remplace Saut éclair pendant son délai de récupération, canalisation pour courte téléportation",
+      "mechanics": {
+        "channel_max_seconds": 2,
+        "cooldown_seconds": 18,
+        "combat_entry_cooldown_seconds": 6
+      },
+      "notes": [
+        "Distance de téléportation dépend du temps de canalisation.",
+        "S'applique quand Saut éclair est en récupération."
+      ]
+    },
+    {
+      "id": "gathering_storm",
+      "name_fr": "Tempête menaçante",
+      "screenshot": "1000010851.jpg",
+      "summary": "Bonus adaptatif d'attaque et de puissance qui augmente avec le temps",
+      "mechanics": {
+        "first_activation_minute": 6,
+        "initial_bonus_ad": 2,
+        "initial_ap": 4,
+        "increment_every_minutes": 3,
+        "displayed_bonus_ad_progression": [
+          2,
+          5,
+          9,
+          14
+        ],
+        "displayed_bonus_ap_progression": [
+          4,
+          10,
+          18,
+          28
+        ]
+      },
+      "notes": [
+        "Exemples illustratifs du client : 2 ou 4, puis 5 ou 10, 9 ou 18, 14 ou 28, etc.",
+        "Ne pas extrapoler au-delà des niveaux affichés sans formule vérifiée."
+      ]
+    },
+    {
+      "id": "absolute_focus",
+      "name_fr": "Concentration absolue",
+      "screenshot": "1000010849.jpg",
+      "summary": "Bonus adaptatif de dégâts tant que les PV sont supérieurs à 65%",
+      "mechanics": {
+        "hp_threshold_strictly_greater_than_pct": 65,
+        "bonus_ad_min": 2,
+        "bonus_ad_max": 20,
+        "bonus_ap_min": 4,
+        "bonus_ap_max": 40
+      },
+      "notes": [
+        "Bonus varie selon niveau; seuil strictement supérieur à 65%."
+      ]
+    },
+    {
+      "id": "botanist",
+      "name_fr": "Botaniste",
+      "screenshot": "1000010847.jpg",
+      "summary": "Augmente les effets des plantes et accorde 10 PO lorsqu'elles sont détruites",
+      "mechanics": {
+        "gold_per_destroyed_plant": 10,
+        "honeyfruit_healing_amplification_pct": 20,
+        "scryers_bloom_vision_duration_amplification_pct": 20,
+        "blast_cone_movement_speed_pct": 40,
+        "blast_cone_movement_speed_duration_seconds": 2.5
+      },
+      "notes": [
+        "Effets consommés lors de l'utilisation de chaque plante.",
+        "Le bonus de mobilité est donné après le repoussement."
+      ]
+    },
+    {
+      "id": "nimbus_cloak",
+      "name_fr": "Manteau nuageux",
+      "screenshot": "1000010845.jpg",
+      "summary": "Lancer un sort d'invocateur augmente la vitesse de déplacement",
+      "mechanics": {
+        "bonus_movement_speed_pct_min": 10,
+        "bonus_movement_speed_pct_max": 40,
+        "duration_seconds": 3,
+        "scales_with_summoner_spell_cooldown": true
+      },
+      "notes": [
+        "Le texte mentionne Saut éclair, Embrasement, etc.",
+        "Le mot 'sort' dans la capture désigne les sorts d'invocateur, pas les compétences de Galio."
+      ]
+    },
+    {
+      "id": "celerity",
+      "name_fr": "Célérité",
+      "screenshot": "1000010843.jpg",
+      "summary": "Augmente la vitesse de déplacement et améliore les bonus de vitesse",
+      "mechanics": {
+        "flat_movement_speed_pct": 2,
+        "movement_speed_bonus_amplification_pct": 7
+      }
+    },
+    {
+      "id": "manaflow_band",
+      "name_fr": "Ruban de mana",
+      "screenshot": "1000010841.jpg",
+      "summary": "Les compétences ou attaques renforcées touchant un champion accordent du mana permanent",
+      "mechanics": {
+        "mana_max_per_trigger": 30,
+        "maximum_bonus_mana": 300
+      },
+      "notes": [
+        "Aucun délai de récupération indiqué dans l'image."
+      ]
+    },
+    {
+      "id": "scorch",
+      "name_fr": "Brûlure",
+      "screenshot": "1000010839.jpg",
+      "summary": "Une compétence blessant un champion déclenche des dégâts magiques différés",
+      "mechanics": {
+        "damage_min": 21,
+        "damage_max": 49,
+        "damage_type": "magical",
+        "damage_delay_seconds": 1,
+        "cooldown_seconds": 8
+      },
+      "notes": [
+        "Dégâts variables selon niveau, interpolation non précisée."
+      ]
+    },
+    {
+      "id": "transcendence",
+      "name_fr": "Transcendance",
+      "screenshot": "1000010837.jpg",
+      "summary": "Accélération des compétences au niveau 1 et 5, réduction conditionnelle au niveau 9",
+      "mechanics": {
+        "at_level_1_ability_haste": 5,
+        "at_level_5_additional_ability_haste": 5,
+        "at_level_9_basic_ability_cooldown_reduction_pct": 8,
+        "at_level_9_reduction_cooldown_seconds": 8
+      },
+      "notes": [
+        "Réduction de 8% du délai de récupération de la compétence de base utilisée pour toucher un ennemi; ne pas assimiler à réduction de tous les sorts."
+      ]
+    }
+  ],
+  "coverage": {
+    "documented_distinct_runes": 10,
+    "full_tree_count_not_confirmed": true,
+    "number_of_runes_per_row_may_vary": true
+  },
+  "policy": {
+    "source_client_tooltip_verified": true,
+    "do_not_claim_tree_exhaustive": true,
+    "do_not_autorecommend_from_incomplete_data": true
+  }
+}
