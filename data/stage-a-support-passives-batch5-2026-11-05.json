@@ -58,12 +58,14 @@
           },
           "visible_additional_gold": {
             "bonus_gold": 20,
-            "visible_condition_fragment": "Vous gagnez 20 PO bonus si vous ou vos alliés éliminez un champion",
-            "condition_or_additional_text_truncated": true
+            "visible_condition_fragment": "Vous gagnez 20 PO bonus si vous ou vos alliés éliminez un champion lorsque vous êtes renforcé.",
+            "condition_or_additional_text_truncated": false,
+            "condition": "you_or_allies_eliminate_enemy_champion_while_item_owner_is_empowered",
+            "source_image_completion": "1000010719.jpg"
           }
         }
       ],
-      "full_description_visible": false,
+      "full_description_visible": true,
       "external_numeric_id_verified": false
     },
     {
@@ -102,9 +104,11 @@
     "external_numeric_ids_verified": false
   },
   "open_questions": [
-    "Piège à yordles: bottom of gold-on-kill line is cut off; do not infer any additional restrictions or details from the cropped portion.",
     "Piège à yordles: difference in attack-speed bonus for the owner vs ranged beneficiaries is stated but specific treatment across mixed compositions still requires testing.",
     "Vœu du chevalier: distance threshold for being 'nearby' is not specified; do not invent a range.",
     "Bâton des flots: no separate cooldown is printed; do not add one."
+  ],
+  "notes": [
+    "2026-11-05 supplementary screenshot 1000010719.jpg resolves the full +20 PO condition: owner or allies eliminate an enemy champion while owner empowered."
   ]
 }
