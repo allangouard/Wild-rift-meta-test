@@ -19,7 +19,10 @@
     ],
     "android_installed_build": "7.3.0.2813",
     "android_build_evidence": "user screenshot, Android application information, 2026-11-05",
-    "android_build_does_not_identify_balance_hotfix": true
+    "android_build_does_not_identify_balance_hotfix": true,
+    "resource_version": "7.3.60.133",
+    "resource_version_evidence": "user-provided in-game Wild Rift loading screen 2026-11-05",
+    "resource_build_does_not_identify_balance_hotfix": true
   },
   "current_inventory": {
     "curated_items": 59,
