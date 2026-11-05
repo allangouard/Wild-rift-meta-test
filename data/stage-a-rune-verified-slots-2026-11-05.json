@@ -158,6 +158,42 @@
       "tree": "Sorcellerie",
       "primary_row": 3,
       "source_image": "1000010889.jpg"
+    },
+    {
+      "name_fr": "Ruée offensive",
+      "tree": "Domination",
+      "primary_row": 1,
+      "source_image": "1000010893.jpg"
+    },
+    {
+      "name_fr": "Attaque renforcée",
+      "tree": "Domination",
+      "primary_row": 1,
+      "source_image": "1000010893.jpg"
+    },
+    {
+      "name_fr": "Tyran",
+      "tree": "Domination",
+      "primary_row": 2,
+      "source_image": "1000010895.jpg"
+    },
+    {
+      "name_fr": "Orgueil",
+      "tree": "Domination",
+      "primary_row": 2,
+      "source_image": "1000010895.jpg"
+    },
+    {
+      "name_fr": "Arracheur d'œil",
+      "tree": "Domination",
+      "primary_row": 3,
+      "source_image": "1000010897.jpg"
+    },
+    {
+      "name_fr": "Balise zombie",
+      "tree": "Domination",
+      "primary_row": 3,
+      "source_image": "1000010897.jpg"
     }
   ],
   "policy": {
