@@ -95,6 +95,7 @@ function mount(){
    const names=lookupNames();
    const detailed=root.WRDI_GalioCuratedMatchupsV1420?.refine({tenKits:inspected,baseline:specific,championNames:names});
    const five=root.WRDI_GalioFiveRunesV1421?.analyze({kitData:inspected,championNames:names,pages:displayPages,bridge,catalog});
+   const swap=root.WRDI_GalioRuneSwapV1422?.adapt({kitData:inspected,championNames:names,curatedMid:detailed,five,pages:displayPages,bridge,catalog,playerEvidence});
    const count=el('p',evaluation.coverage.available+'/10 kits exploitables · 7 pages légales · 5 runes examinées par page. Aucune meilleure page certifiée.');
    count.style.fontWeight='700';out.append(count);
    if(playerEvidence?.ok)out.append(el('p','✅ V14.17 — '+playerEvidence.positiveCount+' tests positifs et '+playerEvidence.negativeCount+' tests négatifs validés en jeu, dans les conditions rapportées. Aucun classement méta déduit.'));
@@ -144,6 +145,23 @@ function mount(){
     }else out.append(el('p','Aucun jungler/support réconcilié parmi les profils documentés : pas de menace inventée.'));
     out.append(el('p','Chaque page détaille désormais les cinq runes, les indices tactiques et les activations réellement observées. Aucune note de puissance calculée.'));
    }
+   if(swap?.ok){
+    out.append(el('h3','🔄 V14.22 — Pages de runes adaptées à la draft'));
+    if(!swap.context.ready)out.append(el('p','Adaptations suspendues : au moins une fiche de champion est indisponible.'));
+    else if(swap.changedPages===0)out.append(el('p','Aucun remplacement assez justifié par les profils reconnus. Les pages restent inchangées.'));
+    else out.append(el('p',swap.changedPages+' page(s) comportent des remplacements proposés et vérifiés comme légaux dans le catalogue client. Ce ne sont pas des pages optimales certifiées.'));
+    const swapDetail=el('details');swapDetail.open=true;swapDetail.append(el('summary','Voir les 7 pages et leurs substitutions possibles'));
+    for(const p of swap.pages){
+     const item=el('div');item.style.cssText='padding:10px 0;border-bottom:1px solid #345661';
+     item.append(el('strong',p.label+' · '+(p.hasAdaptation?p.changes.length+' remplacement(s) proposé(s)':'inchangée')));
+     item.append(el('p','Fondamentale : '+p.page.keystone));
+     item.append(el('p','Principales : '+p.page.primary.join(' · ')));
+     item.append(el('p','Secondaire : '+p.page.secondary));
+     for(const ch of p.changes)item.append(el('p','↪ '+ch.from+' → '+ch.to+' · '+ch.reason+' Menace : '+ch.evidence));
+     swapDetail.append(item);
+    }
+    out.append(swapDetail);
+   }else out.append(el('p','V14.22 : moteur de remplacements indisponible ; les pages originales restent accessibles.'));
    const galio=el('p','Kit Galio : '+(comparison.galio.ccMentioned?'mentions de contrôle détectées':'contrôle non confirmé par la lecture lexicale')+' ; mobilité '+(comparison.galio.dashMentioned?'mentionnée':'non détectée')+' ; bouclier '+(comparison.galio.shieldMentioned?'mentionné':'non détecté')+'.');
    out.append(galio);
    const show=el('details');show.append(el('summary','Voir les 10 fiches et leurs limites'));
@@ -196,7 +214,7 @@ function mount(){
    for(const c of displayPages.slice(3))remaining.append(renderPage(c,false));
    out.append(remaining);
    const warnings=el('details');warnings.append(el('summary','Limites et qualité des données'));
-   for(const w of [...comparison.warnings,...evaluation.warnings,...(ordered?.warnings||[]),...(specific?.warnings||[]),...(detailed?.warnings||[]),...(five?.warnings||[])])warnings.append(el('p','• '+w));
+   for(const w of [...comparison.warnings,...evaluation.warnings,...(ordered?.warnings||[]),...(specific?.warnings||[]),...(detailed?.warnings||[]),...(five?.warnings||[]),...(swap?.warnings||[])])warnings.append(el('p','• '+w));
    out.append(warnings);
    out.append(el('p',evaluation.interpretation));
   }catch(e){
