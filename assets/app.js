@@ -474,12 +474,21 @@ async function wrdiGalioFiveCatalogAnalyze({out,enemy,reportFailure}){
   if(!prepared.ok)throw Error(prepared.reason||'Catalogue client incompatible');
   const enemyNames=enemy.map(id=>pickerName(champions.find(x=>String(x.id)===String(id))||{id,name:String(id)}));
   const analysis=engineNotes(enemyNames);
-  const outcome=optimizer.optimize({prepared,threats:analysis.counts});
+  const allyIds=draftPicks.slice(0,5).filter((_,i)=>i!==2);
+  const allyNames=allyIds.map(id=>pickerName(champions.find(x=>String(x.id)===String(id))||{id,name:String(id)}));
+  const allyProfiles=engineNotes(allyNames);
+  // Threat profiles are general kit archetypes, not predictions of enemy items.
+  // A full team without a dedicated tank gives Galio greater frontline responsibility.
+  const fullAllyDraft=allyIds.length===4&&allyIds.every(Boolean);
+  const frontlineNeed=fullAllyDraft&&allyProfiles.unknown.length===0&&allyProfiles.counts.tank===0?2:0;
+  const knownCritPotential=analysis.counts.crit||0;
+  const draftNeeds={...analysis.counts,crit:knownCritPotential,frontlineNeed};
+  const outcome=optimizer.optimize({prepared,threats:draftNeeds});
   if(!outcome.ok)throw Error(outcome.reason||'Construction du build impossible');
   const main=outcome.main;
   const explanations=main.items.map(i=>'<li>'+esc(i.name)+' — '+esc(i.reason)+'</li>').join('');
   out.innerHTML='<h2>Galio mid — cinq objets conseillés</h2>'+
-   '<p class="muted">Analyse théorique des fiches du client uniquement, sans builds populaires. Bottes à choisir séparément.</p>'+
+   '<p class="muted">Analyse théorique des fiches du client uniquement, sans builds populaires. Cinq objets sans ordre d’achat ; les bottes sont séparées.</p>'+
    '<ol>'+explanations+'</ol>'+
    '<p>'+esc(main.reasons.slice(0,3).join(' · ')||'Synergies de Galio mid et restrictions vérifiées.')+'</p>'+
    (analysis.unknown.length?'<p class="warn">Profils adverses partiels : '+esc(analysis.unknown.join(', '))+'</p>':'')+
@@ -493,7 +502,7 @@ async function wrdiGalioFiveCatalogAnalyze({out,enemy,reportFailure}){
   window.dispatchEvent(new CustomEvent('wrdi:build-result',{detail:{
    champion:'Galio',patch:catalog.patch_claimed_by_client_user,
    draftFingerprint:JSON.stringify(draftPicks),source:'player_client_only',
-   fullBuild:true,bootsSeparate:true,
+   fullBuild:true,bootsSeparate:true,purchaseOrderEstablished:false,
    core:main.items.map(i=>({id:i.id,name:i.name,reason:i.reason})),
    situational:alternatives.map(a=>({id:a.changed[0]||'',name:a.changed.join(' + ')||'Combinaison alternative',
      reason:a.reason,timing:'Selon les menaces prioritaires'})),
