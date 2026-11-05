@@ -92,3 +92,5 @@ jobs:
         run: node --test stage-a-runes-batch3.test.js
       - name: Tester cinq runes Volonte supplementaires depuis le client
         run: node --test stage-a-runes-batch4.test.js
+      - name: Tester les dix nouvelles runes du client (lot 5)
+        run: node --test stage-a-runes-batch5.test.js
