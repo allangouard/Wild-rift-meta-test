@@ -42,7 +42,13 @@
       "screenshot": "1000010583.jpg",
       "existing_catalog_id": "yordle_trap",
       "verification": "name_icon_price_visible_in_client",
-      "price_was_missing": true
+      "price_was_missing": true,
+      "client_full_details_newly_verified": true,
+      "full_item_stats_verified": true,
+      "details_verified": true,
+      "detail_evidence_file": "data/stage-a-support-passives-batch5-2026-11-05.json",
+      "external_numeric_id_verified": false,
+      "full_description_captured": false
     },
     {
       "id": "knights_vow",
@@ -51,7 +57,12 @@
       "screenshot": "1000010583.jpg",
       "existing_catalog_id": "knights_vow",
       "verification": "name_icon_price_visible_in_client",
-      "price_was_missing": true
+      "price_was_missing": true,
+      "client_full_details_newly_verified": true,
+      "full_item_stats_verified": true,
+      "details_verified": true,
+      "detail_evidence_file": "data/stage-a-support-passives-batch5-2026-11-05.json",
+      "external_numeric_id_verified": false
     },
     {
       "provisional_ref": "medallion_of_the_iron_solari_UNRESOLVED",
