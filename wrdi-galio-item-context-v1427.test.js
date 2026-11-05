@@ -59,5 +59,5 @@ test('app uses verified passive context, not invented optimization',()=>{
  const app=fs.readFileSync('assets/app.js','utf8');
  assert.ok(app.includes('WRDI_GalioItemContextV1427'));
  assert.ok(app.includes('clientContext.indications'));
- assert.ok(app.includes('const pick=canAudit?ranked.find'));
+ assert.ok(app.includes('const eligible=canAudit?ranked.filter'));
 });
