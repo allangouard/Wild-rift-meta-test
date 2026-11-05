@@ -82,3 +82,5 @@ jobs:
         run: node --test stage-a-reconciliation-status.test.js
       - name: Tester structure des runes Galio issue du client Wild Rift
         run: node --test stage-a-galio-runes-layout.test.js
+      - name: Tester rune fondamentale Electrocution issue du client Wild Rift
+        run: node --test stage-a-rune-electrocution.test.js
