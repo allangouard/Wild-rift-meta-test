@@ -249,10 +249,14 @@
     }
   ],
   "scope_notes": [
-    "29 visible shop rows transcribed from user's three screenshots; not a certified exhaustive item inventory for the category.",
     "Icon/name/price confirmed visible; not stats, crafting recipes, passive formulas, exclusivity or patch hotfix.",
     "All 29 match existing client 7.3d curated catalog prices; no catalog price changes needed.",
     "Screenshot files are cited by filename, not embedded in repository.",
-    "The client app/resource versions do not establish exact subpatch balance independently."
-  ]
+    "The client app/resource versions do not establish exact subpatch balance independently.",
+    "User explicitly confirms 29 displayed items cover complete Magie shop category in their client."
+  ],
+  "category_complete_confirmed_by_user": true,
+  "category_complete_confirmation_date": "2026-11-05",
+  "coverage": "complete_29_items_confirmed_by_user_for_current_client",
+  "completeness_scope": "names and listing prices only; item descriptions, effects, current numeric IDs and balance patch equivalence not automatically certified"
 }
