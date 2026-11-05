@@ -1,0 +1,47 @@
+{
+  "schema": "wrdi.stage_a.rune_slot_evidence.v1",
+  "source": "User-provided Wild Rift Galio rune selection screenshots",
+  "verified_examples": [
+    {
+      "name_fr": "Coup bas",
+      "tree": "Domination",
+      "primary_row": 1,
+      "source_image": "1000010857.jpg"
+    },
+    {
+      "name_fr": "Assaut enchaîné",
+      "tree": "Domination",
+      "primary_row": 2,
+      "source_image": "1000010857.jpg"
+    },
+    {
+      "name_fr": "Chasseur acharné",
+      "tree": "Domination",
+      "primary_row": 3,
+      "source_image": "1000010857.jpg"
+    },
+    {
+      "name_fr": "Courage du colosse",
+      "tree": "Volonté",
+      "primary_row": 1,
+      "source_image": "1000010835.jpg",
+      "note": "Rune selected in first Resolve row in earlier screenshot; tooltip label corroborated separately"
+    },
+    {
+      "name_fr": "Second souffle",
+      "tree": "Volonté",
+      "primary_row": 2,
+      "source_image": "1000010817.jpg"
+    },
+    {
+      "name_fr": "Revitalisation",
+      "tree": "Volonté",
+      "primary_row": 3,
+      "source_image": "1000010825.jpg"
+    }
+  ],
+  "policy": {
+    "do_not_assign_other_rows_from_guesswork": true,
+    "single_row_per_primary_rune": true
+  }
+}
