@@ -76,10 +76,20 @@ function mount(){
    }
    const evaluation=evidenceEngine.compare({kitData:inspected,comparison,matrix,catalog,bridge,playerEvidence});
    if(!evaluation.ok){out.append(el('p','Vérification des runes bloquée : '+evaluation.errors.join(' ; ')));return;}
+   const draftEngine=root.WRDI_GalioDraftRuneV1418;
+   const ordered=draftEngine?.compare({kitData:inspected,pages:evaluation.pages,playerEvidence,bridge,catalog});
+   if(ordered && !ordered.ok){out.append(el('p','Analyse des menaces indisponible : '+ordered.error));return;}
+   const displayPages=ordered?.pages||evaluation.pages;
    const count=el('p',evaluation.coverage.available+'/10 kits exploitables · 7 pages légales · 5 runes examinées par page. Aucune meilleure page certifiée.');
    count.style.fontWeight='700';out.append(count);
    if(playerEvidence?.ok)out.append(el('p','✅ V14.17 — '+playerEvidence.positiveCount+' tests positifs et '+playerEvidence.negativeCount+' tests négatifs validés en jeu, dans les conditions rapportées. Aucun classement méta déduit.'));
    else out.append(el('p','Observations en jeu indisponibles : lecture documentaire uniquement.'));
+   if(ordered?.comparisonAvailable){
+    out.append(el('h3','🎯 V14.18 — Pages classées selon les menaces détectées'));
+    out.append(el('p','Ordre exploratoire fondé sur les signaux des 10 kits. Ce n’est ni un winrate ni une preuve de supériorité. Les observations de runes en jeu restent validées uniquement dans leurs conditions.'));
+   }else{
+    out.append(el('p','V14.18 : classement contextuel suspendu (fiches de champions manquantes ou aucun signal utilisable). Les 7 pages restent consultables sans ordre de puissance.'));
+   }
    const galio=el('p','Kit Galio : '+(comparison.galio.ccMentioned?'mentions de contrôle détectées':'contrôle non confirmé par la lecture lexicale')+' ; mobilité '+(comparison.galio.dashMentioned?'mentionnée':'non détectée')+' ; bouclier '+(comparison.galio.shieldMentioned?'mentionné':'non détecté')+'.');
    out.append(galio);
    const show=el('details');show.append(el('summary','Voir les 10 fiches et leurs limites'));
@@ -97,6 +107,12 @@ function mount(){
      el('p','Principales ('+c.page.primaryTree+') : '+c.page.primary.join(' · ')),
      el('p','Secondaire : '+c.page.secondary));
     box.append(el('p',c.conditionalOrIndirectCount+'/5 runes avec une interaction étudiée · '+c.notYetStudiedCount+'/5 à étudier. Ce chiffre n’est pas une note de puissance.'));
+    if(ordered?.comparisonAvailable){
+     const exp=c.contributions||[];
+     box.append(el('p','Adéquation tactique exploratoire : '+(exp.length?exp.map(x=>(x.impact>0?'+':'')+x.impact+' · '+x.label+' ('+x.count+')').join(' ; '):'Aucun signal particulier associé à cette page.')));
+    }
+    if(c.validatedCombos?.length)box.append(el('p','✅ Déclenchements confirmés en jeu : '+c.validatedCombos.map(x=>x.condition).join(' ; ')));
+    if(c.validatedNonProcs?.length)box.append(el('p','⛔ Absences de déclenchement confirmées : '+c.validatedNonProcs.map(x=>x.condition).join(' ; ')));
     for(const f of c.kitEvidence)box.append(el('p','Indice composition (non vérifié) : '+f));
     if(!c.kitEvidence.length)box.append(el('p','Aucun indice contextualisé exploitable pour cette page.'));
     const details=el('details');details.append(el('summary','Voir les cinq runes et les déclenchements'));
@@ -113,12 +129,12 @@ function mount(){
     if(full)for(const caveat of c.caveats)box.append(el('p','• '+caveat));
     return box;
    };
-   for(const c of evaluation.pages.slice(0,3))out.append(renderPage(c,true));
+   for(const c of displayPages.slice(0,3))out.append(renderPage(c,true));
    const remaining=el('details');remaining.append(el('summary','Voir les 4 autres pages légales'));
-   for(const c of evaluation.pages.slice(3))remaining.append(renderPage(c,false));
+   for(const c of displayPages.slice(3))remaining.append(renderPage(c,false));
    out.append(remaining);
    const warnings=el('details');warnings.append(el('summary','Limites et qualité des données'));
-   for(const w of [...comparison.warnings,...evaluation.warnings])warnings.append(el('p','• '+w));
+   for(const w of [...comparison.warnings,...evaluation.warnings,...(ordered?.warnings||[])])warnings.append(el('p','• '+w));
    out.append(warnings);
    out.append(el('p',evaluation.interpretation));
   }catch(e){
