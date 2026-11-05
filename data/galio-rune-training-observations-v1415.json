@@ -121,6 +121,20 @@
       "replicated_by_player": true,
       "replication_count": "3 ou plus",
       "limits": "Absence de vidéo ou de mesure instrumentée pour ces essais ; E raté, délai de récupération et effet visuel distinct de la compétence non documentés comme contrôles séparés. Version du patch non enregistrée."
+    },
+    {
+      "test_id": "colossus-w",
+      "rune": "Courage du colosse",
+      "ability": "Z",
+      "result": "observed_yes",
+      "user_description": "Bouclier supplémentaire observé après provocation Z de Galio sur trois essais ou davantage.",
+      "interpretation": "Le joueur rapporte un bouclier supplémentaire lors de trois essais ou plus avec Z, compatible avec le déclenchement de Courage du colosse sur provocation réussie. Sans relevé chiffré, l'attribution exclusive du bouclier à la rune ne peut être certifiée indépendamment.",
+      "client_observation_status": "confirmed_by_player_in_wild_rift_client",
+      "client_observation_verified_by_player": true,
+      "independently_verified": false,
+      "replicated_by_player": true,
+      "replication_count": "3 ou plus",
+      "limits": "Comparaison instrumentée avec bouclier magique naturel de Galio, Z sans cible, recharge et patch exact non documentés; observation non certifiée indépendamment."
     }
   ]
 }
