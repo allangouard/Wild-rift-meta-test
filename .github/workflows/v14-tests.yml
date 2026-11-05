@@ -54,3 +54,5 @@ jobs:
         run: node --test stage-a-identity-crosswalk.test.js
       - name: Verifier les captures Combattant et les prix masques
         run: node --test stage-a-fighter-shop.test.js
+      - name: Verifier le catalogue Assassin
+        run: node --test stage-a-assassin-shop.test.js
