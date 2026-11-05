@@ -52,11 +52,14 @@ function evaluate({championId,summary,catalog,bridge}={}){
  if(new Set(enemyIds).size!==5)blockers.push('Adversaires dupliqués dans la synthèse.');
  if(summary.game!=='Wild Rift mobile')blockers.push('Données provenant d’un autre jeu.');
  if(blockers.length)return {ok:false,status:'blocked',blockers};
- const counts=summary.counts||{};
+ const dataPresent=summary.enemyKitSignalsAvailable===true || (summary.enemyKitSignalsAvailable===undefined && summary.counts!==null);
+ const counts=dataPresent?(summary.counts||{}):null;
  const cues=[
-  {id:'anti-control',evidence:(counts.cc||0)+' adversaire(s) avec mention explicite de contrôle dans les kits',
-   supported:Number(counts.cc||0)>=2},
-  {id:'lane-poke',evidence:(counts.overtime||0)+' adversaire(s) avec mention d’effet périodique ; le harcèlement de lane n’est pas établi par cette donnée',
+  {id:'anti-control',
+   evidence:dataPresent?(Number(counts.cc||0)+' adversaire(s) avec mention explicite de contrôle dans les kits'):'Kits adverses indisponibles : aucun signal de contrôle établi',
+   supported:dataPresent&&Number(counts.cc||0)>=2},
+  {id:'lane-poke',
+   evidence:dataPresent?(Number(counts.overtime||0)+' adversaire(s) avec mention d’effet périodique ; le harcèlement de lane n’est pas établi'):'Kits adverses indisponibles : aucun niveau de harcèlement déduit',
    supported:false},
   {id:'roam-burst',evidence:'Mobilité et potentiel d’engagement de Galio : hypothèse de gameplay, non dérivée des kits adverses',
    supported:false}
@@ -74,12 +77,13 @@ function evaluate({championId,summary,catalog,bridge}={}){
   'Exploration de trois pages légales, pas une sélection des meilleures runes ni un classement méta.',
   'Mentions de kits ≠ fréquence des contrôles, dominante de dégâts, portée ou risque de gank.',
   'Les quatre alliés et la phase de lane ne sont pas analysés dans ce prototype.',
+  ...(!dataPresent?['Données de kits adverses manquantes : scénarios génériques et non personnalisés.']:[]),
   'Identifiants officiels, interactions réelles et efficacité chiffrée encore non réconciliés.',
   ...(Array.isArray(summary.notices)?summary.notices:[])
  ];
  return {ok:true,status:'scenario-comparison-only',game:'Wild Rift mobile',
   championId:GALIO_ID,patch:summary.patch||null,enemyIds,
-  automaticRecommendationAllowed:false,rankedByWinRate:false,
+  automaticRecommendationAllowed:false,rankedByWinRate:false,enemyKitSignalsAvailable:dataPresent,
   candidates,warnings:[...new Set(warnings)]};
 }
 return Object.freeze({VERSION,TEMPLATES,evaluate});
