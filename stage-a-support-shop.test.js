@@ -45,8 +45,9 @@ test('Médaillon Support : déjà documenté, mais reste un actif autonome non c
  assert.equal(x.external_numeric_id_verified,false);
  assert.equal(support.policy.do_not_automatically_load_into_build_recommendations,true);
 });
-test('La couverture complète Support n’est pas présumée',()=>{
+test('La couverture complète Support est explicitement confirmée',()=>{
  assert.equal(support.counts.visible_entries,20);
- assert.ok(support.coverage.includes('not yet explicitly confirmed'));
+ assert.equal(support.coverage,'complete_20_items_confirmed_by_user_for_current_client');
+ assert.equal(support.category_complete_confirmed_by_user,true);
  assert.ok(support.entries.every(x=>x.client_full_details_newly_verified===false));
 });
