@@ -135,6 +135,20 @@
       "replicated_by_player": true,
       "replication_count": "3 ou plus",
       "limits": "Comparaison instrumentée avec bouclier magique naturel de Galio, Z sans cible, recharge et patch exact non documentés; observation non certifiée indépendamment."
+    },
+    {
+      "test_id": "electrocute-q-ticks",
+      "rune": "Électrocution",
+      "ability": "A uniquement — Vents de guerre (tornade et dégâts répétés)",
+      "result": "observed_no",
+      "user_description": "Aucune activation d'Électrocution avec A seul malgré 3 essais ou davantage.",
+      "interpretation": "Les dégâts successifs de A seul n'ont pas suffi à activer Électrocution dans les essais rapportés. Compatible avec un comptage des touches distinctes plutôt que des ticks de la même compétence, sans prouver à lui seul la règle exacte.",
+      "client_observation_status": "reported_by_player_in_wild_rift_client",
+      "independently_verified": false,
+      "replicated_by_player": true,
+      "replication_count": "3 ou plus",
+      "precise_hit_count_verified": false,
+      "limits": "Disponibilité initiale de la rune, impacts et chronométrage non mesurés indépendamment; ne prouve pas que les ticks comptent comme exactement une touche."
     }
   ]
 }
