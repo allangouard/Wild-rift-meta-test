@@ -81,6 +81,18 @@ function mount(){
    if(ordered && !ordered.ok){out.append(el('p','Analyse des menaces indisponible : '+ordered.error));return;}
    const specific=root.WRDI_GalioAbilityThreatV1419?.refine({kitData:inspected,baseline:ordered});
    const displayPages=specific?.ok?specific.pages:(ordered?.pages||evaluation.pages);
+   const lookupNames=()=>{
+    try{
+     const roster=typeof champions!=='undefined'&&Array.isArray(champions)?champions:[];
+     return picks.map(id=>{
+      const c=roster.find(x=>String(x.id)===String(id));
+      const meta=typeof db!=='undefined'?db?.meta?.champ_index?.[String(id)]:null;
+      const raw=typeof meta==='string'?meta:meta?.name||meta?.en||meta?.champion||null;
+      return c?.name&&!/^Champion [0-9]+$/.test(c.name)?c.name:raw||'';
+     });
+    }catch{return picks.map(()=>'');}
+   };
+   const detailed=root.WRDI_GalioCuratedMatchupsV1420?.refine({tenKits:inspected,baseline:specific,championNames:lookupNames()});
    const count=el('p',evaluation.coverage.available+'/10 kits exploitables · 7 pages légales · 5 runes examinées par page. Aucune meilleure page certifiée.');
    count.style.fontWeight='700';out.append(count);
    if(playerEvidence?.ok)out.append(el('p','✅ V14.17 — '+playerEvidence.positiveCount+' tests positifs et '+playerEvidence.negativeCount+' tests négatifs validés en jeu, dans les conditions rapportées. Aucun classement méta déduit.'));
@@ -105,6 +117,19 @@ function mount(){
      profileDetails.append(box);
     }
     out.append(profileDetails);
+   }
+   if(detailed?.ok){
+    out.append(el('h3','📖 V14.20 — Profil documenté du mid adverse'));
+    const doc=el('div');doc.style.cssText='padding:10px;border:1px solid #456b79;border-radius:10px;margin:8px 0';
+    if(detailed.profile){
+     doc.append(el('p','Mid adverse : '+detailed.profile.name+' · Compétences documentées sur le site officiel Wild Rift.'));
+     for(const t of detailed.profile.traits)doc.append(el('p',t.ability+' — '+t.name+' : '+t.fact+' Conséquence tactique envisagée : '+t.context));
+     const sourceLink=el('a','Consulter la fiche Wild Rift officielle');sourceLink.href=detailed.profile.source;sourceLink.target='_blank';sourceLink.rel='noopener noreferrer';sourceLink.style.color='#81e0dd';doc.append(sourceLink);
+     const delta=el('details');delta.append(el('summary','Voir les adaptations exploratoires des 7 pages'));
+     for(const p of detailed.pages)delta.append(el('p',p.label+' : '+(p.curatedFindings.length?p.curatedFindings.map(x=>(x.impact>0?'+':'')+x.impact+' · '+x.context).join(' ; '):'Aucune adaptation spécifique documentée')));
+     doc.append(delta);
+    }else doc.append(el('p','Aucun profil officiel réconcilié pour le mid adverse. Le classement général est conservé. Aucun profil inventé.'));
+    out.append(doc);
    }
    const galio=el('p','Kit Galio : '+(comparison.galio.ccMentioned?'mentions de contrôle détectées':'contrôle non confirmé par la lecture lexicale')+' ; mobilité '+(comparison.galio.dashMentioned?'mentionnée':'non détectée')+' ; bouclier '+(comparison.galio.shieldMentioned?'mentionné':'non détecté')+'.');
    out.append(galio);
@@ -154,7 +179,7 @@ function mount(){
    for(const c of displayPages.slice(3))remaining.append(renderPage(c,false));
    out.append(remaining);
    const warnings=el('details');warnings.append(el('summary','Limites et qualité des données'));
-   for(const w of [...comparison.warnings,...evaluation.warnings,...(ordered?.warnings||[]),...(specific?.warnings||[])])warnings.append(el('p','• '+w));
+   for(const w of [...comparison.warnings,...evaluation.warnings,...(ordered?.warnings||[]),...(specific?.warnings||[]),...(detailed?.warnings||[])])warnings.append(el('p','• '+w));
    out.append(warnings);
    out.append(el('p',evaluation.interpretation));
   }catch(e){
