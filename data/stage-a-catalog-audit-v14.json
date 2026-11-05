@@ -148,7 +148,14 @@
       "Manteau de l'heure ultime",
       "Convergence de Zeke"
     ],
-    "zekes_convergence_stat_pending": "HP +300 from earlier catalog, cropped in 2026-11-05 screenshot; pending screenshot to revalidate"
+    "zekes_convergence_stat_pending": null,
+    "support_defense_batch7_file": "data/stage-a-support-defense-batch7-2026-11-05.json",
+    "support_defense_batch7_names": [
+      "Cœur gelé",
+      "Diadème des murmures",
+      "Convergence de Zeke"
+    ],
+    "zekes_convergence_hp_confirmed": 300
   },
   "gates": [
     {
@@ -226,6 +233,7 @@
     "2026-11-05: full client screenshot support passives: Encensoir 2400, 50 AP +50% mana regen +8% heal/shield +4% MS, other-ally heal/shield grants caster and ally 30% AS and 25 magic on-hit for 6s; Helia 2400, 200 HP 40 AP +50% mana regen +20 AH, captures 30% premitigation enemy champion damage as fragments max 80–250 and consumes all to heal ally; Écho harmonieux 2500, same stats as Helia, propagates heal 30% / shield 35% to another allied target in 800 units or original target if none. Precise scaling and targeting algorithm not experimentally confirmed.",
     "2026-11-05: client snapshots Staff of Flowing Water 2400 (50 AP 50% mana regen 10 AH 8% healing/shield; ally heal/shield grants owner and ally 15 AH 40 AP 6 s); Yordle Trap 2400 (200 HP 20 armor 20 MR 15 AH, slow/immobilize empowerment 8s melee/4s ranged and nearby AS 30%/20%, 20 gold on champion takedown text clipped); Knight's Vow 2450 (200 HP 100% HP regen 40 armor 10 AH; 12% ally damage redirection and healing 10% of designated ally damage to champions; designation at purchase/repurchase). Game interaction uncalibrated.",
     "2026-11-05: supplementary client screenshot confirms Piège à yordles +20 PO when user or allies eliminate a champion while user is empowered. Previous clipping warning resolved; no unverified cooldown inferred.",
-    "2026-11-05: Linceul de l'aube 2700 +250HP +50 armor +30MR; immobilization trigger within 400 of enemy, 3s reveal, 40 +2.5% bonusHP magic damage, +20% armor/MR, 3s CD. Manteau de l'heure ultime 2550 +600HP +20 AH, threshold below 30% HP yields +200–300 maxHP for 5s, +10% MS, +20% tenacity, +10% size, healing 200–400 +120% bonus armor +120% bonus MR +15% HP, 70s CD. Convergence de Zeke 2400 +25 armor +25 MR +10 AH visible, earlier 300 HP still unverified from current cropped shot; +10 ultimate haste, 150 magic DPS storm 350-unit radius for 5s after ultimate, slow 30%, delayed if no enemy present at cast up to 5s, 30s CD. All from client item descriptions, no combat calibration inferred."
+    "2026-11-05: Linceul de l'aube 2700 +250HP +50 armor +30MR; immobilization trigger within 400 of enemy, 3s reveal, 40 +2.5% bonusHP magic damage, +20% armor/MR, 3s CD. Manteau de l'heure ultime 2550 +600HP +20 AH, threshold below 30% HP yields +200–300 maxHP for 5s, +10% MS, +20% tenacity, +10% size, healing 200–400 +120% bonus armor +120% bonus MR +15% HP, 70s CD. Convergence de Zeke 2400 +25 armor +25 MR +10 AH visible, earlier 300 HP still unverified from current cropped shot; +10 ultimate haste, 150 magic DPS storm 350-unit radius for 5s after ultimate, slow 30%, delayed if no enemy present at cast up to 5s, 30s CD. All from client item descriptions, no combat calibration inferred.",
+    "2026-11-05: user explicitly verified Convergence de Zeke +300 max HP from in-game shop, resolving previous cropped screenshot. Cœur gelé 2550 +80 armor +400 mana +20 AH, aura -25% enemy champion attack speed within 650 units. Diadème des murmures 2400 +200 HP +500 max mana +50% mana regeneration +6% heal/shield, 0.25% max mana scaling to heal/shield, 25% mana refund, +14 mana per mana spending event up to 3 times per 10s / +700 bonus mana, transforms into Diadème musical. Mechanical scaling and transformation behavior not experimentally calibrated."
   ]
 }
