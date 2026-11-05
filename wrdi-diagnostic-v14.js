@@ -91,12 +91,16 @@ else host.appendChild(panel);
         line('Cores observés : '+b.cores.length,card);
         const signals=(t.signals||[]).map(s=>s.label||s.id);
         list('Signaux de compétences (qualitatifs)',signals.length?signals:['Aucun signal documenté'],card);
-        const cores=b.cores.map((c,j)=>
-          'Core '+(j+1)+' : '+c.ids.join(' + ')+
-          (c.unresolvedIds.length?' · IDs non résolus : '+c.unresolvedIds.join(', '):'')+
-          ' · usage : '+(c.pick??'inconnu')+
-          ' · victoire : '+(c.win??'inconnue')
-        );
+        const cores=b.cores.map((c,j)=>{
+          const names=(c.ids||[]).map((id,k)=>{
+            const name=c.names?.[k];
+            return typeof name==='string'&&name.trim()?name.trim():'ID '+id;
+          });
+          return 'Core '+(j+1)+' : '+names.join(' + ')+
+            (c.unresolvedIds?.length?' · IDs non résolus : '+c.unresolvedIds.join(', '):'')+
+            ' · usage : '+(c.pick??'inconnu')+
+            ' · victoire : '+(c.win??'inconnue');
+        });
         list('Variantes de builds observées',cores,card);
         if(b.sourcePatch!==report.patch)line('Patch de la source builds : '+(b.sourcePatch||'inconnu')+' — non confirmé',card);
         output.appendChild(card);
