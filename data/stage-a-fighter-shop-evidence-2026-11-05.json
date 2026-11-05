@@ -96,24 +96,24 @@
     },
     {
       "name_fr": "Estropieur",
-      "price_gold": null,
-      "screenshot": "1000010647.jpg",
+      "price_gold": 3100,
+      "screenshot": "1793885107169.jpeg",
       "existing_catalog_id": null,
       "candidate_id": "stridebreaker",
       "canonical_external_id_verified": false,
-      "proof": "shop_list_name_icon_price_visible",
-      "price_status": "obscured",
+      "proof": "shop_list_name_icon_price_visible_user_followup",
+      "price_status": "visible",
       "details_verified": false
     },
     {
       "name_fr": "Éviscérateur",
-      "price_gold": null,
-      "screenshot": "1000010647.jpg",
+      "price_gold": 3100,
+      "screenshot": "1793885107169.jpeg",
       "existing_catalog_id": null,
       "candidate_id": "goredrinker",
       "canonical_external_id_verified": false,
-      "proof": "shop_list_name_icon_price_visible",
-      "price_status": "obscured",
+      "proof": "shop_list_name_icon_price_visible_user_followup",
+      "price_status": "visible",
       "details_verified": false
     },
     {
@@ -250,20 +250,21 @@
     }
   ],
   "visible_named_entries": 22,
-  "visible_prices": 20,
+  "visible_prices": 22,
   "matched_existing": 5,
   "unmatched_existing": 17,
   "images": [
     "1000010647.jpg",
     "1000010649.jpg",
-    "1000010653.jpg"
+    "1000010653.jpg",
+    "1793885107169.jpeg"
   ],
   "caveats": [
     "The initial and final scroll boundaries are not proven covered by these three screenshots.",
-    "Estropieur and Éviscérateur names visible but prices clipped, remain unknown.",
     "Upper edge of first and third screenshot contains partially cropped rows not transcribed.",
     "Force de la trinité shows 3333 PO in screenshot, even if historical sources disagree.",
     "The external canonical ID candidates are preliminary; item properties, restrictions and current patch cannot be inferred from names alone.",
-    "No new rows automatically activated for recommendations."
+    "No new rows automatically activated for recommendations.",
+    "The prices of Estropieur and Éviscérateur were verified as 3100 PO each by followup screenshot 1793885107169.jpeg."
   ]
 }
