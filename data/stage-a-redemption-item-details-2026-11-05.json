@@ -1,0 +1,46 @@
+{
+  "schema": "wrdi.stage_a.client_item_detail.v1",
+  "game": "Wild Rift mobile",
+  "date": "2026-11-05",
+  "client_app_version": "7.3.0.2813",
+  "client_resource_version": "7.3.60.133",
+  "source_image": "1000010698.jpg",
+  "name_fr": "Rédemption",
+  "catalog_id": "redemption",
+  "price_gold": 2450,
+  "stats": {
+    "ap": 40,
+    "mana_regeneration_pct": 50,
+    "ability_haste": 10,
+    "heal_shield_power_pct": 8
+  },
+  "active": {
+    "name_fr": "Intervention",
+    "activation": "target_large_area",
+    "delay_seconds": 2.5,
+    "healing": {
+      "min_hp": 150,
+      "max_hp": 350,
+      "scaling_basis": "ally_level",
+      "exact_level_formula": "not_stated"
+    },
+    "enemy_damage": {
+      "type": "true",
+      "value_pct_target_max_hp": 10,
+      "target": "enemy_champions"
+    },
+    "cooldown_seconds": 60,
+    "can_cast_while_dead": true
+  },
+  "external_numeric_id_verified": false,
+  "mechanical_simulation_validated": false,
+  "policy": {
+    "do_not_automatically_load_into_build_recommendations": true,
+    "client_description_verbatim_basis": true
+  },
+  "caveats": [
+    "Healing amount varies with ally level; the precise per-level interpolation is not in the screenshot.",
+    "The screenshot says allied units receive healing and enemy champions take true damage; target classes must not be generalized.",
+    "No assumptions about interaction with heal-shield power or champion-specific damage modifiers."
+  ]
+}
