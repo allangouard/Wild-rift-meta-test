@@ -246,5 +246,16 @@
     "2026-11-05: Linceul de l'aube 2700 +250HP +50 armor +30MR; immobilization trigger within 400 of enemy, 3s reveal, 40 +2.5% bonusHP magic damage, +20% armor/MR, 3s CD. Manteau de l'heure ultime 2550 +600HP +20 AH, threshold below 30% HP yields +200–300 maxHP for 5s, +10% MS, +20% tenacity, +10% size, healing 200–400 +120% bonus armor +120% bonus MR +15% HP, 70s CD. Convergence de Zeke 2400 +25 armor +25 MR +10 AH visible, earlier 300 HP still unverified from current cropped shot; +10 ultimate haste, 150 magic DPS storm 350-unit radius for 5s after ultimate, slow 30%, delayed if no enemy present at cast up to 5s, 30s CD. All from client item descriptions, no combat calibration inferred.",
     "2026-11-05: user explicitly verified Convergence de Zeke +300 max HP from in-game shop, resolving previous cropped screenshot. Cœur gelé 2550 +80 armor +400 mana +20 AH, aura -25% enemy champion attack speed within 650 units. Diadème des murmures 2400 +200 HP +500 max mana +50% mana regeneration +6% heal/shield, 0.25% max mana scaling to heal/shield, 25% mana refund, +14 mana per mana spending event up to 3 times per 10s / +700 bonus mana, transforms into Diadème musical. Mechanical scaling and transformation behavior not experimentally calibrated.",
     "2026-11-05: client screenshot of Masque abyssal confirms +350 HP +45 MR +10 AH for 2400 PO, Anéantissement increases magic damage dealt to enemy champions within 650 units by 12%, same-effect damage bonus does not stack. Whether allies benefit is not explicitly specified by screenshot; leave uncalibrated."
-  ]
+  ],
+  "rune_client_evidence": {
+    "user_confirmed_current_patch": true,
+    "confirmation_date": "2026-11-05",
+    "scope": "All 13 fundamental and 39 minor rune descriptions and screens supplied by the user originate from the up-to-date Wild Rift client, latest live patch according to the player.",
+    "source": "User's explicit confirmation in current conversation",
+    "verified_client_catalogue": true,
+    "official_patch_number_independently_verified": false,
+    "all_rune_external_ids_reconciled": false,
+    "combat_interactions_experimentally_verified": false,
+    "minor_rune_slot_coverage": "39/39"
+  }
 }
