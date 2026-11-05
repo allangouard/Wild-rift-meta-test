@@ -1,0 +1,121 @@
+{
+  "schema": "wrdi.catalog_stage_a_audit.v1",
+  "generated_date": "2026-11-05",
+  "game": "Wild Rift mobile",
+  "mode": "Summoner's Rift ranked",
+  "scope": "Étape A exclusivement : catalogue, sources, restrictions, objets, bottes, enchantements, runes ; aucune recommandation ni optimisation",
+  "patch": {
+    "client_catalog_claim": "7.3d",
+    "latest_known_global_notes": "7.3e (2026-11-04), changements AAA ARAM",
+    "latest_known_ranked_balance": "7.3d (2026-10-28)",
+    "status": "unequal evidence levels; client version confirmation needed; patch delta reconciliation pending",
+    "sources": [
+      "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3/",
+      "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3a/",
+      "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3b/",
+      "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3c/",
+      "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/",
+      "https://tocchien.vnggames.com/en-us/news/game-updates/wild-rift-patch-notes-7-3e/"
+    ]
+  },
+  "current_inventory": {
+    "curated_items": 59,
+    "curated_passives": 85,
+    "price_present": 33,
+    "price_missing": 26,
+    "missing_price_ids": [
+      "seraphs_embrace",
+      "harmonic_circlet",
+      "deaths_dance",
+      "amaranths_twinguard",
+      "steraks_gage",
+      "guardian_angel",
+      "overlords_bloodmail",
+      "titanic_hydra",
+      "iceborn_gauntlet",
+      "sunfire_aegis",
+      "warmogs_armor",
+      "kaenic_rookern",
+      "heartsteel",
+      "force_of_nature",
+      "dead_mans_plate",
+      "randuins_omen",
+      "dawnshroud",
+      "radiant_virtue",
+      "winters_approach",
+      "fimbulwinter",
+      "mantle_of_the_twelfth_hour",
+      "knights_vow",
+      "yordle_trap",
+      "zekes_convergence",
+      "abyssal_mask",
+      "frozen_heart"
+    ],
+    "curated_evidence_type": "all user_client_screenshot, partial descriptions; interactions not fully tested",
+    "client_screenshot_positions": 162,
+    "historical_unverified_7_2a_records": 195,
+    "shop_all_items_current_patch": "not established",
+    "boots_current_patch": "not audited as complete independent catalog",
+    "enchantments_current_patch": "not audited as complete independent catalog",
+    "runes_current_patch": "not audited as complete independent catalog",
+    "patch_deltas_integrated": false,
+    "restrictions_known_groups": 8,
+    "known_active_items": 4
+  },
+  "gates": [
+    {
+      "code": "A1",
+      "name": "current game/version and mode evidence",
+      "done": false
+    },
+    {
+      "code": "A2",
+      "name": "complete shop ID inventory and localization",
+      "done": false
+    },
+    {
+      "code": "A3",
+      "name": "complete base stats prices recipes passives actives conditions",
+      "done": false
+    },
+    {
+      "code": "A4",
+      "name": "boots upgrades enchantments complete typed catalog",
+      "done": false
+    },
+    {
+      "code": "A5",
+      "name": "all runes and legal page structure complete",
+      "done": false
+    },
+    {
+      "code": "A6",
+      "name": "verify exclusivity transformations and item slot rules",
+      "done": false
+    },
+    {
+      "code": "A7",
+      "name": "reconcile all patch deltas and local evidence references",
+      "done": false
+    },
+    {
+      "code": "A8",
+      "name": "deterministic automated integrity tests and unresolved-items report",
+      "done": false
+    }
+  ],
+  "user_evidence_needed_in_order": [
+    "one screenshot of current in-game version/patch and game mode (ranked Summoner's Rift)",
+    "shop screenshots for every category and tier including boots and enchantments (with tabs visible)",
+    "rune selection screens for every branch and complete page structure",
+    "details screenshots only for entries not otherwise verifiable reliably or changed by patch",
+    "controlled tests for ambiguous interactions only, not previously confirmed exclusions"
+  ],
+  "policy": {
+    "do_not_load_to_build_recommendations": true,
+    "do_not_auto_assume_patch_currency": true,
+    "never_invent_localized_names_or_missing_prices": true,
+    "never_confuse_ARAM_augment_patch_with_ranked_balance": true,
+    "never_infer_verified_item_effects_from_old_PC_or_7_2a_catalog": true
+  }
+}
