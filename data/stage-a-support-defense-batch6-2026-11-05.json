@@ -86,9 +86,9 @@
         "armor": 25,
         "magic_resistance": 25,
         "ability_haste": 10,
-        "hp": null
+        "hp": 300
       },
-      "stats_source_note": "Screenshot top is cropped, HP 300 in prior catalog but NOT verified by this newly uploaded screenshot; pending uncropped screenshot.",
+      "stats_source_note": "300 HP confirmed by user directly from their current Wild Rift client shop on 2026-11-05; newly uploaded prior screenshot was cropped.",
       "passives": [
         {
           "name_fr": "Convergence",
@@ -106,10 +106,9 @@
           "cooldown_seconds": 30
         }
       ],
-      "complete_visible_description": false,
-      "missing_visibility": [
-        "top_HP_stat"
-      ]
+      "complete_visible_description": true,
+      "missing_visibility": [],
+      "hp_confirmation_basis": "user_explicit_client_shop_confirmation"
     }
   ],
   "policy": {
@@ -118,8 +117,10 @@
     "do_not_automatically_load_into_build_recommendations": true
   },
   "open_questions": [
-    "Convergence de Zeke top of stats cropped: 300 HP appears in previous catalog but is not newly screenshot-verified.",
     "Linceul de l'aube +20% armor/MR duration is not specified; no duration invented.",
     "Manteau de l'heure ultime healing timing and max-HP reference are not specified; do not treat as calibrated periodic heal."
+  ],
+  "notes": [
+    "User explicitly confirms +300 max HP for Convergence de Zeke from their client. No new screenshot of the top line was sent."
   ]
 }
