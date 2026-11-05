@@ -530,14 +530,24 @@ async function simpleAnalyze(){
     return confidence(b)-confidence(a)||b.score-a.score;
    });
   }
-  const pick=canAudit?ranked.find(v=>{
+  const eligible=canAudit?ranked.filter(v=>{
    if(used.has(String(v.x.id))||chosen.some(z=>z.rule.family&&z.rule.family===v.rule.family))return false;
    const names=[...baseItemNames,...chosen.map(z=>simpleItemName(z.x)),simpleItemName(v.x)];
    return window.WRDI_GalioItemGuardV1424.validateSelection(names,itemSafety).ok;
+  }):[];
+  const comparator=window.WRDI_GalioItemComparatorV1428;
+  const comparison=comparator&&eligible.length?comparator.compare({
+    candidates:eligible.slice(0,30).map(v=>({name:simpleItemName(v.x),refId:String(v.x.id)})),
+    prepared:itemSafety,threats:c,
+    coreNames:[...baseItemNames,...chosen.map(z=>simpleItemName(z.x))]
   }):null;
-  if(!pick)continue;used.add(String(pick.x.id));chosen.push(pick);count++;
+  const pick=comparison?.ok?eligible.find(v=>String(v.x.id)===comparison.choice.refId):eligible[0];
+  if(!pick)continue;
+  pick.relativeComparison=comparison?.ok?comparison:null;
+  used.add(String(pick.x.id));chosen.push(pick);count++;
   const passiveReasons=pick.clientContext?.ok?pick.clientContext.indications:[];
-  const contextualReason=passiveReasons.length?passiveReasons.join(' ; '):(pick.rule.reasons.join(' ; ')||simpleWhy(pick.x,c,own));
+  const contextualReason=pick.relativeComparison?.relativeReason||
+   (passiveReasons.length?passiveReasons.join(' ; '):(pick.rule.reasons.join(' ; ')||simpleWhy(pick.x,c,own)));
   html+='<div class="simple-sub">'+label+'</div>'+itemChip(pick.x.id)+'<p class="simple-reason"><b>Pourquoi :</b> '+esc(contextualReason)+'. <b>Quand :</b> '+esc(pick.rule.timing)+'. <b>Emplacement :</b> compléter le core, ou remplacer un objet dont le passif est devenu moins utile. Pas de remplacement automatique sans données vérifiées.</p>';
  }
  if(!count&&canAudit)html+='<p class="warn">Aucun complément à la fois documenté et compatible avec le core.</p>';
@@ -549,7 +559,8 @@ async function simpleAnalyze(){
  if(typeof window!=='undefined')window.dispatchEvent(new CustomEvent('wrdi:build-result',{
   detail:{champion:title,patch:patches[0],core:base.items.map(optId).map(id=>({id,name:simpleItemName(simpleItem(id))})),
    situational:chosen.map(v=>({id:String(v.x.id),name:simpleItemName(v.x),
-    reason:v.clientContext?.indications?.length?v.clientContext.indications.join(' ; '):(v.rule.reasons.join(' ; ')||simpleWhy(v.x,c,own)),
+    reason:v.relativeComparison?.relativeReason||
+     (v.clientContext?.indications?.length?v.clientContext.indications.join(' ; '):(v.rule.reasons.join(' ; ')||simpleWhy(v.x,c,own))),
     clientPassiveEvidence:v.clientContext?.ok===true,
     timing:v.rule.timing})),
    coreType:coreCompatibilityKnown?'most_observed_mid_compatible':'observed_mid_unverified',runeSource:'observed_mid',itemRestrictionsChecked:canAudit,itemRestrictionsMessage:canAudit?'Restrictions du client vérifiées pour les objets proposés':(baseCheck?.reason||itemSafetyReason)} }));
