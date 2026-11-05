@@ -42,7 +42,8 @@ function make({enemies,allies,lookup}={}){
  const threats={...counts,
   physicalAssassins,magicAssassins,critPotential:enemyCritPotential,
   // Crit tag = potential based on kit archetype, never a confirmed item build.
-  crit:enemyCritPotential,lanePhysical,laneMagic,laneAllIn,jungleAllIn,
+  // No verified enemy-item builds were supplied, so confirmed crit stays zero.
+  crit:0,lanePhysical,laneMagic,laneAllIn,jungleAllIn,
   frontlineNeed,peelNeed,enemyProfileCoverage:5-unknownEnemy.length,
   alliesProfileComplete:alliesComplete};
  const reasons=[];
