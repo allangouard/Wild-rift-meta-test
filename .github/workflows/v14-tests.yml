@@ -173,3 +173,8 @@ jobs:
           node --check wrdi-galio-curated-matchups-v1420.js
           node --check wrdi-ten-kit-panel-v1414.js
           node --test wrdi-galio-curated-matchups-v1420.test.js
+      - name: Tester profils jungler/support et cinq runes Galio V14.21
+        run: |
+          node --check wrdi-galio-five-runes-v1421.js
+          node --check wrdi-ten-kit-panel-v1414.js
+          node --test wrdi-galio-five-runes-v1421.test.js
