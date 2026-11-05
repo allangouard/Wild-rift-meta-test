@@ -95,17 +95,18 @@
     "name_fr": "Bottes de vitesse",
     "price_gold": 400,
     "tier": "basic",
-    "screenshot": "1000010597.jpg",
+    "screenshot": "1000010646.jpg",
     "shop_short_description_fr": "Vitesse de déplacement",
-    "movement_speed_exact_value": null,
-    "stats_verified": false,
-    "external_id_verified": false
+    "movement_speed_exact_value": 25,
+    "stats_verified": true,
+    "external_id_verified": false,
+    "detail_source": "direct user screenshot 2026-11-05"
   },
   "notes": [
     "Transcribed from exact user screenshots. Full rules are not mechanically tested.",
     "Lucidité pourpre continuation screenshot includes frequency limitation (once every four seconds per ability).",
-    "Bottes de vitesse: only name, price and qualitative description shown, no invented movement speed value.",
-    "Boot upgrades/transformations and external numeric IDs remain unverified."
+    "Boot upgrades/transformations and external numeric IDs remain unverified.",
+    "Bottes de vitesse +25 vitesse de déplacement is now directly visible on screenshot 1000010646.jpg."
   ],
   "do_not_load_into_build_recommendations": true
 }
