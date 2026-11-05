@@ -60,3 +60,5 @@ jobs:
         run: node --test stage-a-marksman-shop.test.js
       - name: Verifier le catalogue Support
         run: node --test stage-a-support-shop.test.js
+      - name: Verifier l'inventaire sans doublons des six categories
+        run: node --test stage-a-cross-category-inventory.test.js
