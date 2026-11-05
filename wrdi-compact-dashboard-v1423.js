@@ -53,7 +53,7 @@ function init(){
   core.append(el('h3','⚔️ Core Mid observé'));
   fillRow(core,d.core.map(x=>x.name));
   const help=el('p','Trois objets Mid observés, pas encore un build complet optimisé.');help.className='small';core.append(help);
-  const statusLine=el('p',d.itemRestrictionsChecked?'Restrictions d’équipement vérifiées pour les compléments proposés.':'Compatibilité des objets non démontrée : '+(d.itemRestrictionsMessage||'données incomplètes'));
+  const statusLine=el('p',d.itemRestrictionsChecked?'Fiches complètes du client validées ; compatibilité des objets contrôlée.':'Compatibilité des objets non démontrée : '+(d.itemRestrictionsMessage||'données incomplètes'));
   statusLine.className='small';core.append(statusLine);
   items.replaceChildren(el('h3','🔄 Objets situationnels'));
   if(!d.situational?.length)items.append(el('p','Aucun objet complémentaire suffisamment documenté.'));
