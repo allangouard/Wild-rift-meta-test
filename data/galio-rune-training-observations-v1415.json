@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "game": "Wild Rift mobile",
+  "champion": {
+    "id": "10099",
+    "name": "Galio"
+  },
+  "provenance": "user_reported_training_observation_via_chat",
+  "observation_date": "2026-11-05",
+  "patch": "not_recorded",
+  "evidence_type": "user_report_no_video_or_screenshots",
+  "independently_verified": false,
+  "replicated": false,
+  "automatic_certification": false,
+  "observations": [
+    {
+      "test_id": "glacial-w",
+      "rune": "Souverain des glaces",
+      "ability": "Z",
+      "result": "observed_yes",
+      "user_description": "effet observé",
+      "interpretation": "Effet de Souverain des glaces signalé après Z de Galio.",
+      "limits": "Aucune vidéo ou répétition documentée ; récupération et autres conditions non attestées."
+    },
+    {
+      "test_id": "colossus-e",
+      "rune": "Courage du colosse",
+      "ability": "E",
+      "result": "observed_yes",
+      "user_description": "bouclier supplémentaire observé",
+      "interpretation": "Bouclier supplémentaire signalé après E de Galio.",
+      "limits": "Observation manuelle ; distinction du bouclier passif à confirmer indépendamment."
+    }
+  ]
+}
