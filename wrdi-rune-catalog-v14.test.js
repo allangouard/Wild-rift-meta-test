@@ -19,8 +19,18 @@ test('Quatre arbres valides et Sorcellerie bien orthographiée',()=>{
 test('Identifiants internes non confondus avec les identifiants officiels',()=>{
  for(const r of C.all){assert.match(r.id,/^wr:(minor|keystone):/);assert.equal(r.external_game_id,null);assert.ok(r.source_path);assert.ok(r.name_fr);}
 });
-test('Rangées des 39 secondaires non devinées',()=>{
- for(const r of C.minor){assert.equal(r.primary_row,null);assert.equal(r.primary_row_status,'not_verified');}
+test('Six positions de lignes issues des captures, 33 autres restent inconnues',()=>{
+ const expected={'Coup bas':1,'Assaut enchaîné':2,'Chasseur acharné':3,'Courage du colosse':1,'Second souffle':2,'Revitalisation':3};
+ for(const r of C.minor){
+  if(Object.prototype.hasOwnProperty.call(expected,r.name_fr)){
+   assert.equal(r.primary_row,expected[r.name_fr],r.name_fr);
+   assert.equal(r.primary_row_status,'client_screenshot_verified');
+  }else{
+   assert.equal(r.primary_row,null,r.name_fr);
+   assert.equal(r.primary_row_status,'not_verified');
+  }
+ }
+ assert.equal(C.minor.filter(r=>r.primary_row!==null).length,6);
 });
 test('Ne jamais signaler l optimiseur prêt avant réconciliation',()=>{
  assert.equal(C.optimizer_ready,false);
