@@ -72,3 +72,5 @@ jobs:
         run: node --test stage-a-support-passives-batch4.test.js
       - name: Tester Bâton des flots, Piège à yordles et Vœu du chevalier
         run: node --test stage-a-support-passives-batch5.test.js
+      - name: Tester Linceul Manteau et Zeke sur captures client
+        run: node --test stage-a-support-defense-batch6.test.js
