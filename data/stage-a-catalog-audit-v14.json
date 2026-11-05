@@ -125,7 +125,9 @@
     "fighter_active_batch3_names": [
       "Estropieur",
       "Éviscérateur"
-    ]
+    ],
+    "galeforce_full_client_details_file": "data/stage-a-marksman-galeforce-detail-2026-11-05.json",
+    "galeforce_full_client_details_status": "on-screen stats and active confirmed, projectile damage aggregation unknown, numeric ID unverified"
   },
   "gates": [
     {
@@ -198,6 +200,7 @@
     "2026-11-05: user explicitly confirms Support category exhaustive at 20 named and priced entries.",
     "2026-11-05: user expressly confirms all 29 Magie, 30 Défense and 22 Combattant entries exhaustive, joining prior exhaustive Assassin/Tireur/Support. Consolidated six-category inventory 139 rows -> 102 unique listed objects, 101 priced, Runaan price masked. No effect/patch ID certification implied.",
     "2026-11-05: three full active descriptions captured Shurelya (30% nearby allies MS 4 s, 60 s CD), Mikael (150–250 HP healing, CC cleanse except airborne/suppression, 0.2 s immunity 75 s CD), Mercurial Scimitar (self cleanse 0.25 s CC immunity, cannot activate while airborne or knocked back, passive tenacity 30% and slow resistance 30% 1.5 s, 60 s CD); values from game screenshots, not calibrated combat tests.",
-    "2026-11-05: full item detail screenshot Estropieur (400 HP 40 AD 25% AS; 100% AD active 40% slow 3s, 25s CD; passive +20 MS 2s after physical damage) and Éviscérateur (350 HP 40 AD 15 AH; 8% omnivamp; 175% base AD AoE and per-target heal 20% base AD plus 10% missing HP, 12s CD). Force du vent visible at 3100 gold in Tireur shop, complete description pending."
+    "2026-11-05: full item detail screenshot Estropieur (400 HP 40 AD 25% AS; 100% AD active 40% slow 3s, 25s CD; passive +20 MS 2s after physical damage) and Éviscérateur (350 HP 40 AD 15 AH; 8% omnivamp; 175% base AD AoE and per-target heal 20% base AD plus 10% missing HP, 12s CD). Force du vent visible at 3100 gold in Tireur shop, complete description pending.",
+    "2026-11-05: Force du vent 3100 PO: +60 AD, +25% crit, +4% MS; Averse targeted dash and 3 projectiles prioritizing champions against nearest low-HP opponent; screenshot states physical damage 40–125 +35% bonus AD with 60 s cooldown, but whether per-projectile or total remains unknown."
   ]
 }
