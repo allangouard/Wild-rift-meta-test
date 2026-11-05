@@ -64,6 +64,9 @@ test('integration prevents uncontrolled item candidate selection when audit fail
  assert.ok(app.includes('WRDI_GalioItemGuardV1424.prepare'));
  assert.ok(app.includes('WRDI_GalioItemGuardV1424.validateSelection'));
  assert.ok(app.includes('const pick=canAudit?ranked.find'));
+ assert.ok(app.includes('const verifiedCores=itemSafety?.ok?unique.filter'));
+ assert.ok(app.includes('verifiedCores.length?verifiedCores:unique'));
+
  assert.ok(app.includes('itemRestrictionsChecked:canAudit'));
  assert.ok(compact.includes('d.itemRestrictionsChecked'));
 });
