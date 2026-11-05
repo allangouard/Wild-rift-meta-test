@@ -24,7 +24,7 @@ test('Bâton des flots : 50 AP, 10 AH de base, 15 AH et 40 AP aux deux pendant 6
  assert.deepEqual(p.beneficiaries,['caster','target_allied_champion']);
  assert.equal(p.duration_seconds,6);
 });
-test('Piège à yordles : CC + vitesse distincte mêlée/distance, fin tronquée',()=>{
+test('Piège à yordles : CC, vitesse distincte et 20 PO sur élimination pendant renforcement',()=>{
  const x=map.get('Piège à yordles');
  assert.deepEqual(x.stats,{hp:200,armor:20,magic_resistance:20,ability_haste:15});
  const p=x.passives[0];
@@ -34,8 +34,9 @@ test('Piège à yordles : CC + vitesse distincte mêlée/distance, fin tronquée
  assert.equal(p.empowered_effect.attack_speed_bonus_melee_pct,30);
  assert.equal(p.empowered_effect.attack_speed_bonus_ranged_pct,20);
  assert.equal(p.visible_additional_gold.bonus_gold,20);
- assert.equal(p.visible_additional_gold.condition_or_additional_text_truncated,true);
- assert.equal(x.full_description_visible,false);
+ assert.equal(p.visible_additional_gold.condition_or_additional_text_truncated,false);
+ assert.equal(p.visible_additional_gold.condition,'you_or_allies_eliminate_enemy_champion_while_item_owner_is_empowered');
+ assert.equal(x.full_description_visible,true);
 });
 test('Vœu du chevalier : 12% redirection et 10% soin, désignation à achat ou rachat',()=>{
  const x=map.get('Vœu du chevalier');
