@@ -487,31 +487,32 @@ async function wrdiGalioFiveCatalogAnalyze({out,enemy,reportFailure}){
   const outcome=optimizer.optimize({prepared,threats:draftNeeds});
   if(!outcome.ok)throw Error(outcome.reason||'Construction du build impossible');
   const main=outcome.main;
+  const contingent=window.WRDI_GalioContingenciesV1433?.plan({prepared,optimizer,items:main.items,threats:draftNeeds,max:3});
   const ordering=window.WRDI_GalioPurchaseOrderV1432?.order({prepared,items:main.items,threats:draftNeeds});
   // Final five-item composition is unchanged: only order of purchase differs.
   const orderedItems=ordering?.ok?ordering.items:main.items;
   const explanations=orderedItems.map(i=>'<li>'+esc(i.name)+' — '+esc(i.reason)+'</li>').join('');
   out.innerHTML='<h2>Galio mid — cinq objets conseillés</h2>'+
-   '<p class="muted">Analyse théorique des fiches du client uniquement, sans builds populaires. Ordre d’achat initial théorique, à adapter pendant la partie. Bottes séparées.</p>'+
+   '<p class="muted">Analyse théorique des fiches du client uniquement, sans builds populaires. Build et ordre d’achat proposés avant la partie. Objets situationnels prévus en cas de changement. Bottes séparées.</p>'+
    '<ol>'+explanations+'</ol>'+
    '<p>'+esc(main.reasons.slice(0,3).join(' · ')||'Synergies de Galio mid et restrictions vérifiées.')+'</p>'+
    (analysis.unknown.length?'<p class="warn">Profils adverses partiels : '+esc(analysis.unknown.join(', '))+'</p>':'')+
-   '<details><summary>Autres combinaisons possibles</summary>'+
-   outcome.alternatives.map(a=>'<p>'+a.items.map(i=>esc(i.name)).join(' · ')+'</p>').join('')+'</details>';
-  const alternatives=outcome.alternatives.map(a=>{
-   const changed=a.items.filter(x=>!main.items.some(y=>y.id===x.id));
-   return {items:a.items.map(x=>({id:x.id,name:x.name})),changed:changed.map(x=>x.name),
-    reason:changed.map(x=>x.reason).filter(Boolean).join(' ; ')||'Autre combinaison légale'};
-  });
+   '<details><summary>Remplacements situationnels prévus avant la partie</summary>'+
+   (contingent?.ok&&contingent.options.length?
+    contingent.options.map(x=>'<p><b>Si : </b>'+esc(x.condition)+' → '+esc(x.remove.name)+' à remplacer par '+esc(x.add.name)+'</p>').join(''):
+    '<p>Aucun remplacement suffisamment justifié par les scénarios examinés.</p>')+'</details>';
+  const situational=contingent?.ok?contingent.options.map(x=>({
+   id:x.add.id,name:x.add.name,replace:x.remove.name,condition:x.condition,
+   reason:x.reason,legal:x.verifiedLegal
+  })):[];
   window.dispatchEvent(new CustomEvent('wrdi:build-result',{detail:{
    champion:'Galio',patch:catalog.patch_claimed_by_client_user,
    draftFingerprint:JSON.stringify(draftPicks),source:'player_client_only',
    fullBuild:true,bootsSeparate:true,purchaseOrderEstablished:ordering?.ok===true,
    purchaseOrderConfidence:ordering?.priorityConfidence||'unavailable',
    core:orderedItems.map(i=>({id:i.id,name:i.name,reason:i.reason,phase:i.phase||null})),
-   situational:alternatives.map(a=>({id:a.changed[0]||'',name:a.changed.join(' + ')||'Combinaison alternative',
-     reason:a.reason,timing:'Selon les menaces prioritaires'})),
-   alternatives,buildReasons:[...teamContext.reasons.slice(0,2),...main.reasons].slice(0,3),
+   situational,contingencyMode:'pregame_only',liveTracking:false,
+   alternatives:[],buildReasons:[...teamContext.reasons.slice(0,2),...main.reasons].slice(0,3),
    itemRestrictionsChecked:true,
    itemRestrictionsMessage:'Cinq objets légaux du catalogue vérifié, bottes séparées',
    noPopularityData:true,noDamageForecast:true,teamContextVersion:teamContext.version
