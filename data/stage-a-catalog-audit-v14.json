@@ -112,7 +112,15 @@
       "Ouragan de Runaan (melee character shop locked)"
     ],
     "all_six_categories_conflicting_prices": 0,
-    "all_six_categories_inventory_file": "data/stage-a-cross-category-inventory-v14.json"
+    "all_six_categories_inventory_file": "data/stage-a-cross-category-inventory-v14.json",
+    "standalone_active_batch2_count": 3,
+    "standalone_active_batch2_file": "data/stage-a-standalone-actives-batch2-2026-11-05.json",
+    "standalone_active_batch2_names": [
+      "Chant de guerre de Shurelya",
+      "Bénédiction de Mikael",
+      "Cimeterre mercuriel"
+    ],
+    "standalone_active_batch2_effect_status": "on-screen descriptions documented; external IDs, interaction tests and deployment approval unresolved"
   },
   "gates": [
     {
@@ -183,6 +191,7 @@
     "2026-11-05: user confirms 28 Tideur shop entries complete and Runaan's Hurricane ranged-only; lock shown because Galio is melee; unknown price remains unknown.",
     "2026-11-05: Support: 20 shop entries visible and 20 prices confirmed; 13 match original curated 59 and 7 provisional; 14 overlap Magie/Défense; category completeness not yet confirmed. Shurelya, Mikael, Écho harmonieux and other unmapped entries require full details/identity validation.",
     "2026-11-05: user explicitly confirms Support category exhaustive at 20 named and priced entries.",
-    "2026-11-05: user expressly confirms all 29 Magie, 30 Défense and 22 Combattant entries exhaustive, joining prior exhaustive Assassin/Tireur/Support. Consolidated six-category inventory 139 rows -> 102 unique listed objects, 101 priced, Runaan price masked. No effect/patch ID certification implied."
+    "2026-11-05: user expressly confirms all 29 Magie, 30 Défense and 22 Combattant entries exhaustive, joining prior exhaustive Assassin/Tireur/Support. Consolidated six-category inventory 139 rows -> 102 unique listed objects, 101 priced, Runaan price masked. No effect/patch ID certification implied.",
+    "2026-11-05: three full active descriptions captured Shurelya (30% nearby allies MS 4 s, 60 s CD), Mikael (150–250 HP healing, CC cleanse except airborne/suppression, 0.2 s immunity 75 s CD), Mercurial Scimitar (self cleanse 0.25 s CC immunity, cannot activate while airborne or knocked back, passive tenacity 30% and slow resistance 30% 1.5 s, 60 s CD); values from game screenshots, not calibrated combat tests."
   ]
 }
