@@ -81,7 +81,7 @@ test('five-item optimization calls kit-passive synergy and remains legal and cli
 });
 test('browser page loads synergy before optimizer; compact UI unchanged',()=>{
  const html=fs.readFileSync('index-v1434.html','utf8');
- assert.ok(html.includes('wrdi-galio-kit-item-synergy-v1434.js?v=14340'));
+ assert.ok(html.includes('wrdi-galio-kit-item-synergy-v1434.js?v=14341'));
  assert.ok(html.indexOf('wrdi-galio-kit-item-synergy-v1434.js')<html.indexOf('wrdi-galio-five-item-optimizer-v1429.js'));
  const ui=fs.readFileSync('wrdi-compact-dashboard-v1423.js','utf8');
  assert.ok(ui.includes('Objets situationnels'));
