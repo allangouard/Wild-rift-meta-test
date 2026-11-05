@@ -178,3 +178,8 @@ jobs:
           node --check wrdi-galio-five-runes-v1421.js
           node --check wrdi-ten-kit-panel-v1414.js
           node --test wrdi-galio-five-runes-v1421.test.js
+      - name: Tester substitutions de runes selon la draft V14.22
+        run: |
+          node --check wrdi-galio-rune-swaps-v1422.js
+          node --check wrdi-ten-kit-panel-v1414.js
+          node --test wrdi-galio-rune-swaps-v1422.test.js
