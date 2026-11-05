@@ -29,7 +29,9 @@ function features(item){
 function eligible(prepared){
  if(!prepared?.ok||!Array.isArray(prepared.catalog?.items))return [];
  return prepared.catalog.items.filter(item=>item.item_type==='legendary'&&
-  item.completeness?.description==='documented'&&item.stats&&
+  item.completeness?.description==='documented'&&
+  ['visible','visible_client_shop','user-confirmed'].includes(item.completeness?.price)&&
+  Number.isFinite(item.price_gold)&&item.price_gold>0&&item.stats&&
   (item.passives||[]).every(p=>typeof p.description_fr==='string')&&
   num(item.stats.ad)===0&&num(item.stats.as_pct)<40&&
   (num(item.stats.ap)>=40||num(item.stats.hp)>=200||num(item.stats.armor)>=40||num(item.stats.mr)>=40))
