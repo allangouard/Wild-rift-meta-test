@@ -457,11 +457,65 @@ function simpleCandidates(core,mode,c,items,own,enemyNames){
   return {x,rule,score:optScore(x,mode,c,stats)*.35+rule.score};
  }).filter(v=>v.score>0&&v.rule.allowed).sort((a,b)=>b.score-a.score);
 }
+async function wrdiGalioFiveCatalogAnalyze({out,enemy,reportFailure}){
+ const guard=window.WRDI_GalioItemGuardV1424;
+ const optimizer=window.WRDI_GalioFiveItemOptimizerV1429;
+ if(!guard||!optimizer||!window.WRDI_CoreV14){
+  const msg='Moteur des cinq objets Galio indisponible.';out.textContent=msg;reportFailure(msg);return;
+ }
+ out.innerHTML='<p>Analyse des cinq objets à partir des fiches du client…</p>';
+ try{
+  const [catalog,rules]=await Promise.all([
+   get('./data/items-client-7.3d-v12.json'),
+   get('./data/item-restrictions-client-7.3d-v12.json')
+  ]);
+  const prepared=guard.prepare({catalog,rules,core:window.WRDI_CoreV14,
+   livePatch:catalog.patch_claimed_by_client_user});
+  if(!prepared.ok)throw Error(prepared.reason||'Catalogue client incompatible');
+  const enemyNames=enemy.map(id=>pickerName(champions.find(x=>String(x.id)===String(id))||{id,name:String(id)}));
+  const analysis=engineNotes(enemyNames);
+  const outcome=optimizer.optimize({prepared,threats:analysis.counts});
+  if(!outcome.ok)throw Error(outcome.reason||'Construction du build impossible');
+  const main=outcome.main;
+  const explanations=main.items.map(i=>'<li>'+esc(i.name)+' — '+esc(i.reason)+'</li>').join('');
+  out.innerHTML='<h2>Galio mid — cinq objets conseillés</h2>'+
+   '<p class="muted">Analyse théorique des fiches du client uniquement, sans builds populaires. Bottes à choisir séparément.</p>'+
+   '<ol>'+explanations+'</ol>'+
+   '<p>'+esc(main.reasons.slice(0,3).join(' · ')||'Synergies de Galio mid et restrictions vérifiées.')+'</p>'+
+   (analysis.unknown.length?'<p class="warn">Profils adverses partiels : '+esc(analysis.unknown.join(', '))+'</p>':'')+
+   '<details><summary>Autres combinaisons possibles</summary>'+
+   outcome.alternatives.map(a=>'<p>'+a.items.map(i=>esc(i.name)).join(' · ')+'</p>').join('')+'</details>';
+  const alternatives=outcome.alternatives.map(a=>{
+   const changed=a.items.filter(x=>!main.items.some(y=>y.id===x.id));
+   return {items:a.items.map(x=>({id:x.id,name:x.name})),changed:changed.map(x=>x.name),
+    reason:changed.map(x=>x.reason).filter(Boolean).join(' ; ')||'Autre combinaison légale'};
+  });
+  window.dispatchEvent(new CustomEvent('wrdi:build-result',{detail:{
+   champion:'Galio',patch:catalog.patch_claimed_by_client_user,
+   draftFingerprint:JSON.stringify(draftPicks),source:'player_client_only',
+   fullBuild:true,bootsSeparate:true,
+   core:main.items.map(i=>({id:i.id,name:i.name,reason:i.reason})),
+   situational:alternatives.map(a=>({id:a.changed[0]||'',name:a.changed.join(' + ')||'Combinaison alternative',
+     reason:a.reason,timing:'Selon les menaces prioritaires'})),
+   alternatives,buildReasons:main.reasons,
+   itemRestrictionsChecked:true,
+   itemRestrictionsMessage:'Cinq objets légaux du catalogue vérifié, bottes séparées',
+   noPopularityData:true,noDamageForecast:true
+  }}));
+ }catch(e){
+  const msg='Build Galio indisponible : '+String(e?.message||e);
+  out.textContent=msg;reportFailure(msg);
+ }
+}
 async function simpleAnalyze(){
  const out=$('simpleResults'),own=draftPicks[2],enemy=draftPicks.slice(5),items=db.items?.items||[];
  const reportFailure=(message)=>{if(typeof window!=='undefined')window.dispatchEvent(new CustomEvent('wrdi:build-error',{detail:{message:String(message),draftFingerprint:JSON.stringify(draftPicks)}}));};
  out.style.display='block';
  if(!own||enemy.some(x=>!x)){out.innerHTML='<p class="warn">Choisis ton champion Mid et les cinq adversaires. Tu peux ajouter tes quatre alliés pour compléter la draft.</p>';reportFailure('Sélectionne ton mid et les cinq adversaires.');out.scrollIntoView({behavior:'smooth'});return}
+ if(String(own)==='10099'){
+  await wrdiGalioFiveCatalogAnalyze({out,enemy,reportFailure});
+  return;
+ }
  const patches=[db.meta?.patch,db.items?.patch,db.runes?.patch];
  if(!items.length||patches.some(x=>!x)||new Set(patches).size!==1){out.innerHTML='<p class="bad">Données indisponibles ou patchs incohérents : aucune recommandation non vérifiable.</p>';reportFailure('Sources d’objets indisponibles ou versions de patch divergentes.');return}
  out.innerHTML='<p>Analyse des cores Mid et du catalogue en cours…</p>';
