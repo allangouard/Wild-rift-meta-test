@@ -11,7 +11,7 @@
 const VERSION='14.14.0-alpha.1';
 const STATUS=new Set(['conditional_trigger','indirect_synergy','interaction_unverified']);
 const abilities=new Set(['P','A','Z','E','R']);
-function compare({kitData,comparison,matrix,catalog,bridge}={}){
+function compare({kitData,comparison,matrix,catalog,bridge,playerEvidence}={}){
  const errors=[];
  if(!kitData?.ok || kitData?.all?.length!==10 || !kitData.coverage)errors.push('Analyse des dix kits absente.');
  if(!comparison?.ok || !Array.isArray(comparison.options)||comparison.options.length!==7)errors.push('Sept pages V14.12 requises.');
@@ -25,6 +25,9 @@ function compare({kitData,comparison,matrix,catalog,bridge}={}){
   map.get(r.rune).push(r);
  }
  if(errors.length)return {ok:false,errors};
+ const validPlayerEntries=playerEvidence?.ok===true && playerEvidence?.game==='Wild Rift mobile' ? playerEvidence.entries.filter(e=>e.valid&&['validated_in_game_positive','validated_in_game_negative'].includes(e.status)):[];
+ const playerByRune=new Map();
+ for(const e of validPlayerEntries){if(!playerByRune.has(e.rune))playerByRune.set(e.rune,[]);playerByRune.get(e.rune).push(e);}
  const pages=comparison.options.map(c=>{
   const validation=bridge.validate(c.page,catalog);
   if(!validation.valid)throw Error('Page invalide : '+c.id+' '+validation.errors.join(' ; '));
@@ -34,10 +37,11 @@ function compare({kitData,comparison,matrix,catalog,bridge}={}){
    const conditional=matches.filter(x=>x.status==='conditional_trigger');
    const indirect=matches.filter(x=>x.status==='indirect_synergy');
    const unverified=matches.filter(x=>x.status==='interaction_unverified');
+   const playerObservations=(playerByRune.get(name)||[]).map(e=>({testId:e.testId,ability:e.ability,condition:e.condition,triggered:e.triggered,status:e.status,scope:e.scope}));
    return {name,kind:name===c.page.keystone?'fondamentale':'secondaire',
     evidenceStatus:conditional.length?'conditional_trigger':indirect.length?'indirect_synergy':unverified.length?'interaction_unverified':'not_yet_studied',
     interactions:matches.map(x=>({ability:x.ability,status:x.status,condition:x.condition,reason:x.reason})),
-    inGameProcVerified:false};
+    inGameProcVerified:playerObservations.length>0,playerObservations};
   });
   const matched=runes.filter(r=>r.evidenceStatus!=='not_yet_studied');
   const awaiting=runes.filter(r=>r.evidenceStatus==='not_yet_studied');
@@ -58,13 +62,14 @@ function compare({kitData,comparison,matrix,catalog,bridge}={}){
   coverage:kitData.coverage,
   pages,automaticRecommendation:false,
   canDeclareBestPage:false,
-  calibratedWinRate:false,patchVerified,liveRuneTriggersVerified:false,
+  calibratedWinRate:false,patchVerified,liveRuneTriggersVerified:testedCombat,playerValidatedObservations:validPlayerEntries.length,
   interpretation:'Comparaison de preuves et de conditions : aucun score de force et aucune page gagnante.',
   warnings:[
    'Une rune sans correspondance dans la matrice n’est pas inefficace : elle n’a simplement pas été étudiée.',
    'Les effets sur les alliés et adversaires sont des mentions lexicales non certifiées ; leur fréquence n’est pas connue.',
    'La source officielle Wild Rift documente le passif Galio ; les autres descriptions de kit nécessitent une validation sur le patch actuel.',
-   'Aucune garantie d’activation de rune sur une attaque, une provocation, une projection ou un bouclier sans test en jeu.'
+   'Les observations du joueur sont validées uniquement pour leurs conditions de test ; aucune généralisation à toutes les compétences.',
+   'Les pages ne sont pas classées par puissance ou taux de victoire.'
   ]};
 }
 return Object.freeze({VERSION,compare});
