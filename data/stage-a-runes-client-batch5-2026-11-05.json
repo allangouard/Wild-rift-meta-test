@@ -1,0 +1,121 @@
+{
+  "schema": "wrdi.stage_a.runes_batch5_v1",
+  "game": "Wild Rift mobile",
+  "source": "Captures du client fournies par l'utilisateur",
+  "recorded_at": "2026-11-05",
+  "entries": [
+    {
+      "id": "demolish",
+      "name_fr": "Démolition",
+      "tree": "Volonté",
+      "screenshot": "1000010815.jpg",
+      "stats": {
+        "turret_hit_number": 3,
+        "melee_base": 85,
+        "melee_max_hp_pct": 28,
+        "ranged_base": 50,
+        "ranged_max_hp_pct": 20,
+        "cooldown_s": 30
+      }
+    },
+    {
+      "id": "legend_bloodline",
+      "name_fr": "Légende : Sangsue",
+      "tree": "Précision",
+      "screenshot": "1000010813.jpg",
+      "stats": {
+        "base_omnivamp_pct": 1,
+        "bonus_omnivamp_cap_pct": 7
+      }
+    },
+    {
+      "id": "coup_de_grace",
+      "name_fr": "Coup de grâce",
+      "tree": "Précision",
+      "screenshot": "1000010811.jpg",
+      "stats": {
+        "damage_bonus_pct": 8,
+        "target_hp_below_pct": 40
+      }
+    },
+    {
+      "id": "combat_zeal",
+      "name_fr": "Zèle de combat",
+      "tree": "Précision",
+      "screenshot": "1000010809.jpg",
+      "stats": {
+        "base_ability_damage_amp_per_second_pct": 1.4,
+        "max_stacks": 3,
+        "stack_interval_s": 1
+      }
+    },
+    {
+      "id": "legend_haste",
+      "name_fr": "Légende : Accélération",
+      "tree": "Précision",
+      "screenshot": "1000010807.jpg",
+      "stats": {
+        "base_ability_haste": 0,
+        "max_bonus_ability_haste": 15
+      }
+    },
+    {
+      "id": "cut_down",
+      "name_fr": "Abattage",
+      "tree": "Précision",
+      "screenshot": "1000010805.jpg",
+      "stats": {
+        "attack_damage_bonus_pct": 6.5,
+        "target_hp_above_pct": 60
+      }
+    },
+    {
+      "id": "triumph",
+      "name_fr": "Triomphe",
+      "tree": "Précision",
+      "screenshot": "1000010803.jpg",
+      "stats": {
+        "missing_hp_restored_pct": 10,
+        "max_mana_or_energy_restored_pct": 10,
+        "movement_speed_flat": 35,
+        "movement_speed_duration_s": 2
+      }
+    },
+    {
+      "id": "legend_alacrity",
+      "name_fr": "Légende : Alacrité",
+      "tree": "Précision",
+      "screenshot": "1000010801.jpg",
+      "stats": {
+        "base_attack_speed_pct": 3,
+        "stacked_attack_speed_bonus_cap_pct": 18
+      }
+    },
+    {
+      "id": "last_stand",
+      "name_fr": "Baroud d'honneur",
+      "tree": "Précision",
+      "screenshot": "1000010799.jpg",
+      "stats": {
+        "self_hp_below_pct": 60,
+        "maximum_effect_self_hp_below_pct": 30,
+        "damage_bonus_min_pct": 5,
+        "damage_bonus_max_pct": 11
+      }
+    },
+    {
+      "id": "brutal",
+      "name_fr": "Brutal",
+      "tree": "Précision",
+      "screenshot": "1000010797.jpg",
+      "stats": {
+        "on_hit_adaptive_damage_flat": 5,
+        "bonus_ad_ratio_pct": 6
+      }
+    }
+  ],
+  "policy": {
+    "not_enabled_for_automatic_recommendation": true,
+    "stack_increments_not_inferred": true
+  }
+}
