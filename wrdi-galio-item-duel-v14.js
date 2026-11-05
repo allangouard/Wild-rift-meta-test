@@ -37,7 +37,7 @@ function evaluate({catalog,rules,core,base}={}){
      return err('Statistiques client absentes ou invalides pour '+id);
    for(const req of REQUIRED[id]){
      const p=passives.find(x=>x.name===req.name);
-     if(!p||Object.entries(req).some(([k,v])=>p.mechanics?.[k]!==v))
+     if(!p||Object.entries(req).some(([k,v])=>k!=='name'&&p.mechanics?.[k]!==v))
        return err('Mécanique documentée absente ou différente pour '+id+' / '+req.name);
    }
    const ownHp=hp+stats.hp,ownArmor=armor+(stats.armor||0),ownMr=mr+(stats.mr||0);
