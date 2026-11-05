@@ -9,7 +9,7 @@
  else root.WRDI_GalioFiveItemOptimizerV1429=api;
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
-const VERSION='14.29.0-alpha.1';
+const VERSION='14.30.0-alpha.1';
 const num=v=>typeof v==='number'&&Number.isFinite(v)?Math.max(0,v):0;
 const count=v=>Math.min(5,num(v));
 const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9]/g,'');
@@ -24,23 +24,30 @@ function features(item){
   shieldCut:passives.some(p=>p.effect==='shield_reduction'||has('shield_reduction_pct')),
   slow:passives.some(p=>has('slow_pct')||p.effect==='slow'),
   protective:passives.some(p=>p.effect==='area_heal'||p.effect==='ally_shield'),
-  active:passives.some(p=>p.active===true)};
+  active:passives.some(p=>p.active===true),
+  stasis:passives.some(p=>p.active===true&&num(p.stasis_s)>0),
+  critMitigation:passives.some(p=>num(p.physical_crit_damage_reduction_pct)>0),
+  waveclear:passives.some(p=>num(p.minion_multiplier)>1||Array.isArray(p.minion_multiplier_range)),
+  hybridDefense:num(stats.armor)>0&&num(stats.mr)>0};
 }
 function eligible(prepared){
  if(!prepared?.ok||!Array.isArray(prepared.catalog?.items))return [];
- return prepared.catalog.items.filter(item=>item.item_type==='legendary'&&
+ return prepared.catalog.items.filter(item=>['legendary','active'].includes(item.item_type)&&
   item.completeness?.description==='documented'&&
   ['visible','visible_client_shop','user-confirmed'].includes(item.completeness?.price)&&
   Number.isFinite(item.price_gold)&&item.price_gold>0&&item.stats&&
   (item.passives||[]).every(p=>typeof p.description_fr==='string')&&
   num(item.stats.ad)===0&&num(item.stats.as_pct)<40&&
+  (item.item_type!=='active'||item.price_gold>=2000)&&
   (num(item.stats.ap)>=40||num(item.stats.hp)>=200||num(item.stats.armor)>=40||num(item.stats.mr)>=40))
  .map(item=>({...item,feature:features(item)}));
 }
 function weights(threats={}){
  return {physical:count(threats.ad),magic:count(threats.ap),tank:count(threats.tank),
   heal:Math.max(count(threats.heal),count(threats.sustain)>=2?1:0),
-  shield:count(threats.shield),cc:count(threats.cc),burst:count(threats.burst)};
+  shield:count(threats.shield),cc:count(threats.cc),burst:count(threats.burst),
+  assassin:count(threats.assassin),crit:count(threats.crit),
+  frontlineNeed:count(threats.frontlineNeed),waveclearNeed:count(threats.waveclearNeed)};
 }
 function calculate(items,threats){
  const t=weights(threats),fs=items.map(x=>x.feature||features(x));
@@ -49,33 +56,46 @@ function calculate(items,threats){
  // Galio is an AP engage/peel mid. Prefer a coherent blend of offense and durability.
  // Explicit diminishing returns prevent blindly stacking five objects of the same role.
  let score=0;const reasons=[];
- const hp=Math.min(1150,total('hp')),ap=Math.min(280,total('ap'));
+ const hp=Math.min(1500,total('hp')),ap=Math.min(260,total('ap'));
  const ah=Math.min(70,total('ah')),armor=total('armor'),mr=total('mr');
- score+=ap/38+hp/175+ah/23;
+ const frontline=t.frontlineNeed>0?1:0;
+ const assassination=t.assassin>=2||t.burst>=2;
+ // Five-slot opportunity cost: overall team needs affect the AP/defense
+ // balance. These weights are qualitative, not simulated damage.
+ score+=ap/(frontline?70:41)+hp/(frontline?125:175)+ah/25;
  if(items.length>=3){
-  if(ap<80)score-=7;
-  if(hp<300)score-=5;
-  if(total('ap')===0)score-=12;
+  if(ap<40)score-=frontline?1:5;
+  if(hp<300)score-=frontline?8:5;
  }
- if(t.physical>=2)score+=Math.min(140,armor)/(42/(Math.min(t.physical,4)/2));
- if(t.magic>=2)score+=Math.min(140,mr)/(42/(Math.min(t.magic,4)/2));
+ const physWeight=t.physical+(assassination?Math.min(t.assassin,3)*0.7:0);
+ if(physWeight>=2)score+=Math.min(170,armor)*(frontline?0.075:0.055)*Math.min(1.6,physWeight/2.5);
+ if(t.magic>=2)score+=Math.min(160,mr)*(frontline?0.073:0.055)*Math.min(1.5,t.magic/2.5);
+ if(frontline&&items.length>=4&&hp<700)score-=5;
+ if(frontline&&items.length>=4&&armor+mr<80)score-=5;
  if(t.physical>=2&&armor>0)reasons.push('Armure face aux menaces physiques');
  if(t.magic>=2&&mr>0)reasons.push('Résistance magique face aux menaces magiques');
+ if(frontline&&hp>0)reasons.push('Première ligne renforcée pour les alliés');
  if(t.heal>0&&n('antiheal')){score+=3+Math.min(2,t.heal);reasons.push('Blessures graves contre les soins');}
  if(t.tank>=2&&n('maxHp')){score+=5;reasons.push('Effet documenté sur les PV max des tanks');}
  if(t.tank>=2&&n('ramp')){score+=2;reasons.push('Passif de combat prolongé');}
  if(t.tank>=2&&n('shred')){score+=2;reasons.push('Réduction progressive de résistance magique');}
  if(t.shield>0&&n('shieldCut')){score+=3;reasons.push('Réduction de bouclier documentée');}
- if(t.burst>=2)score+=Math.min(1.5,Math.min(armor,mr)/100);
+ if(assassination&&n('stasis')){score+=5;reasons.push('Stase active contre un engagement explosif');}
+ if(assassination&&hp>=550)score+=2;
+ if(t.crit>0&&n('critMitigation')){score+=3+Math.min(2,t.crit);reasons.push('Réduction de dégâts critiques documentée');}
+ // Context-sensitive passive: Randuin without confirmed critical attacks has
+ // less utility than an armor item with a generally applicable passive.
+ if(!t.crit)score-=n('critMitigation')*5;
+ if(t.waveclearNeed>0&&n('waveclear')){score+=3;reasons.push('Immolation facilitant la gestion des vagues');}
  if(t.cc>=2&&n('protective'))score+=1;
- // Repeated counters do not make their effect independently twice as valuable.
+ if(frontline&&n('hybridDefense')&&t.physical>=1&&t.magic>=1)score+=2;
  score-=Math.max(0,n('antiheal')-1)*5;
  score-=Math.max(0,n('maxHp')-1)*3;
  score-=Math.max(0,n('shred')-1)*2;
  score-=Math.max(0,n('shieldCut')-1)*3;
- // Every item is a limited slot. Don't allow excessively stacked defense to
- // crowd out all AP contribution, but permit mixed defenses when both needed.
- if(items.length>=4&&total('ap')<90)score-=7;
+ score-=Math.max(0,n('critMitigation')-1)*4;
+ // Sustained tank Galio need not be punished for having only 1 AP item.
+ if(!frontline&&items.length>=4&&total('ap')<90)score-=6;
  const stats={hp:total('hp'),ap:total('ap'),armor,mr,ah:total('ah')};
  return {score:Math.round(score*100)/100,reasons,stats,needs:t};
 }
@@ -113,12 +133,16 @@ function optimize({prepared,threats={},slots=5,beamWidth=100}={}){
  return {ok:true,game:'Wild Rift mobile',version:VERSION,
   main:result(winner),alternatives:others.map(result),
   evaluatedPool:pool.length,slots:5,bootsSeparate:true,
-  noPopularityData:true,noDamageForecast:true,winRate:null,
+  noPopularityData:true,noDamageForecast:true,winRate:null,activeItemsInFive:true,
   theoreticalOnly:true,method:'legal_five_item_beam_search'};
 }
 function reasonFor(item,threats){
  const f=item.feature||features(item),t=weights(threats),r=[];
  if(t.heal&&f.antiheal)r.push('Anti-soins');
+ if(t.assassin>=2&&f.stasis)r.push('Stase contre assassins');
+ if(t.crit&&f.critMitigation)r.push('Contre dégâts critiques');
+ if(t.frontlineNeed&&f.hybridDefense)r.push('Résistances pour première ligne');
+ if(t.waveclearNeed&&f.waveclear)r.push('Nettoyage de vague');
  if(t.tank>=2&&f.maxHp)r.push('Contre les PV max');
  if(t.tank>=2&&f.shred)r.push('Réduction de RM');
  if(t.physical>=2&&f.armor)r.push('Protection physique');
