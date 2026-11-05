@@ -88,7 +88,9 @@
       "Ouragan de Runaan — cadenas, prix masqué"
     ],
     "marksman_shop_evidence": "data/stage-a-marksman-shop-evidence-2026-11-05.json",
-    "marksman_shop_complete_client_confirmed": false
+    "marksman_shop_complete_client_confirmed": true,
+    "marksman_shop_coverage": "complete 28-item category confirmed by user, 2026-11-05",
+    "runaans_hurricane_eligibility": "ranged only, user client confirmation; unavailable to melee Galio; shop price still unverified"
   },
   "gates": [
     {
@@ -155,6 +157,7 @@
     "2026-11-05: followup screenshot confirms Estropieur = 3100 PO and Éviscérateur = 3100 PO, completing prices of all 22 transcribed Combattant names.",
     "2026-11-05: Assassin screenshot 10 visible named/priced entries, 1 mapped to 59 curated items and 9 provisional; not exhaustive.",
     "2026-11-05: user expressly confirms Assassin category is complete at 10 listed items; detail/mechanics certification still pending.",
-    "2026-11-05: Tireur: 28 visible names, 27 visible prices; Ouragan de Runaan shows padlock not price; 4 items in 59 curated, 24 other provisional, 11 overlap other shop categories. Complete category not confirmed."
+    "2026-11-05: Tireur: 28 visible names, 27 visible prices; Ouragan de Runaan shows padlock not price; 4 items in 59 curated, 24 other provisional, 11 overlap other shop categories. Complete category not confirmed.",
+    "2026-11-05: user confirms 28 Tideur shop entries complete and Runaan's Hurricane ranged-only; lock shown because Galio is melee; unknown price remains unknown."
   ]
 }
