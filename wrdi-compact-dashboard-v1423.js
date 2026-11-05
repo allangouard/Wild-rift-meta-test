@@ -50,9 +50,11 @@ function init(){
   const d=event.detail;
   if(!d||!Array.isArray(d.core)||!d.core.length||signature()!==activeSignature)return;
   haveBuild=true;core.replaceChildren();
-  core.append(el('h3','⚔️ Build conseillé'));
+  core.append(el('h3','⚔️ Core Mid observé'));
   fillRow(core,d.core.map(x=>x.name));
-  const help=el('p','Core Mid observé dans les données disponibles ; ce n’est pas un build complet ni une supériorité de victoire démontrée.');help.className='small';core.append(help);
+  const help=el('p','Trois objets Mid observés, pas encore un build complet optimisé.');help.className='small';core.append(help);
+  const statusLine=el('p',d.itemRestrictionsChecked?'Restrictions d’équipement vérifiées pour les compléments proposés.':'Compatibilité des objets non démontrée : '+(d.itemRestrictionsMessage||'données incomplètes'));
+  statusLine.className='small';core.append(statusLine);
   items.replaceChildren(el('h3','🔄 Objets situationnels'));
   if(!d.situational?.length)items.append(el('p','Aucun objet complémentaire suffisamment documenté.'));
   for(const x of d.situational||[]){
