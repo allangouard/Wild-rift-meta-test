@@ -124,3 +124,8 @@ jobs:
           node --check wrdi-rune-panel-v14.js
           node --check wrdi-galio-rune-scenarios-v14.js
           node --test wrdi-rune-draft-adapter-v1410.test.js
+      - name: Tester les choix tactiques runes Galio V14.11
+        run: |
+          node --check wrdi-galio-rune-advisor-v1411.js
+          node --check wrdi-rune-panel-v14.js
+          node --test wrdi-galio-rune-advisor-v1411.test.js
