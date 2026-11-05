@@ -56,3 +56,5 @@ jobs:
         run: node --test stage-a-fighter-shop.test.js
       - name: Verifier le catalogue Assassin
         run: node --test stage-a-assassin-shop.test.js
+      - name: Verifier le catalogue Tireur
+        run: node --test stage-a-marksman-shop.test.js
