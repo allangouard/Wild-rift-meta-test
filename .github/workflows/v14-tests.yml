@@ -88,3 +88,5 @@ jobs:
         run: node --test stage-a-keystones-batch2.test.js
       - name: Tester dix runes Inspiration Wild Rift
         run: node --test stage-a-inspiration-runes.test.js
+      - name: Tester cinq nouvelles runes client Volonte et Inspiration
+        run: node --test stage-a-runes-batch3.test.js
