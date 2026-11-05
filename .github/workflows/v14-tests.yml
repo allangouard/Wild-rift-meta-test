@@ -129,3 +129,8 @@ jobs:
           node --check wrdi-galio-rune-advisor-v1411.js
           node --check wrdi-rune-panel-v14.js
           node --test wrdi-galio-rune-advisor-v1411.test.js
+      - name: Tester analyse des dix kits et runes Galio V14.12
+        run: |
+          node --check wrdi-ten-kit-runes-v1412.js
+          node --check wrdi-ten-kit-panel-v1412.js
+          node --test wrdi-ten-kit-runes-v1412.test.js
