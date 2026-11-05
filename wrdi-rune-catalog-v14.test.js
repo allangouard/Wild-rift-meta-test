@@ -19,8 +19,14 @@ test('Quatre arbres valides et Sorcellerie bien orthographiée',()=>{
 test('Identifiants internes non confondus avec les identifiants officiels',()=>{
  for(const r of C.all){assert.match(r.id,/^wr:(minor|keystone):/);assert.equal(r.external_game_id,null);assert.ok(r.source_path);assert.ok(r.name_fr);}
 });
-test('Six positions de lignes issues des captures, 33 autres restent inconnues',()=>{
- const expected={'Coup bas':1,'Assaut enchaîné':2,'Chasseur acharné':3,'Courage du colosse':1,'Second souffle':2,'Revitalisation':3};
+test('Quinze positions de lignes vérifiées, dont les 9 de Précision',()=>{
+ const expected={
+  'Coup bas':1,'Assaut enchaîné':2,'Chasseur acharné':3,
+  'Courage du colosse':1,'Second souffle':2,'Revitalisation':3,
+  'Brutal':1,'Triomphe':1,'Zèle de combat':1,
+  "Baroud d'honneur":2,'Abattage':2,'Coup de grâce':2,
+  'Légende : Alacrité':3,'Légende : Accélération':3,'Légende : Sangsue':3
+ };
  for(const r of C.minor){
   if(Object.prototype.hasOwnProperty.call(expected,r.name_fr)){
    assert.equal(r.primary_row,expected[r.name_fr],r.name_fr);
@@ -30,7 +36,8 @@ test('Six positions de lignes issues des captures, 33 autres restent inconnues',
    assert.equal(r.primary_row_status,'not_verified');
   }
  }
- assert.equal(C.minor.filter(r=>r.primary_row!==null).length,6);
+ assert.equal(C.minor.filter(r=>r.primary_row!==null).length,15);
+ assert.equal(C.minor.filter(r=>r.tree==='Précision'&&r.primary_row!==null).length,9);
 });
 test('Ne jamais signaler l optimiseur prêt avant réconciliation',()=>{
  assert.equal(C.optimizer_ready,false);
