@@ -92,7 +92,9 @@ function mount(){
      });
     }catch{return picks.map(()=>'');}
    };
-   const detailed=root.WRDI_GalioCuratedMatchupsV1420?.refine({tenKits:inspected,baseline:specific,championNames:lookupNames()});
+   const names=lookupNames();
+   const detailed=root.WRDI_GalioCuratedMatchupsV1420?.refine({tenKits:inspected,baseline:specific,championNames:names});
+   const five=root.WRDI_GalioFiveRunesV1421?.analyze({kitData:inspected,championNames:names,pages:displayPages,bridge,catalog});
    const count=el('p',evaluation.coverage.available+'/10 kits exploitables · 7 pages légales · 5 runes examinées par page. Aucune meilleure page certifiée.');
    count.style.fontWeight='700';out.append(count);
    if(playerEvidence?.ok)out.append(el('p','✅ V14.17 — '+playerEvidence.positiveCount+' tests positifs et '+playerEvidence.negativeCount+' tests négatifs validés en jeu, dans les conditions rapportées. Aucun classement méta déduit.'));
@@ -131,6 +133,17 @@ function mount(){
     }else doc.append(el('p','Aucun profil officiel réconcilié pour le mid adverse. Le classement général est conservé. Aucun profil inventé.'));
     out.append(doc);
    }
+   if(five?.ok){
+    out.append(el('h3','🛡️ V14.21 — Jungler, support et cinq runes'));
+    if(five.profiles.length){
+     for(const threat of five.profiles){
+      const d=el('details');d.append(el('summary',threat.role+' · '+threat.name+' · kit documenté'));
+      for(const t of threat.traits)d.append(el('p',t.ability+' · '+t.label+' : '+t.detail));
+      const a=el('a','Fiche officielle Wild Rift');a.href=threat.source;a.target='_blank';a.rel='noopener noreferrer';a.style.color='#81e0dd';d.append(a);out.append(d);
+     }
+    }else out.append(el('p','Aucun jungler/support réconcilié parmi les profils documentés : pas de menace inventée.'));
+    out.append(el('p','Chaque page détaille désormais les cinq runes, les indices tactiques et les activations réellement observées. Aucune note de puissance calculée.'));
+   }
    const galio=el('p','Kit Galio : '+(comparison.galio.ccMentioned?'mentions de contrôle détectées':'contrôle non confirmé par la lecture lexicale')+' ; mobilité '+(comparison.galio.dashMentioned?'mentionnée':'non détectée')+' ; bouclier '+(comparison.galio.shieldMentioned?'mentionné':'non détecté')+'.');
    out.append(galio);
    const show=el('details');show.append(el('summary','Voir les 10 fiches et leurs limites'));
@@ -161,11 +174,15 @@ function mount(){
     for(const f of c.kitEvidence)box.append(el('p','Indice composition (non vérifié) : '+f));
     if(!c.kitEvidence.length)box.append(el('p','Aucun indice contextualisé exploitable pour cette page.'));
     const details=el('details');details.append(el('summary','Voir les cinq runes et les déclenchements'));
+    const enhanced=five?.pages?.find(p=>p.id===c.id);
     for(const rune of c.runes){
      const item=el('details');
      const confirmed=(rune.playerObservations||[]);
      item.append(el('summary',rune.name+' · '+(confirmed.length?confirmed.length+' observation(s) validée(s) en jeu':rune.evidenceStatus==='not_yet_studied'?'Interaction non étudiée':'Interaction documentaire conditionnelle')));
      for(const obs of confirmed)item.append(el('p',(obs.triggered?'✅ Activation observée':'⛔ Pas d’activation observée')+' · '+obs.condition+' (conditions testées uniquement)'));
+     const runeContext=enhanced?.fiveRuneAnalysis?.find(x=>x.name===rune.name);
+     for(const context of runeContext?.threatNotes||[])item.append(el('p','🧭 Hypothèse tactique ['+context.threat+'] : '+context.interpretation));
+     if(runeContext && !runeContext.threatNotes.length)item.append(el('p','Aucune adaptation spécifique documentée pour cette rune contre ces profils.'));
      if(!rune.interactions.length)item.append(el('p','Aucune interaction directe documentée à ce stade ; cela ne signifie pas que la rune est inefficace.'));
      for(const link of rune.interactions)item.append(el('p',link.ability+' · '+link.status+' : '+link.condition+' '+link.reason));
      details.append(item);
@@ -179,7 +196,7 @@ function mount(){
    for(const c of displayPages.slice(3))remaining.append(renderPage(c,false));
    out.append(remaining);
    const warnings=el('details');warnings.append(el('summary','Limites et qualité des données'));
-   for(const w of [...comparison.warnings,...evaluation.warnings,...(ordered?.warnings||[]),...(specific?.warnings||[]),...(detailed?.warnings||[])])warnings.append(el('p','• '+w));
+   for(const w of [...comparison.warnings,...evaluation.warnings,...(ordered?.warnings||[]),...(specific?.warnings||[]),...(detailed?.warnings||[]),...(five?.warnings||[])])warnings.append(el('p','• '+w));
    out.append(warnings);
    out.append(el('p',evaluation.interpretation));
   }catch(e){
