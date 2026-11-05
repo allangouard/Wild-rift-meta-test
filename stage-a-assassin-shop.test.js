@@ -9,7 +9,8 @@ test('Assassin : dix noms et prix, completude confirmee par utilisateur',()=>{
  assert.equal(new Set(evidence.entries.map(x=>x.name_fr)).size,10);
  assert.equal(evidence.coverage,'complete_category_confirmed_by_user_for_current_client');
  assert.equal(evidence.category_complete_confirmed_by_user,true);
- assert.ok(evidence.entries.every(x=>!x.external_numeric_id_verified&&!x.details_verified));
+ assert.ok(evidence.entries.every(x=>!x.external_numeric_id_verified));
+ assert.deepEqual(evidence.entries.filter(x=>x.details_verified).map(x=>x.name_fr),['Cimeterre mercuriel']);
 });
 test('Un seul objet est deja detaille dans la base partielle de 59',()=>{
  assert.equal(evidence.entries.filter(x=>x.existing_catalog_id).length,1);
