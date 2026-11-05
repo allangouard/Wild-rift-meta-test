@@ -104,3 +104,8 @@ jobs:
         run: node --test wrdi-rune-page-rules-v14.test.js
       - name: Auditer 52 runes et bloquer identifiants ou emplacements inventes
         run: node --test wrdi-rune-catalog-v14.test.js
+      - name: Tester catalogue et interface runes V14.7
+        run: |
+          node --check wrdi-rune-bridge-v14.js
+          node --check wrdi-rune-panel-v14.js
+          node --test wrdi-rune-bridge-v14.test.js
