@@ -4,7 +4,7 @@
   "locale": "fr-FR",
   "date": "2026-11-05",
   "source": "User-supplied client screenshots, Galio rune selection screen",
-  "tree": "Inspiration",
+  "tree": "Sorcellerie",
   "client_resource_version": "7.3.60.133",
   "entries": [
     {
@@ -179,5 +179,8 @@
     "source_client_tooltip_verified": true,
     "do_not_claim_tree_exhaustive": true,
     "do_not_autorecommend_from_incomplete_data": true
-  }
+  },
+  "notes": [
+    "Arbre corrigé sur confirmation explicite du joueur: Sorcellerie, et non Inspiration. Nom historique du fichier conservé pour compatibilité."
+  ]
 }
