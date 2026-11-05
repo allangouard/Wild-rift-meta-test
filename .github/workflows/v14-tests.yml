@@ -232,3 +232,9 @@ jobs:
           node --check wrdi-galio-five-item-optimizer-v1429.js
           node --check assets/app.js
           node --test wrdi-galio-team-context-v1431.test.js
+      - name: Tester ordre d'achat Galio V14.32
+        run: |
+          node --check wrdi-galio-purchase-order-v1432.js
+          node --check assets/app.js
+          node --check wrdi-compact-dashboard-v1423.js
+          node --test wrdi-galio-purchase-order-v1432.test.js
