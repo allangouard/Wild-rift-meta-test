@@ -13,9 +13,10 @@ test('139 lignes de six catégories, dédoublonnées sans conflit',()=>{
 test('Runaan est seule entrée sans prix, restriction de mêlée déjà documentée ailleurs',()=>{
  assert.deepEqual(inv.items.filter(x=>x.unresolved_price).map(x=>x.name_fr),['Ouragan de Runaan']);
 });
-test('Support, Tireur, Assassin confirmés sans présumer les autres catégories',()=>{
- assert.deepEqual(inv.counts.confirmed_complete_categories,['Assassin','Tireur','Support']);
- assert.deepEqual(inv.counts.categories_not_yet_confirmed_complete,['Magie','Défense','Combattant']);
+test('Les six catégories sont confirmées complètes par l’utilisateur',()=>{
+ assert.deepEqual(inv.counts.confirmed_complete_categories,['Magie','Défense','Combattant','Assassin','Tireur','Support']);
+ assert.deepEqual(inv.counts.categories_not_yet_confirmed_complete,[]);
+ assert.equal(inv.counts.all_six_categories_user_confirmed_complete,true);
 });
 test('aucun prix contradictoire après dédoublonnage de la boutique',()=>{
  for(const item of inv.items){
