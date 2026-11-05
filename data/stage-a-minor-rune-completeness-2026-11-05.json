@@ -1,0 +1,311 @@
+{
+  "schema": "wrdi.stage_a.minor_runes_inventory.v1",
+  "game": "Wild Rift mobile",
+  "date": "2026-11-05",
+  "source": "direct client rune screenshots and user-confirmed Sorcellerie and Domination classification",
+  "total_runes": 39,
+  "unique_names": 39,
+  "total_expected_by_user": 39,
+  "verified_category_counts": {
+    "Sorcellerie": 11,
+    "Volonté": 10,
+    "Précision": 9,
+    "Domination": 9
+  },
+  "trees": {
+    "Sorcellerie": [
+      "Pot de graines ixtali",
+      "Saut Hextech",
+      "Tempête menaçante",
+      "Concentration absolue",
+      "Botaniste",
+      "Manteau nuageux",
+      "Célérité",
+      "Ruban de mana",
+      "Brûlure",
+      "Transcendance",
+      "Arcaniste axiomatique"
+    ],
+    "Volonté": [
+      "Inébranlable",
+      "Persévérance",
+      "Plaque d'os",
+      "Courage du colosse",
+      "Revitalisation",
+      "Orbe anti-magie",
+      "Fontaine de vie",
+      "Surcroissance",
+      "Second souffle",
+      "Démolition"
+    ],
+    "Précision": [
+      "Légende : Sangsue",
+      "Coup de grâce",
+      "Zèle de combat",
+      "Légende : Accélération",
+      "Abattage",
+      "Triomphe",
+      "Légende : Alacrité",
+      "Baroud d'honneur",
+      "Brutal"
+    ],
+    "Domination": [
+      "Balise zombie",
+      "Orgueil",
+      "Attaque renforcée",
+      "Chasseur acharné",
+      "Tyran",
+      "Ruée offensive",
+      "Arracheur d'œil",
+      "Assaut enchaîné",
+      "Coup bas"
+    ]
+  },
+  "entries": [
+    {
+      "name_fr": "Pot de graines ixtali",
+      "tree": "Sorcellerie",
+      "source": "data/stage-a-inspiration-runes-2026-11-05.json",
+      "screenshot": "1000010855.jpg"
+    },
+    {
+      "name_fr": "Saut Hextech",
+      "tree": "Sorcellerie",
+      "source": "data/stage-a-inspiration-runes-2026-11-05.json",
+      "screenshot": "1000010853.jpg"
+    },
+    {
+      "name_fr": "Tempête menaçante",
+      "tree": "Sorcellerie",
+      "source": "data/stage-a-inspiration-runes-2026-11-05.json",
+      "screenshot": "1000010851.jpg"
+    },
+    {
+      "name_fr": "Concentration absolue",
+      "tree": "Sorcellerie",
+      "source": "data/stage-a-inspiration-runes-2026-11-05.json",
+      "screenshot": "1000010849.jpg"
+    },
+    {
+      "name_fr": "Botaniste",
+      "tree": "Sorcellerie",
+      "source": "data/stage-a-inspiration-runes-2026-11-05.json",
+      "screenshot": "1000010847.jpg"
+    },
+    {
+      "name_fr": "Manteau nuageux",
+      "tree": "Sorcellerie",
+      "source": "data/stage-a-inspiration-runes-2026-11-05.json",
+      "screenshot": "1000010845.jpg"
+    },
+    {
+      "name_fr": "Célérité",
+      "tree": "Sorcellerie",
+      "source": "data/stage-a-inspiration-runes-2026-11-05.json",
+      "screenshot": "1000010843.jpg"
+    },
+    {
+      "name_fr": "Ruban de mana",
+      "tree": "Sorcellerie",
+      "source": "data/stage-a-inspiration-runes-2026-11-05.json",
+      "screenshot": "1000010841.jpg"
+    },
+    {
+      "name_fr": "Brûlure",
+      "tree": "Sorcellerie",
+      "source": "data/stage-a-inspiration-runes-2026-11-05.json",
+      "screenshot": "1000010839.jpg"
+    },
+    {
+      "name_fr": "Transcendance",
+      "tree": "Sorcellerie",
+      "source": "data/stage-a-inspiration-runes-2026-11-05.json",
+      "screenshot": "1000010837.jpg"
+    },
+    {
+      "name_fr": "Arcaniste axiomatique",
+      "tree": "Sorcellerie",
+      "source": "data/stage-a-runes-client-batch3-2026-11-05.json",
+      "screenshot": "1000010835.jpg"
+    },
+    {
+      "name_fr": "Inébranlable",
+      "tree": "Volonté",
+      "source": "data/stage-a-runes-client-batch3-2026-11-05.json",
+      "screenshot": "1000010833.jpg"
+    },
+    {
+      "name_fr": "Persévérance",
+      "tree": "Volonté",
+      "source": "data/stage-a-runes-client-batch3-2026-11-05.json",
+      "screenshot": "1000010831.jpg"
+    },
+    {
+      "name_fr": "Plaque d'os",
+      "tree": "Volonté",
+      "source": "data/stage-a-runes-client-batch3-2026-11-05.json",
+      "screenshot": "1000010829.jpg"
+    },
+    {
+      "name_fr": "Courage du colosse",
+      "tree": "Volonté",
+      "source": "data/stage-a-runes-client-batch3-2026-11-05.json",
+      "screenshot": "1000010827.jpg"
+    },
+    {
+      "name_fr": "Revitalisation",
+      "tree": "Volonté",
+      "source": "data/stage-a-runes-client-batch4-2026-11-05.json",
+      "screenshot": "1000010825.jpg"
+    },
+    {
+      "name_fr": "Orbe anti-magie",
+      "tree": "Volonté",
+      "source": "data/stage-a-runes-client-batch4-2026-11-05.json",
+      "screenshot": "1000010823.jpg"
+    },
+    {
+      "name_fr": "Fontaine de vie",
+      "tree": "Volonté",
+      "source": "data/stage-a-runes-client-batch4-2026-11-05.json",
+      "screenshot": "1000010821.jpg"
+    },
+    {
+      "name_fr": "Surcroissance",
+      "tree": "Volonté",
+      "source": "data/stage-a-runes-client-batch4-2026-11-05.json",
+      "screenshot": "1000010819.jpg"
+    },
+    {
+      "name_fr": "Second souffle",
+      "tree": "Volonté",
+      "source": "data/stage-a-runes-client-batch4-2026-11-05.json",
+      "screenshot": "1000010817.jpg"
+    },
+    {
+      "name_fr": "Démolition",
+      "tree": "Volonté",
+      "source": "data/stage-a-runes-client-batch5-2026-11-05.json",
+      "screenshot": "1000010815.jpg"
+    },
+    {
+      "name_fr": "Légende : Sangsue",
+      "tree": "Précision",
+      "source": "data/stage-a-runes-client-batch5-2026-11-05.json",
+      "screenshot": "1000010813.jpg"
+    },
+    {
+      "name_fr": "Coup de grâce",
+      "tree": "Précision",
+      "source": "data/stage-a-runes-client-batch5-2026-11-05.json",
+      "screenshot": "1000010811.jpg"
+    },
+    {
+      "name_fr": "Zèle de combat",
+      "tree": "Précision",
+      "source": "data/stage-a-runes-client-batch5-2026-11-05.json",
+      "screenshot": "1000010809.jpg"
+    },
+    {
+      "name_fr": "Légende : Accélération",
+      "tree": "Précision",
+      "source": "data/stage-a-runes-client-batch5-2026-11-05.json",
+      "screenshot": "1000010807.jpg"
+    },
+    {
+      "name_fr": "Abattage",
+      "tree": "Précision",
+      "source": "data/stage-a-runes-client-batch5-2026-11-05.json",
+      "screenshot": "1000010805.jpg"
+    },
+    {
+      "name_fr": "Triomphe",
+      "tree": "Précision",
+      "source": "data/stage-a-runes-client-batch5-2026-11-05.json",
+      "screenshot": "1000010803.jpg"
+    },
+    {
+      "name_fr": "Légende : Alacrité",
+      "tree": "Précision",
+      "source": "data/stage-a-runes-client-batch5-2026-11-05.json",
+      "screenshot": "1000010801.jpg"
+    },
+    {
+      "name_fr": "Baroud d'honneur",
+      "tree": "Précision",
+      "source": "data/stage-a-runes-client-batch5-2026-11-05.json",
+      "screenshot": "1000010799.jpg"
+    },
+    {
+      "name_fr": "Brutal",
+      "tree": "Précision",
+      "source": "data/stage-a-runes-client-batch5-2026-11-05.json",
+      "screenshot": "1000010797.jpg"
+    },
+    {
+      "name_fr": "Balise zombie",
+      "tree": "Domination",
+      "source": "data/stage-a-runes-client-batch6-2026-11-05.json",
+      "screenshot": "1000010795.jpg"
+    },
+    {
+      "name_fr": "Orgueil",
+      "tree": "Domination",
+      "source": "data/stage-a-runes-client-batch6-2026-11-05.json",
+      "screenshot": "1000010793.jpg"
+    },
+    {
+      "name_fr": "Attaque renforcée",
+      "tree": "Domination",
+      "source": "data/stage-a-runes-client-batch6-2026-11-05.json",
+      "screenshot": "1000010791.jpg"
+    },
+    {
+      "name_fr": "Chasseur acharné",
+      "tree": "Domination",
+      "source": "data/stage-a-runes-client-batch6-2026-11-05.json",
+      "screenshot": "1000010789.jpg"
+    },
+    {
+      "name_fr": "Tyran",
+      "tree": "Domination",
+      "source": "data/stage-a-runes-client-batch6-2026-11-05.json",
+      "screenshot": "1000010787.jpg"
+    },
+    {
+      "name_fr": "Ruée offensive",
+      "tree": "Domination",
+      "source": "data/stage-a-runes-client-batch7-2026-11-05.json",
+      "screenshot": "1000010785.jpg"
+    },
+    {
+      "name_fr": "Arracheur d'œil",
+      "tree": "Domination",
+      "source": "data/stage-a-runes-client-batch7-2026-11-05.json",
+      "screenshot": "1000010783.jpg"
+    },
+    {
+      "name_fr": "Assaut enchaîné",
+      "tree": "Domination",
+      "source": "data/stage-a-runes-client-batch7-2026-11-05.json",
+      "screenshot": "1000010781.jpg"
+    },
+    {
+      "name_fr": "Coup bas",
+      "tree": "Domination",
+      "source": "data/stage-a-runes-client-batch7-2026-11-05.json",
+      "screenshot": "1000010779.jpg"
+    }
+  ],
+  "policy": {
+    "naming_and_tooltip_transcriptions_complete_for_user_supplied_39": true,
+    "actual_gameplay_interactions_not_certified": true,
+    "external_rune_ids_not_yet_reconciled": true,
+    "automatic_recommendations_not_yet_enabled": true
+  },
+  "notes": [
+    "Zèle de combat is Précision, not Domination.",
+    "Sorcellerie, not Inspiration; historical file name stage-a-inspiration-runes retained for compatibility.",
+    "Count covers 39 minor runes; fundamental keystones kept separately."
+  ]
+}
