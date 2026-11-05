@@ -89,6 +89,6 @@ test('full client cards trust player without outside sources while incomplete pr
  for(const x of incomplete){
   assert.ok(gate.itemEvidence(x).missing.includes('price'));
   const validation=gate.validateSelection([x.name_fr],p);
-  assert.equal(validation.status,'incomplete_client_item');
+  assert.equal(validation.status,x.item_type==='transformed'?'transformed_not_buyable':'incomplete_client_item');
  }
 });
