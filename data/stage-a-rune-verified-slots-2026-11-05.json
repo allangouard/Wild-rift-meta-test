@@ -194,6 +194,48 @@
       "tree": "Domination",
       "primary_row": 3,
       "source_image": "1000010897.jpg"
+    },
+    {
+      "name_fr": "Démolition",
+      "tree": "Volonté",
+      "primary_row": 1,
+      "source_image": "1000010899.jpg"
+    },
+    {
+      "name_fr": "Fontaine de vie",
+      "tree": "Volonté",
+      "primary_row": 1,
+      "source_image": "1000010899.jpg"
+    },
+    {
+      "name_fr": "Inébranlable",
+      "tree": "Volonté",
+      "primary_row": 1,
+      "source_image": "1000010901.jpg"
+    },
+    {
+      "name_fr": "Orbe anti-magie",
+      "tree": "Volonté",
+      "primary_row": 2,
+      "source_image": "1000010903.jpg"
+    },
+    {
+      "name_fr": "Plaque d'os",
+      "tree": "Volonté",
+      "primary_row": 2,
+      "source_image": "1000010903.jpg"
+    },
+    {
+      "name_fr": "Surcroissance",
+      "tree": "Volonté",
+      "primary_row": 3,
+      "source_image": "1000010905.jpg"
+    },
+    {
+      "name_fr": "Persévérance",
+      "tree": "Volonté",
+      "primary_row": 3,
+      "source_image": "1000010905.jpg"
     }
   ],
   "policy": {
