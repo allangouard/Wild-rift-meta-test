@@ -16,7 +16,10 @@
       "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3c/",
       "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/",
       "https://tocchien.vnggames.com/en-us/news/game-updates/wild-rift-patch-notes-7-3e/"
-    ]
+    ],
+    "android_installed_build": "7.3.0.2813",
+    "android_build_evidence": "user screenshot, Android application information, 2026-11-05",
+    "android_build_does_not_identify_balance_hotfix": true
   },
   "current_inventory": {
     "curated_items": 59,
@@ -66,7 +69,8 @@
     {
       "code": "A1",
       "name": "current game/version and mode evidence",
-      "done": false
+      "done": false,
+      "note": "Android 7.3.0.2813 confirmed; exact ranked balance/hotfix still determined from published notes, not Android version alone."
     },
     {
       "code": "A2",
