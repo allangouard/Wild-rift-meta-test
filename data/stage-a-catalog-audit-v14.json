@@ -77,7 +77,8 @@
     "assassin_shop_existing_curated_matches": 1,
     "assassin_shop_not_in_curated_59": 9,
     "assassin_shop_evidence": "data/stage-a-assassin-shop-evidence-2026-11-05.json",
-    "assassin_shop_coverage": "partial screenshot, scrolling boundary not certified"
+    "assassin_shop_coverage": "complete 10 items, explicitly confirmed by user 2026-11-05",
+    "assassin_shop_complete_client_confirmed": true
   },
   "gates": [
     {
@@ -142,6 +143,7 @@
     "2026-11-05: bottes screenshot inventory: 7 palier supérieur + 7 palier intermédiaire, 0 basique visible; Chaussures de lanceur de sorts item details transcribed, other stats unverified.",
     "2026-11-05: Combattant screenshot audit: 22 legible names, 20 prices, 5 mapped to 59 curated items, 17 not yet curated; Estropieur and Éviscérateur prices clipped; Force de la trinité price 3333 appears in client. No full-category coverage assertion.",
     "2026-11-05: followup screenshot confirms Estropieur = 3100 PO and Éviscérateur = 3100 PO, completing prices of all 22 transcribed Combattant names.",
-    "2026-11-05: Assassin screenshot 10 visible named/priced entries, 1 mapped to 59 curated items and 9 provisional; not exhaustive."
+    "2026-11-05: Assassin screenshot 10 visible named/priced entries, 1 mapped to 59 curated items and 9 provisional; not exhaustive.",
+    "2026-11-05: user expressly confirms Assassin category is complete at 10 listed items; detail/mechanics certification still pending."
   ]
 }
