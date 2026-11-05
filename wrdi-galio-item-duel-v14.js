@@ -10,9 +10,9 @@
 'use strict';
 const VERSION='14.6.0-alpha.1',IDS=['thornmail','unending_despair'];
 const REQUIRED={
- thornmail:[{name:'Épines',trigger:'attacked',formula:'20 + 0.06 * bonus_armor + 0.01 * bonus_hp'},
+ thornmail:[{name:'Épines',trigger:'attacked',damage_formula:'20 + 0.06 * bonus_armor + 0.01 * bonus_hp'},
            {name:'Entrelacs',grievous_wounds_pct:50,duration_s:3}],
- unending_despair:[{name:'Affliction',tick_s:4,formula:'0.03 * own_max_hp',heal_multiplier_of_damage_dealt:2.5}]
+ unending_despair:[{name:'Affliction',tick_s:4,damage_formula:'0.03 * own_max_hp',heal_multiplier_of_damage_dealt:2.5}]
 };
 const finite=(x,min)=>typeof x==='number'&&Number.isFinite(x)&&x>=min;
 const err=x=>Object.freeze({ok:false,status:'incomplete-evidence',errors:[x],recommendationEligible:false});
