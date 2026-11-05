@@ -62,3 +62,5 @@ jobs:
         run: node --test stage-a-support-shop.test.js
       - name: Verifier l'inventaire sans doublons des six categories
         run: node --test stage-a-cross-category-inventory.test.js
+      - name: Tester trois objets actifs client et leurs restrictions
+        run: node --test stage-a-standalone-actives-batch2.test.js
