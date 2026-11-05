@@ -21,8 +21,9 @@ function init(){
   output.style.cssText='margin-top:12px;line-height:1.6;overflow-wrap:anywhere';
   output.setAttribute('aria-live','polite');
   panel.append(title,description,button,output);
-  host.insertAdjacentElement('afterend',panel);
-
+  const actions = $('simpleRun')?.closest('.simple-actions');
+if (actions) actions.insertAdjacentElement('afterend', panel);
+else host.appendChild(panel);
   const line=(text,parent=output)=>parent.appendChild(el('p',text));
   const list=(label,items,parent=output)=>{
     const d=el('details');
