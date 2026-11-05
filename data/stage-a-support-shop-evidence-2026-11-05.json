@@ -156,9 +156,10 @@
       "provisional_identity_candidate": "mikaels_blessing",
       "already_listed_in_categories": [],
       "price_confirmed_from_client": true,
-      "full_item_stats_verified": false,
+      "full_item_stats_verified": true,
       "external_numeric_id_verified": false,
-      "client_full_details_newly_verified": false
+      "client_full_details_newly_verified": true,
+      "detail_evidence_file": "data/stage-a-standalone-actives-batch2-2026-11-05.json"
     },
     {
       "name_fr": "Médaillon de l'Iron Solari",
@@ -184,9 +185,10 @@
       "provisional_identity_candidate": "shurelyas_battlesong",
       "already_listed_in_categories": [],
       "price_confirmed_from_client": true,
-      "full_item_stats_verified": false,
+      "full_item_stats_verified": true,
       "external_numeric_id_verified": false,
-      "client_full_details_newly_verified": false
+      "client_full_details_newly_verified": true,
+      "detail_evidence_file": "data/stage-a-standalone-actives-batch2-2026-11-05.json"
     },
     {
       "name_fr": "Écho harmonieux",
