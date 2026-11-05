@@ -1,0 +1,459 @@
+{
+  "schema": "wrdi.stage_a.identity_crosswalk_candidates.v1",
+  "created": "2026-11-05",
+  "game": "Wild Rift mobile",
+  "target_mode": "ranked Summoner's Rift",
+  "client_app_version": "7.3.0.2813",
+  "client_resource_version": "7.3.60.133",
+  "sources": {
+    "client": "stage-a-boots-shop-evidence-2026-11-05.json and stage-a-defense-active-details-2026-11-05.json",
+    "historical": "items-7.2a-normalized.json, UNVERIFIED HISTORICAL ONLY"
+  },
+  "counts": {
+    "boots": 15,
+    "standalone_active": 2,
+    "candidate_records": 17,
+    "external_ids_verified": 0,
+    "historical_price_discrepancy_records": 1
+  },
+  "records": [
+    {
+      "kind": "boots",
+      "name_fr": "Sandales immortelles",
+      "tier": "upper",
+      "current_price_gold": 2000,
+      "current_client_evidence": "1000010593.jpg",
+      "external_item_id": null,
+      "canonical_id_verified": false,
+      "matching_status": "translation_candidate_not_verified_against_current_source",
+      "historical_candidates": [
+        {
+          "historical_id": "immortal-treads-balanced-of-power-ad-convertion-0-stacks",
+          "english_name": "Immortal Treads (Balanced of Power - AD, Convertion - 0 Stacks)",
+          "historical_price_gold": 2000,
+          "historical_patch": "7.2a",
+          "historical_only": true,
+          "price_diff_gold": 0
+        },
+        {
+          "historical_id": "immortal-treads-balanced-of-power-ad-convertion-full-stacks",
+          "english_name": "Immortal Treads (Balanced of Power - AD, Convertion - Full Stacks)",
+          "historical_price_gold": 2000,
+          "historical_patch": "7.2a",
+          "historical_only": true,
+          "price_diff_gold": 0
+        },
+        {
+          "historical_id": "immortal-treads-balanced-of-power-ap-convertion-0-stacks",
+          "english_name": "Immortal Treads (Balanced of Power - AP, Convertion - 0 Stacks)",
+          "historical_price_gold": 2000,
+          "historical_patch": "7.2a",
+          "historical_only": true,
+          "price_diff_gold": 0
+        },
+        {
+          "historical_id": "immortal-treads-balanced-of-power-ap-convertion-full-stacks",
+          "english_name": "Immortal Treads (Balanced of Power - AP, Convertion - Full Stacks)",
+          "historical_price_gold": 2000,
+          "historical_patch": "7.2a",
+          "historical_only": true,
+          "price_diff_gold": 0
+        }
+      ],
+      "has_historical_price_difference": false,
+      "current_client_details_available": true
+    },
+    {
+      "kind": "boots",
+      "name_fr": "Lucidité pourpre",
+      "tier": "upper",
+      "current_price_gold": 2000,
+      "current_client_evidence": "1000010593.jpg",
+      "external_item_id": null,
+      "canonical_id_verified": false,
+      "matching_status": "translation_candidate_not_verified_against_current_source",
+      "historical_candidates": [
+        {
+          "historical_id": "crimson-lucidity",
+          "english_name": "Crimson Lucidity",
+          "historical_price_gold": 2000,
+          "historical_patch": "7.2a",
+          "historical_only": true,
+          "price_diff_gold": 0
+        }
+      ],
+      "has_historical_price_difference": false,
+      "current_client_details_available": true
+    },
+    {
+      "kind": "boots",
+      "name_fr": "Jambières de métal",
+      "tier": "upper",
+      "current_price_gold": 2200,
+      "current_client_evidence": "1000010593.jpg",
+      "external_item_id": null,
+      "canonical_id_verified": false,
+      "matching_status": "translation_candidate_not_verified_against_current_source",
+      "historical_candidates": [
+        {
+          "historical_id": "gunmetal-greaves-noxian-gait-melee",
+          "english_name": "Gunmetal Greaves (Noxian Gait - Melee)",
+          "historical_price_gold": 2200,
+          "historical_patch": "7.2a",
+          "historical_only": true,
+          "price_diff_gold": 0
+        },
+        {
+          "historical_id": "gunmetal-greaves-noxian-gait-range",
+          "english_name": "Gunmetal Greaves (Noxian Gait - Range)",
+          "historical_price_gold": 2200,
+          "historical_patch": "7.2a",
+          "historical_only": true,
+          "price_diff_gold": 0
+        }
+      ],
+      "has_historical_price_difference": false,
+      "current_client_details_available": true
+    },
+    {
+      "kind": "boots",
+      "name_fr": "Broyeuses à chaînes",
+      "tier": "upper",
+      "current_price_gold": 2200,
+      "current_client_evidence": "1000010593.jpg",
+      "external_item_id": null,
+      "canonical_id_verified": false,
+      "matching_status": "translation_candidate_not_verified_against_current_source",
+      "historical_candidates": [
+        {
+          "historical_id": "chainlaced-crushers",
+          "english_name": "Chainlaced Crushers",
+          "historical_price_gold": 2200,
+          "historical_patch": "7.2a",
+          "historical_only": true,
+          "price_diff_gold": 0
+        }
+      ],
+      "has_historical_price_difference": false,
+      "current_client_details_available": true
+    },
+    {
+      "kind": "boots",
+      "name_fr": "Avancée blindée",
+      "tier": "upper",
+      "current_price_gold": 2200,
+      "current_client_evidence": "1000010593.jpg",
+      "external_item_id": null,
+      "canonical_id_verified": false,
+      "matching_status": "translation_candidate_not_verified_against_current_source",
+      "historical_candidates": [
+        {
+          "historical_id": "armored-advance",
+          "english_name": "Armored Advance",
+          "historical_price_gold": 2200,
+          "historical_patch": "7.2a",
+          "historical_only": true,
+          "price_diff_gold": 0
+        }
+      ],
+      "has_historical_price_difference": false,
+      "current_client_details_available": true
+    },
+    {
+      "kind": "boots",
+      "name_fr": "Chaussures de lanceur de sorts",
+      "tier": "upper",
+      "current_price_gold": 2200,
+      "current_client_evidence": "1000010593.jpg",
+      "external_item_id": null,
+      "canonical_id_verified": false,
+      "matching_status": "translation_candidate_not_verified_against_current_source",
+      "historical_candidates": [
+        {
+          "historical_id": "spellslinger-s-shoes",
+          "english_name": "Spellslinger's Shoes",
+          "historical_price_gold": 2200,
+          "historical_patch": "7.2a",
+          "historical_only": true,
+          "price_diff_gold": 0
+        }
+      ],
+      "has_historical_price_difference": false,
+      "current_client_details_available": true
+    },
+    {
+      "kind": "boots",
+      "name_fr": "Bottes Brise-armure",
+      "tier": "upper",
+      "current_price_gold": 2200,
+      "current_client_evidence": "1000010593.jpg",
+      "external_item_id": null,
+      "canonical_id_verified": false,
+      "matching_status": "translation_candidate_not_verified_against_current_source",
+      "historical_candidates": [
+        {
+          "historical_id": "armorcrusher-boots",
+          "english_name": "Armorcrusher Boots",
+          "historical_price_gold": 2200,
+          "historical_patch": "7.2a",
+          "historical_only": true,
+          "price_diff_gold": 0
+        }
+      ],
+      "has_historical_price_difference": false,
+      "current_client_details_available": true
+    },
+    {
+      "kind": "boots",
+      "name_fr": "Jambières gloutonnes",
+      "tier": "intermediate",
+      "current_price_gold": 1000,
+      "current_client_evidence": "1000010591.jpg",
+      "external_item_id": null,
+      "canonical_id_verified": false,
+      "matching_status": "translation_candidate_not_verified_against_current_source",
+      "historical_candidates": [
+        {
+          "historical_id": "gluttonous-greaves-balanced-of-power-ad-convertion-0-stacks",
+          "english_name": "Gluttonous Greaves (Balanced of Power - AD, Convertion - 0 Stacks)",
+          "historical_price_gold": 1000,
+          "historical_patch": "7.2a",
+          "historical_only": true,
+          "price_diff_gold": 0
+        },
+        {
+          "historical_id": "gluttonous-greaves-balanced-of-power-ad-convertion-full-stacks",
+          "english_name": "Gluttonous Greaves (Balanced of Power - AD, Convertion - Full Stacks)",
+          "historical_price_gold": 1000,
+          "historical_patch": "7.2a",
+          "historical_only": true,
+          "price_diff_gold": 0
+        },
+        {
+          "historical_id": "gluttonous-greaves-balanced-of-power-ap-convertion-0-stacks",
+          "english_name": "Gluttonous Greaves (Balanced of Power - AP, Convertion - 0 Stacks)",
+          "historical_price_gold": 1000,
+          "historical_patch": "7.2a",
+          "historical_only": true,
+          "price_diff_gold": 0
+        },
+        {
+          "historical_id": "gluttonous-greaves-balanced-of-power-ap-convertion-full-stacks",
+          "english_name": "Gluttonous Greaves (Balanced of Power - AP, Convertion - Full Stacks)",
+          "historical_price_gold": 1000,
+          "historical_patch": "7.2a",
+          "historical_only": true,
+          "price_diff_gold": 0
+        }
+      ],
+      "has_historical_price_difference": false,
+      "current_client_details_available": true
+    },
+    {
+      "kind": "boots",
+      "name_fr": "Bottes de lucidité",
+      "tier": "intermediate",
+      "current_price_gold": 1000,
+      "current_client_evidence": "1000010591.jpg",
+      "external_item_id": null,
+      "canonical_id_verified": false,
+      "matching_status": "translation_candidate_not_verified_against_current_source",
+      "historical_candidates": [
+        {
+          "historical_id": "ionian-boots-of-lucidity",
+          "english_name": "Ionian Boots of Lucidity",
+          "historical_price_gold": 1000,
+          "historical_patch": "7.2a",
+          "historical_only": true,
+          "price_diff_gold": 0
+        }
+      ],
+      "has_historical_price_difference": false,
+      "current_client_details_available": true
+    },
+    {
+      "kind": "boots",
+      "name_fr": "Jambières du berzerker",
+      "tier": "intermediate",
+      "current_price_gold": 1200,
+      "current_client_evidence": "1000010591.jpg",
+      "external_item_id": null,
+      "canonical_id_verified": false,
+      "matching_status": "translation_candidate_not_verified_against_current_source",
+      "historical_candidates": [
+        {
+          "historical_id": "berserker-s-greaves",
+          "english_name": "Berserker's Greaves",
+          "historical_price_gold": 1200,
+          "historical_patch": "7.2a",
+          "historical_only": true,
+          "price_diff_gold": 0
+        }
+      ],
+      "has_historical_price_difference": false,
+      "current_client_details_available": true
+    },
+    {
+      "kind": "boots",
+      "name_fr": "Sandales de Mercure",
+      "tier": "intermediate",
+      "current_price_gold": 1200,
+      "current_client_evidence": "1000010591.jpg",
+      "external_item_id": null,
+      "canonical_id_verified": false,
+      "matching_status": "translation_candidate_not_verified_against_current_source",
+      "historical_candidates": [
+        {
+          "historical_id": "mercury-s-treads",
+          "english_name": "Mercury's Treads",
+          "historical_price_gold": 1200,
+          "historical_patch": "7.2a",
+          "historical_only": true,
+          "price_diff_gold": 0
+        }
+      ],
+      "has_historical_price_difference": false,
+      "current_client_details_available": true
+    },
+    {
+      "kind": "boots",
+      "name_fr": "Coques en acier",
+      "tier": "intermediate",
+      "current_price_gold": 1200,
+      "current_client_evidence": "1000010591.jpg",
+      "external_item_id": null,
+      "canonical_id_verified": false,
+      "matching_status": "translation_candidate_not_verified_against_current_source",
+      "historical_candidates": [
+        {
+          "historical_id": "plated-steelcaps",
+          "english_name": "Plated Steelcaps",
+          "historical_price_gold": 1200,
+          "historical_patch": "7.2a",
+          "historical_only": true,
+          "price_diff_gold": 0
+        }
+      ],
+      "has_historical_price_difference": false,
+      "current_client_details_available": true
+    },
+    {
+      "kind": "boots",
+      "name_fr": "Bottes de mana",
+      "tier": "intermediate",
+      "current_price_gold": 1200,
+      "current_client_evidence": "1000010591.jpg",
+      "external_item_id": null,
+      "canonical_id_verified": false,
+      "matching_status": "translation_candidate_not_verified_against_current_source",
+      "historical_candidates": [
+        {
+          "historical_id": "boots-of-mana",
+          "english_name": "Boots of Mana",
+          "historical_price_gold": 1200,
+          "historical_patch": "7.2a",
+          "historical_only": true,
+          "price_diff_gold": 0
+        }
+      ],
+      "has_historical_price_difference": false,
+      "current_client_details_available": true
+    },
+    {
+      "kind": "boots",
+      "name_fr": "Bottes dynamiques",
+      "tier": "intermediate",
+      "current_price_gold": 1200,
+      "current_client_evidence": "1000010591.jpg",
+      "external_item_id": null,
+      "canonical_id_verified": false,
+      "matching_status": "translation_candidate_not_verified_against_current_source",
+      "historical_candidates": [
+        {
+          "historical_id": "boots-of-dynamism",
+          "english_name": "Boots of Dynamism",
+          "historical_price_gold": 1200,
+          "historical_patch": "7.2a",
+          "historical_only": true,
+          "price_diff_gold": 0
+        }
+      ],
+      "has_historical_price_difference": false,
+      "current_client_details_available": true
+    },
+    {
+      "kind": "boots",
+      "name_fr": "Bottes de vitesse",
+      "tier": "basic",
+      "current_price_gold": 400,
+      "current_client_evidence": "1000010646.jpg",
+      "external_item_id": null,
+      "canonical_id_verified": false,
+      "matching_status": "translation_candidate_not_verified_against_current_source",
+      "historical_candidates": [
+        {
+          "historical_id": "boots-of-speed",
+          "english_name": "Boots of Speed",
+          "historical_price_gold": 400,
+          "historical_patch": "7.2a",
+          "historical_only": true,
+          "price_diff_gold": 0
+        }
+      ],
+      "has_historical_price_difference": false,
+      "current_client_details_available": true
+    },
+    {
+      "kind": "standalone_active_item",
+      "name_fr": "Médaillon de l’Iron Solari",
+      "tier": null,
+      "current_price_gold": 2500,
+      "current_client_evidence": "1000010590.jpg",
+      "external_item_id": null,
+      "canonical_id_verified": false,
+      "matching_status": "translation_candidate_not_verified_against_current_source",
+      "historical_candidates": [
+        {
+          "historical_id": "locket-of-the-iron-solari",
+          "english_name": "Locket of the Iron Solari",
+          "historical_price_gold": 2600,
+          "historical_patch": "7.2a",
+          "historical_only": true,
+          "price_diff_gold": -100
+        }
+      ],
+      "has_historical_price_difference": true,
+      "current_client_details_available": true
+    },
+    {
+      "kind": "standalone_active_item",
+      "name_fr": "Lithoplastron de gargouille",
+      "tier": null,
+      "current_price_gold": 2900,
+      "current_client_evidence": "1000010587.jpg",
+      "external_item_id": null,
+      "canonical_id_verified": false,
+      "matching_status": "translation_candidate_not_verified_against_current_source",
+      "historical_candidates": [
+        {
+          "historical_id": "gargoyle-stoneplate",
+          "english_name": "Gargoyle Stoneplate",
+          "historical_price_gold": 2900,
+          "historical_patch": "7.2a",
+          "historical_only": true,
+          "price_diff_gold": 0
+        }
+      ],
+      "has_historical_price_difference": false,
+      "current_client_details_available": true
+    }
+  ],
+  "policy": {
+    "current_prices_source": "user client screenshots; do not overwrite from historic",
+    "numeric_wrchina_id_verified": false,
+    "do_not_use_candidate_as_verified_current_catalog_id": true,
+    "do_not_import_historical_stats": true,
+    "do_not_automatically_load_into_build_recommendations": true
+  },
+  "next": "Resolve exact external WRChina client names and numeric IDs from current /api/items.json when possible; do not infer from translation alone."
+}
