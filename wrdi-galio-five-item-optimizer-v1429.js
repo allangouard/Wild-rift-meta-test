@@ -24,7 +24,7 @@ function features(item){
   antiheal:has('grievous_wounds_pct'),
   maxHp:passives.some(p=>String(p.damage_per_tick_formula||'').includes('target_max_hp')),
   ramp:has('max_amp_pct')||has('max_damage_amp_pct'),shred:has('mr_shred_per_stack_pct'),
-  shieldCut:passives.some(p=>p.effect==='shield_reduction'||has('shield_reduction_pct')),
+  shieldCut:passives.some(p=>p.effect==='shield_reduction'||num(p.shield_reduction_pct)>0||typeof p.shield_reduction_aoe_pct_formula==='string'||typeof p.shield_reduction_single_pct_formula==='string'),
   slow:passives.some(p=>has('slow_pct')||p.effect==='slow'),
   protective:passives.some(p=>p.effect==='area_heal'||p.effect==='ally_shield'),
   active:passives.some(p=>p.active===true),
