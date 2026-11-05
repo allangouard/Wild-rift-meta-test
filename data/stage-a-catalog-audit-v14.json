@@ -67,13 +67,10 @@
     "boots_external_ids_verified": 0,
     "boots_evidence": "data/stage-a-boots-shop-evidence-2026-11-05.json",
     "fighter_shop_observed_named": 22,
-    "fighter_shop_observed_priced": 20,
+    "fighter_shop_observed_priced": 22,
     "fighter_shop_existing_curated_matches": 5,
     "fighter_shop_not_in_curated_59": 17,
-    "fighter_shop_clipped_price_names": [
-      "Estropieur",
-      "Éviscérateur"
-    ],
+    "fighter_shop_clipped_price_names": [],
     "fighter_shop_evidence": "data/stage-a-fighter-shop-evidence-2026-11-05.json"
   },
   "gates": [
@@ -137,6 +134,7 @@
     "2026-11-05: defense category screenshot inventory 30 rows, 28 catalog mappings, 23 newly verified prices, 2 unmatched entries; descriptive details/actives pending.",
     "2026-11-05: Locket + Gargoyle: client confirms stats/active effects, cooldowns; not yet canonical-ID reconciled, cannot be used automatically.",
     "2026-11-05: bottes screenshot inventory: 7 palier supérieur + 7 palier intermédiaire, 0 basique visible; Chaussures de lanceur de sorts item details transcribed, other stats unverified.",
-    "2026-11-05: Combattant screenshot audit: 22 legible names, 20 prices, 5 mapped to 59 curated items, 17 not yet curated; Estropieur and Éviscérateur prices clipped; Force de la trinité price 3333 appears in client. No full-category coverage assertion."
+    "2026-11-05: Combattant screenshot audit: 22 legible names, 20 prices, 5 mapped to 59 curated items, 17 not yet curated; Estropieur and Éviscérateur prices clipped; Force de la trinité price 3333 appears in client. No full-category coverage assertion.",
+    "2026-11-05: followup screenshot confirms Estropieur = 3100 PO and Éviscérateur = 3100 PO, completing prices of all 22 transcribed Combattant names."
   ]
 }
