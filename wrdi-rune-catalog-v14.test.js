@@ -19,12 +19,14 @@ test('Quatre arbres valides et Sorcellerie bien orthographiée',()=>{
 test('Identifiants internes non confondus avec les identifiants officiels',()=>{
  for(const r of C.all){assert.match(r.id,/^wr:(minor|keystone):/);assert.equal(r.external_game_id,null);assert.ok(r.source_path);assert.ok(r.name_fr);}
 });
-test('Trente-deux positions vérifiées, dont Domination, Précision, Sorcellerie complètes',()=>{
+test('Trente-neuf positions vérifiées dans les quatre arbres',()=>{
  const expected={
   'Coup bas':1,'Ruée offensive':1,'Attaque renforcée':1,
   'Assaut enchaîné':2,'Tyran':2,'Orgueil':2,
   'Arracheur d\'œil':3,'Chasseur acharné':3,'Balise zombie':3,
-  'Courage du colosse':1,'Second souffle':2,'Revitalisation':3,
+  'Démolition':1,'Fontaine de vie':1,'Courage du colosse':1,'Inébranlable':1,
+  'Second souffle':2,'Orbe anti-magie':2,"Plaque d'os":2,
+  'Surcroissance':3,'Revitalisation':3,'Persévérance':3,
   'Brutal':1,'Triomphe':1,'Zèle de combat':1,
   "Baroud d'honneur":2,'Abattage':2,'Coup de grâce':2,
   'Légende : Alacrité':3,'Légende : Accélération':3,'Légende : Sangsue':3,
@@ -41,10 +43,11 @@ test('Trente-deux positions vérifiées, dont Domination, Précision, Sorcelleri
    assert.equal(r.primary_row_status,'not_verified');
   }
  }
- assert.equal(C.minor.filter(r=>r.primary_row!==null).length,32);
+ assert.equal(C.minor.filter(r=>r.primary_row!==null).length,39);
  assert.equal(C.minor.filter(r=>r.tree==='Précision'&&r.primary_row!==null).length,9);
  assert.equal(C.minor.filter(r=>r.tree==='Domination'&&r.primary_row!==null).length,9);
  assert.equal(C.minor.filter(r=>r.tree==='Sorcellerie'&&r.primary_row!==null).length,11);
+ assert.equal(C.minor.filter(r=>r.tree==='Volonté'&&r.primary_row!==null).length,10);
 });
 test('Ne jamais signaler l optimiseur prêt avant réconciliation',()=>{
  assert.equal(C.optimizer_ready,false);
