@@ -49,5 +49,5 @@ test('La couverture complète Support est explicitement confirmée',()=>{
  assert.equal(support.counts.visible_entries,20);
  assert.equal(support.coverage,'complete_20_items_confirmed_by_user_for_current_client');
  assert.equal(support.category_complete_confirmed_by_user,true);
- assert.deepEqual(support.entries.filter(x=>x.client_full_details_newly_verified).map(x=>x.name_fr).sort(),['Bénédiction de Mikael','Chant de guerre de Shurelya','Rédemption','Encensoir ardent',"Échos d'Helia",'Écho harmonieux','Bâton des flots','Piège à yordles','Vœu du chevalier',"Linceul de l'aube","Manteau de l'heure ultime",'Convergence de Zeke'].sort());
+ assert.deepEqual(support.entries.filter(x=>x.client_full_details_newly_verified).map(x=>x.name_fr).sort(),['Bénédiction de Mikael','Chant de guerre de Shurelya','Rédemption','Encensoir ardent',"Échos d'Helia",'Écho harmonieux','Bâton des flots','Piège à yordles','Vœu du chevalier',"Linceul de l'aube","Manteau de l'heure ultime",'Convergence de Zeke','Cœur gelé','Diadème des murmures'].sort());
 });
