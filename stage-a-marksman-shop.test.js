@@ -8,13 +8,17 @@ test('Tireur : 28 noms, 27 prix, une indisponibilité non interprétée',()=>{
  assert.equal(records.length,28);
  assert.equal(new Set(records.map(r=>r.name_fr)).size,28);
  assert.equal(records.filter(r=>Number.isFinite(r.price_gold)).length,27);
- assert.equal(marksman.coverage.includes('not yet confirmed'),true);
+ assert.equal(marksman.coverage,'complete_28_items_confirmed_by_user_for_current_client');
+ assert.equal(marksman.category_complete_confirmed_by_user,true);
 });
 test('Ouragan de Runaan : ne pas inventer un prix masqué par le cadenas',()=>{
  const x=records.find(r=>r.name_fr==='Ouragan de Runaan');
  assert.equal(x.price_gold,null);
  assert.equal(x.price_visibility,'covered_by_lock_icon');
- assert.ok(x.shop_restriction_markers.includes('padlock_visible_access_condition_unresolved'));
+ assert.ok(x.shop_restriction_markers.includes('ranged_champions_only_confirmed_by_user'));
+ assert.equal(x.restriction.eligible_attack_range_class,'ranged');
+ assert.equal(x.restriction.ineligible_attack_range_class,'melee');
+ assert.equal(x.restriction.example_ineligible_champion,'Galio');
 });
 test('Les prix du catalogue déjà documenté sont cohérents',()=>{
  const map=new Map(curated.items.map(i=>[i.id,i]));
