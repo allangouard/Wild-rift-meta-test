@@ -8,7 +8,7 @@
   "provenance": "user_reported_training_observation_via_chat",
   "observation_date": "2026-11-05",
   "patch": "not_recorded",
-  "evidence_type": "user_report_no_video_or_screenshots",
+  "evidence_type": "user_reports_and_attached_video_inspected_without_independent_proc_confirmation",
   "independently_verified": false,
   "replicated": false,
   "automatic_certification": false,
@@ -30,6 +30,17 @@
       "user_description": "bouclier supplémentaire observé",
       "interpretation": "Bouclier supplémentaire signalé après E de Galio.",
       "limits": "Observation manuelle ; distinction du bouclier passif à confirmer indépendamment."
+    },
+    {
+      "test_id": "electrocute-combo",
+      "rune": "Électrocution",
+      "ability": "E → P → A",
+      "result": "observed_yes",
+      "user_description": "Oui j’ai vu la rune s'active apres mon A",
+      "interpretation": "Le joueur rapporte le déclenchement d’Électrocution après A dans l’enchaînement E → passif → A.",
+      "limits": "La vidéo 1000010924.mp4 a été examinée mais ne permet pas de distinguer visuellement avec certitude le proc ni de déterminer le compteur d’événements admissibles. Contrôle à deux touches et répétitions encore nécessaires.",
+      "media_reference": "1000010924.mp4",
+      "provenance": "user_report_with_video_inspected_not_independently_confirmed"
     }
   ]
 }
