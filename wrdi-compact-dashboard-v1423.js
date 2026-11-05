@@ -59,8 +59,8 @@ function init(){
   if(!d||!Array.isArray(d.core)||!d.core.length||signature()!==activeSignature)return;
   haveBuild=true;buildDone=true;core.replaceChildren();
   core.append(el('h3',d.fullBuild?'⚔️ Build conseillé · 5 objets':'⚔️ Core Mid observé'));
-  fillRow(core,d.core.map(x=>x.name));
-  const help=el('p',d.fullBuild?'Cinq objets comparés ensemble pour Galio mid. Pas encore d’ordre d’achat validé. Bottes séparées ; les objets actifs du client comptent parmi les cinq.':'Trois objets Mid observés, pas encore un build complet optimisé.');help.className='small';core.append(help);
+  fillRow(core,d.core.map((x,i)=>d.purchaseOrderEstablished?(i+1)+'. '+x.name:x.name));
+  const help=el('p',d.fullBuild?'Cinq objets sélectionnés ensemble. L’ordre d’achat est une priorité théorique pour la lane puis les combats, à réévaluer en partie. Bottes séparées ; l’objet actif compte parmi les cinq.':'Trois objets Mid observés, pas encore un build complet optimisé.');help.className='small';core.append(help);
   if(d.fullBuild&&Array.isArray(d.buildReasons)&&d.buildReasons.length){
    const reasons=el('p',d.buildReasons.slice(0,2).join(' · '));reasons.className='small';core.append(reasons);
   }
