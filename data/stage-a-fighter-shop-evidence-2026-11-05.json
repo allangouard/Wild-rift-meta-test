@@ -1,0 +1,269 @@
+{
+  "schema": "wrdi.stage_a.client_shop_category_evidence.v1",
+  "date": "2026-11-05",
+  "game": "Wild Rift mobile",
+  "client_app_version": "7.3.0.2813",
+  "client_resource_version": "7.3.60.133",
+  "category": "Combattant",
+  "entries": [
+    {
+      "name_fr": "Épée dentelée chimico-punk",
+      "price_gold": 2800,
+      "screenshot": "1000010647.jpg",
+      "existing_catalog_id": null,
+      "candidate_id": "chempunk_chainsword",
+      "canonical_external_id_verified": false,
+      "proof": "shop_list_name_icon_price_visible",
+      "price_status": "visible",
+      "details_verified": false
+    },
+    {
+      "name_fr": "Manamune",
+      "price_gold": 2900,
+      "screenshot": "1000010647.jpg",
+      "existing_catalog_id": null,
+      "candidate_id": "manamune",
+      "canonical_external_id_verified": false,
+      "proof": "shop_list_name_icon_price_visible",
+      "price_status": "visible",
+      "details_verified": false
+    },
+    {
+      "name_fr": "Éclipse",
+      "price_gold": 2900,
+      "screenshot": "1000010647.jpg",
+      "existing_catalog_id": null,
+      "candidate_id": "eclipse",
+      "canonical_external_id_verified": false,
+      "proof": "shop_list_name_icon_price_visible",
+      "price_status": "visible",
+      "details_verified": false
+    },
+    {
+      "name_fr": "Déchirure céleste",
+      "price_gold": 2900,
+      "screenshot": "1000010647.jpg",
+      "existing_catalog_id": null,
+      "candidate_id": "sundered_sky",
+      "canonical_external_id_verified": false,
+      "proof": "shop_list_name_icon_price_visible",
+      "price_status": "visible",
+      "details_verified": false
+    },
+    {
+      "name_fr": "Hexplaque expérimentale",
+      "price_gold": 3000,
+      "screenshot": "1000010647.jpg",
+      "existing_catalog_id": null,
+      "candidate_id": "experimental_hexplate",
+      "canonical_external_id_verified": false,
+      "proof": "shop_list_name_icon_price_visible",
+      "price_status": "visible",
+      "details_verified": false
+    },
+    {
+      "name_fr": "Gueule de Malmortius",
+      "price_gold": 3000,
+      "screenshot": "1000010647.jpg",
+      "existing_catalog_id": null,
+      "candidate_id": "maw_of_malmortius",
+      "canonical_external_id_verified": false,
+      "proof": "shop_list_name_icon_price_visible",
+      "price_status": "visible",
+      "details_verified": false
+    },
+    {
+      "name_fr": "Couperet noir",
+      "price_gold": 3000,
+      "screenshot": "1000010647.jpg",
+      "existing_catalog_id": null,
+      "candidate_id": "black_cleaver",
+      "canonical_external_id_verified": false,
+      "proof": "shop_list_name_icon_price_visible",
+      "price_status": "visible",
+      "details_verified": false
+    },
+    {
+      "name_fr": "Hydre titanesque",
+      "price_gold": 3000,
+      "screenshot": "1000010647.jpg",
+      "existing_catalog_id": "titanic_hydra",
+      "candidate_id": null,
+      "canonical_external_id_verified": false,
+      "proof": "shop_list_name_icon_price_visible",
+      "price_status": "visible",
+      "details_verified": false
+    },
+    {
+      "name_fr": "Estropieur",
+      "price_gold": null,
+      "screenshot": "1000010647.jpg",
+      "existing_catalog_id": null,
+      "candidate_id": "stridebreaker",
+      "canonical_external_id_verified": false,
+      "proof": "shop_list_name_icon_price_visible",
+      "price_status": "obscured",
+      "details_verified": false
+    },
+    {
+      "name_fr": "Éviscérateur",
+      "price_gold": null,
+      "screenshot": "1000010647.jpg",
+      "existing_catalog_id": null,
+      "candidate_id": "goredrinker",
+      "canonical_external_id_verified": false,
+      "proof": "shop_list_name_icon_price_visible",
+      "price_status": "obscured",
+      "details_verified": false
+    },
+    {
+      "name_fr": "Cimeterre mercuriel",
+      "price_gold": 3100,
+      "screenshot": "1000010649.jpg",
+      "existing_catalog_id": null,
+      "candidate_id": "mercurial_scimitar",
+      "canonical_external_id_verified": false,
+      "proof": "shop_list_name_icon_price_visible",
+      "price_status": "visible",
+      "details_verified": false
+    },
+    {
+      "name_fr": "Lame du roi déchu",
+      "price_gold": 3100,
+      "screenshot": "1000010649.jpg",
+      "existing_catalog_id": null,
+      "candidate_id": "blade_of_the_ruined_king",
+      "canonical_external_id_verified": false,
+      "proof": "shop_list_name_icon_price_visible",
+      "price_status": "visible",
+      "details_verified": false
+    },
+    {
+      "name_fr": "Rancune de Serylda",
+      "price_gold": 3100,
+      "screenshot": "1000010649.jpg",
+      "existing_catalog_id": null,
+      "candidate_id": "seryldas_grudge",
+      "canonical_external_id_verified": false,
+      "proof": "shop_list_name_icon_price_visible",
+      "price_status": "visible",
+      "details_verified": false
+    },
+    {
+      "name_fr": "Lance de Shojin",
+      "price_gold": 3100,
+      "screenshot": "1000010649.jpg",
+      "existing_catalog_id": null,
+      "candidate_id": "spear_of_shojin",
+      "canonical_external_id_verified": false,
+      "proof": "shop_list_name_icon_price_visible",
+      "price_status": "visible",
+      "details_verified": false
+    },
+    {
+      "name_fr": "Brise-coques",
+      "price_gold": 3100,
+      "screenshot": "1000010649.jpg",
+      "existing_catalog_id": null,
+      "candidate_id": "hullbreaker",
+      "canonical_external_id_verified": false,
+      "proof": "shop_list_name_icon_price_visible",
+      "price_status": "visible",
+      "details_verified": false
+    },
+    {
+      "name_fr": "Armure sanguine",
+      "price_gold": 3200,
+      "screenshot": "1000010649.jpg",
+      "existing_catalog_id": "overlords_bloodmail",
+      "candidate_id": null,
+      "canonical_external_id_verified": false,
+      "proof": "shop_list_name_icon_price_visible",
+      "price_status": "visible",
+      "details_verified": false
+    },
+    {
+      "name_fr": "Ange gardien",
+      "price_gold": 3200,
+      "screenshot": "1000010649.jpg",
+      "existing_catalog_id": "guardian_angel",
+      "candidate_id": null,
+      "canonical_external_id_verified": false,
+      "proof": "shop_list_name_icon_price_visible",
+      "price_status": "visible",
+      "details_verified": false
+    },
+    {
+      "name_fr": "Soif-de-sang",
+      "price_gold": 3200,
+      "screenshot": "1000010649.jpg",
+      "existing_catalog_id": null,
+      "candidate_id": "bloodthirster",
+      "canonical_external_id_verified": false,
+      "proof": "shop_list_name_icon_price_visible",
+      "price_status": "visible",
+      "details_verified": false
+    },
+    {
+      "name_fr": "Gage de Sterak",
+      "price_gold": 3200,
+      "screenshot": "1000010649.jpg",
+      "existing_catalog_id": "steraks_gage",
+      "candidate_id": null,
+      "canonical_external_id_verified": false,
+      "proof": "shop_list_name_icon_price_visible",
+      "price_status": "visible",
+      "details_verified": false
+    },
+    {
+      "name_fr": "Pourfendeur divin",
+      "price_gold": 3300,
+      "screenshot": "1000010649.jpg",
+      "existing_catalog_id": null,
+      "candidate_id": "divine_sunderer",
+      "canonical_external_id_verified": false,
+      "proof": "shop_list_name_icon_price_visible",
+      "price_status": "visible",
+      "details_verified": false
+    },
+    {
+      "name_fr": "Danse de la mort",
+      "price_gold": 3300,
+      "screenshot": "1000010653.jpg",
+      "existing_catalog_id": "deaths_dance",
+      "candidate_id": null,
+      "canonical_external_id_verified": false,
+      "proof": "shop_list_name_icon_price_visible",
+      "price_status": "visible",
+      "details_verified": false
+    },
+    {
+      "name_fr": "Force de la trinité",
+      "price_gold": 3333,
+      "screenshot": "1000010653.jpg",
+      "existing_catalog_id": null,
+      "candidate_id": "trinity_force",
+      "canonical_external_id_verified": false,
+      "proof": "shop_list_name_icon_price_visible",
+      "price_status": "visible",
+      "details_verified": false
+    }
+  ],
+  "visible_named_entries": 22,
+  "visible_prices": 20,
+  "matched_existing": 5,
+  "unmatched_existing": 17,
+  "images": [
+    "1000010647.jpg",
+    "1000010649.jpg",
+    "1000010653.jpg"
+  ],
+  "caveats": [
+    "The initial and final scroll boundaries are not proven covered by these three screenshots.",
+    "Estropieur and Éviscérateur names visible but prices clipped, remain unknown.",
+    "Upper edge of first and third screenshot contains partially cropped rows not transcribed.",
+    "Force de la trinité shows 3333 PO in screenshot, even if historical sources disagree.",
+    "The external canonical ID candidates are preliminary; item properties, restrictions and current patch cannot be inferred from names alone.",
+    "No new rows automatically activated for recommendations."
+  ]
+}
