@@ -42,8 +42,8 @@ test('Bloquer une autre sélection que Galio et un rapport sans 5 ennemis',()=>{
 });
 test('Rejeter les 5 identifiants adverses non distincts',()=>{
  const s=mockSummary();
- s.enemies[1].id=s.enemies[0].id;
- assert.equal(scenarios.evaluate({championId:'10099',summary:s,catalog,bridge}).ok,false);
+ const malformed={...s,enemies:s.enemies.map((enemy,i)=>i===1?{...enemy,id:s.enemies[0].id}:enemy)};
+ assert.equal(scenarios.evaluate({championId:'10099',summary:malformed,catalog,bridge}).ok,false);
 });
 test('V14.8 visible dans l onglet Runes et sans injection de score inventé',()=>{
  const html=fs.readFileSync('index.html','utf8');
