@@ -5,10 +5,10 @@
   "client_resource_version": "7.3.60.133",
   "notes": [
     "Entries indexed by observed French in-game name; normalize typography for dedupe but not external identity.",
-    "Category completeness explicitly confirmed for Assassin, Tireur and Support only. Magie, Défense, Combattant completeness not yet confirmed.",
     "14/15? boots are tracked separately from these six shop categories; 15/15 detailed boot values documented.",
     "Full item stats, passives, numeric external IDs not certified by this listing inventory.",
-    "Locked Runaan has no visible price; it is restricted to ranged, per user firsthand confirmation."
+    "Locked Runaan has no visible price; it is restricted to ranged, per user firsthand confirmation.",
+    "User explicitly confirmed all 6 categories exhaustive for this client; screenshots established 102 unique names from 139 category rows. Does not certify game balance patch, complete individual descriptions, or mapping external numeric IDs."
   ],
   "counts": {
     "shop_category_rows": 139,
@@ -17,16 +17,16 @@
     "unique_unknown_price_items": 1,
     "price_conflicts": 0,
     "confirmed_complete_categories": [
+      "Magie",
+      "Défense",
+      "Combattant",
       "Assassin",
       "Tireur",
       "Support"
     ],
-    "categories_not_yet_confirmed_complete": [
-      "Magie",
-      "Défense",
-      "Combattant"
-    ],
-    "boots_unique_separate": 15
+    "categories_not_yet_confirmed_complete": [],
+    "boots_unique_separate": 15,
+    "all_six_categories_user_confirmed_complete": true
   },
   "conflicts": [],
   "items": [
