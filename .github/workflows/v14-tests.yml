@@ -98,3 +98,5 @@ jobs:
         run: node --test stage-a-runes-batch6.test.js
       - name: Tester quatre nouvelles runes Domination du client (lot 7)
         run: node --test stage-a-runes-batch7.test.js
+      - name: Tester les 39 runes secondaires et leurs arbres
+        run: node --test stage-a-minor-rune-completeness.test.js
