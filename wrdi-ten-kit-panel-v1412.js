@@ -53,6 +53,9 @@ function mount(){
    const resp=await fetch('./data/rune-catalog-client-v14.json',{cache:'no-store'});
    if(!resp.ok)throw Error('Catalogue des runes indisponible : '+resp.status);
    const catalog=await resp.json();
+   if(token!==seq||JSON.stringify(ids())!==fingerprint){
+    out.replaceChildren(el('p','La draft a changé pendant le chargement du catalogue.'));return;
+   }
    const comparison=engine.analyzeCandidates(inspected,{advisor:oldAdvisor,picks,catalog,bridge});
    out.replaceChildren();
    if(!comparison.ok){out.append(el('p','Comparaison bloquée : '+(comparison.errors||[]).join(' ; ')));return;}
