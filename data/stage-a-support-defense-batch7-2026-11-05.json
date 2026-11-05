@@ -1,0 +1,89 @@
+{
+  "schema": "wrdi.stage_a.support_defense_details_batch7.v1",
+  "game": "Wild Rift mobile",
+  "date": "2026-11-05",
+  "client_app_version": "7.3.0.2813",
+  "client_resource_version": "7.3.60.133",
+  "source": "Direct in-game item-detail screenshots and user's client confirmation",
+  "items": [
+    {
+      "name_fr": "Cœur gelé",
+      "catalog_id": "frozen_heart",
+      "price_gold": 2550,
+      "image": "1000010743.jpg",
+      "stats": {
+        "armor": 80,
+        "mana": 400,
+        "ability_haste": 20
+      },
+      "passives": [
+        {
+          "name_fr": "Caresse de l'hiver",
+          "type": "aura",
+          "target": "enemy_champions",
+          "radius_units": 650,
+          "enemy_attack_speed_reduction_pct": 25
+        }
+      ],
+      "external_numeric_id_verified": false
+    },
+    {
+      "name_fr": "Diadème des murmures",
+      "catalog_id": "whispering_circlet",
+      "price_gold": 2400,
+      "image": "1000010734.jpg",
+      "additional_image": "1000010737.jpg",
+      "stats": {
+        "hp": 200,
+        "mana": 500,
+        "mana_regeneration_pct": 50,
+        "heal_shield_power_pct": 6
+      },
+      "passives": [
+        {
+          "name_fr": "Harmonie",
+          "bonus_heal_shield_power_from_max_mana": {
+            "pct_per_point_of_mana": 0.25,
+            "interpretation": "0.25% of max mana as bonus heal/shield power; exact unit handling untested"
+          },
+          "mana_refund_pct_of_ability_mana_spent": 25
+        },
+        {
+          "name_fr": "Charge de mana",
+          "trigger": "spend_mana",
+          "mana_per_trigger": 14,
+          "max_triggers_per_10_seconds": 3,
+          "max_bonus_mana": 700,
+          "transform_into_name_fr": "Diadème musical",
+          "transform_into_catalog_id": "harmonic_circlet",
+          "transformation_threshold_interpretation": "max_bonus_mana_vs_total_mana wording ambiguous; no inferred formula"
+        }
+      ],
+      "external_numeric_id_verified": false
+    },
+    {
+      "name_fr": "Convergence de Zeke",
+      "catalog_id": "zekes_convergence",
+      "price_gold": 2400,
+      "image": "1000010731.jpg",
+      "stats": {
+        "hp": 300,
+        "armor": 25,
+        "magic_resistance": 25,
+        "ability_haste": 10
+      },
+      "confirmation": "HP +300 stated by user as verified in their game's shop; earlier screenshot cropped; original catalog agrees",
+      "external_numeric_id_verified": false
+    }
+  ],
+  "policy": {
+    "do_not_automatically_load_into_build_recommendations": true,
+    "mechanics_experimentally_calibrated": false,
+    "external_numeric_ids_verified": false
+  },
+  "open_questions": [
+    "Diadème des murmures becomes Diadème musical once the stated mana stack cap is reached; cannot infer exact bonus-heal power calculation convention beyond tooltip.",
+    "Cœur gelé aura stacking with other effects is not client-validated.",
+    "Zeke +300 HP confirmed by user's own client statement but not on the newly uploaded image."
+  ]
+}
