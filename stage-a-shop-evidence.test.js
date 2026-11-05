@@ -90,3 +90,37 @@ test('Chaussures de lanceur de sorts : description client séparée du modèle v
  assert.equal(d.passives[1].bonus_true_damage,18);
  assert.equal(d.mechanics_interactions_tested,false);
 });
+
+const bootDetails=require('./data/stage-a-boots-details-batch1-2026-11-05.json');
+test('dix fiches supplémentaires et onze détails bottes attestés',()=>{
+ assert.equal(bootDetails.records.length,10);
+ assert.equal(boots.coverage.description_details_fully_documented,11);
+ assert.equal(new Set(bootDetails.records.map(x=>x.name_fr)).size,10);
+ assert.equal(boots.entries.filter(x=>x.stats_verified).length,11);
+ for(const d of bootDetails.records){
+  const index=boots.entries.find(x=>x.name_fr===d.name_fr);
+  assert.ok(index,d.name_fr);
+  assert.equal(index.price_gold,d.price_gold);
+  assert.equal(index.stats_verified,true);
+  assert.equal(index.canonical_external_id,null);
+  assert.equal(d.interactions_tested,false);
+  assert.equal(d.external_id_verified,false);
+ }
+});
+test('bottes défensives : valeurs et conditions en client, pas interaction validée',()=>{
+ const x=bootDetails.records.find(x=>x.name_fr==='Avancée blindée');
+ assert.equal(x.stats.armor,30);
+ assert.equal(x.passives.find(p=>p.name_fr==='Endurance noxienne').shield_max_health_pct,5);
+ assert.equal(x.passives.find(p=>p.name_fr==='Endurance noxienne').cooldown_seconds,12);
+ const y=bootDetails.records.find(x=>x.name_fr==='Broyeuses à chaînes');
+ assert.equal(y.stats.mr,30);
+ assert.equal(y.passives[0].shield_damage_type,'magic');
+});
+test('bottes magie et pénétration transcrites sans fusionner fixe et pourcentage',()=>{
+ const x=bootDetails.records.find(x=>x.name_fr==='Bottes de mana');
+ assert.equal(x.stats.magic_pen_flat,8);
+ assert.equal(x.stats.magic_pen_pct,undefined);
+ const y=bootDetails.records.find(x=>x.name_fr==='Bottes Brise-armure');
+ assert.equal(y.stats.armor_pen_flat,10);
+ assert.equal(y.stats.armor_pen_pct,6);
+});
