@@ -54,10 +54,12 @@
     "defense_shop_matching_curated_entries": 28,
     "defense_shop_newly_filled_prices": 23,
     "defense_shop_unresolved_identities": [
-      "Médaillon de l’Iron Solari",
-      "Lithoplastron de gargouille"
+      "Médaillon de l’Iron Solari — details recorded; external ID pending",
+      "Lithoplastron de gargouille — details recorded; external ID pending"
     ],
-    "defense_shop_evidence": "data/stage-a-defense-shop-evidence-2026-11-05.json"
+    "defense_shop_evidence": "data/stage-a-defense-shop-evidence-2026-11-05.json",
+    "defense_active_details_file": "data/stage-a-defense-active-details-2026-11-05.json",
+    "newly_recorded_active_items_with_provisional_ids": 2
   },
   "gates": [
     {
@@ -117,6 +119,7 @@
     "never_infer_verified_item_effects_from_old_PC_or_7_2a_catalog": true
   },
   "stage_a_findings": [
-    "2026-11-05: defense category screenshot inventory 30 rows, 28 catalog mappings, 23 newly verified prices, 2 unmatched entries; descriptive details/actives pending."
+    "2026-11-05: defense category screenshot inventory 30 rows, 28 catalog mappings, 23 newly verified prices, 2 unmatched entries; descriptive details/actives pending.",
+    "2026-11-05: Locket + Gargoyle: client confirms stats/active effects, cooldowns; not yet canonical-ID reconciled, cannot be used automatically."
   ]
 }
