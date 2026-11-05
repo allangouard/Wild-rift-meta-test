@@ -8,14 +8,24 @@
   "shop_category": "Bottes",
   "screenshots": [
     "1000010593.jpg",
-    "1000010591.jpg"
+    "1000010591.jpg",
+    "1000010614.jpg",
+    "1000010617.jpg",
+    "1000010620.jpg",
+    "1000010623.jpg",
+    "1000010626.jpg",
+    "1000010629.jpg",
+    "1000010632.jpg",
+    "1000010635.jpg",
+    "1000010638.jpg",
+    "1000010641.jpg"
   ],
   "coverage": {
     "upper_tier_visible": 7,
     "intermediate_tier_visible": 7,
     "basic_tier_visible": 0,
     "complete_current_shop_inventory": false,
-    "description_details_fully_documented": 1
+    "description_details_fully_documented": 11
   },
   "entries": [
     {
@@ -60,7 +70,8 @@
       "shop_short_description_fr": "Octroie un bouclier magique lorsque vous subissez des dégâts magiques",
       "canonical_external_id": null,
       "source_level": "client_list_icon_name_price_description_visible",
-      "stats_verified": false
+      "stats_verified": true,
+      "client_details_source": "data/stage-a-boots-details-batch1-2026-11-05.json"
     },
     {
       "shop_order": 5,
@@ -71,7 +82,8 @@
       "shop_short_description_fr": "Confère de l’armure et un bouclier",
       "canonical_external_id": null,
       "source_level": "client_list_icon_name_price_description_visible",
-      "stats_verified": false
+      "stats_verified": true,
+      "client_details_source": "data/stage-a-boots-details-batch1-2026-11-05.json"
     },
     {
       "shop_order": 6,
@@ -93,7 +105,8 @@
       "shop_short_description_fr": "Octroie de la vitesse de déplacement hors combat",
       "canonical_external_id": null,
       "source_level": "client_list_icon_name_price_description_visible",
-      "stats_verified": false
+      "stats_verified": true,
+      "client_details_source": "data/stage-a-boots-details-batch1-2026-11-05.json"
     },
     {
       "shop_order": 8,
@@ -104,7 +117,8 @@
       "shop_short_description_fr": "Force adaptative, omnivampirisme",
       "canonical_external_id": null,
       "source_level": "client_list_icon_name_price_description_visible",
-      "stats_verified": false
+      "stats_verified": true,
+      "client_details_source": "data/stage-a-boots-details-batch1-2026-11-05.json"
     },
     {
       "shop_order": 9,
@@ -115,7 +129,8 @@
       "shop_short_description_fr": "Réduit les délais de récupération des compétences",
       "canonical_external_id": null,
       "source_level": "client_list_icon_name_price_description_visible",
-      "stats_verified": false
+      "stats_verified": true,
+      "client_details_source": "data/stage-a-boots-details-batch1-2026-11-05.json"
     },
     {
       "shop_order": 10,
@@ -126,7 +141,8 @@
       "shop_short_description_fr": "Augmente la vitesse d’attaque",
       "canonical_external_id": null,
       "source_level": "client_list_icon_name_price_description_visible",
-      "stats_verified": false
+      "stats_verified": true,
+      "client_details_source": "data/stage-a-boots-details-batch1-2026-11-05.json"
     },
     {
       "shop_order": 11,
@@ -137,7 +153,8 @@
       "shop_short_description_fr": "Augmente la résistance magique",
       "canonical_external_id": null,
       "source_level": "client_list_icon_name_price_description_visible",
-      "stats_verified": false
+      "stats_verified": true,
+      "client_details_source": "data/stage-a-boots-details-batch1-2026-11-05.json"
     },
     {
       "shop_order": 12,
@@ -148,7 +165,8 @@
       "shop_short_description_fr": "Réduit les dégâts des attaques de champion",
       "canonical_external_id": null,
       "source_level": "client_list_icon_name_price_description_visible",
-      "stats_verified": false
+      "stats_verified": true,
+      "client_details_source": "data/stage-a-boots-details-batch1-2026-11-05.json"
     },
     {
       "shop_order": 13,
@@ -159,7 +177,8 @@
       "shop_short_description_fr": "Puissance, Pénétration magique, Régénération du mana",
       "canonical_external_id": null,
       "source_level": "client_list_icon_name_price_description_visible",
-      "stats_verified": false
+      "stats_verified": true,
+      "client_details_source": "data/stage-a-boots-details-batch1-2026-11-05.json"
     },
     {
       "shop_order": 14,
@@ -170,7 +189,8 @@
       "shop_short_description_fr": "Dégâts d’attaque, Pénétration d’armure",
       "canonical_external_id": null,
       "source_level": "client_list_icon_name_price_description_visible",
-      "stats_verified": false
+      "stats_verified": true,
+      "client_details_source": "data/stage-a-boots-details-batch1-2026-11-05.json"
     }
   ],
   "detailed_item": {
