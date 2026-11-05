@@ -459,18 +459,19 @@ function simpleCandidates(core,mode,c,items,own,enemyNames){
 }
 async function simpleAnalyze(){
  const out=$('simpleResults'),own=draftPicks[2],enemy=draftPicks.slice(5),items=db.items?.items||[];
+ const reportFailure=(message)=>{if(typeof window!=='undefined')window.dispatchEvent(new CustomEvent('wrdi:build-error',{detail:{message:String(message),draftFingerprint:JSON.stringify(draftPicks)}}));};
  out.style.display='block';
- if(!own||enemy.some(x=>!x)){out.innerHTML='<p class="warn">Choisis ton champion Mid et les cinq adversaires. Tu peux ajouter tes quatre alliés pour compléter la draft.</p>';out.scrollIntoView({behavior:'smooth'});return}
+ if(!own||enemy.some(x=>!x)){out.innerHTML='<p class="warn">Choisis ton champion Mid et les cinq adversaires. Tu peux ajouter tes quatre alliés pour compléter la draft.</p>';reportFailure('Sélectionne ton mid et les cinq adversaires.');out.scrollIntoView({behavior:'smooth'});return}
  const patches=[db.meta?.patch,db.items?.patch,db.runes?.patch];
- if(!items.length||patches.some(x=>!x)||new Set(patches).size!==1){out.innerHTML='<p class="bad">Données indisponibles ou patchs incohérents : aucune recommandation non vérifiable.</p>';return}
+ if(!items.length||patches.some(x=>!x)||new Set(patches).size!==1){out.innerHTML='<p class="bad">Données indisponibles ou patchs incohérents : aucune recommandation non vérifiable.</p>';reportFailure('Sources d’objets indisponibles ou versions de patch divergentes.');return}
  out.innerHTML='<p>Analyse des cores Mid et du catalogue en cours…</p>';
  try{
  const data=await get(BASE+'/api/build/'+encodeURIComponent(own)+'_1.json'),mid=optPosition(data);
- if(!mid){out.innerHTML='<p class="warn">Aucun core Mid identifiable pour ce champion dans la source actuelle.</p>';return}
+ if(!mid){out.innerHTML='<p class="warn">Aucun core Mid identifiable pour ce champion dans la source actuelle.</p>';reportFailure('Aucun core Mid identifié pour ce champion.');return}
  const valid=new Set(items.map(x=>String(x.id)));
  const cores=(mid.core||[]).filter(x=>Array.isArray(x.items)&&x.items.length===3&&x.items.every(y=>valid.has(optId(y)))&&new Set(x.items.map(optId)).size===3);
  const unique=[...new Map(cores.slice().sort((a,b)=>(engineNum(b.pick)||0)-(engineNum(a.pick)||0)).map(c=>[simpleCoreSignature(c),c])).values()].sort((a,b)=>(engineNum(b.pick)||0)-(engineNum(a.pick)||0));
- if(!unique.length){out.innerHTML='<p class="warn">Aucun core Mid complet et reconnu pour ce champion. Le moteur refuse de substituer un build d’un autre rôle.</p>';return}
+ if(!unique.length){out.innerHTML='<p class="warn">Aucun core Mid complet et reconnu pour ce champion. Le moteur refuse de substituer un build d’un autre rôle.</p>';reportFailure('Aucun core Mid complet vérifiable dans les données externes.');return}
  // Le registre client est exclusivement un garde-fou de compatibilite.
  // Ne jamais convertir son contenu exploratoire en source de builds optimaux.
  let itemSafety=null,itemSafetyReason='Audit des restrictions indisponible.';
@@ -538,7 +539,7 @@ async function simpleAnalyze(){
    situational:chosen.map(c=>({id:String(c.x.id),name:simpleItemName(c.x),reason:c.rule.reasons.join(' ; ')||simpleWhy(c.x,c,own),timing:c.rule.timing})),
    coreType:coreCompatibilityKnown?'most_observed_mid_compatible':'observed_mid_unverified',runeSource:'observed_mid',itemRestrictionsChecked:canAudit,itemRestrictionsMessage:canAudit?'Restrictions du client vérifiées pour les objets proposés':(baseCheck?.reason||itemSafetyReason)} }));
  if(!window.WRDI_CompactV1423)out.scrollIntoView({behavior:'smooth',block:'start'});
- }catch(e){out.innerHTML='<p class="bad">Impossible de charger les cores Mid : '+esc(String(e))+'</p>'}
+ }catch(e){out.innerHTML='<p class="bad">Impossible de charger les cores Mid : '+esc(String(e))+'</p>';reportFailure('Analyse des objets interrompue : '+String(e?.message||e));}
 }
 $('simpleRun').onclick=simpleAnalyze;
 simpleDraft();
