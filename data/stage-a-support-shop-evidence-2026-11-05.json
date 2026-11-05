@@ -27,9 +27,10 @@
       "provisional_identity_candidate": "echoes_of_helia",
       "already_listed_in_categories": [],
       "price_confirmed_from_client": true,
-      "full_item_stats_verified": false,
+      "full_item_stats_verified": true,
       "external_numeric_id_verified": false,
-      "client_full_details_newly_verified": false
+      "client_full_details_newly_verified": true,
+      "detail_evidence_file": "data/stage-a-support-passives-batch4-2026-11-05.json"
     },
     {
       "name_fr": "Diadème des murmures",
@@ -70,9 +71,10 @@
       "provisional_identity_candidate": "ardent_censer",
       "already_listed_in_categories": [],
       "price_confirmed_from_client": true,
-      "full_item_stats_verified": false,
+      "full_item_stats_verified": true,
       "external_numeric_id_verified": false,
-      "client_full_details_newly_verified": false
+      "client_full_details_newly_verified": true,
+      "detail_evidence_file": "data/stage-a-support-passives-batch4-2026-11-05.json"
     },
     {
       "name_fr": "Bâton des flots",
@@ -200,9 +202,10 @@
       "provisional_identity_candidate": "harmonic_echo",
       "already_listed_in_categories": [],
       "price_confirmed_from_client": true,
-      "full_item_stats_verified": false,
+      "full_item_stats_verified": true,
       "external_numeric_id_verified": false,
-      "client_full_details_newly_verified": false
+      "client_full_details_newly_verified": true,
+      "detail_evidence_file": "data/stage-a-support-passives-batch4-2026-11-05.json"
     },
     {
       "name_fr": "Cœur gelé",
