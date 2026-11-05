@@ -68,17 +68,17 @@ test('deux objets actifs de defense documentes sans inventer identifiants',()=>{
 });
 
 const boots=require('./data/stage-a-boots-shop-evidence-2026-11-05.json');
-test('inventaire bottes : 14 entrées, 7 supérieures et 7 intermédiaires',()=>{
- assert.equal(boots.entries.length,14);
+test('inventaire bottes : 15 entrées, 7 supérieures, 7 intermédiaires et 1 basique',()=>{
+ assert.equal(boots.entries.length,15);
  assert.equal(boots.entries.filter(x=>x.tier==='upper').length,7);
  assert.equal(boots.entries.filter(x=>x.tier==='intermediate').length,7);
- assert.equal(new Set(boots.entries.map(x=>x.name_fr)).size,14);
- assert.equal(boots.coverage.basic_tier_visible,0);
- assert.equal(boots.coverage.complete_current_shop_inventory,false);
+ assert.equal(new Set(boots.entries.map(x=>x.name_fr)).size,15);
+ assert.equal(boots.coverage.basic_tier_visible,1);
+ assert.equal(boots.coverage.complete_current_shop_inventory,true);
  assert.equal(boots.policy.do_not_load_into_build_recommendations,true);
 });
 test('Bottes : les prix et captures correspondent au palier',()=>{
- assert.ok(boots.entries.every(x=>x.price_gold>=1000&&x.price_gold<=2200));
+ assert.ok(boots.entries.every(x=>x.price_gold>=400&&x.price_gold<=2200));
  assert.ok(boots.entries.every(x=>boots.screenshots.includes(x.screenshot)));
  assert.ok(boots.entries.every(x=>x.canonical_external_id===null));
 });
@@ -94,9 +94,9 @@ test('Chaussures de lanceur de sorts : description client séparée du modèle v
 const bootDetails=require('./data/stage-a-boots-details-batch1-2026-11-05.json');
 test('dix fiches supplémentaires et onze détails bottes attestés',()=>{
  assert.equal(bootDetails.records.length,10);
- assert.equal(boots.coverage.description_details_fully_documented,11);
+ assert.equal(boots.coverage.description_details_fully_documented,14);
  assert.equal(new Set(bootDetails.records.map(x=>x.name_fr)).size,10);
- assert.equal(boots.entries.filter(x=>x.stats_verified).length,11);
+ assert.equal(boots.entries.filter(x=>x.stats_verified).length,14);
  for(const d of bootDetails.records){
   const index=boots.entries.find(x=>x.name_fr===d.name_fr);
   assert.ok(index,d.name_fr);
@@ -123,4 +123,32 @@ test('bottes magie et pénétration transcrites sans fusionner fixe et pourcenta
  const y=bootDetails.records.find(x=>x.name_fr==='Bottes Brise-armure');
  assert.equal(y.stats.armor_pen_flat,10);
  assert.equal(y.stats.armor_pen_pct,6);
+});
+
+const bootDetails2=require('./data/stage-a-boots-details-batch2-2026-11-05.json');
+test('les 3 dernieres bottes superieures deja fournies ont des fiches',()=>{
+ assert.equal(bootDetails2.records.length,3);
+ assert.deepEqual(bootDetails2.records.map(x=>x.name_fr).sort(),['Jambières de métal','Lucidité pourpre','Sandales immortelles'].sort());
+ for(const record of bootDetails2.records){
+  const index=boots.entries.find(x=>x.name_fr===record.name_fr);
+  assert.ok(index);
+  assert.equal(index.price_gold,record.price_gold);
+  assert.equal(index.stats_verified,true);
+  assert.equal(record.external_id_verified,false);
+  assert.equal(record.interactions_tested,false);
+ }
+});
+test('Bottes de vitesse à 400 PO : pas de vitesse chiffrée inventée',()=>{
+ assert.equal(bootDetails2.basic_boots.name_fr,'Bottes de vitesse');
+ assert.equal(bootDetails2.basic_boots.price_gold,400);
+ assert.equal(bootDetails2.basic_boots.movement_speed_exact_value,null);
+ assert.equal(boots.entries.find(x=>x.name_fr==='Bottes de vitesse').stats_verified,false);
+});
+test('restrictions de Hâte noxienne et soins des bottes documentés',()=>{
+ const lucid=bootDetails2.records.find(x=>x.name_fr==='Lucidité pourpre');
+ assert.equal(lucid.stats.ability_haste,25);
+ assert.ok(lucid.passives.some(x=>x.trigger_limit==='une fois toutes les 4 secondes par compétence'));
+ const steel=bootDetails2.records.find(x=>x.name_fr==='Jambières de métal');
+ assert.equal(steel.stats.attack_speed_pct,50);
+ assert.ok(steel.passives.some(x=>x.on_attack_heal===12));
 });
