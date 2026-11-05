@@ -1,0 +1,105 @@
+{
+  "schema": "wrdi.stage_a.standalone_active_details.v1",
+  "game": "Wild Rift mobile",
+  "date": "2026-11-05",
+  "client_app_version": "7.3.0.2813",
+  "client_resource_version": "7.3.60.133",
+  "source": "Screenshots supplied in current conversation (client item descriptions)",
+  "records": [
+    {
+      "name_fr": "Chant de guerre de Shurelya",
+      "provisional_id": "shurelyas_battlesong",
+      "price_gold": 2500,
+      "stats": {
+        "ap": 55,
+        "mana_regen_pct": 50,
+        "ability_haste": 20,
+        "movement_speed_pct": 4
+      },
+      "active": {
+        "name_fr": "Discours inspirant",
+        "beneficiaries": "allies_nearby",
+        "self_inclusion": "not_explicitly_stated_in_client_text",
+        "movement_speed_bonus_pct": 30,
+        "duration_seconds": 4,
+        "cooldown_seconds": 60
+      },
+      "passives_visible": [],
+      "screenshot": "1000010677.jpg"
+    },
+    {
+      "name_fr": "Bénédiction de Mikael",
+      "provisional_id": "mikaels_blessing",
+      "price_gold": 2500,
+      "stats": {
+        "hp": 300,
+        "mana_regen_pct": 50,
+        "ability_haste": 15,
+        "heal_shield_power_pct": 9
+      },
+      "active": {
+        "name_fr": "Purification",
+        "target": "one_allied_champion",
+        "effect": "remove_negative_crowd_control",
+        "exclusions": [
+          "airborne_knockup",
+          "suppression_neutralisation"
+        ],
+        "grants_crowd_control_immunity_seconds": 0.2,
+        "healing_hp_min": 150,
+        "healing_hp_max": 250,
+        "healing_scaling": "not_specified_by_visible_client_description",
+        "cooldown_seconds": 75
+      },
+      "passives_visible": [],
+      "screenshot": "1000010680.jpg"
+    },
+    {
+      "name_fr": "Cimeterre mercuriel",
+      "provisional_id": "mercurial_scimitar",
+      "price_gold": 3100,
+      "stats": {
+        "attack_damage": 45,
+        "magic_resistance": 40,
+        "lifesteal_pct": 12
+      },
+      "active": {
+        "name_fr": "Ceinture de mercure",
+        "target": "self",
+        "effect": "remove_all_negative_effects_affecting_self",
+        "grants_crowd_control_immunity_seconds": 0.25,
+        "activation_restrictions": [
+          "cannot_activate_while_airborne_knockup",
+          "cannot_activate_while_knocked_back"
+        ],
+        "cooldown_seconds": 60
+      },
+      "passives_visible": [
+        {
+          "name_fr": "Persévérance",
+          "trigger": "when_Mercure_effect_ends",
+          "tenacity_pct": 30,
+          "slow_resistance_pct": 30,
+          "duration_seconds": 1.5
+        }
+      ],
+      "screenshots": [
+        "1000010683.jpg",
+        "1000010686.jpg"
+      ],
+      "cooldown_attribution": "60-second cooldown appears at end of combined active/passive description; recorded on the active as contextual cooldown, not experimentally tested."
+    }
+  ],
+  "policy": {
+    "external_numeric_ids_verified": false,
+    "do_not_automatically_load_into_build_recommendations": true,
+    "source_confidence": "on_screen_description_exact_values; mechanics_interactions_not_tested",
+    "all_items_are_standalone_equipment_not_boot_enchantments": true
+  },
+  "open_questions": [
+    "Shurelya's nearby allies wording does not explicitly resolve whether caster self is included.",
+    "Mikael healing 150–250 basis is not shown: no level formula inferred.",
+    "Cimeterre: broad wording 'tous les effets négatifs' must not be translated to an untested exhaustive dispel list.",
+    "External numerical item mapping remains unverified."
+  ]
+}
