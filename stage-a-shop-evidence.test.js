@@ -138,11 +138,13 @@ test('les 3 dernieres bottes superieures deja fournies ont des fiches',()=>{
   assert.equal(record.interactions_tested,false);
  }
 });
-test('Bottes de vitesse à 400 PO : pas de vitesse chiffrée inventée',()=>{
+test('Bottes de vitesse à 400 PO : +25 vitesse depuis capture client',()=>{
  assert.equal(bootDetails2.basic_boots.name_fr,'Bottes de vitesse');
  assert.equal(bootDetails2.basic_boots.price_gold,400);
- assert.equal(bootDetails2.basic_boots.movement_speed_exact_value,null);
- assert.equal(boots.entries.find(x=>x.name_fr==='Bottes de vitesse').stats_verified,false);
+ assert.equal(bootDetails2.basic_boots.movement_speed_exact_value,25);
+ assert.equal(bootDetails2.basic_boots.screenshot,'1000010646.jpg');
+ assert.equal(boots.entries.find(x=>x.name_fr==='Bottes de vitesse').stats_verified,true);
+ assert.equal(boots.coverage.description_details_fully_documented,15);
 });
 test('restrictions de Hâte noxienne et soins des bottes documentés',()=>{
  const lucid=bootDetails2.records.find(x=>x.name_fr==='Lucidité pourpre');
