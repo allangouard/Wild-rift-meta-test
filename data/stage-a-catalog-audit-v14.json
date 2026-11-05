@@ -27,35 +27,12 @@
   "current_inventory": {
     "curated_items": 59,
     "curated_passives": 85,
-    "price_present": 33,
-    "price_missing": 26,
+    "price_present": 56,
+    "price_missing": 3,
     "missing_price_ids": [
       "seraphs_embrace",
       "harmonic_circlet",
-      "deaths_dance",
-      "amaranths_twinguard",
-      "steraks_gage",
-      "guardian_angel",
-      "overlords_bloodmail",
-      "titanic_hydra",
-      "iceborn_gauntlet",
-      "sunfire_aegis",
-      "warmogs_armor",
-      "kaenic_rookern",
-      "heartsteel",
-      "force_of_nature",
-      "dead_mans_plate",
-      "randuins_omen",
-      "dawnshroud",
-      "radiant_virtue",
-      "winters_approach",
-      "fimbulwinter",
-      "mantle_of_the_twelfth_hour",
-      "knights_vow",
-      "yordle_trap",
-      "zekes_convergence",
-      "abyssal_mask",
-      "frozen_heart"
+      "fimbulwinter"
     ],
     "curated_evidence_type": "all user_client_screenshot, partial descriptions; interactions not fully tested",
     "client_screenshot_positions": 162,
@@ -72,7 +49,15 @@
     "magic_shop_name_matches_existing": 29,
     "magic_shop_screenshot_evidence": "data/stage-a-magic-shop-evidence-2026-11-05.json",
     "magic_shop_screen_scope": "subset: listing visible in 3 screenshots; not proof of full shop or item details",
-    "prices_newly_filled_this_batch": 0
+    "prices_newly_filled_this_batch": 0,
+    "defense_shop_rows_newly_verified": 30,
+    "defense_shop_matching_curated_entries": 28,
+    "defense_shop_newly_filled_prices": 23,
+    "defense_shop_unresolved_identities": [
+      "Médaillon de l’Iron Solari",
+      "Lithoplastron de gargouille"
+    ],
+    "defense_shop_evidence": "data/stage-a-defense-shop-evidence-2026-11-05.json"
   },
   "gates": [
     {
@@ -130,5 +115,8 @@
     "never_invent_localized_names_or_missing_prices": true,
     "never_confuse_ARAM_augment_patch_with_ranked_balance": true,
     "never_infer_verified_item_effects_from_old_PC_or_7_2a_catalog": true
-  }
+  },
+  "stage_a_findings": [
+    "2026-11-05: defense category screenshot inventory 30 rows, 28 catalog mappings, 23 newly verified prices, 2 unmatched entries; descriptive details/actives pending."
+  ]
 }
