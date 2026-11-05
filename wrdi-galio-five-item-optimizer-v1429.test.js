@@ -54,6 +54,8 @@ test('pure AD or attack-speed hypercarry legendary items are not forced on Galio
  assert.ok(!pool.some(x=>x.id==='nashors_tooth'));
  assert.ok(pool.some(x=>x.id==='thornmail'));
  assert.ok(pool.some(x=>x.id==='riftmaker'));
+ assert.ok(!pool.some(x=>x.id==='fimbulwinter'));
+ assert.ok(pool.every(x=>x.price_gold>0));
 });
 test('source missing means fail-closed, with no alternative popularity fallback',()=>{
  const r=optimizer.optimize({prepared:null});
