@@ -1,0 +1,258 @@
+{
+  "schema": "wrdi.stage_a.client_shop_category_evidence.v1",
+  "captured_on": "2026-11-05",
+  "game": "Wild Rift mobile",
+  "mode": "practice training, standard shop",
+  "client_app_version": "7.3.0.2813",
+  "client_resource_version": "7.3.60.133",
+  "category": "Magie",
+  "screen": "list view, sorted by gold cost, visible tier/segment only",
+  "screen_count": 3,
+  "entry_count": 29,
+  "images": [
+    "1000010577.jpg",
+    "1000010575.jpg",
+    "1000010573.jpg"
+  ],
+  "entries": [
+    {
+      "id": "whispering_circlet",
+      "name_fr": "Diadème des murmures",
+      "price_gold": 2400,
+      "screenshot": "1000010577.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "redemption",
+      "name_fr": "Rédemption",
+      "price_gold": 2450,
+      "screenshot": "1000010577.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "imperial_mandate",
+      "name_fr": "Mandat impérial",
+      "price_gold": 2600,
+      "screenshot": "1000010577.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "oceanids_trident",
+      "name_fr": "Trident des Océanides",
+      "price_gold": 2600,
+      "screenshot": "1000010577.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "morellonomicon",
+      "name_fr": "Morellonomicon",
+      "price_gold": 2650,
+      "screenshot": "1000010577.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "hextech_rocketbelt",
+      "name_fr": "Ceinture-roquette Hextech",
+      "price_gold": 2700,
+      "screenshot": "1000010577.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "rylais_crystal_scepter",
+      "name_fr": "Sceptre de Rylai",
+      "price_gold": 2700,
+      "screenshot": "1000010577.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "rod_of_ages",
+      "name_fr": "Bâton séculaire",
+      "price_gold": 2700,
+      "screenshot": "1000010577.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "horizon_focus",
+      "name_fr": "Concentration lointaine",
+      "price_gold": 2700,
+      "screenshot": "1000010577.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "malignance",
+      "name_fr": "Malfaisance",
+      "price_gold": 2700,
+      "screenshot": "1000010577.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "stormsurge",
+      "name_fr": "Onde orageuse",
+      "price_gold": 2800,
+      "screenshot": "1000010575.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "blackfire_torch",
+      "name_fr": "Torche noire",
+      "price_gold": 2800,
+      "screenshot": "1000010575.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "ludens_echo",
+      "name_fr": "Écho de Luden",
+      "price_gold": 2800,
+      "screenshot": "1000010575.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "lich_bane",
+      "name_fr": "Fléau de liche",
+      "price_gold": 2800,
+      "screenshot": "1000010575.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "statikk_shiv",
+      "name_fr": "Poignard de Statikk",
+      "price_gold": 2900,
+      "screenshot": "1000010575.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "bloodletters_curse",
+      "name_fr": "Malédiction du sanguinaire",
+      "price_gold": 2900,
+      "screenshot": "1000010575.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "nashors_tooth",
+      "name_fr": "Dent de Nashor",
+      "price_gold": 2900,
+      "screenshot": "1000010575.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "banshees_veil",
+      "name_fr": "Voile de la banshee",
+      "price_gold": 3000,
+      "screenshot": "1000010575.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "cryptbloom",
+      "name_fr": "Fleur de crypte",
+      "price_gold": 3000,
+      "screenshot": "1000010575.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "void_staff",
+      "name_fr": "Bâton du vide",
+      "price_gold": 3000,
+      "screenshot": "1000010575.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "guinsoos_rageblade",
+      "name_fr": "Lame enragée de Guinsoo",
+      "price_gold": 3000,
+      "screenshot": "1000010573.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "liandrys_torment",
+      "name_fr": "Tourment de Liandry",
+      "price_gold": 3000,
+      "screenshot": "1000010573.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "archangels_staff",
+      "name_fr": "Bâton de l’archange",
+      "price_gold": 3000,
+      "screenshot": "1000010573.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "cosmic_drive",
+      "name_fr": "Volonté cosmique",
+      "price_gold": 3000,
+      "screenshot": "1000010573.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "dawn_and_dusk",
+      "name_fr": "Aube et crépuscule",
+      "price_gold": 3100,
+      "screenshot": "1000010573.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "infinity_orb",
+      "name_fr": "Orbe d’infini",
+      "price_gold": 3100,
+      "screenshot": "1000010573.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "riftmaker",
+      "name_fr": "Créateur de failles",
+      "price_gold": 3100,
+      "screenshot": "1000010573.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "zhonyas_hourglass",
+      "name_fr": "Sablier de Zhonya",
+      "price_gold": 3300,
+      "screenshot": "1000010573.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    },
+    {
+      "id": "rabadons_deathcap",
+      "name_fr": "Coiffe de Rabadon",
+      "price_gold": 3400,
+      "screenshot": "1000010573.jpg",
+      "verification": "name_icon_price_visible_in_client_screenshot",
+      "existing_catalog_price_matches": true
+    }
+  ],
+  "scope_notes": [
+    "29 visible shop rows transcribed from user's three screenshots; not a certified exhaustive item inventory for the category.",
+    "Icon/name/price confirmed visible; not stats, crafting recipes, passive formulas, exclusivity or patch hotfix.",
+    "All 29 match existing client 7.3d curated catalog prices; no catalog price changes needed.",
+    "Screenshot files are cited by filename, not embedded in repository.",
+    "The client app/resource versions do not establish exact subpatch balance independently."
+  ]
+}
