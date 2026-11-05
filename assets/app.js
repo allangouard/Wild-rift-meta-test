@@ -471,6 +471,19 @@ async function simpleAnalyze(){
  const cores=(mid.core||[]).filter(x=>Array.isArray(x.items)&&x.items.length===3&&x.items.every(y=>valid.has(optId(y)))&&new Set(x.items.map(optId)).size===3);
  const unique=[...new Map(cores.slice().sort((a,b)=>(engineNum(b.pick)||0)-(engineNum(a.pick)||0)).map(c=>[simpleCoreSignature(c),c])).values()].sort((a,b)=>(engineNum(b.pick)||0)-(engineNum(a.pick)||0));
  if(!unique.length){out.innerHTML='<p class="warn">Aucun core Mid complet et reconnu pour ce champion. Le moteur refuse de substituer un build d’un autre rôle.</p>';return}
+ // Le registre client est exclusivement un garde-fou de compatibilite.
+ // Ne jamais convertir son contenu exploratoire en source de builds optimaux.
+ let itemSafety=null,itemSafetyReason='Audit des restrictions indisponible.';
+ try{
+  if(window.WRDI_GalioItemGuardV1424&&window.WRDI_CoreV14){
+   const [clientCatalog,clientRules]=await Promise.all([
+    get('./data/items-client-7.3d-v12.json'),
+    get('./data/item-restrictions-client-7.3d-v12.json')]);
+   itemSafety=window.WRDI_GalioItemGuardV1424.prepare({
+    catalog:clientCatalog,rules:clientRules,core:window.WRDI_CoreV14,livePatch:patches[0]});
+   if(!itemSafety.ok)itemSafetyReason=itemSafety.reason;
+  }
+ }catch(e){itemSafetyReason=String(e?.message||e)}
  const enemyNames=enemy.map(id=>pickerName(champions.find(x=>String(x.id)===String(id))||{id,name:id})),{counts:c,unknown}=engineNotes(enemyNames);
  const title=pickerName(champions.find(x=>String(x.id)===String(own))||{id:own,name:own});
  let html='<h2>🏆 Tes recommandations — '+esc(title)+'</h2><p class="muted">Patch '+esc(patches[0])+' · Cores Mid observés · '+(5-unknown.length)+'/5 profils adverses identifiés.</p>';
@@ -489,15 +502,24 @@ async function simpleAnalyze(){
  if(picks.length<3)html+='<p class="muted">Seulement '+picks.length+' core(s) Mid distinct(s) vérifiables : aucune alternative inventée.</p>';
  html+='<div class="simple-result"><h3>🔄 Objets situationnels</h3><p class="muted">Candidats pour compléter ou adapter le core principal. Le moteur tient compte des statistiques reconnues, du coût et des profils adverses.</p>';
  const base=picks[0],candidateGroups=[['🛡️ Défense','survive'],['⚔️ Dégâts','damage'],['⚖️ Polyvalence','balanced']];
+ const baseItemNames=base.items.map(optId).map(id=>simpleItemName(simpleItem(id)));
+ const baseCheck=itemSafety?.ok?window.WRDI_GalioItemGuardV1424.validateSelection(baseItemNames,itemSafety,{requireFullCore:true}):null;
+ const canAudit=!!baseCheck?.ok;
+ if(!canAudit)html+='<p class="warn">Objets situationnels suspendus : '+esc(baseCheck?.reason||itemSafetyReason)+' . Le core reste une combinaison observée, sans compatibilité certifiée.</p>';
+ else html+='<p class="muted">Restrictions client '+esc(itemSafety.patch)+' vérifiées pour les objets rapprochés ; pas de simulation complète des passifs.</p>';
  const used=new Set(base.items.map(optId));let count=0;
  const chosen=[];
  for(const [label,mode] of candidateGroups){
   const ranked=simpleCandidates(base,mode,c,items,own,enemyNames);
-  const pick=ranked.find(v=>!used.has(String(v.x.id))&&!chosen.some(z=>z.rule.family&&z.rule.family===v.rule.family));
+  const pick=canAudit?ranked.find(v=>{
+   if(used.has(String(v.x.id))||chosen.some(z=>z.rule.family&&z.rule.family===v.rule.family))return false;
+   const names=[...baseItemNames,...chosen.map(z=>simpleItemName(z.x)),simpleItemName(v.x)];
+   return window.WRDI_GalioItemGuardV1424.validateSelection(names,itemSafety).ok;
+  }):null;
   if(!pick)continue;used.add(String(pick.x.id));chosen.push(pick);count++;
   html+='<div class="simple-sub">'+label+'</div>'+itemChip(pick.x.id)+'<p class="simple-reason"><b>Pourquoi :</b> '+esc(pick.rule.reasons.join(' ; ')||simpleWhy(pick.x,c,own))+'. <b>Quand :</b> '+esc(pick.rule.timing)+'. <b>Emplacement :</b> compléter le core, ou remplacer un objet dont le passif est devenu moins utile. Pas de remplacement automatique sans données vérifiées.</p>';
  }
- if(!count)html+='<p class="warn">Aucun objet situationnel avec statistiques suffisamment identifiables.</p>';
+ if(!count&&canAudit)html+='<p class="warn">Aucun complément à la fois documenté et compatible avec le core.</p>';
  html+='</div>';
  const pages=(mid.runes||[]).filter(r=>Array.isArray(r.runes)&&r.runes.length===5).sort((a,b)=>(engineNum(b.pick)||0)-(engineNum(a.pick)||0));
  html+='<div class="simple-result"><h3>✨ Runes</h3>'+(pages.length?engineEntry(pages[0].runes,'rune')+'<p class="simple-reason">Page Mid observée. Son adaptation exacte à la draft n’est pas encore calculée.</p>':'<p class="warn">Pas de page Mid complète vérifiable.</p>')+'</div>';
@@ -506,7 +528,7 @@ async function simpleAnalyze(){
  if(typeof window!=='undefined')window.dispatchEvent(new CustomEvent('wrdi:build-result',{
   detail:{champion:title,patch:patches[0],core:base.items.map(optId).map(id=>({id,name:simpleItemName(simpleItem(id))})),
    situational:chosen.map(c=>({id:String(c.x.id),name:simpleItemName(c.x),reason:c.rule.reasons.join(' ; ')||simpleWhy(c.x,c,own),timing:c.rule.timing})),
-   coreType:'most_observed_mid',runeSource:'observed_mid'} }));
+   coreType:'most_observed_mid',runeSource:'observed_mid',itemRestrictionsChecked:canAudit,itemRestrictionsMessage:canAudit?'Restrictions du client vérifiées pour les objets proposés':(baseCheck?.reason||itemSafetyReason)} }));
  if(!window.WRDI_CompactV1423)out.scrollIntoView({behavior:'smooth',block:'start'});
  }catch(e){out.innerHTML='<p class="bad">Impossible de charger les cores Mid : '+esc(String(e))+'</p>'}
 }
