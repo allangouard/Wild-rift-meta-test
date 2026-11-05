@@ -1,0 +1,313 @@
+{
+  "schema": "wrdi.stage_a.wild_rift_keystones.v1",
+  "date": "2026-11-05",
+  "game": "Wild Rift mobile",
+  "client_app_version": "7.3.0.2813",
+  "client_resource_version": "7.3.60.133",
+  "source": "In-game French rune descriptions: eight screenshots supplied by user",
+  "classification": "keystone_runes",
+  "items": [
+    {
+      "id": "glacial_augment",
+      "name_fr": "Souverain des glaces",
+      "source_image": "1000010776.jpg",
+      "tags": [
+        "contrôle",
+        "ralentissement"
+      ],
+      "trigger": "Immobiliser un champion ennemi",
+      "effect": {
+        "ice_rays": 3,
+        "ice_zone_seconds": 3,
+        "slow_linger_after_exit_seconds": 1.5,
+        "slow_pct_base": 15,
+        "slow_pct_per_bonus_hp_pct": 1,
+        "defenses_base": 35,
+        "defenses_bonus_armor_ratio_pct": 75,
+        "defenses_bonus_magic_resistance_ratio_pct": 75,
+        "defenses_duration_seconds": 2.5,
+        "explosion_magic_damage_base_min": 15,
+        "explosion_magic_damage_base_max": 100,
+        "explosion_magic_damage_bonus_hp_pct": 5,
+        "cooldown_seconds": 20
+      },
+      "notes": [
+        "La capture décrit un bouclier de glace défensif et des dégâts magiques autour de soi après un délai, sans préciser le délai exact.",
+        "Le texte « (1% de vos PV bonus + 15)% » a été conservé comme formule descriptive; ne pas dériver une formule de conversion sans vérification."
+      ]
+    },
+    {
+      "id": "first_strike",
+      "name_fr": "Premier coup",
+      "source_image": "1000010773.jpg",
+      "tags": [
+        "initiation",
+        "amplification des dégâts",
+        "PO bonus"
+      ],
+      "trigger": "Commencer le combat contre un champion puis lui infliger des dégâts dans les 0,25 seconde",
+      "effect": {
+        "activation_window_seconds": 0.25,
+        "initial_gold": 10,
+        "buff_seconds": 3,
+        "bonus_true_damage_pct": 7,
+        "extra_gold_ratio_of_extra_damage_melee_pct": 60,
+        "extra_gold_ratio_of_extra_damage_ranged_pct": 45,
+        "failed_activation_cooldown_seconds": 10,
+        "cooldown_seconds_min": 13,
+        "cooldown_seconds_max": 20
+      },
+      "notes": [
+        "Le texte indique également l'ouverture du combat comme condition; la fenêtre de 0,25 s est conservée explicitement.",
+        "Règles de conversion des dégâts en PO non testées."
+      ]
+    },
+    {
+      "id": "phase_rush",
+      "name_fr": "Rush phasique",
+      "source_image": "1000010770.jpg",
+      "tags": [
+        "mobilité",
+        "accélération de compétence"
+      ],
+      "trigger": "Toucher un champion ennemi 3 fois par attaques de base ou compétences en 4 secondes",
+      "effect": {
+        "hits": 3,
+        "hit_window_seconds": 4,
+        "buff_seconds": 3,
+        "movement_speed_pct_melee_min": 40,
+        "movement_speed_pct_melee_max": 60,
+        "movement_speed_pct_ranged_min": 20,
+        "movement_speed_pct_ranged_max": 35,
+        "basic_ability_haste": 10,
+        "remaining_basic_ability_cooldown_reduction_pct": 20,
+        "cooldown_seconds_min": 7,
+        "cooldown_seconds_max": 21
+      },
+      "notes": [
+        "L'échelle de niveau est indiquée sans table d'interpolation exacte."
+      ]
+    },
+    {
+      "id": "summon_aery",
+      "name_fr": "Aery",
+      "source_image": "1000010767.jpg",
+      "tags": [
+        "poke",
+        "protection"
+      ],
+      "trigger": "Attaques ou compétences envoient Aery sur une cible",
+      "effect": {
+        "damage_base_min": 15,
+        "damage_base_max": 70,
+        "shield_base_min": 20,
+        "shield_base_max": 100,
+        "damage_bonus_ad_pct": 10,
+        "damage_ap_pct": 5,
+        "shield_bonus_ad_pct": 10,
+        "shield_ap_pct": 5,
+        "cannot_send_again_until_returned": true
+      },
+      "notes": [
+        "Pas de cooldown fixe indiqué dans la capture."
+      ]
+    },
+    {
+      "id": "arcane_comet",
+      "name_fr": "Comète arcanique",
+      "source_image": "1000010767.jpg",
+      "tags": [
+        "harcèlement",
+        "amplification des effets"
+      ],
+      "trigger": "Blesser un champion ennemi avec une compétence",
+      "effect": {
+        "magic_damage_base_min": 15,
+        "magic_damage_base_max": 100,
+        "damage_per_total_hit_to_enemy_champions": 2,
+        "damage_bonus_ad_pct": 10,
+        "damage_ap_pct": 5,
+        "next_comet_damage_increases_after_champion_hit": true,
+        "cooldown_seconds_min": 8,
+        "cooldown_seconds_max": 16
+      },
+      "notes": [
+        "La formule affichée est « (15 à 100) + (2 × coups totaux portés aux champions ennemis) + 10% DA bonus + 5% AP »."
+      ]
+    },
+    {
+      "id": "grasp_of_the_undying",
+      "name_fr": "Poigne de l'immortel",
+      "source_image": "1000010764.jpg",
+      "tags": [
+        "tank",
+        "soins"
+      ],
+      "trigger": "Toutes les 3 secondes en combat, prochaine attaque contre un champion renforcée",
+      "effect": {
+        "in_combat_interval_seconds": 3,
+        "bonus_magic_damage_max_hp_pct": 3,
+        "heal_max_hp_pct": 1.3,
+        "permanent_max_hp_gain": 8,
+        "ranged_effect_reduction_pct": 60
+      },
+      "notes": [
+        "Les icônes PV ne précisent pas dans le texte brut si tous les pourcentages s'appuient sur les PV maximum; ne pas extrapoler au-delà de la description."
+      ]
+    },
+    {
+      "id": "guardian",
+      "name_fr": "Gardien",
+      "source_image": "1000010764.jpg",
+      "tags": [
+        "protection",
+        "bouclier"
+      ],
+      "trigger": "Allié proche ou ciblé par une compétence protégé; dégâts dépassant un seuil à déclenchement",
+      "effect": {
+        "nearby_ally_radius_units": 350,
+        "protection_seconds": 2.5,
+        "shield_seconds": 1.5,
+        "shield_base_min": 40,
+        "shield_base_max": 165,
+        "shield_bonus_hp_pct": 6,
+        "shield_ap_pct": 15,
+        "damage_taken_threshold_min": 70,
+        "damage_taken_threshold_max": 240,
+        "cooldown_seconds_min": 25,
+        "cooldown_seconds_max": 55
+      },
+      "notes": [
+        "Récupération et seuil de dégâts varient selon niveau; pas de table d'interpolation."
+      ]
+    },
+    {
+      "id": "fleet_footwork",
+      "name_fr": "Jeu de jambes",
+      "source_image": "1000010759.jpg",
+      "tags": [
+        "mobilité",
+        "soins"
+      ],
+      "trigger": "Accumuler 100 charges Énergie avec attaques, compétences et déplacement",
+      "effect": {
+        "required_energy_stacks": 100,
+        "bonus_attack_speed_pct": 40,
+        "heal_base_min": 15,
+        "heal_base_max": 110,
+        "heal_bonus_ad_pct": 15,
+        "heal_ap_pct": 10,
+        "bonus_movement_speed_pct": 20,
+        "bonus_movement_speed_duration_seconds": 1,
+        "missing_mana_restored_pct_on_champion_attack": 8,
+        "missing_energy_restored_pct_on_champion_attack": 8,
+        "minion_or_monster_heal_fraction_melee_pct": 35,
+        "minion_or_monster_heal_fraction_ranged_pct": 15
+      },
+      "notes": [
+        "L'effet d'attaque à 100 charges est lié à l'attaque suivante; aucune récupération fixe n'est indiquée."
+      ]
+    },
+    {
+      "id": "conqueror",
+      "name_fr": "Conquérant",
+      "source_image": "1000010759.jpg",
+      "tags": [
+        "dégâts cumulables",
+        "vampirisme"
+      ],
+      "trigger": "Attaques ou compétences différentes touchant des champions",
+      "effect": {
+        "max_stacks": 6,
+        "bonus_ad_per_stack_min": 3,
+        "bonus_ad_per_stack_max": 5,
+        "ap_per_stack_min": 5,
+        "ap_per_stack_max": 8,
+        "stack_duration_seconds": 6,
+        "omnivamp_at_max_stacks_melee_pct": 9,
+        "omnivamp_at_max_stacks_ranged_pct": 5
+      },
+      "notes": [
+        "Interprétation des stacks multiples par compétence non testée."
+      ]
+    },
+    {
+      "id": "empowerment",
+      "name_fr": "Renforcement",
+      "source_image": "1000010756.jpg",
+      "tags": [
+        "dégâts augmentés contre les champions"
+      ],
+      "trigger": "Toucher le même champion ennemi avec 3 attaques consécutives",
+      "effect": {
+        "required_consecutive_attacks": 3,
+        "adaptive_bonus_damage_min": 40,
+        "adaptive_bonus_damage_max": 165,
+        "damage_amplification_vs_champions_pct": 8,
+        "amplification_ends_when_out_of_champion_combat": true,
+        "cooldown_seconds": 4
+      },
+      "notes": [
+        "Amplification de 8% réservée aux champions."
+      ]
+    },
+    {
+      "id": "lethal_tempo",
+      "name_fr": "Tempo mortel",
+      "source_image": "1000010756.jpg",
+      "tags": [
+        "vitesse d'attaque"
+      ],
+      "trigger": "Attaquer des champions ennemis; cumule jusqu'à 6 effets",
+      "effect": {
+        "max_stacks": 6,
+        "stack_duration_seconds": 6,
+        "attack_speed_per_stack_melee_pct": 6,
+        "attack_speed_per_stack_ranged_pct": 4.8,
+        "bonus_adaptive_on_hit_at_max_stacks_melee_min": 9,
+        "bonus_adaptive_on_hit_at_max_stacks_melee_max": 30,
+        "bonus_adaptive_on_hit_at_max_stacks_ranged_min": 6,
+        "bonus_adaptive_on_hit_at_max_stacks_ranged_max": 20,
+        "damage_increase_per_bonus_attack_speed_one_pct_melee_pct": 0.5,
+        "damage_increase_per_bonus_attack_speed_one_pct_ranged_pct": 0.33,
+        "does_not_trigger_against_turrets": true
+      },
+      "notes": [
+        "Les dégâts à l'impact et l'augmentation issue de la vitesse d'attaque ne sont pas calibrés en simulation."
+      ]
+    },
+    {
+      "id": "dark_harvest",
+      "name_fr": "Moisson noire",
+      "source_image": "1000010753.jpg",
+      "tags": [
+        "bonus de dégâts",
+        "amplification des effets"
+      ],
+      "trigger": "Blesser un champion ayant moins de 50% de ses PV",
+      "effect": {
+        "target_hp_below_pct": 50,
+        "damage_base": 35,
+        "damage_per_soul": 11,
+        "bonus_ad_ratio_pct": 10,
+        "ap_ratio_pct": 5,
+        "default_cooldown_seconds": 20,
+        "cooldown_after_champion_takedown_seconds": 1,
+        "damage_stacks_per_soul_permanently": 11
+      },
+      "notes": [
+        "La mécanique de gain d'âme se déclenche au ciblage sous 50% PV; la capture n'indique pas de plafond."
+      ]
+    }
+  ],
+  "policy": {
+    "source_client_tooltips_verified": true,
+    "actual_combat_calibration": false,
+    "do_not_load_into_automated_recommendations": true,
+    "keystone_names_complete_for_observed_13_options": false
+  },
+  "limitations": [
+    "Une 13e rune Électrocution figure dans data/stage-a-rune-electrocution-2026-11-05.json; le présent fichier contient les 12 autres.",
+    "Ce corpus est issu des descriptions d'interface; disponibilité, exceptions de champions et interactions complexes non testées."
+  ]
+}
