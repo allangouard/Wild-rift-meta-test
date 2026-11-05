@@ -1,0 +1,96 @@
+{
+  "schema": "wrdi.stage_a.runes_batch3_v1",
+  "game": "Wild Rift mobile",
+  "locale": "fr-FR",
+  "source": "Captures directement fournies par l'utilisateur depuis le client Wild Rift",
+  "recorded_at": "2026-11-05",
+  "entries": [
+    {
+      "id": "axiom_arcanist",
+      "name_fr": "Arcaniste axiomatique",
+      "tree": "Inspiration",
+      "screenshot": "1000010835.jpg",
+      "stats": {
+        "ultimate_damage_healing_shield_increase_pct": 10,
+        "area_damage_increase_pct_instead": 5,
+        "ultimate_remaining_cooldown_reduction_on_takedown_pct": 7
+      },
+      "conditions": [
+        "Le bonus de dégâts de zone est de 5 % au lieu de 10 %.",
+        "Participer à l'élimination d'un champion ennemi réduit de 7 % le délai restant de l'ultime."
+      ]
+    },
+    {
+      "id": "unshakable",
+      "name_fr": "Inébranlable",
+      "tree": "Volonté",
+      "screenshot": "1000010833.jpg",
+      "stats": {
+        "armor_and_mr_increase_pct": 3,
+        "armor_and_mr_flat_per_nearby_enemy_champion": 2,
+        "nearby_enemy_count_to_gain_slow_resistance": 3,
+        "slow_resistance_pct": 20
+      },
+      "conditions": [
+        "Le +2 d'armure et de résistance magique s'applique pour chaque champion ennemi proche.",
+        "La portée exacte de 'proche' n'est pas chiffrée."
+      ]
+    },
+    {
+      "id": "perseverance",
+      "name_fr": "Persévérance",
+      "tree": "Volonté",
+      "screenshot": "1000010831.jpg",
+      "stats": {
+        "tenacity_pct": 10,
+        "armor_and_mr_min": 10,
+        "armor_and_mr_max": 15,
+        "defensive_bonus_seconds": 1.5
+      },
+      "conditions": [
+        "Bonus d'armure et de résistance magique déclenché par immobilisation.",
+        "Une immobilisation multiple réinitialise la durée."
+      ]
+    },
+    {
+      "id": "bone_plating",
+      "name_fr": "Plaque d'os",
+      "tree": "Volonté",
+      "screenshot": "1000010829.jpg",
+      "stats": {
+        "damage_reduction_per_hit_min": 30,
+        "damage_reduction_per_hit_max": 60,
+        "following_attacks_or_abilities_count": 3,
+        "window_seconds": 1.5,
+        "cooldown_seconds": 40
+      },
+      "conditions": [
+        "Déclenchement lorsque des dégâts sont infligés par un champion ennemi.",
+        "S'applique à l'attaque ou compétence actuelle et aux trois prochaines attaques ou compétences dans la fenêtre."
+      ]
+    },
+    {
+      "id": "colossus_courage",
+      "name_fr": "Courage du colosse",
+      "tree": "Volonté",
+      "screenshot": "1000010827.jpg",
+      "stats": {
+        "shield_flat_min": 25,
+        "shield_flat_max": 45,
+        "shield_max_health_pct": 1,
+        "shield_duration_seconds": 3,
+        "cooldown_seconds": 18
+      },
+      "conditions": [
+        "Se déclenche lorsque vous immobilisez un champion ennemi.",
+        "Le bouclier dépend des PV max; la valeur plate varie selon le niveau."
+      ]
+    }
+  ],
+  "policy": {
+    "client_tooltips_verified": true,
+    "not_whole_tree_complete": true,
+    "no_extrapolation_of_missing_range_or_scaling": true,
+    "not_enabled_for_automatic_recommendation": true
+  }
+}
