@@ -80,5 +80,11 @@
     "identity": "provisional-only, do not place unresolved IDs into the recommendation catalog or classed ranked build",
     "mechanics": "text transcribed, not experimentally tested",
     "do_not_automatically_load_into_build_recommendations": true
+  },
+  "client_mechanic_clarification": {
+    "standalone_active_shop_items": true,
+    "not_boot_enchantments": true,
+    "source": "explicit user clarification 2026-11-05",
+    "catalog_recommendation_still_blocked_by_identity_reconciliation": true
   }
 }
