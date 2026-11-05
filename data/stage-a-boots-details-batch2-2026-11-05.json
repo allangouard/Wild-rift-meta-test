@@ -1,0 +1,111 @@
+{
+  "schema": "wrdi.stage_a.boots_detail_evidence.v1",
+  "date": "2026-11-05",
+  "game": "Wild Rift mobile",
+  "client_app_version": "7.3.0.2813",
+  "client_resource_version": "7.3.60.133",
+  "records": [
+    {
+      "name_fr": "Sandales immortelles",
+      "tier": "upper",
+      "price_gold": 2000,
+      "screenshot": "1000010600.jpg",
+      "stats": {
+        "movement_speed": 45
+      },
+      "passives": [
+        {
+          "name_fr": "Équilibre des pouvoirs",
+          "adaptive_attack_damage": 12,
+          "adaptive_ap": 20
+        },
+        {
+          "name_fr": "Conversion",
+          "omnivamp_pct": 5,
+          "per_champion_takedown_bonus_pct": 0.5,
+          "bonus_cap_pct": 5
+        },
+        {
+          "name_fr": "Maintenant et à jamais",
+          "above_half_hp_bonus_damage_pct": 5,
+          "below_half_hp_heal_and_shield_effectiveness_pct": 12
+        }
+      ],
+      "external_id_verified": false,
+      "interactions_tested": false
+    },
+    {
+      "name_fr": "Lucidité pourpre",
+      "tier": "upper",
+      "price_gold": 2000,
+      "screenshot": "1000010603.jpg",
+      "continuation_screenshot": "1000010606.jpg",
+      "stats": {
+        "mana_regeneration_pct": 75,
+        "ability_haste": 25,
+        "movement_speed": 45
+      },
+      "passives": [
+        {
+          "name_fr": "Invocation",
+          "spell_cooldown_reduction_pct": 20,
+          "scope": "« sorts » exact client text; do not infer"
+        },
+        {
+          "name_fr": "Hâte noxienne",
+          "trigger": "healing_shielding_allies_or_casting_ability_or_ability_damage_enemy",
+          "movement_speed_pct_melee": 10,
+          "movement_speed_pct_ranged": 8,
+          "duration_seconds": 4,
+          "trigger_limit": "une fois toutes les 4 secondes par compétence"
+        }
+      ],
+      "external_id_verified": false,
+      "interactions_tested": false
+    },
+    {
+      "name_fr": "Jambières de métal",
+      "tier": "upper",
+      "price_gold": 2200,
+      "screenshot": "1000010609.jpg",
+      "stats": {
+        "attack_speed_pct": 50,
+        "movement_speed": 45,
+        "lifesteal_pct": 5
+      },
+      "passives": [
+        {
+          "name_fr": "Allure noxienne",
+          "trigger": "attaques contre champions ennemis",
+          "movement_speed_pct_melee": 10,
+          "movement_speed_pct_ranged": 7,
+          "duration_seconds": 2,
+          "decaying": true
+        },
+        {
+          "name_fr": "Lame bénie",
+          "on_attack_heal": 12
+        }
+      ],
+      "external_id_verified": false,
+      "interactions_tested": false
+    }
+  ],
+  "basic_boots": {
+    "name_fr": "Bottes de vitesse",
+    "price_gold": 400,
+    "tier": "basic",
+    "screenshot": "1000010597.jpg",
+    "shop_short_description_fr": "Vitesse de déplacement",
+    "movement_speed_exact_value": null,
+    "stats_verified": false,
+    "external_id_verified": false
+  },
+  "notes": [
+    "Transcribed from exact user screenshots. Full rules are not mechanically tested.",
+    "Lucidité pourpre continuation screenshot includes frequency limitation (once every four seconds per ability).",
+    "Bottes de vitesse: only name, price and qualitative description shown, no invented movement speed value.",
+    "Boot upgrades/transformations and external numeric IDs remain unverified."
+  ],
+  "do_not_load_into_build_recommendations": true
+}
