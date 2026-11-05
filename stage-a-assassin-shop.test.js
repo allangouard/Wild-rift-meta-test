@@ -3,11 +3,12 @@ const assert=require('node:assert/strict');
 const evidence=require('./data/stage-a-assassin-shop-evidence-2026-11-05.json');
 const fighter=require('./data/stage-a-fighter-shop-evidence-2026-11-05.json');
 const curated=require('./data/items-client-7.3d-v12.json');
-test('Assassin : dix noms et prix releves sans certification de completude',()=>{
+test('Assassin : dix noms et prix, completude confirmee par utilisateur',()=>{
  assert.equal(evidence.entries.length,10);
  assert.equal(evidence.visible_prices,10);
  assert.equal(new Set(evidence.entries.map(x=>x.name_fr)).size,10);
- assert.equal(evidence.coverage.startsWith('partial'),true);
+ assert.equal(evidence.coverage,'complete_category_confirmed_by_user_for_current_client');
+ assert.equal(evidence.category_complete_confirmed_by_user,true);
  assert.ok(evidence.entries.every(x=>!x.external_numeric_id_verified&&!x.details_verified));
 });
 test('Un seul objet est deja detaille dans la base partielle de 59',()=>{
