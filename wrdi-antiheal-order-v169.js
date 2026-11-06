@@ -105,6 +105,9 @@ function candidates({prepared,optimizer,order,threats={},observedHealingSeverity
  if(chosen.some(x=>!x))return {ok:false,reason:'Core de référence indisponible'};
  const candidates=[];
  const plans=[
+  ['riftmaker','oceanids_trident'],
+  ['riftmaker','amaranths_twinguard'],
+  ['riftmaker','liandrys_torment'],
   ['riftmaker','thornmail'],
   ['thornmail','riftmaker'],
   ['morellonomicon','riftmaker'],
@@ -121,9 +124,14 @@ function candidates({prepared,optimizer,order,threats={},observedHealingSeverity
    const items=ids.map(id=>byId.get(id));
    return {items:ids,score:optimizer.calculate(items,threats).score};
   });
-  const thirdEval=comps.byId[third],fourthEval=comps.byId[fourth];
+  const thirdEval=comps.byId[third]||evaluateItem(byId.get(third),{
+   threats,observedHealingSeverity,beingAutoAttacked});
+  const fourthEval=comps.byId[fourth]||evaluateItem(byId.get(fourth),{
+   threats,observedHealingSeverity,beingAutoAttacked});
   const pressure=thirdEval.score*1.55+fourthEval.score*0.75;
-  const score=ranks[0].score*1.1+(ranks[1].score-ranks[0].score)*0.5+pressure;
+  const antihealCount=[third,fourth].filter(id=>id==='thornmail'||id==='morellonomicon').length;
+  const opportunityCost=observedHealingSeverity<2&&antihealCount?2.5:0;
+  const score=ranks[0].score*1.1+(ranks[1].score-ranks[0].score)*0.5+pressure-opportunityCost;
   candidates.push({third,fourth,firstTwo:core,items:four,
    score:Number(score.toFixed(3)),threeItemScore:ranks[0].score,fourItemScore:ranks[1].score,
    thirdMechanics:thirdEval,actualLiveInfo:observedHealingSeverity>0,
@@ -132,7 +140,7 @@ function candidates({prepared,optimizer,order,threats={},observedHealingSeverity
  candidates.sort((a,b)=>b.score-a.score||a.items.join('|').localeCompare(b.items.join('|')));
  return {ok:true,version:VERSION,core,scenarios:candidates,
   preferred:candidates[0]||null,comparison:comps,
-  note:'Scenarios de troisième et quatrième achat, sans forcer le build final; non basés sur les achats observés des adversaires.',
+  note:'Scenarios de troisième et quatrième achat, avec et sans anti-soin ; aucun achat ne prouve l’équipement adverse. Les alternatives restent théoriques.',
   noClaimThatThirdItemIsUniversallyOptimal:true};
 }
 return Object.freeze({VERSION,classify,evaluateItem,compareCandidates,candidates});
