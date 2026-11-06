@@ -80,6 +80,10 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,catalog
  const prepared=guard.prepare({catalog,rules,core,livePatch:catalog?.patch_claimed_by_client_user});
  if(!prepared.ok)return fail('client_catalogue',prepared.reason);
  const need=context.threats;
+ const calculator=m.mechanicsCalculator;
+ const inputAudit=calculator?.audit?.({officialKits,items:catalog,runes});
+ const galioSheet=official?.find('10099')||official?.find('Galio');
+ const antiheal=calculator?.antihealComparison?.({items:catalog,galio:galioSheet,threats:need});
  const main=optimizer.optimize({prepared,threats:need});
  if(!main.ok)return fail('five_items',main.reason);
  const sequence=order.order({prepared,items:main.main.items,threats:need});
@@ -88,6 +92,22 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,catalog
  if(!conditional.ok)return fail('contingencies',conditional.reason);
  const rune=chooseRune({bridge:m.runeBridge,catalog:runes,advisor:m.runeAdvisor,needs:need});
  const notes=[...context.reasons];
+ if(inputAudit?.ok)notes.push('Données inspectées : '+inputAudit.abilities+' compétences sur '+inputAudit.expectedAbilities+
+  ', '+inputAudit.items+' objets et '+inputAudit.runes+' runes ; '+inputAudit.truncatedDescriptions+' descriptions de compétences abrégées');
+ if(antiheal?.ok&&need.heal>0){
+  const choices=antiheal.items.filter(i=>['morellonomicon','thornmail'].includes(i.itemId));
+  for(const option of choices)notes.push(option.itemName+' : Blessures graves '+option.reductionPct+
+   '% pendant '+(option.durationSeconds??'durée inconnue')+' s ; déclenchement : '+
+   (option.triggeredByDocumentedMagicSpells.length?
+    'sorts magiques identifiés ('+option.triggeredByDocumentedMagicSpells.map(s=>s.name).join(', ')+')':
+    option.canTriggerWhenAttacked?'attaques subies ou dégâts infligés selon le passif':
+    option.canTriggerOnOwnDamage?'dégâts infligés':'à confirmer'));
+ }
+ const selectedRune=rune.ok?([...runes.fundamental,...runes.minor].find(x=>x.name_fr===rune.page.keystone)):null;
+ const runeRange=selectedRune&&calculator?.runeProcRange?.({rune:selectedRune,ap:main.main.stats?.ap||0});
+ if(runeRange?.ok)notes.push(runeRange.name+' : dégâts par déclenchement théoriques '+
+  runeRange.min.toFixed(1)+'–'+runeRange.max.toFixed(1)+' avec '+runeRange.ap+
+  ' AP du build (avant résistances, proc non garanti)');
  if(official){
   const sourced=names.filter(n=>evidence[n]?.ok).length;
   notes.push('Compétences Riot Wild Rift : '+sourced+'/10 champions analysés ; effets textuels documentés, valeurs non simulées');
@@ -105,6 +125,8 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,catalog
    orderCertified:false,combinationsExamined:main.evaluatedPool,
    sourced:'player_client_items_only',noPopularBuilds:true},
   runes:rune,
+  calculations:{inputAudit:inputAudit?.ok?inputAudit:null,
+   antiheal:antiheal?.ok?antiheal:null,runeProc:runeRange?.ok?runeRange:null},
   methods:{kitPassiveSynergy:'inferred_from_client_text',championThreatSource:official?'official_wild_rift_abilities':'legacy_profiles_only',selection:'qualitative_heuristic',
    exactOptimalityProven:false,liveTracking:false},
   warnings:rune.ok?[]:['Runes indisponibles : '+rune.reason]};
