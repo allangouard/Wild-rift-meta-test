@@ -24,3 +24,17 @@ for url in ['https://hub-game.com/wildrift/en/champions/Galio','https://www.wild
    print('RAW_HINT',body[h:h+1500].replace('\\n',' ')[:1500])
    print('ABILITIES_CONTEXT',re.sub(r'\\s+',' ',re.sub(r'<[^>]+>',' ',body[body.find('Cooldown:')-250:body.find('Cooldown:')+650]))[:900])
  except Exception as e:print('ERR',url,repr(e))
+
+class Tokens(HTMLParser):
+ def __init__(self):super().__init__();self.skip=0;self.values=[]
+ def handle_starttag(self,t,a):
+  if t in ('script','style','svg'):self.skip+=1
+ def handle_endtag(self,t):
+  if t in ('script','style','svg'):self.skip=max(0,self.skip-1)
+ def handle_data(self,d):
+  if not self.skip and d.strip():self.values.append(re.sub(r'\\s+',' ',d).strip())
+try:
+ req=urllib.request.Request('https://www.wildriftfire.com/guide/galio',headers={'User-Agent':'Mozilla/5.0'})
+ with urllib.request.urlopen(req,timeout=20) as z:raw=z.read().decode('utf-8','replace')
+ p=Tokens();p.feed(raw); k=p.values.index("Galio's Abilities"); print('TOKEN_SAMPLE',repr(p.values[k:k+125]))
+except Exception as e: print('TOKENS_ERR',repr(e))
