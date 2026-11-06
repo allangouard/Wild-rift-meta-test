@@ -75,7 +75,7 @@ function weights(threats={}){
   heal:Object.hasOwn(threats,'confirmedHeal')&&Object.hasOwn(threats,'conditionalHeal')?
    Math.min(5,count(threats.confirmedHeal)+0.35*count(threats.conditionalHeal)):
    Math.max(count(threats.heal),count(threats.sustain)>=2?1:0),
-  shield:count(threats.shield),cc:count(threats.cc),burst:count(threats.burst),
+  shield:count(threats.shieldPressure??threats.shield),cc:count(threats.cc),burst:count(threats.burst),
   assassin:count(threats.assassin),crit:count(threats.crit),
   frontlineNeed:count(threats.frontlineNeed),frontlineProvided:count(threats.frontlineProvided),
   damageDuty:count(threats.damageDuty),
@@ -186,7 +186,7 @@ function burstFit(items,threats={}){
   score+=Math.min(450,totalAp)*0.052;
   // A reactive shield cut is valuable into real shield archetypes, but not
   // a mandatory second purchase on every AP-carry draft.
-  if(shieldCut&&Number(t.shield)>=1)score+=2.5;
+  if(shieldCut&&Number(t.shield)>=1.5)score+=2.5;
   if(items.length>=3){
    // With 3 allied tanks and only one isolated AP assassin, a second
    // role as a frontline is costly: spending an equipment slot on 0 AP
@@ -265,6 +265,19 @@ function calculate(items,threats,combatModel=null){
  let score=0;const reasons=[];
  const hp=Math.min(1500,total('hp')),ap=Math.min(260,total('ap'));
  const ah=Math.min(70,total('ah')),armor=total('armor'),mr=total('mr');
+ // AP burst pays for meaningful penetration, not speculative mobility utility.
+ // Void Staff and Cryptbloom are mutually exclusive in the client restriction group.
+ const magicPenPct=items.reduce((sum,x)=>sum+(Number(x.stats?.mpen_pct)||0),0);
+ const percentPenCandidates=items.filter(x=>(Number(x.stats?.mpen_pct)||0)>=25);
+ if(Number(t.damageDuty)>=1&&Number(t.frontlineProvided)>=2&&percentPenCandidates.length){
+  score+=Math.min(40,magicPenPct)*0.25;
+  if(items.length>=4)reasons.push('Pénétration magique pour conserver le burst contre les résistances');
+ }
+ if(Number(t.damageDuty)>=2&&Number(t.frontlineProvided)>=2&&items.some(x=>x.id==='cosmic_drive')){
+  // Cosmic Drive requires a confirmed repositioning need; Galio already has
+  // mobility and CC in his kit, so generic movement speed is not burst damage.
+  if(!Number(threats.kitePressureConfirmed))score-=14;
+ }
  const frontline=t.frontlineNeed>0?1:0;
  const assassination=t.assassin>=2||t.burst>=2;
  // Five-slot opportunity cost: overall team needs affect the AP/defense
@@ -317,7 +330,8 @@ function calculate(items,threats,combatModel=null){
   reasons.push('Effet documenté sur les PV max des cibles durables');}
  if(t.durableTargets>=2&&n('ramp')){score+=2;reasons.push('Passif de combat prolongé');}
  if(t.tank>=2&&n('shred')){score+=2;reasons.push('Réduction progressive de résistance magique');}
- if(t.shield>0&&n('shieldCut')){score+=3;reasons.push('Réduction de bouclier documentée');}
+ if(t.shield>=1.5&&n('shieldCut')){score+=3+Math.min(2,t.shield);reasons.push('Réduction de boucliers importants dans la composition');}
+ if(t.shield<1.5&&n('shieldCut'))score-=8;
  if(t.earlyStasisPriority>=2&&n('stasis')){
   score+=5;reasons.push('Stase active contre un engagement explosif');
  }else if(n('stasis')&&t.earlyStasisPriority===1&&damageDuty>=1){
