@@ -64,21 +64,65 @@ function showResults(result){
  }
  main.append(ol,el('p','caption','Priorité d’achat théorique ; la sélection des cinq objets est distincte de leur ordre. Les bottes ne sont pas encore optimisées.'));
  box.append(main);
- const contingent=el('section','result-section');contingent.append(el('h3',null,'Objets situationnels'));
- if(!result.build.alternatives.length)contingent.append(el('p','muted','Aucun remplacement suffisamment justifié parmi les scénarios testés.'));
+ function itemImage(it,role){
+  const picture=el('span','wrdi-item-portrait');
+  const fallback=el('span','wrdi-item-fallback',(it?.name||'?').slice(0,2).toUpperCase());
+  picture.append(fallback);
+  const img=el('img');img.src='./assets/item-icons/'+encodeURIComponent(it.id)+'.webp';
+  img.alt='';img.loading='lazy';img.decoding='async';
+  img.addEventListener('load',()=>picture.classList.add('has-image'));
+  img.addEventListener('error',()=>img.remove());
+  picture.append(img);
+  picture.setAttribute('aria-label',role+' : '+it.name);
+  return picture;
+ }
+ const contingent=el('section','result-section');
+ contingent.append(el('h3',null,'Objets situationnels'));
+ contingent.append(el('p','section-intro','Des remplacements à envisager seulement si la situation décrite se produit.'));
+ if(!result.build.alternatives.length){
+  contingent.append(el('p','muted','Aucun remplacement suffisamment justifié parmi les scénarios testés.'));
+ }
  for(const option of result.build.alternatives){
-  const div=el('div','alternative');
-  div.append(el('strong',null,option.condition),el('p',null,'Remplacer '+option.remove.name+' par '+option.add.name+'.'));
-  contingent.append(div);
+  const card=el('article','wrdi-swap-card');
+  const condition=el('p','wrdi-swap-condition',option.condition);
+  const line=el('div','wrdi-swap-line');
+  const before=el('div','wrdi-swap-item');
+  before.append(itemImage(option.remove,'À remplacer'),
+   el('span','wrdi-swap-item-name',option.remove.name),
+   el('span','wrdi-swap-item-state','À remplacer'));
+  const arrow=el('span','wrdi-swap-arrow','→');arrow.setAttribute('aria-hidden','true');
+  const after=el('div','wrdi-swap-item is-new');
+  after.append(itemImage(option.add,'À acheter'),
+   el('span','wrdi-swap-item-name',option.add.name),
+   el('span','wrdi-swap-item-state','À acheter'));
+  line.append(before,arrow,after);
+  card.append(condition,line);
+  contingent.append(card);
  }
  box.append(contingent);
  const rune=el('section','result-section');rune.append(el('h3',null,'Runes'));
  if(result.runes.ok){
-  rune.append(el('p','item-name',result.runes.page.keystone));
+  const portrait=(name,large)=>root.WRDI_RuneImagesV152?.portrait(name,{large})||
+   el('span','wrdi-rune-fallback',name.slice(0,2).toUpperCase());
+  const key=el('div','wrdi-rune-keystone');
+  key.append(portrait(result.runes.page.keystone,true));
+  const keyText=el('div','wrdi-rune-keytext');
+  keyText.append(el('span','wrdi-rune-kicker','RUNE FONDAMENTALE'),
+   el('strong','wrdi-rune-keyname',result.runes.page.keystone));
+  key.append(keyText);rune.append(key);
   const names=[...result.runes.page.primary,result.runes.page.secondary];
-  const list=el('ul','rune-list');
-  names.forEach(name=>list.append(el('li',null,name)));rune.append(list);
-  rune.append(el('p','muted',result.runes.reason));
+  const grid=el('div','wrdi-rune-grid');
+  names.forEach((name,i)=>{
+   const card=el('div','wrdi-rune-tile');
+   card.append(portrait(name,false));
+   const label=el('span','wrdi-rune-tile-text');
+   label.append(el('strong',null,name),
+    el('span','wrdi-rune-sub',i===3?'Secondaire':'Principale · '+(i+1)));
+   card.append(label);grid.append(card);
+  });
+  rune.append(grid);
+  const note=el('p','wrdi-rune-note',result.runes.reason);
+  rune.append(note);
  }else rune.append(el('p','warning',result.runes.reason));
  box.append(rune);
  const notes=el('details','details');notes.append(el('summary',null,'Pourquoi cette recommandation ?'));
