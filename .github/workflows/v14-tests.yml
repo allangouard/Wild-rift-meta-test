@@ -307,3 +307,9 @@ jobs:
       - name: Verifier les 125 champions officiels et leurs 625 competences
         run: |
           node --test wrdi-champion-official-extract-v1.test.js
+      - name: Tester le raisonnement des 625 competences officielles Wild Rift
+        run: |
+          node --check wrdi-official-kit-intelligence-v158.js
+          node --check wrdi-draft-engine-v15.js
+          node --check wrdi-app-v15.js
+          node --test wrdi-official-kit-intelligence-v158.test.js
