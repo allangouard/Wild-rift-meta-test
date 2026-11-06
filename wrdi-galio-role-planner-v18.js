@@ -4,7 +4,7 @@
  */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.WRDI_GalioRolePlannerV18=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
-const VERSION='18.1.0';
+const VERSION='18.2.0';
 const n=v=>Number.isFinite(Number(v))?Math.max(0,Number(v)):0;
 function chooseRole(t={}){
  const frontline=n(t.frontlineProvided),duty=n(t.damageDuty),need=n(t.frontlineNeed);
@@ -31,8 +31,11 @@ function evaluate(item,role,t={}){
   if(ap>=90)add(6,'Puissance AP pour Galio carry');
   else if(ap>=40)add(3,'Complément AP');
   if(f.waveclear)add(1.5,'Sorts et vague');
-  if(n(item.stats?.mpen_pct)>=25)add(8+Math.min(3,n(item.stats.mpen_pct)/20),'Pénétration magique pour les dégâts AP');
-  if(id==='cryptbloom')add(1,'Pénétration et accélération pour les combats de groupe');
+  // Pénétration applicable selon la résistance probable, pas un bonus fixe
+  // attribué à deux identifiants d'objets.
+  const pen=n(item.stats?.mpen_pct);
+  if(pen>0)add(Math.min(8,pen*(n(t.tank)>=2?0.18:n(t.tank)>=1?0.10:0.045)),
+   n(t.tank)>=2?'Pénétration face aux cibles résistantes':'Pénétration possible, valeur conditionnée à la RM');
   if(f.maxHp&&n(t.tank)>=2)add(4,'Cibles résistantes');
   if(f.ramp&&n(t.tank)>=2)add(2,'Combat prolongé probable');
   if(!offense)score-=14;
@@ -76,25 +79,32 @@ function plan({threats={},items=[],limit=20}={}){
  });
  const rated=usable.map(x=>evaluate(x,role,threats));
  rated.sort((a,b)=>b.score-a.score||a.item.id.localeCompare(b.item.id));
- // Preserve every relevant mechanistic counter even if score rank is low.
- const mustKeep=rated.filter(x=>CORES[role].includes(x.item.id)||(
-  (shieldPressure>=1.5&&x.item.feature?.shieldCut)||
-  (n(threats.confirmedHeal)>0&&(x.item.feature?.antihealBySpell||x.item.feature?.antihealByRetaliation))||
-  (n(threats.tank)>=2&&(x.item.feature?.maxHp||x.item.feature?.shred))||
-  (n(threats.crit)>0&&x.item.feature?.critMitigation)
+ // All legally eligible AP items are considered together. Never discard an
+ // AP item only because it ranked 21st in a preliminary heuristic score.
+ // Keep relevant situational defenses alongside them, without expanding the
+ // expensive search to all irrelevant physical/attack-speed equipment.
+ const allAp=rated.filter(x=>n(x.item.stats?.ap)>=40);
+ const situational=rated.filter(x=>n(x.item.stats?.ap)<40&&(
+  CORES[role].includes(x.item.id)||
+  (role!=='ap_burst'&&x.defense)||
+  (n(threats.crit)>0&&x.item.feature?.critMitigation)||
+  (n(threats.confirmedHeal)>0&&x.item.feature?.antihealByRetaliation)||
+  (n(threats.earlyStasisPriority)>=2&&x.item.feature?.stasis)
  ));
- const candidate=new Map();
- for(const x of mustKeep)candidate.set(x.item.id,x);
- for(const x of rated){if(candidate.size>=Math.max(8,limit))break;candidate.set(x.item.id,x);}
+ const candidate=new Map(allAp.map(x=>[x.item.id,x]));
+ // Base tank/hybrid core pieces must remain available even when non-AP.
+ for(const x of situational.slice(0,Math.max(6,Math.min(12,limit))))candidate.set(x.item.id,x);
+ for(const x of rated.filter(x=>CORES[role].includes(x.item.id)))candidate.set(x.item.id,x);
  const chosen=[...candidate.values()].sort((a,b)=>b.score-a.score||a.item.id.localeCompare(b.item.id));
  return {ok:true,version:VERSION,role,coreReference:CORES[role].slice(),
    candidateIds:chosen.map(x=>x.item.id),evaluated:items.length,
+   apCandidatesConsidered:allAp.length,allRelevantApIncluded:true,
    shortlisted:chosen.length,rejected:items.length-chosen.length,
    rationale:role==='ap_burst'?'Alliés capables de frontline : Galio priorise le burst AP':
      role==='tank_utility'?'Peu de frontline alliée : Galio privilégie la tenue et le contrôle':
      'Galio équilibre pression offensive, contrôle et survie',
    candidates:chosen.map(x=>({id:x.item.id,score:+x.score.toFixed(2),reasons:x.why.slice(0,3)})),
-   coresAreReferences:true,patchAssumed:false};
+   coresAreReferences:true,patchAssumed:false,penetrationNotForced:true};
 }
 return Object.freeze({VERSION,chooseRole,CORES,evaluate,plan});
 });
