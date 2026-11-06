@@ -4,8 +4,8 @@
   "source": "https://wildrift.leagueoflegends.com/fr-fr/champions/",
   "coverage": {
     "attempted": 125,
-    "extracted": 123,
-    "failed": 2
+    "extracted": 125,
+    "failed": 0
   },
   "restrictions": "Excerpts <=24 words per skill; no numeric or patch confidence; do not use for scoring",
   "entries": [
@@ -1691,6 +1691,47 @@
       "allowedForScoring": false
     },
     {
+      "id": "10026",
+      "name": "Kai'Sa",
+      "source_url": "https://wildrift.leagueoflegends.com/fr-fr/champions/kaisa/",
+      "skills": {
+        "passive": {
+          "name": "SECONDE PEAU",
+          "excerpt_fr": "Les attaques de base de Kai'Sa appliquent des effets Plasma, infligeant de plus en plus de dégâts magiques supplémentaires. Les effets immobilisants des alliés",
+          "descriptionPresent": true,
+          "descriptionTruncated": true
+        },
+        "q": {
+          "name": "PLUIE D'ICATHIA",
+          "excerpt_fr": "Kai'Sa tire une volée de projectiles qui traquent les cibles proches. Arme vivante : Pluie d'Icathia est améliorée pour tirer davantage de projectiles.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false
+        },
+        "w": {
+          "name": "RAYON DU NÉANT",
+          "excerpt_fr": "Kai'Sa tire un projectile à longue portée, révélant et marquant les ennemis avec sa compétence passive. Arme vivante : Rayon du Néant est amélioré",
+          "descriptionPresent": true,
+          "descriptionTruncated": true
+        },
+        "e": {
+          "name": "SURPRESSEUR",
+          "excerpt_fr": "Kai'Sa augmente brièvement sa vitesse de déplacement, puis augmente sa vitesse d'attaque. Arme vivante : Surpresseur est amélioré pour octroyer une brève invisibilité.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false
+        },
+        "r": {
+          "name": "INSTINCT MEURTRIER",
+          "excerpt_fr": "Kai'Sa effectue une ruée jusqu'à un champion ennemi marqué par Plasma et gagne un bouclier temporaire.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false
+        }
+      },
+      "confidence": "official_page_extracted_not_client_verified",
+      "currentPatchVerified": false,
+      "numericRatiosVerified": false,
+      "allowedForScoring": false
+    },
+    {
       "id": "10134",
       "name": "Kalista",
       "source_url": "https://wildrift.leagueoflegends.com/fr-fr/champions/kalista/",
@@ -1970,6 +2011,47 @@
           "excerpt_fr": "Kennen invoque une tempête qui inflige des dégâts magiques aux champions ennemis proches.",
           "descriptionPresent": true,
           "descriptionTruncated": false
+        }
+      },
+      "confidence": "official_page_extracted_not_client_verified",
+      "currentPatchVerified": false,
+      "numericRatiosVerified": false,
+      "allowedForScoring": false
+    },
+    {
+      "id": "10017",
+      "name": "Kha'Zix",
+      "source_url": "https://wildrift.leagueoflegends.com/fr-fr/champions/khazix/",
+      "skills": {
+        "passive": {
+          "name": "MENACE INVISIBLE",
+          "excerpt_fr": "Lorsque Kha'Zix n'est pas visible par l'équipe ennemie, sa prochaine attaque contre un champion ennemi inflige des dégâts magiques supplémentaires et ralentit brièvement la",
+          "descriptionPresent": true,
+          "descriptionTruncated": true
+        },
+        "q": {
+          "name": "GOÛT DE LA PEUR",
+          "excerpt_fr": "Kha'Zix donne un coup de griffes qui inflige des dégâts physiques. Si la cible est isolée, les dégâts sont augmentés. Évolution Griffes de faucheur",
+          "descriptionPresent": true,
+          "descriptionTruncated": true
+        },
+        "w": {
+          "name": "PIQUE DU NÉANT",
+          "excerpt_fr": "Kha'Zix tire des piques qui infligent des dégâts physiques. Il récupère également des PV s'il est dans le rayon de l'explosion. Évolution Batterie de",
+          "descriptionPresent": true,
+          "descriptionTruncated": true
+        },
+        "e": {
+          "name": "BOND",
+          "excerpt_fr": "Kha'Zix bondit sur une zone, infligeant des dégâts physiques. Évolution Ailes : la portée de Bond est grandement augmentée et le délai de récupération",
+          "descriptionPresent": true,
+          "descriptionTruncated": true
+        },
+        "r": {
+          "name": "ASSAUT DU NÉANT",
+          "excerpt_fr": "Passive : chaque amélioration d'Assaut du Néant permet à Kha'Zix de faire évoluer une de ses compétences. Active : Kha'Zix devient invisible et gagne",
+          "descriptionPresent": true,
+          "descriptionTruncated": true
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -5053,14 +5135,5 @@
       "allowedForScoring": false
     }
   ],
-  "failures": [
-    {
-      "name": "Kai'Sa",
-      "error": "HTTP 404"
-    },
-    {
-      "name": "Kha'Zix",
-      "error": "HTTP 404"
-    }
-  ]
+  "failures": []
 }
