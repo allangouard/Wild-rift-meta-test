@@ -6,7 +6,7 @@
   "targetPatch": "7.3d",
   "patchOverlayApplied": false,
   "approvedForDraftScoring": false,
-  "collectedAtUTC": "2026-11-06T13:25:44.968173+00:00",
+  "collectedAtUTC": "2026-11-06T13:34:23.445476+00:00",
   "coverage": {
     "requested": 125,
     "withFiveSkills": 125,
@@ -33,7 +33,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "The Darkin Blade",
@@ -160,7 +161,8 @@
                 540.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Infernal Chains",
@@ -238,7 +240,8 @@
                 80.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Umbral Dash",
@@ -287,7 +290,8 @@
                 45.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "World Ender",
@@ -344,7 +348,8 @@
                 45.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -358,7 +363,8 @@
         "passive": {
           "name": "Essence Theft",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Orb of Deception",
@@ -441,7 +447,8 @@
                 90.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Fox-Fire",
@@ -508,7 +515,8 @@
                 48.65
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Charm",
@@ -578,7 +586,8 @@
                 2.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Spirit Rush",
@@ -641,7 +650,8 @@
                 35.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -663,7 +673,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Five Point Strike",
@@ -731,7 +742,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Twilight Shroud",
@@ -790,7 +802,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Shuriken Flip",
@@ -878,7 +891,8 @@
                 110.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Perfect Execution",
@@ -954,7 +968,8 @@
                 90.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -986,7 +1001,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Avengerang",
@@ -1068,7 +1084,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Going Rogue",
@@ -1116,7 +1133,8 @@
                 110.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Heroic Swing",
@@ -1186,7 +1204,8 @@
                 15.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Comeuppance",
@@ -1306,7 +1325,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -1335,7 +1355,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Pulverize",
@@ -1388,7 +1409,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Headbutt",
@@ -1438,7 +1460,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Trample",
@@ -1499,7 +1522,8 @@
                 40.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Unbreakable Will",
@@ -1538,7 +1562,8 @@
                 75.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -1568,7 +1593,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Cunning Sweep",
@@ -1706,7 +1732,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Repudiation",
@@ -1764,7 +1791,8 @@
                 120.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Lacerate",
@@ -1828,7 +1856,8 @@
                 160.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Public Execution",
@@ -1906,7 +1935,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -1920,7 +1950,8 @@
         "passive": {
           "name": "Cursed Touch",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Bandage Toss",
@@ -1979,7 +2010,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Despair",
@@ -2024,7 +2056,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Tantrum",
@@ -2078,7 +2111,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Curse of the Sad Mummy",
@@ -2118,7 +2152,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -2132,7 +2167,8 @@
         "passive": {
           "name": "Pyromania",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Disintegrate",
@@ -2174,7 +2210,8 @@
                 85.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Incinerate",
@@ -2216,7 +2253,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Molten Shield",
@@ -2263,7 +2301,8 @@
                 40.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Summon: Tibbers",
@@ -2313,7 +2352,8 @@
                 30.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -2327,7 +2367,8 @@
         "passive": {
           "name": "Frost Shot",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Ranger's Focus",
@@ -2377,7 +2418,8 @@
                 26.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Volley",
@@ -2454,7 +2496,8 @@
                 115.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Hawkshot",
@@ -2489,7 +2532,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Enchanted Crystal Arrow",
@@ -2550,7 +2594,8 @@
                 40.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -2564,7 +2609,8 @@
         "passive": {
           "name": "Cosmic Creator",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Breath of Light",
@@ -2645,7 +2691,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Astral Flight",
@@ -2702,7 +2749,8 @@
                 30.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Singularity",
@@ -2790,7 +2838,8 @@
                 15.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Falling Star",
@@ -2883,7 +2932,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -2905,7 +2955,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Rocket Grab",
@@ -2969,7 +3020,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Overdrive",
@@ -3015,7 +3067,8 @@
                 170.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Power Fist",
@@ -3054,7 +3107,8 @@
                 240.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Static Field",
@@ -3111,7 +3165,8 @@
                 80.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -3125,7 +3180,8 @@
         "passive": {
           "name": "Blaze",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Sear",
@@ -3167,7 +3223,8 @@
                 55.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Pillar of Flame",
@@ -3223,7 +3280,8 @@
                 71.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Conflagration",
@@ -3268,7 +3326,8 @@
                 45.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Pyroclasm",
@@ -3337,7 +3396,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -3361,7 +3421,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Winter's Bite",
@@ -3427,7 +3488,8 @@
                 3.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Stand Behind Me",
@@ -3488,7 +3550,8 @@
                 10.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Unbreakable",
@@ -3537,7 +3600,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Glacial Fissure",
@@ -3623,7 +3687,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -3645,7 +3710,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Piltover Peacemaker",
@@ -3729,7 +3795,8 @@
                 102.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Yordle Snap Trap",
@@ -3792,7 +3859,8 @@
                 5.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "90 Caliber Net",
@@ -3855,7 +3923,8 @@
                 80.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Ace in the Hole",
@@ -3919,7 +3988,8 @@
                 20.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -3944,7 +4014,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Precision Protocol",
@@ -3983,7 +4054,8 @@
                 160.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Tactical Sweep",
@@ -4057,7 +4129,8 @@
                 8.55
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Hookshot",
@@ -4141,7 +4214,8 @@
                 80.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "The Hextech Ultimatum",
@@ -4202,7 +4276,8 @@
                 3.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -4216,7 +4291,8 @@
         "passive": {
           "name": "Hextech Munitions",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Phosphorus Bomb",
@@ -4283,7 +4359,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Valkyrie",
@@ -4368,7 +4445,8 @@
                 150.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Gatling Gun",
@@ -4453,7 +4531,8 @@
                 25.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Missile Barrage",
@@ -4539,7 +4618,8 @@
                 140.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -4553,7 +4633,8 @@
         "passive": {
           "name": "Hemorrhage",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Decimate",
@@ -4621,7 +4702,8 @@
                 50.75
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Crippling Strike",
@@ -4657,7 +4739,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Apprehend",
@@ -4712,7 +4795,8 @@
                 36.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Noxian Guillotine",
@@ -4783,7 +4867,8 @@
                 150.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -4797,7 +4882,8 @@
         "passive": {
           "name": "Moonsilver Blade",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Crescent Strike",
@@ -4849,7 +4935,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Pale Cascade",
@@ -4922,7 +5009,8 @@
                 80.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Lunar Rush",
@@ -4969,7 +5057,8 @@
                 30.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Moonfall",
@@ -5012,7 +5101,8 @@
                 80.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -5037,7 +5127,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Infected Bonesaw",
@@ -5088,7 +5179,8 @@
                 550.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Heart Zapper",
@@ -5168,7 +5260,8 @@
                 45.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Blunt Force Trauma",
@@ -5252,7 +5345,8 @@
                 8.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Maximum Dosage",
@@ -5318,7 +5412,8 @@
                 55.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -5332,7 +5427,8 @@
         "passive": {
           "name": "League of Draven",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Spinning Axe",
@@ -5375,7 +5471,8 @@
                 130.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Blood Rush",
@@ -5424,7 +5521,8 @@
                 65.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Stand Aside",
@@ -5497,7 +5595,8 @@
                 40.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Whirling Death",
@@ -5586,7 +5685,8 @@
                 104.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -5608,7 +5708,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Timewinder",
@@ -5717,7 +5818,8 @@
                 90.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Parallel Convergence",
@@ -5778,7 +5880,8 @@
                 150.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Phase Dive",
@@ -5828,7 +5931,8 @@
                 40.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Chronobreak",
@@ -5895,7 +5999,8 @@
                 200.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -5917,7 +6022,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Hate Spike",
@@ -5998,7 +6104,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Allure",
@@ -6073,7 +6180,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Whiplash",
@@ -6137,7 +6245,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Last Caress",
@@ -6208,7 +6317,8 @@
                 172.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -6222,7 +6332,8 @@
         "passive": {
           "name": "Rising Spell Force",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Mystic Shot",
@@ -6289,7 +6400,8 @@
                 30.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Essence Flux",
@@ -6363,7 +6475,8 @@
                 90.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Arcane Shift",
@@ -6427,7 +6540,8 @@
                 75.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Trueshot Barrage",
@@ -6498,7 +6612,8 @@
                 45.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -6520,7 +6635,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Terrify",
@@ -6622,7 +6738,8 @@
                 240.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Bountiful Harvest",
@@ -6745,7 +6862,8 @@
                 7.975
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Reap",
@@ -6807,7 +6925,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Crowstorm",
@@ -6869,7 +6988,8 @@
                 200.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -6900,7 +7020,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Lunge",
@@ -6966,7 +7087,8 @@
                 125.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Riposte",
@@ -7027,7 +7149,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Bladework",
@@ -7069,7 +7192,8 @@
                 200.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Grand Challenge",
@@ -7150,7 +7274,8 @@
                 300.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -7164,7 +7289,8 @@
         "passive": {
           "name": "Seastone Trident",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Urchin Strike",
@@ -7204,7 +7330,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Rending Wave",
@@ -7258,7 +7385,8 @@
                 40.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Playful",
@@ -7311,7 +7439,8 @@
                 55.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Chum the Waters",
@@ -7361,7 +7490,8 @@
                 120.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -7383,7 +7513,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Winds of War",
@@ -7425,7 +7556,8 @@
                 75.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Shield of Durand",
@@ -7514,7 +7646,8 @@
                 55.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Justice Punch",
@@ -7567,7 +7700,8 @@
                 40.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Hero's Entrance",
@@ -7605,7 +7739,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -7619,7 +7754,8 @@
         "passive": {
           "name": "Perseverance",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Decisive Strike",
@@ -7662,7 +7798,8 @@
                 3.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Courage",
@@ -7695,7 +7832,8 @@
                 20.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Judgment",
@@ -7763,7 +7901,8 @@
                 440.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Demacian Justice",
@@ -7817,7 +7956,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -7831,7 +7971,8 @@
         "passive": {
           "name": "Rage Gene",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Mini Gnar",
@@ -7877,7 +8018,8 @@
                 90.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Boomerang Throw",
@@ -7933,7 +8075,8 @@
                 35.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Hyper",
@@ -7980,7 +8123,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Hop",
@@ -8013,7 +8157,8 @@
                 6.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -8038,7 +8183,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Barrel Roll",
@@ -8136,7 +8282,8 @@
                 67.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Drunken Rage",
@@ -8186,7 +8333,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Body Slam",
@@ -8226,7 +8374,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Explosive Cask",
@@ -8266,7 +8415,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -8320,7 +8470,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "End of the Line",
@@ -8403,7 +8554,8 @@
                 250.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Smoke Screen",
@@ -8469,7 +8621,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Quickdraw",
@@ -8523,7 +8676,8 @@
                 168.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Collateral Damage",
@@ -8602,7 +8756,8 @@
                 120.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -8616,7 +8771,8 @@
         "passive": {
           "name": "A Thousand Cuts",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Snip Snip!",
@@ -8691,7 +8847,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Hallowed Mist",
@@ -8738,7 +8895,8 @@
                 5.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Skip 'n Slash",
@@ -8772,7 +8930,8 @@
                 80.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Needlework",
@@ -8851,7 +9010,8 @@
                 90.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -8865,7 +9025,8 @@
         "passive": {
           "name": "Warpath",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Rampage",
@@ -8930,7 +9091,8 @@
                 132.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Spirit of Dread",
@@ -9026,7 +9188,8 @@
                 210.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Devastating Charge",
@@ -9066,7 +9229,8 @@
                 30.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Onslaught of Shadows",
@@ -9104,7 +9268,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -9126,7 +9291,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "H-28G Evolution Turret",
@@ -9189,7 +9355,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Hextech Micro-Rockets",
@@ -9369,7 +9536,8 @@
                 900.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "CH-2 Electron Storm Grenade",
@@ -9488,7 +9656,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "UPGRADE!!!",
@@ -9515,7 +9684,8 @@
               "numericTokens": []
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -9529,7 +9699,8 @@
         "passive": {
           "name": "Ionian Fervor",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Bladesurge",
@@ -9594,7 +9765,8 @@
                 20.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Defiant Dance",
@@ -9675,7 +9847,8 @@
                 120.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Flawless Duet",
@@ -9734,7 +9907,8 @@
                 80.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Vanguard's Edge",
@@ -9805,7 +9979,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -9827,7 +10002,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Howling Gale",
@@ -9879,7 +10055,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Zephyr",
@@ -9928,7 +10105,8 @@
                 20.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Eye of the Storm",
@@ -9989,7 +10167,8 @@
                 10.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Monsoon",
@@ -10044,7 +10223,8 @@
                 90.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -10066,7 +10246,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Dragon Strike",
@@ -10121,7 +10302,8 @@
                 25.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Golden Aegis",
@@ -10172,7 +10354,8 @@
                 5.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Demacian Standard",
@@ -10232,7 +10415,8 @@
                 45.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Cataclysm",
@@ -10279,7 +10463,8 @@
                 20.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -10293,7 +10478,8 @@
         "passive": {
           "name": "Relentless Assault",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Leap Strike",
@@ -10340,7 +10526,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Empower",
@@ -10380,7 +10567,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Counter Strike",
@@ -10443,7 +10631,8 @@
                 7.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Grandmaster-at-Arms",
@@ -10538,7 +10727,8 @@
                 6.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -10552,7 +10742,8 @@
         "passive": {
           "name": "Hextech Capacitor",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "To the Skies!",
@@ -10619,7 +10810,8 @@
                 55.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Lightning Field",
@@ -10687,7 +10879,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Thundering Blow",
@@ -10749,7 +10942,8 @@
                 650.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Transform Mercury Cannon",
@@ -10767,7 +10961,8 @@
               "numericTokens": []
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -10781,7 +10976,8 @@
         "passive": {
           "name": "Whisper",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Dancing Grenade",
@@ -10860,7 +11056,8 @@
                 139.2
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Deadly Flourish",
@@ -10923,7 +11120,8 @@
                 2.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Captive Audience",
@@ -10989,7 +11187,8 @@
                 65.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Curtain Call",
@@ -11060,7 +11259,8 @@
                 200.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -11074,7 +11274,8 @@
         "passive": {
           "name": "Get Excited!",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Switcheroo!",
@@ -11147,7 +11348,8 @@
                 125.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Zap!",
@@ -11223,7 +11425,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Flame Chompers!",
@@ -11294,7 +11497,8 @@
                 1.75
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Super Mega Death Rocket!",
@@ -11414,7 +11618,8 @@
                 800.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -11436,7 +11641,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Icathian Rain",
@@ -11520,7 +11726,8 @@
                 112.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Void Seeker",
@@ -11588,7 +11795,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Supercharge",
@@ -11650,7 +11858,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Killer Instinct",
@@ -11698,7 +11907,8 @@
                 75.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -11712,7 +11922,8 @@
         "passive": {
           "name": "Martial Poise",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Pierce",
@@ -11757,7 +11968,8 @@
                 110.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Sentinel",
@@ -11805,7 +12017,8 @@
                 19.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Rend",
@@ -11881,7 +12094,8 @@
                 30.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Fate's Call",
@@ -11918,7 +12132,8 @@
                 2.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -11932,7 +12147,8 @@
         "passive": {
           "name": "Mantra",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Inner Flame",
@@ -12046,7 +12262,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Focused Resolve",
@@ -12133,7 +12350,8 @@
                 2.25
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Inspire",
@@ -12191,7 +12409,8 @@
                 65.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Transcendent Embrace",
@@ -12231,7 +12450,8 @@
                 80.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -12256,7 +12476,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Null Sphere",
@@ -12315,7 +12536,8 @@
                 80.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Nether Blade",
@@ -12352,7 +12574,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Force Pulse",
@@ -12423,7 +12646,8 @@
                 84.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Riftwalk",
@@ -12514,7 +12738,8 @@
                 3.75
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -12528,7 +12753,8 @@
         "passive": {
           "name": "Voracity",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Bouncing Blade",
@@ -12563,7 +12789,8 @@
                 30.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Preparation",
@@ -12595,7 +12822,8 @@
                 80.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Shunpo",
@@ -12629,7 +12857,8 @@
                 30.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Death Lotus",
@@ -12672,7 +12901,8 @@
                 290.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -12686,7 +12916,8 @@
         "passive": {
           "name": "Divine Ascent",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Radiant Blast",
@@ -12761,7 +12992,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Celestial Blessing",
@@ -12822,7 +13054,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Starfire Spellblade",
@@ -12875,7 +13108,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Divine Judgment",
@@ -12934,7 +13168,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -12948,7 +13183,8 @@
         "passive": {
           "name": "The Darkin Scythe",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Reaping Slash",
@@ -13039,7 +13275,8 @@
                 920.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Blade's Reach",
@@ -13099,7 +13336,8 @@
                 120.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Shadow Step",
@@ -13149,7 +13387,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Umbral Trespass",
@@ -13203,7 +13442,8 @@
                 165.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -13217,7 +13457,8 @@
         "passive": {
           "name": "Mark of the Storm",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Thundering Shuriken",
@@ -13262,7 +13503,8 @@
                 75.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Electrical Surge",
@@ -13319,7 +13561,8 @@
                 80.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Lightning Rush",
@@ -13383,7 +13626,8 @@
                 80.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Slicing Maelstrom",
@@ -13435,7 +13679,8 @@
                 97.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -13449,7 +13694,8 @@
         "passive": {
           "name": "Unseen Threat",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Taste Their Fear",
@@ -13516,7 +13762,8 @@
                 273.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Void Spike",
@@ -13562,7 +13809,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Leap",
@@ -13597,7 +13845,8 @@
                 20.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Void Assault",
@@ -13619,7 +13868,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -13642,7 +13892,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Dance of Arrows",
@@ -13711,7 +13962,8 @@
                 2.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Wolf's Frenzy",
@@ -13775,7 +14027,8 @@
                 1.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Mounting Dread",
@@ -13840,7 +14093,8 @@
                 0.75
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Lamb's Respite",
@@ -13884,7 +14138,8 @@
                 250.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -13898,7 +14153,8 @@
         "passive": {
           "name": "Flurry",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Sonic Wave",
@@ -14010,7 +14266,8 @@
                 200.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Safeguard",
@@ -14098,7 +14355,8 @@
                 40.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Tempest",
@@ -14182,7 +14440,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Dragon's Rage",
@@ -14225,7 +14484,8 @@
                 16.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -14239,7 +14499,8 @@
         "passive": {
           "name": "Sunlight",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Shield of Daybreak",
@@ -14279,7 +14540,8 @@
                 30.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Eclipse",
@@ -14348,7 +14610,8 @@
                 40.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Zenith Blade",
@@ -14404,7 +14667,8 @@
                 40.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Solar Flare",
@@ -14458,7 +14722,8 @@
                 80.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -14472,7 +14737,8 @@
         "passive": {
           "name": "Dream-Laden Bough",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Blooming Blows",
@@ -14549,7 +14815,8 @@
                 80.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Watch Out! Eep!",
@@ -14623,7 +14890,8 @@
                 35.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Swirlseed",
@@ -14669,7 +14937,8 @@
                 45.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Lilting Lullaby",
@@ -14723,7 +14992,8 @@
                 40.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -14737,7 +15007,8 @@
         "passive": {
           "name": "Iceborn Subjugation",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Ice Shard",
@@ -14792,7 +15063,8 @@
                 35.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Ring of Frost",
@@ -14837,7 +15109,8 @@
                 1.55
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Glacial Path",
@@ -14882,7 +15155,8 @@
                 40.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Frozen Tomb",
@@ -14971,7 +15245,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -14985,7 +15260,8 @@
         "passive": {
           "name": "Lightslinger",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Piercing Light",
@@ -15055,7 +15331,8 @@
                 125.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Ardent Blaze",
@@ -15128,7 +15405,8 @@
                 80.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Relentless Pursuit",
@@ -15173,7 +15451,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "The Culling",
@@ -15251,7 +15530,8 @@
                 300.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -15288,7 +15568,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Glitterlance",
@@ -15360,7 +15641,8 @@
                 21.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Whimsy",
@@ -15442,7 +15724,8 @@
                 5.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Help, Pix!",
@@ -15500,7 +15783,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Wild Growth",
@@ -15552,7 +15836,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -15566,7 +15851,8 @@
         "passive": {
           "name": "Illumination",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Light Binding",
@@ -15630,7 +15916,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Prismatic Barrier",
@@ -15720,7 +16007,8 @@
                 46.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Lucent Singularity",
@@ -15797,7 +16085,8 @@
                 45.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Final Spark",
@@ -15849,7 +16138,8 @@
                 75.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -15873,7 +16163,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Seismic Shard",
@@ -15939,7 +16230,8 @@
                 30.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Thunderclap",
@@ -16002,7 +16294,8 @@
                 40.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Ground Slam",
@@ -16062,7 +16355,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Unstoppable Force",
@@ -16122,7 +16416,8 @@
                 90.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -16145,7 +16440,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Bramble Smash",
@@ -16205,7 +16501,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Twisted Advance",
@@ -16269,7 +16566,8 @@
                 1.25
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Sapling Toss",
@@ -16355,7 +16653,8 @@
                 12.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Nature's Grasp",
@@ -16428,7 +16727,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -16442,7 +16742,8 @@
         "passive": {
           "name": "Double Strike",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Alpha Strike",
@@ -16550,7 +16851,8 @@
                 105.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Meditate",
@@ -16640,7 +16942,8 @@
                 35.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Wuju Style",
@@ -16673,7 +16976,8 @@
                 25.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Highlander",
@@ -16719,7 +17023,8 @@
                 55.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -16733,7 +17038,8 @@
         "passive": {
           "name": "Fired Up!",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Ultra Mega Fire Kick",
@@ -16809,7 +17115,8 @@
                 5.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Cozy Campfire",
@@ -16889,7 +17196,8 @@
                 15.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Warm Hugs",
@@ -16958,7 +17266,8 @@
                 19.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Breath of Life",
@@ -17005,7 +17314,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -17019,7 +17329,8 @@
         "passive": {
           "name": "Love Tap",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Double Up",
@@ -17089,7 +17400,8 @@
                 35.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Strut",
@@ -17145,7 +17457,8 @@
                 90.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Make It Rain",
@@ -17231,7 +17544,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Bullet Time",
@@ -17308,7 +17622,8 @@
                 320.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -17330,7 +17645,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Obliterate",
@@ -17392,7 +17708,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Indestructible",
@@ -17424,7 +17741,8 @@
                 42.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Death's Grasp",
@@ -17481,7 +17799,8 @@
                 55.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Realm of Death",
@@ -17517,7 +17836,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -17531,7 +17851,8 @@
         "passive": {
           "name": "Soul Siphon",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Dark Binding",
@@ -17597,7 +17918,8 @@
                 2.75
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Tormented Shadow",
@@ -17686,7 +18008,8 @@
                 189.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Black Shield",
@@ -17733,7 +18056,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Soul Shackles",
@@ -17797,7 +18121,8 @@
                 40.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -17811,7 +18136,8 @@
         "passive": {
           "name": "Surging Tides",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Aqua Prison",
@@ -17868,7 +18194,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Ebb and Flow",
@@ -17957,7 +18284,8 @@
                 42.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Tidecaller's Blessing",
@@ -18027,7 +18355,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Tidal Wave",
@@ -18104,7 +18433,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -18118,7 +18448,8 @@
         "passive": {
           "name": "Soul Eater",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Siphoning Strike",
@@ -18157,7 +18488,8 @@
                 110.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Wither",
@@ -18225,7 +18557,8 @@
                 45.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Spirit Fire",
@@ -18313,7 +18646,8 @@
                 35.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Fury of the Sands",
@@ -18390,7 +18724,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -18412,7 +18747,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Dredge Line",
@@ -18476,7 +18812,8 @@
                 75.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Titan's Wrath",
@@ -18534,7 +18871,8 @@
                 40.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Riptide",
@@ -18620,7 +18958,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Depth Charge",
@@ -18701,7 +19040,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -18715,7 +19055,8 @@
         "passive": {
           "name": "Joy Unending",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Formless Blade",
@@ -18773,7 +19114,8 @@
                 240.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Jubilant Veil",
@@ -18815,7 +19157,8 @@
                 30.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Slipstream",
@@ -18850,7 +19193,8 @@
                 20.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Apotheosis",
@@ -18918,7 +19262,8 @@
                 170.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -18940,7 +19285,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Consume",
@@ -19017,7 +19363,8 @@
                 800.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Biggest Snowball Ever!",
@@ -19090,7 +19437,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Snowball Barrage",
@@ -19154,7 +19502,8 @@
                 300.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Absolute Zero",
@@ -19222,7 +19571,8 @@
                 275.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -19236,7 +19586,8 @@
         "passive": {
           "name": "Berserker Rage",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Undertow",
@@ -19288,7 +19639,8 @@
                 42.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Vicious Strikes",
@@ -19338,7 +19690,8 @@
                 15.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Reckless Swing",
@@ -19400,7 +19753,8 @@
                 52.25
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Ragnarok",
@@ -19454,7 +19808,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -19478,7 +19833,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Command: Attack",
@@ -19560,7 +19916,8 @@
                 27.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Command: Dissonance",
@@ -19617,7 +19974,8 @@
                 35.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Command: Protect",
@@ -19696,7 +20054,8 @@
                 40.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Command: Shockwave",
@@ -19743,7 +20102,8 @@
                 85.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -19765,7 +20125,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Volcanic Rupture",
@@ -19807,7 +20168,8 @@
                 110.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Bellows Breath",
@@ -19889,7 +20251,8 @@
                 260.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Searing Charge",
@@ -19935,7 +20298,8 @@
                 40.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Call of the Forge God",
@@ -19985,7 +20349,8 @@
                 40.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -19999,7 +20364,8 @@
         "passive": {
           "name": "Mortal Will",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Comet Spear",
@@ -20045,7 +20411,8 @@
                 180.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Shield Vault",
@@ -20080,7 +20447,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Aegis Assault",
@@ -20115,7 +20483,8 @@
                 150.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Grand Starfall",
@@ -20159,7 +20528,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -20183,7 +20553,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Hammer Shock",
@@ -20283,7 +20654,8 @@
                 180.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Steadfast Presence",
@@ -20330,7 +20702,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Heroic Charge",
@@ -20398,7 +20771,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Keeper's Verdict",
@@ -20449,7 +20823,8 @@
                 90.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -20463,7 +20838,8 @@
         "passive": {
           "name": "Gift of the Drowned Ones",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Bone Skewer",
@@ -20519,7 +20895,8 @@
                 30.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Ghostwater Dive",
@@ -20547,7 +20924,8 @@
               "numericTokens": []
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Phantom Undertow",
@@ -20598,7 +20976,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Death from Below",
@@ -20640,7 +21019,8 @@
                 1.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -20663,7 +21043,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Gleaming Quill",
@@ -20712,7 +21093,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Grand Entrance",
@@ -20762,7 +21144,8 @@
                 45.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Battle Dance",
@@ -20823,7 +21206,8 @@
                 81.25
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "The Quickness",
@@ -20872,7 +21256,8 @@
                 1.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -20886,7 +21271,8 @@
         "passive": {
           "name": "Rolling Armordillo",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Powerball",
@@ -20914,7 +21300,8 @@
               "numericTokens": []
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Defensive Ball Curl",
@@ -20990,7 +21377,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Frenzying Taunt",
@@ -21041,7 +21429,8 @@
                 65.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Soaring Slam",
@@ -21107,7 +21496,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -21121,7 +21511,8 @@
         "passive": {
           "name": "Reign of Anger",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Cull the Meek",
@@ -21228,7 +21619,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Ruthless Predator",
@@ -21283,7 +21675,8 @@
                 225.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Slice and Dice",
@@ -21337,7 +21730,8 @@
                 40.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Dominus",
@@ -21396,7 +21790,8 @@
                 240.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -21410,7 +21805,8 @@
         "passive": {
           "name": "Unseen Predator",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Savagery",
@@ -21441,7 +21837,8 @@
                 20.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Battle Roar",
@@ -21469,7 +21866,8 @@
                 80.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Bola Strike",
@@ -21504,7 +21902,8 @@
                 90.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Thrill of the Hunt",
@@ -21538,7 +21937,8 @@
                 32.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -21552,7 +21952,8 @@
         "passive": {
           "name": "Runic Blade",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Broken Wings",
@@ -21609,7 +22010,8 @@
                 210.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Ki Burst",
@@ -21652,7 +22054,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Valor",
@@ -21692,7 +22095,8 @@
                 90.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Blade of the Exile",
@@ -21770,7 +22174,8 @@
                 180.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -21784,7 +22189,8 @@
         "passive": {
           "name": "Junkyard Titan",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Flamespitter",
@@ -21926,7 +22332,8 @@
                 1.58
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Scrap Shield",
@@ -21989,7 +22396,8 @@
                 52.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Electro Harpoon",
@@ -22079,7 +22487,8 @@
                 67.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "The Equalizer",
@@ -22122,7 +22531,8 @@
                 200.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -22136,7 +22546,8 @@
         "passive": {
           "name": "Arcane Mastery",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Overload",
@@ -22196,7 +22607,8 @@
                 42.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Rune Prison",
@@ -22249,7 +22661,8 @@
                 4.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Spell Flux",
@@ -22302,7 +22715,8 @@
                 3.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Realm Warp",
@@ -22346,7 +22760,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -22368,7 +22783,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Flair",
@@ -22443,7 +22859,8 @@
                 145.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Blade Whirl",
@@ -22503,7 +22920,8 @@
                 160.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Wild Rush",
@@ -22583,7 +23001,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Inferno Trigger",
@@ -22649,7 +23068,8 @@
                 600.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -22676,7 +23096,8 @@
               "numericTokens": []
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Absolution",
@@ -22699,7 +23120,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Piercing Darkness",
@@ -22787,7 +23209,8 @@
                 25.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Last Embrace",
@@ -22867,7 +23290,8 @@
                 2.2
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Curse of the Black Mist",
@@ -22922,7 +23346,8 @@
                 7.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -22936,7 +23361,8 @@
         "passive": {
           "name": "Stage Presence",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "High Note",
@@ -22992,7 +23418,8 @@
                 67.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Surround Sound",
@@ -23047,7 +23474,8 @@
                 27.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Beat Drop",
@@ -23092,7 +23520,8 @@
                 40.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Encore",
@@ -23141,7 +23570,8 @@
                 1.75
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -23155,7 +23585,8 @@
         "passive": {
           "name": "Pit Grit",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Knuckle Down",
@@ -23205,7 +23636,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Haymaker",
@@ -23235,7 +23667,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Facebreaker",
@@ -23263,7 +23696,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "The Show Stopper",
@@ -23305,7 +23739,8 @@
                 15.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -23327,7 +23762,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Twilight Assault",
@@ -23445,7 +23881,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Spirit's Refuge",
@@ -23480,7 +23917,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Shadow Dash",
@@ -23543,7 +23981,8 @@
                 15.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Stand United",
@@ -23591,7 +24030,8 @@
                 24.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -23605,7 +24045,8 @@
         "passive": {
           "name": "Fury of the Dragonborn",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Twin Bite",
@@ -23637,7 +24078,8 @@
                 80.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Burnout",
@@ -23701,7 +24143,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Flame Breath",
@@ -23751,7 +24194,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Dragon's Descent",
@@ -23808,7 +24252,8 @@
                 600.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -23837,7 +24282,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Poison Trail",
@@ -23903,7 +24349,8 @@
                 54.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Mega Adhesive",
@@ -23969,7 +24416,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Fling",
@@ -24032,7 +24480,8 @@
                 2.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Insanity Potion",
@@ -24085,7 +24534,8 @@
                 25.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -24107,7 +24557,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Decimating Smash",
@@ -24238,7 +24689,8 @@
                 135.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Soul Furnace",
@@ -24304,7 +24756,8 @@
                 13.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Roar of the Slayer",
@@ -24357,7 +24810,8 @@
                 65.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Unstoppable Onslaught",
@@ -24428,7 +24882,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -24442,7 +24897,8 @@
         "passive": {
           "name": "Fleet of Foot",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Boomerang Blade",
@@ -24545,7 +25001,8 @@
                 180.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Ricochet",
@@ -24624,7 +25081,8 @@
                 19.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Spell Shield",
@@ -24657,7 +25115,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "On the Hunt",
@@ -24728,7 +25187,8 @@
                 32.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -24742,7 +25202,8 @@
         "passive": {
           "name": "Power Chord",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Hymn of Valor",
@@ -24808,7 +25269,8 @@
                 20.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Aria of Perseverance",
@@ -24874,7 +25336,8 @@
                 18.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Song of Celerity",
@@ -24919,7 +25382,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Crescendo",
@@ -24983,7 +25447,8 @@
                 35.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -25005,7 +25470,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Starcall",
@@ -25097,7 +25563,8 @@
                 9.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Astral Infusion",
@@ -25149,7 +25616,8 @@
                 55.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Equinox",
@@ -25226,7 +25694,8 @@
                 2.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Wish",
@@ -25281,7 +25750,8 @@
                 67.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -25310,7 +25780,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Death's Hand",
@@ -25391,7 +25862,8 @@
                 80.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Vision of Empire",
@@ -25471,7 +25943,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Nevermove",
@@ -25552,7 +26025,8 @@
                 25.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Demonic Ascension",
@@ -25667,7 +26141,8 @@
                 45.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -25681,7 +26156,8 @@
         "passive": {
           "name": "Transcendent",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Dark Sphere",
@@ -25738,7 +26214,8 @@
                 65.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Force of Will",
@@ -25860,7 +26337,8 @@
                 43.2
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Scatter the Weak",
@@ -25899,7 +26377,8 @@
                 35.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Unleashed Power",
@@ -25957,7 +26436,8 @@
                 105.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -25971,7 +26451,8 @@
         "passive": {
           "name": "Blade's End",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Noxian Diplomacy",
@@ -26028,7 +26509,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Rake",
@@ -26136,7 +26618,8 @@
                 55.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Assassin's Path",
@@ -26178,7 +26661,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Shadow Assault",
@@ -26257,7 +26741,8 @@
                 180.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -26271,7 +26756,8 @@
         "passive": {
           "name": "Toxic Shot",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Blinding Dart",
@@ -26337,7 +26823,8 @@
                 2.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Move Quick",
@@ -26386,7 +26873,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Guerrilla Warfare",
@@ -26454,7 +26942,8 @@
                 6.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Noxious Trap",
@@ -26573,7 +27062,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -26595,7 +27085,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Death Sentence",
@@ -26637,7 +27128,8 @@
                 80.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Dark Passage",
@@ -26680,7 +27172,8 @@
                 2.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Flay",
@@ -26752,7 +27245,8 @@
                 35.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "The Box",
@@ -26792,7 +27286,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -26806,7 +27301,8 @@
         "passive": {
           "name": "Draw a Bead",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Rapid Fire",
@@ -26843,7 +27339,8 @@
                 125.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Rocket Jump",
@@ -26895,7 +27392,8 @@
                 3.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Explosive Charge",
@@ -26993,7 +27491,8 @@
                 110.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Buster Shot",
@@ -27041,7 +27540,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -27063,7 +27563,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Bloodlust",
@@ -27153,7 +27654,8 @@
                 150.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Mocking Shout",
@@ -27184,7 +27686,8 @@
                 40.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Spinning Slash",
@@ -27218,7 +27721,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Undying Rage",
@@ -27257,7 +27761,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -27271,7 +27776,8 @@
         "passive": {
           "name": "Loaded Dice",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Wild Cards",
@@ -27313,7 +27819,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Pick a Card",
@@ -27411,7 +27918,8 @@
                 2.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Stacked Deck",
@@ -27471,7 +27979,8 @@
                 35.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Destiny",
@@ -27513,7 +28022,8 @@
                 8.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -27527,7 +28037,8 @@
         "passive": {
           "name": "Deadly Venom",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Ambush",
@@ -27563,7 +28074,8 @@
                 11.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Venom Cask",
@@ -27607,7 +28119,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Contaminate",
@@ -27680,7 +28193,8 @@
                 90.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Spray and Pray",
@@ -27722,7 +28236,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -27761,7 +28276,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Corrosive Charge",
@@ -27827,7 +28343,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Purge",
@@ -27894,7 +28411,8 @@
                 42.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Disdain",
@@ -27967,7 +28485,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Fear Beyond Death",
@@ -28035,7 +28554,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -28049,7 +28569,8 @@
         "passive": {
           "name": "Living Vengeance",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Piercing Arrow",
@@ -28137,7 +28658,8 @@
                 69.3
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Blighted Quiver",
@@ -28235,7 +28757,8 @@
                 18.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Hail of Arrows",
@@ -28287,7 +28810,8 @@
                 40.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Chain of Corruption",
@@ -28327,7 +28851,8 @@
                 80.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -28341,7 +28866,8 @@
         "passive": {
           "name": "Night Hunter",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Tumble",
@@ -28380,7 +28906,8 @@
                 65.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Silver Bolts",
@@ -28439,7 +28966,8 @@
                 25.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Condemn",
@@ -28503,7 +29031,8 @@
                 130.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Final Hour",
@@ -28549,7 +29078,8 @@
                 35.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -28563,7 +29093,8 @@
         "passive": {
           "name": "Phenomenal Evil Power",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Baleful Strike",
@@ -28611,7 +29142,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Dark Matter",
@@ -28654,7 +29186,8 @@
                 95.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Event Horizon",
@@ -28698,7 +29231,8 @@
                 2.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Primordial Burst",
@@ -28748,7 +29282,8 @@
                 150.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -28780,7 +29315,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Mistral Bolt",
@@ -28848,7 +29384,8 @@
                 65.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Personal Space",
@@ -28908,7 +29445,8 @@
                 30.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Looming Darkness",
@@ -28985,7 +29523,8 @@
                 45.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Shadow Surge",
@@ -29076,7 +29615,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -29090,7 +29630,8 @@
         "passive": {
           "name": "Denting Blows",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Vault Breaker",
@@ -29160,7 +29701,8 @@
                 160.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Blast Shield",
@@ -29211,7 +29753,8 @@
                 5.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Relentless Force",
@@ -29270,7 +29813,8 @@
                 70.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Cease and Desist",
@@ -29324,7 +29868,8 @@
                 140.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -29338,7 +29883,8 @@
         "passive": {
           "name": "Sovereign's Domination",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Blade of the Ruined King",
@@ -29405,7 +29951,8 @@
                 160.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Spectral Maw",
@@ -29435,7 +29982,8 @@
                 90.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Harrowed Path",
@@ -29479,7 +30027,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Heartbreaker",
@@ -29520,7 +30069,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -29534,7 +30084,8 @@
         "passive": {
           "name": "Glorious Evolution",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Siphon Power",
@@ -29632,7 +30183,8 @@
                 15.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Gravity Field",
@@ -29680,7 +30232,8 @@
                 40.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Hextech Ray",
@@ -29747,7 +30300,8 @@
                 90.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Arcane Storm",
@@ -29807,7 +30361,8 @@
                 300.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -29821,7 +30376,8 @@
         "passive": {
           "name": "Crimson Pact",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Transfusion",
@@ -29885,7 +30441,8 @@
                 105.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Sanguine Pool",
@@ -29943,7 +30500,8 @@
                 8.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Tides of Blood",
@@ -30016,7 +30574,8 @@
                 55.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Hemoplague",
@@ -30089,7 +30648,8 @@
                 182.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -30111,7 +30671,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Thundering Smash",
@@ -30171,7 +30732,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Frenzied Maul",
@@ -30240,7 +30802,8 @@
                 8.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Sky Splitter",
@@ -30291,7 +30854,8 @@
                 450.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Stormbringer",
@@ -30348,7 +30912,8 @@
                 5.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -30362,7 +30927,8 @@
         "passive": {
           "name": "Eternal Hunger",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Jaws of the Beast",
@@ -30446,7 +31012,8 @@
                 90.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Blood Hunt",
@@ -30522,7 +31089,8 @@
                 82.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Primal Howl",
@@ -30568,7 +31136,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Infinite Duress",
@@ -30622,7 +31191,8 @@
                 167.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -30636,7 +31206,8 @@
         "passive": {
           "name": "Stone Skin",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Golden Staff",
@@ -30703,7 +31274,8 @@
                 75.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Warrior Trickster",
@@ -30774,7 +31346,8 @@
                 4.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Nimbus Strike",
@@ -30835,7 +31408,8 @@
                 55.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Cyclone",
@@ -30900,7 +31474,8 @@
                 440.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -30914,7 +31489,8 @@
         "passive": {
           "name": "Clean Cuts",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Double Daggers",
@@ -30963,7 +31539,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Deadly Plumage",
@@ -31012,7 +31589,8 @@
                 40.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Bladecaller",
@@ -31057,7 +31635,8 @@
                 90.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Featherstorm",
@@ -31102,7 +31681,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -31116,7 +31696,8 @@
         "passive": {
           "name": "Determination",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Three Talon Strike",
@@ -31167,7 +31748,8 @@
                 120.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Wind Becomes Lightning",
@@ -31272,7 +31854,8 @@
                 62.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Audacious Charge",
@@ -31319,7 +31902,8 @@
                 67.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Crescent Guard",
@@ -31361,7 +31945,8 @@
                 15.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -31375,7 +31960,8 @@
         "passive": {
           "name": "Way of the Wanderer",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Steel Tempest",
@@ -31441,7 +32027,8 @@
                 105.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Wind Wall",
@@ -31480,7 +32067,8 @@
                 600.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Sweeping Blade",
@@ -31578,7 +32166,8 @@
                 90.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Last Breath",
@@ -31623,7 +32212,8 @@
                 160.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -31637,7 +32227,8 @@
         "passive": {
           "name": "Way of the Hunter",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Mortal Steel",
@@ -31701,7 +32292,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Spirit Cleave",
@@ -31752,7 +32344,8 @@
                 14.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Soul Unbound",
@@ -31805,7 +32398,8 @@
                 36.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Fate Sealed",
@@ -31852,7 +32446,8 @@
                 80.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -31878,7 +32473,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Prowling Projectile",
@@ -31963,7 +32559,8 @@
                 5.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "You and Me!",
@@ -32003,7 +32600,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Zoomies",
@@ -32055,7 +32653,8 @@
                 100.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Final Chapter",
@@ -32174,7 +32773,8 @@
                 45.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -32196,7 +32796,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Razor Shuriken",
@@ -32271,7 +32872,8 @@
                 61.6
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Living Shadow",
@@ -32313,7 +32915,8 @@
                 55.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Shadow Slash",
@@ -32384,7 +32987,8 @@
                 60.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Death Mark",
@@ -32415,7 +33019,8 @@
                 55.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -32453,7 +33058,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Electrocute!",
@@ -32512,7 +33118,8 @@
                 26.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Ultrashock Laser",
@@ -32589,7 +33196,8 @@
                 45.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Spark Surge",
@@ -32655,7 +33263,8 @@
                 95.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Lightning Crash",
@@ -32703,7 +33312,8 @@
                 80.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -32725,7 +33335,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Bouncing Bomb",
@@ -32804,7 +33415,8 @@
                 65.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Satchel Charge",
@@ -32878,7 +33490,8 @@
                 27.5
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Hexplosive Minefield",
@@ -32974,7 +33587,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Mega Inferno Bomb",
@@ -33035,7 +33649,8 @@
                 85.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -33049,7 +33664,8 @@
         "passive": {
           "name": "More Sparkles!",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Paddle Star!",
@@ -33118,7 +33734,8 @@
                 150.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Spell Thief",
@@ -33160,7 +33777,8 @@
                 15.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Sleepy Trouble Bubble",
@@ -33219,7 +33837,8 @@
                 30.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Portal Jump",
@@ -33255,7 +33874,8 @@
               ]
             }
           ],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
@@ -33269,7 +33889,8 @@
         "passive": {
           "name": "Garden of Thorns",
           "stats": [],
-          "formulas": []
+          "formulas": [],
+          "descriptionNumericFacts": []
         },
         "q": {
           "name": "Deadly Spines",
@@ -33318,7 +33939,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "w": {
           "name": "Rampant Growth",
@@ -33364,7 +33986,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "e": {
           "name": "Grasping Roots",
@@ -33430,7 +34053,8 @@
                 1.75
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         },
         "r": {
           "name": "Stranglethorns",
@@ -33484,7 +34108,8 @@
                 50.0
               ]
             }
-          ]
+          ],
+          "descriptionNumericFacts": []
         }
       },
       "sourceStatus": "wiki_wr_unpatched",
