@@ -93,7 +93,7 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,catalog
  const rune=chooseRune({bridge:m.runeBridge,catalog:runes,advisor:m.runeAdvisor,needs:need});
  const notes=[...context.reasons];
  if(inputAudit?.ok)notes.push('Données inspectées : '+inputAudit.abilities+' compétences sur '+inputAudit.expectedAbilities+
-  ', '+inputAudit.items+' objets et '+inputAudit.runes+' runes ; '+inputAudit.truncatedDescriptions+' descriptions de compétences abrégées');
+  ', '+inputAudit.items+' objets et '+inputAudit.runes+' runes ; '+inputAudit.fullDescriptions+' descriptions intégrales accessibles');
  if(antiheal?.ok&&need.heal>0){
   const choices=antiheal.items.filter(i=>['morellonomicon','thornmail'].includes(i.itemId));
   for(const option of choices)notes.push(option.itemName+' : Blessures graves '+option.reductionPct+

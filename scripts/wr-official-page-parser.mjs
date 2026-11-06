@@ -24,13 +24,14 @@ export function extractKit(next){
  for(let i=0;i<5;i++){
   const p=groups[i],name=plain(p?.label);
   if(!name||name.length>120)throw Error('Missing ability name '+keys[i]);
-  const words=plain(p?.content?.description?.body).split(/\s+/).filter(Boolean);
+  const fullDescription=plain(p?.content?.description?.body);
+  const words=fullDescription.split(/\s+/).filter(Boolean);
   // Apply the same evidence rules to the COMPLETE Riot description, not
   // only the 24-word excerpt displayed/stored for copyright brevity.
-  const normalized=plain(p?.content?.description?.body).normalize('NFD')
+  const normalized=fullDescription.normalize('NFD')
    .replace(/[\u0300-\u036f]/g,'').toLowerCase();
   const detected_mechanics=RULES.filter(rule=>rule.re.test(normalized)).map(rule=>rule.flag);
-  spells[keys[i]]={name,excerpt_fr:words.slice(0,24).join(' '),
+  spells[keys[i]]={name,description_fr:fullDescription,excerpt_fr:words.slice(0,24).join(' '),
    descriptionPresent:words.length>0,descriptionTruncated:words.length>24,
    detected_mechanics};
  }

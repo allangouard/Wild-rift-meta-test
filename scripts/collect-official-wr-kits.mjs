@@ -1,8 +1,8 @@
 /* Official Wild Rift site-only kit importer (Node >= 20).
  * Never touches build/rune scoring or manual, client-verified data.
  * A failed/partial import is excluded; no PC Data Dragon fallback.
- * Descriptions trimmed to <=24 words per skill for a compact excerpt;
- * full detail and numerical mechanics remain pending client validation.
+ * Full Riot ability descriptions are retained for analysis alongside short display excerpts.
+ * Numeric detail absent from official text still requires client verification.
  */
 import {readFile,writeFile} from 'node:fs/promises';
 import {extractNextData,extractKit} from './wr-official-page-parser.mjs';
@@ -44,7 +44,7 @@ for(let i=0;i<targets.length;i+=3){
 const payload={schema:'wrdi-official-wild-rift-extracted-v1',date:'2026-11-06',
  source:'https://wildrift.leagueoflegends.com/fr-fr/champions/',
  coverage:{attempted:targets.length,extracted:output.length,failed:errors.length},
- restrictions:'Excerpts <=24 words per skill; no numeric or patch confidence; do not use for scoring',
+ restrictions:'Full official skill descriptions kept; numeric ratios and patch validity not automatically confirmed',
  entries:output,failures:errors};
 await writeFile(DEST,JSON.stringify(payload,null,2)+'\n','utf8');
 process.stdout.write('Wild Rift official extraction: '+output.length+'/'+targets.length+'; failed='+errors.length+'\n');

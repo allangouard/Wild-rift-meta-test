@@ -10,6 +10,7 @@ test('125 champion kits from Wild Rift official FR pages, five skills each',()=>
  assert.equal(raw.coverage.extracted,125);
  assert.equal(raw.coverage.failed,0);
  assert.equal(raw.entries.length,125);
+ assert.equal(raw.entries.flatMap(c=>Object.values(c.skills)).filter(s=>s.description_fr?.length>0).length,625);
  const ids=new Set();
  for(const champ of raw.entries){
   assert.ok(!ids.has(champ.id));ids.add(champ.id);
@@ -22,6 +23,8 @@ test('125 champion kits from Wild Rift official FR pages, five skills each',()=>
    assert.ok(spell.name.length>0,champ.name);
    assert.equal(spell.descriptionPresent,true,champ.name+' '+spell.name);
    assert.ok(spell.excerpt_fr.length>0);
+   assert.ok(typeof spell.description_fr==='string'&&spell.description_fr.length>=spell.excerpt_fr.length);
+   assert.ok(spell.description_fr.startsWith(spell.excerpt_fr));
    assert.ok(spell.excerpt_fr.split(/\s+/).length<=24);
   }
  }

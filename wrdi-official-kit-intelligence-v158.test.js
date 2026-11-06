@@ -86,6 +86,14 @@ test('normal draft pipeline uses the same official text for both build and rune 
  assert.equal(result.build.noPopularBuilds,true);
  assert.ok(result.draft.notes.some(x=>x.includes('Compétences Riot Wild Rift')));
 });
+test('full official text is prioritized over short display excerpts',()=>{
+ const sample={id:'10099',name:'Galio',source_url:'https://wildrift.leagueoflegends.com/fr-fr/champions/galio/',skills:{}};
+ for(const k of ['passive','q','w','e','r'])sample.skills[k]={name:k,excerpt_fr:'Inflige des dégâts.',description_fr:'Inflige des dégâts et soigne un allié.',detected_mechanics:[]};
+ const r=kit.analyze(sample);
+ assert.equal(r.flags.healing,true);
+ assert.equal(r.confidence,'explicit_full_official_text');
+ assert.ok(r.evidence.every(e=>e.truncated===false));
+});
 test('no official kit available means no fake mechanical inference',()=>{
  assert.equal(kit.enrich(['ad'],null).traits.join(','),'ad');
  assert.equal(kit.prepare({entries:[]}).ok,false);
@@ -108,4 +116,12 @@ test('French phrasing cannot turn an explosion into a taunt, or a slow into a ha
  assert.ok(r.evidence.some(x=>x.flag==='slow'&&x.spell==='q'));
  assert.ok(!r.evidence.some(x=>x.flag==='cc'&&x.spell==='q'),
   'Un ralentissement n’est pas automatiquement un contrôle dur');
+});
+
+test('full 125 champion import is rejected if one complete description is lost',()=>{
+ const raw=require('./data/champion-ability-extract-official-v1.json');
+ const sample={...raw,entries:raw.entries.map((c,i)=>i?c:{...c,skills:{...c.skills,q:{...c.skills.q,description_fr:''}}})};
+ assert.equal(kit.prepare(sample).ok,false);
+ assert.match(kit.prepare(sample).reason,/Description intégrale/);
+ assert.equal(kit.prepare(raw).ok,true);
 });
