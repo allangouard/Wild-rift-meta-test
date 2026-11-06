@@ -9,7 +9,7 @@
  else root.WRDI_GalioTeamContextV1431=api;
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
-const VERSION='14.31.0-alpha.1';
+const VERSION='15.5.0';
 const has=(arr,key)=>arr.includes(key);
 function make({enemies,allies,lookup}={}){
  if(!Array.isArray(enemies)||enemies.length!==5||!Array.isArray(allies)||allies.length!==5||typeof lookup!=='function')
@@ -38,17 +38,22 @@ function make({enemies,allies,lookup}={}){
  const lanePhysical=has(mid.traits,'ad')?1:0;
  const laneMagic=has(mid.traits,'ap')?1:0;
  const laneAllIn=has(mid.traits,'assassin')||has(mid.traits,'burst')?1:0;
+ // Lane harassment is different from assassination: Galio must step into
+ // melee range for last hits but may use Q to manage the wave from farther.
+ // No opponent-specific prescribed item or assumed enemy purchase.
+ const lanePoke=has(mid.traits,'poke')?1:0;
  const jungleAllIn=has(jungle.traits,'assassin')||has(jungle.traits,'burst')||has(jungle.traits,'engage')?1:0;
  const threats={...counts,
   physicalAssassins,magicAssassins,critPotential:enemyCritPotential,
   // Crit tag = potential based on kit archetype, never a confirmed item build.
   // No verified enemy-item builds were supplied, so confirmed crit stays zero.
-  crit:0,lanePhysical,laneMagic,laneAllIn,jungleAllIn,
+  crit:0,lanePhysical,laneMagic,laneAllIn,lanePoke,jungleAllIn,
   frontlineNeed,peelNeed,enemyProfileCoverage:5-unknownEnemy.length,
   alliesProfileComplete:alliesComplete};
  const reasons=[];
  if(lanePhysical&&laneAllIn)reasons.push('Midlane : menace physique d’engagement, achat défensif précoce à considérer');
  if(laneMagic&&laneAllIn)reasons.push('Midlane : menace magique d’engagement');
+ if(lanePoke)reasons.push('Midlane : harcèlement possible, limiter l’exposition au farm');
  if(jungleAllIn)reasons.push('Jungle : potentiel de gank ou d’engagement');
  if(frontlineNeed)reasons.push('Équipe : responsabilité de première ligne accrue');
  if(peelNeed)reasons.push('Protection des alliés vulnérables à l’engagement');
