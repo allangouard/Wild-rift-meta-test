@@ -19,7 +19,7 @@ jobs:
       - name: Recuperer le code
         uses: actions/checkout@v4
       - name: Collect isolated numeric Wild Rift Wiki snapshot
-        if: github.ref_name == 'v162-wiki-wr-numeric-catalog' && !contains(github.event.head_commit.message, 'data: numeric Wild Rift Wiki snapshot')
+        if: github.ref_name == 'v162-wiki-wr-numeric-catalog' && !contains(github.event.head_commit.message, 'numeric Wild Rift Wiki snapshot')
         run: |
           python3 -m pip install --break-system-packages beautifulsoup4==4.14.2
           python3 scripts/collect-wiki-wr-numbers.py
