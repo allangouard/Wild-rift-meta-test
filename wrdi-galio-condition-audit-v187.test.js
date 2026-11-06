@@ -62,3 +62,12 @@ test('Electrocute minor rune adapts to enemy mid, keeping three legal pages at m
  assert.equal(poke.page.secondary,'Second souffle');
  assert.equal(allin.page.secondary,"Plaque d'os");
 });
+
+test('The optimizer penalizes buying Trident prematurely against one shield provider',()=>{
+ const selected=['ludens_echo','rabadons_deathcap','infinity_orb','morellonomicon','oceanids_trident'].map(items);
+ const base={frontlineProvided:3,damageDuty:2,shieldPressure:2,ad:2,ap:2,tank:0};
+ const lone=optimizer.calculate(selected,{...base,alliedShieldSources:1});
+ const multiple=optimizer.calculate(selected,{...base,alliedShieldSources:2});
+ assert.ok(multiple.score-lone.score>=7,
+  'Trident should require stronger evidence for a core-slot purchase: '+lone.score+' vs '+multiple.score);
+});
