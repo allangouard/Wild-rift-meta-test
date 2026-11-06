@@ -82,7 +82,7 @@ function weights(threats={}){
   laneAllIn:count(threats.laneAllIn),jungleAllIn:count(threats.jungleAllIn),
   peelNeed:count(threats.peelNeed),critPotential:count(threats.critPotential)};
 }
-function calculate(items,threats){
+function calculate(items,threats,combatModel=null){
  const t=weights(threats),fs=items.map(x=>x.feature||features(x));
  const total=key=>fs.reduce((v,x)=>v+x[key],0);
  const n=key=>fs.filter(x=>x[key]).length;
@@ -213,10 +213,21 @@ function calculate(items,threats){
   score+=laneOpening.score*2.3;
   if(items.length===5)reasons.push('Premier achat étudié pour la lane : '+laneOpening.reason);
  }
+ // Galio Q/W/E direct AP scaling from the sourced Wild Rift numeric kit.
+ // Rank profile is a fixed comparison scenario, not a prediction of skill order.
+ if(combatModel?.directDamageAt&&t.damageDuty>0){
+  const baseline=combatModel.directDamageAt({ap:0});
+  const current=combatModel.directDamageAt({ap:total('ap')});
+  if(baseline&&current){
+   const numericGain=current.total-baseline.total;
+   score+=Math.min(7,numericGain/110)*Math.min(1,t.damageDuty/2);
+   if(items.length===5)reasons.push('Dégâts AP directs A/Z/E évalués avec les ratios WR sourcés (sans résistances ni passifs)');
+  }
+ }
  const stats={hp:total('hp'),ap:total('ap'),armor,mr,ah:total('ah')};
  return {score:Math.round(score*100)/100,reasons,stats,needs:t,synergy,balance,laneOpening};
 }
-function optimize({prepared,threats={},slots=5,beamWidth=100}={}){
+function optimize({prepared,threats={},slots=5,beamWidth=100,combatModel=null}={}){
  if(!prepared?.ok||!prepared.core?.validateEquipment)return {ok:false,reason:'Catalogue client indisponible'};
  if(slots!==5)return {ok:false,reason:'Ce moteur construit exactement cinq objets principaux'};
  const pool=eligible(prepared);
@@ -230,7 +241,7 @@ function optimize({prepared,threats={},slots=5,beamWidth=100}={}){
     const item=pool[i];if(partial.ids.includes(item.id))continue;
     const ids=[...partial.ids,item.id];
     if(!prepared.core.validateEquipment(ids,prepared.catalog,prepared.rules).valid)continue;
-    const items=[...partial.items,item],measure=calculate(items,threats);
+    const items=[...partial.items,item],measure=calculate(items,threats,combatModel);
     candidates.push({items,ids,score:measure.score,measure});
    }
   }

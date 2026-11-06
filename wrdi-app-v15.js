@@ -12,7 +12,7 @@ const $=id=>document.getElementById(id);
 const app=$('wrdi-v15'),message=$('wrdi-message'),go=$('wrdi-analyze'),clear=$('wrdi-clear');
 const root=window;
 const data={champions:{'10099':'Galio'},championList:[],catalog:null,rules:null,runes:null,
- officialKits:null,reviewedKits:null,ready:false};
+ officialKits:null,reviewedKits:null,numericKits:null,numericPatch:null,ready:false};
 let pickerUI=null;
 const snapshot=()=>{try{const v=JSON.parse(localStorage.getItem(STORAGE)||'null');return Array.isArray(v)&&v.length===10?v.map(String):Array(10).fill('')}catch{return Array(10).fill('')}};
 let picks=snapshot(),epoch=0;
@@ -129,6 +129,30 @@ function showResults(result){
   rune.append(note);
  }else rune.append(el('p','warning',result.runes.reason));
  box.append(rune);
+ const numerical=result.calculations?.numericCoverage;
+ if(numerical){
+  const section=el('section','result-section');
+  section.append(el('h3',null,'Calculs à partir des compétences Wild Rift'));
+  section.append(el('p','muted',numerical.champions+' fiches chiffrées · '+
+   numerical.abilities+' sorts collectés · '+numerical.patchCorrections+
+   ' corrections Riot appliquées · '+numerical.patchConflicts+' divergences en vérification'));
+  const galio=result.calculations?.numericGalio;
+  if(galio){
+   section.append(el('p','section-intro','Exemple de dégâts directs de Galio avec '+galio.ap+
+    ' AP issus des objets (A rang 4, Z rang 1, E rang 4).'));
+   const list=el('ul','build-list');
+   for(const hit of galio.details){
+    const spell={q:'A · Vents de guerre',w:'Z · Bouclier de Durand',e:'E · Horion de la justice'}[hit.slot]||hit.slot;
+    list.append(el('li','muted',spell+' : '+hit.amount.toFixed(1)+' dégâts magiques bruts (base '+
+     hit.base+' + '+Math.round(hit.apRatio*100)+' % AP)'));
+   }
+   section.append(list);
+   section.append(el('p','caption','Comparaison théorique : sans passif, tornade, ultime, résistances adverses, déclenchements des objets ou runes.'));
+  }
+  if(numerical.patchConflicts||!numerical.patchComplete)
+   section.append(el('p','warning','Attention : toutes les différences de patch ne sont pas encore résolues. Les valeurs conflictuelles sont exclues des calculs concernés.'));
+  box.append(section);
+ }
  const notes=el('details','details');notes.append(el('summary',null,'Pourquoi cette recommandation ?'));
  result.draft.notes.forEach(t=>notes.append(el('p','muted',t)));
  notes.append(el('p','muted','Les choix restent heuristiques : aucun taux de victoire ni calcul de dégâts en partie n’est inventé.'));
@@ -142,13 +166,15 @@ async function fetchJson(url){
 async function boot(){
  renderSlots();
  try{
-  const [catalog,rules,runes,champData,officialKits,reviewedKits]=await Promise.all([
+  const [catalog,rules,runes,champData,officialKits,reviewedKits,numericKits,numericPatch]=await Promise.all([
    fetchJson('./data/items-client-7.3d-v12.json'),
    fetchJson('./data/item-restrictions-client-7.3d-v12.json'),
    fetchJson('./data/rune-catalog-client-v14.json'),
    fetchJson(CHAMPION_CATALOG),
    fetchJson('./data/champion-ability-extract-official-v1.json'),
-   fetchJson('./data/champion-kits-official-fr-v1.json')
+   fetchJson('./data/champion-kits-official-fr-v1.json'),
+   fetchJson('./data/champion-ability-numeric-wiki-wr-v1.json'),
+   fetchJson('./data/wr-champion-numeric-patch-overrides-v1.json')
   ]);
   const list=champData?.champions;
   if(!Array.isArray(list)||list.length<100)throw Error('Catalogue de champions local incomplet');
@@ -160,7 +186,11 @@ async function boot(){
   if(!root.WRDI_OfficialKitIntelligenceV158?.prepare(officialKits)?.ok)
    throw Error('Compétences officielles Wild Rift indisponibles ou invalides');
   data.catalog=catalog;data.rules=rules;data.runes=runes;
+  const numericCheck=root.WRDI_NumericKitsV162?.prepare?.(numericKits,numericPatch);
+  if(!numericCheck?.ok||numericCheck.count!==list.length)
+   throw Error(numericCheck?.reason||'Catalogue numérique Wild Rift indisponible');
   data.officialKits=officialKits;data.reviewedKits=reviewedKits;
+  data.numericKits=numericKits;data.numericPatch=numericPatch;
   pickerUI=root.WRDI_ChampionPickerV151?.init({
    getChampions:()=>data.championList,getPicks:()=>picks,onSelect:selectChampion
   });
@@ -180,7 +210,8 @@ go.addEventListener('click',()=>{
   contingency:root.WRDI_GalioContingenciesV1433,runeBridge:root.WRDI_RuneBridgeV14,
   runeAdvisor:root.WRDI_GalioRuneAdvisorV1411,
   kitIntelligence:root.WRDI_OfficialKitIntelligenceV158,
-  mechanicsCalculator:root.WRDI_MechanicsCalculatorV159};
+  mechanicsCalculator:root.WRDI_MechanicsCalculatorV159,
+  numericEngine:root.WRDI_NumericKitsV162};
  go.disabled=true;status('Analyse du build principal, de l’ordre et des situations possibles…');
  // Yield a frame so the status is visible before the local-only computation.
  setTimeout(()=>{
@@ -188,7 +219,8 @@ go.addEventListener('click',()=>{
   try{
    const r=root.WRDI_DraftEngineV15.analyze({picks,champions:data.champions,
     catalog:data.catalog,rules:data.rules,runes:data.runes,championMeta:data.championList,
-    officialKits:data.officialKits,reviewedKits:data.reviewedKits,modules:mod});
+    officialKits:data.officialKits,reviewedKits:data.reviewedKits,
+    numericKits:data.numericKits,numericPatch:data.numericPatch,modules:mod});
    if(r.ok){showResults(r);status('Analyse terminée. Une seule recommandation, préparée avant la partie.','good');}
    else{$('wrdi-result').replaceChildren();status(r.reason,'warning');}
   }catch(e){$('wrdi-result').replaceChildren();status('Calcul interrompu : '+String(e?.message||e),'warning');}
