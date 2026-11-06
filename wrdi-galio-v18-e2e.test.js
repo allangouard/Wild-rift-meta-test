@@ -30,7 +30,8 @@ const modules={
  bootAdvisor:require('./wrdi-galio-boots-v18.js'),
  lateSlots:require('./wrdi-galio-late-slots-v184.js'),
  threatEvidence:require('./wrdi-galio-threat-evidence-v185.js'),
- conditionAudit:require('./wrdi-galio-condition-audit-v187.js')
+ conditionAudit:require('./wrdi-galio-condition-audit-v187.js'),
+ releaseAudit:require('./wrdi-galio-release-audit-v19.js')
 };
 function draft(names){
  const byName=new Map(champs.map(c=>[c.name.toLowerCase(),c]));
