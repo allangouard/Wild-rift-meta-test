@@ -5,48 +5,37 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.WRDI_DraftEngineV15=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
 const VERSION='15.8.0';
-function chooseRune({bridge,catalog,advisor,needs,laneOpponent,items}={}){
+function chooseRune({bridge,catalog,advisor,needs={},laneOpponent,items=[],role}={}){
  if(!bridge?.audit?.(catalog)?.ok)return {ok:false,reason:'Catalogue des runes non valide'};
- const profiles=advisor?.STRATEGIES||[],t=needs||{};
- // Choose runes only after the five item build is selected: an AP poke strategy
- // should not receive a melee trading rune; a contact-pressure hybrid should
- // not receive a burst-only keystone by accident.
- const build=Array.isArray(items)?items:[];
- const apItems=build.filter(x=>Number(x?.stats?.ap||0)>=45);
- const apBase=build.reduce((sum,x)=>sum+(Number(x?.stats?.ap)||0),0);
- const defensiveItems=build.filter(x=>Number(x?.stats?.armor||0)>0||
-  Number(x?.stats?.mr||0)>0);
- const fullAp=apItems.length>=3&&apBase>=220&&defensiveItems.length<=2;
- const mode=fullAp?'ap_poke':'hybrid_control';
- // Galio MID defaults: control on hybrid builds, comet for a high-AP poke
- // composition. This is a role/build coherence preference, NOT proof that
- // these two keystones have the best win rates.
- const ids=fullAp?['poke','engage']:['engage','poke'];
- const accepted=[];
- for(const id of ids){
-  const template=profiles.find(x=>x.id===id);
-  if(!template)continue;
-  const page={keystone:template.keystone,primaryTree:template.tree,
-   primary:[...template.primary],secondary:template.secondary};
+ const templates=(advisor?.STRATEGIES||[]).filter(x=>['engage','burst','poke'].includes(x.id));
+ const apItems=items.filter(x=>Number(x?.stats?.ap||0)>=45);
+ const apBase=items.reduce((sum,x)=>sum+Number(x?.stats?.ap||0),0);
+ const defensiveItems=items.filter(x=>Number(x?.stats?.armor||0)>0||Number(x?.stats?.mr||0)>0);
+ const fullAp=role==='ap_burst'||(apItems.length>=3&&apBase>=220&&defensiveItems.length<=2);
+ // China-client observed Ice Overlord and Electrocute; Comet is a verified
+ // Wild Rift client rune used as a tactical burst/poke option, NOT a claimed
+ // top-player frequency. Preserve V16.8 Comet for typical AP poke Galio.
+ const burstAllIn=fullAp&&Number(needs.laneAllIn||0)>0&&Number(needs.earlyDive||0)>=2;
+ const order=fullAp?(burstAllIn?['burst','poke','engage']:['poke','burst','engage']):
+  ['engage','poke','burst'];
+ const candidates=[];
+ for(const id of order){
+  const t=templates.find(x=>x.id===id);if(!t)continue;
+  const page={keystone:t.keystone,primaryTree:t.tree,primary:[...t.primary],secondary:t.secondary};
   const validity=bridge.validate(page,catalog);
-  if(validity.valid)accepted.push({page,label:template.label,id,legal:true,
-   reason:template.pros?.[0]||'Interaction documentée'});
+  if(validity.valid)candidates.push({id,label:t.label,page,legal:true,
+   reason:id==='engage'?'Contrôles et résistance : configuration chinoise fréquemment observée':
+    id==='burst'?'Burst rapproché : trois touches nécessaires pour Électrocution':
+    'Poke AP avec Comète : option tactique client vérifiée, fréquence chinoise inconnue'});
  }
- if(!accepted.length)return {ok:false,reason:'Aucune page Galio mid légalement validée'};
- const picked=accepted[0];
- const why=fullAp?
-  'Build Galio mid orienté AP ('+apItems.length+' objets AP, '+apBase+
-  ' AP bruts) : Comète arcanique peut se déclencher via A pour renforcer le poke et les dégâts. '+
-  'Les coups ne sont pas garantis contre '+(laneOpponent||'le mid adverse')+'.':
-  'Build Galio mid hybride de contrôle ('+defensiveItems.length+
-  ' objets avec résistances) : Souverain des glaces renforce les immobilisations de Z/E/R et '+
-  'l’engagement collectif. Poigne exige une attaque de base après préparation et Électrocution '+
-  'trois touches rapprochées ; ces déclenchements ne sont pas le plan principal de ce build.';
- return {ok:true,id:picked.id,label:picked.label,page:picked.page,reason:why,
-  alternatives:accepted.slice(1),mode,apItems:apItems.length,apBase,
-  selection:'galio_mid_build_role_coherence_client_runes_not_empirical_winrate'};
+ if(!candidates.length)return {ok:false,reason:'Aucune page parmi les trois profils Galio autorisée par le client'};
+ const picked=candidates[0];
+ return {ok:true,id:picked.id,label:picked.label,page:picked.page,reason:picked.reason,
+  alternatives:candidates.slice(1,3),mode:fullAp?'ap_burst':'hybrid_control',
+  apItems:apItems.length,apBase,
+  selection:'three_client_validated_galio_pages_cn_guide_for_engage_and_electrocute_no_claim_for_comet_frequency'};
 }
-function analyze({picks,champions,championMeta,officialKits,reviewedKits,numericKits,numericPatch,numericClient,catalog,rules,runes,modules}={}){
+function analyze({picks,champions,championMeta,officialKits,reviewedKits,numericKits,numericPatch,numericClient,catalog,rules,runes,bootsCatalog,modules}={}){
  const fail=(stage,reason)=>({ok:false,stage,reason});
  if(!Array.isArray(picks)||picks.length!==10||picks.some(x=>!String(x||'').trim()))return fail('draft','Les dix champions sont requis');
  if(String(picks[2])!=='10099')return fail('draft','Galio mid uniquement pour le moment');
@@ -112,7 +101,11 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
   orderedItems:sequence.items,enemyNames:names.slice(5),profileLookup:lookup,
   threats:need,max:3,protectCore:true});
  if(!conditional.ok)return fail('contingencies',conditional.reason);
- const rune=chooseRune({bridge:m.runeBridge,catalog:runes,advisor:m.runeAdvisor,needs:need,laneOpponent:names[7],items:main.main.items.map(x=>prepared.catalog.items.find(z=>z.id===x.id))});
+ const rune=chooseRune({bridge:m.runeBridge,catalog:runes,advisor:m.runeAdvisor,
+  role:strategic?.role,needs:need,laneOpponent:names[7],
+  items:main.main.items.map(x=>prepared.catalog.items.find(z=>z.id===x.id))});
+ const boots=m.bootAdvisor?.select?.({bootsCatalog,threats:need,role:strategic?.role})||null;
+ if(m.bootAdvisor&&!boots?.ok)return fail('boots',boots?.reason||'Sélection des bottes indisponible');
  const notes=[...context.reasons];
  if(strategic?.ok)notes.unshift('V18 : '+strategic.rationale+' ; '+strategic.shortlisted+'/'+strategic.evaluated+' objets candidats évalués en détail. Core de référence : '+strategic.coreReference.join(' / ')+'.');
  if(main.main.offenseRole?.active){
@@ -208,7 +201,7 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
    strategy:strategic?.ok?strategic:null,
    orderCertified:false,combinationsExamined:main.evaluatedPool,
    sourced:'player_client_items_only',noPopularBuilds:true},
-  runes:rune,
+  runes:rune,boots,
   calculations:{inputAudit:inputAudit?.ok?inputAudit:null,
    antiheal:antiheal?.ok?antiheal:null,runeProc:runeRange?.ok?runeRange:null,
    numericDraft:numericDraft?.ok?numericDraft:null,
