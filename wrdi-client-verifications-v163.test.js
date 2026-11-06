@@ -19,7 +19,7 @@ test('Samira Q client rank one only, no invented rank 2-4 AD coefficients',()=>{
  assert.deepEqual(s.clientVerified.cooldown_s_by_rank,[6.5,5,3.5,2]);
  assert.equal(s.clientVerified.rank1_total_ad_ratio_pct,115);
  assert.match(s.clientVerified.notVerified.join(' '),/ranks 2,3,4/);
- assert.equal(kits.damageForSkill(s,{ad:100}).length,0);
+ assert.deepEqual(kits.damageForSkill(s,{ad:100})[0].rankValues,[130,null,null,null]);
 });
 test('Samira R ten bullets and 45 percent rank-one AD from client',()=>{
  const s=solved.find('Samira').skills.r;
@@ -29,7 +29,7 @@ test('Samira R ten bullets and 45 percent rank-one AD from client',()=>{
  assert.equal(s.clientVerified.duration_s,2.23);
  assert.equal(s.clientVerified.minion_damage_multiplier_pct,25);
  assert.equal(s.clientVerified.requires_style_rank,'S');
- assert.equal(kits.damageForSkill(s,{ad:100}).length,0);
+ assert.deepEqual(kits.damageForSkill(s,{ad:100})[0].rankValues,[65,null,null]);
 });
 test('Lee Sin R client bonus HP and 190% bonus AD do not mislabel target HP',()=>{
  const s=solved.find('Lee Sin').skills.r;
