@@ -11,7 +11,11 @@ function chooseRune({bridge,catalog,advisor,needs={},laneOpponent,items=[],role}
  const apItems=items.filter(x=>Number(x?.stats?.ap||0)>=45);
  const apBase=items.reduce((sum,x)=>sum+Number(x?.stats?.ap||0),0);
  const defensiveItems=items.filter(x=>Number(x?.stats?.armor||0)>0||Number(x?.stats?.mr||0)>0);
- const fullAp=role==='ap_burst'||(apItems.length>=3&&apBase>=220&&defensiveItems.length<=2);
+ // When role planning has run, its strategic mission takes precedence over
+ // incidental AP-heavy items picked by the five-item optimizer.
+ // Fall back to the build-based heuristic only for older direct callers.
+ const fullAp=role?role==='ap_burst':
+  (apItems.length>=3&&apBase>=220&&defensiveItems.length<=2);
  // Riot WR 7.3b: Electrocute minimum base damage 40 -> 60 (max 210,
  // 10% bonus AD and 5% AP unchanged). The client rune catalog already
  // reflects this. Prioritize Electrocute for Galio AP burst rather than
