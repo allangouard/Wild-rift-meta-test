@@ -277,6 +277,9 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
     option.canTriggerWhenAttacked?'attaques subies ou dégâts infligés selon le passif':
     option.canTriggerOnOwnDamage?'dégâts infligés':'à confirmer'));
  }
+ const releaseAudit=m.releaseAudit?.inspect?.({catalog,runes,bootsCatalog,championMeta,
+  result:{build:{legal:true,lateSlots},runes:rune,draft:{officialKitCoverage:official?names.filter(n=>evidence[n]?.ok).length:0}}})||null;
+ if(releaseAudit?.warnings?.length)notes.push('V19 : résultats expérimentaux ; '+releaseAudit.warnings.join(' '));
  const selectedRune=rune.ok?([...runes.fundamental,...runes.minor].find(x=>x.name_fr===rune.page.keystone)):null;
  const runeRange=selectedRune&&calculator?.runeProcRange?.({rune:selectedRune,ap:main.main.stats?.apAfterInteractions??main.main.stats?.ap??0});
  if(runeRange?.ok)notes.push(runeRange.name+' : dégâts par déclenchement théoriques '+
@@ -300,7 +303,7 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
    conditionAudit:conditionAudit?.ok?conditionAudit:null,
    orderCertified:false,combinationsExamined:main.evaluatedPool,
    sourced:'player_client_items_only',noPopularBuilds:true},
-  runes:rune,boots,dataReadiness:readiness,
+  runes:rune,boots,dataReadiness:readiness,releaseAudit:releaseAudit?.ok?releaseAudit:null,
   calculations:{inputAudit:inputAudit?.ok?inputAudit:null,
    antiheal:antiheal?.ok?antiheal:null,runeProc:runeRange?.ok?runeRange:null,
    numericDraft:numericDraft?.ok?numericDraft:null,
