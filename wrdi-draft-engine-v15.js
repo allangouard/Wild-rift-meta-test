@@ -96,10 +96,31 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
  if(!main.ok)return fail('five_items',main.reason);
  const sequence=order.order({prepared,items:main.main.items,threats:need});
  if(!sequence.ok)return fail('purchase_order',sequence.reason);
+ // Distinct purchase-3/4 pathways, never pretend draft kit healing proves
+ // that heal is decisive in a live match.
+ const antihealPlanning=m.antihealOrder?.candidates?.({
+  prepared,optimizer,order,threats:need,observedHealingSeverity:0
+ })||null;
+ const urgentAntihealPlanning=m.antihealOrder?.candidates?.({
+  prepared,optimizer,order,threats:need,observedHealingSeverity:4,
+  beingAutoAttacked:need.ad>=2
+ })||null;
  const conditional=contingency.plan({prepared,optimizer,items:main.main.items,threats:need,max:3});
  if(!conditional.ok)return fail('contingencies',conditional.reason);
  const rune=chooseRune({bridge:m.runeBridge,catalog:runes,advisor:m.runeAdvisor,needs:need,laneOpponent:names[7],items:main.main.items.map(x=>prepared.catalog.items.find(z=>z.id===x.id))});
  const notes=[...context.reasons];
+ if(antihealPlanning?.ok&&urgentAntihealPlanning?.ok){
+  const show=x=>x?.preferred?.third==='thornmail'?'Cotte épineuse':
+   x?.preferred?.third==='morellonomicon'?'Morellonomicon':'Créateur de failles';
+  notes.push('Troisième achat si les soins ne bloquent pas les éliminations : '+
+   show(antihealPlanning)+' (plan comparatif, distinct du build principal).');
+  notes.push('Si les soins deviennent réellement décisifs : comparer Cotte épineuse '+
+   '(armure, dégâts renvoyés sous attaques) et Morellonomicon (AP, dégâts magiques) '+
+   'avant de retarder Créateur de failles.');
+  notes.push('Antiheal conditionnel : le soin présent dans un kit ennemi ne prouve pas '+
+   'que le troisième objet doive être anti-soin.');
+ }
+
  if(numeric){
   notes.push('Compétences chiffrées WR : '+numeric.numericAbilityCoverage+' entrées collectées ; '+
    numeric.patchOverlayApplied+' corrections officielles appliquées ; '+numeric.clientVerificationsCount+' compétences vérifiées sur client ; '+numeric.patchConflicts+
@@ -174,6 +195,12 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
    numericDraft:numericDraft?.ok?numericDraft:null,
    numericGalio,
    combatScenarios:interactions?.ok?interactions:null,
+   antihealTiming:antihealPlanning?.ok?{
+    baseline:antihealPlanning,
+    ifObservedHealingUrgent:urgentAntihealPlanning,
+    evidence:'client_items_draft_healing_not_live_observed',
+    actionRequired:'recheck_at_third_purchase'
+   }:null,
    productiveSurvival:productivity?.ok?productivity:null,
    numericCoverage:numeric?{champions:numeric.count,abilities:numeric.numericAbilityCoverage,
     patchCorrections:numeric.patchOverlayApplied,clientVerifications:numeric.clientVerificationsCount,patchConflicts:numeric.patchConflicts,
