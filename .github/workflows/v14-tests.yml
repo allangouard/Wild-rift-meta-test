@@ -41,6 +41,8 @@ jobs:
           node --check wrdi-draft-engine-v15.js
           node --check wrdi-app-v15.js
           node --test wrdi-galio-role-planner-v18.test.js
+          node --check wrdi-galio-boots-v18.js
+          node --test wrdi-galio-boots-runes-v18.test.js
       - name: Verifier les trois divergences avec les captures client
         run: node --test wrdi-client-verifications-v163.test.js
       - name: Verifier le E de Shyvana avec les captures du client
