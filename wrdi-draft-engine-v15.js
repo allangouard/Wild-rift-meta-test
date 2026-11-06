@@ -5,65 +5,46 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.WRDI_DraftEngineV15=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
 const VERSION='15.8.0';
-function chooseRune({bridge,catalog,advisor,needs,laneOpponent}){
+function chooseRune({bridge,catalog,advisor,needs,laneOpponent,items}={}){
  if(!bridge?.audit?.(catalog)?.ok)return {ok:false,reason:'Catalogue des runes non valide'};
- const profiles=advisor?.STRATEGIES||[];
- const t=needs||{};
- // A role-first rule: rune templates are taken from the verified client page
- // structure, never from observed usage or rank-based winrates.
- // The team-composition role is evaluated BEFORE generic peel or tank
- // signals. Three allied tanks must not force Galio into Guardian when he is
- // responsible for magic damage. Galio can apply Comet with Q against a
- // ranged/poke mid; Electrocute remains a candidate for short all-in trades.
- const offensiveDuty=t.damageDuty>=2&&t.frontlineProvided>=2&&t.frontlineNeed===0;
- const choices=offensiveDuty?
-  (t.lanePoke||t.laneMagic&&!t.laneAllIn?
-   ['poke','burst','longfight','engage']:
-   t.tank>=2?['longfight','burst','poke','engage']:
-   ['burst','poke','longfight','engage']):
-  t.frontlineNeed>=1?['engage','resilience','peel']:
-  t.laneAllIn?['resilience','burst','engage']:
-  t.peelNeed>=1?['peel','engage','resilience']:
-  t.tank>=2?['longfight','engage','resilience']:
-  ['engage','resilience','roam'];
- // Grasp only procs on a champion-targeted basic attack after combat setup.
- // Against confirmed ranged mid opponents, Galio cannot assume he can
- // repeatedly land melee attacks, even if Q keeps combat active.
- const rangedLane=new Set(['Ahri','Lux','Syndra','Orianna','Ziggs','Hwei','Brand',
-  'Veigar','Seraphine','Vex','Annie','Vladimir','Aurelion Sol','Corki','Tristana',
-  'Lucian','Jayce','Teemo','Zoe','Lissandra','Morgana']);
- const hardToProcGrasp=rangedLane.has(String(laneOpponent||''));
- let ranked=[...choices];
- if(hardToProcGrasp){
-  // Preserve an early fallback for poke/survival and an engage option that
-  // triggers from Galio CC; do not automatically choose Poigne in ranged lane.
-  ranked=ranked.filter(id=>id!=='resilience');
-  if(!ranked.includes('engage'))ranked.unshift('engage');
-  if(!ranked.includes('poke'))ranked.splice(1,0,'poke');
-  ranked.push('resilience');
- }
+ const profiles=advisor?.STRATEGIES||[],t=needs||{};
+ // Choose runes only after the five item build is selected: an AP poke strategy
+ // should not receive a melee trading rune; a contact-pressure hybrid should
+ // not receive a burst-only keystone by accident.
+ const build=Array.isArray(items)?items:[];
+ const apItems=build.filter(x=>Number(x?.stats?.ap||0)>=45);
+ const apBase=build.reduce((sum,x)=>sum+(Number(x?.stats?.ap)||0),0);
+ const defensiveItems=build.filter(x=>Number(x?.stats?.armor||0)>0||
+  Number(x?.stats?.mr||0)>0);
+ const fullAp=apItems.length>=3&&apBase>=220&&defensiveItems.length<=2;
+ const mode=fullAp?'ap_poke':'hybrid_control';
+ // Galio MID defaults: control on hybrid builds, comet for a high-AP poke
+ // composition. This is a role/build coherence preference, NOT proof that
+ // these two keystones have the best win rates.
+ const ids=fullAp?['poke','engage']:['engage','poke'];
  const accepted=[];
- for(const id of ranked){
+ for(const id of ids){
   const template=profiles.find(x=>x.id===id);
   if(!template)continue;
-  const page={keystone:template.keystone,primaryTree:template.tree,primary:[...template.primary],secondary:template.secondary};
-  const validation=bridge.validate(page,catalog);
-  if(validation.valid)accepted.push({page,label:template.label,reason:template.pros?.[0]||'Interaction conditionnelle',id,legal:true});
+  const page={keystone:template.keystone,primaryTree:template.tree,
+   primary:[...template.primary],secondary:template.secondary};
+  const validity=bridge.validate(page,catalog);
+  if(validity.valid)accepted.push({page,label:template.label,id,legal:true,
+   reason:template.pros?.[0]||'Interaction documentée'});
  }
- if(!accepted.length)return {ok:false,reason:'Aucune page de runes du catalogue client entièrement valide'};
+ if(!accepted.length)return {ok:false,reason:'Aucune page Galio mid légalement validée'};
  const picked=accepted[0];
- const why=hardToProcGrasp&&picked.id!=='resilience'?
-  'Poigne de l’immortel écartée contre '+laneOpponent+
-  ' à distance : l’activation demande une attaque de base sur champion après les cumuls en combat, pas seulement une compétence de Galio. '+
-  (picked.id==='engage'?'Les contrôles de Galio permettent de déclencher Souverain des glaces.':
-   picked.id==='poke'?'Comète peut être déclenchée par des compétences de harcèlement.':'Choix de rune évalué selon le rôle.') :
-  offensiveDuty&&picked.id==='poke'?
-  'Galio est chargé d’apporter les dégâts magiques : sa compétence A peut déclencher Comète arcanique contre un mid à distance. Les touches et le délai ne sont pas garantis.':
-  offensiveDuty&&picked.id==='burst'?
-  'Galio joue dégâts AP : Électrocution peut renforcer un échange court après trois touches, si le combo atteint la cible.':
-  picked.reason;
+ const why=fullAp?
+  'Build Galio mid orienté AP ('+apItems.length+' objets AP, '+apBase+
+  ' AP bruts) : Comète arcanique peut se déclencher via A pour renforcer le poke et les dégâts. '+
+  'Les coups ne sont pas garantis contre '+(laneOpponent||'le mid adverse')+'.':
+  'Build Galio mid hybride de contrôle ('+defensiveItems.length+
+  ' objets avec résistances) : Souverain des glaces renforce les immobilisations de Z/E/R et '+
+  'l’engagement collectif. Poigne exige une attaque de base après préparation et Électrocution '+
+  'trois touches rapprochées ; ces déclenchements ne sont pas le plan principal de ce build.';
  return {ok:true,id:picked.id,label:picked.label,page:picked.page,reason:why,
-  alternatives:accepted.slice(1),selection:'heuristique_tactique_non_certifiee'};
+  alternatives:accepted.slice(1),mode,apItems:apItems.length,apBase,
+  selection:'galio_mid_build_role_coherence_client_runes_not_empirical_winrate'};
 }
 function analyze({picks,champions,championMeta,officialKits,reviewedKits,numericKits,numericPatch,numericClient,catalog,rules,runes,modules}={}){
  const fail=(stage,reason)=>({ok:false,stage,reason});
@@ -117,7 +98,7 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
  if(!sequence.ok)return fail('purchase_order',sequence.reason);
  const conditional=contingency.plan({prepared,optimizer,items:main.main.items,threats:need,max:3});
  if(!conditional.ok)return fail('contingencies',conditional.reason);
- const rune=chooseRune({bridge:m.runeBridge,catalog:runes,advisor:m.runeAdvisor,needs:need,laneOpponent:names[7]});
+ const rune=chooseRune({bridge:m.runeBridge,catalog:runes,advisor:m.runeAdvisor,needs:need,laneOpponent:names[7],items:main.main.items.map(x=>prepared.catalog.items.find(z=>z.id===x.id))});
  const notes=[...context.reasons];
  if(numeric){
   notes.push('Compétences chiffrées WR : '+numeric.numericAbilityCoverage+' entrées collectées ; '+
