@@ -34,6 +34,10 @@ function make({enemies,allies,lookup}={}){
  const physicalAssassins=enemy.filter(x=>has(x.traits,'assassin')&&has(x.traits,'ad')).length;
  const magicAssassins=enemy.filter(x=>has(x.traits,'assassin')&&has(x.traits,'ap')).length;
  const enemyCritPotential=enemy.filter(x=>has(x.traits,'crit')).length;
+ // A single self-shield on an enemy mage is not a team-wide shielding draft.
+ // Two or more shield kits, or a shielding support, make shield-cut materially relevant.
+ const shieldingSupport=has(enemy[4].traits,'shield')?1:0;
+ const shieldPressure=counts.shield>=2?counts.shield:shieldingSupport?2:counts.shield*0.25;
  const teamTank=knownAllies.filter(x=>has(x.traits,'tank')).length;
  const teamEngage=knownAllies.filter(x=>has(x.traits,'engage')||has(x.traits,'tank')).length;
  const backline=own.filter(x=>['ADC allié','Support allié'].includes(x.role)&&
@@ -70,7 +74,7 @@ function make({enemies,allies,lookup}={}){
   // No verified enemy-item builds were supplied, so confirmed crit stays zero.
   crit:0,lanePhysical,laneMagic,laneAllIn,lanePoke,jungleAllIn,
   frontlineNeed,frontlineProvided,teamTank,teamEngage,alliedApCarry,
-  damageDuty,midAssassin,jungleAssassin,earlyDive,earlyStasisPriority,
+  damageDuty,shieldPressure,shieldingSupport,midAssassin,jungleAssassin,earlyDive,earlyStasisPriority,
   peelNeed,enemyProfileCoverage:5-unknownEnemy.length,
   alliesProfileComplete:alliesComplete};
  const reasons=[];
