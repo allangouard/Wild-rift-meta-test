@@ -28,7 +28,8 @@ const modules={
  rolePlanner:require('./wrdi-galio-role-planner-v18.js'),
  readiness:require('./wrdi-galio-data-readiness-v18.js'),
  bootAdvisor:require('./wrdi-galio-boots-v18.js'),
- lateSlots:require('./wrdi-galio-late-slots-v184.js')
+ lateSlots:require('./wrdi-galio-late-slots-v184.js'),
+ threatEvidence:require('./wrdi-galio-threat-evidence-v185.js')
 };
 function draft(names){
  const byName=new Map(champs.map(c=>[c.name.toLowerCase(),c]));
@@ -74,4 +75,24 @@ test('V18.1: isolated Annie shield does not warrant Trident, Cosmic Drive is sit
   'Magic penetration is evaluated alongside all viable AP alternatives, not preselected');
  assert.ok(r.build.strategy.apCandidatesConsidered>=20,
   'At least twenty AP item options must be evaluated in this patch catalogue');
+});
+
+test('V18.5 healing evidence is sourced and used by Galio optimizer on real drafts',()=>{
+ const r=draft(['Dr. Mundo','Amumu','Galio','Ashe','Leona','Aatrox','Kayn','Annie','Ezreal','Soraka']);
+ assert.equal(r.ok,true,JSON.stringify(r).slice(0,1200));
+ const e=r.draft.threatEvidence;
+ assert.equal(e.ok,true);
+ assert.ok(e.alliedHealers>=1);
+ assert.ok(e.personalHealers>=1);
+ assert.ok(r.draft.threats.healPressure>0);
+ assert.ok(r.build.strategy.candidateIds.includes('morellonomicon'));
+ assert.equal(r.build.items.length,5);
+ assert.equal(r.build.legal,true);
+});
+test('V18.5 personal shields still do not trigger Trident in screenshot regression',()=>{
+ const r=draft(['Aatrox','Nunu et Willump','Galio','Caitlyn','Alistar','Ambessa','Amumu','Annie','Ezreal','Swain']);
+ assert.equal(r.ok,true,JSON.stringify(r).slice(0,900));
+ assert.equal(r.draft.threatEvidence.alliedHealers,0);
+ assert.ok(r.draft.threats.shieldPressure<1.5);
+ assert.ok(!r.build.strategy.candidateIds.includes('oceanids_trident'));
 });
