@@ -14,7 +14,7 @@ const slugOverrides=new Map([
  ['AurelionSol','aurelion-sol'],['DrMundo','dr-mundo'],
  ['MonkeyKing','wukong'],['Nunu','nunu-and-willump'],
  ['MissFortune','miss-fortune'],['LeeSin','lee-sin'],
- ['Kaisa','kai-sa'],['Khazix','kha-zix'],
+ ['Kaisa','kaisa'],['Khazix','khazix'],
  ['KogMaw','kog-maw'],['Chogath','cho-gath'],
  ['KSante','k-sante'],['Velkoz','vel-koz'],
  ['JarvanIV','jarvan-iv'],['TwistedFate','twisted-fate']
