@@ -151,6 +151,38 @@ function showResults(result){
   }
   if(numerical.patchConflicts||!numerical.patchComplete)
    section.append(el('p','warning','Attention : toutes les différences de patch ne sont pas encore résolues. Les valeurs conflictuelles sont exclues des calculs concernés.'));
+  const interactions=result.calculations?.combatScenarios;
+  if(interactions?.ok){
+   const title=el('h3',null,'Interactions des cinq objets et combats');
+   section.append(title);
+   const duration=el('p','section-intro','Comparaison : combat court 2,5 s / prolongé 8 s. '+
+    'Temps au contact hypothétiques : 35 % / 65 %. Les déclenchements et dégâts réels ne sont pas garantis.');
+   section.append(duration);
+   const summary=el('ul','build-list');
+   const v=interactions.long.values;
+   if(v.riftmaker)summary.append(el('li','muted','Créateur de failles : +'+
+    v.riftmaker.bonusApFromHp.toFixed(1)+' AP grâce aux PV bonus · amplification maximale '+
+    v.riftmaker.damageAmplificationAtDurationPct+' % après montée en puissance.'));
+   if(v.unendingDespair)summary.append(el('li','muted','Désespoir infini : '+
+    interactions.short.values.unendingDespair.possibleTriggersIfContinuousCombat+
+    ' déclenchement possible à 2,5 s contre '+
+    v.unendingDespair.possibleTriggersIfContinuousCombat+' à 8 s. Dégâts réels et soins inconnus.'));
+   if(v.amaranth)summary.append(el('li','muted','Amaranth : '+
+    (interactions.short.values.amaranth.activeInScenario?'actif':'inactif')+' à 2,5 s, '+
+    (v.amaranth.activeInScenario?'actif':'inactif')+' à 8 s ; bonus armure '+
+    v.amaranth.additionalBonusArmorIfActive.toFixed(1)+' et RM '+
+    v.amaranth.additionalBonusMrIfActive.toFixed(1)+' sur les seules résistances des objets.'));
+   if(v.trident)summary.append(el('li','muted','Trident : réduction de boucliers monocible '+
+    v.trident.singleTargetShieldReductionPct.toFixed(1)+' % ou zone '+
+    v.trident.aoeShieldReductionPct.toFixed(1)+' %, seulement si les dégâts de compétence touchent.'));
+   if(v.hollowRadiance)summary.append(el('li','muted','Rayonnement : '+
+    v.hollowRadiance.damagePerSecondRawRange.map(n=>n.toFixed(1)).join('–')+
+    ' dégâts magiques bruts par seconde de proximité (avant résistances).'));
+   section.append(summary);
+   if(interactions.combinations.length)for(const why of interactions.combinations.slice(0,3))
+    section.append(el('p','muted',why));
+   section.append(el('p','caption','Scénarios de passifs conditionnels, non simulation de combat : statistiques de base, cible, portée, résistances et nombre de touches restent inconnus.'));
+  }
   box.append(section);
  }
  const notes=el('details','details');notes.append(el('summary',null,'Pourquoi cette recommandation ?'));
