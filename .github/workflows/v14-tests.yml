@@ -304,3 +304,6 @@ jobs:
         run: |
           node --check scripts/collect-official-wr-kits.mjs
           node --test scripts/wr-official-page-parser.test.mjs
+      - name: Verifier les 125 champions officiels et leurs 625 competences
+        run: |
+          node --test wrdi-champion-official-extract-v1.test.js
