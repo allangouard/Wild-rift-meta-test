@@ -270,8 +270,14 @@ function calculate(items,threats,combatModel=null){
  const magicPenPct=items.reduce((sum,x)=>sum+(Number(x.stats?.mpen_pct)||0),0);
  const percentPenCandidates=items.filter(x=>(Number(x.stats?.mpen_pct)||0)>=25);
  if(Number(t.damageDuty)>=1&&Number(t.frontlineProvided)>=2&&percentPenCandidates.length){
-  score+=Math.min(40,magicPenPct)*0.25;
-  if(items.length>=4)reasons.push('Pénétration magique pour conserver le burst contre les résistances');
+  // Draft doesn't reveal enemy magic-resist purchases. Treat penetration
+  // as a conditional gain instead of an unconditional winner over other AP.
+  const likelyDurable=Math.min(3,Math.max(0,Number(t.tank)||0));
+  const penWeight=likelyDurable>=2?0.24:likelyDurable>=1?0.16:0.065;
+  score+=Math.min(40,magicPenPct)*penWeight;
+  if(items.length>=4)reasons.push(likelyDurable>=2?
+   'Pénétration magique pertinente face aux cibles résistantes':
+   'Pénétration magique envisagée ; RM adverse non connue en draft');
  }
  if(Number(t.damageDuty)>=2&&Number(t.frontlineProvided)>=2&&items.some(x=>x.id==='cosmic_drive')){
   // Cosmic Drive requires a confirmed repositioning need; Galio already has
