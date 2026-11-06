@@ -1,0 +1,42 @@
+# Collecte des fiches champions — Wild Rift uniquement
+
+Date de départ : 6 novembre 2026. La version du client de référence pour les objets est 7.3d, **pas** une preuve que les fiches de champions externes sont toutes au patch 7.3d.
+
+## Sources admissibles
+
+- Riot, fiches françaises Wild Rift : https://wildrift.leagueoflegends.com/fr-fr/champions/
+- Riot, structure JSON officielle intégrée aux pages web (utilisée par la bibliothèque open source `iArmanKarimi/wildrift-champions-api`), comprenant en principe le passif, Q, W, E, R et leurs descriptions.
+- Le wiki `WR:` uniquement pour vérifier les détails numériques, en signalant toute version non confirmée.
+- Le **client Wild Rift de l'utilisateur** est la référence finale pour les conflits et chiffres sensibles aux patchs.
+
+**Interdit pour les données de gameplay :** Data Dragon League of Legends PC, compétences/ratios PC, builds populaires, chiffres non datés présentés comme garantis.
+
+## État de la base
+
+1. `data/champions-picker-v151.json` — 125 identités et voies historiques provenant d'un index de 2025. Ce n'est pas une garantie de catalogue Wild Rift complet en 2026.
+2. `data/champion-kits-official-fr-v1.json` — premier lot de 20 fiches Riot vérifiées manuellement : noms des 5 compétences et mécanique du passif reformulée. **Descriptions complètes Q/W/E/R et chiffres manquants**.
+3. `data/champion-kit-coverage-v1.json` — bilan par champion, avec 105 fiches à rechercher.
+4. `scripts/collect-official-wr-kits.mjs` et `scripts/wr-official-page-parser.mjs` — import contrôlé des données publiques **Wild Rift seulement**; les extraits sont limités et aucune donnée ne devient automatiquement un facteur de scoring.
+5. `data/champion-ability-extract-official-v1.json` — sortie brute vérifiable de l'extraction automatisée, si la page Riot répond. Chaque fiche reste `allowedForScoring: false` tant que les mécanismes n'ont pas été validés.
+
+## Ce qui manque pour une fiche de combat réellement complète
+
+Pour chaque champion : conditions de déclenchement du passif; les quatre compétences et leurs modes; rang, ratio, dégâts, conversion, récupération, coût, portée, durée, type de contrôle; interactions de soin/bouclier; immunités, invulnérabilités, esquives; dégâts sur PV max, dégâts à l'impact et coups critiques intrinsèques; transformations/fomes; timings de fenêtre d'engagement; particularités spécifiques Wild Rift.
+
+Chaque détail doit porter `source_url`, `date_lecture`, `patch_confirme`, `validite` et statut `client_verifie` ou `externe_non_confirme`. Un élément manquant reste **null**, jamais remplacé par une valeur PC.
+
+## Ordre de progression
+
+1. Compléter les cinq descriptions sur les 20 champions déjà vérifiés.
+2. Ajouter les 105 autres identités du catalogue local par extraction officielle contrôlée.
+3. Corriger l'écart entre l'ancien catalogue local de 125 champions et la liste actuelle du site Riot (ne pas supposer que le chiffre du site restera stable).
+4. Vérifier les ratios / délais les plus utiles à Galio mid et aux menaces de chaque draft.
+5. Alimenter le moteur avec les **seuls** mécanismes qualifiés, au lieu de libérer des champs bruts sans vérification; ajouter des tests de non-régression par matchup.
+
+## Invariants
+
+- Aucune collecte ne change le build, les runes ou la recommandation avant validation.
+- Un champion non documenté ne gagne pas de mécanique inventée.
+- Kayn : le soin dépend de sa forme (Darkin), pas une guérison assurée sur toutes les parties.
+- Jhin : quatrième tir critique intrinsèque, sans déduire qu'il achète nécessairement des objets de critique.
+- Les données externes sont les preuves; la qualité de la décision nécessite encore des tests stratégiques.
