@@ -79,6 +79,7 @@ test('attack-gated Gauntlet effect is not assumed guaranteed; CC overlap reduces
 test('legacy five item optimizer remains legal and has timed interaction comparison',()=>{
  const r=optimizer.optimize({prepared,threats:sample.threats,beamWidth:90});
  assert.equal(r.ok,true,JSON.stringify(r));
+ console.log('REFERENCE_V165',JSON.stringify({build:r.main.items.map(x=>x.id),score:r.main.suitability,alternatives:r.alternatives.map(a=>a.items.map(x=>x.id))}));
  assert.equal(r.main.items.length,5);
  assert.ok(r.main.interaction?.ok);
  assert.equal(r.main.interaction.short.duration,2.5);
