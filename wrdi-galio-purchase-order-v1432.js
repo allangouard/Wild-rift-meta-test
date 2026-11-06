@@ -3,7 +3,10 @@
  */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.WRDI_GalioPurchaseOrderV1432=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
-const VERSION='15.6.0-alpha.1',n=x=>typeof x==='number'&&Number.isFinite(x)?Math.max(0,x):0,c=x=>Math.min(5,n(x));
+const interactionEngine=(typeof require==='function'
+ ? require('./wrdi-item-interactions-v165.js')
+ : (typeof globalThis!=='undefined'?globalThis.WRDI_ItemInteractionsV165:null));
+const VERSION='16.5.0',n=x=>typeof x==='number'&&Number.isFinite(x)?Math.max(0,x):0,c=x=>Math.min(5,n(x));
 function features(item){
  const s=item.stats||{},p=(item.passives||[]).map(x=>x.mechanics||{});
  return {armor:n(s.armor),mr:n(s.mr),hp:n(s.hp),ap:n(s.ap),ah:n(s.ah),cost:n(item.price_gold),
@@ -114,7 +117,21 @@ function order({prepared,items,threats={}}={}){
   if(!left.length){
    visited++;
    const stages=seq.map((x,i)=>stageScore(x,threats,i));
-   const score=stages.reduce((sum,p,i)=>sum+p.score*[2.5,1.6,1.3,1,0.9][i],0),tie=seq.map(x=>x.id).join('|');
+   let score=stages.reduce((sum,p,i)=>sum+p.score*[2.5,1.6,1.3,1,0.9][i],0);
+   // A set can be excellent at five items but useless at the second purchase.
+   // Score the *incremental* bonus of passives already accessible at each stage.
+   if(interactionEngine?.compare){
+    let previous=0;
+    for(let step=0;step<seq.length;step++){
+     const current=interactionEngine.compare(seq.slice(0,step+1),threats);
+     if(current.ok){
+      const gain=current.score-previous;
+      score+=gain*[1.9,1.75,1.25,0.85,0.7][step];
+      previous=current.score;
+     }
+    }
+   }
+   const tie=seq.map(x=>x.id).join('|');
    if(!best||score>best.score+1e-9||(Math.abs(score-best.score)<1e-9&&tie<best.tie)){
     if(best)second=Math.max(second,best.score);
     best={seq,stages,score,tie};
