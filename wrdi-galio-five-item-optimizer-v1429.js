@@ -31,6 +31,13 @@ function features(item){
  return {ap:num(stats.ap),hp:num(stats.hp),armor:num(stats.armor),mr:num(stats.mr),
   ah:num(stats.ah),ad:num(stats.ad),as:num(stats.as_pct),magicPen:num(stats.mpen_pct),
   antiheal:has('grievous_wounds_pct'),
+  antihealBySpell:passives.some(p=>num(p.grievous_wounds_pct)>0&&
+   (p.trigger==='deal_magic_damage_to_champion'||p.trigger==='magic_or_true_damage_to_champion')),
+  antihealByContact:passives.some(p=>num(p.grievous_wounds_pct)>0&&
+   (Array.isArray(p.trigger)?p.trigger.includes('damage_champion'):p.trigger==='damage_champion')),
+  antihealByRetaliation:passives.some(p=>num(p.grievous_wounds_pct)>0&&
+   (Array.isArray(p.trigger)?p.trigger.some(t=>['attacked','attacked_by_champion'].includes(t)):
+    ['attacked','attacked_by_champion'].includes(p.trigger))),
   maxHp:passives.some(p=>String(p.damage_per_tick_formula||'').includes('target_max_hp')),
   ramp:has('max_amp_pct')||has('max_damage_amp_pct'),shred:has('mr_shred_per_stack_pct'),
   shieldCut:passives.some(p=>p.effect==='shield_reduction'||num(p.shield_reduction_pct)>0||typeof p.shield_reduction_aoe_pct_formula==='string'||typeof p.shield_reduction_single_pct_formula==='string'),
@@ -118,6 +125,19 @@ function calculate(items,threats){
  if(t.heal>0&&n('antiheal')){
   score+=(3+Math.min(2,t.heal))*Math.min(1,t.heal);
   reasons.push(t.heal<1?'Anti-soin conditionnel : valeur réduite tant que le déclenchement reste incertain':'Blessures graves contre les soins');
+  // Compare trigger applicability instead of assuming all anti-heal items proc alike.
+  // This is a qualitative opportunity score, NOT a measured proc frequency.
+  const magicAccess=n('antihealBySpell');
+  const contactAccess=n('antihealByContact');
+  const retaliationAccess=n('antihealByRetaliation');
+  const antihealPressure=Math.min(1,t.heal);
+  if(magicAccess&&t.damageDuty>=1){
+   score+=1.5*antihealPressure;
+   reasons.push('Anti-soin déclenchable par les dégâts magiques de Galio');
+  }
+  if(retaliationAccess&&t.frontlineNeed===0&&t.frontlineProvided>=2&&!contactAccess)
+   score-=1.2*antihealPressure;
+  if(contactAccess&&t.frontlineNeed>0)score+=0.6*antihealPressure;
  }
  if(t.durableTargets>=2&&n('maxHp')){score+=4+Math.min(2,t.durableTargets);
   reasons.push('Effet documenté sur les PV max des cibles durables');}
