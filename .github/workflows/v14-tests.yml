@@ -11,6 +11,7 @@ on:
       - v164-client-shyvana-e
       - v165-mechanistic-draft-synergy
       - v166-productive-survival-pressure
+      - v167-grasp-amaranth-draft-audit
   workflow_dispatch:
 
 permissions:
@@ -30,6 +31,8 @@ jobs:
         run: node --test wrdi-client-verifications-v163.test.js
       - name: Verifier le E de Shyvana avec les captures du client
         run: node --test wrdi-shyvana-client-v164.test.js
+      - name: Verifier Poigne sur Ahri et Amaranth dans le build
+        run: node --test wrdi-grasp-amaranth-v167.test.js
       - name: Verifier la survie productive et les achats situationnels
         run: |
           node --check wrdi-productive-survival-v166.js
