@@ -253,3 +253,9 @@ jobs:
       - name: Tester l'entree canonique et les archives V14.34
         run: |
           node --test wrdi-consolidation-smoke.test.js
+      - name: Moteur propre V15 sans calculs V12/V13
+        run: |
+          node --check wrdi-champion-profiles-v15.js
+          node --check wrdi-draft-engine-v15.js
+          node --check wrdi-app-v15.js
+          node --test wrdi-draft-engine-v15.test.js
