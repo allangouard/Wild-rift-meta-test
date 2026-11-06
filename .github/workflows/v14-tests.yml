@@ -45,6 +45,7 @@ jobs:
           node --test wrdi-galio-data-readiness-v18.test.js
           node --check wrdi-galio-boots-v18.js
           node --test wrdi-galio-boots-runes-v18.test.js
+          node --test wrdi-galio-v18-e2e.test.js
       - name: Verifier les trois divergences avec les captures client
         run: node --test wrdi-client-verifications-v163.test.js
       - name: Verifier le E de Shyvana avec les captures du client
