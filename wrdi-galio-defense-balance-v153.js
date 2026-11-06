@@ -18,7 +18,11 @@ function evaluate(items,threats={}){
  const lanePhysical=Boolean(t.lanePhysical),laneMagic=Boolean(t.laneMagic);
  // One AP lane opponent creates a first-item MR reason, but does not mean
  // three AP defenses are desirable against three other physical threats.
- const armorTarget=physical>=2?Math.min(110,45+(physical-2)*32):lanePhysical?35:0;
+ const armorBase=physical>=2?Math.min(110,45+(physical-2)*32):lanePhysical?35:0;
+ // Allied tanks can absorb a portion of teamfight duty. Galio still needs
+ // baseline defense to survive lane and mixed-damage dives, not a full tank set.
+ const armorTarget=t.frontlineProvided>=2&&!t.frontlineNeed?
+  Math.max(40,armorBase-15):armorBase;
  const magicTarget=magical>=2?Math.min(110,45+(magical-2)*32):laneMagic?40:0;
  const progress=length<=2?0:length===3?0.55:length===4?0.78:1;
  const deficit=(target,current)=>Math.max(0,target-current)/10;
@@ -48,5 +52,5 @@ function evaluate(items,threats={}){
   stats,physical,magical,reasons,
   rationale:'Résistances réparties sur les cinq objets selon les menaces de toute la draft, et non le seul mid'};
 }
-return Object.freeze({VERSION:'15.3.0',evaluate});
+return Object.freeze({VERSION:'15.6.0',evaluate});
 });
