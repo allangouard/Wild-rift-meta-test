@@ -3,7 +3,7 @@
  */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.WRDI_GalioPurchaseOrderV1432=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
-const VERSION='14.32.0-alpha.1',n=x=>typeof x==='number'&&Number.isFinite(x)?Math.max(0,x):0,c=x=>Math.min(5,n(x));
+const VERSION='15.4.0-alpha.1',n=x=>typeof x==='number'&&Number.isFinite(x)?Math.max(0,x):0,c=x=>Math.min(5,n(x));
 function features(item){
  const s=item.stats||{},p=(item.passives||[]).map(x=>x.mechanics||{});
  return {armor:n(s.armor),mr:n(s.mr),hp:n(s.hp),ap:n(s.ap),ah:n(s.ah),cost:n(item.price_gold),
@@ -16,7 +16,7 @@ function features(item){
   hybrid:n(s.armor)>0&&n(s.mr)>0};
 }
 function stageScore(item,needs,slot){
- const f=item.feature||features(item),t=needs||{},early=slot===0,mid=slot===1||slot===2;
+ const f=item.feature||features(item),t=needs||{},early=slot===0,transition=slot===1,mid=slot===1||slot===2;
  const lanePhysical=c(t.lanePhysical)*(c(t.laneAllIn)?2:1),laneMagic=c(t.laneMagic)*(c(t.laneAllIn)?2:1);
  const gank=c(t.jungleAllIn),frontline=c(t.frontlineNeed),ad=c(t.ad),ap=c(t.ap),assassin=c(t.assassin),tank=c(t.tank),heal=c(t.heal),crit=c(t.crit);
  let score=0;const factors=[];const add=(points,message)=>{if(points>0){score+=points;factors.push({points,message});}};
@@ -29,6 +29,13 @@ function stageScore(item,needs,slot){
   if(assassin&&f.stasis)add(1.2,'Stase contre une menace d’assassinat');
   score-=Math.max(0,f.cost-2600)/750;
  }else if(mid){
+  // The second completed item is transitional: protect early rotations and
+  // the remaining isolated mid exchanges without valuing an all-game lane.
+  if(transition){
+   if(lanePhysical&&f.armor>=30)add(lanePhysical*1.1,'Armure pour terminer la lane contre le mid');
+   if(laneMagic&&f.mr>=30)add(laneMagic*1.1,'RM pour terminer la lane contre le mid');
+   if(f.waveclear)add(0.5,'Gestion des vagues avant les premières rotations');
+  }
   if(ad>=2&&f.armor>=30)add(1.8,'Armure pour les premières escarmouches');
   if(ap>=2&&f.mr>=30)add(1.8,'Résistance magique pour les premières escarmouches');
   if(frontline&&f.hp>=250)add(1.8,'PV pour tenir la première ligne');
@@ -77,7 +84,7 @@ function order({prepared,items,threats={}}={}){
  }
  permutations([],found);
  return {ok:true,version:VERSION,game:'Wild Rift mobile',items:best.seq.map((x,i)=>({
-  id:x.id,name:x.name_fr,priceGold:x.price_gold,slot:i+1,phase:i===0?'lane':i<3?'escarmouches':'teamfights',
+  id:x.id,name:x.name_fr,priceGold:x.price_gold,slot:i+1,phase:i===0?'lane':i===1?'transition':i===2?'escarmouches':'teamfights',
   reason:best.stages[i].reason
  })),checkedPermutations:visited,sameFiveItems:true,bootsSeparate:true,
  priorityConfidence:best.score-second<0.7?'close_alternatives':'heuristic_preference',
