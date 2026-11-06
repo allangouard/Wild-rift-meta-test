@@ -513,7 +513,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "slow"
           ]
         }
       },
@@ -605,7 +606,9 @@
           "excerpt_fr": "Blitzcrank se charge lui-même pour augmenter grandement ses vitesses d'attaque et de déplacement. Il est temporairement ralenti à la fin de l'effet.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "slow"
+          ]
         },
         "e": {
           "name": "Poing d'acier",
@@ -835,6 +838,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "slow",
             "aoe"
           ]
         },
@@ -1128,6 +1132,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
+            "slow",
             "physical_damage"
           ]
         },
@@ -1333,6 +1338,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "slow",
             "aoe",
             "execute"
           ]
@@ -1464,6 +1470,7 @@
           "descriptionTruncated": true,
           "detected_mechanics": [
             "cc",
+            "slow",
             "magic_damage",
             "aoe"
           ]
@@ -1733,6 +1740,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "slow",
             "magic_damage"
           ]
         },
@@ -2984,6 +2992,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "slow",
             "aoe"
           ]
         }
@@ -4098,7 +4107,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "slow"
           ]
         }
       },
@@ -4191,6 +4201,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "slow",
             "mobility"
           ]
         },
@@ -4361,7 +4372,9 @@
           "excerpt_fr": "Rammus prend une posture défensive. Son armure et sa résistance magique sont grandement augmentées, les dégâts de Carapace cloutée sont augmentés et Rammus renvoie",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "slow"
+          ]
         },
         "e": {
           "name": "PROVOCATION FRÉNÉTIQUE",
@@ -4641,7 +4654,9 @@
           "excerpt_fr": "Ryze piège une cible dans une prison de runes, lui infligeant des dégâts et ralentissant ses déplacements. Si la cible est marquée par Flux,",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "slow"
+          ]
         },
         "e": {
           "name": "FLUX ENVOÛTANT",
@@ -4872,7 +4887,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "slow"
           ]
         },
         "r": {
@@ -4908,6 +4924,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "slow",
             "max_hp_damage"
           ]
         },
@@ -6249,7 +6266,9 @@
           "excerpt_fr": "Vladimir plonge dans un bain de sang pendant 2 secondes, le rendant impossible à cibler. Les ennemis au-dessus du bain sont ralentis et Vladimir",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "slow"
+          ]
         },
         "e": {
           "name": "VAGUES DE SANG",
