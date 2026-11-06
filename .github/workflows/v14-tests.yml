@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - v14-development
+      - v160-full-official-ability-text
   workflow_dispatch:
 
 permissions:
