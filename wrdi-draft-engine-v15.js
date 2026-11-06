@@ -4,15 +4,25 @@
  */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.WRDI_DraftEngineV15=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
-const VERSION='15.0.0';
+const VERSION='15.7.0';
 function chooseRune({bridge,catalog,advisor,needs}){
  if(!bridge?.audit?.(catalog)?.ok)return {ok:false,reason:'Catalogue des runes non valide'};
  const profiles=advisor?.STRATEGIES||[];
  const t=needs||{};
  // A role-first rule: rune templates are taken from the verified client page
  // structure, never from observed usage or rank-based winrates.
- const choices=t.frontlineNeed>=1?['engage','resilience','peel']:
-  t.laneAllIn?['resilience','engage','burst']:
+ // The team-composition role is evaluated BEFORE generic peel or tank
+ // signals. Three allied tanks must not force Galio into Guardian when he is
+ // responsible for magic damage. Galio can apply Comet with Q against a
+ // ranged/poke mid; Electrocute remains a candidate for short all-in trades.
+ const offensiveDuty=t.damageDuty>=2&&t.frontlineProvided>=2&&t.frontlineNeed===0;
+ const choices=offensiveDuty?
+  (t.lanePoke||t.laneMagic&&!t.laneAllIn?
+   ['poke','burst','longfight','engage']:
+   t.tank>=2?['longfight','burst','poke','engage']:
+   ['burst','poke','longfight','engage']):
+  t.frontlineNeed>=1?['engage','resilience','peel']:
+  t.laneAllIn?['resilience','burst','engage']:
   t.peelNeed>=1?['peel','engage','resilience']:
   t.tank>=2?['longfight','engage','resilience']:
   ['engage','resilience','roam'];
