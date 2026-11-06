@@ -18,7 +18,7 @@ const RULES=Object.freeze([
  {flag:'magic_damage',re:/\b(degats magiques?|blesse magiquement)\b/i,tag:null,why:'Dégâts magiques explicitement décrits'},
  {flag:'physical_damage',re:/\b(degats physiques?)\b/i,tag:null,why:'Dégâts physiques explicitement décrits'},
  {flag:'true_damage',re:/\b(degats bruts?)\b/i,tag:null,why:'Dégâts bruts explicitement décrits'},
- {flag:'burn',re:/\b(brulure|brule|enflamme|degats sur la duree|degats periodiques)\b/i,tag:'burn',why:'Dégâts persistants décrits'},
+ {flag:'burn',re:/\b(brulure|brule|enflamme|enflamment|en flammes|degats sur la duree|degats periodiques)\b/i,tag:'burn',why:'Dégâts persistants décrits'},
  {flag:'aoe',re:/\b(zone d'effet|zone|autour de|ennemis proches|dans un cone|plusieurs (?:ennemis|cibles))\b/i,tag:'aoe',why:'Zone d’effet décrite'},
  {flag:'long_range',re:/\b(tres longue portee|longue portee|a distance|lointain|de loin)\b/i,tag:null,why:'Portée ou distance explicite'},
  {flag:'crit',re:/\b(critique|critiques)\b/i,tag:null,why:'Critique intrinsèque ou de compétence décrit'},
