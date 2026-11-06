@@ -106,6 +106,18 @@ function showResults(result){
   picture.setAttribute('aria-label',role+' : '+it.name);
   return picture;
  }
+ if(result.build.conditionAudit?.ok&&result.build.conditionAudit.entries.length){
+  const section=el('section','result-section');
+  section.append(el('h3',null,'Conditions des passifs · V18.7'));
+  section.append(el('p','caption','Aucun déclenchement garanti par une draft. Vérifier les achats adverses et l’impact en partie.'));
+  for(const item of result.build.conditionAudit.entries){
+   const level=item.status==='relevant'?'Pertinent si activé':
+    item.status==='conditional'?'Situationnel':
+    item.status==='weak'?'Valeur limitée':'Équipement ennemi inconnu';
+   section.append(el('p','muted',level+' · '+item.id+' : '+item.reason));
+  }
+  box.append(section);
+ }
  const contingent=el('section','result-section');
  contingent.append(el('h3',null,'Objets situationnels'));
  contingent.append(el('p','section-intro','Des remplacements à envisager seulement si la situation décrite se produit.'));
@@ -139,7 +151,8 @@ function showResults(result){
   const section=el('section','result-section');
   section.append(el('h3',null,'Bottes · 3 choix maximum'));
   const chosen=el('p','section-intro','Recommandées : '+bootsResult.recommended.name);
-  section.append(chosen,el('p','muted',bootsResult.recommended.reason));
+  section.append(chosen,el('p','muted',bootsResult.recommended.reason),
+   el('p','caption',bootsResult.recommended.caveat||''));
   for(const alternative of bootsResult.alternatives)
    section.append(el('p','muted','Alternative : '+alternative.name+' — '+alternative.reason));
   box.append(section);
@@ -165,6 +178,7 @@ function showResults(result){
    card.append(label);grid.append(card);
   });
   rune.append(grid);
+  rune.append(el('p','caption','Rune secondaire adaptée à la lane : '+result.runes.page.secondary+'. La priorité reste le rôle de Galio.'));
   const note=el('p','wrdi-rune-note',result.runes.reason);
   rune.append(note);
   if(result.runes.alternatives?.length)
@@ -323,6 +337,7 @@ go.addEventListener('click',()=>{
   readiness:root.WRDI_GalioDataReadinessV18,
   bootAdvisor:root.WRDI_GalioBootsV18,
   lateSlots:root.WRDI_GalioLateSlotsV184,
+  conditionAudit:root.WRDI_GalioConditionAuditV187,
   antihealOrder:root.WRDI_AntihealOrderV169,runeBridge:root.WRDI_RuneBridgeV14,
   runeAdvisor:root.WRDI_GalioRuneAdvisorV1411,
   kitIntelligence:root.WRDI_OfficialKitIntelligenceV158,
