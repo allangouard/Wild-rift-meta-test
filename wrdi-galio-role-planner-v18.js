@@ -1,0 +1,89 @@
+/* V18: role-first candidate planning for Galio mid. Data-driven shortlist,
+ * never a compulsory core. Items are actual verified client objects.
+ * Threats from the ten Wild Rift kits arrive before optimization.
+ */
+(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.WRDI_GalioRolePlannerV18=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
+'use strict';
+const VERSION='18.0.0';
+const n=v=>Number.isFinite(Number(v))?Math.max(0,Number(v)):0;
+function chooseRole(t={}){
+ const frontline=n(t.frontlineProvided),duty=n(t.damageDuty),need=n(t.frontlineNeed);
+ if(frontline>=2&&duty>=1)return 'ap_burst';
+ if(need>=2&&frontline===0)return 'tank_utility';
+ return 'hybrid_offensive';
+}
+const CORES=Object.freeze({
+ ap_burst:['ludens_echo','rabadons_deathcap','infinity_orb'],
+ hybrid_offensive:['hollow_radiance','unending_despair','riftmaker'],
+ tank_utility:['hollow_radiance','unending_despair','thornmail']
+});
+function evaluate(item,role,t={}){
+ const f=item.feature||{},id=String(item.id||'');
+ const ap=n(f.ap),hp=n(f.hp),armor=n(f.armor),mr=n(f.mr);
+ const offense=ap>=40||f.maxHp||f.shred||f.ramp||f.waveclear;
+ const defense=hp>=200||armor>=30||mr>=30||f.protective||f.stasis;
+ const needHeal=n(t.confirmedHeal)+0.35*n(t.conditionalHeal)+0.2*n(t.heal);
+ const needShield=n(t.shield),needCrit=n(t.crit),needCritPotential=n(t.critPotential);
+ const pressurePhysical=n(t.ad)+n(t.lanePhysical)*1.5,pressureMagic=n(t.ap)+n(t.laneMagic)*1.5;
+ let score=0;const why=[];
+ const add=(points,reason)=>{score+=points;if(points>0)why.push(reason);};
+ if(role==='ap_burst'){
+  if(ap>=90)add(6,'Puissance AP pour Galio carry');
+  else if(ap>=40)add(3,'Complément AP');
+  if(f.waveclear)add(1.5,'Sorts et vague');
+  if(f.maxHp&&n(t.tank)>=2)add(4,'Cibles résistantes');
+  if(f.ramp&&n(t.tank)>=2)add(2,'Combat prolongé probable');
+  if(!offense)score-=14;
+  if(armor||mr)score-=5;
+  if(id==='unending_despair'||id==='hollow_radiance')score-=12;
+ }else if(role==='tank_utility'){
+  if(defense)add(5,'Frontline nécessaire');
+  if(hp)add(Math.min(3,hp/200),'Points de vie');
+  if(ap>=40)add(1.5,'Pression magique utile');
+  if(!defense)score-=10;
+ }else{
+  if(defense)add(3,'Engagement durable');
+  if(offense)add(3,'Pression offensive');
+  if(hp&&ap)add(2,'Hybride PV/AP');
+  if(!offense&&!defense)score-=8;
+ }
+ if(f.shieldCut&&needShield)add(5+needShield,'Boucliers adverses');
+ if(f.antihealBySpell&&needHeal)add(3+needHeal,'Anti-soin par les sorts');
+ if(f.antihealByRetaliation&&needHeal&&pressurePhysical>=2)add(2+needHeal,'Anti-soin conditionné aux attaques reçues');
+ if(f.critMitigation&&needCrit)add(6+needCrit,'Critiques confirmés');
+ else if(f.critMitigation&&needCritPotential)add(1,'Critiques possibles, non confirmés');
+ if(armor&&pressurePhysical>=2)add(Math.min(5,pressurePhysical),'Dégâts physiques adverses');
+ if(mr&&pressureMagic>=2)add(Math.min(5,pressureMagic),'Dégâts magiques adverses');
+ if(f.stasis&&n(t.earlyStasisPriority)>=2)add(4,'Menace de dive importante');
+ if(f.maxHp&&n(t.tank)>=2)add(2,'Anti-PV');
+ if(f.shred&&n(t.tank)>=2)add(2,'Pénétration et réduction RM');
+ if(f.attackSpeedAura&&n(t.attackSpeedPressureConfirmed)>0)add(4,'Attaques rapides confirmées');
+ if(CORES[role].includes(id))add(5,'Core de référence pour ce rôle');
+ return {item,score,why,offense,defense};
+}
+function plan({threats={},items=[],limit=20}={}){
+ if(!Array.isArray(items)||items.length<5)return {ok:false,reason:'Catalogue Galio insuffisant'};
+ const role=chooseRole(threats),rated=items.map(x=>evaluate(x,role,threats));
+ rated.sort((a,b)=>b.score-a.score||a.item.id.localeCompare(b.item.id));
+ // Preserve every relevant mechanistic counter even if score rank is low.
+ const mustKeep=rated.filter(x=>CORES[role].includes(x.item.id)||(
+  (n(threats.shield)>0&&x.item.feature?.shieldCut)||
+  (n(threats.confirmedHeal)>0&&(x.item.feature?.antihealBySpell||x.item.feature?.antihealByRetaliation))||
+  (n(threats.tank)>=2&&(x.item.feature?.maxHp||x.item.feature?.shred))||
+  (n(threats.crit)>0&&x.item.feature?.critMitigation)
+ ));
+ const candidate=new Map();
+ for(const x of mustKeep)candidate.set(x.item.id,x);
+ for(const x of rated){if(candidate.size>=Math.max(8,limit))break;candidate.set(x.item.id,x);}
+ const chosen=[...candidate.values()].sort((a,b)=>b.score-a.score||a.item.id.localeCompare(b.item.id));
+ return {ok:true,version:VERSION,role,coreReference:CORES[role].slice(),
+   candidateIds:chosen.map(x=>x.item.id),evaluated:items.length,
+   shortlisted:chosen.length,rejected:items.length-chosen.length,
+   rationale:role==='ap_burst'?'Alliés capables de frontline : Galio priorise le burst AP':
+     role==='tank_utility'?'Peu de frontline alliée : Galio privilégie la tenue et le contrôle':
+     'Galio équilibre pression offensive, contrôle et survie',
+   candidates:chosen.map(x=>({id:x.item.id,score:+x.score.toFixed(2),reasons:x.why.slice(0,3)})),
+   coresAreReferences:true,patchAssumed:false};
+}
+return Object.freeze({VERSION,chooseRole,CORES,evaluate,plan});
+});
