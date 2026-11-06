@@ -60,7 +60,11 @@ function weights(threats={}){
   shield:count(threats.shield),cc:count(threats.cc),burst:count(threats.burst),
   assassin:count(threats.assassin),crit:count(threats.crit),
   frontlineNeed:count(threats.frontlineNeed),frontlineProvided:count(threats.frontlineProvided),
-  damageDuty:count(threats.damageDuty),earlyStasisPriority:count(threats.earlyStasisPriority),
+  damageDuty:count(threats.damageDuty),
+  earlyStasisPriority:Number.isFinite(threats.earlyStasisPriority)?
+   count(threats.earlyStasisPriority):
+   (count(threats.assassin)>=2||count(threats.burst)>=2?2:
+    count(threats.assassin)>=1?1:0),
   durableTargets:count(threats.tank)+Math.min(2,count(threats.sustain)),
   waveclearNeed:count(threats.waveclearNeed),
   lanePhysical:count(threats.lanePhysical),laneMagic:count(threats.laneMagic),
@@ -114,7 +118,7 @@ function calculate(items,threats){
  if(t.tank>=2&&n('shred')){score+=2;reasons.push('Réduction progressive de résistance magique');}
  if(t.shield>0&&n('shieldCut')){score+=3;reasons.push('Réduction de bouclier documentée');}
  if(t.earlyStasisPriority>=2&&n('stasis')){
-  score+=5;reasons.push('Stase active face à plusieurs menaces de dive');
+  score+=5;reasons.push('Stase active contre un engagement explosif');
  }else if(n('stasis')&&t.earlyStasisPriority===1&&damageDuty>=1){
   score-=5;reasons.push('Stase à réserver en option face à un assassin isolé');
  }else if(n('stasis')&&t.earlyStasisPriority===0){
