@@ -71,7 +71,15 @@ function stageScore(item,needs,slot){
  if(crit&&f.critGuard)add(1.5,'Protection contre les critiques confirmés');
  if(!crit&&f.critGuard)score-=2.2;
  factors.sort((a,b)=>b.points-a.points);
- return {score,reason:factors[0]?.message||'Complète le build de cinq objets',factors};
+ // Explain both matchup survival and wave management when they coexist.
+ // A single "MR against mid" label hides why Galio can actually farm.
+ const earlyWave=factors.find(x=>x.message.includes('Immolation')||
+  x.message.includes('Éclaboussure'));
+ const best=factors[0]?.message;
+ const explanation=early&&earlyWave&&best!==earlyWave.message?
+  best+' · '+earlyWave.message:
+  (best||'Complète le build de cinq objets');
+ return {score,reason:explanation,factors};
 }
 function order({prepared,items,threats={}}={}){
  if(!prepared?.ok||!prepared.catalog?.items||!prepared.core?.validateEquipment||!Array.isArray(items)||items.length!==5)
