@@ -28,7 +28,7 @@ function chooseRune({bridge,catalog,advisor,needs}){
  return {ok:true,page:accepted[0].page,reason:accepted[0].reason,
   alternatives:accepted.slice(1),selection:'heuristique_tactique_non_certifiee'};
 }
-function analyze({picks,champions,catalog,rules,runes,modules}={}){
+function analyze({picks,champions,championMeta,catalog,rules,runes,modules}={}){
  const fail=(stage,reason)=>({ok:false,stage,reason});
  if(!Array.isArray(picks)||picks.length!==10||picks.some(x=>!String(x||'').trim()))return fail('draft','Les dix champions sont requis');
  if(String(picks[2])!=='10099')return fail('draft','Galio mid uniquement pour le moment');
@@ -39,7 +39,10 @@ function analyze({picks,champions,catalog,rules,runes,modules}={}){
   return fail('modules','Moteur incomplet : aucune substitution par les anciens calculs');
  const names=picks.map(id=>String(champions?.[String(id)]||''));
  if(names.some(x=>!x))return fail('champions','Un champion choisi n’est pas présent dans l’index des noms');
- const context=team.make({allies:names.slice(0,5),enemies:names.slice(5),lookup:profile.lookup});
+ const metadataByName=new Map((Array.isArray(championMeta)?championMeta:[])
+  .filter(x=>x?.name).map(x=>[String(x.name).toLocaleLowerCase('fr'),x]));
+ const lookup=name=>profile.lookup(name,metadataByName.get(String(name).toLocaleLowerCase('fr')));
+ const context=team.make({allies:names.slice(0,5),enemies:names.slice(5),lookup});
  if(!context.ok)return fail('threats',context.reason);
  const prepared=guard.prepare({catalog,rules,core,livePatch:catalog?.patch_claimed_by_client_user});
  if(!prepared.ok)return fail('client_catalogue',prepared.reason);
