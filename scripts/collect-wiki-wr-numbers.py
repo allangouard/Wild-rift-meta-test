@@ -22,7 +22,8 @@ DEST=ROOT/'data/champion-ability-numeric-wiki-wr-v1.json'
 HEADERS={'User-Agent':'WRDI-numeric-source-archive/1.0 (https://github.com/allangouard/Wild-rift-meta-test)'}
 SLOTS=['passive','q','w','e','r']
 def compact(s):
- return re.sub(r'\s+',' ',str(s or '').replace('\xa0',' ')).strip()
+ s=re.sub(r'\s+',' ',str(s or '').replace('\xa0',' ')).strip()
+ return re.sub(r'(?<=\d)\.\s+(?=\d)','.',s)
 def text(element):
  return compact(element.get_text(' ',strip=True)) if element else ''
 def numbers(s):
