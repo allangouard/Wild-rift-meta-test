@@ -116,7 +116,13 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
     ' s ; dégâts bruts sur cibles marquées uniquement après '+shyvana.dragon_lineage_stacks_for_true_damage+
     ' charges de Lignée draconique.');
  }
- const numericGalio=combatModel?.directDamageAt?.({ap:main.main.stats?.ap||0})||null;
+ const interactions=main.main.interaction||null;
+ if(interactions?.ok){
+  notes.push('Passifs comparés sur 2,5 s et 8 s : scénarios conditionnels, et non dégâts réels garantis.');
+  notes.push(...interactions.combinations.slice(0,3));
+  if(interactions.long.values.unendingDespair)notes.push('Désespoir : dégâts calculés à partir des PV max propres du porteur dans le catalogue client ; PV de base Galio inconnus, soins réels non calculables.');
+ }
+ const numericGalio=combatModel?.directDamageAt?.({ap:main.main.stats?.apAfterInteractions??main.main.stats?.ap??0})||null;
  if(numericGalio)notes.push('Galio A/Z/E (rangs 4/1/4 de comparaison) : '+numericGalio.total.toFixed(1)+
   ' dégâts bruts directs avec '+numericGalio.ap+' AP des objets, sans tornade, passif, résistances ni procs');
  if(inputAudit?.ok)notes.push('Données inspectées : '+inputAudit.abilities+' compétences sur '+inputAudit.expectedAbilities+
@@ -156,10 +162,11 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
    antiheal:antiheal?.ok?antiheal:null,runeProc:runeRange?.ok?runeRange:null,
    numericDraft:numericDraft?.ok?numericDraft:null,
    numericGalio,
+   combatScenarios:interactions?.ok?interactions:null,
    numericCoverage:numeric?{champions:numeric.count,abilities:numeric.numericAbilityCoverage,
     patchCorrections:numeric.patchOverlayApplied,clientVerifications:numeric.clientVerificationsCount,patchConflicts:numeric.patchConflicts,
     patchOutcomes:numeric.patchOutcomes,patchComplete:numeric.unreviewedPatchSections.length===0}:null},
-  methods:{kitPassiveSynergy:'inferred_from_client_text',championThreatSource:official?'official_wild_rift_abilities':'legacy_profiles_only',selection:'qualitative_heuristic',
+  methods:{kitPassiveSynergy:'inferred_from_client_text',championThreatSource:official?'official_wild_rift_abilities':'legacy_profiles_only',selection:'draft_weighted_mechanical_scenarios_and_qualitative_heuristic',
    exactOptimalityProven:false,liveTracking:false,numericCombatInputs:numeric?'wiki_wr_and_riot_patch_layer':'not_loaded'},
   warnings:rune.ok?[]:['Runes indisponibles : '+rune.reason]};
 }
