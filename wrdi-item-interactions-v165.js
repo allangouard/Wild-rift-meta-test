@@ -130,7 +130,8 @@ function scenario(items,threats={},options={}){
    cooldownSeconds:1.5,slowPct:30,slowSeconds:2,
    requiresMeleeAttackAfterSpell:true};
   opportunity+=(enemyPhysical>=2?1:0)+(frontline?0.4:0);
-  if(n(threats.cc)>=2)opportunity-=1.6;
+  // Galio already has taunt and knock-ups; Alistar or another engage ally adds overlap.
+  opportunity-=n(threats.teamEngage)>0?1.5:0.9;
   notes.push('Gantelet : nécessite une attaque de mêlée après un sort ; ralentissement moins précieux avec plusieurs contrôles');
  }
  const heart=item('frozen_heart');
