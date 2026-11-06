@@ -17,7 +17,7 @@ function stats(items){
  const s={hp:0,ap:0,armor:0,mr:0,ah:0};
  for(const item of items)for(const k of Object.keys(s))s[k]+=n(item.stats?.[k]);
  const rift=items.find(i=>i.id==='riftmaker');
- const conversion=rift?n(s.hp)*(n(find(rift,'bonus_ap_formula')?.bonus_ap_formula==='0.02 * bonus_hp'?0.02:0)):0;
+ const conversion=rift&&find(rift,'bonus_ap_formula')?.bonus_ap_formula==='0.02 * bonus_hp'?s.hp*0.02:0;
  const cap=items.find(i=>i.id==='rabadons_deathcap');
  const multiplier=n(find(cap||{},'value')?.value)||1;
  const ap=(s.ap+conversion)*multiplier;
