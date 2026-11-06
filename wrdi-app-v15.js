@@ -129,6 +129,30 @@ function showResults(result){
   rune.append(note);
  }else rune.append(el('p','warning',result.runes.reason));
  box.append(rune);
+ const numerical=result.calculations?.numericCoverage;
+ if(numerical){
+  const section=el('section','result-section');
+  section.append(el('h3',null,'Calculs à partir des compétences Wild Rift'));
+  section.append(el('p','muted',numerical.champions+' fiches chiffrées · '+
+   numerical.abilities+' sorts collectés · '+numerical.patchCorrections+
+   ' corrections Riot appliquées · '+numerical.patchConflicts+' divergences en vérification'));
+  const galio=result.calculations?.numericGalio;
+  if(galio){
+   section.append(el('p','section-intro','Exemple de dégâts directs de Galio avec '+galio.ap+
+    ' AP issus des objets (A rang 4, Z rang 1, E rang 4).'));
+   const list=el('ul','build-list');
+   for(const hit of galio.details){
+    const spell={q:'A · Vents de guerre',w:'Z · Bouclier de Durand',e:'E · Horion de la justice'}[hit.slot]||hit.slot;
+    list.append(el('li','muted',spell+' : '+hit.amount.toFixed(1)+' dégâts magiques bruts (base '+
+     hit.base+' + '+Math.round(hit.apRatio*100)+' % AP)'));
+   }
+   section.append(list);
+   section.append(el('p','caption','Comparaison théorique : sans passif, tornade, ultime, résistances adverses, déclenchements des objets ou runes.'));
+  }
+  if(numerical.patchConflicts||!numerical.patchComplete)
+   section.append(el('p','warning','Attention : toutes les différences de patch ne sont pas encore résolues. Les valeurs conflictuelles sont exclues des calculs concernés.'));
+  box.append(section);
+ }
  const notes=el('details','details');notes.append(el('summary',null,'Pourquoi cette recommandation ?'));
  result.draft.notes.forEach(t=>notes.append(el('p','muted',t)));
  notes.append(el('p','muted','Les choix restent heuristiques : aucun taux de victoire ni calcul de dégâts en partie n’est inventé.'));
