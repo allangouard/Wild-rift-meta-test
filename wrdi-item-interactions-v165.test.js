@@ -85,6 +85,12 @@ test('legacy five item optimizer remains legal and has timed interaction compari
  assert.equal(r.main.interaction.short.duration,2.5);
  assert.equal(r.main.interaction.long.duration,8);
  assert.equal(core.validateEquipment(r.main.items.map(x=>x.id),catalog,rules).valid,true);
+ const reference=optimizer.calculate(tested,sample.threats);
+ const winning=optimizer.calculate(chosen(r.main.items.map(x=>x.id)),sample.threats);
+ console.log('REFERENCE_COMPARE_V165',JSON.stringify({
+  reference:{score:reference.score,interaction:reference.interaction.score,stats:reference.stats,balance:reference.balance?.score},
+  winner:{score:winning.score,interaction:winning.interaction.score,stats:winning.stats,balance:winning.balance?.score}
+ }));
 });
 test('known five-item scenario can be compared to a no-purpose antiheal set',()=>{
  const alternative=chosen(['hollow_radiance','unending_despair','riftmaker','oceanids_trident','thornmail']);
