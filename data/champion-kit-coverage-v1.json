@@ -2,7 +2,7 @@
   "schema": "wrdi-champion-coverage-v1",
   "asOf": "2026-11-07",
   "totalLocalChampions": 126,
-  "officialPartialProfiles": 21,
+  "officialPartialProfiles": 20,
   "unresearched": 105,
   "entries": [
     {
@@ -1143,5 +1143,6 @@
       "allRatiosAndCooldownsVerified": false,
       "source": null
     }
-  ]
+  ],
+  "clientScreenshotCompleteProfiles": 1
 }
