@@ -16,6 +16,7 @@ on:
       - v169-antheal-timed-purchase-decisions
       - v170-contingencies-draft-core-integrity
       - v171-flexible-galio-hybrid-core
+      - v172-galio-ap-carry-burst-coherence
   workflow_dispatch:
 
 permissions:
@@ -35,6 +36,10 @@ jobs:
         run: node --test wrdi-client-verifications-v163.test.js
       - name: Verifier le E de Shyvana avec les captures du client
         run: node --test wrdi-shyvana-client-v164.test.js
+      - name: Verifier la puissance AP et le burst quand les allies assurent la frontline
+        run: |
+          node --check wrdi-galio-five-item-optimizer-v1429.js
+          node --test wrdi-galio-ap-carry-v172.test.js
       - name: Valider le core hybride Galio flexible et les fins de build anti-menace
         run: |
           node --check wrdi-galio-five-item-optimizer-v1429.js
