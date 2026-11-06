@@ -31,7 +31,8 @@ test('all champion IDs match local Wild Rift picker; coverage exposes all pendin
  for(const p of data.profiles)assert.equal(map.get(p.id),p.champion);
  assert.equal(coverage.totalLocalChampions,client.champions.length);
  assert.equal(coverage.entries.length,client.champions.length);
- assert.equal(coverage.officialPartialProfiles,data.profiles.length);
+ assert.equal(coverage.officialPartialProfiles,data.profiles.filter(p=>p.source.type==='riot_wild_rift_official_fr').length);
+ assert.equal(coverage.clientScreenshotCompleteProfiles,1);
  assert.equal(coverage.unresearched,coverage.entries.length-data.profiles.length);
  for(const row of coverage.entries){
   assert.ok(map.has(row.id));
