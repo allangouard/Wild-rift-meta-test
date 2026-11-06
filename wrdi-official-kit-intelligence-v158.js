@@ -68,7 +68,7 @@ function analyze(record){
   source:record.source_url,confidence:'explicit_official_excerpt_only',
   patchVerified:false,damageQuantified:false,formVerified:false};
 }
-function enrich(base=[],record){
+function enrich(base=[],record,reviewed=null){
  const normalized=Array.isArray(base)?base.filter(x=>typeof x==='string'):[];
  if(!record)return {traits:[...new Set(normalized)],intel:null};
  const intel=analyze(record);
@@ -76,11 +76,27 @@ function enrich(base=[],record){
  // Include explicit combat signals. Do not alter primary AD/AP identity based on
  // a single ability that deals the opposite damage type.
  const traits=[...new Set([...normalized,...intel.traits])];
- // An enemy with healing abilities should count toward antiheal. Keep healing
- // from conditional form separate; it may never be chosen in that match.
- const conditionalForm=intel.flags.conditional_form;
- if(conditionalForm&&traits.includes('sustain')&&!traits.includes('conditional_sustain'))
+ // Explicit client-like mechanic labels from previously reviewed Riot passive
+ // sheets extend short official excerpts without guessing the missing words.
+ const confirmed=Array.isArray(reviewed?.kit?.passive?.mechanics_from_passive)?
+  reviewed.kit.passive.mechanics_from_passive:[];
+ const healFromReview=confirmed.includes('conditional_self_healing')||
+  confirmed.includes('self_healing')||confirmed.includes('ally_healing');
+ const hasHealing=intel.flags.healing||healFromReview;
+ if(hasHealing){
+  if(!traits.includes('sustain'))traits.push('sustain');
+  if(!traits.includes('heal'))traits.push('heal');
+ }
+ const conditional=confirmed.includes('conditional_self_healing')||
+  (intel.flags.conditional_form&&hasHealing);
+ if(conditional&&!traits.includes('conditional_sustain'))
   traits.push('conditional_sustain');
+ if(healFromReview){
+  intel.evidence.push({flag:'healing_reviewed',tag:'heal',spell:'passive',
+   spellName:reviewed.kit.passive.name,match:'reviewed_official_kit',
+   explanation:conditional?'Soin possible selon la forme':'Soin décrit par le passif officiel',
+   source:reviewed.source.url,truncated:false});
+ }
  return {traits,intel};
 }
 return Object.freeze({VERSION,RULES,prepare,analyze,enrich});
