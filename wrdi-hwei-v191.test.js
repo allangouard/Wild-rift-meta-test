@@ -119,3 +119,23 @@ test('Hwei support is also selectable in a legal ten-champion draft',()=>{
  assert.equal(result.build.legal,true);
  assert.equal(result.releaseAudit.status,'experimental');
 });
+
+test('Official current Wild Rift roster gap ledger remains honest after integrating Hwei',()=>{
+ const gaps=require('./data/wild-rift-roster-gaps-v191.json');
+ assert.equal(gaps.localPickerCountAfterHwei,126);
+ assert.equal(gaps.officialDirectoryChampionCountAtCheck,142);
+ assert.equal(gaps.missingCount,16);
+ assert.ok(!gaps.missingChampions.some(x=>x.name==='Hwei'));
+ assert.ok(gaps.missingChampions.every(x=>!champs.some(c=>c.name===x.name)));
+ assert.ok(gaps.missingChampions.every(x=>x.pcLeagueDataAllowed===false));
+});
+test('Hwei screenshot/Riot patch conflict is exposed and excluded from numerical scoring',()=>{
+ assert.equal(hweiSheet.numericRatiosVerified,false);
+ assert.ok(hweiSheet.unresolvedPatchConflicts.includes('e.ee.damageBase'));
+ assert.equal(screenshot.sourcePatchVerified,false);
+ const ee=screenshot.slots.e.choices.ee;
+ assert.deepEqual(ee.damageBaseClientScreenshot,[70,120,170,220]);
+ assert.deepEqual(ee.damageBaseRiotPatch73b,[60,110,160,210]);
+ assert.equal(ee.damageBase,null);
+ assert.equal(ee.excludedFromNumericalScoring,true);
+});
