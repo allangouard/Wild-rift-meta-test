@@ -8,7 +8,7 @@ const VERSION='16.2.0',SLOTS=['passive','q','w','e','r'];
 const finite=n=>typeof n==='number'&&Number.isFinite(n);
 const normalize=s=>String(s||'').trim().replace(/\s+/g,' ');
 const numericTokens=s=>(normalize(s).match(/(?<![\w.])(?:\d+(?:\.\d+)?|\.\d+)(?!\w)/g)||[]).map(Number);
-function prepare(catalog,patch){
+function prepare(catalog,patch,client){
  if(catalog?.schema!=='wrdi.wild_rift_numeric_source_catalog.v1'||!Array.isArray(catalog.entries))
   return {ok:false,reason:'Catalogue numérique WR absent ou incompatible'};
  if(catalog.game!=='Wild Rift mobile, NOT PC'||catalog.entries.length<100)
@@ -49,10 +49,43 @@ function prepare(catalog,patch){
    target.conflictedWithPatch=change.patch;
   }
  }
- const unresolved=outcomes.filter(x=>!['applied','already_current'].includes(x.status));
+ // Client-verified screenshots take precedence over Wiki and change-log conflicts.
+ // Do not guess rank-2+ ratios from a rank-1 tooltip.
+ const clientApplied=[];
+ if(client?.schema==='wrdi.wild_rift_client_ability_verifications.v1'&&client.game==='Wild Rift mobile, NOT PC'){
+  for(const check of client.entries||[]){
+   const champion=byName.get(String(check.champion).toLowerCase()),skill=champion?.skills?.[check.slot];
+   if(!skill){clientApplied.push({champion:check.champion,slot:check.slot,status:'missing_skill'});continue;}
+   const field=skill.formulas.find(x=>normalize(x.label).toLowerCase()===normalize(check.field).toLowerCase());
+   const v=check.verified||{};
+   if(!field){clientApplied.push({champion:check.champion,slot:check.slot,status:'missing_field'});continue;}
+   skill.clientVerified={...v,notVerified:check.notVerified||[],
+    evidence:'user_client_screenshots_2026_11_06',verificationPatch:client.targetPatch,
+    screenshotReferences:check.screenshots||[]};
+   // Source formulas remain accessible, but cannot be used when the client
+   // verifies a different ratio or a nonlinear effect.
+   field.conflictedWithClient=client.targetPatch;
+   field.clientEvidenceStatus=check.formulaDisposition||'manual_verification_required';
+   const previous=outcomes.find(x=>x.champion===check.champion&&x.slot===check.slot&&
+    normalize(x.label)===normalize(check.field)&&x.status==='source_conflict');
+   if(previous){previous.status='resolved_by_client';previous.clientEvidencePatch=client.targetPatch;}
+   // Store verified cooldown and base ranks for display even if Wiki differs.
+   const cd=skill.stats.find(x=>normalize(x.label).toUpperCase()==='COOLDOWN');
+   if(cd&&Array.isArray(v.cooldown_s_by_rank)){
+    cd.value=v.cooldown_s_by_rank.join(' / ');
+    cd.numericTokens=[...v.cooldown_s_by_rank];
+    cd.clientVerified=client.targetPatch;
+   }
+   clientApplied.push({champion:check.champion,slot:check.slot,status:'verified_client',
+    formulaDisposition:check.formulaDisposition,verifiedFields:Object.keys(v)});
+  }
+ }
+ const unresolved=outcomes.filter(x=>!['applied','already_current','resolved_by_client'].includes(x.status));
  return {ok:true,version:VERSION,count:byId.size,patchTarget:patch?.targetPatch||catalog.targetPatch,
   basePatchConfirmed:false,patchOverlayApplied:outcomes.filter(x=>x.status==='applied').length,
-  patchConflicts:unresolved.length,patchOutcomes:outcomes,unreviewedPatchSections:patch?.notYetStructured||[],
+  patchConflicts:unresolved.length,patchOutcomes:outcomes,clientVerified:clientApplied,
+  clientVerificationsCount:clientApplied.filter(x=>x.status==='verified_client').length,
+  unreviewedPatchSections:patch?.notYetStructured||[],
   numericAbilityCoverage:catalog.coverage?.abilityEntries||0,
   source:'League of Legends Wiki Wild Rift namespace',sourceCurrentPatchGuaranteed:false,
   find(idOrName){return byId.get(String(idOrName))||byName.get(String(idOrName).toLowerCase())||null;}};
@@ -70,7 +103,7 @@ function linearFormula(value){
 }
 function damageForSkill(skill,{ap=0,ad=0,bonusAd=0}={}){
  if(!skill||![ap,ad,bonusAd].every(x=>finite(x)&&x>=0))return [];
- return skill.formulas.filter(f=>/^(?:Magic Damage|Physical Damage)$/i.test(normalize(f.label))&&!f.conflictedWithPatch)
+ return skill.formulas.filter(f=>/^(?:Magic Damage|Physical Damage)$/i.test(normalize(f.label))&&!f.conflictedWithPatch&&!f.conflictedWithClient)
   .flatMap(f=>{
    const model=linearFormula(f.formula);
    if(!model)return [];
