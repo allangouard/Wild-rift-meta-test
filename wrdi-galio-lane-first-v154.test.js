@@ -21,7 +21,7 @@ test('magic lane waveclear beats only mixed resistance when first buying into a 
  const hollow=purchasing.stageScore(items.hollow_radiance,t,0);
  const despair=purchasing.stageScore(items.unending_despair,t,0);
  assert.ok(hollow.score>despair.score,'waveclear + MR should outperform mixed defensive stats during isolated magic lane');
- assert.ok(hollow.factors.some(x=>x.message.includes('vagues')));
+ assert.ok(hollow.factors.some(x=>x.message.includes('vague')));
 });
 test('first item is optimized for Akali lane before selecting teamfight defenses',()=>{
  const t=draft(allies,enemies);
