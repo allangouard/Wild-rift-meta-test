@@ -300,3 +300,7 @@ jobs:
         run: |
           node --check wrdi-champion-kit-reference-v1.js
           node --test wrdi-champion-kit-reference-v1.test.js
+      - name: Tester le parseur du site officiel Wild Rift
+        run: |
+          node --check scripts/collect-official-wr-kits.mjs
+          node --test scripts/wr-official-page-parser.test.mjs
