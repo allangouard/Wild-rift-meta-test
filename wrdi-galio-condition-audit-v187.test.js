@@ -70,4 +70,32 @@ test('The optimizer penalizes buying Trident prematurely against one shield prov
  const multiple=optimizer.calculate(selected,{...base,alliedShieldSources:2});
  assert.ok(multiple.score-lone.score>=7,
   'Trident should require stronger evidence for a core-slot purchase: '+lone.score+' vs '+multiple.score);
+ const observed=optimizer.calculate(selected,{...base,alliedShieldSources:1,observedShieldSeverity:3});
+ assert.ok(observed.score-lone.score>=7,
+  'Observed problematic shielding should restore the situational counter score');
+});
+
+test('Shield-cut stays available as a late swap if one shield becomes decisive in-game',()=>{
+ const core=require('./wrdi-core-v14.js');
+ const guard=require('./wrdi-galio-item-guard-v1424.js');
+ const rules=require('./data/item-restrictions-client-7.3d-v12.json');
+ const contingency=require('./wrdi-galio-contingencies-v1433.js');
+ const prepared=guard.prepare({catalog,rules,core,livePatch:'7.3d'});
+ const baseline=['ludens_echo','rabadons_deathcap','infinity_orb','riftmaker','morellonomicon'];
+ const threat={frontlineProvided:3,damageDuty:2,ad:1,ap:1,tank:0,
+  shieldPressure:2,alliedShieldSources:1,heal:0,healPressure:0};
+ const result=contingency.plan({prepared,optimizer,items:baseline,orderedItems:baseline,
+  enemyNames:['Camille','Amumu','Annie','Jinx','Janna'],
+  threats:threat,max:3,protectCore:true});
+ assert.equal(result.ok,true);
+ const shield=result.options.find(x=>x.conditionId==='shield');
+ assert.ok(shield,'A known shield should remain a situational swap even when not purchased pregame');
+ assert.equal(shield.add.id,'oceanids_trident');
+ assert.equal(shield.protectedCorePreserved,true);
+ assert.equal(core.validateEquipment(shield.newIds,catalog,rules).valid,true);
+ const none=contingency.plan({prepared,optimizer,items:baseline,orderedItems:baseline,
+  enemyNames:['Camille','Amumu','Annie','Jinx','Braum'],
+  threats:{...threat,alliedShieldSources:0,shieldPressure:0.25},max:3});
+ assert.equal(none.ok,true);
+ assert.ok(!none.options.some(x=>x.conditionId==='shield'));
 });
