@@ -1,0 +1,1134 @@
+{
+  "schema": "wrdi-champion-coverage-v1",
+  "asOf": "2026-11-06",
+  "totalLocalChampions": 125,
+  "officialPartialProfiles": 20,
+  "unresearched": 105,
+  "entries": [
+    {
+      "id": "10002",
+      "name": "Aatrox",
+      "riotId": "Aatrox",
+      "officialKitStatus": "passive_and_skill_names_sourced",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/champions/aatrox/"
+    },
+    {
+      "id": "10038",
+      "name": "Ahri",
+      "riotId": "Ahri",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10031",
+      "name": "Akali",
+      "riotId": "Akali",
+      "officialKitStatus": "passive_and_skill_names_sourced",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/champions/akali/"
+    },
+    {
+      "id": "10100",
+      "name": "Akshan",
+      "riotId": "Akshan",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10081",
+      "name": "Alistar",
+      "riotId": "Alistar",
+      "officialKitStatus": "passive_and_skill_names_sourced",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/champions/alistar/"
+    },
+    {
+      "id": "10082",
+      "name": "Ambessa",
+      "riotId": "Ambessa",
+      "officialKitStatus": "passive_and_skill_names_sourced",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/champions/ambessa/"
+    },
+    {
+      "id": "10004",
+      "name": "Amumu",
+      "riotId": "Amumu",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10036",
+      "name": "Annie",
+      "riotId": "Annie",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10079",
+      "name": "Ashe",
+      "riotId": "Ashe",
+      "officialKitStatus": "passive_and_skill_names_sourced",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/champions/ashe/"
+    },
+    {
+      "id": "10023",
+      "name": "Aurelion Sol",
+      "riotId": "AurelionSol",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10033",
+      "name": "Blitzcrank",
+      "riotId": "Blitzcrank",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10119",
+      "name": "Brand",
+      "riotId": "Brand",
+      "officialKitStatus": "passive_and_skill_names_sourced",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/champions/brand/"
+    },
+    {
+      "id": "10021",
+      "name": "Braum",
+      "riotId": "Braum",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10112",
+      "name": "Caitlyn",
+      "riotId": "Caitlyn",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10055",
+      "name": "Camille",
+      "riotId": "Camille",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10060",
+      "name": "Corki",
+      "riotId": "Corki",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10071",
+      "name": "Darius",
+      "riotId": "Darius",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10013",
+      "name": "Diana",
+      "riotId": "Diana",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10062",
+      "name": "Dr. Mundo",
+      "riotId": "DrMundo",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10077",
+      "name": "Draven",
+      "riotId": "Draven",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10011",
+      "name": "Ekko",
+      "riotId": "Ekko",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10029",
+      "name": "Evelynn",
+      "riotId": "Evelynn",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10098",
+      "name": "Ezreal",
+      "riotId": "Ezreal",
+      "officialKitStatus": "passive_and_skill_names_sourced",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/champions/ezreal/"
+    },
+    {
+      "id": "10133",
+      "name": "Fiddlesticks",
+      "riotId": "Fiddlesticks",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10032",
+      "name": "Fiora",
+      "riotId": "Fiora",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10086",
+      "name": "Fizz",
+      "riotId": "Fizz",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10099",
+      "name": "Galio",
+      "riotId": "Galio",
+      "officialKitStatus": "passive_and_skill_names_sourced",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/champions/galio/"
+    },
+    {
+      "id": "10001",
+      "name": "Garen",
+      "riotId": "Garen",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10078",
+      "name": "Gnar",
+      "riotId": "Gnar",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10089",
+      "name": "Gragas",
+      "riotId": "Gragas",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10072",
+      "name": "Graves",
+      "riotId": "Graves",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10054",
+      "name": "Gwen",
+      "riotId": "Gwen",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10019",
+      "name": "Hecarim",
+      "riotId": "Hecarim",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10127",
+      "name": "Heimerdinger",
+      "riotId": "Heimerdinger",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10094",
+      "name": "Irelia",
+      "riotId": "Irelia",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10075",
+      "name": "Janna",
+      "riotId": "Janna",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10056",
+      "name": "Jarvan IV",
+      "riotId": "JarvanIV",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10040",
+      "name": "Jax",
+      "riotId": "Jax",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10101",
+      "name": "Jayce",
+      "riotId": "Jayce",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10022",
+      "name": "Jhin",
+      "riotId": "Jhin",
+      "officialKitStatus": "passive_and_skill_names_sourced",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/champions/jhin/"
+    },
+    {
+      "id": "10018",
+      "name": "Jinx",
+      "riotId": "Jinx",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10026",
+      "name": "Kai'Sa",
+      "riotId": "Kaisa",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10134",
+      "name": "Kalista",
+      "riotId": "Kalista",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10007",
+      "name": "Karma",
+      "riotId": "Karma",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10103",
+      "name": "Kassadin",
+      "riotId": "Kassadin",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10095",
+      "name": "Katarina",
+      "riotId": "Katarina",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10041",
+      "name": "Kayle",
+      "riotId": "Kayle",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10005",
+      "name": "Kayn",
+      "riotId": "Kayn",
+      "officialKitStatus": "passive_and_skill_names_sourced",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/champions/kayn/"
+    },
+    {
+      "id": "10061",
+      "name": "Kennen",
+      "riotId": "Kennen",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10017",
+      "name": "Kha'Zix",
+      "riotId": "Khazix",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10073",
+      "name": "Kindred",
+      "riotId": "Kindred",
+      "officialKitStatus": "passive_and_skill_names_sourced",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/champions/kindred/"
+    },
+    {
+      "id": "10059",
+      "name": "Lee Sin",
+      "riotId": "LeeSin",
+      "officialKitStatus": "passive_and_skill_names_sourced",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/champions/lee-sin/"
+    },
+    {
+      "id": "10044",
+      "name": "Leona",
+      "riotId": "Leona",
+      "officialKitStatus": "passive_and_skill_names_sourced",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/champions/leona/"
+    },
+    {
+      "id": "10135",
+      "name": "Lillia",
+      "riotId": "Lillia",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10109",
+      "name": "Lissandra",
+      "riotId": "Lissandra",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10042",
+      "name": "Lucian",
+      "riotId": "Lucian",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10048",
+      "name": "Lulu",
+      "riotId": "Lulu",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10003",
+      "name": "Lux",
+      "riotId": "Lux",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10083",
+      "name": "Malphite",
+      "riotId": "Malphite",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10074",
+      "name": "Maokai",
+      "riotId": "Maokai",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10070",
+      "name": "Master Yi",
+      "riotId": "MasterYi",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10108",
+      "name": "Milio",
+      "riotId": "Milio",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10066",
+      "name": "Miss Fortune",
+      "riotId": "MissFortune",
+      "officialKitStatus": "passive_and_skill_names_sourced",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/champions/miss-fortune/"
+    },
+    {
+      "id": "10035",
+      "name": "Mordekaiser",
+      "riotId": "Mordekaiser",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10028",
+      "name": "Morgana",
+      "riotId": "Morgana",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10091",
+      "name": "Nami",
+      "riotId": "Nami",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10065",
+      "name": "Nasus",
+      "riotId": "Nasus",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10132",
+      "name": "Nautilus",
+      "riotId": "Nautilus",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10027",
+      "name": "Nilah",
+      "riotId": "Nilah",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10008",
+      "name": "Nunu et Willump",
+      "riotId": "Nunu",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10106",
+      "name": "Olaf",
+      "riotId": "Olaf",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10012",
+      "name": "Orianna",
+      "riotId": "Orianna",
+      "officialKitStatus": "passive_and_skill_names_sourced",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/champions/orianna/"
+    },
+    {
+      "id": "10136",
+      "name": "Ornn",
+      "riotId": "Ornn",
+      "officialKitStatus": "passive_and_skill_names_sourced",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/champions/ornn/"
+    },
+    {
+      "id": "10030",
+      "name": "Pantheon",
+      "riotId": "Pantheon",
+      "officialKitStatus": "passive_and_skill_names_sourced",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/champions/pantheon/"
+    },
+    {
+      "id": "10076",
+      "name": "Poppy",
+      "riotId": "Poppy",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10124",
+      "name": "Pyke",
+      "riotId": "Pyke",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10052",
+      "name": "Rakan",
+      "riotId": "Rakan",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10064",
+      "name": "Rammus",
+      "riotId": "Rammus",
+      "officialKitStatus": "passive_and_skill_names_sourced",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/champions/rammus/"
+    },
+    {
+      "id": "10121",
+      "name": "Renekton",
+      "riotId": "Renekton",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10006",
+      "name": "Rengar",
+      "riotId": "Rengar",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10092",
+      "name": "Riven",
+      "riotId": "Riven",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10140",
+      "name": "Rumble",
+      "riotId": "Rumble",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10137",
+      "name": "Ryze",
+      "riotId": "Ryze",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10104",
+      "name": "Samira",
+      "riotId": "Samira",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10123",
+      "name": "Senna",
+      "riotId": "Senna",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10034",
+      "name": "Seraphine",
+      "riotId": "Seraphine",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10068",
+      "name": "Sett",
+      "riotId": "Sett",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10118",
+      "name": "Shen",
+      "riotId": "Shen",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10049",
+      "name": "Shyvana",
+      "riotId": "Shyvana",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10096",
+      "name": "Singed",
+      "riotId": "Singed",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10125",
+      "name": "Sion",
+      "riotId": "Sion",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10107",
+      "name": "Sivir",
+      "riotId": "Sivir",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10047",
+      "name": "Sona",
+      "riotId": "Sona",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10097",
+      "name": "Soraka",
+      "riotId": "Soraka",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10126",
+      "name": "Swain",
+      "riotId": "Swain",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10024",
+      "name": "Syndra",
+      "riotId": "Syndra",
+      "officialKitStatus": "passive_and_skill_names_sourced",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/champions/syndra/"
+    },
+    {
+      "id": "10128",
+      "name": "Talon",
+      "riotId": "Talon",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10046",
+      "name": "Teemo",
+      "riotId": "Teemo",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10130",
+      "name": "Thresh",
+      "riotId": "Thresh",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10045",
+      "name": "Tristana",
+      "riotId": "Tristana",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10015",
+      "name": "Tryndamere",
+      "riotId": "Tryndamere",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10025",
+      "name": "Twisted Fate",
+      "riotId": "TwistedFate",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10053",
+      "name": "Twitch",
+      "riotId": "Twitch",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10102",
+      "name": "Urgot",
+      "riotId": "Urgot",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10093",
+      "name": "Varus",
+      "riotId": "Varus",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10010",
+      "name": "Vayne",
+      "riotId": "Vayne",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10122",
+      "name": "Veigar",
+      "riotId": "Veigar",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10141",
+      "name": "Vex",
+      "riotId": "Vex",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10050",
+      "name": "Vi",
+      "riotId": "Vi",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10057",
+      "name": "Viego",
+      "riotId": "Viego",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10144",
+      "name": "Viktor",
+      "riotId": "Viktor",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10090",
+      "name": "Vladimir",
+      "riotId": "Vladimir",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10058",
+      "name": "Volibear",
+      "riotId": "Volibear",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10131",
+      "name": "Warwick",
+      "riotId": "Warwick",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10009",
+      "name": "Wukong",
+      "riotId": "MonkeyKing",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10051",
+      "name": "Xayah",
+      "riotId": "Xayah",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10016",
+      "name": "Xin Zhao",
+      "riotId": "XinZhao",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10037",
+      "name": "Yasuo",
+      "riotId": "Yasuo",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10069",
+      "name": "Yone",
+      "riotId": "Yone",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10020",
+      "name": "Yuumi",
+      "riotId": "Yuumi",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10039",
+      "name": "Zed",
+      "riotId": "Zed",
+      "officialKitStatus": "passive_and_skill_names_sourced",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/champions/zed/"
+    },
+    {
+      "id": "10067",
+      "name": "Zeri",
+      "riotId": "Zeri",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10087",
+      "name": "Ziggs",
+      "riotId": "Ziggs",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10014",
+      "name": "Zoe",
+      "riotId": "Zoe",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    },
+    {
+      "id": "10063",
+      "name": "Zyra",
+      "riotId": "Zyra",
+      "officialKitStatus": "not_researched",
+      "fullFiveSkillDescriptionsVerified": false,
+      "allRatiosAndCooldownsVerified": false,
+      "source": null
+    }
+  ]
+}
