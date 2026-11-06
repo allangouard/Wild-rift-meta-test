@@ -59,3 +59,33 @@ test('no fabricated numerical champion damage when no ratios are verified',()=>{
  assert.equal(a.ratiosFromChampionSkillsVerified,false);
  assert.equal(calc.runeProcRange({rune:{name_fr:'test',effect:{}},ap:100}).ok,false);
 });
+
+test('full Galio draft delivers audit and item/rune calculations',()=>{
+ const roster=require('./data/champions-picker-v151.json').champions;
+ const names=['Ornn','Rammus','Galio','Ashe','Alistar','Aatrox','Kayn','Orianna','Miss Fortune','Leona'];
+ const picks=names.map(n=>roster.find(r=>r.name===n)?.id);
+ assert.ok(picks.every(Boolean));
+ const result=engine.analyze({
+  picks,champions:Object.fromEntries(roster.map(r=>[r.id,r.name])),
+  championMeta:roster,officialKits:official,
+  reviewedKits:require('./data/champion-kits-official-fr-v1.json'),
+  catalog:items,rules:require('./data/item-restrictions-client-7.3d-v12.json'),runes,
+  modules:{
+   profiles:require('./wrdi-champion-profiles-v15.js'),
+   team:require('./wrdi-galio-team-context-v1431.js'),
+   guard:require('./wrdi-galio-item-guard-v1424.js'),
+   core:require('./wrdi-core-v14.js'),
+   optimizer,order:require('./wrdi-galio-purchase-order-v1432.js'),
+   contingency:require('./wrdi-galio-contingencies-v1433.js'),
+   runeBridge:require('./wrdi-rune-bridge-v14.js'),
+   runeAdvisor:require('./wrdi-galio-rune-advisor-v1411.js'),
+   kitIntelligence:require('./wrdi-official-kit-intelligence-v158.js'),
+   mechanicsCalculator:calc
+  }
+ });
+ assert.equal(result.ok,true,JSON.stringify(result));
+ assert.equal(result.calculations.inputAudit.abilities,625);
+ assert.equal(result.calculations.antiheal.items.some(x=>x.itemId==='morellonomicon'),true);
+ assert.ok(result.draft.notes.some(x=>x.includes('Données inspectées')));
+ assert.ok(result.draft.notes.some(x=>x.includes('Morellonomicon')));
+});
