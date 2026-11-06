@@ -9,6 +9,22 @@ const threatProfiles={
 };
 
 function normalize(value){return String(value||'').toLocaleLowerCase('fr').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[’‘]/g,"'").trim();}
-function lookup(name){const k=normalize(name);return Array.isArray(threatProfiles[k])?[...threatProfiles[k]]:null;}
-return Object.freeze({VERSION:'15.0.0',lookup,keys:Object.keys(threatProfiles),source:'legacy_explicit_draft_archetypes_not_player_builds',confidence:'categorical_heuristics_only'});
+function lookup(name,metadata){
+ const k=normalize(name);
+ if(Array.isArray(threatProfiles[k]))return [...threatProfiles[k]];
+ // Conservative role inference from our local Wild Rift client identity catalogue.
+ // A marksman threatens physical damage by default; it does NOT imply a
+ // confirmed critical-hit item build. A mage can have mixed scaling, so when
+ // both Mage + Tireur are present the marksman role is the safe baseline.
+ const classes=Array.isArray(metadata?.classes)?metadata.classes:[];
+ const traits=[];
+ if(classes.includes('Tireur'))traits.push('ad');
+ else if(classes.includes('Mage'))traits.push('ap');
+ else if(classes.includes('Combattant'))traits.push('ad');
+ if(classes.includes('Tank'))traits.push('tank');
+ if(classes.includes('Assassin'))traits.push('assassin');
+ if(classes.includes('Support')&&classes.includes('Tank'))traits.push('cc');
+ return traits.length?traits:null;
+}
+return Object.freeze({VERSION:'15.3.0',lookup,keys:Object.keys(threatProfiles),source:'legacy_explicit_draft_archetypes_not_player_builds',confidence:'categorical_heuristics_only'});
 });
