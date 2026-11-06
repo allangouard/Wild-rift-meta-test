@@ -18,5 +18,5 @@ for url in ['https://hub-game.com/wildrift/en/champions/Galio','https://www.wild
   print('URL',url,'STATUS',status,'BYTES',len(body))
   print('HEADINGS',p.sections[:35])
   print('SKILLS',[(tag,v) for tag,v in p.sections if 'Damage' in v or 'Cooldown' in v][:8])
-  print('LINKS',len(set(re.findall(r'href=[\"\\']([^\"\\']*/wildrift/en/champions/[^\"\\']+)',body))))
+  print('LINKS',body.count('/wildrift/en/champions/'))
  except Exception as e:print('ERR',url,repr(e))
