@@ -4,7 +4,7 @@
  */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.WRDI_DraftEngineV15=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
-const VERSION='15.7.0';
+const VERSION='15.8.0';
 function chooseRune({bridge,catalog,advisor,needs}){
  if(!bridge?.audit?.(catalog)?.ok)return {ok:false,reason:'Catalogue des runes non valide'};
  const profiles=advisor?.STRATEGIES||[];
@@ -44,7 +44,7 @@ function chooseRune({bridge,catalog,advisor,needs}){
  return {ok:true,id:picked.id,label:picked.label,page:picked.page,reason:why,
   alternatives:accepted.slice(1),selection:'heuristique_tactique_non_certifiee'};
 }
-function analyze({picks,champions,championMeta,catalog,rules,runes,modules}={}){
+function analyze({picks,champions,championMeta,officialKits,reviewedKits,catalog,rules,runes,modules}={}){
  const fail=(stage,reason)=>({ok:false,stage,reason});
  if(!Array.isArray(picks)||picks.length!==10||picks.some(x=>!String(x||'').trim()))return fail('draft','Les dix champions sont requis');
  if(String(picks[2])!=='10099')return fail('draft','Galio mid uniquement pour le moment');
@@ -57,7 +57,24 @@ function analyze({picks,champions,championMeta,catalog,rules,runes,modules}={}){
  if(names.some(x=>!x))return fail('champions','Un champion choisi n’est pas présent dans l’index des noms');
  const metadataByName=new Map((Array.isArray(championMeta)?championMeta:[])
   .filter(x=>x?.name).map(x=>[String(x.name).toLocaleLowerCase('fr'),x]));
- const lookup=name=>profile.lookup(name,metadataByName.get(String(name).toLocaleLowerCase('fr')));
+ // Official Riot Wild Rift skill text is part of draft recognition, not
+ // champion build popularity. In normal V15.8 use, all 125 sheets are present.
+ const kitEngine=m.kitIntelligence;
+ const official=officialKits&&kitEngine?.prepare?kitEngine.prepare(officialKits):null;
+ if(officialKits&&(!official?.ok||official.count<100))
+  return fail('official_kits',official?.reason||'Répertoire Riot Wild Rift incomplet');
+ const reviewedMap=new Map((Array.isArray(reviewedKits?.profiles)?reviewedKits.profiles:[])
+  .map(x=>[String(x.id),x]));
+ const evidence={};
+ const lookup=name=>{
+  const metadata=metadataByName.get(String(name).toLocaleLowerCase('fr'));
+  const base=profile.lookup(name,metadata)||[];
+  if(!official)return base;
+  const sheet=official.find(metadata?.id||name);
+  const enrichment=kitEngine.enrich(base,sheet,reviewedMap.get(String(metadata?.id||'')));
+  if(enrichment.intel?.ok)evidence[name]=enrichment.intel;
+  return enrichment.traits;
+ };
  const context=team.make({allies:names.slice(0,5),enemies:names.slice(5),lookup});
  if(!context.ok)return fail('threats',context.reason);
  const prepared=guard.prepare({catalog,rules,core,livePatch:catalog?.patch_claimed_by_client_user});
@@ -71,14 +88,24 @@ function analyze({picks,champions,championMeta,catalog,rules,runes,modules}={}){
  if(!conditional.ok)return fail('contingencies',conditional.reason);
  const rune=chooseRune({bridge:m.runeBridge,catalog:runes,advisor:m.runeAdvisor,needs:need});
  const notes=[...context.reasons];
+ if(official){
+  const sourced=names.filter(n=>evidence[n]?.ok).length;
+  notes.push('Compétences Riot Wild Rift : '+sourced+'/10 champions analysés ; effets textuels documentés, valeurs non simulées');
+  for(const target of names.slice(5)){
+   const intel=evidence[target];if(!intel?.ok)continue;
+   const useful=intel.evidence.filter(x=>['healing','healing_reviewed','cc','shield','burn','max_hp_damage','untargetable'].includes(x.flag)).slice(0,2);
+   if(useful.length)notes.push(target+' : '+useful.map(x=>x.explanation+' ('+x.spellName+')').join(' ; '));
+  }
+ }
  if(context.missingEnemyRoles.length)notes.push('Profils adverses partiels : '+context.missingEnemyRoles.join(', '));
  return {ok:true,version:VERSION,game:'Wild Rift mobile',patch:catalog.patch_claimed_by_client_user,
-  draft:{ids:[...picks],names,threats:need,notes,confidence:context.confidence},
+  draft:{ids:[...picks],names,threats:need,notes,confidence:context.confidence,
+   officialKitCoverage:official?names.filter(n=>evidence[n]?.ok).length:0},
   build:{items:sequence.items,alternatives:conditional.options,legal:true,
    orderCertified:false,combinationsExamined:main.evaluatedPool,
    sourced:'player_client_items_only',noPopularBuilds:true},
   runes:rune,
-  methods:{kitPassiveSynergy:'inferred_from_client_text',selection:'qualitative_heuristic',
+  methods:{kitPassiveSynergy:'inferred_from_client_text',championThreatSource:official?'official_wild_rift_abilities':'legacy_profiles_only',selection:'qualitative_heuristic',
    exactOptimalityProven:false,liveTracking:false},
   warnings:rune.ok?[]:['Runes indisponibles : '+rune.reason]};
 }
