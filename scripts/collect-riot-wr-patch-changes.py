@@ -44,7 +44,9 @@ for version in VERSIONS:
     continue
    title=compact(element.get_text(' ',strip=True))
    if not title or len(title)>85:continue
-   if title.upper()==title and identity(title) in NAMES:
+   if identity(title) in ('objets','objet','gameplay','misesajourdesmodesdejeu','aaaaram','championchanges','champions'):
+    champion=None;skill=None
+   elif title.upper()==title and identity(title) in NAMES:
     champion=NAMES[identity(title)];skill=None
    elif champion and 3<len(title)<55 and '→' not in title and element.name in ('h3','h4','h5','strong'):
     skill=title
