@@ -1,12 +1,12 @@
 {
   "schema": "wrdi-champion-coverage-v2",
-  "asOf": "2026-11-06",
-  "catalogueCount": 125,
+  "asOf": "2026-11-07",
+  "catalogueCount": 126,
   "officialAutoExtracted": 125,
   "manuallyReviewedPassiveAndNames": 20,
-  "missingOfficialAutoExtract": 0,
+  "missingOfficialAutoExtract": 1,
   "numericStatsVerified": 0,
-  "fullActiveDescriptionsValidated": 0,
+  "fullActiveDescriptionsValidated": 1,
   "entries": [
     {
       "id": "10002",
@@ -448,6 +448,23 @@
       "officialAutoExtract": "five_ability_names_and_short_descriptions",
       "officialAutoSource": "https://wildrift.leagueoflegends.com/fr-fr/champions/heimerdinger/",
       "activeAbilityExcerptsPresent": true,
+      "eligibleForScoring": false
+    },
+    {
+      "id": "10910",
+      "name": "Hwei",
+      "riotId": "Hwei",
+      "officialKitStatus": "client_player_screenshots_full_kit",
+      "fullFiveSkillDescriptionsVerified": true,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "user_wild_rift_client_screenshots_2026_11_07",
+      "officialAutoExtract": "not_auto_extracted_client_screenshot_instead",
+      "officialAutoSource": null,
+      "activeAbilityExcerptsPresent": true,
+      "clientScreenshotSkillsPresent": true,
+      "unresolvedPatchConflicts": [
+        "e.ee.damageBase"
+      ],
       "eligibleForScoring": false
     },
     {
@@ -1633,5 +1650,6 @@
       "activeAbilityExcerptsPresent": true,
       "eligibleForScoring": false
     }
-  ]
+  ],
+  "clientScreenshotDescriptions": 1
 }
