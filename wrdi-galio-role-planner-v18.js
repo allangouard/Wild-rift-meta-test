@@ -4,7 +4,7 @@
  */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.WRDI_GalioRolePlannerV18=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
-const VERSION='18.0.0';
+const VERSION='18.1.0';
 const n=v=>Number.isFinite(Number(v))?Math.max(0,Number(v)):0;
 function chooseRole(t={}){
  const frontline=n(t.frontlineProvided),duty=n(t.damageDuty),need=n(t.frontlineNeed);
@@ -23,7 +23,7 @@ function evaluate(item,role,t={}){
  const offense=ap>=40||f.maxHp||f.shred||f.ramp||f.waveclear;
  const defense=hp>=200||armor>=30||mr>=30||f.protective||f.stasis;
  const needHeal=n(t.confirmedHeal)+0.35*n(t.conditionalHeal)+0.2*n(t.heal);
- const needShield=n(t.shield),needCrit=n(t.crit),needCritPotential=n(t.critPotential);
+ const needShield=n(t.shieldPressure??t.shield),needCrit=n(t.crit),needCritPotential=n(t.critPotential);
  const pressurePhysical=n(t.ad)+n(t.lanePhysical)*1.5,pressureMagic=n(t.ap)+n(t.laneMagic)*1.5;
  let score=0;const why=[];
  const add=(points,reason)=>{score+=points;if(points>0)why.push(reason);};
@@ -31,6 +31,8 @@ function evaluate(item,role,t={}){
   if(ap>=90)add(6,'Puissance AP pour Galio carry');
   else if(ap>=40)add(3,'Complément AP');
   if(f.waveclear)add(1.5,'Sorts et vague');
+  if(n(item.stats?.mpen_pct)>=25)add(8+Math.min(3,n(item.stats.mpen_pct)/20),'Pénétration magique pour les dégâts AP');
+  if(id==='cryptbloom')add(1,'Pénétration et accélération pour les combats de groupe');
   if(f.maxHp&&n(t.tank)>=2)add(4,'Cibles résistantes');
   if(f.ramp&&n(t.tank)>=2)add(2,'Combat prolongé probable');
   if(!offense)score-=14;
@@ -47,7 +49,8 @@ function evaluate(item,role,t={}){
   if(hp&&ap)add(2,'Hybride PV/AP');
   if(!offense&&!defense)score-=8;
  }
- if(f.shieldCut&&needShield)add(5+needShield,'Boucliers adverses');
+ if(f.shieldCut&&needShield>=1.5)add(5+needShield,'Boucliers adverses assez importants');
+ else if(f.shieldCut&&needShield<1.5)score-=12;
  if(f.antihealBySpell&&needHeal)add(3+needHeal,'Anti-soin par les sorts');
  if(f.antihealByRetaliation&&needHeal&&pressurePhysical>=2)add(2+needHeal,'Anti-soin conditionné aux attaques reçues');
  if(f.critMitigation&&needCrit)add(6+needCrit,'Critiques confirmés');
@@ -63,11 +66,19 @@ function evaluate(item,role,t={}){
 }
 function plan({threats={},items=[],limit=20}={}){
  if(!Array.isArray(items)||items.length<5)return {ok:false,reason:'Catalogue Galio insuffisant'};
- const role=chooseRole(threats),rated=items.map(x=>evaluate(x,role,threats));
+ const role=chooseRole(threats),shieldPressure=n(threats.shieldPressure??threats.shield);
+ // Unneeded specialty pieces are not candidate slots for a burst carry.
+ // Other common AP items, including Void Staff and Cryptbloom, remain eligible.
+ const usable=items.filter(x=>{
+  if(role==='ap_burst'&&x.id==='cosmic_drive'&&!n(threats.kitePressureConfirmed))return false;
+  if(x.feature?.shieldCut&&shieldPressure<1.5)return false;
+  return true;
+ });
+ const rated=usable.map(x=>evaluate(x,role,threats));
  rated.sort((a,b)=>b.score-a.score||a.item.id.localeCompare(b.item.id));
  // Preserve every relevant mechanistic counter even if score rank is low.
  const mustKeep=rated.filter(x=>CORES[role].includes(x.item.id)||(
-  (n(threats.shield)>0&&x.item.feature?.shieldCut)||
+  (shieldPressure>=1.5&&x.item.feature?.shieldCut)||
   (n(threats.confirmedHeal)>0&&(x.item.feature?.antihealBySpell||x.item.feature?.antihealByRetaliation))||
   (n(threats.tank)>=2&&(x.item.feature?.maxHp||x.item.feature?.shred))||
   (n(threats.crit)>0&&x.item.feature?.critMitigation)
