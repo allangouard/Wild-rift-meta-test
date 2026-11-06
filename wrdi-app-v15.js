@@ -179,7 +179,8 @@ go.addEventListener('click',()=>{
   optimizer:root.WRDI_GalioFiveItemOptimizerV1429,order:root.WRDI_GalioPurchaseOrderV1432,
   contingency:root.WRDI_GalioContingenciesV1433,runeBridge:root.WRDI_RuneBridgeV14,
   runeAdvisor:root.WRDI_GalioRuneAdvisorV1411,
-  kitIntelligence:root.WRDI_OfficialKitIntelligenceV158};
+  kitIntelligence:root.WRDI_OfficialKitIntelligenceV158,
+  mechanicsCalculator:root.WRDI_MechanicsCalculatorV159};
  go.disabled=true;status('Analyse du build principal, de l’ordre et des situations possibles…');
  // Yield a frame so the status is visible before the local-only computation.
  setTimeout(()=>{
