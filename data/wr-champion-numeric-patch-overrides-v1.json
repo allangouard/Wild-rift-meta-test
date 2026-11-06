@@ -159,6 +159,42 @@
       "source": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/",
       "sourceType": "Riot Wild Rift official patch notes",
       "reviewedAgainstPatch": true
+    },
+    {
+      "champion": "Shyvana",
+      "slot": "e",
+      "kind": "stat",
+      "label": "COOLDOWN",
+      "before": "11 / 10 / 9 / 8",
+      "after": "10 / 9 / 8 / 7",
+      "patch": "7.3d",
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/",
+      "sourceType": "Riot Wild Rift official patch notes",
+      "reviewedAgainstPatch": true
+    },
+    {
+      "champion": "Shyvana",
+      "slot": "e",
+      "kind": "formula",
+      "label": "Magic Damage",
+      "before": "60 / 110 / 160 / 210 (+ 30% AD) (+ 40% AP)",
+      "after": "60 / 110 / 160 / 210 (+ 50% AD) (+ 80% AP)",
+      "patch": "7.3d",
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/",
+      "sourceType": "Riot Wild Rift official patch notes",
+      "reviewedAgainstPatch": true
+    },
+    {
+      "champion": "Shyvana",
+      "slot": "e",
+      "kind": "formula",
+      "label": "Fireball damage",
+      "before": "5 – 75 (based on level) (+ 105 / 155 / 205 / 255) (+ 50% AD) (+ 70% AP)",
+      "after": "5 – 75 (based on level) (+ 105 / 155 / 205 / 255) (+ 100% AD) (+ 100% AP)",
+      "patch": "7.3d",
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/",
+      "sourceType": "Riot Wild Rift official patch notes",
+      "reviewedAgainstPatch": true
     }
   ],
   "notYetStructured": [
