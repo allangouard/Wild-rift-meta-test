@@ -64,7 +64,22 @@ def parse_html(content):
     for dt,dd in zip(dl.find_all('dt',recursive=False),dl.find_all('dd',recursive=False)):
      title=text(dt).rstrip(':');value=text(dd)
      if title and value and re.search(r'\d',value):formulas.append({'label':title[:150],'formula':value[:800],'numericTokens':numbers(value)})
-  out.append({'name':name,'stats':stats,'formulas':formulas})
+  # Capture quantitative tokens even when prose-style passives have no skill-tabs
+  # (e.g. Galio passive scaling), without copying long-form Wiki descriptions.
+  numericalEffects=[]
+  dedup=set()
+  for desc in section.select('.ability-info-description'):
+   plain=text(desc)
+   for hit in re.finditer(r'(?<![\\w.])\\d+(?:\\.\\d+)?(?!\\w)',plain):
+    suffix=plain[hit.end():hit.end()+28]
+    unit_match=re.match(r'\\s*(%|seconds?|sec|s|AP|AD|bonus AD|bonus MR|mana|health|HP|per level|per 100 AP|per 100 bonus health)\\b?',suffix,re.I)
+    unit=(unit_match.group(1) if unit_match else '').strip()
+    label=(hit.group(),unit)
+    if label in dedup:continue
+    dedup.add(label)
+    numericalEffects.append({'value':float(hit.group()),'unit':unit})
+  out.append({'name':name,'stats':stats,'formulas':formulas,
+    'descriptionNumericFacts':numericalEffects})
  # Only five actual ability sections, not patch history or embedded UI duplicates.
  seen=set();unique=[]
  for ability in out:
