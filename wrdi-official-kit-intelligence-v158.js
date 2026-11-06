@@ -53,11 +53,15 @@ function analyze(record){
   const normalized=clean(passage);
   for(const rule of RULES){
    const match=normalized.match(rule.re);
-   if(!match)continue;
+   const full=Array.isArray(skill?.detected_mechanics)&&
+    skill.detected_mechanics.includes(rule.flag);
+   if(!match&&!full)continue;
    flags[rule.flag]=true;
    totals[rule.flag]=(totals[rule.flag]||0)+1;
    evidence.push({flag:rule.flag,tag:rule.tag,spell:slot,spellName:skill.name,
-    match:match[0],explanation:rule.why,source:record.source_url,
+    match:match?.[0]||'official_full_text_rule',
+    explanation:rule.why,source:record.source_url,
+    fromFullDescription:!match&&full,
     truncated:skill.descriptionTruncated===true});
   }
  }
