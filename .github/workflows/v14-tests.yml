@@ -9,6 +9,7 @@ on:
       - v162-wiki-wr-numeric-catalog
       - v163-client-verified-samira-leesin
       - v164-client-shyvana-e
+      - v165-mechanistic-draft-synergy
   workflow_dispatch:
 
 permissions:
@@ -28,6 +29,10 @@ jobs:
         run: node --test wrdi-client-verifications-v163.test.js
       - name: Verifier le E de Shyvana avec les captures du client
         run: node --test wrdi-shyvana-client-v164.test.js
+      - name: Calculs des synergies d'objets et scénarios 2,5s / 8s
+        run: |
+          node --check wrdi-item-interactions-v165.js
+          node --test wrdi-item-interactions-v165.test.js
       - name: Valider 625 competences numeriques WR et les patchs
         run: |
           node --check wrdi-numeric-kits-v162.js
