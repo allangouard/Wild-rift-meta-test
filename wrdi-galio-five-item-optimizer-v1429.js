@@ -89,6 +89,56 @@ function weights(threats={}){
   laneAllIn:count(threats.laneAllIn),jungleAllIn:count(threats.jungleAllIn),
   peelNeed:count(threats.peelNeed),critPotential:count(threats.critPotential)};
 }
+/**
+ * Draft-sensitive Galio hybrid identity. A strategic prior, not an item lock
+ * or empirically measured pick rate. Observed healing and late defense remain
+ * independent decisions.
+ */
+function coreFit(items,threats={}){
+ const ids=new Set(items.map(x=>x.id));
+ const has=id=>ids.has(id);
+ const t=threats||{},n=items.length;
+ const hybrid=items.some(x=>(x.stats?.armor||0)>=30||(x.stats?.mr||0)>=30);
+ const fullApCount=items.filter(x=>(x.stats?.ap||0)>=45).length;
+ const hybridStrategy=hybrid&&(fullApCount<=3||has('unending_despair'));
+ let score=0;const reasons=[];
+ if(!hybridStrategy)return {score,hybrid:false,reasons,role:'ap'};
+ // Hollow Radiance is a good mid-mage opener but never mandatory vs AD mid.
+ if(has('hollow_radiance')&&has('unending_despair')){
+  score+=2.5;
+  reasons.push('Rayonnement + Désespoir : résistances, PV et dégâts au contact');
+ }
+ if(has('unending_despair')&&has('riftmaker')){
+  score+=2.0;
+  reasons.push('Désespoir + Créateur : PV, sustain et amplification en combat');
+ }
+ // Thornmail is a real third-item alternative when a physical lane and
+ // healing/autoattack pressure make armor and healing reduction relevant.
+ if(has('thornmail')){
+  const observed=Number(t.observedHealingSeverity)||0;
+  const physicalLane=Number(t.lanePhysical)||0;
+  const heal=Number(t.confirmedHeal)||0;
+  const conditional=Number(t.conditionalHeal)||0;
+  if(observed>=2)score+=Math.min(3,observed*0.8);
+  else if(physicalLane&&heal+conditional>0)score+=1.3;
+  if(physicalLane&&n>=2)score+=1.4;
+  if(has('unending_despair')&&heal+conditional>0)reasons.push('Cotte : armure et anti-soin conditionnel selon la draft');
+ }
+ if(has('iceborn_gauntlet')){
+  // Its next BASIC attack after a spell is needed for the on-hit damage;
+  // its 30% slow is often redundant on Galio's multi-CC control pattern.
+  // Prefer defensive counters with relevant passives over speculative on-hit.
+  score-=(n>=4?12:7);
+  reasons.push('Gantelet : attaque de base post-sort requise ; ralentissement souvent redondant');
+ }
+ if(n>=4){
+  if(has('force_of_nature')&&(Number(t.ap)||0)>=2)score+=2.5;
+  if(has('kaenic_rookern')&&(Number(t.ap)||0)>=2&&(Number(t.burst)||0)>0)score+=2.3;
+  if(has('amaranths_twinguard'))score+=1.2;
+  if(has('randuins_omen')&&(Number(t.crit)||0)>0)score+=2.8;
+ }
+ return {score,hybrid:true,reasons,role:'hybrid_offensive_control'};
+}
 function calculate(items,threats,combatModel=null){
  const t=weights(threats),fs=items.map(x=>x.feature||features(x));
  const total=key=>fs.reduce((v,x)=>v+x[key],0);
@@ -245,11 +295,14 @@ function calculate(items,threats,combatModel=null){
   score+=productivity.score*1.8;
   if(items.length===5)reasons.push(...productivity.long.parts.slice(0,3));
  }
+ const core=coreFit(items,threats);
+ score+=core.score;
+ if(items.length===5&&core.reasons.length)reasons.push(...core.reasons);
  const stats={hp:total('hp'),ap:total('ap'),armor,mr,ah:total('ah'),
   apAfterInteractions:effective?.apAfterInteractions??total('ap'),
   riftBonusAp:effective?.riftBonusAp||0};
  return {score:Math.round(score*100)/100,reasons,stats,needs:t,synergy,balance,laneOpening,
-  interaction:interaction?.ok?interaction:null,productivity:productivity?.ok?productivity:null};
+  interaction:interaction?.ok?interaction:null,productivity:productivity?.ok?productivity:null,core};
 }
 function optimize({prepared,threats={},slots=5,beamWidth=100,combatModel=null}={}){
  if(!prepared?.ok||!prepared.core?.validateEquipment)return {ok:false,reason:'Catalogue client indisponible'};
@@ -315,5 +368,5 @@ function reasonFor(item,threats){
  if(f.ah)r.push('Disponibilité des contrôles');
  return r.slice(0,2).join(' · ')||'Utilité situationnelle documentée';
 }
-return Object.freeze({VERSION,features,eligible,weights,calculate,optimize,reasonFor});
+return Object.freeze({VERSION,features,eligible,weights,coreFit,calculate,optimize,reasonFor});
 });
