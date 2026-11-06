@@ -1,0 +1,177 @@
+{
+  "schema": "wrdi.numeric_wild_rift_patch_overrides.v1",
+  "game": "Wild Rift mobile, NOT PC",
+  "targetPatch": "7.3d",
+  "policy": "Apply only if Wiki field exactly matches documented before; if mismatch never guess. Unreviewed patch lines remain pending.",
+  "changes": [
+    {
+      "champion": "Syndra",
+      "slot": "q",
+      "kind": "formula",
+      "label": "Magic Damage",
+      "before": "70 / 115 / 160 / 205 (+ 65% AP)",
+      "after": "80 / 130 / 180 / 230 (+ 65% AP)",
+      "patch": "7.2d",
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-2d/",
+      "sourceType": "Riot Wild Rift official patch notes",
+      "reviewedAgainstPatch": true
+    },
+    {
+      "champion": "Syndra",
+      "slot": "w",
+      "kind": "formula",
+      "label": "Magic Damage",
+      "before": "60 / 100 / 140 / 180 (+ 45% AP)",
+      "after": "60 / 100 / 140 / 180 (+ 60% AP)",
+      "patch": "7.2d",
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-2d/",
+      "sourceType": "Riot Wild Rift official patch notes",
+      "reviewedAgainstPatch": true
+    },
+    {
+      "champion": "Syndra",
+      "slot": "e",
+      "kind": "formula",
+      "label": "Magic Damage",
+      "before": "70 / 110 / 150 / 190 (+ 35% AP)",
+      "after": "70 / 110 / 150 / 190 (+ 50% AP)",
+      "patch": "7.2d",
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-2d/",
+      "sourceType": "Riot Wild Rift official patch notes",
+      "reviewedAgainstPatch": true
+    },
+    {
+      "champion": "Syndra",
+      "slot": "e",
+      "kind": "stat",
+      "label": "COOLDOWN",
+      "before": "17",
+      "after": "15",
+      "patch": "7.2d",
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-2d/",
+      "sourceType": "Riot Wild Rift official patch notes",
+      "reviewedAgainstPatch": true
+    },
+    {
+      "champion": "Shyvana",
+      "slot": "q",
+      "kind": "stat",
+      "label": "COOLDOWN",
+      "before": "8.5 / 7.5 / 6.5 / 5.5",
+      "after": "7 / 6.5 / 6 / 5.5",
+      "patch": "7.3d",
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/",
+      "sourceType": "Riot Wild Rift official patch notes",
+      "reviewedAgainstPatch": true
+    },
+    {
+      "champion": "Shyvana",
+      "slot": "w",
+      "kind": "stat",
+      "label": "COOLDOWN",
+      "before": "13 / 12 / 11 / 10",
+      "after": "12 / 11 / 10 / 9",
+      "patch": "7.3d",
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/",
+      "sourceType": "Riot Wild Rift official patch notes",
+      "reviewedAgainstPatch": true
+    },
+    {
+      "champion": "Lee Sin",
+      "slot": "r",
+      "kind": "formula",
+      "label": "Physical Damage",
+      "before": "125 / 350 / 575 (+ 180% bonus AD) (+ 10 / 13 / 16% target's maximum health)",
+      "after": "150 / 375 / 600 (+ 180% bonus AD) (+ 10 / 13 / 16% target's maximum health)",
+      "patch": "7.3d",
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/",
+      "sourceType": "Riot Wild Rift official patch notes",
+      "reviewedAgainstPatch": true
+    },
+    {
+      "champion": "Nasus",
+      "slot": "e",
+      "kind": "formula",
+      "label": "Magic Damage",
+      "before": "55 / 110 / 165 / 220 (+ 40% AP)",
+      "after": "50 / 90 / 130 / 170 (+ 40% AP)",
+      "patch": "7.3d",
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/",
+      "sourceType": "Riot Wild Rift official patch notes",
+      "reviewedAgainstPatch": true
+    },
+    {
+      "champion": "Nasus",
+      "slot": "r",
+      "kind": "formula",
+      "label": "Bonus Resistances",
+      "before": "40 / 50 / 60",
+      "after": "40 / 55 / 70",
+      "patch": "7.3d",
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/",
+      "sourceType": "Riot Wild Rift official patch notes",
+      "reviewedAgainstPatch": true
+    },
+    {
+      "champion": "Singed",
+      "slot": "w",
+      "kind": "stat",
+      "label": "COOLDOWN",
+      "before": "11",
+      "after": "14 / 13 / 12 / 11",
+      "patch": "7.3d",
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/",
+      "sourceType": "Riot Wild Rift official patch notes",
+      "reviewedAgainstPatch": true
+    },
+    {
+      "champion": "Singed",
+      "slot": "e",
+      "kind": "stat",
+      "label": "COOLDOWN",
+      "before": "12",
+      "after": "13",
+      "patch": "7.3d",
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/",
+      "sourceType": "Riot Wild Rift official patch notes",
+      "reviewedAgainstPatch": true
+    },
+    {
+      "champion": "Samira",
+      "slot": "q",
+      "kind": "formula",
+      "label": "Physical Damage",
+      "before": "15 / 20 / 25 / 30 (+ 125% AD)",
+      "after": "15 / 20 / 25 / 30 (+ 115% AD)",
+      "patch": "7.3d",
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/",
+      "sourceType": "Riot Wild Rift official patch notes",
+      "reviewedAgainstPatch": true
+    },
+    {
+      "champion": "Samira",
+      "slot": "r",
+      "kind": "formula",
+      "label": "Damage Per Instance",
+      "before": "5 / 20 / 35 (+ 50% AD)",
+      "after": "5 / 20 / 35 (+ 45% AD)",
+      "patch": "7.3d",
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/",
+      "sourceType": "Riot Wild Rift official patch notes",
+      "reviewedAgainstPatch": true
+    }
+  ],
+  "notYetStructured": [
+    "Patch 7.3 base: extensive champion durability and marksman changes",
+    "Patch 7.3a/b/c champion and item adjustments not fully reconciled",
+    "Patch 7.3d additional passive, stat, conditional and derived formula changes pending manual mapping"
+  ],
+  "sources": [
+    "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-2d/",
+    "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3/",
+    "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3a/",
+    "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3b/",
+    "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3c/",
+    "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3d/"
+  ]
+}
