@@ -105,7 +105,9 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
   prepared,optimizer,order,threats:need,observedHealingSeverity:4,
   beingAutoAttacked:need.ad>=2
  })||null;
- const conditional=contingency.plan({prepared,optimizer,items:main.main.items,threats:need,max:3});
+ const conditional=contingency.plan({prepared,optimizer,items:main.main.items,
+  orderedItems:sequence.items,enemyNames:names.slice(5),profileLookup:lookup,
+  threats:need,max:3,protectCore:true});
  if(!conditional.ok)return fail('contingencies',conditional.reason);
  const rune=chooseRune({bridge:m.runeBridge,catalog:runes,advisor:m.runeAdvisor,needs:need,laneOpponent:names[7],items:main.main.items.map(x=>prepared.catalog.items.find(z=>z.id===x.id))});
  const notes=[...context.reasons];
