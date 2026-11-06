@@ -3,7 +3,7 @@
  */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.WRDI_GalioPurchaseOrderV1432=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
-const VERSION='15.5.0-alpha.1',n=x=>typeof x==='number'&&Number.isFinite(x)?Math.max(0,x):0,c=x=>Math.min(5,n(x));
+const VERSION='15.6.0-alpha.1',n=x=>typeof x==='number'&&Number.isFinite(x)?Math.max(0,x):0,c=x=>Math.min(5,n(x));
 function features(item){
  const s=item.stats||{},p=(item.passives||[]).map(x=>x.mechanics||{});
  return {armor:n(s.armor),mr:n(s.mr),hp:n(s.hp),ap:n(s.ap),ah:n(s.ah),cost:n(item.price_gold),
@@ -45,7 +45,7 @@ function stageScore(item,needs,slot){
   if(f.ap>=80&&!f.spellClear&&!f.waveclear)add(0.5,
    'Puissance de sort pour les échanges et le farm avec le A');
   if(f.ah>=15)add(0.7,'Accélération des compétences utile en lane');
-  if(assassin&&f.stasis)add(1.2,'Stase contre une menace d’assassinat');
+  if(c(t.earlyStasisPriority)>=2&&f.stasis)add(1.2,'Stase si double menace d’assassinat en lane');
   score-=Math.max(0,f.cost-2600)/750;
  }else if(mid){
   // The second completed item is transitional: protect early rotations and
@@ -58,13 +58,25 @@ function stageScore(item,needs,slot){
   if(ad>=2&&f.armor>=30)add(1.8,'Armure pour les premières escarmouches');
   if(ap>=2&&f.mr>=30)add(1.8,'Résistance magique pour les premières escarmouches');
   if(frontline&&f.hp>=250)add(1.8,'PV pour tenir la première ligne');
-  if(assassin&&f.stasis)add(3,'Stase contre les engagements explosifs');
+  if(c(t.earlyStasisPriority)>=2&&f.stasis)
+   add(4,'Stase précoce contre plusieurs menaces de dive');
+  // A single assassin in the jungle does not by itself warrant purchasing
+  // Zhonya second when Galio has already secured the lane.
+  if(transition&&f.stasis&&c(t.earlyStasisPriority)<2)score-=3.8;
   if(f.ap>=40)add(1.1,'Puissance pour les combats intermédiaires');
+  if(c(t.damageDuty)>=2&&f.ap>=65)add(2.5,
+   'Galio peut apporter des dégâts AP : plusieurs tanks alliés gèrent déjà l’engagement');
+  if(c(t.damageDuty)>=2&&f.ap===0&&c(t.frontlineProvided)>=2)
+   score-=2.2;
   if(f.ah>=15)add(0.7,'Compétences disponibles plus souvent');
  }else{
   if(f.ap>=90)add(2.5,'Puissance pour compléter le build');
+  if(c(t.damageDuty)>=2&&f.ap>=65)add(2.4,
+   'Puissance pour compléter les dégâts magiques de l’équipe');
+  if(c(t.damageDuty)>=2&&f.ap===0&&c(t.frontlineProvided)>=2)
+   score-=1.3;
   if(frontline&&f.hybrid)add(2,'Résistances mixtes pour les combats d’équipe');
-  if(tank>=2&&f.maxHp)add(2,'Passif contre les PV maximum');
+  if(tank+c(t.sustain)>=2&&f.maxHp)add(2,'Passif contre les PV maximum');
   if(tank>=2&&f.ramp)add(1.3,'Passif de combat prolongé');
  }
  if(heal>=2&&f.grievous)add(1.1,'Blessures graves documentées contre les soins');
