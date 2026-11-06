@@ -269,3 +269,10 @@ jobs:
           node --check wrdi-rune-images-v152.js
           node --check wrdi-app-v15.js
           node --test wrdi-results-ui-v152.test.js
+      - name: Verifier les degats AD AP et la couverture Galio V15.3
+        run: |
+          node --check wrdi-champion-profiles-v15.js
+          node --check wrdi-galio-defense-balance-v153.js
+          node --check wrdi-galio-five-item-optimizer-v1429.js
+          node --check wrdi-draft-engine-v15.js
+          node --test wrdi-galio-defense-balance-v153.test.js
