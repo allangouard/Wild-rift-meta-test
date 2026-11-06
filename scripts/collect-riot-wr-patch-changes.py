@@ -34,7 +34,6 @@ for version in VERSIONS:
   tags=container.find_all(['h2','h3','h4','h5','h6','strong','b','p','li'])
   for element in tags:
    if element.name=='li':
-    if element.find_parent('li'):continue
     line=compact(element.get_text(' ',strip=True)).replace('->','→')
     if '→' not in line or not re.search(r'\\d',line):continue
     before,after=line.split('→',1)
