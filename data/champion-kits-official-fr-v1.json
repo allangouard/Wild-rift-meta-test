@@ -931,7 +931,7 @@
         "ability_names": "client_verified",
         "passive_summary": "client_verified",
         "active_ability_descriptions": "client_screenshots",
-        "numeric_values": "partially_client_verified_patch_7.3d",
+        "numeric_values": "client_visible_partial_except_ee_damage_conflict_with_7_3b",
         "wildRiftOnly": true
       },
       "allowedForEngine": false
