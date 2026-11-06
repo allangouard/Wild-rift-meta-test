@@ -151,6 +151,18 @@ function showResults(result){
   }
   if(numerical.patchConflicts||!numerical.patchComplete)
    section.append(el('p','warning','Attention : toutes les différences de patch ne sont pas encore résolues. Les valeurs conflictuelles sont exclues des calculs concernés.'));
+  const productive=result.calculations?.productiveSurvival;
+  if(productive?.ok){
+   section.append(el('h3',null,'Pression offensive pendant le contrôle'));
+   section.append(el('p','section-intro','La résistance compte lorsqu’elle permet de maintenir des dégâts, du contrôle et des soins : score qualitatif conditionnel, pas des dégâts réels.'));
+   section.append(el('p','muted','Combats courts (2,5 s) : '+productive.short.pressure.toFixed(2)+
+    ' / combats prolongés (8 s) : '+productive.long.pressure.toFixed(2)+
+    ' points de pression relative.'));
+   const pressureNotes=el('ul','build-list');
+   for(const entry of productive.long.parts.slice(0,4))pressureNotes.append(el('li','muted',entry));
+   if(productive.long.parts.length)section.append(pressureNotes);
+   section.append(el('p','caption','Les objets purement défensifs peuvent devenir préférables si les attaques rapides, les critiques ou les dégâts physiques deviennent réellement problématiques.'));
+  }
   const interactions=result.calculations?.combatScenarios;
   if(interactions?.ok){
    const title=el('h3',null,'Interactions des cinq objets et combats');

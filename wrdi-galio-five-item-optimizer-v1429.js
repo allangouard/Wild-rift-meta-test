@@ -16,6 +16,9 @@ const synergyEngine=(typeof require==='function'
 const defenseBalance=(typeof require==='function'
  ? require('./wrdi-galio-defense-balance-v153.js')
  : (typeof globalThis!=='undefined'?globalThis.WRDI_GalioDefenseBalanceV153:null));
+const productiveEngine=(typeof require==='function'
+ ? require('./wrdi-productive-survival-v166.js')
+ : (typeof globalThis!=='undefined'?globalThis.WRDI_ProductiveSurvivalV166:null));
 const interactionEngine=(typeof require==='function'
  ? require('./wrdi-item-interactions-v165.js')
  : (typeof globalThis!=='undefined'?globalThis.WRDI_ItemInteractionsV165:null));
@@ -49,6 +52,7 @@ function features(item){
   active:passives.some(p=>p.active===true),
   stasis:passives.some(p=>p.active===true&&num(p.stasis_s)>0),
   critMitigation:passives.some(p=>num(p.physical_crit_damage_reduction_pct)>0),
+  attackSpeedAura:passives.some(p=>num(p.enemy_attack_speed_reduction_pct)>0),
   waveclear:passives.some(p=>num(p.minion_multiplier)>1||Array.isArray(p.minion_multiplier_range)),
   hybridDefense:num(stats.armor)>0&&num(stats.mr)>0};
 }
@@ -234,11 +238,18 @@ function calculate(items,threats,combatModel=null){
   if(items.length===5)reasons.push(...interaction.combinations.slice(0,3));
  }
  const effective=interaction?.short?.stats;
+ const productivity=productiveEngine?.compare?.(items,threats);
+ if(productivity?.ok){
+  // Survival is valuable if it preserves damage and control uptime. Pure
+  // armor auras still win when confirmed attack-speed / physical danger merits them.
+  score+=productivity.score*1.8;
+  if(items.length===5)reasons.push(...productivity.long.parts.slice(0,3));
+ }
  const stats={hp:total('hp'),ap:total('ap'),armor,mr,ah:total('ah'),
   apAfterInteractions:effective?.apAfterInteractions??total('ap'),
   riftBonusAp:effective?.riftBonusAp||0};
  return {score:Math.round(score*100)/100,reasons,stats,needs:t,synergy,balance,laneOpening,
-  interaction:interaction?.ok?interaction:null};
+  interaction:interaction?.ok?interaction:null,productivity:productivity?.ok?productivity:null};
 }
 function optimize({prepared,threats={},slots=5,beamWidth=100,combatModel=null}={}){
  if(!prepared?.ok||!prepared.core?.validateEquipment)return {ok:false,reason:'Catalogue client indisponible'};
@@ -270,7 +281,8 @@ function optimize({prepared,threats={},slots=5,beamWidth=100,combatModel=null}={
   id:item.id,name:item.name_fr,priceGold:num(item.price_gold)||null,
   slot:i+1,reason:reasonFor(item,threats)})),
   suitability:x.score,reasons:x.measure.reasons,stats:x.measure.stats,
-  interaction:x.measure.interaction,legal:true,source:'player_client_items_only'});
+  interaction:x.measure.interaction,productivity:x.measure.productivity,
+  legal:true,source:'player_client_items_only'});
  return {ok:true,game:'Wild Rift mobile',version:VERSION,
   main:result(winner),alternatives:others.map(result),
   evaluatedPool:pool.length,slots:5,bootsSeparate:true,

@@ -34,7 +34,7 @@ test('a confirmed critical threat can create situational benefit without predict
  }
 });
 test('no fake guaranteed conditional value when threat is already present',()=>{
- const r=plan({ad:5,ap:5,heal:4,tank:4,crit:3});
+ const r=plan({ad:5,ap:5,heal:4,tank:4,crit:3,attackSpeedPressureConfirmed:2});
  assert.equal(r.ok,true);
  assert.equal(r.options.length,0);
 });

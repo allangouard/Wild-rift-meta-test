@@ -10,6 +10,8 @@ const copy=x=>({...x});
 const CONDITIONS=Object.freeze([
  {id:'critical',label:'Si les adversaires investissent dans les coups critiques',flag:'crit',raised:3,
   relevant:f=>f.critMitigation,category:'physical'},
+ {id:'attack_speed',label:'Si les attaques rapides de Lucian ou Gnar deviennent une menace confirmée',flag:'attackSpeedPressureConfirmed',raised:2,
+  relevant:f=>f.attackSpeedAura,category:'physical'},
  {id:'healing',label:'Si les soins adverses deviennent déterminants',flag:'heal',raised:4,
   relevant:f=>f.antiheal,category:'utility'},
  {id:'physical',label:'Si les dégâts physiques dominent réellement',flag:'ad',raised:5,
