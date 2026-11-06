@@ -1,5 +1,5 @@
 /* WRDI V15.8 — Wild Rift official five-ability text -> evidence-backed draft mechanics.
- * Reads ONLY manually sourced Riot Wild Rift FR descriptions (125 champions).
+ * Reads sourced Riot Wild Rift FR descriptions and separately marked player-client tooltips.
  * Strong matches are explicitly quoted in evidence. No invented ratios, champion
  * builds, PC LoL kits, durations or precise damage magnitudes.
  */
