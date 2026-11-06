@@ -296,3 +296,7 @@ jobs:
         run: |
           node --check wrdi-draft-engine-v15.js
           node --test wrdi-galio-rune-role-v157.test.js
+      - name: Audit des fiches officielles Wild Rift et de leur couverture
+        run: |
+          node --check wrdi-champion-kit-reference-v1.js
+          node --test wrdi-champion-kit-reference-v1.test.js
