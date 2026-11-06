@@ -3,6 +3,9 @@
  */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.WRDI_GalioPurchaseOrderV1432=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
+const productiveEngine=(typeof require==='function'
+ ? require('./wrdi-productive-survival-v166.js')
+ : (typeof globalThis!=='undefined'?globalThis.WRDI_ProductiveSurvivalV166:null));
 const interactionEngine=(typeof require==='function'
  ? require('./wrdi-item-interactions-v165.js')
  : (typeof globalThis!=='undefined'?globalThis.WRDI_ItemInteractionsV165:null));
@@ -127,6 +130,20 @@ function order({prepared,items,threats={}}={}){
      if(current.ok){
       const gain=current.score-previous;
       score+=gain*[1.9,1.75,1.25,0.85,0.7][step];
+      previous=current.score;
+     }
+    }
+   }
+   // Productivity at *each acquisition*, not only final five items.
+   // Protect the first purchase for lane, reward hybrid defense/pressure in
+   // second and third slots, and allow later anti-attack-speed counters.
+   if(productiveEngine?.compare){
+    let previous=0;
+    for(let step=0;step<seq.length;step++){
+     const current=productiveEngine.compare(seq.slice(0,step+1),threats);
+     if(current.ok){
+      const marginal=current.score-previous;
+      score+=marginal*[0.65,2.15,1.85,1.05,0.9][step];
       previous=current.score;
      }
     }
