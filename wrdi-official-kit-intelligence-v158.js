@@ -38,6 +38,8 @@ function prepare(payload){
    !rec.skills||rec.allowedForScoring!==false) return {ok:false,reason:'Fiche sans source officielle ou statut non vérifié'};
   if(['passive','q','w','e','r'].some(k=>!rec.skills[k]?.name||typeof rec.skills[k]?.excerpt_fr!=='string'))
    return {ok:false,reason:'Fiche Wild Rift incomplète : '+rec.name};
+  if(payload.entries.length>=100&&['passive','q','w','e','r'].some(k=>typeof rec.skills[k]?.description_fr!=='string'||!rec.skills[k].description_fr.trim()))
+   return {ok:false,reason:'Description intégrale officielle manquante : '+rec.name};
   if(byId.has(String(rec.id))||byName.has(ID(rec.name)))
    return {ok:false,reason:'ID de champion dupliqué'};
   byId.set(String(rec.id),rec);byName.set(ID(rec.name),rec);
