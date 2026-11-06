@@ -5,8 +5,8 @@
  * full detail and numerical mechanics remain pending client validation.
  */
 import {readFile,writeFile} from 'node:fs/promises';
+import {extractNextData,extractKit} from './wr-official-page-parser.mjs';
 const catalogue=JSON.parse(await readFile('data/champions-picker-v151.json','utf8'));
-const state=JSON.parse(await readFile('data/champion-kits-official-fr-v1.json','utf8'));
 const LIMIT=process.env.WRDI_IMPORT_LIMIT==='ALL'?catalogue.champions.length:
  Math.min(30,Math.max(1,Number(process.env.WRDI_IMPORT_LIMIT||20)));
 const DEST='data/champion-ability-extract-official-v1.json';
@@ -23,35 +23,6 @@ function slug(champion){
  if(slugOverrides.has(champion.riotId))return slugOverrides.get(champion.riotId);
  return String(champion.name).normalize('NFD').replace(/[\u0300-\u036f]/g,'')
   .replace(/[’']/g,'-').replace(/[^a-zA-Z0-9]+/g,'-').replace(/^-|-$/g,'').toLowerCase();
-}
-export function extractNextData(html){
- const m=String(html||'').match(/<script\b[^>]*\bid=["']__NEXT_DATA__["'][^>]*>([\s\S]*?)<\/script>/i);
- if(!m)throw Error('Riot __NEXT_DATA__ missing; site format changed');
- return JSON.parse(m[1].replace(/&quot;/g,'"'));
-}
-function plain(value){
- const raw=typeof value==='string'?value:
-  typeof value?.text==='string'?value.text:
-  Array.isArray(value)?value.map(plain).join(' '):'';
- return raw.replace(/<[^>]*>/g,' ').replace(/&nbsp;/g,' ').replace(/&amp;/g,'&')
-  .replace(/\s+/g,' ').trim();
-}
-export function extractKit(next){
- const blades=next?.props?.pageProps?.page?.blades;
- const groups=blades?.[2]?.groups;
- if(!Array.isArray(groups)||groups.length<5)throw Error('No five Wild Rift abilities in official JSON');
- const keys=['passive','q','w','e','r'];
- const spells={};
- for(let i=0;i<5;i++){
-  const p=groups[i];
-  const name=plain(p?.label);
-  if(!name||name.length>120)throw Error('Missing ability name '+keys[i]);
-  const full=plain(p?.content?.description?.body);
-  const words=full.split(/\s+/).filter(Boolean);
-  spells[keys[i]]={name,excerpt_fr:words.slice(0,24).join(' '),
-   descriptionPresent:words.length>0,descriptionTruncated:words.length>24};
- }
- return spells;
 }
 async function fetchOne(champion){
  const url='https://wildrift.leagueoflegends.com/fr-fr/champions/'+slug(champion)+'/';
