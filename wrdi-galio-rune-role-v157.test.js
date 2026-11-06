@@ -15,15 +15,16 @@ const itemCatalog=require('./data/items-client-7.3d-v12.json').items;
 const item=id=>itemCatalog.find(x=>x.id===id);
 const fullAp=['ludens_echo','rabadons_deathcap','infinity_orb','void_staff','oceanids_trident'].map(item);
 const choose=(t,items)=>engine.chooseRune({bridge,catalog,advisor,needs:t,items});
-test('three allied tanks with high-AP Galio build pick Comet against Orianna',()=>{
+test('three allied tanks with high-AP Galio build prioritize buffed Electrocute against Orianna',()=>{
  const t=needs(['Ornn','Rammus','Galio','Ashe','Alistar']);
  assert.equal(t.damageDuty,2);
  assert.equal(t.frontlineNeed,0);
  assert.equal(t.lanePoke,1);
  const r=choose(t,fullAp);
  assert.equal(r.ok,true,JSON.stringify(r));
- assert.equal(r.id,'poke');
- assert.equal(r.page.keystone,'Comète arcanique');
+ assert.equal(r.id,'burst');
+ assert.equal(r.page.keystone,'Électrocution');
+ assert.equal(r.alternatives[0].page.keystone,'Comète arcanique');
  assert.equal(bridge.validate(r.page,catalog).valid,true);
  assert.notEqual(r.page.keystone,'Gardien');
 });

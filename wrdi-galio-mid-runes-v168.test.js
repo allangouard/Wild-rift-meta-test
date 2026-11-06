@@ -16,14 +16,14 @@ test('Galio MID hybrid control selects Glacial, not Grasp or Electrocute',()=>{
  assert.match(x.reason,/Poigne/);
  assert.match(x.reason,/Électrocution/);
 });
-test('Galio MID high-AP build selects Comet with spell-based poke',()=>{
+test('Galio MID high-AP build selects buffed Electrocute with Comet as alternative',()=>{
  const build=['ludens_echo','rabadons_deathcap','infinity_orb','void_staff','oceanids_trident'].map(byId);
  const x=engine.chooseRune({bridge,catalog:runes,advisor,items:build,laneOpponent:'Ahri'});
  assert.equal(x.ok,true);
- assert.equal(x.mode,'ap_poke');
- assert.equal(x.page.keystone,'Comète arcanique');
- assert.equal(x.alternatives[0].page.keystone,'Souverain des glaces');
- assert.match(x.reason,/Comète/);
+ assert.equal(x.mode,'ap_burst');
+ assert.equal(x.page.keystone,'Électrocution');
+ assert.equal(x.alternatives[0].page.keystone,'Comète arcanique');
+ assert.match(x.reason,/7.3b/);
 });
 test('Galio MID damage-hybrid with just two AP pieces does not become burst rune',()=>{
  const build=['hollow_radiance','riftmaker','unending_despair','oceanids_trident','amaranths_twinguard'].map(byId);
