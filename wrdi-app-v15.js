@@ -60,6 +60,15 @@ function showResults(result){
   plan.append(el('p','caption','V18 · '+result.build.strategy.shortlisted+' objets candidats sur '+result.build.strategy.evaluated+' fiches pertinentes. Core indicatif, jamais obligatoire.'));
   box.append(plan);
  }
+ if(result.build.lateSlots?.ok){
+  const late=el('section','result-section');
+  late.append(el('h3',null,'Comparaison des objets 4 et 5'));
+  late.append(el('p','muted',result.build.lateSlots.evaluatedPairs+
+   ' combinaisons légales comparées après les trois premiers objets.'));
+  late.append(el('p','caption',result.build.lateSlots.explanation+
+   ' Score relatif, non équivalent aux dégâts ou au winrate.'));
+  box.append(late);
+ }
  const main=el('section','result-section'),buildTitle=el('h3',null,'Build principal · 5 objets');
  main.append(buildTitle);
  const ol=el('ol','build-list');
@@ -302,6 +311,7 @@ go.addEventListener('click',()=>{
   rolePlanner:root.WRDI_GalioRolePlannerV18,
   readiness:root.WRDI_GalioDataReadinessV18,
   bootAdvisor:root.WRDI_GalioBootsV18,
+  lateSlots:root.WRDI_GalioLateSlotsV184,
   antihealOrder:root.WRDI_AntihealOrderV169,runeBridge:root.WRDI_RuneBridgeV14,
   runeAdvisor:root.WRDI_GalioRuneAdvisorV1411,
   kitIntelligence:root.WRDI_OfficialKitIntelligenceV158,
