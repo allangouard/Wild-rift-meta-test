@@ -9,7 +9,9 @@ const n=v=>Number.isFinite(Number(v))?Math.max(0,Number(v)):0;
 function chooseRole(t={}){
  const frontline=n(t.frontlineProvided),duty=n(t.damageDuty),need=n(t.frontlineNeed);
  if(frontline>=2&&duty>=1)return 'ap_burst';
- if(need>=2&&frontline===0)return 'tank_utility';
+ // One other engager is not a durable frontline. If no ally is actually
+ // classified as tank, Galio should assume tank responsibility.
+ if(need>=1&&frontline===0)return 'tank_utility';
  return 'hybrid_offensive';
 }
 const CORES=Object.freeze({

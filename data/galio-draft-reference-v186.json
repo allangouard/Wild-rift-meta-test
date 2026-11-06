@@ -1,0 +1,787 @@
+{
+  "version": "18.6.0",
+  "scope": "Galio mid only — Wild Rift mobile",
+  "description": "Thirty independent, intentionally constructed draft scenarios. Expected roles follow ally frontline structure, not learned match win-rates or guaranteed item builds.",
+  "scenarios": [
+    {
+      "id": "B01",
+      "expectedRole": "ap_burst",
+      "focus": "Boucliers utilitaires",
+      "allies": [
+        "Dr. Mundo",
+        "Amumu",
+        "Galio",
+        "Ashe",
+        "Leona"
+      ],
+      "enemies": [
+        "Camille",
+        "Jarvan IV",
+        "Akali",
+        "Kai'Sa",
+        "Janna"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "B02",
+      "expectedRole": "ap_burst",
+      "focus": "Soins alliés et sustain conditionnel",
+      "allies": [
+        "Ornn",
+        "Rammus",
+        "Galio",
+        "Caitlyn",
+        "Alistar"
+      ],
+      "enemies": [
+        "Aatrox",
+        "Kayn",
+        "Orianna",
+        "Ezreal",
+        "Soraka"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "B03",
+      "expectedRole": "ap_burst",
+      "focus": "Contrôles et frontlines",
+      "allies": [
+        "Malphite",
+        "Rammus",
+        "Galio",
+        "Jinx",
+        "Braum"
+      ],
+      "enemies": [
+        "Shen",
+        "Viego",
+        "Syndra",
+        "Draven",
+        "Lulu"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "B04",
+      "expectedRole": "ap_burst",
+      "focus": "Protection et poke",
+      "allies": [
+        "Sion",
+        "Nautilus",
+        "Galio",
+        "Varus",
+        "Thresh"
+      ],
+      "enemies": [
+        "Dr. Mundo",
+        "Hecarim",
+        "Ahri",
+        "Xayah",
+        "Karma"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "B05",
+      "expectedRole": "ap_burst",
+      "focus": "Tanks et boucliers",
+      "allies": [
+        "Garen",
+        "Maokai",
+        "Galio",
+        "Miss Fortune",
+        "Rakan"
+      ],
+      "enemies": [
+        "Nasus",
+        "Xin Zhao",
+        "Veigar",
+        "Kai'Sa",
+        "Milio"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "B06",
+      "expectedRole": "ap_burst",
+      "focus": "Engagement mixte",
+      "allies": [
+        "Sett",
+        "Rammus",
+        "Galio",
+        "Sivir",
+        "Leona"
+      ],
+      "enemies": [
+        "Gwen",
+        "Shyvana",
+        "Annie",
+        "Zeri",
+        "Nami"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "B07",
+      "expectedRole": "ap_burst",
+      "focus": "Soins personnels et protection",
+      "allies": [
+        "Shen",
+        "Amumu",
+        "Galio",
+        "Draven",
+        "Alistar"
+      ],
+      "enemies": [
+        "Fiora",
+        "Warwick",
+        "Brand",
+        "Lucian",
+        "Janna"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "B08",
+      "expectedRole": "ap_burst",
+      "focus": "Mid contrôle et tank",
+      "allies": [
+        "Ornn",
+        "Nunu et Willump",
+        "Galio",
+        "Ashe",
+        "Braum"
+      ],
+      "enemies": [
+        "Volibear",
+        "Lee Sin",
+        "Lissandra",
+        "Jhin",
+        "Sona"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "B09",
+      "expectedRole": "ap_burst",
+      "focus": "Deux tanks et dégâts AP prioritaires",
+      "allies": [
+        "Dr. Mundo",
+        "Jarvan IV",
+        "Galio",
+        "Jinx",
+        "Leona"
+      ],
+      "enemies": [
+        "Darius",
+        "Master Yi",
+        "Ziggs",
+        "Tristana",
+        "Zyra"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "B10",
+      "expectedRole": "ap_burst",
+      "focus": "Assassins et dégâts magiques",
+      "allies": [
+        "Malphite",
+        "Rammus",
+        "Galio",
+        "Caitlyn",
+        "Nautilus"
+      ],
+      "enemies": [
+        "Mordekaiser",
+        "Viego",
+        "Viktor",
+        "Ashe",
+        "Yuumi"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "H01",
+      "expectedRole": "hybrid_offensive",
+      "focus": "Sustain d'équipe et mage",
+      "allies": [
+        "Aatrox",
+        "Amumu",
+        "Galio",
+        "Ashe",
+        "Lux"
+      ],
+      "enemies": [
+        "Ornn",
+        "Wukong",
+        "Syndra",
+        "Jinx",
+        "Janna"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "H02",
+      "expectedRole": "hybrid_offensive",
+      "focus": "Bruisers et soins collectifs",
+      "allies": [
+        "Darius",
+        "Lee Sin",
+        "Galio",
+        "Ezreal",
+        "Leona"
+      ],
+      "enemies": [
+        "Camille",
+        "Jarvan IV",
+        "Ahri",
+        "Draven",
+        "Soraka"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "H03",
+      "expectedRole": "hybrid_offensive",
+      "focus": "Menace physique mobile",
+      "allies": [
+        "Fiora",
+        "Vi",
+        "Galio",
+        "Kai'Sa",
+        "Alistar"
+      ],
+      "enemies": [
+        "Sett",
+        "Hecarim",
+        "Orianna",
+        "Xayah",
+        "Karma"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "H04",
+      "expectedRole": "hybrid_offensive",
+      "focus": "Mid assassin physique",
+      "allies": [
+        "Gwen",
+        "Hecarim",
+        "Galio",
+        "Caitlyn",
+        "Braum"
+      ],
+      "enemies": [
+        "Nasus",
+        "Shyvana",
+        "Zed",
+        "Jinx",
+        "Milio"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "H05",
+      "expectedRole": "hybrid_offensive",
+      "focus": "Résistance et assassins",
+      "allies": [
+        "Jayce",
+        "Xin Zhao",
+        "Galio",
+        "Varus",
+        "Nautilus"
+      ],
+      "enemies": [
+        "Malphite",
+        "Kayn",
+        "Lux",
+        "Sivir",
+        "Lulu"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "H06",
+      "expectedRole": "hybrid_offensive",
+      "focus": "Mage burst et ADC",
+      "allies": [
+        "Riven",
+        "Viego",
+        "Galio",
+        "Miss Fortune",
+        "Thresh"
+      ],
+      "enemies": [
+        "Ornn",
+        "Nunu et Willump",
+        "Veigar",
+        "Lucian",
+        "Nami"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "H07",
+      "expectedRole": "hybrid_offensive",
+      "focus": "Sustain contre soin personnel",
+      "allies": [
+        "Renekton",
+        "Wukong",
+        "Galio",
+        "Zeri",
+        "Poppy"
+      ],
+      "enemies": [
+        "Aatrox",
+        "Vi",
+        "Brand",
+        "Ashe",
+        "Janna"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "H08",
+      "expectedRole": "hybrid_offensive",
+      "focus": "Assassin contre sustain",
+      "allies": [
+        "Camille",
+        "Jarvan IV",
+        "Galio",
+        "Jhin",
+        "Alistar"
+      ],
+      "enemies": [
+        "Dr. Mundo",
+        "Warwick",
+        "Annie",
+        "Kai'Sa",
+        "Soraka"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "H09",
+      "expectedRole": "hybrid_offensive",
+      "focus": "Mage et frontline tank",
+      "allies": [
+        "Irelia",
+        "Master Yi",
+        "Galio",
+        "Xayah",
+        "Maokai"
+      ],
+      "enemies": [
+        "Shen",
+        "Amumu",
+        "Orianna",
+        "Caitlyn",
+        "Seraphine"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "H10",
+      "expectedRole": "hybrid_offensive",
+      "focus": "Mid assassin AP",
+      "allies": [
+        "Jayce",
+        "Gragas",
+        "Galio",
+        "Samira",
+        "Leona"
+      ],
+      "enemies": [
+        "Ornn",
+        "Lee Sin",
+        "Akali",
+        "Ezreal",
+        "Karma"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "T01",
+      "expectedRole": "tank_utility",
+      "focus": "Besoin de frontline et CC",
+      "allies": [
+        "Fiora",
+        "Lee Sin",
+        "Galio",
+        "Jinx",
+        "Lux"
+      ],
+      "enemies": [
+        "Ornn",
+        "Amumu",
+        "Zed",
+        "Kai'Sa",
+        "Lulu"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "T02",
+      "expectedRole": "tank_utility",
+      "focus": "Cibles fragiles à protéger",
+      "allies": [
+        "Aatrox",
+        "Viego",
+        "Galio",
+        "Caitlyn",
+        "Soraka"
+      ],
+      "enemies": [
+        "Sion",
+        "Jarvan IV",
+        "Syndra",
+        "Draven",
+        "Janna"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "T03",
+      "expectedRole": "tank_utility",
+      "focus": "Dégâts mixtes et kite",
+      "allies": [
+        "Gwen",
+        "Master Yi",
+        "Galio",
+        "Ezreal",
+        "Karma"
+      ],
+      "enemies": [
+        "Dr. Mundo",
+        "Warwick",
+        "Annie",
+        "Ashe",
+        "Milio"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "T04",
+      "expectedRole": "tank_utility",
+      "focus": "Peel et contrôle",
+      "allies": [
+        "Darius",
+        "Xin Zhao",
+        "Galio",
+        "Varus",
+        "Nami"
+      ],
+      "enemies": [
+        "Garen",
+        "Hecarim",
+        "Ahri",
+        "Zeri",
+        "Sona"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "T05",
+      "expectedRole": "tank_utility",
+      "focus": "Double tank adverse",
+      "allies": [
+        "Riven",
+        "Graves",
+        "Galio",
+        "Ashe",
+        "Seraphine"
+      ],
+      "enemies": [
+        "Malphite",
+        "Rammus",
+        "Brand",
+        "Jinx",
+        "Lulu"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "T06",
+      "expectedRole": "tank_utility",
+      "focus": "Menace crit potentielle",
+      "allies": [
+        "Jayce",
+        "Kayn",
+        "Galio",
+        "Sivir",
+        "Yuumi"
+      ],
+      "enemies": [
+        "Ornn",
+        "Wukong",
+        "Syndra",
+        "Draven",
+        "Karma"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "T07",
+      "expectedRole": "tank_utility",
+      "focus": "Dégâts physiques et mage",
+      "allies": [
+        "Irelia",
+        "Vi",
+        "Galio",
+        "Jhin",
+        "Lux"
+      ],
+      "enemies": [
+        "Nasus",
+        "Master Yi",
+        "Orianna",
+        "Lucian",
+        "Janna"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "T08",
+      "expectedRole": "tank_utility",
+      "focus": "Ligne arrière vulnérable",
+      "allies": [
+        "Camille",
+        "Graves",
+        "Galio",
+        "Xayah",
+        "Nami"
+      ],
+      "enemies": [
+        "Aatrox",
+        "Lee Sin",
+        "Veigar",
+        "Ezreal",
+        "Soraka"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "T09",
+      "expectedRole": "tank_utility",
+      "focus": "Mobilité et critique",
+      "allies": [
+        "Fiora",
+        "Lee Sin",
+        "Galio",
+        "Caitlyn",
+        "Karma"
+      ],
+      "enemies": [
+        "Poppy",
+        "Xin Zhao",
+        "Ahri",
+        "Twitch",
+        "Lulu"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    },
+    {
+      "id": "T10",
+      "expectedRole": "tank_utility",
+      "focus": "Dégâts de zone et anti-tank",
+      "allies": [
+        "Gwen",
+        "Viego",
+        "Galio",
+        "Miss Fortune",
+        "Seraphine"
+      ],
+      "enemies": [
+        "Sion",
+        "Kayn",
+        "Ziggs",
+        "Vayne",
+        "Nami"
+      ],
+      "expected": {
+        "legalFiveItems": true,
+        "legalRunes": true,
+        "threeBootOptionsMax": true,
+        "coreThreeProtectedForLateSwaps": true,
+        "noEnemyBuildAssumptions": true
+      }
+    }
+  ]
+}

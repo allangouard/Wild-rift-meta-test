@@ -11,6 +11,7 @@ const items=optimizer.eligible(prepared);
 test('Galio role is selected from allied frontline before comparing items',()=>{
  assert.equal(plan.chooseRole({frontlineProvided:3,damageDuty:2,frontlineNeed:0}),'ap_burst');
  assert.equal(plan.chooseRole({frontlineProvided:0,frontlineNeed:2}),'tank_utility');
+ assert.equal(plan.chooseRole({frontlineProvided:0,frontlineNeed:1}),'tank_utility');
  assert.equal(plan.chooseRole({frontlineProvided:1,frontlineNeed:1}),'hybrid_offensive');
 });
 test('AP burst shortlist protects burst core, relevant shield counter, and legality',()=>{

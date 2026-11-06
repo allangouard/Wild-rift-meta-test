@@ -53,3 +53,16 @@ test('Specialized sustained poke can select Comet without replacing Electrocute 
  const clientElectrocute=runes.fundamental.find(x=>x.name_fr==='Électrocution');
  assert.deepEqual(clientElectrocute.effect.damage_base_range,{min:60,max:210});
 });
+
+test('A hybrid strategic role remains Glacial even with five AP items',()=>{
+ const items=require('./data/items-client-7.3d-v12.json').items;
+ const pick=['ludens_echo','rabadons_deathcap','infinity_orb','riftmaker','bloodletters_curse']
+  .map(id=>items.find(x=>x.id===id));
+ const hybrid=engine.chooseRune({bridge,catalog:runes,advisor:templates,role:'hybrid_offensive',
+  needs:{frontlineProvided:1,damageDuty:0},items:pick});
+ assert.equal(hybrid.ok,true);
+ assert.equal(hybrid.page.keystone,'Souverain des glaces');
+ const burst=engine.chooseRune({bridge,catalog:runes,advisor:templates,role:'ap_burst',
+  needs:{frontlineProvided:3,damageDuty:2},items:pick});
+ assert.equal(burst.page.keystone,'Électrocution');
+});

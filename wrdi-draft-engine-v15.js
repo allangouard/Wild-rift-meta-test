@@ -11,7 +11,11 @@ function chooseRune({bridge,catalog,advisor,needs={},laneOpponent,items=[],role}
  const apItems=items.filter(x=>Number(x?.stats?.ap||0)>=45);
  const apBase=items.reduce((sum,x)=>sum+Number(x?.stats?.ap||0),0);
  const defensiveItems=items.filter(x=>Number(x?.stats?.armor||0)>0||Number(x?.stats?.mr||0)>0);
- const fullAp=role==='ap_burst'||(apItems.length>=3&&apBase>=220&&defensiveItems.length<=2);
+ // When role planning has run, its strategic mission takes precedence over
+ // incidental AP-heavy items picked by the five-item optimizer.
+ // Fall back to the build-based heuristic only for older direct callers.
+ const fullAp=role?role==='ap_burst':
+  (apItems.length>=3&&apBase>=220&&defensiveItems.length<=2);
  // Riot WR 7.3b: Electrocute minimum base damage 40 -> 60 (max 210,
  // 10% bonus AD and 5% AP unchanged). The client rune catalog already
  // reflects this. Prioritize Electrocute for Galio AP burst rather than
@@ -96,9 +100,15 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
   const sheet=rawSheets.get(String(meta?.id||''));
   if(!sheet)return null;
   const descriptions=Object.values(sheet.skills||{}).map(x=>String(x?.description_fr||'').toLowerCase());
-  const shieldSkills=descriptions.filter(x=>/bouclier|protéger un allié|protéger une alliée|protège un allié|protège une alliée/.test(x));
+  // Do not equate generic "protects an ally" with a shield:
+  // e.g. Orianna's Wild Rift E description provides armor/MR, not an
+  // explicitly documented shield. A shield must actually be named.
+  const shieldSkills=descriptions.filter(x=>/bouclier/.test(x));
   const protectsAllies=shieldSkills.some(x=>/allié|alliés|alliée|alliées|coéquipier|coéquipiers/.test(x));
-  return {hasShield:shieldSkills.length>0,protectsAllies};
+  // Excess healing converts into a shield only conditionally; it must not
+  // count as a reliable ally shielding skill on its own (Soraka W).
+  const conditionalOnly=protectsAllies&&shieldSkills.every(x=>/excédent de soins?|excedent de soins?/.test(x));
+  return {hasShield:shieldSkills.length>0,protectsAllies,conditionalOnly};
  };
  const threatEvidence=m.threatEvidence?.summarize?.({
   enemies:names.slice(5),

@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - v18-6-galio-30-draft-validation
       - v18-5-galio-threat-evidence
       - v18-4-galio-late-slot-optimizer
       - v18-3-galio-electrocute-burst
@@ -55,6 +56,10 @@ jobs:
           node --test wrdi-galio-late-slots-v184.test.js
           node --check wrdi-galio-threat-evidence-v185.js
           node --test wrdi-galio-threat-evidence-v185.test.js
+      - name: Valider 30 drafts Galio Wild Rift V18.6
+        run: |
+          node --check wrdi-galio-30-drafts-v186.test.js
+          node --test wrdi-galio-30-drafts-v186.test.js
       - name: Verifier les trois divergences avec les captures client
         run: node --test wrdi-client-verifications-v163.test.js
       - name: Verifier le E de Shyvana avec les captures du client
