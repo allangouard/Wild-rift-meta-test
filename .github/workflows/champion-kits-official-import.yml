@@ -54,5 +54,7 @@ jobs:
           git add data/champion-ability-extract-official-v1.json
           if ! git diff --cached --quiet; then
             git commit -m "data: import 625 complete Wild Rift official ability descriptions"
-            git push origin HEAD:${GITHUB_REF_NAME}
+            git fetch origin "${GITHUB_REF_NAME}"
+            git rebase "origin/${GITHUB_REF_NAME}"
+            git push origin HEAD:"${GITHUB_REF_NAME}"
           fi
