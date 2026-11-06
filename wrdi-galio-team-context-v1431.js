@@ -9,7 +9,7 @@
  else root.WRDI_GalioTeamContextV1431=api;
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
-const VERSION='15.5.0';
+const VERSION='15.6.0';
 const has=(arr,key)=>arr.includes(key);
 function make({enemies,allies,lookup}={}){
  if(!Array.isArray(enemies)||enemies.length!==5||!Array.isArray(allies)||allies.length!==5||typeof lookup!=='function')
@@ -34,6 +34,21 @@ function make({enemies,allies,lookup}={}){
   x.traits.length>0&&!has(x.traits,'tank')).length;
  // No tank => Galio may front-line, but other engage champions can share the duty.
  const frontlineNeed=alliesComplete?(teamTank?0:teamEngage?1:2):0;
+ // Distinguish "Galio must frontline" from "team needs Galio AP".
+ // More than one already-confirmed tank/engage teammate frees Galio to
+ // prioritize ability power, provided his lane defense remains viable.
+ const alliedApCarry=knownAllies.filter(x=>has(x.traits,'ap')&&
+  !has(x.traits,'tank')).length;
+ const frontlineProvided=alliesComplete?Math.min(3,teamTank):0;
+ const damageDuty=alliesComplete?(frontlineProvided>=2&&alliedApCarry===0?2:
+  frontlineProvided>=2?1:0):0;
+ // An individual assassin is a situational threat, not a compulsory stasis.
+ // Multiple independent dives or an explosive mid+jungle pair justify earlier protection.
+ const midAssassin=has(mid.traits,'assassin')?1:0;
+ const jungleAssassin=has(jungle.traits,'assassin')?1:0;
+ const earlyDive=midAssassin+jungleAssassin+
+  (has(mid.traits,'burst')&&has(jungle.traits,'burst')?1:0);
+ const earlyStasisPriority=earlyDive>=2?2:earlyDive===1?1:0;
  const peelNeed=alliesComplete&&backline>0&&counts.assassin>0?Math.min(2,counts.assassin):0;
  const lanePhysical=has(mid.traits,'ad')?1:0;
  const laneMagic=has(mid.traits,'ap')?1:0;
@@ -48,7 +63,9 @@ function make({enemies,allies,lookup}={}){
   // Crit tag = potential based on kit archetype, never a confirmed item build.
   // No verified enemy-item builds were supplied, so confirmed crit stays zero.
   crit:0,lanePhysical,laneMagic,laneAllIn,lanePoke,jungleAllIn,
-  frontlineNeed,peelNeed,enemyProfileCoverage:5-unknownEnemy.length,
+  frontlineNeed,frontlineProvided,teamTank,teamEngage,alliedApCarry,
+  damageDuty,midAssassin,jungleAssassin,earlyDive,earlyStasisPriority,
+  peelNeed,enemyProfileCoverage:5-unknownEnemy.length,
   alliesProfileComplete:alliesComplete};
  const reasons=[];
  if(lanePhysical&&laneAllIn)reasons.push('Midlane : menace physique d’engagement, achat défensif précoce à considérer');
@@ -56,6 +73,8 @@ function make({enemies,allies,lookup}={}){
  if(lanePoke)reasons.push('Midlane : harcèlement possible, limiter l’exposition au farm');
  if(jungleAllIn)reasons.push('Jungle : potentiel de gank ou d’engagement');
  if(frontlineNeed)reasons.push('Équipe : responsabilité de première ligne accrue');
+ if(damageDuty>=2)reasons.push('Équipe : plusieurs tanks alliés, Galio peut privilégier les dégâts magiques');
+ if(earlyStasisPriority===1)reasons.push('Une menace d’assassin identifiée : stase à garder situationnelle');
  if(peelNeed)reasons.push('Protection des alliés vulnérables à l’engagement');
  if(enemyCritPotential)reasons.push('Critiques possibles selon les archétypes, pas confirmés par un build adverse');
  return {ok:true,version:VERSION,game:'Wild Rift mobile',threats,reasons,
