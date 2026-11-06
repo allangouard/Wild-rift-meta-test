@@ -13,7 +13,7 @@ const RULES=Object.freeze([
  {flag:'healing',re:/\b(soigne|soigner|soins?|regener(?:e|ation)|restaur(?:e|ent) (?:ses|des|les) (?:pv|points de vie)|vol de vie)\b/i,tag:'sustain',why:'Soin décrit dans une compétence'},
  {flag:'shield',re:/\b(bouclier|protege|protection contre les degats)\b/i,tag:'shield',why:'Bouclier ou protection décrite'},
  {flag:'cc',re:/\b(etourdit|etourdissement|projette|projettent|projetant|projection|provoque (?:un |les |et blesse les |les champions)|charme|immobilise|enracine|assomme|repousse|attire|apeure|terrorise)\b/i,tag:'cc',why:'Contrôle dur explicitement décrit'},
- {flag:'slow',re:/\b(ralentit|ralentissement|ralentissent|vitesse de deplacement reduite)\b/i,tag:null,why:'Ralentissement décrit (distinct d’un contrôle dur)'},
+ {flag:'slow',re:/\b(ralentit|ralenti(?:e|s|es)?|ralentissement|ralentissent|vitesse de deplacement reduite)\b/i,tag:null,why:'Ralentissement décrit (distinct d’un contrôle dur)'},
  {flag:'mobility',re:/\b(se rue|ru[eé]e|bondit|bond|saute|dash|teleport|traverse le terrain|se deplace rapidement|vitesse de deplacement)\b/i,tag:null,why:'Mobilité décrite'},
  {flag:'max_hp_damage',re:/\b(pv max|pv maximum|points de vie max|points de vie maximum)\b/i,tag:null,why:'Référence explicite aux PV max'},
  {flag:'magic_damage',re:/\b(degats magiques?|blesse magiquement)\b/i,tag:null,why:'Dégâts magiques explicitement décrits'},
