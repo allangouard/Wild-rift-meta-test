@@ -55,7 +55,9 @@ function evaluate(item,role,t={}){
   if(hp&&ap)add(2,'Hybride PV/AP');
   if(!offense&&!defense)score-=8;
  }
- if(f.shieldCut&&needShield>=1.5)add(5+needShield,'Boucliers adverses assez importants');
+ if(f.shieldCut&&needShield>=1.5)add(
+  n(t.alliedShieldSources)>=2?5+needShield:n(t.alliedShieldSources)===1?1.25:0.5,
+  n(t.alliedShieldSources)>=2?'Plusieurs boucliers alliés documentés':'Bouclier allié isolé : valeur à confirmer en jeu');
  else if(f.shieldCut&&needShield<1.5)score-=12;
  if(f.antihealBySpell&&needHeal)add(3+needHeal,'Anti-soin par les sorts');
  if(f.antihealByRetaliation&&needHeal&&pressurePhysical>=2)add(2+needHeal,'Anti-soin conditionné aux attaques reçues');

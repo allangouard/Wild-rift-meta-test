@@ -32,7 +32,8 @@ const modules={
  readiness:require('./wrdi-galio-data-readiness-v18.js'),
  bootAdvisor:require('./wrdi-galio-boots-v18.js'),
  lateSlots:require('./wrdi-galio-late-slots-v184.js'),
- threatEvidence:require('./wrdi-galio-threat-evidence-v185.js')
+ threatEvidence:require('./wrdi-galio-threat-evidence-v185.js'),
+ conditionAudit:require('./wrdi-galio-condition-audit-v187.js')
 };
 const byName=new Map(champs.map(x=>[x.name.toLowerCase(),x]));
 function analyze(scenario){
@@ -83,6 +84,14 @@ for(const s of fixtures.scenarios){
   assert.equal(result.boots.ok,true,s.id);
   assert.ok(result.boots.candidates.length<=3,s.id);
   assert.equal(result.draft.threatEvidence.ok,true,s.id);
+  assert.equal(result.build.conditionAudit.ok,true,s.id+' activation audit unavailable');
+  assert.equal(result.build.conditionAudit.guaranteedProcs,false,s.id);
+  for(const note of result.build.conditionAudit.entries)
+   assert.ok(['weak','conditional','relevant','unknown_enemy_items'].includes(note.status),s.id);
+  if(result.draft.threats.alliedShieldSources<=1){
+   for(const note of result.build.conditionAudit.entries.filter(x=>x.id==='oceanids_trident'))
+    assert.notEqual(note.status,'relevant',s.id+' single shield must be flagged uncertain');
+  }
   if(result.build.strategy.role==='ap_burst'){
    assert.equal(result.runes.page.keystone,'Électrocution',s.id+' AP burst keystone');
    assert.ok(!ids.includes('unending_despair'),s.id+' should not waste burst slots on Despair');

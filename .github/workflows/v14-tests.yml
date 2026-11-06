@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - v18-7-galio-conditional-boots-runes
       - v18-6-galio-30-draft-validation
       - v18-5-galio-threat-evidence
       - v18-4-galio-late-slot-optimizer
@@ -51,6 +52,8 @@ jobs:
           node --test wrdi-galio-data-readiness-v18.test.js
           node --check wrdi-galio-boots-v18.js
           node --test wrdi-galio-boots-runes-v18.test.js
+          node --check wrdi-galio-condition-audit-v187.js
+          node --test wrdi-galio-condition-audit-v187.test.js
           node --test wrdi-galio-v18-e2e.test.js
           node --check wrdi-galio-late-slots-v184.js
           node --test wrdi-galio-late-slots-v184.test.js

@@ -36,8 +36,15 @@ function chooseRune({bridge,catalog,advisor,needs={},laneOpponent,items=[],role}
    if(heavyAllIn)page.primary[1]="Plaque d'os";
    if(Number(needs.cc||0)<2&&Number(needs.frontlineNeed||0)>=1)page.primary[2]='Surcroissance';
   }
-  if(id==='poke'||id==='burst'){
+  if(id==='poke'){
+   // Comet users want lane durability if harassed or threatened with all-in.
    page.secondary=heavyAllIn?"Plaque d'os":'Second souffle';
+  }
+  if(id==='burst'){
+   // On Galio Electrocute, Transcendance is the default damage-uptime
+   // choice. Adapt to real lane pressure, not generic five-enemy CC count.
+   page.secondary=heavyAllIn?"Plaque d'os":
+    Number(needs.lanePoke||0)>0?'Second souffle':'Transcendance';
   }
   const validity=bridge.validate(page,catalog);
   if(validity.valid)candidates.push({id,label:t.label,page,legal:true,
@@ -188,7 +195,13 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
   items:main.main.items.map(x=>prepared.catalog.items.find(z=>z.id===x.id))});
  const boots=m.bootAdvisor?.select?.({bootsCatalog,threats:need,role:strategic?.role})||null;
  if(m.bootAdvisor&&!boots?.ok)return fail('boots',boots?.reason||'Sélection des bottes indisponible');
+ const conditionAudit=m.conditionAudit?.inspect?.({
+  items:main.main.items.map(x=>prepared.catalog.items.find(y=>y.id===x.id)).filter(Boolean)
+   .map(x=>({...x,feature:optimizer.features(x)})),threats:need
+ })||null;
  const notes=[...context.reasons];
+ if(conditionAudit?.ok)for(const entry of conditionAudit.entries)
+  notes.push('V18.7 '+entry.id+' ['+entry.status+'] : '+entry.reason+' ; condition : '+entry.trigger);
  if(threatEvidence?.ok)notes.push('V18.5 : '+threatEvidence.alliedHealers+' sources de soin allié, '+threatEvidence.personalHealers+' sources de soin personnel, '+threatEvidence.maxHpThreats+' menaces de dégâts % PV max détectées dans les compétences officielles ; efficacité réelle non prédite.');
  if(lateSlots?.ok)notes.push('V18.4 : '+lateSlots.evaluatedPairs+' duos légaux comparés sur les objets 4 et 5 ; '+lateSlots.explanation+' Valeurs qualitatives, pas des dégâts réels.');
  if(readiness?.ok)notes.push('Données contrôlées : '+readiness.fullyDescribed+'/10 kits, '+readiness.itemRecords+' objets, '+readiness.runeRecords+' runes et '+readiness.bootRecords+' fiches de bottes client disponibles.');
@@ -284,6 +297,7 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
    officialKitCoverage:official?names.filter(n=>evidence[n]?.ok).length:0},
   build:{items:sequence.items,alternatives:conditional.options,legal:true,
    strategy:strategic?.ok?strategic:null,lateSlots:lateSlots?.ok?lateSlots:null,
+   conditionAudit:conditionAudit?.ok?conditionAudit:null,
    orderCertified:false,combinationsExamined:main.evaluatedPool,
    sourced:'player_client_items_only',noPopularBuilds:true},
   runes:rune,boots,dataReadiness:readiness,
