@@ -55,14 +55,17 @@ function showResults(result){
  const main=el('section','result-section'),buildTitle=el('h3',null,'Build principal · 5 objets');
  main.append(buildTitle);
  const ol=el('ol','build-list');
+ const phases={lane:'1 · Phase de lane',transition:'2 · Sortie de lane',escarmouches:'3 · Escarmouches',teamfights:'Combats d’équipe'};
  for(const it of result.build.items){
-  const li=el('li','build-item');const title=el('div','item-name',it.name);
+  const li=el('li','build-item');
+  const phase=el('div','wrdi-buy-phase',phases[it.phase]||'Complément du build');
+  const title=el('div','item-name',it.name);
   const why=el('p','muted',it.reason);
   const img=el('img','item-icon');img.src='./assets/item-icons/'+encodeURIComponent(it.id)+'.webp';img.alt='';
   img.loading='lazy';img.addEventListener('error',()=>{img.style.display='none'});
-  const content=el('div','item-text');content.append(title,why);li.append(img,content);ol.append(li);
+  const content=el('div','item-text');content.append(phase,title,why);li.append(img,content);ol.append(li);
  }
- main.append(ol,el('p','caption','Priorité d’achat théorique ; la sélection des cinq objets est distincte de leur ordre. Les bottes ne sont pas encore optimisées.'));
+ main.append(ol,el('p','caption','D’abord tenir et gérer la lane contre le mid adverse. Ensuite renforcer Galio pour les escarmouches et les combats d’équipe. Bottes non encore optimisées.'));
  box.append(main);
  function itemImage(it,role){
   const picture=el('span','wrdi-item-portrait');
