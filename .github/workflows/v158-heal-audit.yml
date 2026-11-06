@@ -1,0 +1,21 @@
+name: V15.8 conditional heal audit
+on:
+  push:
+    branches:
+      - v158-heal-pressure-audit
+  pull_request:
+    branches:
+      - main
+permissions:
+  contents: read
+jobs:
+  conditional-healing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check wrdi-galio-team-context-v1431.js
+      - run: node --check wrdi-galio-five-item-optimizer-v1429.js
+      - run: node --test wrdi-v158-heal-pressure.test.js wrdi-official-kit-intelligence-v158.test.js wrdi-galio-five-item-optimizer-v1429.test.js
