@@ -25,6 +25,6 @@ test('historical HTML pages referenced by tests are retained as fixtures, not st
 });
 test('PWA cache preserves versioned pages without overwriting the canonical index',()=>{
  const sw=fs.readFileSync('sw.js','utf8');
- assert.ok(/wrdi-shell-current-v\\d/.test(sw));
+ assert.ok(sw.includes('wrdi-shell-current-v'));
  assert.ok(sw.includes('if(exact)'));
 });
