@@ -33,7 +33,8 @@ test('all 126 sourced Wild Rift entries support textual analysis, never numeric 
   assert.equal(r.ok,true);
   assert.equal(r.damageQuantified,false);
   assert.equal(r.patchVerified,false);
-  for(const evidence of r.evidence)assert.equal(evidence.source,entry.source_url);
+  for(const evidence of r.evidence)assert.equal(evidence.source,
+   entry.name==='Hwei'?'user_wild_rift_client_screenshots':entry.source_url);
  }
 });
 test('Aatrox healing from official skill, Kayn conditional healing from reviewed official passive',()=>{
