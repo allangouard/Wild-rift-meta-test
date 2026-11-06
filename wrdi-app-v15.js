@@ -12,7 +12,7 @@ const $=id=>document.getElementById(id);
 const app=$('wrdi-v15'),message=$('wrdi-message'),go=$('wrdi-analyze'),clear=$('wrdi-clear');
 const root=window;
 const data={champions:{'10099':'Galio'},championList:[],catalog:null,rules:null,runes:null,
- officialKits:null,reviewedKits:null,numericKits:null,numericPatch:null,numericClient:null,ready:false};
+ officialKits:null,reviewedKits:null,numericKits:null,numericPatch:null,numericClient:null,bootsCatalog:null,ready:false};
 let pickerUI=null;
 const snapshot=()=>{try{const v=JSON.parse(localStorage.getItem(STORAGE)||'null');return Array.isArray(v)&&v.length===10?v.map(String):Array(10).fill('')}catch{return Array(10).fill('')}};
 let picks=snapshot(),epoch=0;
@@ -53,6 +53,13 @@ function showResults(result){
  const headline=el('h2',null,'Recommandation Galio · Mid');box.append(headline);
  const sub=el('p','muted','Wild Rift mobile · Fiches du client '+result.patch+' · Calcul qualitatif avant la partie');
  box.append(sub);
+ if(result.build.strategy){
+  const plan=el('section','result-section');
+  plan.append(el('h3',null,'Mission de Galio · '+({ap_burst:'AP burst',hybrid_offensive:'Hybride offensif',tank_utility:'Tank utilitaire'}[result.build.strategy.role]||result.build.strategy.role)));
+  plan.append(el('p','muted',result.build.strategy.rationale));
+  plan.append(el('p','caption','V18 · '+result.build.strategy.shortlisted+' objets candidats sur '+result.build.strategy.evaluated+' fiches pertinentes. Core indicatif, jamais obligatoire.'));
+  box.append(plan);
+ }
  const main=el('section','result-section'),buildTitle=el('h3',null,'Build principal · 5 objets');
  main.append(buildTitle);
  const ol=el('ol','build-list');
@@ -66,7 +73,7 @@ function showResults(result){
   img.loading='lazy';img.addEventListener('error',()=>{img.style.display='none'});
   const content=el('div','item-text');content.append(phase,title,why);li.append(img,content);ol.append(li);
  }
- main.append(ol,el('p','caption','D’abord tenir et gérer la lane contre le mid adverse. Ensuite renforcer Galio pour les escarmouches et les combats d’équipe. Bottes non encore optimisées.'));
+ main.append(ol,el('p','caption','D’abord tenir et gérer la lane contre le mid adverse. Ensuite renforcer Galio pour les escarmouches et les combats d’équipe. Les bottes sont recommandées séparément selon la mission de Galio et les menaces adverses.'));
  box.append(main);
  function itemImage(it,role){
   const picture=el('span','wrdi-item-portrait');
@@ -104,6 +111,20 @@ function showResults(result){
   contingent.append(card);
  }
  box.append(contingent);
+ if(result.dataReadiness?.ok){
+  const audit=el('p','caption','Fiches disponibles : '+result.dataReadiness.fullyDescribed+'/10 champions, '+result.dataReadiness.itemRecords+' objets, '+result.dataReadiness.runeRecords+' runes.');
+  box.append(audit);
+ }
+ const bootsResult=result.boots;
+ if(bootsResult?.ok){
+  const section=el('section','result-section');
+  section.append(el('h3',null,'Bottes · 3 choix maximum'));
+  const chosen=el('p','section-intro','Recommandées : '+bootsResult.recommended.name);
+  section.append(chosen,el('p','muted',bootsResult.recommended.reason));
+  for(const alternative of bootsResult.alternatives)
+   section.append(el('p','muted','Alternative : '+alternative.name+' — '+alternative.reason));
+  box.append(section);
+ }
  const rune=el('section','result-section');rune.append(el('h3',null,'Runes'));
  if(result.runes.ok){
   const portrait=(name,large)=>root.WRDI_RuneImagesV152?.portrait(name,{large})||
@@ -127,6 +148,9 @@ function showResults(result){
   rune.append(grid);
   const note=el('p','wrdi-rune-note',result.runes.reason);
   rune.append(note);
+  if(result.runes.alternatives?.length)
+   rune.append(el('p','caption','Autres fondamentales étudiées : '+
+    result.runes.alternatives.map(x=>x.page.keystone).join(' · ')));
  }else rune.append(el('p','warning',result.runes.reason));
  box.append(rune);
  const numerical=result.calculations?.numericCoverage;
@@ -230,7 +254,7 @@ async function fetchJson(url){
 async function boot(){
  renderSlots();
  try{
-  const [catalog,rules,runes,champData,officialKits,reviewedKits,numericKits,numericPatch,numericClient]=await Promise.all([
+  const [catalog,rules,runes,champData,officialKits,reviewedKits,numericKits,numericPatch,numericClient,bootsCatalog]=await Promise.all([
    fetchJson('./data/items-client-7.3d-v12.json'),
    fetchJson('./data/item-restrictions-client-7.3d-v12.json'),
    fetchJson('./data/rune-catalog-client-v14.json'),
@@ -239,7 +263,8 @@ async function boot(){
    fetchJson('./data/champion-kits-official-fr-v1.json'),
    fetchJson('./data/champion-ability-numeric-wiki-wr-v1.json'),
    fetchJson('./data/wr-champion-numeric-patch-overrides-v1.json'),
-   fetchJson('./data/wr-client-verified-abilities-7.3d.json')
+   fetchJson('./data/wr-client-verified-abilities-7.3d.json'),
+   fetchJson('./data/stage-a-boots-details-batch1-2026-11-05.json')
   ]);
   const list=champData?.champions;
   if(!Array.isArray(list)||list.length<100)throw Error('Catalogue de champions local incomplet');
@@ -256,6 +281,7 @@ async function boot(){
    throw Error(numericCheck?.reason||'Catalogue numérique Wild Rift indisponible');
   data.officialKits=officialKits;data.reviewedKits=reviewedKits;
   data.numericKits=numericKits;data.numericPatch=numericPatch;data.numericClient=numericClient;
+  data.bootsCatalog=bootsCatalog;
   pickerUI=root.WRDI_ChampionPickerV151?.init({
    getChampions:()=>data.championList,getPicks:()=>picks,onSelect:selectChampion
   });
@@ -273,6 +299,9 @@ go.addEventListener('click',()=>{
   guard:root.WRDI_GalioItemGuardV1424,core:root.WRDI_CoreV14,
   optimizer:root.WRDI_GalioFiveItemOptimizerV1429,order:root.WRDI_GalioPurchaseOrderV1432,
   contingency:root.WRDI_GalioContingenciesV1433,
+  rolePlanner:root.WRDI_GalioRolePlannerV18,
+  readiness:root.WRDI_GalioDataReadinessV18,
+  bootAdvisor:root.WRDI_GalioBootsV18,
   antihealOrder:root.WRDI_AntihealOrderV169,runeBridge:root.WRDI_RuneBridgeV14,
   runeAdvisor:root.WRDI_GalioRuneAdvisorV1411,
   kitIntelligence:root.WRDI_OfficialKitIntelligenceV158,
@@ -284,7 +313,7 @@ go.addEventListener('click',()=>{
   if(token!==epoch)return;
   try{
    const r=root.WRDI_DraftEngineV15.analyze({picks,champions:data.champions,
-    catalog:data.catalog,rules:data.rules,runes:data.runes,championMeta:data.championList,
+    catalog:data.catalog,rules:data.rules,runes:data.runes,bootsCatalog:data.bootsCatalog,championMeta:data.championList,
     officialKits:data.officialKits,reviewedKits:data.reviewedKits,
     numericKits:data.numericKits,numericPatch:data.numericPatch,numericClient:data.numericClient,modules:mod});
    if(r.ok){showResults(r);status('Analyse terminée. Une seule recommandation, préparée avant la partie.','good');}

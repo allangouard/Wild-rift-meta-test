@@ -5,14 +5,15 @@ const current=fs.readFileSync('index.html','utf8');
 const snapshot=fs.readFileSync('index-v158.html','utf8');
 const scripts=html=>[...html.matchAll(/<script[^>]+src=["']([^"'?]+)/g)].map(x=>x[1]);
 test('production homepage is the standalone Galio draft V15 application',()=>{
- assert.ok(current.includes('Wild Rift Draft Intelligence — V15.8'));
+ assert.ok(current.includes('Wild Rift Draft Intelligence — V18'));
  const expected=scripts(snapshot);
  expected.splice(expected.indexOf('./wrdi-galio-purchase-order-v1432.js'),0,'./wrdi-item-interactions-v165.js');
  expected.splice(expected.indexOf('./wrdi-galio-purchase-order-v1432.js'),0,'./wrdi-productive-survival-v166.js');
  expected.splice(expected.indexOf('./wrdi-galio-purchase-order-v1432.js'),0,'./wrdi-antiheal-order-v169.js');
  expected.splice(expected.indexOf('./wrdi-draft-engine-v15.js'),0,'./wrdi-mechanics-calculator-v159.js','./wrdi-numeric-kits-v162.js');
+ expected.splice(expected.indexOf('./wrdi-galio-contingencies-v1433.js'),0,'./wrdi-galio-role-planner-v18.js','./wrdi-galio-data-readiness-v18.js','./wrdi-galio-boots-v18.js');
  assert.deepEqual(scripts(current),expected);
- assert.equal(scripts(current).length,21);
+ assert.equal(scripts(current).length,24);
  for(const forbidden of ['assets/app.js','wrdi-diagnostic-v14.js','wrdi-galio-item-comparator-v1428.js','wrdi-compact-dashboard-v1423.js','/api/build/'])assert.ok(!current.includes(forbidden),forbidden);
 });
 test('all clean runtime scripts exist and no script is loaded twice',()=>{

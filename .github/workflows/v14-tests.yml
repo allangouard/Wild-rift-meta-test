@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - v18-galio-role-first-shortlist
       - v14-development
       - v160-full-official-ability-text
       - v162-wiki-wr-numeric-catalog
@@ -33,6 +34,18 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Verifier la strategie Galio V18 et le filtrage des objets
+        run: |
+          node --check wrdi-galio-role-planner-v18.js
+          node --check wrdi-galio-five-item-optimizer-v1429.js
+          node --check wrdi-draft-engine-v15.js
+          node --check wrdi-app-v15.js
+          node --test wrdi-galio-role-planner-v18.test.js
+          node --check wrdi-galio-data-readiness-v18.js
+          node --test wrdi-galio-data-readiness-v18.test.js
+          node --check wrdi-galio-boots-v18.js
+          node --test wrdi-galio-boots-runes-v18.test.js
+          node --test wrdi-galio-v18-e2e.test.js
       - name: Verifier les trois divergences avec les captures client
         run: node --test wrdi-client-verifications-v163.test.js
       - name: Verifier le E de Shyvana avec les captures du client

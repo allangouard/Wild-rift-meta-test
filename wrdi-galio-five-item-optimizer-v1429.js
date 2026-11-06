@@ -429,10 +429,12 @@ function calculate(items,threats,combatModel=null){
  return {score:Math.round(score*100)/100,reasons,stats,needs:t,synergy,balance,laneOpening,
   interaction:interaction?.ok?interaction:null,productivity:productivity?.ok?productivity:null,core,offenseRole,burst};
 }
-function optimize({prepared,threats={},slots=5,beamWidth=100,combatModel=null}={}){
+function optimize({prepared,threats={},slots=5,beamWidth=100,combatModel=null,candidateIds=null}={}){
  if(!prepared?.ok||!prepared.core?.validateEquipment)return {ok:false,reason:'Catalogue client indisponible'};
  if(slots!==5)return {ok:false,reason:'Ce moteur construit exactement cinq objets principaux'};
- const pool=eligible(prepared);
+ const allEligible=eligible(prepared);
+ const allow=candidateIds?new Set(candidateIds):null;
+ const pool=allow?allEligible.filter(x=>allow.has(x.id)):allEligible;
  if(pool.length<slots)return {ok:false,reason:'Pas assez de fiches d’objets achetables et pertinentes pour Galio',poolSize:pool.length};
  let beam=[{items:[],ids:[],score:0}];
  for(let depth=1;depth<=slots;depth++){
@@ -463,7 +465,7 @@ function optimize({prepared,threats={},slots=5,beamWidth=100,combatModel=null}={
   legal:true,source:'player_client_items_only'});
  return {ok:true,game:'Wild Rift mobile',version:VERSION,
   main:result(winner),alternatives:others.map(result),
-  evaluatedPool:pool.length,slots:5,bootsSeparate:true,
+  evaluatedPool:pool.length,totalEligiblePool:allEligible.length,shortlistApplied:Boolean(allow),slots:5,bootsSeparate:true,
   noPopularityData:true,noDamageForecast:true,winRate:null,activeItemsInFive:true,
   theoreticalOnly:true,method:'legal_five_item_beam_search_with_conditional_passive_scenarios'};
 }

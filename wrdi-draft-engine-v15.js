@@ -5,48 +5,50 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.WRDI_DraftEngineV15=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
 const VERSION='15.8.0';
-function chooseRune({bridge,catalog,advisor,needs,laneOpponent,items}={}){
+function chooseRune({bridge,catalog,advisor,needs={},laneOpponent,items=[],role}={}){
  if(!bridge?.audit?.(catalog)?.ok)return {ok:false,reason:'Catalogue des runes non valide'};
- const profiles=advisor?.STRATEGIES||[],t=needs||{};
- // Choose runes only after the five item build is selected: an AP poke strategy
- // should not receive a melee trading rune; a contact-pressure hybrid should
- // not receive a burst-only keystone by accident.
- const build=Array.isArray(items)?items:[];
- const apItems=build.filter(x=>Number(x?.stats?.ap||0)>=45);
- const apBase=build.reduce((sum,x)=>sum+(Number(x?.stats?.ap)||0),0);
- const defensiveItems=build.filter(x=>Number(x?.stats?.armor||0)>0||
-  Number(x?.stats?.mr||0)>0);
- const fullAp=apItems.length>=3&&apBase>=220&&defensiveItems.length<=2;
- const mode=fullAp?'ap_poke':'hybrid_control';
- // Galio MID defaults: control on hybrid builds, comet for a high-AP poke
- // composition. This is a role/build coherence preference, NOT proof that
- // these two keystones have the best win rates.
- const ids=fullAp?['poke','engage']:['engage','poke'];
- const accepted=[];
- for(const id of ids){
-  const template=profiles.find(x=>x.id===id);
-  if(!template)continue;
-  const page={keystone:template.keystone,primaryTree:template.tree,
-   primary:[...template.primary],secondary:template.secondary};
+ const templates=(advisor?.STRATEGIES||[]).filter(x=>['engage','burst','poke'].includes(x.id));
+ const apItems=items.filter(x=>Number(x?.stats?.ap||0)>=45);
+ const apBase=items.reduce((sum,x)=>sum+Number(x?.stats?.ap||0),0);
+ const defensiveItems=items.filter(x=>Number(x?.stats?.armor||0)>0||Number(x?.stats?.mr||0)>0);
+ const fullAp=role==='ap_burst'||(apItems.length>=3&&apBase>=220&&defensiveItems.length<=2);
+ // China-client observed Ice Overlord and Electrocute; Comet is a verified
+ // Wild Rift client rune used as a tactical burst/poke option, NOT a claimed
+ // top-player frequency. Preserve V16.8 Comet for typical AP poke Galio.
+ const burstAllIn=fullAp&&Number(needs.laneAllIn||0)>0&&Number(needs.earlyDive||0)>=2;
+ const order=fullAp?(burstAllIn?['burst','poke','engage']:['poke','engage','burst']):
+  ['engage','poke','burst'];
+ const candidates=[];
+ for(const id of order){
+  const t=templates.find(x=>x.id===id);if(!t)continue;
+  const page={keystone:t.keystone,primaryTree:t.tree,primary:[...t.primary],secondary:t.secondary};
+  // Rune slots stay client-legal: Volonté row 2 is interchangeable between
+  // Second souffle (poke) and Plaque d'os (short all-in).
+  const heavyAllIn=Number(needs.laneAllIn||0)>0&&Number(needs.lanePoke||0)===0;
+  if(id==='engage') {
+   if(heavyAllIn)page.primary[1]="Plaque d'os";
+   if(Number(needs.cc||0)<2&&Number(needs.frontlineNeed||0)>=1)page.primary[2]='Surcroissance';
+  }
+  if(id==='poke'||id==='burst'){
+   page.secondary=heavyAllIn?"Plaque d'os":'Second souffle';
+  }
   const validity=bridge.validate(page,catalog);
-  if(validity.valid)accepted.push({page,label:template.label,id,legal:true,
-   reason:template.pros?.[0]||'Interaction documentée'});
+  if(validity.valid)candidates.push({id,label:t.label,page,legal:true,
+   reason:id==='engage'?'Contrôles et résistance : configuration chinoise fréquemment observée':
+    id==='burst'?'Burst rapproché : trois touches nécessaires pour Électrocution':
+    'Poke AP avec Comète : option tactique client vérifiée, fréquence chinoise inconnue'});
  }
- if(!accepted.length)return {ok:false,reason:'Aucune page Galio mid légalement validée'};
- const picked=accepted[0];
- const why=fullAp?
-  'Build Galio mid orienté AP ('+apItems.length+' objets AP, '+apBase+
-  ' AP bruts) : Comète arcanique peut se déclencher via A pour renforcer le poke et les dégâts. '+
-  'Les coups ne sont pas garantis contre '+(laneOpponent||'le mid adverse')+'.':
-  'Build Galio mid hybride de contrôle ('+defensiveItems.length+
-  ' objets avec résistances) : Souverain des glaces renforce les immobilisations de Z/E/R et '+
-  'l’engagement collectif. Poigne exige une attaque de base après préparation et Électrocution '+
-  'trois touches rapprochées ; ces déclenchements ne sont pas le plan principal de ce build.';
- return {ok:true,id:picked.id,label:picked.label,page:picked.page,reason:why,
-  alternatives:accepted.slice(1),mode,apItems:apItems.length,apBase,
-  selection:'galio_mid_build_role_coherence_client_runes_not_empirical_winrate'};
+ if(!candidates.length)return {ok:false,reason:'Aucune page parmi les trois profils Galio autorisée par le client'};
+ const picked=candidates[0];
+ const explanation=fullAp?picked.reason+' Comète arcanique est privilégiée pour le poke AP lorsque les échanges courts ne garantissent pas Électrocution.':
+  picked.reason+' Poigne nécessite une attaque de base préparée ; Électrocution exige trois touches rapprochées, contrairement au contrôle répété de Galio.';
+ return {ok:true,id:picked.id,label:picked.label,page:picked.page,reason:explanation,
+  alternatives:candidates.slice(1,3),mode:fullAp?'ap_poke':'hybrid_control',
+  apItems:apItems.length,apBase,
+  selection:'galio_mid_build_role_coherence_client_runes_not_empirical_winrate',
+  metaReference:'cn_galio_engage_electrocute_observed_comet_tactical_only'};
 }
-function analyze({picks,champions,championMeta,officialKits,reviewedKits,numericKits,numericPatch,numericClient,catalog,rules,runes,modules}={}){
+function analyze({picks,champions,championMeta,officialKits,reviewedKits,numericKits,numericPatch,numericClient,catalog,rules,runes,bootsCatalog,modules}={}){
  const fail=(stage,reason)=>({ok:false,stage,reason});
  if(!Array.isArray(picks)||picks.length!==10||picks.some(x=>!String(x||'').trim()))return fail('draft','Les dix champions sont requis');
  if(String(picks[2])!=='10099')return fail('draft','Galio mid uniquement pour le moment');
@@ -55,6 +57,8 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
   optimizer=m.optimizer,order=m.order,contingency=m.contingency;
  if(!profile?.lookup||!team?.make||!guard?.prepare||!core?.validateEquipment||!optimizer?.optimize||!order?.order||!contingency?.plan)
   return fail('modules','Moteur incomplet : aucune substitution par les anciens calculs');
+ const readiness=m.readiness?.inspect?.({picks,championMeta,officialKits,numericKits,items:catalog,runes,boots:bootsCatalog})||null;
+ if(m.readiness&&!readiness?.ok)return fail('data_readiness',readiness?.reasons?.join(' ; ')||'Données de draft incomplètes');
  const names=picks.map(id=>String(champions?.[String(id)]||''));
  if(names.some(x=>!x))return fail('champions','Un champion choisi n’est pas présent dans l’index des noms');
  const metadataByName=new Map((Array.isArray(championMeta)?championMeta:[])
@@ -92,7 +96,10 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
  const inputAudit=calculator?.audit?.({officialKits,items:catalog,runes});
  const galioSheet=official?.find('10099')||official?.find('Galio');
  const antiheal=calculator?.antihealComparison?.({items:catalog,galio:galioSheet,threats:need});
- const main=optimizer.optimize({prepared,threats:need,combatModel});
+ const strategic=m.rolePlanner?.plan?.({threats:need,items:optimizer.eligible(prepared)})||null;
+ if(m.rolePlanner&&!strategic?.ok)return fail('role_planning',strategic?.reason||'Analyse stratégique indisponible');
+ const main=optimizer.optimize({prepared,threats:need,combatModel,
+  candidateIds:strategic?.candidateIds||null});
  if(!main.ok)return fail('five_items',main.reason);
  const sequence=order.order({prepared,items:main.main.items,threats:need});
  if(!sequence.ok)return fail('purchase_order',sequence.reason);
@@ -109,8 +116,14 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
   orderedItems:sequence.items,enemyNames:names.slice(5),profileLookup:lookup,
   threats:need,max:3,protectCore:true});
  if(!conditional.ok)return fail('contingencies',conditional.reason);
- const rune=chooseRune({bridge:m.runeBridge,catalog:runes,advisor:m.runeAdvisor,needs:need,laneOpponent:names[7],items:main.main.items.map(x=>prepared.catalog.items.find(z=>z.id===x.id))});
+ const rune=chooseRune({bridge:m.runeBridge,catalog:runes,advisor:m.runeAdvisor,
+  role:strategic?.role,needs:need,laneOpponent:names[7],
+  items:main.main.items.map(x=>prepared.catalog.items.find(z=>z.id===x.id))});
+ const boots=m.bootAdvisor?.select?.({bootsCatalog,threats:need,role:strategic?.role})||null;
+ if(m.bootAdvisor&&!boots?.ok)return fail('boots',boots?.reason||'Sélection des bottes indisponible');
  const notes=[...context.reasons];
+ if(readiness?.ok)notes.push('Données contrôlées : '+readiness.fullyDescribed+'/10 kits, '+readiness.itemRecords+' objets, '+readiness.runeRecords+' runes et '+readiness.bootRecords+' fiches de bottes client disponibles.');
+ if(strategic?.ok)notes.unshift('V18 : '+strategic.rationale+' ; '+strategic.shortlisted+'/'+strategic.evaluated+' objets candidats évalués en détail. Core de référence : '+strategic.coreReference.join(' / ')+'.');
  if(main.main.offenseRole?.active){
   const ap=main.main.offenseRole;
   notes.push('Rôle identifié : Galio carry AP, car '+need.frontlineProvided+
@@ -201,9 +214,10 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
   draft:{ids:[...picks],names,threats:need,notes,confidence:context.confidence,
    officialKitCoverage:official?names.filter(n=>evidence[n]?.ok).length:0},
   build:{items:sequence.items,alternatives:conditional.options,legal:true,
+   strategy:strategic?.ok?strategic:null,
    orderCertified:false,combinationsExamined:main.evaluatedPool,
    sourced:'player_client_items_only',noPopularBuilds:true},
-  runes:rune,
+  runes:rune,boots,dataReadiness:readiness,
   calculations:{inputAudit:inputAudit?.ok?inputAudit:null,
    antiheal:antiheal?.ok?antiheal:null,runeProc:runeRange?.ok?runeRange:null,
    numericDraft:numericDraft?.ok?numericDraft:null,
