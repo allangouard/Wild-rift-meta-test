@@ -1,0 +1,50 @@
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const catalog=require('./data/champions-picker-v151.json');
+const picker=require('./wrdi-champion-picker-v151.js');
+const champions=catalog.champions;
+test('local Wild Rift catalogue is indexed by correct client hero IDs and contains readable names',()=>{
+ assert.ok(champions.length>=120);
+ assert.equal(new Set(champions.map(c=>c.id)).size,champions.length);
+ const byId=new Map(champions.map(c=>[c.id,c]));
+ assert.equal(byId.get('10099').name,'Galio');
+ assert.equal(byId.get('10002').name,'Aatrox');
+ assert.equal(byId.get('10039').name,'Zed');
+ assert.equal(byId.get('10026').name,"Kai'Sa");
+ assert.ok(champions.every(c=>!/^\d+$/.test(c.name)));
+ assert.ok(champions.every(c=>Array.isArray(c.lanes)&&c.lanes.length&&Array.isArray(c.classes)&&c.classes.length));
+ assert.ok(champions.every(c=>/^https:\/\//.test(c.portrait)));
+});
+test('first filter is the lane, class is optional, search works with French accents and capitals',()=>{
+ assert.deepEqual(picker.LANES,['Top','Jungle','Mid','ADC','Support','Tous']);
+ assert.deepEqual(picker.CLASSES,['Toutes','Tank','Combattant','Assassin','Mage','Tireur','Support']);
+ const mid=picker.filter(champions,{lane:'Mid'});
+ assert.ok(mid.some(x=>x.name==='Galio'));
+ assert.ok(mid.some(x=>x.name==='Zed'));
+ assert.ok(!mid.some(x=>x.name==='Ashe'));
+ const tankMage=picker.filter(champions,{lane:'Mid',roleClass:'Tank'});
+ assert.ok(tankMage.some(x=>x.name==='Galio'));
+ const searched=picker.filter(champions,{lane:'Tous',query:'KAI'});
+ assert.ok(searched.some(x=>x.name==="Kai'Sa"));
+});
+test('picker and app never use native champion select or expose IDs as names',()=>{
+ const app=fs.readFileSync('wrdi-app-v15.js','utf8');
+ const html=fs.readFileSync('index-v151.html','utf8');
+ assert.ok(app.includes('WRDI_ChampionPickerV151?.init'));
+ assert.ok(app.includes("fetchJson(CHAMPION_CATALOG)"));
+ assert.ok(!app.includes('makeOptions('));
+ assert.ok(!app.includes("INDEX_URL"));
+ assert.ok(html.includes('wrdi-champion-picker-v151.js'));
+ assert.ok(html.indexOf('wrdi-champion-picker-v151.js')<html.indexOf('wrdi-app-v15.js'));
+ assert.ok(html.includes('.wrdi-picker-sheet'));
+ assert.ok(html.includes('.wrdi-champion-card'));
+ assert.ok(html.includes('.wrdi-slot'));
+ assert.ok(!html.includes('<select'));
+});
+test('draft engine still receives names by the same original client IDs',()=>{
+ const app=fs.readFileSync('wrdi-app-v15.js','utf8');
+ assert.ok(app.includes('data.champions=Object.fromEntries(list.map(c=>[String(c.id),c.name]))'));
+ assert.ok(app.includes('onSelect:selectChampion'));
+ assert.ok(app.includes('picks.some((other,i)=>i!==slot'));
+});
