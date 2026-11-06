@@ -53,3 +53,16 @@ test('V18 end-to-end: three allied frontliners -> Galio AP burst, legal five ite
  assert.ok(r.build.strategy.candidateIds.includes('oceanids_trident'));
  assert.ok(!r.build.items.some(x=>x.id==='unending_despair'),'Burst must not waste a slot on prolonged sustain');
 });
+
+test('V18.1: isolated Annie shield does not warrant Trident, Cosmic Drive is situational, penetration remains a candidate',()=>{
+ const r=draft(['Aatrox','Nunu et Willump','Galio','Caitlyn','Alistar','Ambessa','Amumu','Annie','Ezreal','Swain']);
+ assert.equal(r.ok,true,JSON.stringify(r).slice(0,1200));
+ assert.equal(r.build.strategy.role,'ap_burst');
+ assert.ok(r.draft.threats.shield<=1,'Expected at most one isolated shield signal');
+ assert.ok(r.draft.threats.shieldPressure<1.5,'A lone shield must not trigger shield-cut');
+ assert.ok(!r.build.strategy.candidateIds.includes('oceanids_trident'),'No Trident in low-shield candidate list');
+ assert.ok(!r.build.strategy.candidateIds.includes('cosmic_drive'),'Cosmic Drive must be conditional');
+ assert.ok(r.build.strategy.candidateIds.includes('void_staff'),'Void Staff must remain eligible');
+ assert.ok(r.build.strategy.candidateIds.includes('cryptbloom'),'Cryptbloom must remain eligible');
+ assert.ok(!r.build.items.some(i=>['oceanids_trident','cosmic_drive'].includes(i.id)));
+});
