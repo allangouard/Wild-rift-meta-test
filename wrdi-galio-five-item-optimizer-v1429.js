@@ -135,7 +135,7 @@ function coreFit(items,threats={}){
   if(has('force_of_nature')&&(Number(t.ap)||0)>=2)score+=2.5;
   if(has('kaenic_rookern')&&(Number(t.ap)||0)>=2&&(Number(t.burst)||0)>0)score+=2.3;
   if(has('amaranths_twinguard'))score+=1.2;
-  if(has('randuins_omen')&&(Number(t.crit)||0)>0)score+=2.8;
+  if((Number(t.crit)||0)>0&&items.some(x=>features(x).critMitigation))score+=2.8;
  }
  return {score,hybrid:true,reasons,role:'hybrid_offensive_control'};
 }
