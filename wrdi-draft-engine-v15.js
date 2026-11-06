@@ -100,9 +100,15 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
   const sheet=rawSheets.get(String(meta?.id||''));
   if(!sheet)return null;
   const descriptions=Object.values(sheet.skills||{}).map(x=>String(x?.description_fr||'').toLowerCase());
-  const shieldSkills=descriptions.filter(x=>/bouclier|protéger un allié|protéger une alliée|protège un allié|protège une alliée/.test(x));
+  // Do not equate generic "protects an ally" with a shield:
+  // e.g. Orianna's Wild Rift E description provides armor/MR, not an
+  // explicitly documented shield. A shield must actually be named.
+  const shieldSkills=descriptions.filter(x=>/bouclier/.test(x));
   const protectsAllies=shieldSkills.some(x=>/allié|alliés|alliée|alliées|coéquipier|coéquipiers/.test(x));
-  return {hasShield:shieldSkills.length>0,protectsAllies};
+  // Excess healing converts into a shield only conditionally; it must not
+  // count as a reliable ally shielding skill on its own (Soraka W).
+  const conditionalOnly=protectsAllies&&shieldSkills.every(x=>/excédent de soins?|excedent de soins?/.test(x));
+  return {hasShield:shieldSkills.length>0,protectsAllies,conditionalOnly};
  };
  const threatEvidence=m.threatEvidence?.summarize?.({
   enemies:names.slice(5),
