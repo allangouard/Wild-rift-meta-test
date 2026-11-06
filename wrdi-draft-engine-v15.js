@@ -100,8 +100,17 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
   const protectsAllies=shieldSkills.some(x=>/allié|alliés|alliée|alliées|coéquipier|coéquipiers/.test(x));
   return {hasShield:shieldSkills.length>0,protectsAllies};
  };
+ const threatEvidence=m.threatEvidence?.summarize?.({
+  enemies:names.slice(5),
+  byName:name=>{
+   const meta=metadataByName.get(String(name).toLocaleLowerCase('fr'));
+   return rawSheets.get(String(meta?.id||''))||null;
+  }
+ })||null;
+ if(m.threatEvidence&&!threatEvidence?.ok)
+  return fail('threat_evidence',threatEvidence?.reason||'Fiches adverses manquantes');
  const context=team.make({allies:names.slice(0,5),enemies:names.slice(5),lookup,
-  shieldInfo:officialKits?shieldInfo:null});
+  shieldInfo:officialKits?shieldInfo:null,threatEvidence});
  if(!context.ok)return fail('threats',context.reason);
  const prepared=guard.prepare({catalog,rules,core,livePatch:catalog?.patch_claimed_by_client_user});
  if(!prepared.ok)return fail('client_catalogue',prepared.reason);
@@ -170,6 +179,7 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
  const boots=m.bootAdvisor?.select?.({bootsCatalog,threats:need,role:strategic?.role})||null;
  if(m.bootAdvisor&&!boots?.ok)return fail('boots',boots?.reason||'Sélection des bottes indisponible');
  const notes=[...context.reasons];
+ if(threatEvidence?.ok)notes.push('V18.5 : '+threatEvidence.alliedHealers+' sources de soin allié, '+threatEvidence.personalHealers+' sources de soin personnel, '+threatEvidence.maxHpThreats+' menaces de dégâts % PV max détectées dans les compétences officielles ; efficacité réelle non prédite.');
  if(lateSlots?.ok)notes.push('V18.4 : '+lateSlots.evaluatedPairs+' duos légaux comparés sur les objets 4 et 5 ; '+lateSlots.explanation+' Valeurs qualitatives, pas des dégâts réels.');
  if(readiness?.ok)notes.push('Données contrôlées : '+readiness.fullyDescribed+'/10 kits, '+readiness.itemRecords+' objets, '+readiness.runeRecords+' runes et '+readiness.bootRecords+' fiches de bottes client disponibles.');
  if(strategic?.ok)notes.unshift('V18 : '+strategic.rationale+' ; '+strategic.shortlisted+'/'+strategic.evaluated+' objets candidats évalués en détail. Core de référence : '+strategic.coreReference.join(' / ')+'.');
@@ -260,7 +270,7 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
  }
  if(context.missingEnemyRoles.length)notes.push('Profils adverses partiels : '+context.missingEnemyRoles.join(', '));
  return {ok:true,version:VERSION,game:'Wild Rift mobile',patch:catalog.patch_claimed_by_client_user,
-  draft:{ids:[...picks],names,threats:need,notes,confidence:context.confidence,
+  draft:{ids:[...picks],names,threats:need,threatEvidence:threatEvidence?.ok?threatEvidence:null,notes,confidence:context.confidence,
    officialKitCoverage:official?names.filter(n=>evidence[n]?.ok).length:0},
   build:{items:sequence.items,alternatives:conditional.options,legal:true,
    strategy:strategic?.ok?strategic:null,lateSlots:lateSlots?.ok?lateSlots:null,
