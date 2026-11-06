@@ -1,6 +1,14 @@
 # Audit de consolidation — Wild Rift Draft Intelligence
 _Date : 6 novembre 2026. Branche auditée : `v14-development` (état V14.34)._
 
+## État de consolidation réalisé
+
+- **Les deux branches `main` et `v14-development` sont maintenant alignées** sur la version V14.34 après validation CI. `main` est l'entrée canonique de publication.
+- **10 anciens instantanés HTML ont été supprimés du développement** : V14.10, V14.24, V14.25, V14.27, V14.28, V14.29, V14.30, V14.31, V14.32 et V14.33 ; ils restent tous récupérables dans la branche d'archive.
+- **15 instantanés HTML restent présents**, notamment pour les tests qui lisent directement les anciennes versions. Ils ne constituent pas une seconde application officielle.
+- **52 scripts externes** sont toujours référencés par l'entrée canonique. Le déchargement des laboratoires et du code hérité n'est **pas encore achevé** : il faut tracer toutes les dépendances avant de le faire.
+- Le worker PWA et les tests de l'entrée canonique ont été mis à jour ; les tests Node sont verts. Une validation de l'affichage sur téléphone reste distincte.
+
 ## Décisions et état réel
 - **Deux branches de travail identifiées :** `main` (ancienne interface V11/V12) et `v14-development` (toutes les évolutions récentes). Avant consolidation, `v14-development` avait 442 commits d'avance sur `main` et aucun commit de retard.
 - **Sauvegarde immuable par branche :** `archive/pre-consolidation-v1434-2026-11-06` ; ne pas réécrire cette référence.
