@@ -126,7 +126,7 @@ def main():
     'statEntries':sum(len(s['stats']) for r in ok for s in r['skills'].values()),
     'formulaEntries':sum(len(s['formulas']) for r in ok for s in r['skills'].values())},
   'entries':results}
- DEST.write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+ DEST.write_text(json.dumps(record,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
  print('COLLECT_RESULT',record['coverage'],'duration_seconds',round(time.time()-start,1),'file_bytes',DEST.stat().st_size,flush=True)
  print('COLLECT_MISSING',json.dumps(failed,ensure_ascii=False)[:18000],flush=True)
  for champ in ['Galio','Syndra','Brand']:
