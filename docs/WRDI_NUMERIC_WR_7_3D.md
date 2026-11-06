@@ -28,3 +28,5 @@ L’analyse de draft lit les fiches numériques des dix champions. Pour Galio, l
 Actualisation complémentaire : extraction des valeurs numériques intégrées aux descriptions de passifs et index de modifications officielles, sans ajout de données PC.
 
 La deuxième passe conserve les valeurs intégrées aux descriptions de passifs, compacte le catalogue JSON et réextrait les patchs officiels avec un suivi de contexte par champion quand identifiable.
+
+Statut technique : relance de la dernière archive compacte, avec conservation de la provenance et des divergences officielles.
