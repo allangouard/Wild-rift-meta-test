@@ -11,6 +11,11 @@ test('125 WR-only numeric sheets, all 625 spell slots and original source URLs',
  assert.ok(raw.entries.every(e=>e.source.startsWith('https://wiki.leagueoflegends.com/en-us/WR%3A')));
  assert.ok(raw.entries.every(e=>['passive','q','w','e','r'].every(slot=>e.skills[slot]?.name)));
  assert.equal(raw.coverage.formulaEntries,1109);
+ const facts=raw.entries.flatMap(e=>Object.values(e.skills)).flatMap(s=>s.descriptionNumericFacts||[]);
+ assert.ok(facts.length>=2500,'inline passive and conditional numerical facts must be retained');
+ assert.ok(raw.entries.find(e=>e.name==='Galio').skills.passive.descriptionNumericFacts.some(x=>x.value===45&&x.unit==='%'));
+ const riot=require('./data/wr-riot-quantitative-patch-register-7.3d.json');
+ assert.equal(riot.patches.reduce((n,p)=>n+p.count,0),653);
 });
 test('Galio Q verifies user-confirmed 11.5/10/8.5/7 and AP source formula',()=>{
  const galio=prepared.find('10099');
