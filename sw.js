@@ -1,5 +1,5 @@
 /* WRDI V14 consolidation: navigation cache never aliases versioned debug pages to canonical app. */
-const CACHE='wrdi-shell-current-v15.7';
+const CACHE='wrdi-shell-current-v15.8';
 const SHELL=['./index.html','./manifest.webmanifest','./assets/styles.css','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',event=>event.waitUntil(
  caches.open(CACHE).then(cache=>cache.addAll(SHELL)).then(()=>self.skipWaiting())
