@@ -1,0 +1,1793 @@
+{
+  "schema": "wrdi-champion-picker-v151",
+  "source": "ry2x/WildRift-Champs gh-pages hero.json (archived 2025)",
+  "sourceDate": "2025-05",
+  "note": "Static Wild Rift champion identities, lane and class flags. Supplemental new champion data must be verified before adding. Portrait CDN separate from build calculations.",
+  "champions": [
+    {
+      "id": "10002",
+      "name": "Aatrox",
+      "riotId": "Aatrox",
+      "riotKey": 266,
+      "lanes": [
+        "Top",
+        "Jungle"
+      ],
+      "classes": [
+        "Combattant"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/266/square"
+    },
+    {
+      "id": "10038",
+      "name": "Ahri",
+      "riotId": "Ahri",
+      "riotKey": 103,
+      "lanes": [
+        "Mid"
+      ],
+      "classes": [
+        "Assassin",
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/103/square"
+    },
+    {
+      "id": "10031",
+      "name": "Akali",
+      "riotId": "Akali",
+      "riotKey": 84,
+      "lanes": [
+        "Top",
+        "Mid"
+      ],
+      "classes": [
+        "Assassin"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/84/square"
+    },
+    {
+      "id": "10100",
+      "name": "Akshan",
+      "riotId": "Akshan",
+      "riotKey": 166,
+      "lanes": [
+        "Mid"
+      ],
+      "classes": [
+        "Assassin",
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/166/square"
+    },
+    {
+      "id": "10081",
+      "name": "Alistar",
+      "riotId": "Alistar",
+      "riotKey": 12,
+      "lanes": [
+        "Support"
+      ],
+      "classes": [
+        "Tank",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/12/square"
+    },
+    {
+      "id": "10082",
+      "name": "Ambessa",
+      "riotId": "Ambessa",
+      "riotKey": 799,
+      "lanes": [
+        "Top",
+        "Jungle"
+      ],
+      "classes": [
+        "Combattant",
+        "Assassin"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/799/square"
+    },
+    {
+      "id": "10004",
+      "name": "Amumu",
+      "riotId": "Amumu",
+      "riotKey": 32,
+      "lanes": [
+        "Top",
+        "Jungle",
+        "Support"
+      ],
+      "classes": [
+        "Tank",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/32/square"
+    },
+    {
+      "id": "10036",
+      "name": "Annie",
+      "riotId": "Annie",
+      "riotKey": 1,
+      "lanes": [
+        "Mid"
+      ],
+      "classes": [
+        "Mage",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/1/square"
+    },
+    {
+      "id": "10079",
+      "name": "Ashe",
+      "riotId": "Ashe",
+      "riotKey": 22,
+      "lanes": [
+        "ADC",
+        "Support"
+      ],
+      "classes": [
+        "Tireur",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/22/square"
+    },
+    {
+      "id": "10023",
+      "name": "Aurelion Sol",
+      "riotId": "AurelionSol",
+      "riotKey": 136,
+      "lanes": [
+        "Mid"
+      ],
+      "classes": [
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/136/square"
+    },
+    {
+      "id": "10033",
+      "name": "Blitzcrank",
+      "riotId": "Blitzcrank",
+      "riotKey": 53,
+      "lanes": [
+        "Support"
+      ],
+      "classes": [
+        "Tank",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/53/square"
+    },
+    {
+      "id": "10119",
+      "name": "Brand",
+      "riotId": "Brand",
+      "riotKey": 63,
+      "lanes": [
+        "Mid",
+        "Support"
+      ],
+      "classes": [
+        "Mage",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/63/square"
+    },
+    {
+      "id": "10021",
+      "name": "Braum",
+      "riotId": "Braum",
+      "riotKey": 201,
+      "lanes": [
+        "Support"
+      ],
+      "classes": [
+        "Tank",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/201/square"
+    },
+    {
+      "id": "10112",
+      "name": "Caitlyn",
+      "riotId": "Caitlyn",
+      "riotKey": 51,
+      "lanes": [
+        "ADC"
+      ],
+      "classes": [
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/51/square"
+    },
+    {
+      "id": "10055",
+      "name": "Camille",
+      "riotId": "Camille",
+      "riotKey": 164,
+      "lanes": [
+        "Top",
+        "Jungle"
+      ],
+      "classes": [
+        "Combattant",
+        "Assassin"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/164/square"
+    },
+    {
+      "id": "10060",
+      "name": "Corki",
+      "riotId": "Corki",
+      "riotKey": 42,
+      "lanes": [
+        "Mid",
+        "ADC"
+      ],
+      "classes": [
+        "Mage",
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/42/square"
+    },
+    {
+      "id": "10071",
+      "name": "Darius",
+      "riotId": "Darius",
+      "riotKey": 122,
+      "lanes": [
+        "Top",
+        "Jungle"
+      ],
+      "classes": [
+        "Tank",
+        "Combattant"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/122/square"
+    },
+    {
+      "id": "10013",
+      "name": "Diana",
+      "riotId": "Diana",
+      "riotKey": 131,
+      "lanes": [
+        "Top",
+        "Jungle",
+        "Mid"
+      ],
+      "classes": [
+        "Combattant",
+        "Assassin"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/131/square"
+    },
+    {
+      "id": "10062",
+      "name": "Dr. Mundo",
+      "riotId": "DrMundo",
+      "riotKey": 36,
+      "lanes": [
+        "Top",
+        "Jungle"
+      ],
+      "classes": [
+        "Tank",
+        "Combattant"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/36/square"
+    },
+    {
+      "id": "10077",
+      "name": "Draven",
+      "riotId": "Draven",
+      "riotKey": 119,
+      "lanes": [
+        "ADC"
+      ],
+      "classes": [
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/119/square"
+    },
+    {
+      "id": "10011",
+      "name": "Ekko",
+      "riotId": "Ekko",
+      "riotKey": 245,
+      "lanes": [
+        "Top",
+        "Jungle",
+        "Mid"
+      ],
+      "classes": [
+        "Assassin",
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/245/square"
+    },
+    {
+      "id": "10029",
+      "name": "Evelynn",
+      "riotId": "Evelynn",
+      "riotKey": 28,
+      "lanes": [
+        "Jungle"
+      ],
+      "classes": [
+        "Assassin",
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/28/square"
+    },
+    {
+      "id": "10098",
+      "name": "Ezreal",
+      "riotId": "Ezreal",
+      "riotKey": 81,
+      "lanes": [
+        "ADC"
+      ],
+      "classes": [
+        "Mage",
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/81/square"
+    },
+    {
+      "id": "10133",
+      "name": "Fiddlesticks",
+      "riotId": "Fiddlesticks",
+      "riotKey": 9,
+      "lanes": [
+        "Jungle"
+      ],
+      "classes": [
+        "Mage",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/9/square"
+    },
+    {
+      "id": "10032",
+      "name": "Fiora",
+      "riotId": "Fiora",
+      "riotKey": 114,
+      "lanes": [
+        "Top"
+      ],
+      "classes": [
+        "Combattant",
+        "Assassin"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/114/square"
+    },
+    {
+      "id": "10086",
+      "name": "Fizz",
+      "riotId": "Fizz",
+      "riotKey": 105,
+      "lanes": [
+        "Top",
+        "Jungle",
+        "Mid"
+      ],
+      "classes": [
+        "Combattant",
+        "Assassin"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/105/square"
+    },
+    {
+      "id": "10099",
+      "name": "Galio",
+      "riotId": "Galio",
+      "riotKey": 3,
+      "lanes": [
+        "Mid",
+        "Support"
+      ],
+      "classes": [
+        "Tank",
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/3/square"
+    },
+    {
+      "id": "10001",
+      "name": "Garen",
+      "riotId": "Garen",
+      "riotKey": 86,
+      "lanes": [
+        "Top"
+      ],
+      "classes": [
+        "Tank",
+        "Combattant"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/86/square"
+    },
+    {
+      "id": "10078",
+      "name": "Gnar",
+      "riotId": "Gnar",
+      "riotKey": 150,
+      "lanes": [
+        "Top"
+      ],
+      "classes": [
+        "Tank",
+        "Combattant"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/150/square"
+    },
+    {
+      "id": "10089",
+      "name": "Gragas",
+      "riotId": "Gragas",
+      "riotKey": 79,
+      "lanes": [
+        "Top",
+        "Jungle"
+      ],
+      "classes": [
+        "Combattant",
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/79/square"
+    },
+    {
+      "id": "10072",
+      "name": "Graves",
+      "riotId": "Graves",
+      "riotKey": 104,
+      "lanes": [
+        "Top",
+        "Jungle"
+      ],
+      "classes": [
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/104/square"
+    },
+    {
+      "id": "10054",
+      "name": "Gwen",
+      "riotId": "Gwen",
+      "riotKey": 887,
+      "lanes": [
+        "Top",
+        "Jungle"
+      ],
+      "classes": [
+        "Combattant"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/887/square"
+    },
+    {
+      "id": "10019",
+      "name": "Hecarim",
+      "riotId": "Hecarim",
+      "riotKey": 120,
+      "lanes": [
+        "Jungle"
+      ],
+      "classes": [
+        "Tank",
+        "Combattant"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/120/square"
+    },
+    {
+      "id": "10127",
+      "name": "Heimerdinger",
+      "riotId": "Heimerdinger",
+      "riotKey": 74,
+      "lanes": [
+        "Mid"
+      ],
+      "classes": [
+        "Mage",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/74/square"
+    },
+    {
+      "id": "10094",
+      "name": "Irelia",
+      "riotId": "Irelia",
+      "riotKey": 39,
+      "lanes": [
+        "Top",
+        "Mid"
+      ],
+      "classes": [
+        "Combattant",
+        "Assassin"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/39/square"
+    },
+    {
+      "id": "10075",
+      "name": "Janna",
+      "riotId": "Janna",
+      "riotKey": 40,
+      "lanes": [
+        "Support"
+      ],
+      "classes": [
+        "Mage",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/40/square"
+    },
+    {
+      "id": "10056",
+      "name": "Jarvan IV",
+      "riotId": "JarvanIV",
+      "riotKey": 59,
+      "lanes": [
+        "Top",
+        "Jungle"
+      ],
+      "classes": [
+        "Tank",
+        "Combattant"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/59/square"
+    },
+    {
+      "id": "10040",
+      "name": "Jax",
+      "riotId": "Jax",
+      "riotKey": 24,
+      "lanes": [
+        "Top",
+        "Jungle"
+      ],
+      "classes": [
+        "Combattant"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/24/square"
+    },
+    {
+      "id": "10101",
+      "name": "Jayce",
+      "riotId": "Jayce",
+      "riotKey": 126,
+      "lanes": [
+        "Top",
+        "Mid"
+      ],
+      "classes": [
+        "Combattant",
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/126/square"
+    },
+    {
+      "id": "10022",
+      "name": "Jhin",
+      "riotId": "Jhin",
+      "riotKey": 202,
+      "lanes": [
+        "ADC"
+      ],
+      "classes": [
+        "Mage",
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/202/square"
+    },
+    {
+      "id": "10018",
+      "name": "Jinx",
+      "riotId": "Jinx",
+      "riotKey": 222,
+      "lanes": [
+        "ADC"
+      ],
+      "classes": [
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/222/square"
+    },
+    {
+      "id": "10026",
+      "name": "Kai'Sa",
+      "riotId": "Kaisa",
+      "riotKey": 145,
+      "lanes": [
+        "ADC"
+      ],
+      "classes": [
+        "Mage",
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/145/square"
+    },
+    {
+      "id": "10134",
+      "name": "Kalista",
+      "riotId": "Kalista",
+      "riotKey": 429,
+      "lanes": [
+        "ADC"
+      ],
+      "classes": [
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/429/square"
+    },
+    {
+      "id": "10007",
+      "name": "Karma",
+      "riotId": "Karma",
+      "riotKey": 43,
+      "lanes": [
+        "Mid",
+        "Support"
+      ],
+      "classes": [
+        "Mage",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/43/square"
+    },
+    {
+      "id": "10103",
+      "name": "Kassadin",
+      "riotId": "Kassadin",
+      "riotKey": 38,
+      "lanes": [
+        "Top",
+        "Mid"
+      ],
+      "classes": [
+        "Assassin",
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/38/square"
+    },
+    {
+      "id": "10095",
+      "name": "Katarina",
+      "riotId": "Katarina",
+      "riotKey": 55,
+      "lanes": [
+        "Mid"
+      ],
+      "classes": [
+        "Assassin",
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/55/square"
+    },
+    {
+      "id": "10041",
+      "name": "Kayle",
+      "riotId": "Kayle",
+      "riotKey": 10,
+      "lanes": [
+        "Top",
+        "Mid"
+      ],
+      "classes": [
+        "Mage",
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/10/square"
+    },
+    {
+      "id": "10005",
+      "name": "Kayn",
+      "riotId": "Kayn",
+      "riotKey": 141,
+      "lanes": [
+        "Jungle"
+      ],
+      "classes": [
+        "Combattant",
+        "Assassin"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/141/square"
+    },
+    {
+      "id": "10061",
+      "name": "Kennen",
+      "riotId": "Kennen",
+      "riotKey": 85,
+      "lanes": [
+        "Top",
+        "Mid"
+      ],
+      "classes": [
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/85/square"
+    },
+    {
+      "id": "10017",
+      "name": "Kha'Zix",
+      "riotId": "Khazix",
+      "riotKey": 121,
+      "lanes": [
+        "Jungle"
+      ],
+      "classes": [
+        "Assassin"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/121/square"
+    },
+    {
+      "id": "10073",
+      "name": "Kindred",
+      "riotId": "Kindred",
+      "riotKey": 203,
+      "lanes": [
+        "Jungle"
+      ],
+      "classes": [
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/203/square"
+    },
+    {
+      "id": "10059",
+      "name": "Lee Sin",
+      "riotId": "LeeSin",
+      "riotKey": 64,
+      "lanes": [
+        "Jungle"
+      ],
+      "classes": [
+        "Combattant",
+        "Assassin"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/64/square"
+    },
+    {
+      "id": "10044",
+      "name": "Leona",
+      "riotId": "Leona",
+      "riotKey": 89,
+      "lanes": [
+        "Support"
+      ],
+      "classes": [
+        "Tank",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/89/square"
+    },
+    {
+      "id": "10135",
+      "name": "Lillia",
+      "riotId": "Lillia",
+      "riotKey": 876,
+      "lanes": [
+        "Jungle"
+      ],
+      "classes": [
+        "Combattant",
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/876/square"
+    },
+    {
+      "id": "10109",
+      "name": "Lissandra",
+      "riotId": "Lissandra",
+      "riotKey": 127,
+      "lanes": [
+        "Mid"
+      ],
+      "classes": [
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/127/square"
+    },
+    {
+      "id": "10042",
+      "name": "Lucian",
+      "riotId": "Lucian",
+      "riotKey": 236,
+      "lanes": [
+        "Mid",
+        "ADC"
+      ],
+      "classes": [
+        "Assassin",
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/236/square"
+    },
+    {
+      "id": "10048",
+      "name": "Lulu",
+      "riotId": "Lulu",
+      "riotKey": 117,
+      "lanes": [
+        "Support"
+      ],
+      "classes": [
+        "Mage",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/117/square"
+    },
+    {
+      "id": "10003",
+      "name": "Lux",
+      "riotId": "Lux",
+      "riotKey": 99,
+      "lanes": [
+        "Mid",
+        "Support"
+      ],
+      "classes": [
+        "Mage",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/99/square"
+    },
+    {
+      "id": "10083",
+      "name": "Malphite",
+      "riotId": "Malphite",
+      "riotKey": 54,
+      "lanes": [
+        "Top",
+        "Mid",
+        "Support"
+      ],
+      "classes": [
+        "Tank",
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/54/square"
+    },
+    {
+      "id": "10074",
+      "name": "Maokai",
+      "riotId": "Maokai",
+      "riotKey": 57,
+      "lanes": [
+        "Top",
+        "Jungle",
+        "Support"
+      ],
+      "classes": [
+        "Tank",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/57/square"
+    },
+    {
+      "id": "10070",
+      "name": "Master Yi",
+      "riotId": "MasterYi",
+      "riotKey": 11,
+      "lanes": [
+        "Jungle"
+      ],
+      "classes": [
+        "Combattant",
+        "Assassin"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/11/square"
+    },
+    {
+      "id": "10108",
+      "name": "Milio",
+      "riotId": "Milio",
+      "riotKey": 902,
+      "lanes": [
+        "Support"
+      ],
+      "classes": [
+        "Mage",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/902/square"
+    },
+    {
+      "id": "10066",
+      "name": "Miss Fortune",
+      "riotId": "MissFortune",
+      "riotKey": 21,
+      "lanes": [
+        "ADC"
+      ],
+      "classes": [
+        "Mage",
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/21/square"
+    },
+    {
+      "id": "10035",
+      "name": "Mordekaiser",
+      "riotId": "Mordekaiser",
+      "riotKey": 82,
+      "lanes": [
+        "Top",
+        "Jungle"
+      ],
+      "classes": [
+        "Combattant",
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/82/square"
+    },
+    {
+      "id": "10028",
+      "name": "Morgana",
+      "riotId": "Morgana",
+      "riotKey": 25,
+      "lanes": [
+        "Jungle",
+        "Mid",
+        "Support"
+      ],
+      "classes": [
+        "Mage",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/25/square"
+    },
+    {
+      "id": "10091",
+      "name": "Nami",
+      "riotId": "Nami",
+      "riotKey": 267,
+      "lanes": [
+        "Support"
+      ],
+      "classes": [
+        "Mage",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/267/square"
+    },
+    {
+      "id": "10065",
+      "name": "Nasus",
+      "riotId": "Nasus",
+      "riotKey": 75,
+      "lanes": [
+        "Top"
+      ],
+      "classes": [
+        "Tank",
+        "Combattant"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/75/square"
+    },
+    {
+      "id": "10132",
+      "name": "Nautilus",
+      "riotId": "Nautilus",
+      "riotKey": 111,
+      "lanes": [
+        "Top",
+        "Jungle",
+        "Support"
+      ],
+      "classes": [
+        "Tank",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/111/square"
+    },
+    {
+      "id": "10027",
+      "name": "Nilah",
+      "riotId": "Nilah",
+      "riotKey": 895,
+      "lanes": [
+        "ADC"
+      ],
+      "classes": [
+        "Combattant",
+        "Assassin"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/895/square"
+    },
+    {
+      "id": "10008",
+      "name": "Nunu et Willump",
+      "riotId": "Nunu",
+      "riotKey": 20,
+      "lanes": [
+        "Jungle"
+      ],
+      "classes": [
+        "Tank",
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/20/square"
+    },
+    {
+      "id": "10106",
+      "name": "Olaf",
+      "riotId": "Olaf",
+      "riotKey": 2,
+      "lanes": [
+        "Top",
+        "Jungle"
+      ],
+      "classes": [
+        "Tank",
+        "Combattant"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/2/square"
+    },
+    {
+      "id": "10012",
+      "name": "Orianna",
+      "riotId": "Orianna",
+      "riotKey": 61,
+      "lanes": [
+        "Mid"
+      ],
+      "classes": [
+        "Mage",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/61/square"
+    },
+    {
+      "id": "10136",
+      "name": "Ornn",
+      "riotId": "Ornn",
+      "riotKey": 516,
+      "lanes": [
+        "Top"
+      ],
+      "classes": [
+        "Tank"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/516/square"
+    },
+    {
+      "id": "10030",
+      "name": "Pantheon",
+      "riotId": "Pantheon",
+      "riotKey": 80,
+      "lanes": [
+        "Top",
+        "Jungle",
+        "Mid"
+      ],
+      "classes": [
+        "Combattant",
+        "Assassin"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/80/square"
+    },
+    {
+      "id": "10076",
+      "name": "Poppy",
+      "riotId": "Poppy",
+      "riotKey": 78,
+      "lanes": [
+        "Top",
+        "Jungle"
+      ],
+      "classes": [
+        "Tank",
+        "Combattant"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/78/square"
+    },
+    {
+      "id": "10124",
+      "name": "Pyke",
+      "riotId": "Pyke",
+      "riotKey": 555,
+      "lanes": [
+        "Support"
+      ],
+      "classes": [
+        "Assassin",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/555/square"
+    },
+    {
+      "id": "10052",
+      "name": "Rakan",
+      "riotId": "Rakan",
+      "riotKey": 497,
+      "lanes": [
+        "Support"
+      ],
+      "classes": [
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/497/square"
+    },
+    {
+      "id": "10064",
+      "name": "Rammus",
+      "riotId": "Rammus",
+      "riotKey": 33,
+      "lanes": [
+        "Jungle"
+      ],
+      "classes": [
+        "Tank"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/33/square"
+    },
+    {
+      "id": "10121",
+      "name": "Renekton",
+      "riotId": "Renekton",
+      "riotKey": 58,
+      "lanes": [
+        "Top"
+      ],
+      "classes": [
+        "Tank",
+        "Combattant"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/58/square"
+    },
+    {
+      "id": "10006",
+      "name": "Rengar",
+      "riotId": "Rengar",
+      "riotKey": 107,
+      "lanes": [
+        "Jungle"
+      ],
+      "classes": [
+        "Combattant",
+        "Assassin"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/107/square"
+    },
+    {
+      "id": "10092",
+      "name": "Riven",
+      "riotId": "Riven",
+      "riotKey": 92,
+      "lanes": [
+        "Top",
+        "Jungle"
+      ],
+      "classes": [
+        "Combattant",
+        "Assassin"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/92/square"
+    },
+    {
+      "id": "10140",
+      "name": "Rumble",
+      "riotId": "Rumble",
+      "riotKey": 68,
+      "lanes": [
+        "Top"
+      ],
+      "classes": [
+        "Combattant",
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/68/square"
+    },
+    {
+      "id": "10137",
+      "name": "Ryze",
+      "riotId": "Ryze",
+      "riotKey": 13,
+      "lanes": [
+        "Mid"
+      ],
+      "classes": [
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/13/square"
+    },
+    {
+      "id": "10104",
+      "name": "Samira",
+      "riotId": "Samira",
+      "riotKey": 360,
+      "lanes": [
+        "ADC"
+      ],
+      "classes": [
+        "Assassin",
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/360/square"
+    },
+    {
+      "id": "10123",
+      "name": "Senna",
+      "riotId": "Senna",
+      "riotKey": 235,
+      "lanes": [
+        "ADC",
+        "Support"
+      ],
+      "classes": [
+        "Tireur",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/235/square"
+    },
+    {
+      "id": "10034",
+      "name": "Seraphine",
+      "riotId": "Seraphine",
+      "riotKey": 147,
+      "lanes": [
+        "Mid",
+        "Support"
+      ],
+      "classes": [
+        "Mage",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/147/square"
+    },
+    {
+      "id": "10068",
+      "name": "Sett",
+      "riotId": "Sett",
+      "riotKey": 875,
+      "lanes": [
+        "Top"
+      ],
+      "classes": [
+        "Tank",
+        "Combattant"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/875/square"
+    },
+    {
+      "id": "10118",
+      "name": "Shen",
+      "riotId": "Shen",
+      "riotKey": 98,
+      "lanes": [
+        "Top",
+        "Jungle"
+      ],
+      "classes": [
+        "Tank"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/98/square"
+    },
+    {
+      "id": "10049",
+      "name": "Shyvana",
+      "riotId": "Shyvana",
+      "riotKey": 102,
+      "lanes": [
+        "Jungle"
+      ],
+      "classes": [
+        "Combattant",
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/102/square"
+    },
+    {
+      "id": "10096",
+      "name": "Singed",
+      "riotId": "Singed",
+      "riotKey": 27,
+      "lanes": [
+        "Top"
+      ],
+      "classes": [
+        "Tank",
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/27/square"
+    },
+    {
+      "id": "10125",
+      "name": "Sion",
+      "riotId": "Sion",
+      "riotKey": 14,
+      "lanes": [
+        "Top",
+        "Jungle"
+      ],
+      "classes": [
+        "Tank",
+        "Combattant"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/14/square"
+    },
+    {
+      "id": "10107",
+      "name": "Sivir",
+      "riotId": "Sivir",
+      "riotKey": 15,
+      "lanes": [
+        "ADC"
+      ],
+      "classes": [
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/15/square"
+    },
+    {
+      "id": "10047",
+      "name": "Sona",
+      "riotId": "Sona",
+      "riotKey": 37,
+      "lanes": [
+        "Support"
+      ],
+      "classes": [
+        "Mage",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/37/square"
+    },
+    {
+      "id": "10097",
+      "name": "Soraka",
+      "riotId": "Soraka",
+      "riotKey": 16,
+      "lanes": [
+        "Support"
+      ],
+      "classes": [
+        "Mage",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/16/square"
+    },
+    {
+      "id": "10126",
+      "name": "Swain",
+      "riotId": "Swain",
+      "riotKey": 50,
+      "lanes": [
+        "Mid",
+        "Support"
+      ],
+      "classes": [
+        "Mage",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/50/square"
+    },
+    {
+      "id": "10024",
+      "name": "Syndra",
+      "riotId": "Syndra",
+      "riotKey": 134,
+      "lanes": [
+        "Mid"
+      ],
+      "classes": [
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/134/square"
+    },
+    {
+      "id": "10128",
+      "name": "Talon",
+      "riotId": "Talon",
+      "riotKey": 91,
+      "lanes": [
+        "Jungle",
+        "Mid"
+      ],
+      "classes": [
+        "Assassin"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/91/square"
+    },
+    {
+      "id": "10046",
+      "name": "Teemo",
+      "riotId": "Teemo",
+      "riotKey": 17,
+      "lanes": [
+        "Top",
+        "Mid"
+      ],
+      "classes": [
+        "Mage",
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/17/square"
+    },
+    {
+      "id": "10130",
+      "name": "Thresh",
+      "riotId": "Thresh",
+      "riotKey": 412,
+      "lanes": [
+        "Support"
+      ],
+      "classes": [
+        "Tank",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/412/square"
+    },
+    {
+      "id": "10045",
+      "name": "Tristana",
+      "riotId": "Tristana",
+      "riotKey": 18,
+      "lanes": [
+        "ADC"
+      ],
+      "classes": [
+        "Assassin",
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/18/square"
+    },
+    {
+      "id": "10015",
+      "name": "Tryndamere",
+      "riotId": "Tryndamere",
+      "riotKey": 23,
+      "lanes": [
+        "Top",
+        "Jungle"
+      ],
+      "classes": [
+        "Combattant",
+        "Assassin"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/23/square"
+    },
+    {
+      "id": "10025",
+      "name": "Twisted Fate",
+      "riotId": "TwistedFate",
+      "riotKey": 4,
+      "lanes": [
+        "Mid"
+      ],
+      "classes": [
+        "Mage",
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/4/square"
+    },
+    {
+      "id": "10053",
+      "name": "Twitch",
+      "riotId": "Twitch",
+      "riotKey": 29,
+      "lanes": [
+        "Jungle",
+        "ADC"
+      ],
+      "classes": [
+        "Assassin",
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/29/square"
+    },
+    {
+      "id": "10102",
+      "name": "Urgot",
+      "riotId": "Urgot",
+      "riotKey": 6,
+      "lanes": [
+        "Top"
+      ],
+      "classes": [
+        "Tank",
+        "Combattant"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/6/square"
+    },
+    {
+      "id": "10093",
+      "name": "Varus",
+      "riotId": "Varus",
+      "riotKey": 110,
+      "lanes": [
+        "ADC"
+      ],
+      "classes": [
+        "Mage",
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/110/square"
+    },
+    {
+      "id": "10010",
+      "name": "Vayne",
+      "riotId": "Vayne",
+      "riotKey": 67,
+      "lanes": [
+        "ADC"
+      ],
+      "classes": [
+        "Assassin",
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/67/square"
+    },
+    {
+      "id": "10122",
+      "name": "Veigar",
+      "riotId": "Veigar",
+      "riotKey": 45,
+      "lanes": [
+        "Mid",
+        "Support"
+      ],
+      "classes": [
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/45/square"
+    },
+    {
+      "id": "10141",
+      "name": "Vex",
+      "riotId": "Vex",
+      "riotKey": 711,
+      "lanes": [
+        "Mid"
+      ],
+      "classes": [
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/711/square"
+    },
+    {
+      "id": "10050",
+      "name": "Vi",
+      "riotId": "Vi",
+      "riotKey": 254,
+      "lanes": [
+        "Jungle"
+      ],
+      "classes": [
+        "Combattant",
+        "Assassin"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/254/square"
+    },
+    {
+      "id": "10057",
+      "name": "Viego",
+      "riotId": "Viego",
+      "riotKey": 234,
+      "lanes": [
+        "Top",
+        "Jungle"
+      ],
+      "classes": [
+        "Combattant",
+        "Assassin"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/234/square"
+    },
+    {
+      "id": "10144",
+      "name": "Viktor",
+      "riotId": "Viktor",
+      "riotKey": 112,
+      "lanes": [
+        "Mid"
+      ],
+      "classes": [
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/112/square"
+    },
+    {
+      "id": "10090",
+      "name": "Vladimir",
+      "riotId": "Vladimir",
+      "riotKey": 8,
+      "lanes": [
+        "Top",
+        "Mid"
+      ],
+      "classes": [
+        "Combattant",
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/8/square"
+    },
+    {
+      "id": "10058",
+      "name": "Volibear",
+      "riotId": "Volibear",
+      "riotKey": 106,
+      "lanes": [
+        "Top",
+        "Jungle"
+      ],
+      "classes": [
+        "Tank",
+        "Combattant"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/106/square"
+    },
+    {
+      "id": "10131",
+      "name": "Warwick",
+      "riotId": "Warwick",
+      "riotKey": 19,
+      "lanes": [
+        "Top",
+        "Jungle"
+      ],
+      "classes": [
+        "Tank",
+        "Combattant"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/19/square"
+    },
+    {
+      "id": "10009",
+      "name": "Wukong",
+      "riotId": "MonkeyKing",
+      "riotKey": 62,
+      "lanes": [
+        "Top",
+        "Jungle"
+      ],
+      "classes": [
+        "Tank",
+        "Combattant"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/62/square"
+    },
+    {
+      "id": "10051",
+      "name": "Xayah",
+      "riotId": "Xayah",
+      "riotKey": 498,
+      "lanes": [
+        "ADC"
+      ],
+      "classes": [
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/498/square"
+    },
+    {
+      "id": "10016",
+      "name": "Xin Zhao",
+      "riotId": "XinZhao",
+      "riotKey": 5,
+      "lanes": [
+        "Jungle"
+      ],
+      "classes": [
+        "Tank",
+        "Combattant"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/5/square"
+    },
+    {
+      "id": "10037",
+      "name": "Yasuo",
+      "riotId": "Yasuo",
+      "riotKey": 157,
+      "lanes": [
+        "Top",
+        "Mid"
+      ],
+      "classes": [
+        "Combattant",
+        "Assassin"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/157/square"
+    },
+    {
+      "id": "10069",
+      "name": "Yone",
+      "riotId": "Yone",
+      "riotKey": 777,
+      "lanes": [
+        "Top",
+        "Mid"
+      ],
+      "classes": [
+        "Combattant",
+        "Assassin"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/777/square"
+    },
+    {
+      "id": "10020",
+      "name": "Yuumi",
+      "riotId": "Yuumi",
+      "riotKey": 350,
+      "lanes": [
+        "Support"
+      ],
+      "classes": [
+        "Mage",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/350/square"
+    },
+    {
+      "id": "10039",
+      "name": "Zed",
+      "riotId": "Zed",
+      "riotKey": 238,
+      "lanes": [
+        "Top",
+        "Jungle",
+        "Mid"
+      ],
+      "classes": [
+        "Assassin"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/238/square"
+    },
+    {
+      "id": "10067",
+      "name": "Zeri",
+      "riotId": "Zeri",
+      "riotKey": 221,
+      "lanes": [
+        "ADC"
+      ],
+      "classes": [
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/221/square"
+    },
+    {
+      "id": "10087",
+      "name": "Ziggs",
+      "riotId": "Ziggs",
+      "riotKey": 115,
+      "lanes": [
+        "Mid"
+      ],
+      "classes": [
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/115/square"
+    },
+    {
+      "id": "10014",
+      "name": "Zoe",
+      "riotId": "Zoe",
+      "riotKey": 142,
+      "lanes": [
+        "Mid"
+      ],
+      "classes": [
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/142/square"
+    },
+    {
+      "id": "10063",
+      "name": "Zyra",
+      "riotId": "Zyra",
+      "riotKey": 143,
+      "lanes": [
+        "Mid",
+        "Support"
+      ],
+      "classes": [
+        "Mage",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/143/square"
+    }
+  ]
+}
