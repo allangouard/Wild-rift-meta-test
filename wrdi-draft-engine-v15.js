@@ -35,7 +35,8 @@ function chooseRune({bridge,catalog,advisor,needs={},laneOpponent,items=[],role}
  return {ok:true,id:picked.id,label:picked.label,page:picked.page,reason:explanation,
   alternatives:candidates.slice(1,3),mode:fullAp?'ap_poke':'hybrid_control',
   apItems:apItems.length,apBase,
-  selection:'three_client_validated_galio_pages_cn_guide_for_engage_and_electrocute_no_claim_for_comet_frequency'};
+  selection:'galio_mid_build_role_coherence_client_runes_not_empirical_winrate',
+  metaReference:'cn_galio_engage_electrocute_observed_comet_tactical_only'};
 }
 function analyze({picks,champions,championMeta,officialKits,reviewedKits,numericKits,numericPatch,numericClient,catalog,rules,runes,bootsCatalog,modules}={}){
  const fail=(stage,reason)=>({ok:false,stage,reason});
