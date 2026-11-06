@@ -337,7 +337,14 @@ function calculate(items,threats,combatModel=null){
   reasons.push('Effet documenté sur les PV max des cibles durables');}
  if(t.durableTargets>=2&&n('ramp')){score+=2;reasons.push('Passif de combat prolongé');}
  if(t.tank>=2&&n('shred')){score+=2;reasons.push('Réduction progressive de résistance magique');}
- if(t.shield>=1.5&&n('shieldCut')){score+=3+Math.min(2,t.shield);reasons.push('Réduction de boucliers importants dans la composition');}
+ if(t.shield>=1.5&&n('shieldCut')){
+  // One shielding support does not guarantee enough value to replace AP.
+  const sources=Number(threats.alliedShieldSources)||0;
+  const value=sources>=2?3+Math.min(2,t.shield):sources===1?0.8:0;
+  score+=value;
+  if(value>0)reasons.push(sources>=2?'Réduction de plusieurs boucliers sur alliés':
+   'Une source de bouclier allié : achat à confirmer selon les combats');
+ }
  if(t.shield<1.5&&n('shieldCut'))score-=8;
  if(t.earlyStasisPriority>=2&&n('stasis')){
   score+=5;reasons.push('Stase active contre un engagement explosif');
