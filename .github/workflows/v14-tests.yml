@@ -264,3 +264,8 @@ jobs:
           node --check wrdi-champion-picker-v151.js
           node --check wrdi-app-v15.js
           node --test wrdi-champion-picker-v151.test.js
+      - name: Tester l'affichage graphique des objets et runes V15.2
+        run: |
+          node --check wrdi-rune-images-v152.js
+          node --check wrdi-app-v15.js
+          node --test wrdi-results-ui-v152.test.js
