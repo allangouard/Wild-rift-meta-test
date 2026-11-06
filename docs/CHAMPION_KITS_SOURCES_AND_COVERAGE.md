@@ -16,8 +16,10 @@ Date de départ : 6 novembre 2026. La version du client de référence pour les 
 1. `data/champions-picker-v151.json` — 125 identités et voies historiques provenant d'un index de 2025. Ce n'est pas une garantie de catalogue Wild Rift complet en 2026.
 2. `data/champion-kits-official-fr-v1.json` — premier lot de 20 fiches Riot vérifiées manuellement : noms des 5 compétences et mécanique du passif reformulée. **Descriptions complètes Q/W/E/R et chiffres manquants**.
 3. `data/champion-kit-coverage-v1.json` — bilan par champion, avec 105 fiches à rechercher.
-4. `scripts/collect-official-wr-kits.mjs` et `scripts/wr-official-page-parser.mjs` — import contrôlé des données publiques **Wild Rift seulement**; les extraits sont limités et aucune donnée ne devient automatiquement un facteur de scoring.
-5. `data/champion-ability-extract-official-v1.json` — sortie brute vérifiable de l'extraction automatisée, si la page Riot répond. Chaque fiche reste `allowedForScoring: false` tant que les mécanismes n'ont pas été validés.
+4. **Collecte automatique exécutée avec succès : 125/125 champions, 625 compétences extraites, aucune erreur** (noms et extraits français de chacune des 5 compétences). Ces extraits sont plafonnés à 24 mots par compétence et ne constituent pas des fiches numériques entièrement validées.
+5. `data/champion-kit-coverage-v2.json` : couverture automatique vérifiée sur 125 champions, mais **0 ratio/délai confirmé et 0 fiche intégralement validée**.
+6. `scripts/collect-official-wr-kits.mjs` et `scripts/wr-official-page-parser.mjs` — import contrôlé des données publiques **Wild Rift seulement**; les extraits sont limités et aucune donnée ne devient automatiquement un facteur de scoring.
+7. `data/champion-ability-extract-official-v1.json` — sortie brute vérifiable de l'extraction automatisée, si la page Riot répond. Chaque fiche reste `allowedForScoring: false` tant que les mécanismes n'ont pas été validés.
 
 ## Ce qui manque pour une fiche de combat réellement complète
 
@@ -27,8 +29,8 @@ Chaque détail doit porter `source_url`, `date_lecture`, `patch_confirme`, `vali
 
 ## Ordre de progression
 
-1. Compléter les cinq descriptions sur les 20 champions déjà vérifiés.
-2. Ajouter les 105 autres identités du catalogue local par extraction officielle contrôlée.
+1. Compléter et vérifier les descriptions détaillées des 625 compétences ; les données courtes déjà collectées ne suffisent pas à confirmer tous les déclencheurs, ratios, types de dégâts et temps de récupération.
+2. **Accompli :** importer les 105 autres identités, plus les 20 du lot initial, depuis Riot. Restent la validation des mécanismes, les valeurs et le traitement des patchs.
 3. Corriger l'écart entre l'ancien catalogue local de 125 champions et la liste actuelle du site Riot (ne pas supposer que le chiffre du site restera stable).
 4. Vérifier les ratios / délais les plus utiles à Galio mid et aux menaces de chaque draft.
 5. Alimenter le moteur avec les **seuls** mécanismes qualifiés, au lieu de libérer des champs bruts sans vérification; ajouter des tests de non-régression par matchup.
