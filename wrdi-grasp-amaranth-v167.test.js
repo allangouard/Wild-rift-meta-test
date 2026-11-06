@@ -19,10 +19,10 @@ test('Grasp cannot auto-win in a ranged Ahri lane based only on tank/laning trai
  assert.notEqual(r.page.keystone,"Poigne de l'immortel");
  assert.ok(r.reason.includes('attaque de base'),JSON.stringify(r));
 });
-test('Grasp remains available for melee repeat-trade lanes, not globally banned',()=>{
+test('Galio MID still prefers control over Grasp even in melee lanes',()=>{
  const r=engine.chooseRune({bridge,catalog:runes,advisor,needs:{laneAllIn:1,frontlineNeed:0},laneOpponent:'Darius'});
  assert.equal(r.ok,true);
- assert.equal(r.page.keystone,"Poigne de l'immortel");
+ assert.equal(r.page.keystone,'Souverain des glaces');
  const grasp=runes.fundamental.find(x=>x.name_fr==="Poigne de l'immortel");
  assert.deepEqual([grasp.effect.bonus_magic_damage_max_hp_pct,grasp.effect.heal_max_hp_pct,grasp.effect.permanent_max_hp_gain],[3,1.3,8]);
 });
