@@ -17,6 +17,7 @@ on:
       - v170-contingencies-draft-core-integrity
       - v171-flexible-galio-hybrid-core
       - v172-galio-ap-carry-burst-coherence
+      - v173-galio-full-burst-priority
   workflow_dispatch:
 
 permissions:
@@ -36,6 +37,11 @@ jobs:
         run: node --test wrdi-client-verifications-v163.test.js
       - name: Verifier le E de Shyvana avec les captures du client
         run: node --test wrdi-shyvana-client-v164.test.js
+      - name: Verifier le core burst Luden Rabadon Orbe face au sustain
+        run: |
+          node --check wrdi-galio-five-item-optimizer-v1429.js
+          node --check wrdi-galio-purchase-order-v1432.js
+          node --test wrdi-galio-full-burst-v173.test.js
       - name: Verifier la puissance AP et le burst quand les allies assurent la frontline
         run: |
           node --check wrdi-galio-five-item-optimizer-v1429.js
