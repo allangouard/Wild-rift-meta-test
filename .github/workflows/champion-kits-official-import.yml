@@ -1,0 +1,55 @@
+name: Collecter les compétences officielles Wild Rift
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - v14-development
+    paths:
+      - scripts/collect-official-wr-kits.mjs
+      - scripts/wr-official-page-parser.mjs
+      - .github/workflows/champion-kits-official-import.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wrdi-official-kit-import
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Recuperer le depot
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Installer Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Verifier le parseur
+        run: node --test scripts/wr-official-page-parser.test.mjs
+
+      - name: Importer les 125 fiches accessibles depuis Riot
+        env:
+          WRDI_IMPORT_LIMIT: ALL
+        run: node scripts/collect-official-wr-kits.mjs
+
+      - name: Verifier une collecte exploitable
+        run: |
+          node -e "const d=require('./data/champion-ability-extract-official-v1.json');console.log(d.coverage);if(d.coverage.extracted<15)process.exit(1)"
+
+      - name: Archiver les donnees d'origine sans affecter le moteur
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/champion-ability-extract-official-v1.json
+          if ! git diff --cached --quiet; then
+            git commit -m "data: archive Wild Rift official ability excerpts with completeness flags"
+            git push origin HEAD:v14-development
+          fi
