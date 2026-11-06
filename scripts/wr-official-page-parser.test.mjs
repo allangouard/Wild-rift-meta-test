@@ -11,6 +11,7 @@ test('Riot Wild Rift Next.js page produces five well-ordered official ability na
  assert.equal(kit.q.name,'Compétence 1');
  assert.equal(kit.r.name,'Ultime');
  assert.equal(kit.r.descriptionPresent,true);
+ assert.equal(kit.r.description_fr,'Dégâts et contrôle 4');
 });
 test('no fallback to PC Data Dragon or made-up skills when source page is incomplete',()=>{
  assert.throws(()=>extractNextData('<html>No official data</html>'),/not found/);
