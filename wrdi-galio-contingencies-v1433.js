@@ -5,7 +5,7 @@
  */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.WRDI_GalioContingenciesV1433=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
-const VERSION='17.0.0';
+const VERSION='17.1.0';
 const copy=x=>({...x});
 const CONDITIONS=Object.freeze([
  {id:'critical',label:'Si les adversaires investissent dans les coups critiques',flag:'crit',raised:3,
@@ -60,10 +60,8 @@ function plan({prepared,optimizer,items,threats={},max=3,
  const purchaseIds=validOrder?orderedItems.map(x=>typeof x==='string'?x:x?.id):
   base.map(x=>x.id);
  const protectedIds=new Set(protectCore?purchaseIds.slice(0,3):[]);
- // Riftmaker is the third pillar of hybrid Galio, even if heuristic
- // purchase sorting placed it in slot four. Reactive defense must not
- // silently replace a primary source of damage/sustain.
- if(protectCore&&baseIds.has('riftmaker'))protectedIds.add('riftmaker');
+ // Three purchases are protected per draft, regardless of their identities.
+ // Riftmaker / Thornmail are selectable by the optimizer, not universally locked.
  const baseline=base.map(x=>({...x,feature:optimizer.features(x)}));
  const original=optimizer.calculate(baseline,threats);
  const options=[];
