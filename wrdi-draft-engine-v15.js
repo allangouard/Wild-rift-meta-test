@@ -92,7 +92,10 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
  const inputAudit=calculator?.audit?.({officialKits,items:catalog,runes});
  const galioSheet=official?.find('10099')||official?.find('Galio');
  const antiheal=calculator?.antihealComparison?.({items:catalog,galio:galioSheet,threats:need});
- const main=optimizer.optimize({prepared,threats:need,combatModel});
+ const strategic=m.rolePlanner?.plan?.({threats:need,items:optimizer.eligible(prepared)})||null;
+ if(m.rolePlanner&&!strategic?.ok)return fail('role_planning',strategic?.reason||'Analyse stratégique indisponible');
+ const main=optimizer.optimize({prepared,threats:need,combatModel,
+  candidateIds:strategic?.candidateIds||null});
  if(!main.ok)return fail('five_items',main.reason);
  const sequence=order.order({prepared,items:main.main.items,threats:need});
  if(!sequence.ok)return fail('purchase_order',sequence.reason);
@@ -111,6 +114,7 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
  if(!conditional.ok)return fail('contingencies',conditional.reason);
  const rune=chooseRune({bridge:m.runeBridge,catalog:runes,advisor:m.runeAdvisor,needs:need,laneOpponent:names[7],items:main.main.items.map(x=>prepared.catalog.items.find(z=>z.id===x.id))});
  const notes=[...context.reasons];
+ if(strategic?.ok)notes.unshift('V18 : '+strategic.rationale+' ; '+strategic.shortlisted+'/'+strategic.evaluated+' objets candidats évalués en détail. Core de référence : '+strategic.coreReference.join(' / ')+'.');
  if(main.main.offenseRole?.active){
   const ap=main.main.offenseRole;
   notes.push('Rôle identifié : Galio carry AP, car '+need.frontlineProvided+
@@ -201,6 +205,7 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
   draft:{ids:[...picks],names,threats:need,notes,confidence:context.confidence,
    officialKitCoverage:official?names.filter(n=>evidence[n]?.ok).length:0},
   build:{items:sequence.items,alternatives:conditional.options,legal:true,
+   strategy:strategic?.ok?strategic:null,
    orderCertified:false,combinationsExamined:main.evaluatedPool,
    sourced:'player_client_items_only',noPopularBuilds:true},
   runes:rune,
