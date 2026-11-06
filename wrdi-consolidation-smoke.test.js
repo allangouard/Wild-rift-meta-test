@@ -5,7 +5,7 @@ const current=fs.readFileSync('index.html','utf8');
 const snapshot=fs.readFileSync('index-v158.html','utf8');
 const scripts=html=>[...html.matchAll(/<script[^>]+src=["']([^"'?]+)/g)].map(x=>x[1]);
 test('production homepage is the standalone Galio draft V15 application',()=>{
- assert.ok(current.includes('Wild Rift Draft Intelligence — V15.8'));
+ assert.ok(current.includes('Wild Rift Draft Intelligence — V18'));
  const expected=scripts(snapshot);
  expected.splice(expected.indexOf('./wrdi-galio-purchase-order-v1432.js'),0,'./wrdi-item-interactions-v165.js');
  expected.splice(expected.indexOf('./wrdi-galio-purchase-order-v1432.js'),0,'./wrdi-productive-survival-v166.js');
