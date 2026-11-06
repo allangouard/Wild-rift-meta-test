@@ -88,6 +88,7 @@ test('Shield-cut stays available as a late swap if one shield becomes decisive i
   enemyNames:['Camille','Amumu','Annie','Jinx','Janna'],
   threats:threat,max:3,protectCore:true});
  assert.equal(result.ok,true);
+ console.log('V187_SHIELD_CONDITIONS',JSON.stringify(result.options.map(x=>({id:x.conditionId,gain:x.gain,add:x.add.id,remove:x.remove.id}))));
  const shield=result.options.find(x=>x.conditionId==='shield');
  assert.ok(shield,'A known shield should remain a situational swap even when not purchased pregame');
  assert.equal(shield.add.id,'oceanids_trident');
