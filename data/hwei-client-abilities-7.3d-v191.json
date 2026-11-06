@@ -1,0 +1,263 @@
+{
+  "schema": "wrdi.wild_rift_player_client_ability_detail.v1",
+  "champion": "Hwei",
+  "championInternalId": "10910",
+  "game": "Wild Rift mobile, not League of Legends PC",
+  "clientPatchClaim": "7.3d",
+  "sourceType": "user_provided_client_screenshots",
+  "collectedOn": "2026-11-07",
+  "approvedForNumericalCombatSimulation": false,
+  "notes": [
+    "Q, W et E sont trois catégories contenant chacune trois sorts alternatifs, pas neuf compétences à lancer séparément.",
+    "Le bouclier donné aux alliés vient d'Étang (WW), pas d'un bouclier personnel exclusivement.",
+    "Les valeurs visibles sont saisies séparément des formules wiki pour éviter de mélanger PC et Wild Rift.",
+    "Les actions ont un déclenchement conditionnel et ne sont pas présumées disponibles simultanément."
+  ],
+  "slots": {
+    "passive": {
+      "name_fr": "Signature du visionnaire",
+      "markSeconds": 4,
+      "requiresTwoDamagingAbilityHits": true,
+      "damageBaseByLevelRange": [
+        30,
+        280
+      ],
+      "apRatio": 0.25,
+      "aoe": true,
+      "procDelayed": true,
+      "procOncePerAbilityPerTarget": true
+    },
+    "q": {
+      "name_fr": "Sujet : Désastres",
+      "cooldownSeconds": [
+        9.5,
+        8.5,
+        7.5,
+        6.5
+      ],
+      "choices": {
+        "qq": {
+          "name_fr": "Feu dévastateur",
+          "damageBase": [
+            50,
+            85,
+            120,
+            155
+          ],
+          "apRatio": 0.7,
+          "targetMaxHpDamagePercent": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "aoe": true,
+          "projectile": true
+        },
+        "qw": {
+          "name_fr": "Éclair enflammé",
+          "damageBase": [
+            80,
+            110,
+            140,
+            170
+          ],
+          "apRatio": 0.3,
+          "conditionalMaxBase": [
+            160,
+            275,
+            420,
+            595
+          ],
+          "conditionalMaxApRatio": 0.6,
+          "amplificationRequires": "Cible immobilisée ou seule dans la zone, avec progression selon PV manquants",
+          "longRange": true
+        },
+        "qe": {
+          "name_fr": "Champ de lave",
+          "impactDamageBase": [
+            20,
+            35,
+            50,
+            65
+          ],
+          "impactApRatio": 0.3,
+          "damageOverTimeBase": [
+            20,
+            40,
+            60,
+            80
+          ],
+          "damageOverTimeApRatio": 0.3,
+          "lavaDurationSeconds": 2.5,
+          "slowPercent": 30
+        }
+      }
+    },
+    "w": {
+      "name_fr": "Sujet : Sérénités",
+      "cooldownSeconds": [
+        17,
+        16.5,
+        16,
+        15.5
+      ],
+      "choices": {
+        "wq": {
+          "name_fr": "Ruisseau",
+          "durationSeconds": [
+            4,
+            4.5,
+            5,
+            5.5
+          ],
+          "movementSpeedPercentBase": [
+            30,
+            32,
+            35,
+            37
+          ],
+          "apBonusPercentShown": 3,
+          "affectsAllies": true
+        },
+        "ww": {
+          "name_fr": "Étang",
+          "zoneDurationSeconds": 3,
+          "baseShield": [
+            50,
+            70,
+            90,
+            110
+          ],
+          "baseShieldApRatio": 0.3,
+          "maxShield": [
+            98,
+            118,
+            138,
+            158
+          ],
+          "maxShieldApRatio": 0.6,
+          "shieldReductionForAlliesPercent": 15,
+          "affectsAllies": true,
+          "conditionalGrowthSeconds": 1.5
+        },
+        "we": {
+          "name_fr": "Nuit étoilée",
+          "orbs": 3,
+          "bonusMagicDamageBase": [
+            20,
+            30,
+            40,
+            50
+          ],
+          "bonusMagicDamageApRatio": 0.15,
+          "manaRestoredPerHit": [
+            45,
+            50,
+            55,
+            60
+          ]
+        }
+      }
+    },
+    "e": {
+      "name_fr": "Sujet : Tourments",
+      "cooldownSeconds": [
+        13,
+        12,
+        11,
+        10
+      ],
+      "choices": {
+        "eq": {
+          "name_fr": "Visage effroyable",
+          "fearDurationSeconds": [
+            1,
+            1.125,
+            1.25,
+            1.375
+          ],
+          "damageBase": [
+            70,
+            120,
+            170,
+            220
+          ],
+          "apRatio": 0.6
+        },
+        "ew": {
+          "name_fr": "Œil des abysses",
+          "rootDurationSeconds": [
+            1.25,
+            1.5,
+            1.75,
+            2
+          ],
+          "damageBase": [
+            70,
+            120,
+            170,
+            220
+          ],
+          "apRatio": 0.6,
+          "revealSeconds": 2.5,
+          "requiresTargetToEnterRange": true
+        },
+        "ee": {
+          "name_fr": "Mâchoires chatoyantes",
+          "damageBase": [
+            70,
+            120,
+            170,
+            220
+          ],
+          "apRatio": 0.6,
+          "slowPercent": [
+            40,
+            50,
+            60,
+            70
+          ],
+          "slowDurationSeconds": 1.25,
+          "pullTowardsCenter": true
+        }
+      }
+    },
+    "r": {
+      "name_fr": "Vision de désespoir",
+      "cooldownSeconds": [
+        70,
+        60,
+        50
+      ],
+      "attachSeconds": 3,
+      "slowPercentPerStack": 10,
+      "slowStackIntervalSeconds": 0.25,
+      "damagePerSecondBase": [
+        10,
+        20,
+        30
+      ],
+      "damagePerSecondApRatio": 0.05,
+      "explosionBase": [
+        200,
+        300,
+        400
+      ],
+      "explosionApRatio": 0.7,
+      "aoeExplosion": true
+    }
+  },
+  "screenshotFilesProvided": [
+    "1000011860.jpg",
+    "1000011858.jpg",
+    "1000011856.jpg",
+    "1000011854.jpg",
+    "1000011852.jpg",
+    "1000011850.jpg",
+    "1000011848.jpg",
+    "1000011846.jpg",
+    "1000011844.jpg",
+    "1000011842.jpg"
+  ]
+}
