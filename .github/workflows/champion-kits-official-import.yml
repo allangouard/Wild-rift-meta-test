@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - v14-development
+      - v160-full-official-ability-text
     paths:
       - scripts/collect-official-wr-kits.mjs
       - scripts/wr-official-page-parser.mjs
@@ -43,14 +44,15 @@ jobs:
 
       - name: Verifier une collecte exploitable
         run: |
-          node -e "const d=require('./data/champion-ability-extract-official-v1.json');console.log(d.coverage);if(d.coverage.extracted<15)process.exit(1)"
+          node -e "const d=require('./data/champion-ability-extract-official-v1.json');const skills=d.entries.flatMap(c=>Object.values(c.skills));console.log({coverage:d.coverage,full:skills.filter(s=>s.description_fr).length});if(d.coverage.extracted!==125||skills.length!==625||skills.some(s=>!s.description_fr))process.exit(1)"
+          node --test scripts/wr-official-page-parser.test.mjs wrdi-champion-official-extract-v1.test.js
 
-      - name: Archiver les donnees d'origine sans affecter le moteur
+      - name: Archiver les textes intégraux sourcés sur la branche courante
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/champion-ability-extract-official-v1.json
           if ! git diff --cached --quiet; then
-            git commit -m "data: archive Wild Rift official ability excerpts with completeness flags"
-            git push origin HEAD:v14-development
+            git commit -m "data: import 625 complete Wild Rift official ability descriptions"
+            git push origin HEAD:${GITHUB_REF_NAME}
           fi
