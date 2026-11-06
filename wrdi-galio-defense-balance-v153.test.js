@@ -65,6 +65,10 @@ test('five-item optimization responds to the actual draft with both types of def
  assert.equal(core.validateEquipment(r.main.items.map(x=>x.id),catalog,rules).valid,true);
  assert.ok(r.main.stats.armor>=40,'Galio needs physical defense against three AD enemies');
  assert.ok(r.main.stats.mr>=40,'Galio can still cover magical lane');
+ const ids=new Set(r.main.items.map(i=>i.id));
+ assert.ok(!(ids.has('banshees_veil')&&ids.has('kaenic_rookern')),
+  'Two dedicated MR items should not take slots away from physical coverage when three enemies are AD');
+
  assert.equal(r.noPopularityData,true);
 });
 test('full V15 analysis receives local class catalogue and preserves legal five items',()=>{
