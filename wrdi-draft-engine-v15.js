@@ -12,11 +12,14 @@ function chooseRune({bridge,catalog,advisor,needs={},laneOpponent,items=[],role}
  const apBase=items.reduce((sum,x)=>sum+Number(x?.stats?.ap||0),0);
  const defensiveItems=items.filter(x=>Number(x?.stats?.armor||0)>0||Number(x?.stats?.mr||0)>0);
  const fullAp=role==='ap_burst'||(apItems.length>=3&&apBase>=220&&defensiveItems.length<=2);
- // China-client observed Ice Overlord and Electrocute; Comet is a verified
- // Wild Rift client rune used as a tactical burst/poke option, NOT a claimed
- // top-player frequency. Preserve V16.8 Comet for typical AP poke Galio.
- const burstAllIn=fullAp&&Number(needs.laneAllIn||0)>0&&Number(needs.earlyDive||0)>=2;
- const order=fullAp?(burstAllIn?['burst','poke','engage']:['poke','engage','burst']):
+ // Riot WR 7.3b: Electrocute minimum base damage 40 -> 60 (max 210,
+ // 10% bonus AD and 5% AP unchanged). The client rune catalog already
+ // reflects this. Prioritize Electrocute for Galio AP burst rather than
+ // requiring an enemy all-in; Comet remains a specialist sustained-poke
+ // alternative when a verified strong poke-only plan is requested.
+ const exceptionalPoke=fullAp&&Number(needs.lanePoke||0)>=2&&
+  Number(needs.laneAllIn||0)===0;
+ const order=fullAp?(exceptionalPoke?['poke','burst','engage']:['burst','poke','engage']):
   ['engage','poke','burst'];
  const candidates=[];
  for(const id of order){
@@ -40,11 +43,14 @@ function chooseRune({bridge,catalog,advisor,needs={},laneOpponent,items=[],role}
  }
  if(!candidates.length)return {ok:false,reason:'Aucune page parmi les trois profils Galio autorisée par le client'};
  const picked=candidates[0];
- const explanation=fullAp?picked.reason+' Comète arcanique est privilégiée pour le poke AP lorsque les échanges courts ne garantissent pas Électrocution.':
+ const explanation=fullAp?(picked.id==='burst'?
+  picked.reason+' Priorité Galio AP burst depuis le buff 7.3b : 60–210 dégâts de base, trois touches en trois secondes. Comète reste une alternative si les échanges de poke répétés priment.':
+  picked.reason+' Alternative spécialisée en poke prolongé ; Électrocution demeure la référence AP burst après son buff 7.3b.') :
   picked.reason+' Poigne nécessite une attaque de base préparée ; Électrocution exige trois touches rapprochées, contrairement au contrôle répété de Galio.';
  return {ok:true,id:picked.id,label:picked.label,page:picked.page,reason:explanation,
   alternatives:candidates.slice(1,3),mode:fullAp?'ap_poke':'hybrid_control',
   apItems:apItems.length,apBase,
+  keystonePatchEvidence:fullAp?'riot_wild_rift_7_3b_electrocute_40_to_60_minimum_base_damage':null,
   selection:'galio_mid_build_role_coherence_client_runes_not_empirical_winrate',
   metaReference:'cn_galio_engage_electrocute_observed_comet_tactical_only'};
 }
