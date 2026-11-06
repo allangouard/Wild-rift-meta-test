@@ -186,6 +186,17 @@ function order({prepared,items,threats={}}={}){
     else if(splashAt>=2)score-=6;
     const resistFirst=seq[0].stats?.armor||seq[0].stats?.mr;
     if(resistFirst&&splashAt>0)score-=4;
+    // Tested Chinese high-elo burst path is a useful tactical hypothesis,
+    // not a popularity guarantee: early spell damage, then AP multiplier,
+    // then <40% HP execute. Score the combined *mechanic sequence*.
+    const burstIndex=seq.findIndex(x=>features(x).spellClear);
+    const multiplierIndex=seq.findIndex(x=>(x.passives||[]).some(p=>
+     p.mechanics?.effect==='ap_multiplier'&&n(p.mechanics.value)>1));
+    const executeIndex=seq.findIndex(x=>(x.passives||[]).some(p=>
+     p.mechanics?.condition==='target_hp_pct < 40'));
+    if(c(threats.tank)<2&&burstIndex===0&&multiplierIndex===1&&executeIndex===2)
+     score+=17;
+
    }
    // A set can be excellent at five items but useless at the second purchase.
    // Score the *incremental* bonus of passives already accessible at each stage.
