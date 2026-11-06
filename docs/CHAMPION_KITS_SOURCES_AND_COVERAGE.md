@@ -18,8 +18,14 @@ Date de départ : 6 novembre 2026. La version du client de référence pour les 
 3. `data/champion-kit-coverage-v1.json` — bilan par champion, avec 105 fiches à rechercher.
 4. **Collecte automatique exécutée avec succès : 125/125 champions, 625 compétences extraites, aucune erreur** (noms et extraits français de chacune des 5 compétences). Ces extraits sont plafonnés à 24 mots par compétence et ne constituent pas des fiches numériques entièrement validées.
 5. `data/champion-kit-coverage-v2.json` : couverture automatique vérifiée sur 125 champions, mais **0 ratio/délai confirmé et 0 fiche intégralement validée**.
-6. `scripts/collect-official-wr-kits.mjs` et `scripts/wr-official-page-parser.mjs` — import contrôlé des données publiques **Wild Rift seulement**; les extraits sont limités et aucune donnée ne devient automatiquement un facteur de scoring.
-7. `data/champion-ability-extract-official-v1.json` — sortie brute vérifiable de l'extraction automatisée, si la page Riot répond. Chaque fiche reste `allowedForScoring: false` tant que les mécanismes n'ont pas été validés.
+6. `scripts/collect-official-wr-kits.mjs` et `scripts/wr-official-page-parser.mjs` — import contrôlé des données publiques **Wild Rift seulement**; les extraits conservés sont limités, mais les règles interprètent désormais la totalité de la description Riot avant réduction; seuls les mécanismes textuels reconnus contribuent aux menaces, jamais les chiffres non vérifiés.
+7. `data/champion-ability-extract-official-v1.json` — sortie brute vérifiable de l'extraction automatisée, si la page Riot répond. Chaque fiche brute conserve `allowedForScoring: false` : les valeurs et descriptions non structurées ne deviennent pas des scores. La couche `wrdi-official-kit-intelligence-v158.js` extrait séparément des indices textuels sourcés (soins, dégâts magiques/physiques, CC dur, ralentissement, bouclier, brûlure, etc.) pour l’analyse de draft.
+
+## Exploitation active dans le moteur V15.8
+
+Le chemin officiel est : `data/champion-ability-extract-official-v1.json` → `wrdi-official-kit-intelligence-v158.js` → `wrdi-draft-engine-v15.js` → `wrdi-galio-team-context-v1431.js` → build, achat situationnel et runes. Pour les descriptions de plus de 24 mots, le collecteur teste les mécanismes sur **l'intégralité du texte officiel**, puis ne conserve qu'un extrait court et les indicateurs structurés. Les règles séparent ralentissement, contrôle dur et mots ambigus comme « provoquer une explosion ». Chaque indice affiché est rattaché au sort source. Aucun gameplay League PC, valeur numérique simulée ni build populaire.
+
+Les observations des 20 passifs déjà révisés complètent les textes tronqués, notamment la forme Darkin de Kayn. Les décisions restent qualitatives et dépendantes de la précision des règles linguistiques.
 
 ## Ce qui manque pour une fiche de combat réellement complète
 
@@ -37,7 +43,7 @@ Chaque détail doit porter `source_url`, `date_lecture`, `patch_confirme`, `vali
 
 ## Invariants
 
-- Aucune collecte ne change le build, les runes ou la recommandation avant validation.
+- Seuls les mécanismes explicitement reconnus et sourcés du texte officiel changent désormais les signaux de la draft; les valeurs absentes et déductions numériques restent exclues.
 - Un champion non documenté ne gagne pas de mécanique inventée.
 - Kayn : le soin dépend de sa forme (Darkin), pas une guérison assurée sur toutes les parties.
 - Jhin : quatrième tir critique intrinsèque, sans déduire qu'il achète nécessairement des objets de critique.
