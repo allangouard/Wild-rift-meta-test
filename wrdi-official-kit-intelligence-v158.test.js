@@ -117,3 +117,11 @@ test('French phrasing cannot turn an explosion into a taunt, or a slow into a ha
  assert.ok(!r.evidence.some(x=>x.flag==='cc'&&x.spell==='q'),
   'Un ralentissement n’est pas automatiquement un contrôle dur');
 });
+
+test('full 125 champion import is rejected if one complete description is lost',()=>{
+ const raw=require('./data/champion-ability-extract-official-v1.json');
+ const sample={...raw,entries:raw.entries.map((c,i)=>i?c:{...c,skills:{...c.skills,q:{...c.skills.q,description_fr:''}}})};
+ assert.equal(kit.prepare(sample).ok,false);
+ assert.match(kit.prepare(sample).reason,/Description intégrale/);
+ assert.equal(kit.prepare(raw).ok,true);
+});
