@@ -65,6 +65,18 @@ function plan({prepared,optimizer,items,threats={},max=3,
  const protectedIds=new Set(protectCore?purchaseIds.slice(0,3):[]);
  // Three purchases are protected per draft, regardless of their identities.
  // Riftmaker / Thornmail are selectable by the optimizer, not universally locked.
+ // Relevance in the actual draft takes precedence over invented extreme
+ // future conditions; gain still ranks swaps within each relevance group.
+ const relevance=id=>{
+  if(id==='shield')return Number(threats.shieldPressure)>=1.5?3:0;
+  if(id==='healing')return Number(threats.healPressure??threats.heal)>=2?2:0;
+  if(id==='critical')return Number(threats.critPotential)>=1?1:0;
+  if(id==='attack_speed')return Number(threats.attackSpeedPressureConfirmed)>=1?2:1;
+  if(id==='physical')return Number(threats.ad)>=3?2:0;
+  if(id==='magical')return Number(threats.ap)>=3?2:0;
+  if(id==='tanks')return Number(threats.tank)>=2?2:0;
+  return 0;
+ };
  const baseline=base.map(x=>({...x,feature:optimizer.features(x)}));
  const original=optimizer.calculate(baseline,threats);
  const options=[];
@@ -96,7 +108,7 @@ function plan({prepared,optimizer,items,threats={},max=3,
     if(gain<=0.3)continue;
     const option={conditionId:condition.id,condition:textFor(condition,enemyNames,profileLookup),
       add:{id:candidate.id,name:candidate.name_fr},remove:{id:base[slot].id,name:base[slot].name_fr},
-      gain:Number(gain.toFixed(2)),newIds:ids,conditional:true,verifiedLegal:true,
+      gain:Number(gain.toFixed(2)),relevance:relevance(condition.id),newIds:ids,conditional:true,verifiedLegal:true,
       protectedCorePreserved:true,replacementPhase:'late_game',
       reason:'Ce remplacement répond mieux au scénario '+condition.id+' selon les passifs et statistiques du client.',
       scenario:changed,baseAlreadyResponds:present};
@@ -108,7 +120,7 @@ function plan({prepared,optimizer,items,threats={},max=3,
  }
  // Not 3 near-identical builds: three distinct future conditions, not guaranteed
  // outcomes. Prioritize the most actionable changes relative to the initial draft.
- options.sort((a,b)=>b.gain-a.gain||a.conditionId.localeCompare(b.conditionId));
+ options.sort((a,b)=>b.relevance-a.relevance||b.gain-a.gain||a.conditionId.localeCompare(b.conditionId));
  return {ok:true,version:VERSION,mode:'pregame_contingency_plan',items:base.map(x=>x.id),
   scenariosChecked:CONDITIONS.length,options:options.slice(0,Math.min(3,Math.max(0,max))),
   protectedCoreIds:[...protectedIds],coreProtectionActive:protectCore,
