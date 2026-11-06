@@ -35,12 +35,12 @@ for version in VERSIONS:
   for element in tags:
    if element.name=='li':
     line=compact(element.get_text(' ',strip=True)).replace('->','→')
-    if '→' not in line or not re.search(r'\\d',line):continue
+    if '→' not in line or not re.search(r'\d',line):continue
     before,after=line.split('→',1)
     records.append({'championCandidate':champion,'abilityCandidate':skill,
       'before':before[-180:],'after':after[:180],
-      'numericBefore':re.findall(r'\\d+(?:[.,]\\d+)?',before)[-20:],
-      'numericAfter':re.findall(r'\\d+(?:[.,]\\d+)?',after)[:20]})
+      'numericBefore':re.findall(r'\d+(?:[.,]\d+)?',before)[-20:],
+      'numericAfter':re.findall(r'\d+(?:[.,]\d+)?',after)[:20]})
     continue
    title=compact(element.get_text(' ',strip=True))
    if not title or len(title)>85:continue
