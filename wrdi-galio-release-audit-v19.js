@@ -6,11 +6,20 @@
 const VERSION='19.0.0';
 const LAST_RIOT_NOTE={patch:'7.3e',date:'2026-11-04',url:'https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3e/',scope:'AAA ARAM augment changes; no listed Summoner Rift item or rune balance changes'};
 const norm=x=>String(x||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+const OFFICIAL_ROSTER_SNAPSHOT_2026_11_07=[
+ 'Aurora','Bard',"Cho'Gath","K'Sante","Kog'Maw",'Mel','Nidalee','Nocturne','Norra',
+ 'Rell','Skarner','Smolder','Taliyah',"Vel'Koz",'Yunara','Zilean','Hwei'
+];
+
 function inspect({catalog={},runes={},bootsCatalog={},championMeta=[],result=null}={}){
  const warnings=[],blocked=[];
  const clientPatch=String(catalog.patch_claimed_by_client_user||'');
  const roster=Array.isArray(championMeta)?championMeta:[];
  const hasHwei=roster.some(x=>norm(x.name)==='hwei');
+ const known=new Set(roster.map(x=>norm(x.name)));
+ const missingRoster=OFFICIAL_ROSTER_SNAPSHOT_2026_11_07.filter(x=>!known.has(norm(x)));
+ if(missingRoster.length)warnings.push('Catalogue incomplet : '+missingRoster.length+
+  ' champions de la liste Riot Wild Rift du 7 novembre 2026 manquent encore au sélecteur.');
  if(clientPatch!=='7.3d')warnings.push('Patch du catalogue différent de la dernière fiche d’objets vérifiée (7.3d).');
  if(catalog.do_not_automatically_load_into_build_recommendations===true)
   warnings.push('Le catalogue source mentionne explicitement que l’intégration automatique aux recommandations n’a pas été approuvée.');
@@ -36,7 +45,9 @@ function inspect({catalog={},runes={},bootsCatalog={},championMeta=[],result=nul
  return {ok:blocked.length===0,version:VERSION,status:blocked.length?'blocked':'experimental',
   verifiedLatestOfficialNote:LAST_RIOT_NOTE,sourcePatch:clientPatch||'unknown',
   currentLivePatchClaim:false,patchCompatibility:'7.3e_notes_have_no_announced_rift_item_rune_changes_but_unverified_client_fields',
-  rosterCount:roster.length,knownMissingChampionNames:hasHwei?[]:['Hwei'],
+  rosterCount:roster.length,knownMissingChampionNames:missingRoster,
+  rosterGapSource:'https://wildrift.leagueoflegends.com/fr-fr/champions/',
+  rosterGapSnapshotDate:'2026-11-07',
   itemCount:Array.isArray(catalog.items)?catalog.items.length:0,
   inspectedPairs:comparisons,itemRisks,fullPatchStatsVerified:false,combatProcsVerified:false,
   empiricalWinrateAvailable:false,rankedOptimizationCertified:false,
