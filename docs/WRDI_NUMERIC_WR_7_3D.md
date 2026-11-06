@@ -26,3 +26,5 @@ L’analyse de draft lit les fiches numériques des dix champions. Pour Galio, l
 **Politique :** les valeurs sources ne sont jamais écrasées ; les ajustements officiels et leur résultat (appliqué / déjà à jour / divergence) sont conservés distinctement.
 
 Actualisation complémentaire : extraction des valeurs numériques intégrées aux descriptions de passifs et index de modifications officielles, sans ajout de données PC.
+
+La deuxième passe conserve les valeurs intégrées aux descriptions de passifs, compacte le catalogue JSON et réextrait les patchs officiels avec un suivi de contexte par champion quand identifiable.
