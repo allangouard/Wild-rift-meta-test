@@ -26,7 +26,7 @@ test('Galio MID high-AP build selects Comet with spell-based poke',()=>{
  assert.match(x.reason,/Comète/);
 });
 test('Galio MID damage-hybrid with just two AP pieces does not become burst rune',()=>{
- const build=['hollow_radiance','riftmaker','unending_despair','oceanids_trident','liandrys_torment'].map(byId);
+ const build=['hollow_radiance','riftmaker','unending_despair','oceanids_trident','amaranths_twinguard'].map(byId);
  const x=engine.chooseRune({bridge,catalog:runes,advisor,items:build,laneOpponent:'Lux'});
  assert.equal(x.ok,true);
  assert.equal(x.page.keystone,'Souverain des glaces');
