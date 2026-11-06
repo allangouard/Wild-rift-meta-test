@@ -2,7 +2,7 @@
   "schema": "wrdi-official-wild-rift-abilities-v1",
   "description": "First verified batch: official ability names and passive mechanics for 20 champions. Not full champion sheets and not wired into build decision. Missing values are explicit null. No League PC data.",
   "verifiedOn": "2026-11-06",
-  "totalCatalogChampions": 125,
+  "totalCatalogChampions": 126,
   "profiles": [
     {
       "id": "10099",
@@ -886,6 +886,52 @@
         "passive_summary": "official_paraphrase",
         "active_ability_descriptions": "not_yet_verified",
         "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10910",
+      "champion": "Hwei",
+      "riotId": "Hwei",
+      "source": {
+        "type": "user_wild_rift_client_screenshots_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/hwei/",
+        "checkedOn": "2026-11-07"
+      },
+      "kit": {
+        "passive": {
+          "name": "Signature du visionnaire",
+          "summary_fr": "Deux compétences blessantes successives sur une cible déclenchent une explosion magique de zone après une marque de 4 sec.",
+          "mechanics_from_passive": [
+            "magic_damage",
+            "aoe",
+            "two_distinct_ability_hits",
+            "delayed_proc"
+          ]
+        },
+        "q": {
+          "name": "Sujet : Désastres",
+          "description_fr": "Hwei choisit l'un de trois sorts offensifs. Feu dévastateur : projectile explosif infligeant 50/85/120/155 (+70 % de la puissance) dégâts magiques et 4/5/6/7 % des PV max de la cible dans une zone. Éclair enflammé : frappe retardée à longue portée infligeant 80/110/140/170 (+30 % de la puissance) dégâts magiques, augmentés si la cible est immobilisée ou isolée, jusqu'à 160/275/420/595 (+60 % de la puissance) selon les PV manquants. Champ de lave : éruptions et lave persistante, dégâts magiques sur impact et sur la durée, ralentissant de 30 %."
+        },
+        "w": {
+          "name": "Sujet : Sérénités",
+          "description_fr": "Hwei choisit l'une de trois visions pour renforcer son équipe. Ruisseau : voie qui octroie de la vitesse de déplacement aux champions alliés et à Hwei. Étang : zone protectrice de 3 sec donnant un bouclier de 50/70/90/110 (+30 % de la puissance), qui peut atteindre 98/118/138/158 (+60 % de la puissance) ; le bouclier donné aux alliés autres que Hwei est réduit de 15 %. Nuit étoilée : trois orbes renforçant les trois prochaines attaques ou compétences de Hwei avec dégâts magiques bonus et restauration de mana à l'impact."
+        },
+        "e": {
+          "name": "Sujet : Tourments",
+          "description_fr": "Hwei choisit l'un de trois sorts de contrôle. Visage effroyable : projectile terrifiant le premier ennemi touché pendant 1/1,125/1,25/1,375 sec et infligeant 70/120/170/220 (+60 % de la puissance) dégâts magiques. Œil des abysses : œil placé donnant la vision, verrouillant le premier champion proche ; le projectile immobilise pendant 1,25/1,5/1,75/2 sec, révèle et inflige des dégâts magiques. Mâchoires chatoyantes : zone qui attire les ennemis vers son centre, inflige 70/120/170/220 (+60 % de la puissance) dégâts magiques et ralentit de 40/50/60/70 %, décroissant pendant 1,25 sec."
+        },
+        "r": {
+          "name": "Vision de désespoir",
+          "description_fr": "Hwei attache une vision à un champion ennemi pendant 3 sec. Elle grandit progressivement, appliquant 10 % de ralentissement cumulable toutes les 0,25 sec et 10/20/30 (+5 % de la puissance) dégâts magiques par seconde. À sa taille maximale, elle explose, infligeant 200/300/400 (+70 % de la puissance) dégâts magiques."
+        }
+      },
+      "coverage": {
+        "ability_names": "client_verified",
+        "passive_summary": "client_verified",
+        "active_ability_descriptions": "client_screenshots",
+        "numeric_values": "partially_client_verified_patch_7.3d",
         "wildRiftOnly": true
       },
       "allowedForEngine": false
