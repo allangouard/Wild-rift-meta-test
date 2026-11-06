@@ -5,10 +5,56 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta name="theme-color" content="#0e2631">
-<title>Wild Rift Draft Intelligence — V15</title>
+<title>Wild Rift Draft Intelligence — V15.1</title>
 <link rel="icon" type="image/png" href="./icon-192.png">
 <link rel="manifest" href="./manifest.webmanifest">
 <style>
+/* V15.1 · Champion cards and lane-first picker */
+body.wrdi-picker-open{overflow:hidden}
+.wrdi-picker-overlay[hidden]{display:none!important}
+.wrdi-slot{display:flex;width:100%;align-items:center;text-align:left;gap:10px;min-height:72px;background:#153743;border:1px solid #315b66;border-radius:13px;padding:9px;margin:0 0 9px;color:#f1ffff;transition:background .15s,transform .15s,border-color .15s}
+.wrdi-slot:not(.locked):active{transform:scale(.982);border-color:#59cfbe}
+.wrdi-slot.selected{background:#163d48;border-color:#287b77}
+.wrdi-slot.locked{opacity:1;cursor:default;background:#223e50;border-color:#3b7f82}
+.wrdi-slot-text{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.wrdi-slot-role{color:#a5c3ce;font-size:11px;font-weight:500}
+.wrdi-slot-name{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wrdi-slot-plus{display:grid;place-items:center;width:46px;height:46px;border:1px dashed #64848c;border-radius:12px;flex-shrink:0;color:#84c3c4;font-size:25px}
+.wrdi-portrait{position:relative;display:grid;place-items:center;overflow:hidden;background:linear-gradient(135deg,#325b69,#182c3b);color:#dcf7f6;font-size:15px;font-weight:750;flex-shrink:0}
+.wrdi-portrait img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .16s ease}
+.wrdi-portrait.ready img{opacity:1}
+.slot-portrait{width:46px;height:46px;border-radius:12px}
+.wrdi-picker-overlay{position:fixed;inset:0;z-index:5000;display:flex;align-items:flex-end;justify-content:center}
+.wrdi-picker-backdrop{position:absolute;inset:0;background:rgba(0,12,20,.73);backdrop-filter:blur(4px)}
+.wrdi-picker-sheet{position:relative;width:min(100%,630px);height:min(91dvh,860px);display:flex;flex-direction:column;background:#0d2530;border:1px solid #37636f;border-bottom:0;border-radius:24px 24px 0 0;box-shadow:0 -20px 60px rgba(0,0,0,.35);overflow:hidden;animation:wrdi-slide-up .2s ease-out}
+@keyframes wrdi-slide-up{from{transform:translateY(20px);opacity:.75}to{transform:translateY(0);opacity:1}}
+.wrdi-picker-sticky{padding:9px 16px 12px;background:#102d39;border-bottom:1px solid #274e5c}
+.wrdi-picker-handle{width:44px;height:5px;border-radius:100px;background:#527984;margin:0 auto 12px}
+.wrdi-picker-header{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.wrdi-picker-header h2{font-size:21px;margin:0}
+.wrdi-picker-overline{color:#71d6c7;font-size:10px;letter-spacing:1.5px;font-weight:750;margin:0 0 4px}
+.wrdi-picker-close{width:40px;height:40px;min-height:40px;flex-shrink:0;background:#183b49;color:#fff;border:1px solid #416a79;font-size:18px;padding:0}
+.wrdi-picker-search{width:100%;margin-top:14px;padding:12px 14px;background:#193d49;color:#f4ffff;border:1px solid #517780;border-radius:12px;font:inherit;font-size:15px;outline-offset:2px}
+.wrdi-picker-scroll{padding:15px 16px 28px;overflow:auto;overscroll-behavior:contain;flex:1;scrollbar-width:thin}
+.wrdi-picker-label{font-size:11px;color:#a8c9d0;font-weight:750;letter-spacing:1px;margin:4px 0 9px}
+.wrdi-picker-filters{display:flex;gap:7px;overflow-x:auto;padding-bottom:12px;margin-bottom:7px;scrollbar-width:none}
+.wrdi-picker-filters::-webkit-scrollbar{display:none}
+.wrdi-filter-chip{flex:0 0 auto;min-height:38px;padding:8px 13px;border-radius:999px;border:1px solid #476f7c;background:#163743;color:#d5f1ed;font-size:13px;font-weight:650}
+.wrdi-filter-chip.active{background:#53d1bd;color:#062c30;border-color:#53d1bd}
+.wrdi-picker-count{font-size:12px;color:#8db9bf;margin:1px 0 12px}
+.wrdi-picker-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.wrdi-champion-card{position:relative;min-height:0;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;padding:11px 6px 10px;background:#193a49;border:1px solid #305866;border-radius:14px;color:#f0ffff;transition:transform .13s,border-color .13s}
+.wrdi-champion-card:active{transform:scale(.96);border-color:#59d8c5}
+.card-portrait{width:min(100%,72px);aspect-ratio:1;border-radius:15px;margin-bottom:2px;font-size:19px}
+.wrdi-champion-name{font-size:12px;line-height:1.2;max-width:100%;overflow-wrap:anywhere}
+.wrdi-champion-sub{font-size:10px;line-height:1.25;color:#9ac0c6}
+.wrdi-champion-card.is-taken{opacity:.4;cursor:not-allowed}
+.wrdi-champion-tag{font-size:9px;color:#d2e5e7}
+.wrdi-picker-empty{grid-column:1/-1;border:1px dashed #4f7583;padding:25px 12px;border-radius:13px;color:#b4ccd1;text-align:center}
+@media(min-width:600px){.wrdi-picker-grid{grid-template-columns:repeat(5,minmax(0,1fr))}.card-portrait{width:82px}}
+@media(max-width:360px){.wrdi-slot{gap:7px;padding:6px;min-height:67px}.slot-portrait,.wrdi-slot-plus{width:40px;height:40px}.wrdi-slot-name{font-size:12px}.wrdi-picker-grid{gap:7px}.wrdi-champion-card{padding:9px 3px}.card-portrait{width:65px}}
+@media(prefers-reduced-motion:reduce){.wrdi-picker-sheet,.wrdi-portrait img{animation:none;transition:none}}
+
 :root{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;color:#e8f7f6;background:#081b24;color-scheme:dark}
 *{box-sizing:border-box}body{margin:0;line-height:1.4}
 header{padding:20px 16px 16px;background:#0e2c39;border-bottom:1px solid #2d5360}
@@ -42,7 +88,7 @@ footer{max-width:950px;margin:0 auto;padding:15px;color:#90acb4;font-size:12px}
 </style>
 </head>
 <body>
-<header><div class="inner"><h1>🧠 Wild Rift Draft Intelligence</h1><p>Prépare ta draft · Galio mid · Wild Rift mobile · Moteur V15 indépendant</p></div></header>
+<header><div class="inner"><h1>🧠 Wild Rift Draft Intelligence</h1><p>Prépare ta draft · Galio mid · Wild Rift mobile · Interface V15.1 · moteur indépendant</p></div></header>
 <main id="wrdi-v15">
 <section class="card" aria-label="Saisie de la draft">
 <h2>Ma draft</h2>
@@ -71,6 +117,7 @@ footer{max-width:950px;margin:0 auto;padding:15px;color:#90acb4;font-size:12px}
 <script defer src="./wrdi-rune-bridge-v14.js?v=1500"></script>
 <script defer src="./wrdi-galio-rune-advisor-v1411.js?v=1500"></script>
 <script defer src="./wrdi-draft-engine-v15.js?v=1500"></script>
-<script defer src="./wrdi-app-v15.js?v=1500"></script>
+<script defer src="./wrdi-champion-picker-v151.js?v=1510"></script>
+<script defer src="./wrdi-app-v15.js?v=1510"></script>
 </body>
 </html>
