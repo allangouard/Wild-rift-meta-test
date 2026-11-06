@@ -51,6 +51,16 @@ function selectChampion(slot,id){
 function showResults(result){
  const box=$('wrdi-result');box.replaceChildren();
  const headline=el('h2',null,'Recommandation Galio · Mid');box.append(headline);
+ if(result.releaseAudit?.ok){
+  const audit=result.releaseAudit;
+  const section=el('section','result-section');
+  section.append(el('h3',null,'Fiabilité des données · V19'));
+  section.append(el('p','warning','Recommandations expérimentales : '+audit.sourcePatch+' (catalogue client) · dernier patch officiel étudié '+audit.verifiedLatestOfficialNote.patch+'.'));
+  section.append(el('p','caption','Tests de cohérence réussis ≠ build optimal prouvé. Statistiques de combat, déclenchements et achats adverses non entièrement vérifiés.'));
+  for(const warning of audit.warnings.slice(0,4))
+   section.append(el('p','muted','• '+warning));
+  box.append(section);
+ }
  const sub=el('p','muted','Wild Rift mobile · Fiches du client '+result.patch+' · Calcul qualitatif avant la partie');
  box.append(sub);
  if(result.draft.threatEvidence?.ok){
@@ -338,6 +348,7 @@ go.addEventListener('click',()=>{
   bootAdvisor:root.WRDI_GalioBootsV18,
   lateSlots:root.WRDI_GalioLateSlotsV184,
   conditionAudit:root.WRDI_GalioConditionAuditV187,
+  releaseAudit:root.WRDI_GalioReleaseAuditV19,
   antihealOrder:root.WRDI_AntihealOrderV169,runeBridge:root.WRDI_RuneBridgeV14,
   runeAdvisor:root.WRDI_GalioRuneAdvisorV1411,
   kitIntelligence:root.WRDI_OfficialKitIntelligenceV158,

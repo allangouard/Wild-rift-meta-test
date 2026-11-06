@@ -33,7 +33,8 @@ const modules={
  bootAdvisor:require('./wrdi-galio-boots-v18.js'),
  lateSlots:require('./wrdi-galio-late-slots-v184.js'),
  threatEvidence:require('./wrdi-galio-threat-evidence-v185.js'),
- conditionAudit:require('./wrdi-galio-condition-audit-v187.js')
+ conditionAudit:require('./wrdi-galio-condition-audit-v187.js'),
+ releaseAudit:require('./wrdi-galio-release-audit-v19.js')
 };
 const byName=new Map(champs.map(x=>[x.name.toLowerCase(),x]));
 function analyze(scenario){
@@ -75,6 +76,9 @@ for(const s of fixtures.scenarios){
   assert.equal(new Set(ids).size,5,s.id);
   assert.equal(modules.core.validateEquipment(ids,catalog,rules).valid,true,s.id+' illegal equipment');
   assert.equal(result.build.legal,true);
+  assert.equal(result.releaseAudit.status,'experimental');
+  assert.equal(result.releaseAudit.rankedOptimizationCertified,false);
+  assert.equal(result.releaseAudit.sourcePatch,'7.3d');
   assert.equal(result.build.lateSlots.ok,true,s.id);
   assert.equal(result.build.lateSlots.coreProtected,true,s.id);
   assert.deepEqual(ids.slice(0,3),result.build.lateSlots.coreIds,s.id+' core unexpectedly replaced');
