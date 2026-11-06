@@ -20,7 +20,9 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "healing"
+            "healing",
+            "max_hp_damage",
+            "physical_damage"
           ]
         },
         "q": {
@@ -29,6 +31,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
+            "physical_damage",
             "aoe"
           ]
         },
@@ -47,7 +50,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "healing"
+            "healing",
+            "mobility"
           ]
         },
         "r": {
@@ -57,6 +61,7 @@
           "descriptionTruncated": true,
           "detected_mechanics": [
             "healing",
+            "mobility",
             "aoe"
           ]
         }
@@ -85,7 +90,10 @@
           "excerpt_fr": "Ahri lance son orbe et le ramène vers elle, infligeant des dégâts magiques à l'aller et des dégâts bruts au retour.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage",
+            "true_damage"
+          ]
         },
         "w": {
           "name": "Lucioles",
@@ -93,6 +101,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
+            "mobility",
             "aoe"
           ]
         },
@@ -130,7 +139,9 @@
           "excerpt_fr": "Infliger des dégâts de compétence à un champion crée un cercle d'énergie autour de lui. Quitter ce cercle renforce la prochaine attaque automatique d'Akali",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "aoe"
+          ]
         },
         "q": {
           "name": "VAGUE DE KUNAIS",
@@ -145,6 +156,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "mobility",
             "untargetable"
           ]
         },
@@ -153,7 +165,10 @@
           "excerpt_fr": "Akali fait un salto arrière et lance un shuriken vers l'avant, infligeant des dégâts magiques. Le premier ennemi ou nuage de fumée touché est",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility",
+            "magic_damage"
+          ]
         },
         "r": {
           "name": "MAÎTRISE ABSOLUE",
@@ -180,7 +195,10 @@
           "excerpt_fr": "Toutes les trois attaques ou compétences, Akshan inflige des dégâts physiques supplémentaires. Contre les champions, il gagne aussi un bouclier qui le protège brièvement",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield",
+            "physical_damage"
+          ]
         },
         "q": {
           "name": "VENGERANG",
@@ -194,7 +212,9 @@
           "excerpt_fr": "Passive : les ennemis qui tuent des alliés d'Akshan deviennent des Crapules pendant quelques secondes. Tuer une Crapule octroie des PO supplémentaires à Akshan",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "e": {
           "name": "ENVOLÉE HÉROÏQUE",
@@ -237,6 +257,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
+            "magic_damage",
             "aoe"
           ]
         },
@@ -245,21 +266,27 @@
           "excerpt_fr": "Alistar charge une cible, lui inflige des dégâts et la repousse. Il peut également cibler des tourelles pour infliger des dégâts supplémentaires.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc"
+          ]
         },
         "e": {
           "name": "Piétinement",
           "excerpt_fr": "Alistar piétine les unités ennemies proches, ignorant les collisions avec les unités et gagnant un effet s'il blesse un champion ennemi. Au maximum d'effets",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "r": {
           "name": "Volonté de fer",
           "excerpt_fr": "Alistar lâche un puissant rugissement, dissipant tous les effets de contrôle de foule qui l'affectent et réduisant les dégâts physiques et magiques subis pendant",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "physical_damage"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -292,6 +319,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "shield",
             "aoe"
           ]
         },
@@ -301,6 +329,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "mobility",
             "aoe"
           ]
         },
@@ -327,14 +356,19 @@
           "excerpt_fr": "Les attaques de base d'Amumu maudissent ses ennemis, leur faisant subir des dégâts bruts supplémentaires chaque fois qu'ils subissent des dégâts magiques.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage",
+            "true_damage"
+          ]
         },
         "q": {
           "name": "Jet de bandelette",
           "excerpt_fr": "Amumu jette une bandelette collante qui étourdit et blesse l'ennemi touché tandis qu'Amumu s'approche de lui.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc"
+          ]
         },
         "w": {
           "name": "Désespoir",
@@ -342,6 +376,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
+            "max_hp_damage",
             "aoe"
           ]
         },
@@ -351,6 +386,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "physical_damage",
             "aoe"
           ]
         },
@@ -379,7 +415,9 @@
           "excerpt_fr": "Après avoir lancé 4 sorts, la prochaine compétence offensive d'Annie étourdit sa cible.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc"
+          ]
         },
         "q": {
           "name": "Désintégration",
@@ -404,7 +442,10 @@
           "excerpt_fr": "Annie lance un bouclier sur Tibbers et elle-même et gagne de la vitesse de déplacement.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield",
+            "mobility"
+          ]
         },
         "r": {
           "name": "Invocation : Tibbers",
@@ -433,7 +474,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "crit"
           ]
         },
         "q": {
@@ -464,7 +506,9 @@
           "excerpt_fr": "Ashe tire un trait de glace qu'elle peut diriger. Si la flèche touche un champion ennemi, elle le blesse et l'étourdit, la durée de",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -506,7 +550,9 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "max_hp_damage",
+            "execute"
           ]
         },
         "r": {
@@ -516,6 +562,7 @@
           "descriptionTruncated": true,
           "detected_mechanics": [
             "cc",
+            "magic_damage",
             "aoe"
           ]
         }
@@ -535,7 +582,9 @@
           "excerpt_fr": "Lorsqu'il lui reste peu de PV, Blitzcrank obtient un bouclier dont les PV dépendent de son mana.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield"
+          ]
         },
         "q": {
           "name": "Grappin propulsé",
@@ -556,7 +605,9 @@
           "excerpt_fr": "Blitzcrank charge son poing pour que son attaque suivante inflige des dégâts critiques et projette la cible dans les airs.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "crit"
+          ]
         },
         "r": {
           "name": "Champ de stase",
@@ -583,7 +634,10 @@
           "excerpt_fr": "Les compétences de Brand enflamment ses cibles, leur infligeant des dégâts en 1 sec (cumulable 2 fois). Si Brand tue un ennemi en flammes,",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "burn",
+            "aoe"
+          ]
         },
         "q": {
           "name": "BRÛLURE",
@@ -598,6 +652,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
+            "magic_damage",
             "aoe"
           ]
         },
@@ -607,6 +662,9 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "cc",
+            "magic_damage",
+            "burn",
             "aoe"
           ]
         },
@@ -633,14 +691,19 @@
           "excerpt_fr": "Les attaques de base de Braum appliquent Coups étourdissants. Une fois le premier effet appliqué, les attaques de base des alliés appliquent aussi l'effet",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "q": {
           "name": "Morsure de l'hiver",
           "excerpt_fr": "Braum projette des éclats de glace depuis son bouclier, ralentissant l'ennemi touché et lui infligeant des dégâts magiques. Applique un effet Coups étourdissants.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield",
+            "magic_damage"
+          ]
         },
         "w": {
           "name": "Bouclier humain",
@@ -656,7 +719,9 @@
           "excerpt_fr": "Braum lève son bouclier dans une direction pendant plusieurs secondes, interceptant tous les projectiles et les détruisant quand ils le touchent. Il bloque complètement",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield"
+          ]
         },
         "r": {
           "name": "Fissure glaciale",
@@ -684,14 +749,18 @@
           "excerpt_fr": "Toutes les quelques attaques de base ou quand elle vise une cible prise dans un de ses pièges ou dans son filet, Caitlyn tire",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "crit"
+          ]
         },
         "q": {
           "name": "PACIFICATEUR DE PILTOVER",
           "excerpt_fr": "Caitlyn fait monter son fusil en puissance pendant 1 sec pour effectuer un tir perforant qui inflige des dégâts physiques (les cibles consécutives subissent",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "physical_damage"
+          ]
         },
         "w": {
           "name": "PIÈGE-YORDLE",
@@ -716,7 +785,9 @@
           "excerpt_fr": "Caitlyn prend son temps pour réaliser le tir parfait, révélant une cible unique et lui infligeant d'importants dégâts à très longue portée. Les champions",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "long_range"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -734,14 +805,19 @@
           "excerpt_fr": "Les attaques de base contre les champions octroient à Camille un bouclier équivalent à 20% de ses PV max contre le type de dégâts",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield",
+            "max_hp_damage"
+          ]
         },
         "q": {
           "name": "Protocole de précision",
           "excerpt_fr": "La prochaine attaque de Camille infligera des dégâts supplémentaires et lui octroiera un bonus en vitesse de déplacement. Cette compétence peut être relancée pendant",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "w": {
           "name": "Balayage tactique",
@@ -786,7 +862,10 @@
           "excerpt_fr": "Un pourcentage des dégâts des attaques de base de Corki est converti en dégâts magiques. À certains moments, Corki peut récupérer le Paquet dans",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility",
+            "magic_damage"
+          ]
         },
         "q": {
           "name": "BOMBE AU PHOSPHORE",
@@ -794,6 +873,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "magic_damage",
             "aoe"
           ]
         },
@@ -841,7 +921,9 @@
           "excerpt_fr": "Les attaques et les compétences blessantes de Darius font saigner ses ennemis, ce qui leur inflige des dégâts physiques sur la durée (effet cumulable",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "physical_damage"
+          ]
         },
         "q": {
           "name": "DÉCIMATION",
@@ -865,7 +947,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "physical_damage"
           ]
         },
         "r": {
@@ -873,7 +956,10 @@
           "excerpt_fr": "Darius saute sur un champion ennemi et donne un coup fatal, infligeant des dégâts bruts. Plus vous cumulez de Plaies béantes sur la cible,",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility",
+            "true_damage"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -892,6 +978,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "magic_damage",
             "aoe"
           ]
         },
@@ -900,7 +987,9 @@
           "excerpt_fr": "Diana libère une vague incurvée d'énergie lunaire qui inflige des dégâts magiques et applique Clair de lune.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "w": {
           "name": "CORPS CÉLESTES",
@@ -908,6 +997,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "shield",
             "aoe"
           ]
         },
@@ -917,6 +1007,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "mobility",
+            "magic_damage",
             "aoe"
           ]
         },
@@ -945,7 +1037,9 @@
           "excerpt_fr": "Dr. Mundo résiste au premier effet immobilisant qui l'affecte. En revanche, il perd des PV et laisse tomber une bonbonne chimique. Dr. Mundo peut",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "healing"
+          ]
         },
         "q": {
           "name": "SCIE SOUILLÉE",
@@ -975,7 +1069,11 @@
           "excerpt_fr": "Dr. Mundo s'injecte des produits chimiques et récupère instantanément un pourcentage de ses PV manquants. Il gagne ensuite de la vitesse de déplacement et",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "healing",
+            "mobility",
+            "max_hp_damage"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -1000,28 +1098,36 @@
           "excerpt_fr": "La prochaine attaque de Draven infligera des dégâts physiques supplémentaires. Cette hache ricochera sur la cible et sera propulsée dans les airs. Si Draven",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "physical_damage"
+          ]
         },
         "w": {
           "name": "PULSION SANGUINAIRE",
           "excerpt_fr": "Draven gagne des bonus en vitesse de déplacement et en vitesse d'attaque. Le bonus en vitesse de déplacement diminue rapidement sur la durée. Attraper",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "e": {
           "name": "DIVISION",
           "excerpt_fr": "Draven lance ses haches, infligeant des dégâts physiques aux cibles touchées et les repoussant sur le côté. Les cibles touchées sont ralenties.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "physical_damage"
+          ]
         },
         "r": {
           "name": "VOLÉE MORTELLE",
           "excerpt_fr": "Draven lance deux énormes haches pour infliger des dégâts physiques aux unités touchées. Volée mortelle fait demi-tour et revient vers Draven après avoir frappé",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "physical_damage"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -1039,7 +1145,10 @@
           "excerpt_fr": "Toutes les trois attaques ou compétences infligeant des dégâts sur une même cible, Ekko inflige des dégâts magiques supplémentaires. Si la cible est un",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility",
+            "magic_damage"
+          ]
         },
         "q": {
           "name": "RÉTROBANG",
@@ -1054,7 +1163,9 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "shield",
+            "cc",
+            "magic_damage"
           ]
         },
         "e": {
@@ -1114,7 +1225,9 @@
           "excerpt_fr": "Evelynn donne un coup de fouet à sa cible avec son cirre et lui inflige des dégâts. Elle augmente ensuite sa vitesse de déplacement",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "r": {
           "name": "FAISEUSE DE VEUVES",
@@ -1197,6 +1310,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "magic_damage",
             "untargetable"
           ]
         },
@@ -1206,7 +1320,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "aoe"
+            "aoe",
+            "execute"
           ]
         },
         "e": {
@@ -1252,7 +1367,9 @@
           "excerpt_fr": "Fiora se fend dans une direction et frappe un ennemi proche, infligeant des dégâts physiques et appliquant ses effets à l'impact.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "physical_damage"
+          ]
         },
         "w": {
           "name": "Riposte",
@@ -1269,7 +1386,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "crit"
           ]
         },
         "r": {
@@ -1278,7 +1396,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "healing",
+            "mobility",
             "aoe"
           ]
         }
@@ -1305,7 +1423,9 @@
           "excerpt_fr": "Fizz traverse sa cible, infligeant des dégâts magiques et des effets à l'impact.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "w": {
           "name": "FRACAS DES VAGUES",
@@ -1319,7 +1439,9 @@
           "excerpt_fr": "Fizz saute dans les airs et retombe avec grâce sur sa lance, devenant impossible à prendre pour cible. Depuis cette position, Fizz peut soit",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "r": {
           "name": "Pêche au gros",
@@ -1327,6 +1449,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "magic_damage",
             "aoe"
           ]
         }
@@ -1347,6 +1470,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "magic_damage",
             "aoe"
           ]
         },
@@ -1355,7 +1479,9 @@
           "excerpt_fr": "Galio tire deux rafales de vent qui convergent pour créer une grande tornade infligeant des dégâts sur la durée.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "burn"
+          ]
         },
         "w": {
           "name": "BOUCLIER DE DURAND",
@@ -1380,6 +1506,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "shield",
+            "magic_damage",
             "aoe"
           ]
         }
@@ -1399,14 +1527,18 @@
           "excerpt_fr": "Si Garen n'a pas subi de dégâts ou de compétences ennemies récemment, il régénère un pourcentage de ses PV totaux chaque seconde.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "healing"
+          ]
         },
         "q": {
           "name": "Coup décisif",
           "excerpt_fr": "Garen reçoit un bonus en vitesse de déplacement et purge tous les ralentissements qui l'affectent. Sa prochaine attaque frappe un point vital de son",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "w": {
           "name": "Courage",
@@ -1421,7 +1553,9 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "aoe"
+            "physical_damage",
+            "aoe",
+            "crit"
           ]
         },
         "r": {
@@ -1449,7 +1583,9 @@
           "excerpt_fr": "Gnar génère de la rage lorsqu'il inflige et subit des dégâts. Une fois sa jauge de Rage remplie, sa prochaine compétence le transforme en",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "q": {
           "name": "JET DE BOOMERANG/JET DE ROCHER",
@@ -1467,6 +1603,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "mobility",
             "aoe"
           ]
         },
@@ -1515,6 +1652,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "mobility",
             "aoe"
           ]
         },
@@ -1524,6 +1662,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "magic_damage",
             "aoe"
           ]
         },
@@ -1573,7 +1712,9 @@
           "excerpt_fr": "Graves tire une grenade fumigène qui produit un nuage de fumée réduisant le champ de vision. Les ennemis touchés par l'impact initial subissent des",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "e": {
           "name": "Ruée vers l'or",
@@ -1607,7 +1748,9 @@
           "excerpt_fr": "Les attaques de Gwen infligent des dégâts magiques supplémentaires selon les PV de la cible. Gwen récupère des PV équivalents à une partie des",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "q": {
           "name": "TCHAC, TCHAC !",
@@ -1615,6 +1758,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "magic_damage",
+            "true_damage",
             "aoe"
           ]
         },
@@ -1624,6 +1769,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "shield",
             "aoe"
           ]
         },
@@ -1632,7 +1778,10 @@
           "excerpt_fr": "Gwen effectue une courte ruée, puis gagne de la vitesse d'attaque, de la portée d'attaque et des dégâts magiques à l'impact pendant quelques secondes.",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility",
+            "magic_damage"
+          ]
         },
         "r": {
           "name": "PIQÛRE",
@@ -1640,7 +1789,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "magic_damage"
           ]
         }
       },
@@ -1659,7 +1809,9 @@
           "excerpt_fr": "Les dégâts d'attaque d'Hecarim augmentent d'un montant égal à un pourcentage de sa vitesse de déplacement bonus.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "q": {
           "name": "CARNAGE",
@@ -1667,6 +1819,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "physical_damage",
             "aoe"
           ]
         },
@@ -1676,6 +1829,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "magic_damage",
             "aoe"
           ]
         },
@@ -1684,7 +1838,11 @@
           "excerpt_fr": "La vitesse de déplacement d'Hecarim augmente et il peut traverser les unités pendant un court instant. Sa prochaine attaque repousse la cible et inflige",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc",
+            "mobility",
+            "physical_damage"
+          ]
         },
         "r": {
           "name": "LÉGION DES OMBRES",
@@ -1692,6 +1850,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "magic_damage",
             "aoe"
           ]
         }
@@ -1711,7 +1870,9 @@
           "excerpt_fr": "Gagne de la vitesse de déplacement à proximité des tourelles alliées et des tourelles déployées par Heimerdinger.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "q": {
           "name": "TOURELLE H-28 G ÉVOLUTION",
@@ -1725,7 +1886,9 @@
           "excerpt_fr": "Heimerdinger lance des roquettes à longue portée qui convergent vers son curseur.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "long_range"
+          ]
         },
         "e": {
           "name": "GRENADE ÉLECTRO-TEMPÊTE CH-2",
@@ -1773,7 +1936,9 @@
           "excerpt_fr": "Irelia charge une attaque. Plus la charge dure longtemps, plus les dégâts augmentent. Irelia subit moins de dégâts physiques pendant la charge.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "physical_damage"
+          ]
         },
         "e": {
           "name": "DUO PARFAIT",
@@ -1807,7 +1972,9 @@
           "excerpt_fr": "Janna gagne de la vitesse de déplacement de manière passive, et octroie le même bonus aux champions alliés proches.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "q": {
           "name": "Vent hurlant",
@@ -1821,14 +1988,18 @@
           "excerpt_fr": "Janna gagne de la vitesse de déplacement. L'esprit de l'air affecte les deux champions à portée les plus proches, octroyant de la vitesse de",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "e": {
           "name": "Œil du cyclone",
           "excerpt_fr": "Janna fait apparaître une bourrasque qui octroie un bouclier à un allié, elle-même ou une tourelle si cette dernière est à portée. Ce bouclier",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield"
+          ]
         },
         "r": {
           "name": "Mousson",
@@ -1853,14 +2024,18 @@
           "excerpt_fr": "La première attaque de base de Jarvan IV sur un ennemi inflige des dégâts physiques supplémentaires selon un pourcentage des PV actuels de la",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "physical_damage"
+          ]
         },
         "q": {
           "name": "Frappe du dragon",
           "excerpt_fr": "Jarvan IV allonge sa lance, infligeant des dégâts physiques et réduisant l'armure des ennemis sur son chemin. En outre, cela peut ramener Jarvan à",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "physical_damage"
+          ]
         },
         "w": {
           "name": "Égide dorée",
@@ -1876,7 +2051,9 @@
           "excerpt_fr": "Jarvan IV porte la fierté de Demacia, ce qui lui octroie passivement un bonus en vitesse d'attaque. Activer Étendard demacien permet à Jarvan IV",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "r": {
           "name": "Cataclysme",
@@ -1936,7 +2113,9 @@
           "excerpt_fr": "Le troisième coup consécutif de Jax inflige des dégâts magiques supplémentaires. En outre, Jax peut activer cette compétence pour renforcer sa détermination, augmentant son",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -1954,7 +2133,9 @@
           "excerpt_fr": "Quand Jayce change d'arme, il gagne un bonus en vitesse de déplacement pendant un court instant.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "q": {
           "name": "DIRECTION LE CIEL ! / ORBE ÉLECTRIQUE",
@@ -1962,7 +2143,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "mobility"
+            "mobility",
+            "physical_damage"
           ]
         },
         "w": {
@@ -1971,7 +2153,9 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "aoe"
+            "cc",
+            "aoe",
+            "repeated_hits"
           ]
         },
         "e": {
@@ -1979,14 +2163,20 @@
           "excerpt_fr": "Marteau : inflige des dégâts magiques à un ennemi et le repousse sur une courte distance. Canon : déploie un Portail d'accélération qui augmente",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc",
+            "mobility",
+            "magic_damage"
+          ]
         },
         "r": {
           "name": "CANON MERCURY / MARTEAU MERCURY",
           "excerpt_fr": "Marteau : transforme le Marteau Mercury en Canon Mercury, offrant à Jayce de nouvelles compétences et augmentant sa portée. La première attaque avec le",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -2004,7 +2194,10 @@
           "excerpt_fr": "Le pistolet de Jhin, Murmure, est un instrument de précision capable d'infliger de lourds dégâts. Sa cadence de tir est fixe et il ne",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility",
+            "crit"
+          ]
         },
         "q": {
           "name": "Grenade dansante",
@@ -2019,7 +2212,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "long_range"
           ]
         },
         "e": {
@@ -2039,7 +2232,9 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "long_range",
+            "crit"
           ]
         }
       },
@@ -2058,7 +2253,9 @@
           "excerpt_fr": "Jinx reçoit d'énormes bonus en vitesse de déplacement et en vitesse d'attaque quand elle aide à tuer un champion ennemi ou un monstre épique",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "q": {
           "name": "Flip flap !",
@@ -2110,7 +2307,9 @@
           "excerpt_fr": "Les attaques de base de Kai'Sa appliquent des effets Plasma, infligeant de plus en plus de dégâts magiques supplémentaires. Les effets immobilisants des alliés",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "q": {
           "name": "PLUIE D'ICATHIA",
@@ -2124,21 +2323,28 @@
           "excerpt_fr": "Kai'Sa tire un projectile à longue portée, révélant et marquant les ennemis avec sa compétence passive. Arme vivante : Rayon du Néant est amélioré",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "long_range"
+          ]
         },
         "e": {
           "name": "SURPRESSEUR",
           "excerpt_fr": "Kai'Sa augmente brièvement sa vitesse de déplacement, puis augmente sa vitesse d'attaque. Arme vivante : Surpresseur est amélioré pour octroyer une brève invisibilité.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "r": {
           "name": "INSTINCT MEURTRIER",
           "excerpt_fr": "Kai'Sa effectue une ruée jusqu'à un champion ennemi marqué par Plasma et gagne un bouclier temporaire.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield",
+            "mobility"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -2220,16 +2426,17 @@
           "excerpt_fr": "Karma se lie à un maximum de deux ennemis, leur infligeant des dégâts et les révélant. Si les liens ne sont pas brisés, les",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": [
-            "cc"
-          ]
+          "detected_mechanics": []
         },
         "e": {
           "name": "EXALTATION",
           "excerpt_fr": "Karma invoque un bouclier qui absorbe les dégâts et qui augmente la vitesse de déplacement de l'allié protégé. Bonus Mantra : de l'énergie se",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield",
+            "mobility"
+          ]
         },
         "r": {
           "name": "ÉTREINTE TRANSCENDANTE",
@@ -2237,7 +2444,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc",
+            "magic_damage",
             "aoe"
           ]
         }
@@ -2257,21 +2464,28 @@
           "excerpt_fr": "Kassadin gagne un bouclier anti-dégâts magiques quand il lance une compétence près d'un champion ennemi visible.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield",
+            "magic_damage"
+          ]
         },
         "q": {
           "name": "ORBE DU NÉANT",
           "excerpt_fr": "Kassadin tire un orbe qui inflige des dégâts magiques et réduit le premier ennemi touché au silence.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "w": {
           "name": "LAME ÉTHÉRÉE",
           "excerpt_fr": "Kassadin renforce sa prochaine attaque de base. Elle gagne alors en portée, inflige des dégâts magiques supplémentaires et lui rend un pourcentage de son",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "e": {
           "name": "PULSATION",
@@ -2280,6 +2494,7 @@
           "descriptionTruncated": true,
           "detected_mechanics": [
             "cc",
+            "magic_damage",
             "aoe"
           ]
         },
@@ -2289,6 +2504,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "magic_damage",
             "aoe"
           ]
         }
@@ -2309,6 +2525,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "magic_damage",
             "aoe"
           ]
         },
@@ -2326,7 +2543,9 @@
           "excerpt_fr": "Katarina augmente sa vitesse de déplacement et lance une dague dans les airs, juste au-dessus d'elle.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "e": {
           "name": "SHUNPO",
@@ -2341,7 +2560,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "healing"
+            "healing",
+            "burn"
           ]
         }
       },
@@ -2360,7 +2580,10 @@
           "excerpt_fr": "Les attaques de Kayle sont renforcées par les cieux au fur et à mesure qu'elle gagne des niveaux et dépense des points de compétence.",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility",
+            "burn"
+          ]
         },
         "q": {
           "name": "INCANDESCENCE",
@@ -2375,7 +2598,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "healing"
+            "healing",
+            "mobility"
           ]
         },
         "e": {
@@ -2383,14 +2607,19 @@
           "excerpt_fr": "Passive : l'épée céleste de Kayle, Vertu, inflige des dégâts magiques supplémentaires aux ennemis qu'elle attaque. Active : la prochaine attaque de Kayle déchaîne",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "r": {
           "name": "JUGEMENT DIVIN",
           "excerpt_fr": "Kayle rend un allié invulnérable et fait appel aux anciennes Manifestations de la Justice pour faire tomber une pluie d'épées purificatrices autour de sa",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "aoe",
+            "untargetable"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -2409,7 +2638,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "healing"
+            "healing",
+            "conditional_form"
           ]
         },
         "q": {
@@ -2417,7 +2647,9 @@
           "excerpt_fr": "Kayn se rue vers l'avant puis frappe. La ruée et l'attaque infligent toutes deux des dégâts.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "w": {
           "name": "ENTAILLE SOMBRE",
@@ -2458,14 +2690,18 @@
           "excerpt_fr": "Kennen étourdit les ennemis qu'il touche 3 fois avec ses compétences.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc"
+          ]
         },
         "q": {
           "name": "SHURIKEN FOUDROYANT",
           "excerpt_fr": "Kennen lance un shuriken qui inflige des dégâts magiques au premier ennemi touché.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "w": {
           "name": "SURTENSION",
@@ -2479,7 +2715,9 @@
           "excerpt_fr": "Kennen prend une forme électrique et ne peut plus attaquer. Il gagne de la vitesse de déplacement quand il prend cette forme, puis de",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "r": {
           "name": "MAELSTRÖM",
@@ -2487,6 +2725,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
+            "magic_damage",
             "aoe"
           ]
         }
@@ -2507,7 +2746,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "magic_damage"
           ]
         },
         "q": {
@@ -2515,14 +2755,18 @@
           "excerpt_fr": "Kha'Zix donne un coup de griffes qui inflige des dégâts physiques. Si la cible est isolée, les dégâts sont augmentés. Évolution Griffes de faucheur",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "physical_damage"
+          ]
         },
         "w": {
           "name": "PIQUE DU NÉANT",
           "excerpt_fr": "Kha'Zix tire des piques qui infligent des dégâts physiques. Il récupère également des PV s'il est dans le rayon de l'explosion. Évolution Batterie de",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "physical_damage"
+          ]
         },
         "e": {
           "name": "BOND",
@@ -2531,6 +2775,7 @@
           "descriptionTruncated": true,
           "detected_mechanics": [
             "mobility",
+            "physical_damage",
             "aoe"
           ]
         },
@@ -2540,6 +2785,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "mobility",
             "untargetable"
           ]
         }
@@ -2574,7 +2820,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "aoe"
+            "aoe",
+            "repeated_hits"
           ]
         },
         "e": {
@@ -2582,7 +2829,9 @@
           "excerpt_fr": "Agneau effectue un tir précis, ralentissant la cible. Si Agneau attaque la cible deux fois de plus, sa troisième attaque envoie Loup sur la",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "repeated_hits"
+          ]
         },
         "r": {
           "name": "REPOS D'AGNEAU",
@@ -2590,7 +2839,6 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "healing",
             "aoe",
             "untargetable"
           ]
@@ -2618,14 +2866,19 @@
           "excerpt_fr": "Onde sonore : Lee Sin émet une onde sonore pour localiser ses ennemis, infligeant des dégâts physiques au premier ennemi touché. Si Onde sonore",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "physical_damage"
+          ]
         },
         "w": {
           "name": "Rempart/Force d'âme",
           "excerpt_fr": "Lee Sin fonce à l'endroit ciblé et s'octroie un bouclier si un champion ennemi ou un monstre est proche du point d'arrivée. Après avoir",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield",
+            "magic_damage"
+          ]
         },
         "e": {
           "name": "Trombe/Fracture",
@@ -2633,6 +2886,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "mobility",
+            "magic_damage",
             "aoe"
           ]
         },
@@ -2641,7 +2896,9 @@
           "excerpt_fr": "Lee Sin donne un puissant coup de pied qui projette sa cible en arrière, infligeant des dégâts physiques à la cible et à tous",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "physical_damage"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -2659,14 +2916,19 @@
           "excerpt_fr": "Les compétences infligeant des dégâts marquent les ennemis d'un Rayon de soleil. Si des champions alliés attaquent ces ennemis, ils dissipent Rayon de soleil",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "q": {
           "name": "BOUCLIER DE L'AUBE",
           "excerpt_fr": "Leona utilise son bouclier pour sa prochaine attaque de base, infligeant des dégâts magiques supplémentaires et étourdissant la cible.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield",
+            "magic_damage"
+          ]
         },
         "w": {
           "name": "ÉCLIPSE",
@@ -2674,6 +2936,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "shield",
+            "magic_damage",
             "aoe"
           ]
         },
@@ -2683,7 +2947,9 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "mobility",
+            "magic_damage"
           ]
         },
         "r": {
@@ -2711,7 +2977,9 @@
           "excerpt_fr": "Toucher un champion ou un monstre avec une compétence lui inflige des dégâts supplémentaires sur la durée équivalents à un pourcentage de ses PV",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "max_hp_damage"
+          ]
         },
         "q": {
           "name": "FRAPPE FLEURIE",
@@ -2719,6 +2987,9 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "mobility",
+            "magic_damage",
+            "true_damage",
             "aoe"
           ]
         },
@@ -2745,7 +3016,9 @@
           "excerpt_fr": "Lillia provoque un effet de somnolence chez tous les ennemis affectés par Poussière de rêve, qui finissent par s'endormir. Ces ennemis subiront des dégâts",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -2764,7 +3037,9 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "aoe"
+            "magic_damage",
+            "aoe",
+            "conditional_form"
           ]
         },
         "q": {
@@ -2772,7 +3047,10 @@
           "excerpt_fr": "Projette une lance de glace qui se brise au contact du premier ennemi touché, lui infligeant des dégâts magiques et réduisant sa vitesse de",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility",
+            "magic_damage"
+          ]
         },
         "w": {
           "name": "CERCLE DE GIVRE",
@@ -2780,6 +3058,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
+            "magic_damage",
             "aoe"
           ]
         },
@@ -2788,7 +3067,9 @@
           "excerpt_fr": "Lissandra crée une griffe de glace qui inflige des dégâts magiques. Si vous réactivez la compétence, Lissandra est transportée à l'endroit où se situe",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "r": {
           "name": "TOMBEAU POLAIRE",
@@ -2797,7 +3078,9 @@
           "descriptionTruncated": true,
           "detected_mechanics": [
             "healing",
-            "cc"
+            "cc",
+            "mobility",
+            "magic_damage"
           ]
         }
       },
@@ -2830,14 +3113,18 @@
           "excerpt_fr": "Lucian tire un projectile qui explose en étoile, marquant et révélant brièvement les ennemis. Lucian gagne de la vitesse de déplacement quand il attaque",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "e": {
           "name": "POURSUITE INLASSABLE",
           "excerpt_fr": "Lucian se rue dans une direction. Les attaques de Pistolero réduisent le délai de récupération de Poursuite inlassable.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "r": {
           "name": "DÉLUGE DE BALLES",
@@ -2913,7 +3200,9 @@
           "excerpt_fr": "Les sorts de Lux infligeant des dégâts chargent la cible en énergie pendant 5 sec. La prochaine attaque de Lux embrase l'énergie, infligeant des",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "q": {
           "name": "Entrave de lumière",
@@ -2965,14 +3254,19 @@
           "excerpt_fr": "Malphite est protégé par un bouclier de roche qui absorbe des dégâts équivalents à 10% de ses PV maximum. Si Malphite n'est pas touché",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield",
+            "max_hp_damage"
+          ]
         },
         "q": {
           "name": "Éclat sismique",
           "excerpt_fr": "Utilisant sa magie élémentaire primale, Malphite envoie un éclat de terre à son ennemi à travers le sol, infligeant des dégâts à l'impact et",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "w": {
           "name": "Coup de tonnerre",
@@ -2986,7 +3280,9 @@
           "excerpt_fr": "Malphite frappe le sol, déclenchant une onde de choc qui inflige des dégâts magiques en fonction de son armure et qui réduit la vitesse",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "r": {
           "name": "Force indomptable",
@@ -3020,6 +3316,7 @@
           "descriptionTruncated": false,
           "detected_mechanics": [
             "cc",
+            "magic_damage",
             "aoe"
           ]
         },
@@ -3029,7 +3326,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "conditional_form"
           ]
         },
         "e": {
@@ -3064,14 +3362,19 @@
           "excerpt_fr": "Après plusieurs attaques de base consécutives, Maître Yi frappe deux fois.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "repeated_hits"
+          ]
         },
         "q": {
           "name": "Assaut éclair",
           "excerpt_fr": "Maître Yi se téléporte sur le champ de bataille à la vitesse de l'éclair, infligeant des dégâts physiques à plusieurs unités sur son chemin",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "physical_damage",
+            "crit"
+          ]
         },
         "w": {
           "name": "Méditation",
@@ -3085,7 +3388,9 @@
           "excerpt_fr": "Permet aux attaques de base d'infliger des dégâts bruts supplémentaires.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "true_damage"
+          ]
         },
         "r": {
           "name": "Highlander",
@@ -3118,6 +3423,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "cc",
             "aoe"
           ]
         },
@@ -3136,7 +3442,10 @@
           "excerpt_fr": "Milio lance un bouclier à un allié qui augmente temporairement sa vitesse de déplacement. Cette compétence a 2 charges.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield",
+            "mobility"
+          ]
         },
         "r": {
           "name": "FLAMMES VITALES",
@@ -3161,21 +3470,27 @@
           "excerpt_fr": "Miss Fortune inflige des dégâts physiques supplémentaires quand elle attaque une nouvelle cible.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "physical_damage"
+          ]
         },
         "q": {
           "name": "Doublé",
           "excerpt_fr": "Miss Fortune tire une balle, blessant une cible et infligeant un coup critique à celle qui se trouve derrière. Applique les effets à l'impact.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "crit"
+          ]
         },
         "w": {
           "name": "Fanfaronne",
           "excerpt_fr": "Miss Fortune augmente passivement sa vitesse de déplacement quand elle n'est pas attaquée. Cette compétence peut être activée pour recevoir un bonus en vitesse",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "e": {
           "name": "Pluie de balles",
@@ -3191,7 +3506,10 @@
           "excerpt_fr": "Miss Fortune déchaîne un déluge de balles dans un cône devant elle, infligeant d'importants dégâts aux ennemis. Chaque vague de Barrage de plomb peut",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "aoe",
+            "crit"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -3209,7 +3527,9 @@
           "excerpt_fr": "Après 3 attaques ou compétences contre des champions ou des monstres, Mordekaiser gagne un puissant halo de dégâts et augmente sa vitesse de déplacement.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "q": {
           "name": "OBLITÉRATION",
@@ -3223,7 +3543,9 @@
           "excerpt_fr": "Mordekaiser stocke une partie des dégâts qu'il inflige et qu'il subit pour créer un bouclier. Il peut consommer ce bouclier pour récupérer des PV.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield"
+          ]
         },
         "e": {
           "name": "EMPRISE FUNESTE",
@@ -3265,7 +3587,9 @@
           "excerpt_fr": "Morgana utilise la magie noire pour immobiliser un ennemi, l'obligeant à ressentir la douleur qu'il a causée et lui infligeant des dégâts magiques.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "w": {
           "name": "TOURMENT TÉNÉBREUX",
@@ -3273,6 +3597,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "magic_damage",
             "aoe"
           ]
         },
@@ -3281,7 +3606,9 @@
           "excerpt_fr": "Morgana offre à un allié une barrière de feu stellaire qui absorbe les dégâts magiques et les entraves jusqu'à ce qu'il soit brisé.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "r": {
           "name": "CHAÎNES SPIRITUELLES",
@@ -3289,6 +3616,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "mobility",
             "aoe"
           ]
         }
@@ -3308,7 +3636,9 @@
           "excerpt_fr": "Quand les compétences de Nami touchent des champions alliés, la vitesse de déplacement de ces champions augmente un court instant.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "q": {
           "name": "Prison aqueuse",
@@ -3331,7 +3661,9 @@
           "excerpt_fr": "Renforce un champion allié pendant un court instant, permettant à ses attaques de base et à ses compétences d'infliger des dégâts magiques supplémentaires et",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "r": {
           "name": "Raz-de-marée",
@@ -3382,6 +3714,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
+            "burn",
             "aoe"
           ]
         },
@@ -3411,7 +3744,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "physical_damage"
           ]
         },
         "q": {
@@ -3419,7 +3753,9 @@
           "excerpt_fr": "Nautilus lance son ancre devant lui. S'il touche un ennemi, Nautilus et la cible sont tirés l'un vers l'autre et Nautilus lui inflige des",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "w": {
           "name": "COLÈRE DU TITAN",
@@ -3427,6 +3763,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "shield",
+            "burn",
             "aoe"
           ]
         },
@@ -3436,7 +3774,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "aoe"
           ]
         },
         "r": {
@@ -3480,14 +3819,18 @@
           "excerpt_fr": "Nilah s'enveloppe de brume, ce qui augmente sa vitesse de déplacement et lui permet d'esquiver avec élégance toutes les attaques. Les alliés qu'elle touche",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "e": {
           "name": "TORRENT",
           "excerpt_fr": "Nilah se rue avec enthousiasme vers sa cible, infligeant des dégâts à tous les ennemis qu'elle traverse.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "r": {
           "name": "APOTHÉOSE",
@@ -3514,7 +3857,10 @@
           "excerpt_fr": "Nunu augmente la vitesse d'attaque et la vitesse de déplacement de Willump et d'un allié proche. Les attaques de base de Willump infligent des",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility",
+            "aoe"
+          ]
         },
         "q": {
           "name": "VORACITÉ",
@@ -3574,7 +3920,9 @@
           "excerpt_fr": "Olaf lance sa hache à l'endroit ciblé, infligeant des dégâts aux ennemis traversés et réduisant leur vitesse de déplacement. Si Olaf ramasse sa hache,",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "w": {
           "name": "Frappes vicieuses",
@@ -3590,7 +3938,11 @@
           "excerpt_fr": "Olaf se rue vers un ennemi et attaque avec tant de force qu'il inflige des dégâts physiques bruts à sa cible. S'il ne tue",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility",
+            "physical_damage",
+            "true_damage"
+          ]
         },
         "r": {
           "name": "Ragnarok",
@@ -3615,7 +3967,9 @@
           "excerpt_fr": "Les attaques d'Orianna infligent des dégâts magiques supplémentaires. Plus Orianna attaque la même cible, plus les dégâts sont importants.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "q": {
           "name": "Ordre : Attaque",
@@ -3623,6 +3977,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "magic_damage",
             "aoe"
           ]
         },
@@ -3633,6 +3988,7 @@
           "descriptionTruncated": true,
           "detected_mechanics": [
             "cc",
+            "magic_damage",
             "aoe"
           ]
         },
@@ -3641,7 +3997,9 @@
           "excerpt_fr": "Orianna ordonne à sa sphère d'aller se fixer sur un champion allié pour le protéger, infligeant des dégâts magiques aux ennemis sur son passage.",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "r": {
           "name": "Ordre : Onde de choc",
@@ -3649,6 +4007,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "magic_damage",
             "aoe"
           ]
         }
@@ -3692,7 +4051,9 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "mobility",
+            "aoe"
           ]
         },
         "r": {
@@ -3727,21 +4088,29 @@
           "excerpt_fr": "Pantheon donne un coup de lance ou jette sa lance dans la direction choisie. Le coup est critique contre les ennemis à qui il",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "crit"
+          ]
         },
         "w": {
           "name": "ASSAUT MARTIAL",
           "excerpt_fr": "Pantheon se rue sur une cible, l'étourdissant et lui infligeant des dégâts. Ardeur mortelle : Pantheon enchaîne avec une attaque supplémentaire qui frappe trois",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "e": {
           "name": "ÉGIDE IMPÉNÉTRABLE",
           "excerpt_fr": "Pantheon lève son bouclier, devenant invulnérable aux attaques auxquelles il fait face, et donne des coups de lance en succession rapide. Ardeur mortelle :",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield",
+            "mobility",
+            "untargetable"
+          ]
         },
         "r": {
           "name": "MÉTÉORE",
@@ -3766,7 +4135,9 @@
           "excerpt_fr": "Poppy lance son écu et le fait rebondir sur sa cible. Poppy peut le ramasser pour obtenir un bouclier temporaire.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield"
+          ]
         },
         "q": {
           "name": "COMMOTION",
@@ -3783,14 +4154,19 @@
           "excerpt_fr": "Poppy obtient passivement de l'armure et de la résistance magique. Ce bonus augmente quand il lui reste peu de PV. Poppy peut activer Présence",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "e": {
           "name": "CHARGE HÉROÏQUE",
           "excerpt_fr": "Poppy se rue sur sa cible et la repousse. Si la cible est repoussée sur un mur, elle est étourdie.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc",
+            "mobility"
+          ]
         },
         "r": {
           "name": "VERDICT DE LA GARDIENNE",
@@ -3817,7 +4193,10 @@
           "excerpt_fr": "Quand Pyke n'est pas vu par les ennemis, il régénère les dégâts que les champions lui ont récemment infligés. Par ailleurs, Pyke ne peut",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "healing",
+            "max_hp_damage"
+          ]
         },
         "q": {
           "name": "HARPONNAGE",
@@ -3833,7 +4212,9 @@
           "excerpt_fr": "Pyke se camoufle et obtient un important bonus en vitesse de déplacement qui diminue sur la durée.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "e": {
           "name": "RESSAC FANTÔME",
@@ -3847,7 +4228,9 @@
           "excerpt_fr": "Pyke fonce sur les ennemis qui ont peu de PV et les exécute, ce qui lui permet de relancer ce sort et d'octroyer des",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "execute"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -3865,7 +4248,9 @@
           "excerpt_fr": "Rakan gagne périodiquement un bouclier. Lien amoureux : Rakan peut se joindre au Rappel de Xayah.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield"
+          ]
         },
         "q": {
           "name": "RÉMIGE RAYONNANTE",
@@ -3873,7 +4258,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "healing"
+            "healing",
+            "magic_damage"
           ]
         },
         "w": {
@@ -3882,6 +4268,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
+            "mobility",
             "aoe"
           ]
         },
@@ -3890,7 +4277,9 @@
           "excerpt_fr": "Rakan s'envole vers un champion allié et lui octroie un bouclier. La compétence peut être relancée sans coût pendant un court instant. Si Rakan",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield"
+          ]
         },
         "r": {
           "name": "DANSE ULTIME",
@@ -3898,7 +4287,9 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "mobility",
+            "magic_damage"
           ]
         }
       },
@@ -3917,7 +4308,9 @@
           "excerpt_fr": "En dehors des combats, Rammus se met à rouler, ce qui augmente sa vitesse de déplacement. Entrer en combat désactive temporairement cet effet.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "q": {
           "name": "DÉMOLISSEUR",
@@ -3938,7 +4331,9 @@
           "excerpt_fr": "Rammus provoque un champion ennemi ou un monstre, le forçant à l'attaquer. Il augmente aussi sa vitesse d'attaque pendant un court instant.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc"
+          ]
         },
         "r": {
           "name": "FRAPPE ASCENDANTE",
@@ -3946,8 +4341,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "mobility",
-            "long_range"
+            "mobility"
           ]
         }
       },
@@ -3974,7 +4368,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "healing"
+            "healing",
+            "physical_damage"
           ]
         },
         "w": {
@@ -3982,7 +4377,10 @@
           "excerpt_fr": "Renekton frappe deux fois la cible en infligeant des dégâts physiques modérés et un étourdissement. Si Renekton a plus de 50 pts de Fureur,",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc",
+            "physical_damage"
+          ]
         },
         "e": {
           "name": "TRANCHE ET COUPE",
@@ -4014,14 +4412,19 @@
           "excerpt_fr": "Quand Rengar est dans les hautes herbes ou quand il est camouflé, son attaque le fait bondir sur sa cible. La première élimination de",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "q": {
           "name": "ESPRIT SAUVAGE",
           "excerpt_fr": "Rengar augmente sa vitesse d'attaque pour ses deux prochaines attaques. La première attaque inflige des dégâts physiques supplémentaires et inflige un coup critique. Les",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "physical_damage",
+            "crit"
+          ]
         },
         "w": {
           "name": "RUGISSEMENT",
@@ -4029,6 +4432,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "cc",
             "aoe"
           ]
         },
@@ -4038,7 +4442,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "physical_damage"
           ]
         },
         "r": {
@@ -4046,7 +4451,9 @@
           "excerpt_fr": "Rengar gagne de la vitesse de déplacement et révèle temporairement le champion ennemi le plus proche. Peu après avoir lancé la compétence, Rengar devient",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -4072,6 +4479,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "cc",
             "aoe"
           ]
         },
@@ -4096,7 +4504,9 @@
           "excerpt_fr": "Riven renforce son arme avec de l'énergie, augmentant ses dégâts d'attaque et sa portée. Pendant la durée de cet effet, Riven peut utiliser une",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "long_range"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -4114,7 +4524,9 @@
           "excerpt_fr": "Chaque sort lancé par Rumble augmente sa Vapeur. Quand Rumble atteint 50% de Vapeur, il entre dans la Zone rouge, ce qui confère des",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "aoe"
+          ]
         },
         "q": {
           "name": "LANCE-FLAMMES",
@@ -4122,6 +4534,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
+            "magic_damage",
+            "burn",
             "aoe"
           ]
         },
@@ -4130,7 +4544,11 @@
           "excerpt_fr": "Rumble crée un bouclier qui le protège des dégâts et lui donne un bonus de rapidité. Dans la Zone rouge, les PV du bouclier",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield",
+            "mobility",
+            "aoe"
+          ]
         },
         "e": {
           "name": "HARPON ÉLECTRIQUE",
@@ -4138,7 +4556,10 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "mobility",
+            "magic_damage",
+            "aoe"
           ]
         },
         "r": {
@@ -4174,6 +4595,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "mobility",
             "aoe"
           ]
         },
@@ -4182,9 +4604,7 @@
           "excerpt_fr": "Ryze piège une cible dans une prison de runes, lui infligeant des dégâts et ralentissant ses déplacements. Si la cible est marquée par Flux,",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": [
-            "cc"
-          ]
+          "detected_mechanics": []
         },
         "e": {
           "name": "FLUX ENVOÛTANT",
@@ -4218,14 +4638,18 @@
           "excerpt_fr": "Samira fait des combos en enchaînant des attaques ou compétences différentes de la précédente. En mêlée, les attaques de Samira infligent des dégâts magiques",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "q": {
           "name": "PANACHE",
           "excerpt_fr": "Samira tire une balle ou donne un coup d'épée, infligeant des dégâts. Si cette compétence est lancée pendant Charge sauvage, Samira frappe tous les",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "w": {
           "name": "TOURBILLON DE LAME",
@@ -4239,7 +4663,9 @@
           "excerpt_fr": "Samira se rue à travers un ennemi (bâtiments inclus), tailladant les ennemis qu'elle traverse et gagnant de la vitesse d'attaque. Tuer un champion ennemi",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "r": {
           "name": "GÂCHETTE INFERNALE",
@@ -4264,7 +4690,10 @@
           "excerpt_fr": "Lorsque des unités meurent près de Senna, leurs âmes sont parfois prises au piège dans la Brume noire. Senna peut attaquer ces âmes pour",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility",
+            "crit"
+          ]
         },
         "q": {
           "name": "OMBRE PERFORANTE",
@@ -4279,7 +4708,6 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc",
             "aoe"
           ]
         },
@@ -4289,6 +4717,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "mobility",
             "aoe"
           ]
         },
@@ -4297,7 +4726,9 @@
           "excerpt_fr": "Senna invoque les pierres-reliques de Sentinelles déchues, ouvrant son canon en pierre-relique pour former un éventail sacré d'ombre et de lumière. Elle tire alors",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -4331,7 +4762,10 @@
           "excerpt_fr": "Séraphine octroie un bouclier à tous les champions alliés proches ainsi qu'un bonus en vitesse de déplacement. Si Séraphine est déjà protégée par un",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield",
+            "mobility"
+          ]
         },
         "e": {
           "name": "BATTEMENT",
@@ -4339,7 +4773,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "magic_damage"
           ]
         },
         "r": {
@@ -4365,14 +4800,19 @@
           "excerpt_fr": "Lors de ses attaques de base, Sett alterne son direct du gauche et son direct du droit. Le direct du droit est un peu",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "healing"
+          ]
         },
         "q": {
           "name": "ROGNE",
           "excerpt_fr": "Les deux prochaines attaques de Sett infligent des dégâts supplémentaires en fonction des PV max de la cible. De plus, Sett augmente sa vitesse",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility",
+            "max_hp_damage"
+          ]
         },
         "w": {
           "name": "COUP CATHARTIQUE",
@@ -4380,6 +4820,9 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "shield",
+            "physical_damage",
+            "true_damage",
             "aoe"
           ]
         },
@@ -4415,14 +4858,18 @@
           "excerpt_fr": "Après avoir lancé une compétence, Shen gagne un bouclier. Affecter d'autres champions réduit le délai de récupération de cet effet.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield"
+          ]
         },
         "q": {
           "name": "ASSAUT CRÉPUSCULAIRE",
           "excerpt_fr": "Shen rappelle sa lame spirituelle pour attaquer avec elle, infligeant des dégâts basés sur les PV max de sa cible. Les attaques sont grandement",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "max_hp_damage"
+          ]
         },
         "w": {
           "name": "REFUGE SPIRITUEL",
@@ -4438,14 +4885,18 @@
           "excerpt_fr": "Shen se rue dans une direction en provoquant les ennemis sur son passage.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "r": {
           "name": "SOUTIEN INDÉFECTIBLE",
           "excerpt_fr": "Shen protège un champion allié contre les dégâts, puis il se téléporte près de cet allié.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -4463,7 +4914,9 @@
           "excerpt_fr": "Shyvana cumule des effets quand elle tue des grands monstres, des monstres épiques et des champions. Les dragons octroient plus d'effets. Tous les 100",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "repeated_hits"
+          ]
         },
         "q": {
           "name": "Morsure double",
@@ -4480,6 +4933,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "mobility",
+            "magic_damage",
             "aoe"
           ]
         },
@@ -4488,7 +4943,10 @@
           "excerpt_fr": "Shyvana lance une boule de feu qui blesse tous les ennemis touchés et laisse des cendres sur les cibles, les marquant pendant 5 sec.",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "max_hp_damage",
+            "true_damage"
+          ]
         },
         "r": {
           "name": "Vol du dragon",
@@ -4496,7 +4954,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "aoe"
+            "aoe",
+            "conditional_form"
           ]
         }
       },
@@ -4515,7 +4974,9 @@
           "excerpt_fr": "Singed bénéficie de l'aspiration des champions proches, gagnant un bref bonus en vitesse de déplacement quand il les dépasse.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "q": {
           "name": "Piste empoisonnée",
@@ -4539,9 +5000,7 @@
           "excerpt_fr": "Blesse l'ennemi et le projette derrière Singed. Si la cible projetée par Singed atterrit dans Attrape-mouche, elle est aussi immobilisée.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": [
-            "cc"
-          ]
+          "detected_mechanics": []
         },
         "r": {
           "name": "Potion de démence",
@@ -4566,7 +5025,9 @@
           "excerpt_fr": "Après avoir été tué, Sion revient temporairement à la vie, mais ses PV diminuent rapidement. Ses attaques deviennent très rapides, soignent Sion et infligent",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "max_hp_damage"
+          ]
         },
         "q": {
           "name": "FRACAS MEURTRIER",
@@ -4583,6 +5044,9 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "shield",
+            "max_hp_damage",
+            "magic_damage",
             "aoe"
           ]
         },
@@ -4620,7 +5084,9 @@
           "excerpt_fr": "Sivir gagne un bref bonus en vitesse de déplacement quand elle attaque un champion ennemi.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "q": {
           "name": "LAME BOOMERANG",
@@ -4641,14 +5107,18 @@
           "excerpt_fr": "Crée une barrière magique qui bloque une compétence ennemie lancée contre Sivir. Celle-ci récupère des PV et gagne un bref bonus en vitesse de",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "r": {
           "name": "EN CHASSE",
           "excerpt_fr": "Sivir mène ses alliés au combat, leur octroyant un bref bonus en vitesse de déplacement. De plus, les délais de récupération de Sivir sont",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -4666,7 +5136,9 @@
           "excerpt_fr": "Après avoir lancé 3 compétences, la prochaine attaque de Sona infligera des dégâts magiques supplémentaires et étourdira la cible.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "q": {
           "name": "Hymne à la bravoure",
@@ -4674,6 +5146,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "magic_damage",
             "aoe"
           ]
         },
@@ -4684,6 +5157,7 @@
           "descriptionTruncated": true,
           "detected_mechanics": [
             "healing",
+            "shield",
             "aoe"
           ]
         },
@@ -4693,6 +5167,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "mobility",
             "aoe"
           ]
         },
@@ -4728,6 +5203,7 @@
           "descriptionTruncated": true,
           "detected_mechanics": [
             "healing",
+            "magic_damage",
             "aoe"
           ]
         },
@@ -4737,7 +5213,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "healing"
+            "healing",
+            "shield"
           ]
         },
         "e": {
@@ -4746,7 +5223,6 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc",
             "aoe"
           ]
         },
@@ -4773,7 +5249,9 @@
           "excerpt_fr": "Les corbeaux de Swain collectent des fragments d'âme qui lui rendent des PV, augmentent définitivement ses PV max et qui sont modifiés par la",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "max_hp_damage"
+          ]
         },
         "q": {
           "name": "Poigne mortifère",
@@ -4806,7 +5284,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "conditional_form"
           ]
         }
       },
@@ -4832,7 +5311,9 @@
           "excerpt_fr": "Syndra fait apparaître une sphère noire, infligeant des dégâts magiques là où elle apparaît. La sphère dure quelques secondes et peut être manipulée grâce",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "w": {
           "name": "FORCE DE LA VOLONTÉ",
@@ -4840,6 +5321,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "magic_damage",
+            "true_damage",
             "aoe"
           ]
         },
@@ -4848,7 +5331,10 @@
           "excerpt_fr": "Syndra projette une vague de force qui inflige des dégâts magiques et repousse les ennemis et les sphères noires. Les ennemis touchés par une",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc",
+            "magic_damage"
+          ]
         },
         "r": {
           "name": "DÉCHAÎNEMENT DE PUISSANCE",
@@ -4856,6 +5342,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "magic_damage",
             "aoe"
           ]
         }
@@ -4875,28 +5362,38 @@
           "excerpt_fr": "Les compétences de Talon blessent les champions et les grands monstres (cumulable 3 fois). Quand Talon lance une attaque de base sur un champion",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "burn"
+          ]
         },
         "q": {
           "name": "DIPLOMATIE NOXIENNE",
           "excerpt_fr": "Talon poignarde l'unité ciblée. S'il est en mêlée, cette attaque inflige des dégâts critiques. S'il est à distance, Talon saute sur la cible avant",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility",
+            "long_range",
+            "crit"
+          ]
         },
         "w": {
           "name": "RATISSAGE",
           "excerpt_fr": "Talon projette une volée de lames qui reviennent ensuite vers lui, infligeant des dégâts physiques à chaque fois qu'elles transpercent un ennemi. En revenant,",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "physical_damage"
+          ]
         },
         "e": {
           "name": "VOIE DE L’ASSASSIN",
           "excerpt_fr": "Talon saute par-dessus n'importe quel terrain ou bâtiment, jusqu'à une distance maximale. Cette compétence a un court délai de récupération, mais le terrain franchi",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "r": {
           "name": "ASSAUT TÉNÉBREUX",
@@ -4904,6 +5401,9 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "mobility",
+            "physical_damage",
+            "aoe",
             "untargetable"
           ]
         }
@@ -4923,7 +5423,9 @@
           "excerpt_fr": "Les attaques de Teemo infligent des dégâts magiques supplémentaires sur la durée.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "q": {
           "name": "FLÉCHETTE AVEUGLANTE",
@@ -4937,7 +5439,9 @@
           "excerpt_fr": "La vitesse de déplacement de Teemo est passivement augmentée jusqu'à ce qu'il soit frappé par un champion ennemi ou une tourelle ennemie. À l'activation,",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "e": {
           "name": "GUÉRILLA",
@@ -4954,7 +5458,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "burn"
           ]
         }
       },
@@ -5055,7 +5560,10 @@
           "excerpt_fr": "Tristana charge un énorme boulet de canon dans son arme et tire sur une unité ennemie, ce qui inflige des dégâts magiques et repousse",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc",
+            "magic_damage"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -5073,7 +5581,10 @@
           "excerpt_fr": "Tryndamere gagne de la Fureur à chaque attaque, coup critique et coup de grâce qu'il inflige. La Fureur augmente passivement ses chances de coup",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "crit",
+            "repeated_hits"
+          ]
         },
         "q": {
           "name": "Soif de sang",
@@ -5089,7 +5600,9 @@
           "excerpt_fr": "Tryndamere lance un hurlement, réduisant les dégâts d'attaque des champions proches. De plus, les ennemis qui tournent le dos à Tryndamere voient leur vitesse",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "e": {
           "name": "Balafre",
@@ -5103,7 +5616,9 @@
           "excerpt_fr": "La soif de combattre de Tryndamere devient si puissante qu'il ne peut pas mourir, quelles que soient les blessures qu'il subit.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "untargetable"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -5170,14 +5685,18 @@
           "excerpt_fr": "Les attaques de base de Twitch contaminent sa cible, lui infligeant des dégâts bruts chaque seconde.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "true_damage"
+          ]
         },
         "q": {
           "name": "EMBUSCADE",
           "excerpt_fr": "Twitch se camoufle pendant un court instant et sa vitesse de déplacement est augmentée. Quand il quitte son camouflage, sa vitesse d'attaque est brièvement",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "w": {
           "name": "DOSE DE VENIN",
@@ -5200,7 +5719,9 @@
           "excerpt_fr": "Twitch libère toute la puissance de son arbalète, tirant des carreaux à longue portée qui transpercent tous les ennemis touchés.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "long_range"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -5218,7 +5739,9 @@
           "excerpt_fr": "Les attaques de base et Géhenne d'Urgot font jaillir des jets de flammes de ses jambes, infligeant des dégâts physiques.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "physical_damage"
+          ]
         },
         "q": {
           "name": "TORPILLE CORROSIVE",
@@ -5227,6 +5750,7 @@
           "descriptionTruncated": false,
           "detected_mechanics": [
             "cc",
+            "physical_damage",
             "aoe"
           ]
         },
@@ -5245,7 +5769,9 @@
           "excerpt_fr": "Urgot fonce dans une direction, s'entoure d'un bouclier et piétine les ennemis sur son passage (hors champions). S'il percute un champion ennemi, il s'arrête",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield"
+          ]
         },
         "r": {
           "name": "RÈGNE DE LA TERREUR",
@@ -5284,7 +5810,10 @@
           "excerpt_fr": "Passive : les attaques de base de Varus infligent des dégâts magiques supplémentaires ainsi que Meurtrissure. Les autres compétences de Varus déclenchent Meurtrissure, infligeant",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "max_hp_damage",
+            "magic_damage"
+          ]
         },
         "e": {
           "name": "Pluie de flèches",
@@ -5292,7 +5821,9 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "healing"
+            "healing",
+            "mobility",
+            "physical_damage"
           ]
         },
         "r": {
@@ -5321,6 +5852,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
+            "mobility",
             "aoe"
           ]
         },
@@ -5337,7 +5869,10 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "healing"
+            "healing",
+            "max_hp_damage",
+            "true_damage",
+            "repeated_hits"
           ]
         },
         "e": {
@@ -5345,7 +5880,9 @@
           "excerpt_fr": "Vayne prend l'arbalète qu'elle porte sur le dos et tire un carreau gigantesque sur sa cible, lui infligeant des dégâts et la projetant en",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc"
+          ]
         },
         "r": {
           "name": "Combat ultime",
@@ -5372,21 +5909,27 @@
           "excerpt_fr": "Veigar cumule des effets passifs en frappant des champions ennemis plusieurs fois.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "repeated_hits"
+          ]
         },
         "q": {
           "name": "COUP MALIN",
           "excerpt_fr": "Veigar lance une boule d'énergie des ténèbres, infligeant des dégâts magiques aux deux premiers ennemis touchés. Les unités tuées par ce sort confèrent à",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "w": {
           "name": "MATIÈRE NOIRE",
           "excerpt_fr": "Veigar fait tomber de la matière noire pour infliger des dégâts magiques à ses adversaires. Les effets Pouvoir maléfique phénoménal cumulés réduisent le délai",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "e": {
           "name": "PROFANATION",
@@ -5394,6 +5937,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
+            "cc",
             "aoe"
           ]
         },
@@ -5402,7 +5946,9 @@
           "excerpt_fr": "Veigar lance de l'énergie explosive sur le champion ennemi ciblé, infligeant d'importants dégâts magiques qui augmentent avec les PV manquants de la cible.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -5420,7 +5966,9 @@
           "excerpt_fr": "Vex est régulièrement renforcée, ce qui permet à sa prochaine compétence de base d'effrayer les ennemis et d'interrompre les ruées. Chaque fois qu'un ennemi",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "q": {
           "name": "MISTRAL PERDANT",
@@ -5435,6 +5983,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
+            "shield",
             "aoe"
           ]
         },
@@ -5471,7 +6020,10 @@
           "excerpt_fr": "Toutes les 3 attaques sur le même ennemi, Vi obtient un bonus de vitesse d'attaque, réduit l'armure de l'ennemi et lui inflige des dégâts",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "max_hp_damage",
+            "physical_damage"
+          ]
         },
         "q": {
           "name": "Brise-coffre",
@@ -5485,7 +6037,10 @@
           "excerpt_fr": "Vi charge son Bouclier antichoc lorsqu'une attaque ou une compétence touche un ennemi. Activer Bouclier antichoc génère un bouclier qui absorbe des dégâts. Au",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield",
+            "mobility"
+          ]
         },
         "e": {
           "name": "Force implacable",
@@ -5499,7 +6054,9 @@
           "excerpt_fr": "Vi fonce sur un ennemi, écartant ceux qui sont sur son passage. Quand elle atteint sa cible, elle la projette dans les airs, saute",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -5517,7 +6074,9 @@
           "excerpt_fr": "Les ennemis qui meurent devant Viego deviennent des spectres. Quand il attaque un spectre, Viego prend temporairement le contrôle du corps de l'ennemi mort,",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "max_hp_damage"
+          ]
         },
         "q": {
           "name": "LAME DU ROI DÉCHU",
@@ -5531,7 +6090,9 @@
           "excerpt_fr": "Viego charge son attaque avant de se ruer vers l'avant, projetant une boule de Brume noire concentrée qui étourdit le premier ennemi touché.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc"
+          ]
         },
         "e": {
           "name": "CHEMIN TOURMENTÉ",
@@ -5545,7 +6106,10 @@
           "excerpt_fr": "Viego se téléporte à un endroit proche et exécute un champion ennemi à l'arrivée, lui transperçant le cœur et provoquant une onde de choc",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc",
+            "execute"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -5570,7 +6134,11 @@
           "excerpt_fr": "Viktor inflige des dégâts magiques à une unité ennemie, obtient un bouclier et renforce sa prochaine attaque de base. Amélioration : le bouclier de",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield",
+            "mobility",
+            "magic_damage"
+          ]
         },
         "w": {
           "name": "CHAMP GRAVITATIONNEL",
@@ -5586,7 +6154,10 @@
           "excerpt_fr": "Viktor utilise son bras robotique pour tirer un rayon chaotique en ligne droite, infligeant des dégâts à tous les ennemis sur son passage. Amélioration",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc",
+            "magic_damage"
+          ]
         },
         "r": {
           "name": "TEMPÊTE ARCANIQUE",
@@ -5594,6 +6165,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "magic_damage",
             "aoe"
           ]
         }
@@ -5613,7 +6185,9 @@
           "excerpt_fr": "Vladimir gagne 1 pt de puissance tous les 30 PV supplémentaires, et 1,6 PV supplémentaire tous les 1 pt de puissance (ces effets ne",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "repeated_hits"
+          ]
         },
         "q": {
           "name": "TRANSFUSION",
@@ -5644,6 +6218,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "magic_damage",
             "aoe"
           ]
         }
@@ -5664,6 +6239,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "magic_damage",
             "aoe"
           ]
         },
@@ -5688,7 +6264,9 @@
           "excerpt_fr": "Volibear fait tomber la foudre à l'endroit ciblé, blessant et ralentissant les ennemis tout en obtenant un bouclier s'il est dans le rayon de",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield"
+          ]
         },
         "r": {
           "name": "TEMPÊTE INCARNÉE",
@@ -5715,21 +6293,27 @@
           "excerpt_fr": "Les attaques de base de Warwick infligent des dégâts magiques supplémentaires. Si Warwick a moins de 50% de ses PV, il récupère des PV",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "q": {
           "name": "DENTS DE LA BÊTE",
           "excerpt_fr": "Warwick se jette en avant et mord sa cible, infligeant des dégâts en fonction des PV max de cette cible et récupérant des PV",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "max_hp_damage"
+          ]
         },
         "w": {
           "name": "TRAQUE SANGUINAIRE",
           "excerpt_fr": "Warwick repère les ennemis qui ont moins de 50% de leurs PV et obtient contre eux des bonus en vitesse de déplacement et en",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "e": {
           "name": "HURLEMENT BESTIAL",
@@ -5765,7 +6349,9 @@
           "excerpt_fr": "Les attaques et les compétences de Wukong et de ses clones appliquent des effets Écrasement. Pour chaque effet cumulé, Wukong et ses clones infligent",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "repeated_hits"
+          ]
         },
         "q": {
           "name": "BÂTON D'OR",
@@ -5780,6 +6366,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "mobility",
             "aoe",
             "untargetable"
           ]
@@ -5790,6 +6377,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "mobility",
             "aoe"
           ]
         },
@@ -5798,7 +6386,9 @@
           "excerpt_fr": "Wukong agrandit son bâton et se met à tournoyer, ce qui augmente sa vitesse de déplacement. Les ennemis touchés subissent des dégâts et sont",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -5830,7 +6420,9 @@
           "excerpt_fr": "Xayah crée une tempête de lames qui augmente sa vitesse d'attaque de base et ses dégâts, tout en augmentant sa vitesse de déplacement si",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "e": {
           "name": "APPEL DES LAMES",
@@ -5895,6 +6487,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "cc",
             "aoe"
           ]
         }
@@ -5914,14 +6507,19 @@
           "excerpt_fr": "Les chances de coup critique de Yasuo sont doublées. En outre, Yasuo génère un bouclier quand il se déplace. Le bouclier se déclenche quand",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield",
+            "crit"
+          ]
         },
         "q": {
           "name": "Tempête d'acier",
           "excerpt_fr": "Donne un coup d'estoc, blessant tous les ennemis sur une ligne. À l'impact, octroie un effet Tempête menaçante pendant quelques secondes. Après avoir cumulé",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "repeated_hits"
+          ]
         },
         "w": {
           "name": "Mur de vent",
@@ -5935,7 +6533,10 @@
           "excerpt_fr": "Se rue à travers l'ennemi ciblé, infligeant des dégâts magiques. Chaque utilisation augmente les dégâts de base de votre prochaine charge jusqu'à un montant",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility",
+            "magic_damage"
+          ]
         },
         "r": {
           "name": "Dernier soupir",
@@ -5943,7 +6544,10 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "aoe"
+            "mobility",
+            "physical_damage",
+            "aoe",
+            "crit"
           ]
         }
       },
@@ -5962,7 +6566,10 @@
           "excerpt_fr": "Une attaque de Yone sur deux inflige des dégâts magiques. De plus, ses chances de coup critique sont augmentées.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage",
+            "crit"
+          ]
         },
         "q": {
           "name": "ACIER MORTEL",
@@ -5979,6 +6586,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "shield",
             "aoe"
           ]
         },
@@ -5987,7 +6595,9 @@
           "excerpt_fr": "L'esprit de Yone quitte son corps et gagne en vitesse de déplacement. Quand cette compétence prend fin, Yone est renvoyé de force dans son",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "mobility"
+          ]
         },
         "r": {
           "name": "DESTIN SCELLÉ",
@@ -6014,7 +6624,9 @@
           "excerpt_fr": "Les attaques de base et les compétences de Yuumi lui octroieront périodiquement un bouclier. Si Yuumi est attachée à un allié ou s'attache rapidement,",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield"
+          ]
         },
         "q": {
           "name": "TÊTE CHAT-SSEUSE",
@@ -6022,7 +6634,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "magic_damage"
           ]
         },
         "w": {
@@ -6031,7 +6644,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "healing"
+            "healing",
+            "mobility"
           ]
         },
         "e": {
@@ -6039,7 +6653,10 @@
           "excerpt_fr": "Yuumi s'octroie un bouclier et gagne de la vitesse d'attaque. Elle gagne également de la vitesse de déplacement tant que le bouclier est actif.",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield",
+            "mobility"
+          ]
         },
         "r": {
           "name": "CHAT-PITRE FINAL",
@@ -6048,7 +6665,9 @@
           "descriptionTruncated": true,
           "detected_mechanics": [
             "healing",
-            "cc"
+            "shield",
+            "cc",
+            "magic_damage"
           ]
         }
       },
@@ -6067,7 +6686,9 @@
           "excerpt_fr": "Les attaques de base de Zed infligent des dégâts magiques supplémentaires aux cibles dont les PV sont faibles. Cet effet ne peut se déclencher",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "q": {
           "name": "Shuriken-rasoir",
@@ -6115,7 +6736,10 @@
           "excerpt_fr": "Zeri gagne de la vitesse de déplacement quand elle reçoit un bouclier. Quand elle blesse un bouclier ennemi, elle absorbe son énergie pour se",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "shield",
+            "mobility"
+          ]
         },
         "q": {
           "name": "RAFALE",
@@ -6123,7 +6747,9 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "magic_damage",
+            "physical_damage"
           ]
         },
         "w": {
@@ -6132,7 +6758,9 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "long_range",
+            "conditional_form"
           ]
         },
         "e": {
@@ -6149,7 +6777,9 @@
           "excerpt_fr": "Zeri provoque une nova d'électricité et se surcharge : elle inflige plus de dégâts et gagne un bonus cumulable en vitesse d'attaque qui s'actualise",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -6167,28 +6797,37 @@
           "excerpt_fr": "Toutes les compétences de Ziggs endommagent aussi les bâtiments. Périodiquement, sa prochaine compétence inflige des dégâts magiques supplémentaires. Ce délai est réduit quand Ziggs",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "q": {
           "name": "Bombe rebondissante",
           "excerpt_fr": "Ziggs lance une bombe rebondissante qui inflige des dégâts magiques.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "w": {
           "name": "Charge explosive",
           "excerpt_fr": "Ziggs jette une charge explosive qui explose au bout de 4 sec ou quand vous réactivez cette compétence. L'explosion inflige des dégâts magiques aux",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc",
+            "magic_damage"
+          ]
         },
         "e": {
           "name": "Mines Hexplosives",
           "excerpt_fr": "Ziggs disperse des mines de proximité qui explosent au contact des ennemis, leur infligeant des dégâts magiques et les ralentissant. Quand un ennemi déclenche",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "r": {
           "name": "Méga bombe infernale",
@@ -6215,7 +6854,9 @@
           "excerpt_fr": "Après avoir lancé une compétence, la prochaine attaque de base de Zoé inflige des dégâts magiques supplémentaires.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "q": {
           "name": "ASTRO-PONG !",
@@ -6261,7 +6902,9 @@
           "excerpt_fr": "Quand elle touche des ennemis avec Racines fixatrices, Zyra fait apparaître des Cracheuses de ronces qui combattent pour elle. Si Zyra rate l'ennemi, une",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "q": {
           "name": "ÉPINES FUNESTES",
@@ -6269,6 +6912,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "magic_damage",
             "aoe"
           ]
         },
@@ -6284,7 +6928,9 @@
           "excerpt_fr": "Zyra lance des racines à travers le sol pour capturer sa cible, infligeant des dégâts magiques et immobilisant les ennemis qu'elles touchent. Zyra fait",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "magic_damage"
+          ]
         },
         "r": {
           "name": "RONCES ÉTRANGLEUSES",
@@ -6292,6 +6938,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "magic_damage",
             "aoe"
           ]
         }
