@@ -22,6 +22,16 @@ function chooseRune({bridge,catalog,advisor,needs={},laneOpponent,items=[],role}
  for(const id of order){
   const t=templates.find(x=>x.id===id);if(!t)continue;
   const page={keystone:t.keystone,primaryTree:t.tree,primary:[...t.primary],secondary:t.secondary};
+  // Rune slots stay client-legal: Volonté row 2 is interchangeable between
+  // Second souffle (poke) and Plaque d'os (short all-in).
+  const heavyAllIn=Number(needs.laneAllIn||0)>0&&Number(needs.lanePoke||0)===0;
+  if(id==='engage') {
+   if(heavyAllIn)page.primary[1]="Plaque d'os";
+   if(Number(needs.cc||0)<2&&Number(needs.frontlineNeed||0)>=1)page.primary[2]='Surcroissance';
+  }
+  if(id==='poke'||id==='burst'){
+   page.secondary=heavyAllIn?"Plaque d'os":'Second souffle';
+  }
   const validity=bridge.validate(page,catalog);
   if(validity.valid)candidates.push({id,label:t.label,page,legal:true,
    reason:id==='engage'?'Contrôles et résistance : configuration chinoise fréquemment observée':
