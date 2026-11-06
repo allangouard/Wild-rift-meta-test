@@ -1,0 +1,55 @@
+'use strict';
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const numerical=require('./wrdi-numeric-kits-v162.js');
+const raw=require('./data/champion-ability-numeric-wiki-wr-v1.json');
+const patch=require('./data/wr-champion-numeric-patch-overrides-v1.json');
+const client=require('./data/wr-client-verified-abilities-7.3d.json');
+const model=numerical.prepare(raw,patch,client);
+test('four client-verified skills loaded and zero unresolved conflicting patch changes',()=>{
+ assert.equal(model.ok,true);
+ assert.equal(model.clientVerificationsCount,4);
+ assert.equal(model.patchConflicts,0);
+ assert.equal(model.patchOutcomes.filter(x=>x.status==='resolved_by_client').length,3);
+});
+test('Shyvana Flame Breath cooldown ranks and raw base damage verified by user screenshots',()=>{
+ const e=model.find('Shyvana').skills.e;
+ assert.deepEqual(e.stats.find(x=>x.label==='COOLDOWN').numericTokens,[10,9,8,7]);
+ assert.deepEqual(e.clientVerified.base_damage_by_rank,[60,110,160,210]);
+ assert.equal(e.clientVerified.normal_total_ad_ratio_pct,50);
+ assert.equal(e.clientVerified.normal_ap_ratio_pct,80);
+ assert.equal(e.clientVerified.scorched_mark_duration_s,5);
+ assert.equal(e.clientVerified.basic_attack_vs_scorched_target_max_health_damage_pct,3);
+ assert.equal(e.clientVerified.dragon_form_rank1_explosion_base_damage,110);
+ assert.equal(e.clientVerified.dragon_form_total_ad_ratio_pct,100);
+ assert.equal(e.clientVerified.dragon_form_ap_ratio_pct,100);
+ assert.equal(e.clientVerified.dragon_form_burning_ground_duration_s,4);
+ assert.equal(e.clientVerified.dragon_form_ground_applies_scorched_mark,true);
+ assert.equal(e.clientVerified.dragon_lineage_stacks_for_true_damage,300);
+ assert.ok(e.clientVerified.notVerified.some(x=>x.includes('per tick or cumulative')));
+});
+test('Shyvana corrected normal-form damage uses client and official WR patch formula not stale Wiki ratios',()=>{
+ const e=model.find('Shyvana').skills.e;
+ const f=e.formulas.find(f=>f.label==='Magic Damage');
+ assert.equal(f.clientVerified,'7.3d');
+ assert.equal(f.conflictedWithClient,undefined);
+ assert.equal(f.formula,'60 / 110 / 160 / 210 (+ 50% AD) (+ 80% AP)');
+ const result=numerical.damageForSkill(e,{ad:100,ap:200});
+ assert.equal(result.length,1);
+ assert.deepEqual(result[0].rankValues,[270,320,370,420]);
+ assert.equal(result[0].adRatio,0.5);
+ assert.equal(result[0].apRatio,0.8);
+ const original=raw.entries.find(c=>c.name==='Shyvana').skills.e.formulas.find(f=>f.label==='Magic Damage');
+ assert.equal(original.formula,'60 / 110 / 160 / 210 (+ 30% AD) (+ 40% AP)');
+});
+test('linearly parse AD + AP in either order without accepting unsupported percent-health formulas',()=>{
+ const a=numerical.linearFormula('60 / 110 (+ 50% AD) (+ 80% AP)');
+ const b=numerical.linearFormula('60 / 110 (+ 80% AP) (+ 50% AD)');
+ assert.deepEqual(a.bases,[60,110]);
+ assert.deepEqual(b.bases,a.bases);
+ assert.equal(a.apRatio,0.8);
+ assert.equal(a.adRatio,0.5);
+ assert.equal(b.apRatio,a.apRatio);
+ assert.equal(b.adRatio,a.adRatio);
+ assert.equal(numerical.linearFormula('5 – 75 (based on level) (+100% AD)'),null);
+});
