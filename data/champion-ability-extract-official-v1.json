@@ -2121,9 +2121,9 @@
         "passive": {
           "name": "SIGNATURE DU VISIONNAIRE",
           "description_fr": "Les compétences blessantes de Hwei marquent les ennemis pendant 4 sec. Une seconde compétence blessante sur une cible marquée consomme la marque, déclenchant après un court délai une explosion magique de zone autour de la cible (30 à 280 dégâts magiques selon le niveau + 25 % de la puissance). Chaque compétence ne déclenche cet effet qu'une seule fois par cible.",
-          "excerpt_fr": "Les compétences blessantes de Hwei marquent les ennemis pendant 4 sec. Une seconde compétence blessante sur une cible marquée consomme la marque, déclenchant après un court délai une explosion magique",
+          "excerpt_fr": "Les compétences blessantes de Hwei marquent les ennemis pendant 4 sec. Une seconde compétence blessante sur une cible marquée consomme la marque, déclenchant après",
           "descriptionPresent": true,
-          "descriptionTruncated": false,
+          "descriptionTruncated": true,
           "detected_mechanics": [
             "magic_damage",
             "aoe",
@@ -2133,9 +2133,9 @@
         "q": {
           "name": "SUJET : DÉSASTRES",
           "description_fr": "Hwei choisit l'un de trois sorts offensifs. Feu dévastateur : projectile explosif infligeant 50/85/120/155 (+70 % de la puissance) dégâts magiques et 4/5/6/7 % des PV max de la cible dans une zone. Éclair enflammé : frappe retardée à longue portée infligeant 80/110/140/170 (+30 % de la puissance) dégâts magiques, augmentés si la cible est immobilisée ou isolée, jusqu'à 160/275/420/595 (+60 % de la puissance) selon les PV manquants. Champ de lave : éruptions et lave persistante, dégâts magiques sur impact et sur la durée, ralentissant de 30 %.",
-          "excerpt_fr": "Hwei choisit l'un de trois sorts offensifs. Feu dévastateur : projectile explosif infligeant 50/85/120/155 (+70 % de la puissance) dégâts magiques et 4/5/6/7 % des PV max de la cible dans une zone. Éc",
+          "excerpt_fr": "Hwei choisit l'un de trois sorts offensifs. Feu dévastateur : projectile explosif infligeant 50/85/120/155 (+70 % de la puissance) dégâts magiques et 4/5/6/7 %",
           "descriptionPresent": true,
-          "descriptionTruncated": false,
+          "descriptionTruncated": true,
           "detected_mechanics": [
             "magic_damage",
             "max_hp_damage",
@@ -2148,9 +2148,9 @@
         "w": {
           "name": "SUJET : SÉRÉNITÉS",
           "description_fr": "Hwei choisit l'une de trois visions pour renforcer son équipe. Ruisseau : voie qui octroie de la vitesse de déplacement aux champions alliés et à Hwei. Étang : zone protectrice de 3 sec donnant un bouclier de 50/70/90/110 (+30 % de la puissance), qui peut atteindre 98/118/138/158 (+60 % de la puissance) ; le bouclier donné aux alliés autres que Hwei est réduit de 15 %. Nuit étoilée : trois orbes renforçant les trois prochaines attaques ou compétences de Hwei avec dégâts magiques bonus et restauration de mana à l'impact.",
-          "excerpt_fr": "Hwei choisit l'une de trois visions pour renforcer son équipe. Ruisseau : voie qui octroie de la vitesse de déplacement aux champions alliés et à Hwei. Étang : zone protectrice de 3 sec donnant un bou",
+          "excerpt_fr": "Hwei choisit l'une de trois visions pour renforcer son équipe. Ruisseau : voie qui octroie de la vitesse de déplacement aux champions alliés et",
           "descriptionPresent": true,
-          "descriptionTruncated": false,
+          "descriptionTruncated": true,
           "detected_mechanics": [
             "shield",
             "ally_shield",
@@ -2162,9 +2162,9 @@
         "e": {
           "name": "SUJET : TOURMENTS",
           "description_fr": "Hwei choisit l'un de trois sorts de contrôle. Visage effroyable : projectile terrifiant le premier ennemi touché pendant 1/1,125/1,25/1,375 sec et infligeant 70/120/170/220 (+60 % de la puissance) dégâts magiques. Œil des abysses : œil placé donnant la vision, verrouillant le premier champion proche ; le projectile immobilise pendant 1,25/1,5/1,75/2 sec, révèle et inflige des dégâts magiques. Mâchoires chatoyantes : zone qui attire les ennemis vers son centre, inflige 70/120/170/220 (+60 % de la puissance) dégâts magiques et ralentit de 40/50/60/70 %, décroissant pendant 1,25 sec.",
-          "excerpt_fr": "Hwei choisit l'un de trois sorts de contrôle. Visage effroyable : projectile terrifiant le premier ennemi touché pendant 1/1,125/1,25/1,375 sec et infligeant 70/120/170/220 (+60 % de la puissance) dég",
+          "excerpt_fr": "Hwei choisit l'un de trois sorts de contrôle. Visage effroyable : projectile terrifiant le premier ennemi touché pendant 1/1,125/1,25/1,375 sec et infligeant 70/120/170/220 (+60",
           "descriptionPresent": true,
-          "descriptionTruncated": false,
+          "descriptionTruncated": true,
           "detected_mechanics": [
             "cc",
             "fear",
@@ -2179,9 +2179,9 @@
         "r": {
           "name": "VISION DE DÉSESPOIR",
           "description_fr": "Hwei attache une vision à un champion ennemi pendant 3 sec. Elle grandit progressivement, appliquant 10 % de ralentissement cumulable toutes les 0,25 sec et 10/20/30 (+5 % de la puissance) dégâts magiques par seconde. À sa taille maximale, elle explose, infligeant 200/300/400 (+70 % de la puissance) dégâts magiques.",
-          "excerpt_fr": "Hwei attache une vision à un champion ennemi pendant 3 sec. Elle grandit progressivement, appliquant 10 % de ralentissement cumulable toutes les 0,25 sec et 10/20/30 (+5 % de la puissance) dégâts magi",
+          "excerpt_fr": "Hwei attache une vision à un champion ennemi pendant 3 sec. Elle grandit progressivement, appliquant 10 % de ralentissement cumulable toutes les 0,25 sec",
           "descriptionPresent": true,
-          "descriptionTruncated": false,
+          "descriptionTruncated": true,
           "detected_mechanics": [
             "magic_damage",
             "slow",
