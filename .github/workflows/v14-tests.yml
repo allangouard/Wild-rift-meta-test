@@ -7,6 +7,7 @@ on:
       - v14-development
       - v160-full-official-ability-text
       - v162-wiki-wr-numeric-catalog
+      - v163-client-verified-samira-leesin
   workflow_dispatch:
 
 permissions:
@@ -22,6 +23,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Verifier les trois divergences avec les captures client
+        run: node --test wrdi-client-verifications-v163.test.js
       - name: Valider 625 competences numeriques WR et les patchs
         run: |
           node --check wrdi-numeric-kits-v162.js
