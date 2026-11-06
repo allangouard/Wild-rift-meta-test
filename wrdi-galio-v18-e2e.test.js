@@ -58,7 +58,8 @@ test('V18.1: isolated Annie shield does not warrant Trident, Cosmic Drive is sit
  const r=draft(['Aatrox','Nunu et Willump','Galio','Caitlyn','Alistar','Ambessa','Amumu','Annie','Ezreal','Swain']);
  assert.equal(r.ok,true,JSON.stringify(r).slice(0,1200));
  assert.equal(r.build.strategy.role,'ap_burst');
- assert.ok(r.draft.threats.shield<=1,'Expected at most one isolated shield signal');
+ assert.equal(r.draft.threats.alliedShieldSources,0,'No team shield from enemy draft');
+ assert.equal(r.draft.threats.personalShieldSources,2,'Annie and Ambessa personal shields');
  assert.ok(r.draft.threats.shieldPressure<1.5,'A lone shield must not trigger shield-cut');
  assert.ok(!r.build.strategy.candidateIds.includes('oceanids_trident'),'No Trident in low-shield candidate list');
  assert.ok(!r.build.strategy.candidateIds.includes('cosmic_drive'),'Cosmic Drive must be conditional');
