@@ -20,7 +20,7 @@ test('Galio MID high-AP build selects buffed Electrocute with Comet as alternati
  const build=['ludens_echo','rabadons_deathcap','infinity_orb','void_staff','oceanids_trident'].map(byId);
  const x=engine.chooseRune({bridge,catalog:runes,advisor,items:build,laneOpponent:'Ahri'});
  assert.equal(x.ok,true);
- assert.equal(x.mode,'ap_poke');
+ assert.equal(x.mode,'ap_burst');
  assert.equal(x.page.keystone,'Électrocution');
  assert.equal(x.alternatives[0].page.keystone,'Comète arcanique');
  assert.match(x.reason,/7.3b/);
