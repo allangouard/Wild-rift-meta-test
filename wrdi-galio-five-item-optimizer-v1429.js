@@ -153,10 +153,13 @@ function burstProfile(item){
  const shieldReduction=p.some(m=>typeof m.shield_reduction_aoe_pct_formula==='string');
  const delayed=p.some(m=>Number(m.tick_s)>=4&&Number(m.heal_multiplier_of_damage_dealt)>0);
  const percentBurn=p.some(m=>String(m.damage_per_tick_formula||'').includes('target_max_hp'));
+ const conditionalBurst=p.some(m=>m.trigger==='damage_at_least_25pct_maxhp_within_2_5s'||
+  (typeof m.damage_formula==='string'&&m.activation_window_s>0&&m.cooldown_s<=2));
+
  const resist=(Number(stats.armor)||0)+(Number(stats.mr)||0);
  return {instant,execute,amplify,shieldReduction,delayed,percentBurn,
   ap:Number(stats.ap)||0,armor:Number(stats.armor)||0,mr:Number(stats.mr)||0,
-  resist,pen:Number(stats.mpen_flat)||0};
+  resist,pen:Number(stats.mpen_flat)||0,conditionalBurst};
 }
 function burstFit(items,threats={}){
  const t=threats||{};
@@ -166,7 +169,7 @@ function burstFit(items,threats={}){
  const count=key=>profiles.filter(p=>p[key]).length;
  const immediate=count('instant'),execute=count('execute'),amplify=count('amplify');
  const defensive=profiles.filter(p=>p.resist>=35).length;
- const delayed=count('delayed'),burn=count('percentBurn');
+ const delayed=count('delayed'),burn=count('percentBurn'),conditionalBurst=count('conditionalBurst');
  const totalAp=profiles.reduce((a,p)=>a+p.ap,0);
  const shieldCut=profiles.filter(p=>p.shieldReduction).length;
  const squishy=Number(t.tank)<2;
@@ -175,7 +178,7 @@ function burstFit(items,threats={}){
   // Mechanic-based burst triangle: spell hit burst + raw AP multiplier +
   // execute below 40% HP. An incomplete triangle still gets useful credit
   // during beam search, so the eventual best candidate isn't pruned.
-  score+=immediate*10+amplify*7.5+execute*7.5;
+  score+=immediate*10+amplify*7.5+execute*7.5+conditionalBurst*3;
   if(immediate&&amplify)score+=7.5;
   if(immediate&&execute)score+=6;
   if(amplify&&execute)score+=5;
@@ -185,7 +188,10 @@ function burstFit(items,threats={}){
   // a mandatory second purchase on every AP-carry draft.
   if(shieldCut&&Number(t.shield)>=1)score+=2.5;
   if(items.length>=3){
-   score-=defensive*(items.length>=5?13:10);
+   // With 3 allied tanks and only one isolated AP assassin, a second
+   // role as a frontline is costly: spending an equipment slot on 0 AP
+   // means foregoing a burst, penetration or AP power spike.
+   score-=defensive*(items.length>=5?25:13);
    score-=delayed*7.5;
    if(squishy)score-=burn*10;
   }
