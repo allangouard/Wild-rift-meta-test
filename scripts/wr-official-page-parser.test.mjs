@@ -16,3 +16,20 @@ test('no fallback to PC Data Dragon or made-up skills when source page is incomp
  assert.throws(()=>extractNextData('<html>No official data</html>'),/not found/);
  assert.throws(()=>extractKit({props:{}}),/Five Wild Rift abilities/);
 });
+
+test('French accent normalization preserves spell mechanics from complete Riot text',()=>{
+ const groups=[
+  {label:'Passif',content:{description:{body:'Les flammes enflamment les cibles et infligent des dégâts magiques.'}}},
+  {label:'A',content:{description:{body:'Galio inflige des dégâts magiques aux ennemis proches.'}}},
+  {label:'Z',content:{description:{body:'Une compétence octroie un bouclier protecteur.'}}},
+  {label:'E',content:{description:{body:'Le champion bondit vers son adversaire.'}}},
+  {label:'R',content:{description:{body:'La compétence inflige des dégâts physiques.'}}}
+ ];
+ const kit=extractKit({props:{pageProps:{page:{blades:[{}, {}, {groups}]}}}});
+ assert.ok(kit.passive.detected_mechanics.includes('burn'));
+ assert.ok(kit.passive.detected_mechanics.includes('magic_damage'));
+ assert.ok(kit.q.detected_mechanics.includes('magic_damage'));
+ assert.ok(kit.w.detected_mechanics.includes('shield'));
+ assert.ok(kit.e.detected_mechanics.includes('mobility'));
+ assert.ok(kit.r.detected_mechanics.includes('physical_damage'));
+});
