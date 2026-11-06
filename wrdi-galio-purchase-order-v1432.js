@@ -36,6 +36,14 @@ function stageScore(item,needs,slot){
  const lanePhysical=c(t.lanePhysical)*(c(t.laneAllIn)?2:1),laneMagic=c(t.laneMagic)*(c(t.laneAllIn)?2:1);
  const gank=c(t.jungleAllIn),frontline=c(t.frontlineNeed),ad=c(t.ad),ap=c(t.ap),assassin=c(t.assassin),tank=c(t.tank),heal=c(t.heal),crit=c(t.crit);
  const poke=c(t.lanePoke);
+ const burstMode=c(t.damageDuty)>=2&&c(t.frontlineProvided)>=2&&c(t.alliedApCarry)===0;
+ const passives=(item.passives||[]).map(x=>x.mechanics||{});
+ const spellBurst=passives.some(m=>typeof m.base_damage==='string'&&
+  n(m.cooldown_s)>0&&n(m.max_secondary_targets)>=1);
+ const multiplier=passives.some(m=>m.effect==='ap_multiplier'&&n(m.value)>1);
+ const execute=passives.some(m=>m.condition==='target_hp_pct < 40'&&
+  Array.isArray(m.eligible)&&m.eligible.includes('abilities'));
+ const delayedSustain=passives.some(m=>n(m.tick_s)>=4&&n(m.heal_multiplier_of_damage_dealt)>0);
  const stasisPriority=Number.isFinite(t.earlyStasisPriority)?
   c(t.earlyStasisPriority):(c(t.assassin)>=2||c(t.burst)>=2?2:c(t.assassin)>=1?1:0);
  let score=0;const factors=[];const add=(points,message)=>{if(points>0){score+=points;factors.push({points,message});}};
@@ -90,6 +98,19 @@ function stageScore(item,needs,slot){
   if(frontline&&f.hybrid)add(2,'Résistances mixtes pour les combats d’équipe');
   if(tank+c(t.sustain)>=2&&f.maxHp)add(2,'Passif contre les PV maximum');
   if(tank>=2&&f.ramp)add(1.3,'Passif de combat prolongé');
+ }
+ // Distinct burst-AP purchase path: first Luden-like spell splash to farm /
+ // poke; AP multiplier/execute as damage spikes. Do not lead with Despair's
+ // four-second sustain on a strategy intending short decisive engagements.
+ if(burstMode){
+  if(early&&spellBurst)add(13,'Dégâts immédiats du proc de sort : priorité de lane AP burst');
+  if(early&&delayedSustain)score-=11;
+  if(transition&&multiplier)add(7,'Multiplicateur de puissance pour le second pic AP');
+  if((transition||slot===2)&&execute)add(5,'Exécution des cibles affaiblies avec compétences AP');
+  if((transition||slot===2)&&spellBurst)add(3,'Dégâts de sort immédiats contre les cibles fragiles');
+  if(slot<=2&&delayedSustain)score-=9;
+  if(slot>=3&&delayedSustain)score-=5;
+  if(slot>=3&&multiplier)add(2.5,'Puissance amplifiée pour l’engagement AP burst');
  }
  // A resistance multiplier is a capstone, not a mandatory early spike.
  // Early Galio needs functional wave clear / offense and sufficient bonus
@@ -156,6 +177,16 @@ function order({prepared,items,threats={}}={}){
    visited++;
    const stages=seq.map((x,i)=>stageScore(x,threats,i));
    let score=stages.reduce((sum,p,i)=>sum+p.score*[2.5,1.6,1.3,1,0.9][i],0);
+   // A burst build must deliver meaningful damage *before* item five.
+   // The counterfactual fifth-item multiplier is valuable, but Galio cannot
+   // buy delayed sustain first and call it an AP burst lane build.
+   if(c(threats.damageDuty)>=2&&c(threats.frontlineProvided)>=2){
+    const splashAt=seq.findIndex(item=>features(item).spellClear);
+    if(splashAt===0)score+=11;
+    else if(splashAt>=2)score-=6;
+    const resistFirst=seq[0].stats?.armor||seq[0].stats?.mr;
+    if(resistFirst&&splashAt>0)score-=4;
+   }
    // A set can be excellent at five items but useless at the second purchase.
    // Score the *incremental* bonus of passives already accessible at each stage.
    if(interactionEngine?.compare){
