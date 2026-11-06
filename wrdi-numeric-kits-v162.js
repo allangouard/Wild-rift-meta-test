@@ -103,6 +103,18 @@ function linearFormula(value){
 }
 function damageForSkill(skill,{ap=0,ad=0,bonusAd=0}={}){
  if(!skill||![ap,ad,bonusAd].every(x=>finite(x)&&x>=0))return [];
+ const client=skill.clientVerified;
+ if(client&&finite(client.rank1_total_ad_ratio_pct)&&Array.isArray(client.base_damage_by_rank)){
+  const ratio=client.rank1_total_ad_ratio_pct/100;
+  const rankValues=client.base_damage_by_rank.map((base,i)=>i===0?base+ad*ratio:null);
+  return [{label:'Client WR verified rank 1',rankValues,base:client.base_damage_by_rank,
+   apRatio:0,adRatio:ratio,adType:'total',verifiedRanks:[1],
+   beforeDefenses:true,procNotGuaranteed:true,
+   hitCountConditional:client.bullets_per_cast||null,
+   availableOnlyAtStyle:client.requires_style_rank||null,
+   source:'user_client_screenshots_2026_11_06',
+   limitations:['Les ratios AD des autres rangs ne sont pas vérifiés','Une touche et les coups critiques ne sont pas garantis']}];
+ }
  return skill.formulas.filter(f=>/^(?:Magic Damage|Physical Damage)$/i.test(normalize(f.label))&&!f.conflictedWithPatch&&!f.conflictedWithClient)
   .flatMap(f=>{
    const model=linearFormula(f.formula);
