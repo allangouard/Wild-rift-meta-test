@@ -52,6 +52,7 @@ function features(item){
   active:passives.some(p=>p.active===true),
   stasis:passives.some(p=>p.active===true&&num(p.stasis_s)>0),
   critMitigation:passives.some(p=>num(p.physical_crit_damage_reduction_pct)>0),
+  attackSpeedAura:passives.some(p=>num(p.enemy_attack_speed_reduction_pct)>0),
   waveclear:passives.some(p=>num(p.minion_multiplier)>1||Array.isArray(p.minion_multiplier_range)),
   hybridDefense:num(stats.armor)>0&&num(stats.mr)>0};
 }
