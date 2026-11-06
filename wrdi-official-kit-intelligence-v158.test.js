@@ -90,3 +90,22 @@ test('no official kit available means no fake mechanical inference',()=>{
  assert.equal(kit.enrich(['ad'],null).traits.join(','),'ad');
  assert.equal(kit.prepare({entries:[]}).ok,false);
 });
+
+test('French phrasing cannot turn an explosion into a taunt, or a slow into a hard stun',()=>{
+ const rec={id:'test',name:'Champion test',
+  source_url:'https://wildrift.leagueoflegends.com/fr-fr/champions/galio/',
+  skills:{passive:{name:'Passif',excerpt_fr:'Provoque une explosion qui inflige des dégâts magiques.'},
+   q:{name:'A',excerpt_fr:'La cible est ralentie.'},
+   w:{name:'Z',excerpt_fr:'Galio provoque et blesse les champions ennemis proches.'},
+   e:{name:'E',excerpt_fr:'Galio projette les ennemis en l’air.'},
+   r:{name:'R',excerpt_fr:'La compétence accorde un bouclier.'}}};
+ const r=kit.analyze(rec);
+ assert.equal(r.ok,true);
+ assert.ok(r.flags.cc);
+ assert.ok(r.flags.shield);
+ assert.ok(!r.evidence.some(x=>x.flag==='cc'&&x.spell==='passive'),
+  'Provoquer une explosion ne doit pas devenir une provocation');
+ assert.ok(r.evidence.some(x=>x.flag==='slow'&&x.spell==='q'));
+ assert.ok(!r.evidence.some(x=>x.flag==='cc'&&x.spell==='q'),
+  'Un ralentissement n’est pas automatiquement un contrôle dur');
+});
