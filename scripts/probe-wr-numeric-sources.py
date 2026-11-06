@@ -19,4 +19,8 @@ for url in ['https://hub-game.com/wildrift/en/champions/Galio','https://www.wild
   print('HEADINGS',p.sections[:35])
   print('SKILLS',[(tag,v) for tag,v in p.sections if 'Damage' in v or 'Cooldown' in v][:8])
   print('LINKS',body.count('/wildrift/en/champions/'))
+  if 'wildriftfire' in url:
+   h=body.find('Galio&#39;s Abilities')
+   print('RAW_HINT',body[h:h+1500].replace('\\n',' ')[:1500])
+   print('ABILITIES_CONTEXT',re.sub(r'\\s+',' ',re.sub(r'<[^>]+>',' ',body[body.find('Cooldown:')-250:body.find('Cooldown:')+650]))[:900])
  except Exception as e:print('ERR',url,repr(e))
