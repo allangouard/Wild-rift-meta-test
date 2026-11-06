@@ -11,7 +11,7 @@
 'use strict';
 const VERSION='15.8.0';
 const has=(arr,key)=>arr.includes(key);
-function make({enemies,allies,lookup,shieldInfo}={}){
+function make({enemies,allies,lookup,shieldInfo,threatEvidence}={}){
  if(!Array.isArray(enemies)||enemies.length!==5||!Array.isArray(allies)||allies.length!==5||typeof lookup!=='function')
   return {ok:false,reason:'Composition de cinq adversaires et cinq alliés requise'};
  const resolve=(name,role)=>({name:String(name||''),role,traits:Array.isArray(lookup(name))?lookup(name).filter(t=>typeof t==='string'):[]});
@@ -80,13 +80,22 @@ function make({enemies,allies,lookup,shieldInfo}={}){
   // No verified enemy-item builds were supplied, so confirmed crit stays zero.
   crit:0,lanePhysical,laneMagic,laneAllIn,lanePoke,jungleAllIn,
   frontlineNeed,frontlineProvided,teamTank,teamEngage,alliedApCarry,
-  damageDuty,shieldPressure,shieldingSupport,alliedShieldSources,personalShieldSources,midAssassin,jungleAssassin,earlyDive,earlyStasisPriority,
+  damageDuty,shieldPressure,shieldingSupport,alliedShieldSources,personalShieldSources,
+  healPressure:threatEvidence?.ok?threatEvidence.healingPressure:undefined,
+  allyHealerCount:threatEvidence?.ok?threatEvidence.alliedHealers:undefined,
+  selfHealerCount:threatEvidence?.ok?threatEvidence.personalHealers:undefined,
+  maxHpThreats:threatEvidence?.ok?threatEvidence.maxHpThreats:undefined,
+  trueDamageThreats:threatEvidence?.ok?threatEvidence.trueDamageThreats:undefined,
+  midAssassin,jungleAssassin,earlyDive,earlyStasisPriority,
   peelNeed,enemyProfileCoverage:5-unknownEnemy.length,
   alliesProfileComplete:alliesComplete};
  const reasons=[];
  if(lanePhysical&&laneAllIn)reasons.push('Midlane : menace physique d’engagement, achat défensif précoce à considérer');
  if(laneMagic&&laneAllIn)reasons.push('Midlane : menace magique d’engagement');
  if(lanePoke)reasons.push('Midlane : harcèlement possible, limiter l’exposition au farm');
+ if(threatEvidence?.ok&&threatEvidence.alliedHealers>0)reasons.push('Soins sur les alliés adverses documentés : évaluer l’anti-soin selon la fréquence et la cible');
+ if(threatEvidence?.ok&&threatEvidence.personalHealers>0&&threatEvidence.alliedHealers===0)reasons.push('Soins personnels : anti-soin conditionnel, ne pas supposer un besoin collectif automatique');
+ if(threatEvidence?.ok&&threatEvidence.maxHpThreats>=2)reasons.push('Plusieurs sources documentées de dégâts en pourcentage de PV max');
  if(conditionalSustain)reasons.push('Soins conditionnels : vérifier les formes ou déclenchements avant de considérer l’anti-soin comme indispensable');
  if(jungleAllIn)reasons.push('Jungle : potentiel de gank ou d’engagement');
  if(frontlineNeed)reasons.push('Équipe : responsabilité de première ligne accrue');

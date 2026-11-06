@@ -22,7 +22,8 @@ function evaluate(item,role,t={}){
  const ap=n(f.ap),hp=n(f.hp),armor=n(f.armor),mr=n(f.mr);
  const offense=ap>=40||f.maxHp||f.shred||f.ramp||f.waveclear;
  const defense=hp>=200||armor>=30||mr>=30||f.protective||f.stasis;
- const needHeal=n(t.confirmedHeal)+0.35*n(t.conditionalHeal)+0.2*n(t.heal);
+ const needHeal=Number.isFinite(t.healPressure)?n(t.healPressure):
+  n(t.confirmedHeal)+0.35*n(t.conditionalHeal)+0.2*n(t.heal);
  const needShield=n(t.shieldPressure??t.shield),needCrit=n(t.crit),needCritPotential=n(t.critPotential);
  const pressurePhysical=n(t.ad)+n(t.lanePhysical)*1.5,pressureMagic=n(t.ap)+n(t.laneMagic)*1.5;
  let score=0;const why=[];
@@ -88,7 +89,7 @@ function plan({threats={},items=[],limit=20}={}){
   CORES[role].includes(x.item.id)||
   (role!=='ap_burst'&&x.defense)||
   (n(threats.crit)>0&&x.item.feature?.critMitigation)||
-  (n(threats.confirmedHeal)>0&&x.item.feature?.antihealByRetaliation)||
+  ((n(threats.healPressure??threats.confirmedHeal)>0)&&x.item.feature?.antihealByRetaliation)||
   (n(threats.earlyStasisPriority)>=2&&x.item.feature?.stasis)
  ));
  const candidate=new Map(allAp.map(x=>[x.item.id,x]));
