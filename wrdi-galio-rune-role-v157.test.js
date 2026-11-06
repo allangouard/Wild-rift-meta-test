@@ -32,7 +32,7 @@ test('Comet is a tactical option, not an unconditional Galio lock',()=>{
  const t=needs(['Ornn','Rammus','Galio','Ashe','Alistar']);
  const r=choose({...t,lanePoke:0,laneMagic:0,laneAllIn:1,tank:1});
  assert.equal(r.ok,true);
- assert.equal(r.page.keystone,'Électrocution');
+ assert.equal(r.page.keystone,'Souverain des glaces');
 });
 test('Galio missing frontline can still select a legal defensive page',()=>{
  const t=needs(['Akali','Lee Sin','Galio','Ashe','Lux']);
