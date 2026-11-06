@@ -1,0 +1,894 @@
+{
+  "schema": "wrdi-official-wild-rift-abilities-v1",
+  "description": "First verified batch: official ability names and passive mechanics for 20 champions. Not full champion sheets and not wired into build decision. Missing values are explicit null. No League PC data.",
+  "verifiedOn": "2026-11-06",
+  "totalCatalogChampions": 125,
+  "profiles": [
+    {
+      "id": "10099",
+      "champion": "Galio",
+      "riotId": "Galio",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/galio/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Frappe colossale",
+          "summary_fr": "Attaque renforcée en zone et recharge réduite en touchant un champion ou monstre épique.",
+          "mechanics_from_passive": [
+            "magic_damage",
+            "aoe_auto",
+            "spell_procs"
+          ]
+        },
+        "q": {
+          "name": "Vents de guerre",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Bouclier de Durand",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Horion de la justice",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Entrée héroïque",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10002",
+      "champion": "Aatrox",
+      "riotId": "Aatrox",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/aatrox/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Posture du massacreur",
+          "summary_fr": "Attaque périodique infligeant des dégâts physiques selon les PV max et soignant Aatrox.",
+          "mechanics_from_passive": [
+            "physical_damage",
+            "self_healing",
+            "target_max_hp_damage"
+          ]
+        },
+        "q": {
+          "name": "Épée des Darkin",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Chaînes infernales",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Ruée obscure",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Fossoyeur des mondes",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10005",
+      "champion": "Kayn",
+      "riotId": "Kayn",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/kayn/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Faux des Darkin",
+          "summary_fr": "Sa forme Darkin soigne via les dégâts de compétences; la forme Assassin de l'ombre augmente les dégâts en début de combat.",
+          "mechanics_from_passive": [
+            "form_dependent",
+            "conditional_self_healing",
+            "conditional_burst"
+          ]
+        },
+        "q": {
+          "name": "Moisson cruelle",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Entaille sombre",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Passe-muraille",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Intrusion obscure",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10012",
+      "champion": "Orianna",
+      "riotId": "Orianna",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/orianna/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Remontoir",
+          "summary_fr": "Ses attaques infligent des dégâts magiques qui augmentent en ciblant plusieurs fois la même unité.",
+          "mechanics_from_passive": [
+            "magic_on_hit",
+            "repeated_target_damage"
+          ]
+        },
+        "q": {
+          "name": "Ordre : Attaque",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Ordre : Dissonance",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Ordre : Protection",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Ordre : Onde de choc",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10031",
+      "champion": "Akali",
+      "riotId": "Akali",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/akali/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Marque d'assassin",
+          "summary_fr": "Toucher un champion avec une compétence prépare une attaque renforcée après sortie du cercle.",
+          "mechanics_from_passive": [
+            "spell_trigger",
+            "empowered_auto",
+            "mobility_condition"
+          ]
+        },
+        "q": {
+          "name": "Vague de kunais",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Linceul nébuleux",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Lancer acrobatique",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Maîtrise absolue",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10039",
+      "champion": "Zed",
+      "riotId": "Zed",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/zed/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Mépris des faibles",
+          "summary_fr": "Ses attaques infligent des dégâts magiques additionnels aux cibles déjà affaiblies.",
+          "mechanics_from_passive": [
+            "execute_pressure",
+            "mixed_instance_magic_damage"
+          ]
+        },
+        "q": {
+          "name": "Shuriken-rasoir",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Ombre vivante",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Taillade des ombres",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Marque de la mort",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10073",
+      "champion": "Kindred",
+      "riotId": "Kindred",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/kindred/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Marque de Kindred",
+          "summary_fr": "La chasse aux cibles marquées renforce leurs compétences; la portée augmente après plusieurs marques.",
+          "mechanics_from_passive": [
+            "conditional_scaling",
+            "range_growth"
+          ]
+        },
+        "q": {
+          "name": "Danse des flèches",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Frénésie de Loup",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Terreur mortelle",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Repos d'Agneau",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10022",
+      "champion": "Jhin",
+      "riotId": "Jhin",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/jhin/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Murmure",
+          "summary_fr": "La quatrième balle est toujours critique et reçoit un bonus de dégâts, même sans objets de critique.",
+          "mechanics_from_passive": [
+            "guaranteed_fourth_shot_crit",
+            "reload_window",
+            "attack_pattern"
+          ]
+        },
+        "q": {
+          "name": "Grenade dansante",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Floraison mortelle",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Public captif",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Rappel de rideau",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10081",
+      "champion": "Alistar",
+      "riotId": "Alistar",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/alistar/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Cri triomphant",
+          "summary_fr": "Les contrôles et éliminations proches chargent un soin de zone pour Alistar et ses alliés.",
+          "mechanics_from_passive": [
+            "ally_healing",
+            "cc_triggered_heal"
+          ]
+        },
+        "q": {
+          "name": "Atomisation",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Coup de tête",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Piétinement",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Volonté de fer",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10136",
+      "champion": "Ornn",
+      "riotId": "Ornn",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/ornn/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Forgeron ambulant",
+          "summary_fr": "Augmente ses résistances bonus et permet des achats d'objets loin de la base, sous conditions.",
+          "mechanics_from_passive": [
+            "bonus_resistance_scaling",
+            "remote_shop_utility"
+          ]
+        },
+        "q": {
+          "name": "Fracture magmatique",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Fournaise",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Ruée ardente",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Appel du dieu de la forge",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10064",
+      "champion": "Rammus",
+      "riotId": "Rammus",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/rammus/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Tatou blindé",
+          "summary_fr": "Sa vitesse de déplacement augmente hors combat, puis cet effet cesse lorsqu'il engage.",
+          "mechanics_from_passive": [
+            "out_of_combat_mobility",
+            "engage_condition"
+          ]
+        },
+        "q": {
+          "name": "Démolisseur",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Boule défensive",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Provocation frénétique",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Frappe ascendante",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10066",
+      "champion": "Miss Fortune",
+      "riotId": "MissFortune",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/miss-fortune/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Cœur volage",
+          "summary_fr": "Attaquer une nouvelle cible inflige des dégâts physiques supplémentaires.",
+          "mechanics_from_passive": [
+            "physical_damage",
+            "target_switch_damage"
+          ]
+        },
+        "q": {
+          "name": "Doublé",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Fanfaronne",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Pluie de balles",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Barrage de plomb",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10044",
+      "champion": "Leona",
+      "riotId": "Leona",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/leona/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Rayon de soleil",
+          "summary_fr": "Ses sorts marquent des ennemis; un allié peut consommer la marque pour des dégâts magiques bonus.",
+          "mechanics_from_passive": [
+            "ally_follow_up",
+            "magic_damage_proc"
+          ]
+        },
+        "q": {
+          "name": "Bouclier de l'aube",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Éclipse",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Lame du zénith",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Éruption solaire",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10024",
+      "champion": "Syndra",
+      "riotId": "Syndra",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/syndra/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Transcendance",
+          "summary_fr": "Accumule des éclats en touchant avec ses sorts et en montant ses compétences, puis renforce ses sorts.",
+          "mechanics_from_passive": [
+            "spell_hit_scaling",
+            "late_power"
+          ]
+        },
+        "q": {
+          "name": "Sphère noire",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Force de la volonté",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Dispersion des faibles",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Déchaînement de puissance",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10119",
+      "champion": "Brand",
+      "riotId": "Brand",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/brand/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Flammes",
+          "summary_fr": "Ses sorts infligent une brûlure cumulable et peuvent déclencher une explosion en zone.",
+          "mechanics_from_passive": [
+            "spell_burn",
+            "aoe_explosion",
+            "stack_condition"
+          ]
+        },
+        "q": {
+          "name": "Brûlure",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Colonne de flammes",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Conflagration",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Pyrolyse",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10079",
+      "champion": "Ashe",
+      "riotId": "Ashe",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/ashe/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Tir givrant",
+          "summary_fr": "Les attaques ralentissent; les coups critiques renforcent le ralentissement sans bonus habituel de dégâts critiques.",
+          "mechanics_from_passive": [
+            "slow",
+            "special_crit_interaction"
+          ]
+        },
+        "q": {
+          "name": "Concentration du ranger",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Salve",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Rapace",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Flèche de cristal enchantée",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10082",
+      "champion": "Ambessa",
+      "riotId": "Ambessa",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/ambessa/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Ruée des chiens-dragons",
+          "summary_fr": "Après ses compétences, peut effectuer une ruée puis une attaque renforcée et regagner de l'énergie.",
+          "mechanics_from_passive": [
+            "conditional_dash",
+            "empowered_auto",
+            "energy_restore"
+          ]
+        },
+        "q": {
+          "name": "Frappe fourbe / Frappe fracassante",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Égide dévastatrice",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Lacération",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Exécution publique",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10030",
+      "champion": "Pantheon",
+      "riotId": "Pantheon",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/pantheon/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Ardeur mortelle",
+          "summary_fr": "Après une série d'attaques et de sorts, renforce sa prochaine compétence.",
+          "mechanics_from_passive": [
+            "stacked_spell_empowerment"
+          ]
+        },
+        "q": {
+          "name": "Lance astrale",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Assaut martial",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Égide impénétrable",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Météore",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10059",
+      "champion": "Lee Sin",
+      "riotId": "LeeSin",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/lee-sin/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Rafale",
+          "summary_fr": "Après un sort, deux attaques gagnent en vitesse et restaurent de l'énergie.",
+          "mechanics_from_passive": [
+            "spell_auto_cycle",
+            "energy_restore"
+          ]
+        },
+        "q": {
+          "name": "Onde sonore/Coup résonant",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Rempart/Force d'âme",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Trombe/Fracture",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Rage du dragon",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10098",
+      "champion": "Ezreal",
+      "riotId": "Ezreal",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/ezreal/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Force grandissante",
+          "summary_fr": "Toucher les ennemis avec des compétences augmente temporairement sa vitesse d'attaque par cumul.",
+          "mechanics_from_passive": [
+            "spell_hit_attack_speed",
+            "stack_condition"
+          ]
+        },
+        "q": {
+          "name": "Tir mystique",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Flux essentiel",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Transfert arcanique",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Arc térébrant",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    }
+  ]
+}
