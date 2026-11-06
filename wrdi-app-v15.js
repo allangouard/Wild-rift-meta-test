@@ -53,6 +53,13 @@ function showResults(result){
  const headline=el('h2',null,'Recommandation Galio · Mid');box.append(headline);
  const sub=el('p','muted','Wild Rift mobile · Fiches du client '+result.patch+' · Calcul qualitatif avant la partie');
  box.append(sub);
+ if(result.build.strategy){
+  const plan=el('section','result-section');
+  plan.append(el('h3',null,'Mission de Galio · '+({ap_burst:'AP burst',hybrid_offensive:'Hybride offensif',tank_utility:'Tank utilitaire'}[result.build.strategy.role]||result.build.strategy.role)));
+  plan.append(el('p','muted',result.build.strategy.rationale));
+  plan.append(el('p','caption','V18 · '+result.build.strategy.shortlisted+' objets candidats sur '+result.build.strategy.evaluated+' fiches pertinentes. Core indicatif, jamais obligatoire.'));
+  box.append(plan);
+ }
  const main=el('section','result-section'),buildTitle=el('h3',null,'Build principal · 5 objets');
  main.append(buildTitle);
  const ol=el('ol','build-list');
@@ -273,6 +280,7 @@ go.addEventListener('click',()=>{
   guard:root.WRDI_GalioItemGuardV1424,core:root.WRDI_CoreV14,
   optimizer:root.WRDI_GalioFiveItemOptimizerV1429,order:root.WRDI_GalioPurchaseOrderV1432,
   contingency:root.WRDI_GalioContingenciesV1433,
+  rolePlanner:root.WRDI_GalioRolePlannerV18,
   antihealOrder:root.WRDI_AntihealOrderV169,runeBridge:root.WRDI_RuneBridgeV14,
   runeAdvisor:root.WRDI_GalioRuneAdvisorV1411,
   kitIntelligence:root.WRDI_OfficialKitIntelligenceV158,
