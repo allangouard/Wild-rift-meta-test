@@ -25,6 +25,9 @@ function make({enemies,allies,lookup}={}){
   for(const k of Object.keys(counts))if(has(p.traits,k))counts[k]++;
  }
  const conditionalSustain=enemy.filter(x=>has(x.traits,'conditional_sustain')).length;
+ // Conditional healing is not guaranteed in every match or champion form.
+ const conditionalHeal=enemy.filter(x=>has(x.traits,'heal')&&has(x.traits,'conditional_sustain')).length;
+ const confirmedHeal=counts.heal-conditionalHeal;
  const confirmedSustain=enemy.filter(x=>has(x.traits,'sustain')&&
   !has(x.traits,'conditional_sustain')).length;
  const mid=enemy[2],jungle=enemy[1];
@@ -61,7 +64,7 @@ function make({enemies,allies,lookup}={}){
  // No opponent-specific prescribed item or assumed enemy purchase.
  const lanePoke=has(mid.traits,'poke')?1:0;
  const jungleAllIn=has(jungle.traits,'assassin')||has(jungle.traits,'burst')||has(jungle.traits,'engage')?1:0;
- const threats={...counts,conditionalSustain,confirmedSustain,
+ const threats={...counts,conditionalSustain,confirmedSustain,conditionalHeal,confirmedHeal,
   physicalAssassins,magicAssassins,critPotential:enemyCritPotential,
   // Crit tag = potential based on kit archetype, never a confirmed item build.
   // No verified enemy-item builds were supplied, so confirmed crit stays zero.
