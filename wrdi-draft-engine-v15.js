@@ -5,7 +5,7 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.WRDI_DraftEngineV15=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
 const VERSION='15.8.0';
-function chooseRune({bridge,catalog,advisor,needs}){
+function chooseRune({bridge,catalog,advisor,needs,laneOpponent}){
  if(!bridge?.audit?.(catalog)?.ok)return {ok:false,reason:'Catalogue des runes non valide'};
  const profiles=advisor?.STRATEGIES||[];
  const t=needs||{};
@@ -26,8 +26,24 @@ function chooseRune({bridge,catalog,advisor,needs}){
   t.peelNeed>=1?['peel','engage','resilience']:
   t.tank>=2?['longfight','engage','resilience']:
   ['engage','resilience','roam'];
+ // Grasp only procs on a champion-targeted basic attack after combat setup.
+ // Against confirmed ranged mid opponents, Galio cannot assume he can
+ // repeatedly land melee attacks, even if Q keeps combat active.
+ const rangedLane=new Set(['Ahri','Lux','Syndra','Orianna','Ziggs','Hwei','Brand',
+  'Veigar','Seraphine','Vex','Annie','Vladimir','Aurelion Sol','Corki','Tristana',
+  'Lucian','Jayce','Teemo','Zoe','Lissandra','Morgana']);
+ const hardToProcGrasp=rangedLane.has(String(laneOpponent||''));
+ let ranked=[...choices];
+ if(hardToProcGrasp){
+  // Preserve an early fallback for poke/survival and an engage option that
+  // triggers from Galio CC; do not automatically choose Poigne in ranged lane.
+  ranked=ranked.filter(id=>id!=='resilience');
+  if(!ranked.includes('engage'))ranked.unshift('engage');
+  if(!ranked.includes('poke'))ranked.splice(1,0,'poke');
+  ranked.push('resilience');
+ }
  const accepted=[];
- for(const id of choices){
+ for(const id of ranked){
   const template=profiles.find(x=>x.id===id);
   if(!template)continue;
   const page={keystone:template.keystone,primaryTree:template.tree,primary:[...template.primary],secondary:template.secondary};
@@ -36,7 +52,12 @@ function chooseRune({bridge,catalog,advisor,needs}){
  }
  if(!accepted.length)return {ok:false,reason:'Aucune page de runes du catalogue client entièrement valide'};
  const picked=accepted[0];
- const why=offensiveDuty&&picked.id==='poke'?
+ const why=hardToProcGrasp&&picked.id!=='resilience'?
+  'Poigne de l’immortel écartée contre '+laneOpponent+
+  ' à distance : l’activation demande une attaque de base sur champion après les cumuls en combat, pas seulement une compétence de Galio. '+
+  (picked.id==='engage'?'Les contrôles de Galio permettent de déclencher Souverain des glaces.':
+   picked.id==='poke'?'Comète peut être déclenchée par des compétences de harcèlement.':'Choix de rune évalué selon le rôle.') :
+  offensiveDuty&&picked.id==='poke'?
   'Galio est chargé d’apporter les dégâts magiques : sa compétence A peut déclencher Comète arcanique contre un mid à distance. Les touches et le délai ne sont pas garantis.':
   offensiveDuty&&picked.id==='burst'?
   'Galio joue dégâts AP : Électrocution peut renforcer un échange court après trois touches, si le combo atteint la cible.':
@@ -96,7 +117,7 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
  if(!sequence.ok)return fail('purchase_order',sequence.reason);
  const conditional=contingency.plan({prepared,optimizer,items:main.main.items,threats:need,max:3});
  if(!conditional.ok)return fail('contingencies',conditional.reason);
- const rune=chooseRune({bridge:m.runeBridge,catalog:runes,advisor:m.runeAdvisor,needs:need});
+ const rune=chooseRune({bridge:m.runeBridge,catalog:runes,advisor:m.runeAdvisor,needs:need,laneOpponent:names[7]});
  const notes=[...context.reasons];
  if(numeric){
   notes.push('Compétences chiffrées WR : '+numeric.numericAbilityCoverage+' entrées collectées ; '+

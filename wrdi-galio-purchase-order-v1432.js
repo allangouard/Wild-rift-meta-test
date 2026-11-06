@@ -23,7 +23,8 @@ function features(item){
   critGuard:p.some(x=>n(x.physical_crit_damage_reduction_pct)>0),
   maxHp:p.some(x=>String(x.damage_per_tick_formula||'').includes('target_max_hp')),
   ramp:p.some(x=>n(x.max_amp_pct)>0||n(x.max_damage_amp_pct)>0),
-  hybrid:n(s.armor)>0&&n(s.mr)>0};
+  hybrid:n(s.armor)>0&&n(s.mr)>0,
+  resistanceMultiplier:p.some(x=>n(x.stacks_max)>=5&&n(x.bonus_armor_at_max_pct)>0&&n(x.bonus_mr_at_max_pct)>0)};
 }
 function stageScore(item,needs,slot){
  // Always read the verified item card: other modules use a different
@@ -86,6 +87,18 @@ function stageScore(item,needs,slot){
   if(frontline&&f.hybrid)add(2,'Résistances mixtes pour les combats d’équipe');
   if(tank+c(t.sustain)>=2&&f.maxHp)add(2,'Passif contre les PV maximum');
   if(tank>=2&&f.ramp)add(1.3,'Passif de combat prolongé');
+ }
+ // A resistance multiplier is a capstone, not a mandatory early spike.
+ // Early Galio needs functional wave clear / offense and sufficient bonus
+ // resistances for the 5-stack passive to amplify. Exception: overwhelming
+ // mixed damage / CC can still make an early purchase worth considering.
+ if(f.resistanceMultiplier){
+  const mixedExtreme=ad>=4&&ap>=4&&c(t.cc)>=3;
+  if(slot===0)score-=mixedExtreme?4:11;
+  else if(slot===1)score-=mixedExtreme?1.5:8;
+  else if(slot===2)score-=mixedExtreme?0.5:4;
+  else if(slot>=3)score+=2;
+  if(slot<=2)factors.push({points:0,message:'Amaranth gagne en valeur après d’autres résistances et 5 s de combat'});
  }
  if(heal>=2&&f.grievous)add(1.1,'Blessures graves documentées contre les soins');
  if(crit&&f.critGuard)add(1.5,'Protection contre les critiques confirmés');
