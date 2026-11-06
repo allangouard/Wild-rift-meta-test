@@ -37,9 +37,9 @@ test('exact player draft: no Lucian/Gnar in any conditional explanation',()=>{
   alternatives:r.options.map(x=>({condition:x.conditionId,from:x.remove.id,to:x.add.id}))
  }));
 });
-test('situational replacements never remove first three purchased items or Riftmaker',()=>{
+test('situational replacements never remove first three purchased items',()=>{
  const {r,sequence}=actual();
- const protect=new Set([...sequence.items.slice(0,3).map(x=>x.id),'riftmaker']);
+ const protect=new Set(sequence.items.slice(0,3).map(x=>x.id));
  for(const x of r.options){
   assert.ok(!protect.has(x.remove.id),'illegally removed '+x.remove.id);
   assert.equal(x.replacementPhase,'late_game');
@@ -68,14 +68,15 @@ test('only real enemy autoattack champions are named in scenario, not stale matc
   assert.equal(x.remove.id==='riftmaker',false);
  }
 });
-test('planned three-item hybrid core stays protected even when reorder puts Riftmaker 4th',()=>{
+test('only actual first three purchases are protected even if Riftmaker is fourth',()=>{
  const items=['hollow_radiance','unending_despair','riftmaker','liandrys_torment','oceanids_trident'];
  const reordered=[items[0],items[1],items[3],items[2],items[4]];
  const r=engine.plan({prepared,optimizer,items,
   orderedItems:reordered,threats:{ad:3,ap:2,heal:1}});
  assert.equal(r.ok,true);
- for(const id of [items[0],items[1],items[2],items[3]])
+ for(const id of [items[0],items[1],items[3]])
   assert.ok(r.protectedCoreIds.includes(id));
+ assert.equal(r.protectedCoreIds.includes('riftmaker'),false);
  for(const x of r.options)
   assert.ok(!r.protectedCoreIds.includes(x.remove.id));
 });
