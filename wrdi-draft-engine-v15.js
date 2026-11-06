@@ -48,7 +48,7 @@ function chooseRune({bridge,catalog,advisor,needs={},laneOpponent,items=[],role}
   picked.reason+' Alternative spécialisée en poke prolongé ; Électrocution demeure la référence AP burst après son buff 7.3b.') :
   picked.reason+' Poigne nécessite une attaque de base préparée ; Électrocution exige trois touches rapprochées, contrairement au contrôle répété de Galio.';
  return {ok:true,id:picked.id,label:picked.label,page:picked.page,reason:explanation,
-  alternatives:candidates.slice(1,3),mode:fullAp?'ap_poke':'hybrid_control',
+  alternatives:candidates.slice(1,3),mode:fullAp?(picked.id==='burst'?'ap_burst':'ap_poke'):'hybrid_control',
   apItems:apItems.length,apBase,
   keystonePatchEvidence:fullAp?'riot_wild_rift_7_3b_electrocute_40_to_60_minimum_base_damage':null,
   selection:'galio_mid_build_role_coherence_client_runes_not_empirical_winrate',
