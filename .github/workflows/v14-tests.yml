@@ -259,3 +259,8 @@ jobs:
           node --check wrdi-draft-engine-v15.js
           node --check wrdi-app-v15.js
           node --test wrdi-draft-engine-v15.test.js
+      - name: Selection mobile des champions V15.1 - noms portraits lanes classes
+        run: |
+          node --check wrdi-champion-picker-v151.js
+          node --check wrdi-app-v15.js
+          node --test wrdi-champion-picker-v151.test.js
