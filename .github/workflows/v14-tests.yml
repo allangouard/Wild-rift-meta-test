@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - v18-3-galio-electrocute-burst
       - v18-2-galio-open-ap-pool
       - v18-galio-role-first-shortlist
       - v18-1-galio-item-impact
