@@ -40,3 +40,14 @@ test('Provenance never claims patch compatibility just because older catalog met
  assert.equal(changed.status,'experimental');
  assert.ok(changed.warnings.some(x=>/7.3d/.test(x)));
 });
+
+test('V19 exposes rather than hides conditional items selected by the build',()=>{
+ const x=audit.inspect({...base,result:{build:{legal:true,
+  conditionAudit:{entries:[{id:'morellonomicon',status:'weak',reason:'No key sustain',trigger:'Spell damage'},
+   {id:'void_staff',status:'unknown_enemy_items',reason:'MR purchases unknown',trigger:'Magic penetration'}]}},
+  runes:{ok:true},draft:{officialKitCoverage:10}}});
+ assert.equal(x.itemRisks.length,2);
+ assert.equal(x.itemRisks[0].id,'morellonomicon');
+ assert.ok(x.warnings.some(w=>/faibles ou hypothétiques/.test(w)));
+ assert.equal(x.status,'experimental');
+});
