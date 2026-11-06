@@ -16,7 +16,9 @@ function features(item){
   hybrid:n(s.armor)>0&&n(s.mr)>0};
 }
 function stageScore(item,needs,slot){
- // Always read the verified item card: other modules use a different\n // shape for item.feature (notably cost), which would produce NaN scores.\n const f=features(item),t=needs||{},early=slot===0,transition=slot===1,mid=slot===1||slot===2;
+ // Always read the verified item card: other modules use a different
+ // shape for item.feature (notably cost), which would produce NaN scores.
+ const f=features(item),t=needs||{},early=slot===0,transition=slot===1,mid=slot===1||slot===2;
  const lanePhysical=c(t.lanePhysical)*(c(t.laneAllIn)?2:1),laneMagic=c(t.laneMagic)*(c(t.laneAllIn)?2:1);
  const gank=c(t.jungleAllIn),frontline=c(t.frontlineNeed),ad=c(t.ad),ap=c(t.ap),assassin=c(t.assassin),tank=c(t.tank),heal=c(t.heal),crit=c(t.crit);
  let score=0;const factors=[];const add=(points,message)=>{if(points>0){score+=points;factors.push({points,message});}};
