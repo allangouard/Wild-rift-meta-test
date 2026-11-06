@@ -33,6 +33,11 @@ jobs:
             git rebase origin/v162-wiki-wr-numeric-catalog
             git push origin HEAD:v162-wiki-wr-numeric-catalog
           fi
+      - name: Probe markup for WR passives
+        if: github.ref_name == 'v162-wiki-wr-numeric-catalog' && startsWith(github.event.head_commit.message, 'Probe wiki markup')
+        run: |
+          python3 -m pip install --break-system-packages beautifulsoup4==4.14.2
+          python3 scripts/probe-wr-wiki.py
       - name: Installer Node.js
         uses: actions/setup-node@v4
         with:
