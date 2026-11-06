@@ -292,3 +292,7 @@ jobs:
           node --check wrdi-galio-five-item-optimizer-v1429.js
           node --check wrdi-galio-purchase-order-v1432.js
           node --test wrdi-galio-role-adaptation-v156.test.js
+      - name: Tester adaptation des runes Galio aux roles AP V15.7
+        run: |
+          node --check wrdi-draft-engine-v15.js
+          node --test wrdi-galio-rune-role-v157.test.js
