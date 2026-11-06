@@ -118,11 +118,39 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
  const antiheal=calculator?.antihealComparison?.({items:catalog,galio:galioSheet,threats:need});
  const strategic=m.rolePlanner?.plan?.({threats:need,items:optimizer.eligible(prepared)})||null;
  if(m.rolePlanner&&!strategic?.ok)return fail('role_planning',strategic?.reason||'Analyse stratégique indisponible');
- const main=optimizer.optimize({prepared,threats:need,combatModel,
+ let main=optimizer.optimize({prepared,threats:need,combatModel,
   candidateIds:strategic?.candidateIds||null});
  if(!main.ok)return fail('five_items',main.reason);
- const sequence=order.order({prepared,items:main.main.items,threats:need});
+ let sequence=order.order({prepared,items:main.main.items,threats:need});
  if(!sequence.ok)return fail('purchase_order',sequence.reason);
+ // V18.4: score every legal pair of fourth/fifth objects together against
+ // the full selected core. Keep the first three purchases unchanged.
+ const lateSlots=m.lateSlots?.compare?.({prepared,optimizer,orderedItems:sequence.items,
+  candidateIds:strategic?.candidateIds||[],threats:need,combatModel})||null;
+ if(m.lateSlots&&!lateSlots?.ok)return fail('late_slots',lateSlots?.reason||'Comparaison des fins de build impossible');
+ if(lateSlots?.applied){
+  const source=new Map(optimizer.eligible(prepared).map(x=>[x.id,x]));
+  const previous=[...sequence.items];
+  const last=lateSlots.selectedIds.slice(3).map(id=>source.get(id));
+  // Select the more practical fourth purchase based on the existing
+  // per-slot purchase scorer; swap only slots four and five.
+  const a=order.stageScore(last[0],need,3).score+order.stageScore(last[1],need,4).score;
+  const b=order.stageScore(last[1],need,3).score+order.stageScore(last[0],need,4).score;
+  if(b>a)last.reverse();
+  const chosen=[...previous.slice(0,3).map(x=>source.get(x.id)),...last];
+  const measured=optimizer.calculate(chosen,need,combatModel);
+  main={...main,main:{...main.main,
+   items:chosen.map((x,i)=>({id:x.id,name:x.name_fr,priceGold:x.price_gold,slot:i+1,
+    reason:optimizer.reasonFor(x,need)})),
+   suitability:measured.score,reasons:measured.reasons,stats:measured.stats,
+   interaction:measured.interaction,productivity:measured.productivity,
+   offenseRole:measured.offenseRole,burst:measured.burst}};
+  sequence={...sequence,items:chosen.map((x,i)=>({id:x.id,name:x.name_fr,
+   priceGold:x.price_gold,slot:i+1,
+   phase:i===0?'lane':i===1?'transition':i===2?'escarmouches':'teamfights',
+   reason:i<3?previous[i].reason:order.stageScore(x,need,i).reason})),
+   lateSlotsReoptimized:true,originalOrderPreservedThroughThird:true};
+ }
  // Distinct purchase-3/4 pathways, never pretend draft kit healing proves
  // that heal is decisive in a live match.
  const antihealPlanning=m.antihealOrder?.candidates?.({
@@ -142,6 +170,7 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
  const boots=m.bootAdvisor?.select?.({bootsCatalog,threats:need,role:strategic?.role})||null;
  if(m.bootAdvisor&&!boots?.ok)return fail('boots',boots?.reason||'Sélection des bottes indisponible');
  const notes=[...context.reasons];
+ if(lateSlots?.ok)notes.push('V18.4 : '+lateSlots.evaluatedPairs+' duos légaux comparés sur les objets 4 et 5 ; '+lateSlots.explanation+' Valeurs qualitatives, pas des dégâts réels.');
  if(readiness?.ok)notes.push('Données contrôlées : '+readiness.fullyDescribed+'/10 kits, '+readiness.itemRecords+' objets, '+readiness.runeRecords+' runes et '+readiness.bootRecords+' fiches de bottes client disponibles.');
  if(strategic?.ok)notes.unshift('V18 : '+strategic.rationale+' ; '+strategic.shortlisted+'/'+strategic.evaluated+' objets candidats évalués en détail. Core de référence : '+strategic.coreReference.join(' / ')+'.');
  if(main.main.offenseRole?.active){
@@ -234,7 +263,7 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
   draft:{ids:[...picks],names,threats:need,notes,confidence:context.confidence,
    officialKitCoverage:official?names.filter(n=>evidence[n]?.ok).length:0},
   build:{items:sequence.items,alternatives:conditional.options,legal:true,
-   strategy:strategic?.ok?strategic:null,
+   strategy:strategic?.ok?strategic:null,lateSlots:lateSlots?.ok?lateSlots:null,
    orderCertified:false,combinationsExamined:main.evaluatedPool,
    sourced:'player_client_items_only',noPopularBuilds:true},
   runes:rune,boots,dataReadiness:readiness,
