@@ -3,6 +3,9 @@
  */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.WRDI_GalioPurchaseOrderV1432=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
+const antihealEngine=(typeof require==='function'
+ ? require('./wrdi-antiheal-order-v169.js')
+ : (typeof globalThis!=='undefined'?globalThis.WRDI_AntihealOrderV169:null));
 const productiveEngine=(typeof require==='function'
  ? require('./wrdi-productive-survival-v166.js')
  : (typeof globalThis!=='undefined'?globalThis.WRDI_ProductiveSurvivalV166:null));
@@ -100,7 +103,26 @@ function stageScore(item,needs,slot){
   else if(slot>=3)score+=2;
   if(slot<=2)factors.push({points:0,message:'Amaranth gagne en valeur après d’autres résistances et 5 s de combat'});
  }
- if(heal>=2&&f.grievous)add(1.1,'Blessures graves documentées contre les soins');
+ // A champion may have innate healing without that healing being decisive in
+ // this match. Only an explicitly observed severity should accelerate a
+ // completed anti-heal item to purchase three.
+ const observed=Number.isFinite(t.observedHealingSeverity)?
+  c(t.observedHealingSeverity):0;
+ if(f.grievous&&observed>=2&&slot>=1&&slot<=3){
+  add((slot===2?3.8:slot===1?2.8:1.5)*Math.min(1.5,observed/2),
+   'Hémorragie avancée : soins adverses réellement déterminants');
+ }else if(f.grievous&&heal>=2){
+  add(0.6,'Anti-soin possible, mais urgence non confirmée avant la partie');
+ }
+ if((item.id==='thornmail'||item.id==='morellonomicon'||item.id==='riftmaker')
+    &&(slot===2||slot===3)&&antihealEngine?.evaluateItem){
+  const result=antihealEngine.evaluateItem(item,{threats:t,
+   observedHealingSeverity:observed,beingAutoAttacked:Boolean(t.beingAutoAttacked)});
+  if(result.ok){
+   score+=result.score*(slot===2?0.65:0.32);
+   if(slot===2)factors.push({points:0,message:result.explanation[0]});
+  }
+ }
  if(crit&&f.critGuard)add(1.5,'Protection contre les critiques confirmés');
  if(!crit&&f.critGuard)score-=2.2;
  factors.sort((a,b)=>b.points-a.points);

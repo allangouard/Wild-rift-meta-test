@@ -151,6 +151,26 @@ function showResults(result){
   }
   if(numerical.patchConflicts||!numerical.patchComplete)
    section.append(el('p','warning','Attention : toutes les différences de patch ne sont pas encore résolues. Les valeurs conflictuelles sont exclues des calculs concernés.'));
+  const treatment=result.calculations?.antihealTiming;
+  if(treatment?.baseline?.ok&&treatment?.ifObservedHealingUrgent?.ok){
+   section.append(el('h3',null,'Troisième achat : Créateur de failles ou anti-soin ?'));
+   const plans=el('ul','build-list');
+   const readable=id=>({
+    riftmaker:'Créateur de failles',thornmail:'Cotte épineuse',
+    morellonomicon:'Morellonomicon'})[id]||id;
+   const scenarios=[
+    {label:'Avant la partie (soins non observés)',value:treatment.baseline},
+    {label:'Si les soins deviennent décisifs',value:treatment.ifObservedHealingUrgent}
+   ];
+   for(const scenario of scenarios){
+    const one=scenario.value.preferred;
+    if(one)plans.append(el('li','muted',scenario.label+' : 3. '+
+     readable(one.third)+' → 4. '+readable(one.fourth)+
+     ' (comparaison conditionnelle, non certifiée).'));
+   }
+   section.append(plans);
+   section.append(el('p','caption','Cotte : anti-soin sur dégâts aux champions, renvoi de dégâts seulement si attaqué. Morello : anti-soin sur dégâts magiques, AP et accélération. Les soins présents dans un kit ne prouvent pas leur importance en partie.'));
+  }
   const productive=result.calculations?.productiveSurvival;
   if(productive?.ok){
    section.append(el('h3',null,'Pression offensive pendant le contrôle'));
@@ -252,7 +272,8 @@ go.addEventListener('click',()=>{
  const mod={profiles:root.WRDI_ChampionProfilesV15,team:root.WRDI_GalioTeamContextV1431,
   guard:root.WRDI_GalioItemGuardV1424,core:root.WRDI_CoreV14,
   optimizer:root.WRDI_GalioFiveItemOptimizerV1429,order:root.WRDI_GalioPurchaseOrderV1432,
-  contingency:root.WRDI_GalioContingenciesV1433,runeBridge:root.WRDI_RuneBridgeV14,
+  contingency:root.WRDI_GalioContingenciesV1433,
+  antihealOrder:root.WRDI_AntihealOrderV169,runeBridge:root.WRDI_RuneBridgeV14,
   runeAdvisor:root.WRDI_GalioRuneAdvisorV1411,
   kitIntelligence:root.WRDI_OfficialKitIntelligenceV158,
   mechanicsCalculator:root.WRDI_MechanicsCalculatorV159,
