@@ -46,7 +46,7 @@ test('Rejeter les 5 identifiants adverses non distincts',()=>{
  assert.equal(scenarios.evaluate({championId:'10099',summary:malformed,catalog,bridge}).ok,false);
 });
 test('V14.8 visible dans l onglet Runes et sans injection de score inventé',()=>{
- const html=fs.readFileSync('index.html','utf8');
+ const html=fs.readFileSync('index-v1434.html','utf8');
  const panel=fs.readFileSync('wrdi-rune-panel-v14.js','utf8');
  assert.ok(html.includes('./wrdi-galio-rune-scenarios-v14.js?v=14100'));
  assert.ok(panel.includes('Examiner les runes avec la draft'));
