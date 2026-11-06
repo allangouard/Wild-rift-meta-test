@@ -37,7 +37,7 @@ test('La secondaire de même branche et les doublons de ligne sont interdits',()
  assert.equal(api.validate({...p,keystone:'Rune inventée'},catalog).valid,false);
 });
 test('L onglet Runes charge les scripts V14.7 et le catalogue client',()=>{
- const html=fs.readFileSync('index.html','utf8');
+ const html=fs.readFileSync('index-v1434.html','utf8');
  const panel=fs.readFileSync('wrdi-rune-panel-v14.js','utf8');
  assert.ok(html.includes('./wrdi-rune-bridge-v14.js?v=1490'));
  assert.ok(html.includes('./wrdi-rune-panel-v14.js?v=14110'));
