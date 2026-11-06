@@ -73,7 +73,7 @@ function showResults(result){
   img.loading='lazy';img.addEventListener('error',()=>{img.style.display='none'});
   const content=el('div','item-text');content.append(phase,title,why);li.append(img,content);ol.append(li);
  }
- main.append(ol,el('p','caption','D’abord tenir et gérer la lane contre le mid adverse. Ensuite renforcer Galio pour les escarmouches et les combats d’équipe. Bottes non encore optimisées.'));
+ main.append(ol,el('p','caption','D’abord tenir et gérer la lane contre le mid adverse. Ensuite renforcer Galio pour les escarmouches et les combats d’équipe. Les bottes sont recommandées séparément selon la mission de Galio et les menaces adverses.'));
  box.append(main);
  function itemImage(it,role){
   const picture=el('span','wrdi-item-portrait');
