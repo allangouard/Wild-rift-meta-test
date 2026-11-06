@@ -29,7 +29,8 @@ const modules={
  readiness:require('./wrdi-galio-data-readiness-v18.js'),
  bootAdvisor:require('./wrdi-galio-boots-v18.js'),
  lateSlots:require('./wrdi-galio-late-slots-v184.js'),
- threatEvidence:require('./wrdi-galio-threat-evidence-v185.js')
+ threatEvidence:require('./wrdi-galio-threat-evidence-v185.js'),
+ conditionAudit:require('./wrdi-galio-condition-audit-v187.js')
 };
 function draft(names){
  const byName=new Map(champs.map(c=>[c.name.toLowerCase(),c]));
@@ -49,6 +50,8 @@ test('V18 end-to-end: three allied frontliners -> Galio AP burst, legal five ite
  assert.equal(r.build.strategy.role,'ap_burst');
  assert.equal(r.build.items.length,5);
  assert.equal(r.boots.ok,true);
+ assert.equal(r.build.conditionAudit.ok,true);
+ assert.equal(r.build.conditionAudit.guaranteedProcs,false);
  assert.ok(r.boots.candidates.length<=3);
  assert.ok(r.runes.alternatives.length<=2);
  assert.equal(r.dataReadiness.fullyDescribed,10);
