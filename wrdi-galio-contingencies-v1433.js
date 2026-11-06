@@ -14,6 +14,9 @@ const CONDITIONS=Object.freeze([
   relevant:f=>f.attackSpeedAura,category:'physical'},
  {id:'healing',label:'Si les soins adverses deviennent déterminants',flag:'heal',raised:4,
   relevant:f=>f.antiheal,category:'utility'},
+ {id:'shield',label:'Si les boucliers alliés adverses deviennent déterminants dans les combats',
+  flag:'observedShieldSeverity',raised:3,
+  relevant:f=>f.shieldCut,category:'utility'},
  {id:'physical',label:'Si les dégâts physiques dominent réellement',flag:'ad',raised:5,
   relevant:f=>f.armor>=30,category:'defense'},
  {id:'magical',label:'Si les dégâts magiques dominent réellement',flag:'ap',raised:5,
@@ -69,6 +72,9 @@ function plan({prepared,optimizer,items,threats={},max=3,
   // No Lucian/Gnar/fast-attacking champion in the actual enemy five:
   // don't invent a named matchup. The generic counter remains possible
   // only if matching enemy archetype exists in this very draft.
+  // A shield swap is only shown when the draft already contains a genuine
+  // ally shield source. Its impact must still be observed in the match.
+  if(condition.id==='shield'&&(Number(threats.shieldPressure)||0)<1.5)continue;
   if(condition.id==='attack_speed'&&Array.isArray(enemyNames)&&enemyNames.length===5&&
     speedCandidates(enemyNames,profileLookup).length===0)continue;
   // Only show a contingency if it is a change from the pre-game estimate.
