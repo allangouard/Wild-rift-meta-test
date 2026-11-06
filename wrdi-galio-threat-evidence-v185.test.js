@@ -47,7 +47,7 @@ test('Enemy composition summary differentiates multiple self-heals from allied p
 });
 test('Full patch catalog can be analyzed without inventing claims about unknown conditions',()=>{
  const r=official.entries.map(evidence.evaluate);
- assert.equal(r.length,125);
- assert.equal(r.filter(x=>x.ok).length,125);
+ assert.equal(r.length,126);
+ assert.equal(r.filter(x=>x.ok).length,126);
  assert.ok(r.every(x=>Number.isFinite(x.healing.pressure)&&x.healing.pressure>=0&&x.healing.pressure<=2));
 });
