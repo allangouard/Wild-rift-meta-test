@@ -286,3 +286,9 @@ jobs:
           node --check wrdi-galio-team-context-v1431.js
           node --check wrdi-galio-purchase-order-v1432.js
           node --test wrdi-galio-melee-farm-v155.test.js
+      - name: Tester role AP Galio et stase conditionnelle V15.6
+        run: |
+          node --check wrdi-galio-team-context-v1431.js
+          node --check wrdi-galio-five-item-optimizer-v1429.js
+          node --check wrdi-galio-purchase-order-v1432.js
+          node --test wrdi-galio-role-adaptation-v156.test.js
