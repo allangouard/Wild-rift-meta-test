@@ -22,6 +22,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Valider 625 competences numeriques WR et les patchs
+        run: |
+          node --check wrdi-numeric-kits-v162.js
+          node --test wrdi-numeric-kits-v162.test.js
       - name: Verifier la syntaxe V14
         run: |
           node --check wrdi-core-v14.js
