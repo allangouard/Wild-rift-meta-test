@@ -9,7 +9,7 @@
  else root.WRDI_GalioTeamContextV1431=api;
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
-const VERSION='15.6.0';
+const VERSION='15.8.0';
 const has=(arr,key)=>arr.includes(key);
 function make({enemies,allies,lookup}={}){
  if(!Array.isArray(enemies)||enemies.length!==5||!Array.isArray(allies)||allies.length!==5||typeof lookup!=='function')
@@ -24,6 +24,9 @@ function make({enemies,allies,lookup}={}){
  for(const p of enemy){
   for(const k of Object.keys(counts))if(has(p.traits,k))counts[k]++;
  }
+ const conditionalSustain=enemy.filter(x=>has(x.traits,'conditional_sustain')).length;
+ const confirmedSustain=enemy.filter(x=>has(x.traits,'sustain')&&
+  !has(x.traits,'conditional_sustain')).length;
  const mid=enemy[2],jungle=enemy[1];
  const physicalAssassins=enemy.filter(x=>has(x.traits,'assassin')&&has(x.traits,'ad')).length;
  const magicAssassins=enemy.filter(x=>has(x.traits,'assassin')&&has(x.traits,'ap')).length;
@@ -58,7 +61,7 @@ function make({enemies,allies,lookup}={}){
  // No opponent-specific prescribed item or assumed enemy purchase.
  const lanePoke=has(mid.traits,'poke')?1:0;
  const jungleAllIn=has(jungle.traits,'assassin')||has(jungle.traits,'burst')||has(jungle.traits,'engage')?1:0;
- const threats={...counts,
+ const threats={...counts,conditionalSustain,confirmedSustain,
   physicalAssassins,magicAssassins,critPotential:enemyCritPotential,
   // Crit tag = potential based on kit archetype, never a confirmed item build.
   // No verified enemy-item builds were supplied, so confirmed crit stays zero.
@@ -71,6 +74,7 @@ function make({enemies,allies,lookup}={}){
  if(lanePhysical&&laneAllIn)reasons.push('Midlane : menace physique d’engagement, achat défensif précoce à considérer');
  if(laneMagic&&laneAllIn)reasons.push('Midlane : menace magique d’engagement');
  if(lanePoke)reasons.push('Midlane : harcèlement possible, limiter l’exposition au farm');
+ if(conditionalSustain)reasons.push('Soins conditionnels : vérifier les formes ou déclenchements avant de considérer l’anti-soin comme indispensable');
  if(jungleAllIn)reasons.push('Jungle : potentiel de gank ou d’engagement');
  if(frontlineNeed)reasons.push('Équipe : responsabilité de première ligne accrue');
  if(damageDuty>=2)reasons.push('Équipe : plusieurs tanks alliés, Galio peut privilégier les dégâts magiques');
