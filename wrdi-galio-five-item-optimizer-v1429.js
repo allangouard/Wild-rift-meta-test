@@ -139,6 +139,59 @@ function coreFit(items,threats={}){
  }
  return {score,hybrid:true,reasons,role:'hybrid_offensive_control'};
 }
+function offensiveDutyFit(items,threats={},effectiveAp=null){
+ const rawDuty=Number(threats.damageDuty)||0;
+ const alliedFrontline=Number(threats.frontlineProvided)||0;
+ const enemyTank=Number(threats.tank)||0;
+ const primaryCarry=rawDuty>=2&&alliedFrontline>=2;
+ const ids=new Set(items.map(x=>x.id));
+ const rawAp=items.reduce((sum,x)=>sum+(Number(x.stats?.ap)||0),0);
+ const hasCap=ids.has('rabadons_deathcap');
+ const boostedAp=Number.isFinite(effectiveAp)?effectiveAp:
+  (rawAp+(ids.has('riftmaker')?items.reduce((sum,x)=>sum+(Number(x.stats?.hp)||0),0)*.02:0))*(hasCap?1.3:1);
+ const apItems=items.filter(x=>(Number(x.stats?.ap)||0)>=45).length;
+ const hardDefense=items.filter(x=>(Number(x.stats?.armor)||0)>=30||
+  (Number(x.stats?.mr)||0)>=30).length;
+ const immediateBurst=items.filter(x=>{
+  const m=(x.passives||[]).map(p=>p.mechanics||{});
+  return m.some(p=>typeof p.base_damage==='string'&&Number(p.cooldown_s)>0||
+    p.condition==='target_hp_pct < 40'||Number(p.mpen_flat)>0);
+ }).length;
+ const flatPen=items.reduce((sum,x)=>sum+(Number(x.stats?.mpen_flat)||0),0);
+ const rampBurn=items.filter(x=>(x.passives||[]).some(p=>
+  typeof p.mechanics?.damage_per_tick_formula==='string'&&
+  p.mechanics.damage_per_tick_formula.includes('target_max_hp'))).length;
+ let score=0;
+ const explanation=[];
+ if(primaryCarry){
+  // Because the team already supplies 2+ frontliners and zero other AP carries,
+  // our first duty is actually damaging enemies. Apply the AP multiplier of
+  // Deathcap to effective AP rather than using its base AP alone.
+  score+=Math.min(480,boostedAp)*0.072;
+  if(items.length>=3){
+   score+=apItems*2.3;
+   score-=Math.max(0,hardDefense-1)*4.6;
+   if(hasCap)score+=3.5;
+  }
+  if(items.length>=4){
+   score+=immediateBurst*3.5+Math.min(20,flatPen)*0.25;
+   if(enemyTank<2&&rampBurn)score-=rampBurn*5.0;
+  }
+  if(items.length===5){
+   score-=Math.max(0,280-boostedAp)*0.085;
+   if(!immediateBurst)score-=5;
+  }
+  explanation.push('Plusieurs tanks alliés : Galio est une source prioritaire de dégâts AP');
+  if(hasCap)explanation.push('Coiffe de Rabadon multiplie réellement la puissance du build');
+  if(rampBurn&&enemyTank<2)explanation.push('Brûlure en % PV non prioritaire sans plusieurs tanks ennemis');
+ }else if(rawDuty>=1&&items.length>=4){
+  score+=Math.min(300,boostedAp)*0.012;
+ }
+ return {active:primaryCarry,role:primaryCarry?'ap_burst_carry':'hybrid_or_contextual',
+  score:Math.round(score*100)/100,rawAp,effectiveAp:boostedAp,
+  apItems,defensiveItems:hardDefense,immediateBurst,flatPen,
+  enemyTank,explanation};
+}
 function calculate(items,threats,combatModel=null){
  const t=weights(threats),fs=items.map(x=>x.feature||features(x));
  const total=key=>fs.reduce((v,x)=>v+x[key],0);
@@ -296,13 +349,18 @@ function calculate(items,threats,combatModel=null){
   if(items.length===5)reasons.push(...productivity.long.parts.slice(0,3));
  }
  const core=coreFit(items,threats);
- score+=core.score;
+ // A hybrid core is valuable for actual frontline duties, not a fixed default
+ // when Galio is the only practical AP carry behind three allied tanks.
+ score+=core.score*(t.damageDuty>=2&&t.frontlineProvided>=2?0.15:1);
  if(items.length===5&&core.reasons.length)reasons.push(...core.reasons);
+ const offenseRole=offensiveDutyFit(items,threats,effective?.apAfterInteractions);
+ score+=offenseRole.score;
+ if(items.length===5&&offenseRole.active)reasons.push(...offenseRole.explanation);
  const stats={hp:total('hp'),ap:total('ap'),armor,mr,ah:total('ah'),
   apAfterInteractions:effective?.apAfterInteractions??total('ap'),
   riftBonusAp:effective?.riftBonusAp||0};
  return {score:Math.round(score*100)/100,reasons,stats,needs:t,synergy,balance,laneOpening,
-  interaction:interaction?.ok?interaction:null,productivity:productivity?.ok?productivity:null,core};
+  interaction:interaction?.ok?interaction:null,productivity:productivity?.ok?productivity:null,core,offenseRole};
 }
 function optimize({prepared,threats={},slots=5,beamWidth=100,combatModel=null}={}){
  if(!prepared?.ok||!prepared.core?.validateEquipment)return {ok:false,reason:'Catalogue client indisponible'};
@@ -334,7 +392,7 @@ function optimize({prepared,threats={},slots=5,beamWidth=100,combatModel=null}={
   id:item.id,name:item.name_fr,priceGold:num(item.price_gold)||null,
   slot:i+1,reason:reasonFor(item,threats)})),
   suitability:x.score,reasons:x.measure.reasons,stats:x.measure.stats,
-  interaction:x.measure.interaction,productivity:x.measure.productivity,
+  interaction:x.measure.interaction,productivity:x.measure.productivity,offenseRole:x.measure.offenseRole,
   legal:true,source:'player_client_items_only'});
  return {ok:true,game:'Wild Rift mobile',version:VERSION,
   main:result(winner),alternatives:others.map(result),
@@ -368,5 +426,5 @@ function reasonFor(item,threats){
  if(f.ah)r.push('Disponibilité des contrôles');
  return r.slice(0,2).join(' · ')||'Utilité situationnelle documentée';
 }
-return Object.freeze({VERSION,features,eligible,weights,coreFit,calculate,optimize,reasonFor});
+return Object.freeze({VERSION,features,eligible,weights,coreFit,offensiveDutyFit,calculate,optimize,reasonFor});
 });
