@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta name="theme-color" content="#0e2631">
+<title>Wild Rift Draft Intelligence — V15</title>
+<link rel="icon" type="image/png" href="./icon-192.png">
+<link rel="manifest" href="./manifest.webmanifest">
+<style>
+:root{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;color:#e8f7f6;background:#081b24;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;line-height:1.4}
+header{padding:20px 16px 16px;background:#0e2c39;border-bottom:1px solid #2d5360}
+main,header .inner{max-width:950px;margin:auto}main{padding:16px 14px 45px}
+h1{font-size:23px;line-height:1.15;margin:0 0 8px}h2{font-size:20px}h3{font-size:16px}
+p{margin:8px 0}.muted,.caption{color:#a7c6ca}.caption{font-size:12px}
+header p{font-size:13px;color:#b8d4da}
+.card{background:#102b37;border:1px solid #315967;border-radius:14px;padding:16px;margin:0 0 16px}
+.draft-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.team{min-width:0}.team h3{margin:0 0 12px}.team.enemy h3{color:#ffb3b3}.team.ally h3{color:#a9e3c7}
+.pick{display:block;margin:0 0 11px}.pick-label{display:block;font-size:12px;color:#c4dce0;margin:0 0 5px}
+.champ-select{display:block;appearance:auto;width:100%;max-width:100%;background:#183c4b;border:1px solid #557a89;border-radius:10px;padding:11px 5px;color:#f1ffff;min-height:44px;font-size:13px}
+.champ-select:disabled{opacity:.83;background:#244757}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 10px}
+button{border-radius:11px;border:1px solid #4b7d88;padding:12px 15px;min-height:45px;font:inherit;font-weight:650;cursor:pointer}
+button.primary{background:#41c3ad;color:#09262b;border-color:#41c3ad;flex:1}
+button.secondary{background:#163744;color:#d7f2ee}
+button:disabled{opacity:.47;cursor:not-allowed}
+.notice{margin:10px 0 0;font-size:13px}.notice.warning,.warning{color:#ffd0a5}.notice.good{color:#a3f3d1}
+.result-section{margin-top:20px;padding-top:14px;border-top:1px solid #37606a}
+.build-list{list-style:decimal;padding-left:27px;margin:10px 0}
+.build-item{padding:10px 0;border-bottom:1px solid #264957;display:flex;gap:10px;align-items:center}
+.build-item::marker{font-weight:700;color:#7fdad1}.item-icon{width:48px;height:48px;object-fit:contain;flex:0 0 auto;border-radius:8px}
+.item-text{min-width:0}.item-name{font-weight:700}.item-text p{font-size:12px}
+.alternative{border-left:3px solid #82c0c3;margin:12px 0;padding:3px 12px}
+.alternative strong{font-size:13px}.alternative p{font-size:13px}
+.rune-list{margin:10px 0;padding-left:22px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.details{margin:18px 0;font-size:13px}.details summary{cursor:pointer}
+footer{max-width:950px;margin:0 auto;padding:15px;color:#90acb4;font-size:12px}
+@media(max-width:360px){.draft-grid{gap:7px}.card{padding:10px}.champ-select{font-size:12px}.pick-label{font-size:11px}}
+</style>
+</head>
+<body>
+<header><div class="inner"><h1>🧠 Wild Rift Draft Intelligence</h1><p>Prépare ta draft · Galio mid · Wild Rift mobile · Moteur V15 indépendant</p></div></header>
+<main id="wrdi-v15">
+<section class="card" aria-label="Saisie de la draft">
+<h2>Ma draft</h2>
+<p class="muted">Sélectionne les dix champions. Galio est fixé au mid pour cette version.</p>
+<div class="draft-grid">
+<div class="team ally"><h3>🟢 Alliés</h3><div id="wrdi-allies"></div></div>
+<div class="team enemy"><h3>🔴 Adversaires</h3><div id="wrdi-enemies"></div></div>
+</div>
+<div class="actions">
+<button type="button" id="wrdi-analyze" class="primary" disabled>Analyser ma draft</button>
+<button type="button" id="wrdi-clear" class="secondary">Effacer</button>
+</div>
+<p id="wrdi-message" class="notice" aria-live="polite">Chargement…</p>
+</section>
+<section id="wrdi-result" class="card" aria-live="polite"></section>
+</main>
+<footer>Le catalogue d’objets et de runes provient des fiches du client enregistrées dans le projet. Les noms de champions sont chargés séparément. Les recommandations restent heuristiques et ne certifient aucun taux de victoire.</footer>
+<script defer src="./wrdi-core-v14.js?v=1500"></script>
+<script defer src="./wrdi-galio-item-guard-v1424.js?v=1500"></script>
+<script defer src="./wrdi-champion-profiles-v15.js?v=1500"></script>
+<script defer src="./wrdi-galio-team-context-v1431.js?v=1500"></script>
+<script defer src="./wrdi-galio-kit-item-synergy-v1434.js?v=1500"></script>
+<script defer src="./wrdi-galio-five-item-optimizer-v1429.js?v=1500"></script>
+<script defer src="./wrdi-galio-purchase-order-v1432.js?v=1500"></script>
+<script defer src="./wrdi-galio-contingencies-v1433.js?v=1500"></script>
+<script defer src="./wrdi-rune-bridge-v14.js?v=1500"></script>
+<script defer src="./wrdi-galio-rune-advisor-v1411.js?v=1500"></script>
+<script defer src="./wrdi-draft-engine-v15.js?v=1500"></script>
+<script defer src="./wrdi-app-v15.js?v=1500"></script>
+</body>
+</html>
