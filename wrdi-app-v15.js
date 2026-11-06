@@ -176,7 +176,7 @@ go.addEventListener('click',()=>{
   if(token!==epoch)return;
   try{
    const r=root.WRDI_DraftEngineV15.analyze({picks,champions:data.champions,
-    catalog:data.catalog,rules:data.rules,runes:data.runes,modules:mod});
+    catalog:data.catalog,rules:data.rules,runes:data.runes,championMeta:data.championList,modules:mod});
    if(r.ok){showResults(r);status('Analyse terminée. Une seule recommandation, préparée avant la partie.','good');}
    else{$('wrdi-result').replaceChildren();status(r.reason,'warning');}
   }catch(e){$('wrdi-result').replaceChildren();status('Calcul interrompu : '+String(e?.message||e),'warning');}
