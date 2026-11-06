@@ -6,6 +6,7 @@ on:
       - main
       - v14-development
       - v160-full-official-ability-text
+      - v162-wiki-wr-numeric-catalog
   workflow_dispatch:
 
 permissions:
@@ -17,6 +18,9 @@ jobs:
     steps:
       - name: Recuperer le code
         uses: actions/checkout@v4
+      - name: Probe Wild Rift numeric Wiki source
+        if: github.ref_name == 'v162-wiki-wr-numeric-catalog'
+        run: python3 scripts/probe-wr-wiki.py
       - name: Installer Node.js
         uses: actions/setup-node@v4
         with:
