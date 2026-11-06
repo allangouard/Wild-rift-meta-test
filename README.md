@@ -1,49 +1,60 @@
-# Wild Rift Draft Intelligence
+# Wild Rift Draft Intelligence — V15
 
-Assistant de **préparation de draft Wild Rift mobile**, en français. Galio mid est le premier champion équipé d'un moteur de cinq objets construit à partir des fiches du client du joueur (sans builds populaires).
+Application de **préparation de draft Wild Rift mobile**, centrée pour l'instant sur **Galio mid**. Une seule page et un seul pipeline de décision.
 
-## Ouvrir l'application
+## Utilisation
 
-- **Page canonique : [index.html](./index.html)** — choisir la composition, analyser, puis consulter le build et les runes.
-- [Dernière page d'essai V14.34](./index-v1434.html) — instantané de diagnostic ; ne pas choisir les versions anciennes pour le travail courant.
-- [Audit de consolidation](./docs/AUDIT_CONSOLIDATION_2026-11-06.md) — état des branches, modules, données à conserver et travaux de nettoyage.
+Ouvrir `index.html` sur la branche de publication. Choisir les dix champions, puis « Analyser ma draft ».
 
-## Principes du moteur
+L'application affiche :
+- **cinq objets** choisis ensemble à partir des fiches vérifiées du client ;
+- un **ordre d'achat théorique** ;
+- jusqu'à **trois remplacements situationnels**, exprimés sous la forme « si ... remplacer X par Y » ;
+- une **page de cinq runes** validée par les règles du client (lorsque disponible).
 
-1. Composer les dix champions avant la partie.
-2. Galio mid : choisir cinq **objets principaux compatibles** à partir des descriptions et passifs de `data/items-client-7.3d-v12.json`.
-3. Conseiller un ordre d'achat théorique fondé sur la lane et la draft initiale.
-4. Prévoir jusqu'à trois **remplacements situationnels explicites** si certaines menaces deviennent prioritaires durant la partie ; aucun suivi en direct n'est requis.
-5. Présenter une page de runes (sous réserve de la couverture de données), sans fabriquer de winrates.
-6. Les bottes ne sont pas comptées parmi les cinq objets principaux ; le Sablier de Zhonya est bien un objet actif de ces cinq emplacements.
+Elle **n'est pas utilisée pendant la partie** et n'effectue aucune surveillance en temps réel.
 
-Les résultats sont **des estimations qualitatives, non une validation d'optimalité en match**. La justesse dépend notamment des profils de menaces et de l'adéquation des passifs au kit de Galio.
+## Architecture de production
 
-## Données de référence
+`index.html` → `wrdi-app-v15.js` → `wrdi-draft-engine-v15.js` → moteurs :
+- `wrdi-champion-profiles-v15.js` (profils par archétypes, approximatifs),
+- `wrdi-galio-team-context-v1431.js` (menaces et besoins d'équipe),
+- `wrdi-galio-kit-item-synergy-v1434.js` (interactions théoriques Galio-passifs),
+- `wrdi-galio-five-item-optimizer-v1429.js` (choix des cinq objets),
+- `wrdi-galio-purchase-order-v1432.js` (priorisation),
+- `wrdi-galio-contingencies-v1433.js` (changements possibles),
+- `wrdi-core-v14.js`, `wrdi-galio-item-guard-v1424.js` (validité),
+- `wrdi-rune-bridge-v14.js`, `wrdi-galio-rune-advisor-v1411.js` (runes).
 
-- `data/items-client-7.3d-v12.json` : 59 fiches d'objets fournies/vérifiées dans le client.
-- `data/item-restrictions-client-7.3d-v12.json` : combinaisons interdites.
-- `data/rune-catalog-client-v14.json` : runes du client.
-- `data/galio-rune-training-observations-v1415.json` : observations de déclenchement.
-- `data/stage-a-*.json` : preuves de collecte à archiver, non à mélanger au moteur actif.
+La page de production charge **12 scripts**, sans `assets/app.js`, sans comparateurs V12/V13 et sans anciens panneaux de diagnostic.
 
-## Architecture
+## Sources : séparation stricte
 
-- `assets/app.js` : interface historique conservée pour compatibilité et déclenchement de l'analyse.
-- `wrdi-galio-team-context-v1431.js` : lecture de la composition.
-- `wrdi-galio-kit-item-synergy-v1434.js` : conditions de synergie Galio/objets.
-- `wrdi-galio-five-item-optimizer-v1429.js` : choix des cinq objets.
-- `wrdi-galio-purchase-order-v1432.js` : ordre d'achat.
-- `wrdi-galio-contingencies-v1433.js` : remplacements conditionnels avant partie.
-- `wrdi-compact-dashboard-v1423.js` : affichage épuré.
-- `wrdi-ten-kit-panel-v1414.js` et dépendances V14 : runes.
+- Objets : `data/items-client-7.3d-v12.json` — 59 fiches provenant du client.
+- Restrictions : `data/item-restrictions-client-7.3d-v12.json`.
+- Runes : `data/rune-catalog-client-v14.json`.
+- **Noms/IDs des champions uniquement** : `wrchina.gg/api/data.json`. Cette ressource ne fournit **aucun build**, aucune rune, aucun winrate et aucun score d'objet.
+- Profils de champions : `wrdi-champion-profiles-v15.js` ; étiquettes qualitatives extraites de l'ancien registre statique, **pas des matchups validés**.
 
-L'application charge encore certains laboratoires et anciennes couches : une prochaine refonte doit séparer **runtime**, **preuves**, et **outillage de test**. Lire l'audit avant de supprimer des scripts.
+En cas d'indisponibilité d'une donnée indispensable, le moteur **refuse** la recommandation. Aucun repli sur un build observé.
 
-## Branches
+## Limites restantes
 
-- `main` : publication.
-- `v14-development` : développement et CI V14.
-- `archive/pre-consolidation-v1434-2026-11-06` : sauvegarde des fichiers antérieurs à cette consolidation.
+- Un calcul « optimal » n'est **pas démontré** : les poids des menaces et des synergies restent heuristiques, et la recherche de cinq objets est une méthode de beam search.
+- Le **catalogue joueur** porte la version enregistrée 7.3d ; aucun patch ultérieur n'est automatiquement appliqué.
+- Les **bottes** ne sont pas encore optimisées.
+- Les catégories de menace ne sont pas encore des fiches complètes et toutes les interactions Galio-item n'ont pas été testées en client.
+- Les données des **noms de champions nécessitent un accès réseau** au premier lancement.
+- Les 52 runes sont validées structurellement ; la page tactique reste une hypothèse, sans winrates inventés.
 
-Les anciens instantanés HTML ne doivent pas être utilisés comme point d'entrée ; ils ne restent que pour les tests et la récupération historique.
+## Historique et entretien
+
+Les pages historiques, les anciens calculateurs, les laboratoires et les fichiers `data/stage-a-*` ne sont **pas chargés par la V15** ; ils restent dans le dépôt comme preuves ou fixtures de tests. Ne pas effacer les fiches validées ou leur provenance.
+
+- `main` : branche de publication.
+- `v14-development` : branche d'intégration provisoire.
+- `archive/pre-consolidation-v1434-2026-11-06` : sauvegarde antérieure.
+- [Audit initial de consolidation](./docs/AUDIT_CONSOLIDATION_2026-11-06.md).
+- Exécuter `node --test wrdi-draft-engine-v15.test.js` pour le pipeline autonome ; GitHub Actions conserve également les tests de non-régression historiques.
+
+**Objectif de la prochaine itération :** tester les choix du moteur sur des drafts variées et remplacer les poids heuristiques insuffisamment fondés par des règles de synergie et de menaces auditées, sans réintroduire les builds populaires.
