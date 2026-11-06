@@ -2,7 +2,7 @@
   "schema": "wrdi.riot_wild_rift_patch_numeric_register.v1",
   "game": "Wild Rift mobile ONLY",
   "targetPatch": "7.3d",
-  "collectedAtUTC": "2026-11-06T13:43:01.444451+00:00",
+  "collectedAtUTC": "2026-11-06T13:48:15.762101+00:00",
   "automaticallyMappedToChampion": false,
   "approvedForScoring": false,
   "note": "Numeric patch bullets need a champion and ability mapping; only exact reviewed overrides are applied elsewhere.",
@@ -390,8 +390,8 @@
           ]
         },
         {
-          "championCandidate": "Thresh",
-          "abilityCandidate": "OBJETS",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Pénétration d'armure : 8 ",
           "after": " 12",
           "numericBefore": [
@@ -402,8 +402,8 @@
           ]
         },
         {
-          "championCandidate": "Thresh",
-          "abilityCandidate": "OBJETS",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Prix : 2900 PO ",
           "after": " 2800 PO",
           "numericBefore": [
@@ -5440,8 +5440,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Garen",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 660 ",
           "after": " 690",
           "numericBefore": [
@@ -5452,8 +5452,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Garen",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Armure de base : 52 ",
           "after": " 44",
           "numericBefore": [
@@ -5464,8 +5464,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Garen",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Armure par niveau : 5,8 ",
           "after": " 5",
           "numericBefore": [
@@ -5476,8 +5476,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Aatrox",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Armure par niveau : 4,5 ",
           "after": " 5",
           "numericBefore": [
@@ -5488,8 +5488,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Aatrox",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Résistance magique de base : 40 ",
           "after": " 36",
           "numericBefore": [
@@ -5500,8 +5500,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Rengar",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 660 ",
           "after": " 630",
           "numericBefore": [
@@ -5512,8 +5512,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Rengar",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 128 ",
           "after": " 136",
           "numericBefore": [
@@ -5524,8 +5524,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Amumu",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 104 ",
           "after": " 114",
           "numericBefore": [
@@ -5536,8 +5536,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Nunu et Willump",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 690 ",
           "after": " 630",
           "numericBefore": [
@@ -5548,8 +5548,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Nunu et Willump",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 124",
           "numericBefore": [
@@ -5560,8 +5560,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Ekko",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 630 ",
           "after": " 650",
           "numericBefore": [
@@ -5572,8 +5572,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Ekko",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 126",
           "numericBefore": [
@@ -5584,8 +5584,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Kha'Zix",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 630 ",
           "after": " 640",
           "numericBefore": [
@@ -5596,8 +5596,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Kha'Zix",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 128",
           "numericBefore": [
@@ -5608,8 +5608,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Xin Zhao",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 690 ",
           "after": " 650",
           "numericBefore": [
@@ -5620,8 +5620,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Xin Zhao",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Armure par niveau : 4,3 ",
           "after": " 4,7",
           "numericBefore": [
@@ -5632,8 +5632,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Xin Zhao",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 130",
           "numericBefore": [
@@ -5644,8 +5644,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Hecarim",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Armure de base : 46 ",
           "after": " 42",
           "numericBefore": [
@@ -5656,8 +5656,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Hecarim",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Armure par niveau : 5 ",
           "after": " 5,4",
           "numericBefore": [
@@ -5668,8 +5668,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Hecarim",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 130",
           "numericBefore": [
@@ -5680,8 +5680,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Braum",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 690 ",
           "after": " 630",
           "numericBefore": [
@@ -5692,8 +5692,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Braum",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Armure de base : 52 ",
           "after": " 46",
           "numericBefore": [
@@ -5704,8 +5704,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Braum",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 136",
           "numericBefore": [
@@ -5716,8 +5716,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Jhin",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 600 ",
           "after": " 630",
           "numericBefore": [
@@ -5728,8 +5728,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Evelynn",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 600 ",
           "after": " 630",
           "numericBefore": [
@@ -5740,8 +5740,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Akali",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 140 ",
           "after": " 150",
           "numericBefore": [
@@ -5752,8 +5752,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Pantheon",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 690 ",
           "after": " 660",
           "numericBefore": [
@@ -5764,8 +5764,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Pantheon",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Armure de base : 52 ",
           "after": " 48",
           "numericBefore": [
@@ -5776,8 +5776,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Pantheon",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 132",
           "numericBefore": [
@@ -5788,8 +5788,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Fiora",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 650 ",
           "after": " 630",
           "numericBefore": [
@@ -5800,8 +5800,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Fiora",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Armure de base : 46 ",
           "after": " 42",
           "numericBefore": [
@@ -5812,8 +5812,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Fiora",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Armure par niveau : 4,3 ",
           "after": " 4,8",
           "numericBefore": [
@@ -5824,8 +5824,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Fiora",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 130",
           "numericBefore": [
@@ -5836,8 +5836,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Blitzcrank",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 660 ",
           "after": " 630",
           "numericBefore": [
@@ -5848,8 +5848,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Blitzcrank",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Armure de base : 49 ",
           "after": " 45",
           "numericBefore": [
@@ -5860,8 +5860,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Blitzcrank",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 135",
           "numericBefore": [
@@ -5872,8 +5872,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Blitzcrank",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 690 ",
           "after": " 660",
           "numericBefore": [
@@ -5884,8 +5884,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Blitzcrank",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Armure de base : 46 ",
           "after": " 44",
           "numericBefore": [
@@ -5896,8 +5896,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Blitzcrank",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 130",
           "numericBefore": [
@@ -5908,8 +5908,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Blitzcrank",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 690 ",
           "after": " 660",
           "numericBefore": [
@@ -5920,8 +5920,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Blitzcrank",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Armure de base : 46 ",
           "after": " 42",
           "numericBefore": [
@@ -5932,8 +5932,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Blitzcrank",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 112 ",
           "after": " 130",
           "numericBefore": [
@@ -5944,8 +5944,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Rakan",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Armure de base : 49 ",
           "after": " 42",
           "numericBefore": [
@@ -5956,8 +5956,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Rakan",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 660 ",
           "after": " 640",
           "numericBefore": [
@@ -5968,8 +5968,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Rakan",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 112 ",
           "after": " 120",
           "numericBefore": [
@@ -5980,8 +5980,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Gwen",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 690 ",
           "after": " 640",
           "numericBefore": [
@@ -5992,8 +5992,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Gwen",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Armure de base : 52 ",
           "after": " 48",
           "numericBefore": [
@@ -6004,8 +6004,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Gwen",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 136",
           "numericBefore": [
@@ -6016,8 +6016,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Camille",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 690 ",
           "after": " 660",
           "numericBefore": [
@@ -6028,8 +6028,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Camille",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 128 ",
           "after": " 132",
           "numericBefore": [
@@ -6040,8 +6040,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Jarvan IV",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 690 ",
           "after": " 660",
           "numericBefore": [
@@ -6052,8 +6052,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Jarvan IV",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 130",
           "numericBefore": [
@@ -6064,8 +6064,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Viego",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 660 ",
           "after": " 630",
           "numericBefore": [
@@ -6076,8 +6076,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Viego",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 128 ",
           "after": " 138",
           "numericBefore": [
@@ -6088,8 +6088,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Lee Sin",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 690 ",
           "after": " 660",
           "numericBefore": [
@@ -6100,8 +6100,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Lee Sin",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 132",
           "numericBefore": [
@@ -6112,8 +6112,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Kennen",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 660 ",
           "after": " 600",
           "numericBefore": [
@@ -6124,8 +6124,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Kennen",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 130",
           "numericBefore": [
@@ -6136,8 +6136,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Dr. Mundo",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 720 ",
           "after": " 680",
           "numericBefore": [
@@ -6148,8 +6148,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Dr. Mundo",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 112 ",
           "after": " 120",
           "numericBefore": [
@@ -6160,8 +6160,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Rammus",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 690 ",
           "after": " 670",
           "numericBefore": [
@@ -6172,8 +6172,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Rammus",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Armure de base : 49 ",
           "after": " 45",
           "numericBefore": [
@@ -6184,8 +6184,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Rammus",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 112 ",
           "after": " 124",
           "numericBefore": [
@@ -6196,8 +6196,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Zeri",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 630 ",
           "after": " 600",
           "numericBefore": [
@@ -6208,8 +6208,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Zeri",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 128 ",
           "after": " 136",
           "numericBefore": [
@@ -6220,8 +6220,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Maître Yi",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 130",
           "numericBefore": [
@@ -6232,8 +6232,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Yone",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 650 ",
           "after": " 630",
           "numericBefore": [
@@ -6244,8 +6244,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Yone",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 130",
           "numericBefore": [
@@ -6256,8 +6256,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Darius",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 650 ",
           "after": " 660",
           "numericBefore": [
@@ -6268,8 +6268,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Darius",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Armure de base : 52 ",
           "after": " 45",
           "numericBefore": [
@@ -6280,8 +6280,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Darius",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 144 ",
           "after": " 148",
           "numericBefore": [
@@ -6292,8 +6292,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Alistar",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 720 ",
           "after": " 700",
           "numericBefore": [
@@ -6304,8 +6304,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Aurora",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 132",
           "numericBefore": [
@@ -6316,8 +6316,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Kassadin",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 630 ",
           "after": " 650",
           "numericBefore": [
@@ -6328,8 +6328,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Kassadin",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 132",
           "numericBefore": [
@@ -6340,8 +6340,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Graves",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 660 ",
           "after": " 630",
           "numericBefore": [
@@ -6352,8 +6352,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Graves",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 128 ",
           "after": " 136",
           "numericBefore": [
@@ -6364,8 +6364,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Poppy",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 660 ",
           "after": " 630",
           "numericBefore": [
@@ -6376,8 +6376,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Poppy",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 128 ",
           "after": " 136",
           "numericBefore": [
@@ -6388,8 +6388,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Draven",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 630 ",
           "after": " 650",
           "numericBefore": [
@@ -6400,8 +6400,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Draven",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 128 ",
           "after": " 132",
           "numericBefore": [
@@ -6412,8 +6412,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Malphite",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 130",
           "numericBefore": [
@@ -6424,8 +6424,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Gragas",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 720 ",
           "after": " 660",
           "numericBefore": [
@@ -6436,8 +6436,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Gragas",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 140",
           "numericBefore": [
@@ -6448,8 +6448,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Riven",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 690 ",
           "after": " 660",
           "numericBefore": [
@@ -6460,8 +6460,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Riven",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 125",
           "numericBefore": [
@@ -6472,8 +6472,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Riven",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Armure de base : 46 ",
           "after": " 43",
           "numericBefore": [
@@ -6484,8 +6484,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Irelia",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 690 ",
           "after": " 660",
           "numericBefore": [
@@ -6496,8 +6496,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Irelia",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 128 ",
           "after": " 138",
           "numericBefore": [
@@ -6508,8 +6508,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Katarina",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 630 ",
           "after": " 660",
           "numericBefore": [
@@ -6520,8 +6520,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Skarner",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 690 ",
           "after": " 660",
           "numericBefore": [
@@ -6532,8 +6532,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Skarner",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 128 ",
           "after": " 132",
           "numericBefore": [
@@ -6544,8 +6544,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Shen",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 112 ",
           "after": " 124",
           "numericBefore": [
@@ -6556,8 +6556,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Galio",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 660 ",
           "after": " 630",
           "numericBefore": [
@@ -6568,8 +6568,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Galio",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 144 ",
           "after": " 148",
           "numericBefore": [
@@ -6580,8 +6580,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Lissandra",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 130",
           "numericBefore": [
@@ -6592,8 +6592,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Senna",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 600 ",
           "after": " 570",
           "numericBefore": [
@@ -6604,8 +6604,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Nautilus",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 720 ",
           "after": " 690",
           "numericBefore": [
@@ -6616,8 +6616,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Thresh",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 140",
           "numericBefore": [
@@ -6628,8 +6628,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Ornn",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV de base : 720 ",
           "after": " 690",
           "numericBefore": [
@@ -6640,8 +6640,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Ornn",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 132",
           "numericBefore": [
@@ -6652,8 +6652,8 @@
           ]
         },
         {
-          "championCandidate": "Zed",
-          "abilityCandidate": "Nocturne",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV par niveau : 120 ",
           "after": " 134",
           "numericBefore": [
@@ -7234,8 +7234,8 @@
           ]
         },
         {
-          "championCandidate": "Viego",
-          "abilityCandidate": "Flèches des Yun Tal",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Vitesse d'attaque : 25% ",
           "after": " 35%",
           "numericBefore": [
@@ -7246,8 +7246,8 @@
           ]
         },
         {
-          "championCandidate": "Viego",
-          "abilityCandidate": "Flèches des Yun Tal",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Vitesse d'attaque : 25% ",
           "after": " 35%",
           "numericBefore": [
@@ -7258,8 +7258,8 @@
           ]
         },
         {
-          "championCandidate": "Viego",
-          "abilityCandidate": "Flèches des Yun Tal",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Délai de récupération : 20 sec ",
           "after": " 25 sec",
           "numericBefore": [
@@ -7270,8 +7270,8 @@
           ]
         },
         {
-          "championCandidate": "Viego",
-          "abilityCandidate": "Diadème des murmures",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Efficacité des soins et boucliers : 0,5% ",
           "after": " 0,25%",
           "numericBefore": [
@@ -7282,8 +7282,8 @@
           ]
         },
         {
-          "championCandidate": "Viego",
-          "abilityCandidate": "Diadème musical",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Efficacité des soins et boucliers : 0,5% ",
           "after": " 0,25%",
           "numericBefore": [
@@ -7294,8 +7294,8 @@
           ]
         },
         {
-          "championCandidate": "Viego",
-          "abilityCandidate": "Danse de la mort",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Prix : 3200 ",
           "after": " 3300",
           "numericBefore": [
@@ -7306,8 +7306,8 @@
           ]
         },
         {
-          "championCandidate": "Viego",
-          "abilityCandidate": "Danse de la mort",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Dégâts de Châtiment aux monstres par seconde : 30 - 198 (selon le niveau) ",
           "after": " 22 - 162 (selon le niveau)",
           "numericBefore": [
@@ -7320,8 +7320,8 @@
           ]
         },
         {
-          "championCandidate": "Viego",
-          "abilityCandidate": "Danse de la mort",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "PV max : 5500 ",
           "after": " 4000",
           "numericBefore": [
@@ -7332,8 +7332,8 @@
           ]
         },
         {
-          "championCandidate": "Viego",
-          "abilityCandidate": "Danse de la mort",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Armure et résistance magique obtenues après la chute d'une plaque : 30 ",
           "after": " 20",
           "numericBefore": [
@@ -7344,8 +7344,8 @@
           ]
         },
         {
-          "championCandidate": "Viego",
-          "abilityCandidate": "Danse de la mort",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Durée de l'armure et de la résistance magique après la chute d'une plaque : 20 sec ",
           "after": " 10 sec",
           "numericBefore": [
@@ -7356,8 +7356,8 @@
           ]
         },
         {
-          "championCandidate": "Viego",
-          "abilityCandidate": "Chasseur de rythmes",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Distance de déclenchement : 7 ",
           "after": " 11",
           "numericBefore": [
@@ -7368,8 +7368,8 @@
           ]
         },
         {
-          "championCandidate": "Viego",
-          "abilityCandidate": "Chasseur de rythmes",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Multiplicateur de Renfort d'acier par effet cumulé : 12 ",
           "after": " 8",
           "numericBefore": [
@@ -7380,8 +7380,8 @@
           ]
         },
         {
-          "championCandidate": "Viego",
-          "abilityCandidate": "Frappe venteuse",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Portée d'attaque : 8 ",
           "after": " 9",
           "numericBefore": [
@@ -7392,8 +7392,8 @@
           ]
         },
         {
-          "championCandidate": "Viego",
-          "abilityCandidate": "Cycle de la vie",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Ratio du bouclier obtenu : 150% ",
           "after": " 200%",
           "numericBefore": [
@@ -7404,8 +7404,8 @@
           ]
         },
         {
-          "championCandidate": "Viego",
-          "abilityCandidate": "Arme éthérée",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Délai de récupération par cible : 5 sec ",
           "after": " 2 sec",
           "numericBefore": [
@@ -7416,8 +7416,8 @@
           ]
         },
         {
-          "championCandidate": "Viego",
-          "abilityCandidate": "Couronne de métal",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Stats obtenues après avoir lancé votre ultime : 35 dégâts d'attaque, 70 puissance, 50 armure, 50 résistance magique ",
           "after": " 30 dégâts d'attaque, 60 puissance, 40 armure, 40 résistance magique.",
           "numericBefore": [
@@ -7434,8 +7434,8 @@
           ]
         },
         {
-          "championCandidate": "Viego",
-          "abilityCandidate": "Balles Hextech",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Amplification des dégâts pour l'autre type de dégâts : 20% ",
           "after": " 30%",
           "numericBefore": [
@@ -7446,8 +7446,8 @@
           ]
         },
         {
-          "championCandidate": "Viego",
-          "abilityCandidate": "Empilement",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Augmentation des dégâts par effet cumulé : 8 ",
           "after": " 12",
           "numericBefore": [
@@ -7458,8 +7458,8 @@
           ]
         },
         {
-          "championCandidate": "Viego",
-          "abilityCandidate": "Sorcellerie accélérée",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Nombre d'effets cumulés max : 100 ",
           "after": " 66",
           "numericBefore": [
@@ -7470,8 +7470,8 @@
           ]
         },
         {
-          "championCandidate": "Viego",
-          "abilityCandidate": "Summum de la perfection",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Limite de ratio de critique : 50% ",
           "after": " 44,44%",
           "numericBefore": [
@@ -7482,8 +7482,8 @@
           ]
         },
         {
-          "championCandidate": "Viego",
-          "abilityCandidate": "Summum de la perfection",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Taux de conversion pour les chances de coup critique dépassant la limite : 150% ",
           "after": " 444%",
           "numericBefore": [
@@ -7494,8 +7494,8 @@
           ]
         },
         {
-          "championCandidate": "Viego",
-          "abilityCandidate": "Summum de la perfection",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Limite de conversion : 305% ",
           "after": " 400%",
           "numericBefore": [
@@ -7506,8 +7506,8 @@
           ]
         },
         {
-          "championCandidate": "Viego",
-          "abilityCandidate": "Fiddlesticks",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Dégâts subis : 90% ",
           "after": " 85%",
           "numericBefore": [
@@ -7518,8 +7518,8 @@
           ]
         },
         {
-          "championCandidate": "Viego",
-          "abilityCandidate": "Nasus",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Dégâts subis : 100% ",
           "after": " 90%",
           "numericBefore": [
@@ -7932,7 +7932,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "Prix : 3000 PO ",
           "after": " 2900 PO",
@@ -7944,7 +7944,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "Prix : 2600 PO ",
           "after": " 2500 PO",
@@ -7956,7 +7956,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "PV : 200 ",
           "after": " 300",
@@ -7968,7 +7968,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "Prix : 2700 PO ",
           "after": " 2850 PO",
@@ -7980,7 +7980,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "Seuil de déclenchement : 900 ",
           "after": " 1250",
@@ -7992,7 +7992,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "Prix : 3000 PO ",
           "after": " 2900 PO",
@@ -8004,7 +8004,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "Effets énergisants bonus octroyés par les attaques : 5 ",
           "after": " 7",
@@ -8016,7 +8016,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "Prix : 3100 PO ",
           "after": " 3000 PO",
@@ -8028,7 +8028,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "Dégâts : 40 - 210 (selon le niveau) + 10% des dégâts d'attaque bonus + 5% de la puissance ",
           "after": " 60 - 210 (selon le niveau) + 10% des dégâts d'attaque bonus + 5% de la puissance",
@@ -8046,7 +8046,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "Temps de récupération : 7 sec ",
           "after": " 5 sec",
@@ -8058,7 +8058,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "Dégâts : 3,3% des PV max ",
           "after": " 3% des PV max",
@@ -8070,7 +8070,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "Stat de croissance en PV max : 10 ",
           "after": " 8",
@@ -8082,7 +8082,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "Valeur du bouclier : 40-194 (selon le niveau) + 10% des dégâts d'attaque bonus + 5% de la puissance ",
           "after": " 20-100 (selon le niveau) + 10% des dégâts d'attaque bonus + 5% de la puissance",
@@ -8100,7 +8100,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "PV de base : 1000 ",
           "after": " 1100",
@@ -8112,7 +8112,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "PV par niveau : 110 ",
           "after": " 125",
@@ -8124,7 +8124,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "PV de base : 500 ",
           "after": " 550",
@@ -8136,7 +8136,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "PV par niveau : 55 ",
           "after": " 65",
@@ -8148,7 +8148,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "Effets de soin : 1,5% des PV max ",
           "after": " 1% des PV max",
@@ -8160,7 +8160,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "Réduction des dégâts : 3,75 - 14,25 (selon le niveau) ",
           "after": " 3,5 - 10,5 (selon le niveau)",
@@ -8174,7 +8174,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "Réduction des dégâts : 3 - 15 (selon le niveau) ",
           "after": " 3 - 12 (selon le niveau)",
@@ -8188,7 +8188,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "Réduction des dégâts bruts : 50% ",
           "after": " 40%",
@@ -8200,7 +8200,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "Vitesse d'attaque par effet cumulé : 9% ",
           "after": " 6%",
@@ -8212,7 +8212,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "Portée d'attaque au maximum d'effets cumulés : 50 ",
           "after": " 25",
@@ -8224,7 +8224,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "Accélération de compétence : 25% des dégâts d'attaque bonus + 12% de la puissance ",
           "after": " 20% des dégâts d'attaque bonus + 10% de la puissance",
@@ -8238,7 +8238,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "Ratio de conversion des dégâts d'attaque de base réduits en soins : 100 % ",
           "after": " 300 %",
@@ -8250,7 +8250,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "PV bonus à chaque participation à une élimination : 15 ",
           "after": " 30",
@@ -8262,7 +8262,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "PV bonus gagnés : 20% ",
           "after": " 30%",
@@ -8274,7 +8274,7 @@
           ]
         },
         {
-          "championCandidate": "Yasuo",
+          "championCandidate": null,
           "abilityCandidate": null,
           "before": "Vitesse de déplacement et vitesse d'attaque obtenues en cas de coup critique : 15 % ",
           "after": " 25 %",
@@ -8938,8 +8938,8 @@
           ]
         },
         {
-          "championCandidate": "Singed",
-          "abilityCandidate": "Chasseur de monstres",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Dégâts de coup critique normaux : 80% ",
           "after": " 85%",
           "numericBefore": [
@@ -8950,8 +8950,8 @@
           ]
         },
         {
-          "championCandidate": "Singed",
-          "abilityCandidate": "Chasseur de monstres",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Dégâts bruts : 15% ",
           "after": " 17,5%",
           "numericBefore": [
@@ -8962,8 +8962,8 @@
           ]
         },
         {
-          "championCandidate": "Singed",
-          "abilityCandidate": "Pourfendeur divin",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Prix : 3400 ",
           "after": " 3300",
           "numericBefore": [
@@ -8974,8 +8974,8 @@
           ]
         },
         {
-          "championCandidate": "Singed",
-          "abilityCandidate": "Faux spectrale",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Dégâts d'attaque : 50 ",
           "after": " 55",
           "numericBefore": [
@@ -8986,8 +8986,8 @@
           ]
         },
         {
-          "championCandidate": "Singed",
-          "abilityCandidate": "Diadème des murmures",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Efficacité des soins et boucliers : 8% ",
           "after": " 6%",
           "numericBefore": [
@@ -8998,8 +8998,8 @@
           ]
         },
         {
-          "championCandidate": "Singed",
-          "abilityCandidate": "Diadème musical",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Efficacité des soins et boucliers : 8% ",
           "after": " 6%",
           "numericBefore": [
@@ -9010,8 +9010,8 @@
           ]
         },
         {
-          "championCandidate": "Singed",
-          "abilityCandidate": "Lame tempête",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Dégâts : 120 ",
           "after": " 100",
           "numericBefore": [
@@ -9022,8 +9022,8 @@
           ]
         },
         {
-          "championCandidate": "Singed",
-          "abilityCandidate": "Lame tempête",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Vitesse de déplacement : 45% ",
           "after": " 35%",
           "numericBefore": [
@@ -9034,8 +9034,8 @@
           ]
         },
         {
-          "championCandidate": "Singed",
-          "abilityCandidate": "Baron Nashor",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Réduction des dégâts des sbires contre les champions : Sbires de mêlée / magiques : 50 - 70% ",
           "after": " 55 - 75% Sbires canonniers / de siège : 30% → 35%",
           "numericBefore": [
@@ -9050,8 +9050,8 @@
           ]
         },
         {
-          "championCandidate": "Singed",
-          "abilityCandidate": "Baron Nashor",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Sbires de mêlée / magiques : 50 - 70% ",
           "after": " 55 - 75%",
           "numericBefore": [
@@ -9064,8 +9064,8 @@
           ]
         },
         {
-          "championCandidate": "Singed",
-          "abilityCandidate": "Baron Nashor",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Sbires canonniers / de siège : 30% ",
           "after": " 35%",
           "numericBefore": [
@@ -9076,8 +9076,8 @@
           ]
         },
         {
-          "championCandidate": "Singed",
-          "abilityCandidate": "Baron Nashor",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Réduction des dégâts des sbires contre les autres sbires : Sbires de mêlée : 80% ",
           "after": " 90% Autres sbires : 20% → 25% (sauf super-sbire)",
           "numericBefore": [
@@ -9090,8 +9090,8 @@
           ]
         },
         {
-          "championCandidate": "Singed",
-          "abilityCandidate": "Baron Nashor",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Sbires de mêlée : 80% ",
           "after": " 90%",
           "numericBefore": [
@@ -9102,8 +9102,8 @@
           ]
         },
         {
-          "championCandidate": "Singed",
-          "abilityCandidate": "Baron Nashor",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Autres sbires : 20% ",
           "after": " 25% (sauf super-sbire)",
           "numericBefore": [
@@ -9114,8 +9114,8 @@
           ]
         },
         {
-          "championCandidate": "Singed",
-          "abilityCandidate": "Baron Nashor",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Réduction des dégâts des sbires contre les tourelles : 25% ",
           "after": " 30% (sauf super-sbire)",
           "numericBefore": [
@@ -9126,8 +9126,8 @@
           ]
         },
         {
-          "championCandidate": "Singed",
-          "abilityCandidate": "Tourelles",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Multiplicateur de dégâts de tourelle sur les attaques consécutives : 100%/150%/215%/300% ",
           "after": " 100%/150%/210%/270%",
           "numericBefore": [
@@ -9144,8 +9144,8 @@
           ]
         },
         {
-          "championCandidate": "Singed",
-          "abilityCandidate": "Toxine violette",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Dégâts à l'impact : 40 ~ 80 + 40% des dégâts d'attaque bonus + 10% de la puissance ",
           "after": " 20 ~ 40 + 40% des dégâts d'attaque bonus + 10% de la puissance",
           "numericBefore": [
@@ -9162,8 +9162,8 @@
           ]
         },
         {
-          "championCandidate": "Singed",
-          "abilityCandidate": "Zeri chromartiste",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Dégâts par seconde : 10 ~ 20 + 30% des dégâts d'attaque bonus + 15% de la puissance ",
           "after": " 5 ~ 12 + 30% des dégâts d'attaque bonus + 10% de la puissance",
           "numericBefore": [
@@ -9180,8 +9180,8 @@
           ]
         },
         {
-          "championCandidate": "Singed",
-          "abilityCandidate": "Chasseur de rythmes",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Renfort d'acier par effet cumulé : 8 ",
           "after": " 6",
           "numericBefore": [
@@ -9192,8 +9192,8 @@
           ]
         },
         {
-          "championCandidate": "Singed",
-          "abilityCandidate": "En rouge et bleu (remix)",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Nombre maximum de charges par minute : 60 ",
           "after": " 75",
           "numericBefore": [
@@ -9204,8 +9204,8 @@
           ]
         },
         {
-          "championCandidate": "Singed",
-          "abilityCandidate": "Agents transmissibles",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Soins et boucliers transmissibles : 50 % ",
           "after": " 40 %",
           "numericBefore": [
@@ -9216,8 +9216,8 @@
           ]
         },
         {
-          "championCandidate": "Singed",
-          "abilityCandidate": "Explosion pourpre",
+          "championCandidate": null,
+          "abilityCandidate": null,
           "before": "Délai de récupération : 5 sec ",
           "after": " 4 sec",
           "numericBefore": [
