@@ -53,6 +53,16 @@ function showResults(result){
  const headline=el('h2',null,'Recommandation Galio · Mid');box.append(headline);
  const sub=el('p','muted','Wild Rift mobile · Fiches du client '+result.patch+' · Calcul qualitatif avant la partie');
  box.append(sub);
+ if(result.draft.threatEvidence?.ok){
+  const e=result.draft.threatEvidence;
+  const section=el('section','result-section');
+  section.append(el('h3',null,'Menaces documentées · V18.5'));
+  section.append(el('p','muted',e.alliedHealers+' sources de soin sur alliés · '+
+   e.personalHealers+' sources de soin personnel · '+
+   e.maxHpThreats+' sources de dégâts en % PV max'));
+  section.append(el('p','caption','Données issues des compétences Wild Rift, sans prédiction des objets adverses.'));
+  box.append(section);
+ }
  if(result.build.strategy){
   const plan=el('section','result-section');
   plan.append(el('h3',null,'Mission de Galio · '+({ap_burst:'AP burst',hybrid_offensive:'Hybride offensif',tank_utility:'Tank utilitaire'}[result.build.strategy.role]||result.build.strategy.role)));
@@ -309,6 +319,7 @@ go.addEventListener('click',()=>{
   optimizer:root.WRDI_GalioFiveItemOptimizerV1429,order:root.WRDI_GalioPurchaseOrderV1432,
   contingency:root.WRDI_GalioContingenciesV1433,
   rolePlanner:root.WRDI_GalioRolePlannerV18,
+  threatEvidence:root.WRDI_GalioThreatEvidenceV185,
   readiness:root.WRDI_GalioDataReadinessV18,
   bootAdvisor:root.WRDI_GalioBootsV18,
   lateSlots:root.WRDI_GalioLateSlotsV184,
