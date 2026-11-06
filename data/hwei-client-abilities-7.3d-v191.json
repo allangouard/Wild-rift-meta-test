@@ -3,7 +3,7 @@
   "champion": "Hwei",
   "championInternalId": "10910",
   "game": "Wild Rift mobile, not League of Legends PC",
-  "clientPatchClaim": "7.3d",
+  "clientPatchClaim": "not_visible_in_screenshots",
   "sourceType": "user_provided_client_screenshots",
   "collectedOn": "2026-11-07",
   "approvedForNumericalCombatSimulation": false,
@@ -11,7 +11,8 @@
     "Q, W et E sont trois catégories contenant chacune trois sorts alternatifs, pas neuf compétences à lancer séparément.",
     "Le bouclier donné aux alliés vient d'Étang (WW), pas d'un bouclier personnel exclusivement.",
     "Les valeurs visibles sont saisies séparément des formules wiki pour éviter de mélanger PC et Wild Rift.",
-    "Les actions ont un déclenchement conditionnel et ne sont pas présumées disponibles simultanément."
+    "Les actions ont un déclenchement conditionnel et ne sont pas présumées disponibles simultanément.",
+    "Conflit identifié sur EE : captures client 70/120/170/220 (+60 % AP), notes Riot 7.3b 60/110/160/210 (+60 % AP). La valeur reste exclue des calculs."
   ],
   "slots": {
     "passive": {
@@ -205,12 +206,7 @@
         },
         "ee": {
           "name_fr": "Mâchoires chatoyantes",
-          "damageBase": [
-            70,
-            120,
-            170,
-            220
-          ],
+          "damageBase": null,
           "apRatio": 0.6,
           "slowPercent": [
             40,
@@ -219,7 +215,22 @@
             70
           ],
           "slowDurationSeconds": 1.25,
-          "pullTowardsCenter": true
+          "pullTowardsCenter": true,
+          "damageValuesVerifiedAgainstRiotPatch": false,
+          "damageBaseClientScreenshot": [
+            70,
+            120,
+            170,
+            220
+          ],
+          "damageBaseRiotPatch73b": [
+            60,
+            110,
+            160,
+            210
+          ],
+          "damageBaseStatus": "conflict_client_vs_riot_patch_7_3b",
+          "excludedFromNumericalScoring": true
         }
       }
     },
@@ -259,5 +270,27 @@
     "1000011846.jpg",
     "1000011844.jpg",
     "1000011842.jpg"
+  ],
+  "catalogueContextPatch": "7.3d",
+  "sourcePatchVerified": false,
+  "patchReconciliation": [
+    {
+      "ability": "e.ee",
+      "clientScreenshotBase": [
+        70,
+        120,
+        170,
+        220
+      ],
+      "riotPatch73bBase": [
+        60,
+        110,
+        160,
+        210
+      ],
+      "sharedApRatio": 0.6,
+      "source": "https://wildrift.leagueoflegends.com/fr-fr/news/game-updates/wild-rift-patch-notes-7-3b/",
+      "resolution": "unresolved_exclude_damage_base_from_scoring_until_client_patch_confirmed"
+    }
   ]
 }
