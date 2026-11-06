@@ -41,6 +41,8 @@ test('AP burst is favored over hybrid burn with 3 frontline allies against squis
  assert.ok(defense<=1,'three allied tanks cover frontline; avoid double defensive core');
  const ordered=order.order({prepared,items:chosen.main.items,threats:threat});
  assert.equal(ordered.ok,true);
+ assert.notEqual(ordered.items[0].id,'rabadons_deathcap','Deathcap should be a later AP multiplier, not blind first-item lane buy');
+ console.log('V172_PURCHASE_ORDER',JSON.stringify(ordered.items.map(x=>x.id)));
 });
 test('Rabadon beats Liandry against non-tanks when both builds have same other pieces',()=>{
  const common=['hollow_radiance','ludens_echo','infinity_orb','oceanids_trident'];
