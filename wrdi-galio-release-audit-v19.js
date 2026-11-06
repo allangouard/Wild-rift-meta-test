@@ -22,6 +22,8 @@ function inspect({catalog={},runes={},bootsCatalog={},championMeta=[],result=nul
   warnings.push('Les bottes sont documentées par captures client, mais non certifiées pour une optimisation automatique.');
  if(!hasHwei)
   warnings.push('Hwei figure dans les notes officielles 7.3 mais manque au sélecteur actuel : couverture du roster incomplète.');
+ if(hasHwei)
+  warnings.push('Hwei : descriptions et valeurs ajoutées depuis les captures client ; formules numériques complètes non certifiées dans le moteur.');
  if(result?.build?.legal===false)blocked.push('Équipement non conforme aux règles client.');
  if(result?.runes?.ok===false)blocked.push('Page de runes indisponible ou invalide.');
  if(result?.draft?.officialKitCoverage<10)blocked.push('Descriptions de compétences manquantes dans la draft.');
