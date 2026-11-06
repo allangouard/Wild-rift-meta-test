@@ -24,3 +24,5 @@ L’analyse de draft lit les fiches numériques des dix champions. Pour Galio, l
 5. Une vérification chiffrée avec les captures client demeure la référence finale pour les conflits identifiés.
 
 **Politique :** les valeurs sources ne sont jamais écrasées ; les ajustements officiels et leur résultat (appliqué / déjà à jour / divergence) sont conservés distinctement.
+
+Actualisation complémentaire : extraction des valeurs numériques intégrées aux descriptions de passifs et index de modifications officielles, sans ajout de données PC.
