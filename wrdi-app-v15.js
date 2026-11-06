@@ -111,6 +111,10 @@ function showResults(result){
   contingent.append(card);
  }
  box.append(contingent);
+ if(result.dataReadiness?.ok){
+  const audit=el('p','caption','Fiches disponibles : '+result.dataReadiness.fullyDescribed+'/10 champions, '+result.dataReadiness.itemRecords+' objets, '+result.dataReadiness.runeRecords+' runes.');
+  box.append(audit);
+ }
  const bootsResult=result.boots;
  if(bootsResult?.ok){
   const section=el('section','result-section');
@@ -296,6 +300,7 @@ go.addEventListener('click',()=>{
   optimizer:root.WRDI_GalioFiveItemOptimizerV1429,order:root.WRDI_GalioPurchaseOrderV1432,
   contingency:root.WRDI_GalioContingenciesV1433,
   rolePlanner:root.WRDI_GalioRolePlannerV18,
+  readiness:root.WRDI_GalioDataReadinessV18,
   bootAdvisor:root.WRDI_GalioBootsV18,
   antihealOrder:root.WRDI_AntihealOrderV169,runeBridge:root.WRDI_RuneBridgeV14,
   runeAdvisor:root.WRDI_GalioRuneAdvisorV1411,
