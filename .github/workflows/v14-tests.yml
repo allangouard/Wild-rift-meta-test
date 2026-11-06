@@ -13,6 +13,7 @@ on:
       - v166-productive-survival-pressure
       - v167-grasp-amaranth-draft-audit
       - v168-galio-mid-runes-build-consistency
+      - v169-antheal-timed-purchase-decisions
   workflow_dispatch:
 
 permissions:
@@ -32,6 +33,10 @@ jobs:
         run: node --test wrdi-client-verifications-v163.test.js
       - name: Verifier le E de Shyvana avec les captures du client
         run: node --test wrdi-shyvana-client-v164.test.js
+      - name: Verifier urgences anti-soins et ordre des achats 3-4
+        run: |
+          node --check wrdi-antiheal-order-v169.js
+          node --test wrdi-antiheal-order-v169.test.js
       - name: Verifier la coherence runes et build Galio mid
         run: node --test wrdi-galio-mid-runes-v168.test.js
       - name: Verifier Poigne sur Ahri et Amaranth dans le build
