@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - v19-1-hwei-client-champion
       - v19-galio-stabilization-patch-provenance
       - v18-7-galio-conditional-boots-runes
       - v18-6-galio-30-draft-validation
@@ -57,6 +58,7 @@ jobs:
           node --test wrdi-galio-condition-audit-v187.test.js
           node --check wrdi-galio-release-audit-v19.js
           node --test wrdi-galio-release-audit-v19.test.js
+          node --test wrdi-hwei-v191.test.js
           node --test wrdi-galio-v18-e2e.test.js
           node --check wrdi-galio-late-slots-v184.js
           node --test wrdi-galio-late-slots-v184.test.js
