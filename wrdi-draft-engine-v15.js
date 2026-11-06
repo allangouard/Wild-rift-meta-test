@@ -44,7 +44,7 @@ function chooseRune({bridge,catalog,advisor,needs}){
  return {ok:true,id:picked.id,label:picked.label,page:picked.page,reason:why,
   alternatives:accepted.slice(1),selection:'heuristique_tactique_non_certifiee'};
 }
-function analyze({picks,champions,championMeta,officialKits,reviewedKits,catalog,rules,runes,modules}={}){
+function analyze({picks,champions,championMeta,officialKits,reviewedKits,numericKits,numericPatch,catalog,rules,runes,modules}={}){
  const fail=(stage,reason)=>({ok:false,stage,reason});
  if(!Array.isArray(picks)||picks.length!==10||picks.some(x=>!String(x||'').trim()))return fail('draft','Les dix champions sont requis');
  if(String(picks[2])!=='10099')return fail('draft','Galio mid uniquement pour le moment');
@@ -80,11 +80,17 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,catalog
  const prepared=guard.prepare({catalog,rules,core,livePatch:catalog?.patch_claimed_by_client_user});
  if(!prepared.ok)return fail('client_catalogue',prepared.reason);
  const need=context.threats;
+ // Source-only WR numeric catalogue; patch overrides are validated field-by-field.
+ const numeric=numericKits&&m.numericEngine?.prepare?
+  m.numericEngine.prepare(numericKits,numericPatch):null;
+ if(numericKits&&(!numeric?.ok||numeric.count<100))
+  return fail('numeric_wild_rift',numeric?.reason||'Catalogue numérique WR incomplet');
+ const combatModel=numeric&&m.numericEngine?.galioDirectModel?.(numeric);
  const calculator=m.mechanicsCalculator;
  const inputAudit=calculator?.audit?.({officialKits,items:catalog,runes});
  const galioSheet=official?.find('10099')||official?.find('Galio');
  const antiheal=calculator?.antihealComparison?.({items:catalog,galio:galioSheet,threats:need});
- const main=optimizer.optimize({prepared,threats:need});
+ const main=optimizer.optimize({prepared,threats:need,combatModel});
  if(!main.ok)return fail('five_items',main.reason);
  const sequence=order.order({prepared,items:main.main.items,threats:need});
  if(!sequence.ok)return fail('purchase_order',sequence.reason);
@@ -92,6 +98,18 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,catalog
  if(!conditional.ok)return fail('contingencies',conditional.reason);
  const rune=chooseRune({bridge:m.runeBridge,catalog:runes,advisor:m.runeAdvisor,needs:need});
  const notes=[...context.reasons];
+ if(numeric){
+  notes.push('Compétences chiffrées WR : '+numeric.numericAbilityCoverage+' entrées collectées ; '+
+   numeric.patchOverlayApplied+' corrections officielles appliquées ; '+numeric.patchConflicts+
+   ' écarts de patch à examiner. Couverture patch 7.3d non certifiée.');
+  for(const conflict of numeric.patchOutcomes.filter(x=>x.status==='source_conflict').slice(0,5))
+   notes.push('Différence '+conflict.champion+' '+conflict.slot.toUpperCase()+' : Wiki = '+
+    conflict.sourceValue+' ; Riot avant = '+conflict.patchExpectedBefore+' ; après = '+conflict.patchExpectedAfter);
+ }
+ const numericDraft=numeric&&m.numericEngine?.summary?.(numeric,picks);
+ const numericGalio=combatModel?.directDamageAt?.({ap:main.main.stats?.ap||0})||null;
+ if(numericGalio)notes.push('Galio A/Z/E (rangs 4/1/4 de comparaison) : '+numericGalio.total.toFixed(1)+
+  ' dégâts bruts directs avec '+numericGalio.ap+' AP des objets, sans tornade, passif, résistances ni procs');
  if(inputAudit?.ok)notes.push('Données inspectées : '+inputAudit.abilities+' compétences sur '+inputAudit.expectedAbilities+
   ', '+inputAudit.items+' objets et '+inputAudit.runes+' runes ; '+inputAudit.fullDescriptions+' descriptions intégrales accessibles');
  if(antiheal?.ok&&need.heal>0){
@@ -126,9 +144,14 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,catalog
    sourced:'player_client_items_only',noPopularBuilds:true},
   runes:rune,
   calculations:{inputAudit:inputAudit?.ok?inputAudit:null,
-   antiheal:antiheal?.ok?antiheal:null,runeProc:runeRange?.ok?runeRange:null},
+   antiheal:antiheal?.ok?antiheal:null,runeProc:runeRange?.ok?runeRange:null,
+   numericDraft:numericDraft?.ok?numericDraft:null,
+   numericGalio,
+   numericCoverage:numeric?{champions:numeric.count,abilities:numeric.numericAbilityCoverage,
+    patchCorrections:numeric.patchOverlayApplied,patchConflicts:numeric.patchConflicts,
+    patchOutcomes:numeric.patchOutcomes,patchComplete:numeric.unreviewedPatchSections.length===0}:null},
   methods:{kitPassiveSynergy:'inferred_from_client_text',championThreatSource:official?'official_wild_rift_abilities':'legacy_profiles_only',selection:'qualitative_heuristic',
-   exactOptimalityProven:false,liveTracking:false},
+   exactOptimalityProven:false,liveTracking:false,numericCombatInputs:numeric?'wiki_wr_and_riot_patch_layer':'not_loaded'},
   warnings:rune.ok?[]:['Runes indisponibles : '+rune.reason]};
 }
 return Object.freeze({VERSION,chooseRune,analyze});
