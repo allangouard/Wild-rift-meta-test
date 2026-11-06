@@ -50,7 +50,8 @@ function analyze(record){
  if(!record)return {ok:false,reason:'Champion sans fiche Riot'};
  const evidence=[],flags={},totals={};
  for(const [slot,skill] of Object.entries(record.skills||{})){
-  const passage=String(skill?.excerpt_fr||'');
+  // Use full Riot text when present, never silently degrade to a 24-word excerpt.
+  const passage=String(skill?.description_fr||skill?.excerpt_fr||'');
   const normalized=clean(passage);
   for(const rule of RULES){
    const match=normalized.match(rule.re);
@@ -63,14 +64,14 @@ function analyze(record){
     match:match?.[0]||'official_full_text_rule',
     explanation:rule.why,source:record.source_url,
     fromFullDescription:!match&&full,
-    truncated:skill.descriptionTruncated===true});
+    truncated:skill.descriptionTruncated===true&&!skill.description_fr});
   }
  }
  // Never infer "has an AD item build" from physical damage descriptions;
  // do not turn "crit" into an assumed crit-item build.
  const traits=[...new Set(evidence.filter(x=>x.tag).map(x=>x.tag))];
  return {ok:true,id:String(record.id),name:record.name,traits,flags,totals,evidence,
-  source:record.source_url,confidence:'explicit_official_excerpt_only',
+  source:record.source_url,confidence:Object.values(record.skills||{}).every(s=>s.description_fr)?'explicit_full_official_text':'explicit_official_excerpt_only',
   patchVerified:false,damageQuantified:false,formVerified:false};
 }
 function enrich(base=[],record,reviewed=null){
