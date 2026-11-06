@@ -31,7 +31,12 @@ jobs:
             git commit -m "data: refresh numeric Wild Rift ability and Riot patch facts"
             git fetch origin v162-wiki-wr-numeric-catalog
             git rebase origin/v162-wiki-wr-numeric-catalog
-            git push origin HEAD:v162-wiki-wr-numeric-catalog
+            for attempt in 1 2 3; do
+              if git push origin HEAD:v162-wiki-wr-numeric-catalog; then break; fi
+              git fetch origin v162-wiki-wr-numeric-catalog
+              git rebase origin/v162-wiki-wr-numeric-catalog
+              if [ "$attempt" -eq 3 ]; then exit 1; fi
+            done
           fi
       - name: Probe markup for WR passives
         if: github.ref_name == 'v162-wiki-wr-numeric-catalog' && startsWith(github.event.head_commit.message, 'Probe wiki markup')
