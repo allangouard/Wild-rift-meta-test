@@ -66,4 +66,6 @@ test('V18.1: isolated Annie shield does not warrant Trident, Cosmic Drive is sit
  assert.ok(r.build.strategy.candidateIds.includes('void_staff'),'Void Staff must remain eligible');
  assert.ok(r.build.strategy.candidateIds.includes('cryptbloom'),'Cryptbloom must remain eligible');
  assert.ok(!r.build.items.some(i=>['oceanids_trident','cosmic_drive'].includes(i.id)));
+ assert.ok(r.build.items.some(i=>['void_staff','cryptbloom'].includes(i.id)),
+  'A penetration option should outrank low-impact utility: '+r.build.items.map(i=>i.id).join(', '));
 });
