@@ -8,6 +8,7 @@ on:
     paths:
       - scripts/collect-official-wr-kits.mjs
       - scripts/wr-official-page-parser.mjs
+      - wrdi-official-kit-intelligence-v158.js
       - .github/workflows/champion-kits-official-import.yml
 
 permissions:
