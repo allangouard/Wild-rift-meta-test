@@ -20,11 +20,11 @@ test('V19 exposes latest official 7.3e note without falsely upgrading the client
  assert.ok(r.warnings.some(x=>/intégration automatique/.test(x)));
  assert.ok(r.warnings.some(x=>/combat/.test(x)));
 });
-test('V19 flags actual roster gap Hwei rather than injecting an invented numeric ID',()=>{
+test('V19 no longer reports Hwei as absent after client-backed catalogue integration',()=>{
  const r=audit.inspect(base);
- assert.ok(r.knownMissingChampionNames.includes('Hwei'));
- assert.ok(r.warnings.some(x=>/Hwei/.test(x)));
- assert.equal(r.rosterCount,125);
+ assert.ok(!r.knownMissingChampionNames.includes('Hwei'));
+ assert.ok(!r.warnings.some(x=>/Hwei figure/.test(x)));
+ assert.equal(r.rosterCount,126);
 });
 test('V19 distinguishes hard legality failures from unverified efficacy',()=>{
  const legal=audit.inspect({...base,result:{build:{legal:true,lateSlots:{evaluatedPairs:150}},
