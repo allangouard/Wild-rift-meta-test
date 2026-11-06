@@ -14,7 +14,8 @@ test('all available champion/item/rune field families are inventoried',()=>{
  assert.equal(a.abilities,625);
  assert.equal(a.items,items.items.length);
  assert.equal(a.runes,runes.fundamental.length+runes.minor.length);
- assert.ok(a.truncatedDescriptions>0);
+ assert.equal(a.fullDescriptions,625);
+ assert.equal(a.truncatedDescriptions,0);
  assert.ok(Object.keys(a.mechanics).length>=15);
  assert.ok(Object.keys(a.itemPassiveFields).length>20);
  assert.ok(Object.keys(a.runeEffectFields).length>20);
