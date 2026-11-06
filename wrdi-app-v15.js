@@ -12,7 +12,7 @@ const $=id=>document.getElementById(id);
 const app=$('wrdi-v15'),message=$('wrdi-message'),go=$('wrdi-analyze'),clear=$('wrdi-clear');
 const root=window;
 const data={champions:{'10099':'Galio'},championList:[],catalog:null,rules:null,runes:null,
- officialKits:null,reviewedKits:null,numericKits:null,numericPatch:null,ready:false};
+ officialKits:null,reviewedKits:null,numericKits:null,numericPatch:null,numericClient:null,ready:false};
 let pickerUI=null;
 const snapshot=()=>{try{const v=JSON.parse(localStorage.getItem(STORAGE)||'null');return Array.isArray(v)&&v.length===10?v.map(String):Array(10).fill('')}catch{return Array(10).fill('')}};
 let picks=snapshot(),epoch=0;
@@ -135,7 +135,7 @@ function showResults(result){
   section.append(el('h3',null,'Calculs à partir des compétences Wild Rift'));
   section.append(el('p','muted',numerical.champions+' fiches chiffrées · '+
    numerical.abilities+' sorts collectés · '+numerical.patchCorrections+
-   ' corrections Riot appliquées · '+numerical.patchConflicts+' divergences en vérification'));
+   ' corrections Riot appliquées · '+numerical.clientVerifications+' fiches vérifiées · '+numerical.patchConflicts+' divergences en vérification'));
   const galio=result.calculations?.numericGalio;
   if(galio){
    section.append(el('p','section-intro','Exemple de dégâts directs de Galio avec '+galio.ap+
@@ -166,7 +166,7 @@ async function fetchJson(url){
 async function boot(){
  renderSlots();
  try{
-  const [catalog,rules,runes,champData,officialKits,reviewedKits,numericKits,numericPatch]=await Promise.all([
+  const [catalog,rules,runes,champData,officialKits,reviewedKits,numericKits,numericPatch,numericClient]=await Promise.all([
    fetchJson('./data/items-client-7.3d-v12.json'),
    fetchJson('./data/item-restrictions-client-7.3d-v12.json'),
    fetchJson('./data/rune-catalog-client-v14.json'),
@@ -174,7 +174,8 @@ async function boot(){
    fetchJson('./data/champion-ability-extract-official-v1.json'),
    fetchJson('./data/champion-kits-official-fr-v1.json'),
    fetchJson('./data/champion-ability-numeric-wiki-wr-v1.json'),
-   fetchJson('./data/wr-champion-numeric-patch-overrides-v1.json')
+   fetchJson('./data/wr-champion-numeric-patch-overrides-v1.json'),
+   fetchJson('./data/wr-client-verified-samira-leesin-7.3d.json')
   ]);
   const list=champData?.champions;
   if(!Array.isArray(list)||list.length<100)throw Error('Catalogue de champions local incomplet');
@@ -186,11 +187,11 @@ async function boot(){
   if(!root.WRDI_OfficialKitIntelligenceV158?.prepare(officialKits)?.ok)
    throw Error('Compétences officielles Wild Rift indisponibles ou invalides');
   data.catalog=catalog;data.rules=rules;data.runes=runes;
-  const numericCheck=root.WRDI_NumericKitsV162?.prepare?.(numericKits,numericPatch);
+  const numericCheck=root.WRDI_NumericKitsV162?.prepare?.(numericKits,numericPatch,numericClient);
   if(!numericCheck?.ok||numericCheck.count!==list.length)
    throw Error(numericCheck?.reason||'Catalogue numérique Wild Rift indisponible');
   data.officialKits=officialKits;data.reviewedKits=reviewedKits;
-  data.numericKits=numericKits;data.numericPatch=numericPatch;
+  data.numericKits=numericKits;data.numericPatch=numericPatch;data.numericClient=numericClient;
   pickerUI=root.WRDI_ChampionPickerV151?.init({
    getChampions:()=>data.championList,getPicks:()=>picks,onSelect:selectChampion
   });
@@ -220,7 +221,7 @@ go.addEventListener('click',()=>{
    const r=root.WRDI_DraftEngineV15.analyze({picks,champions:data.champions,
     catalog:data.catalog,rules:data.rules,runes:data.runes,championMeta:data.championList,
     officialKits:data.officialKits,reviewedKits:data.reviewedKits,
-    numericKits:data.numericKits,numericPatch:data.numericPatch,modules:mod});
+    numericKits:data.numericKits,numericPatch:data.numericPatch,numericClient:data.numericClient,modules:mod});
    if(r.ok){showResults(r);status('Analyse terminée. Une seule recommandation, préparée avant la partie.','good');}
    else{$('wrdi-result').replaceChildren();status(r.reason,'warning');}
   }catch(e){$('wrdi-result').replaceChildren();status('Calcul interrompu : '+String(e?.message||e),'warning');}

@@ -1,0 +1,115 @@
+{
+  "schema": "wrdi.wild_rift_client_ability_verifications.v1",
+  "game": "Wild Rift mobile, NOT PC",
+  "verifiedAt": "2026-11-06",
+  "targetPatch": "7.3d",
+  "policy": "Values visually checked in screenshots from Wild Rift champion menu. Rank-one tooltips do not prove coefficients at ranks 2-4. Preserve raw Wiki and Riot patch history. Apply client checks after Riot patches.",
+  "entries": [
+    {
+      "champion": "Samira",
+      "slot": "q",
+      "name_fr": "Panache",
+      "screenshots": [
+        "1000011756.jpg",
+        "1000011754.jpg"
+      ],
+      "verified": {
+        "cooldown_s_by_rank": [
+          6.5,
+          5,
+          3.5,
+          2
+        ],
+        "base_damage_by_rank": [
+          15,
+          20,
+          25,
+          30
+        ],
+        "damage_type": "physical",
+        "rank1_total_ad_ratio_pct": 115,
+        "rank1_example_damage": 84,
+        "melee_cone_same_damage": true,
+        "crit_extra_damage_pct": 50,
+        "applies_during_wild_rush": true
+      },
+      "notVerified": [
+        "AD ratio at ranks 2,3,4: menu description shows rank 1 only"
+      ],
+      "formulaDisposition": "client_rank1_only",
+      "field": "Physical Damage"
+    },
+    {
+      "champion": "Samira",
+      "slot": "r",
+      "name_fr": "Gâchette infernale",
+      "screenshots": [
+        "1000011760.jpg",
+        "1000011758.jpg"
+      ],
+      "verified": {
+        "base_damage_by_rank": [
+          20,
+          40,
+          60
+        ],
+        "rank1_total_ad_ratio_pct": 45,
+        "rank1_example_damage_per_bullet": 47,
+        "bullets_per_cast": 10,
+        "duration_s": 2.23,
+        "max_enemy_champions": 5,
+        "movement_speed_reduction_pct": 30,
+        "minion_damage_multiplier_pct": 25,
+        "requires_style_rank": "S",
+        "each_bullet_can_crit": true,
+        "displayed_cooldown_s": 6
+      },
+      "notVerified": [
+        "AD ratio at ranks 2 and 3: menu description shows rank 1 only",
+        "Crit damage multiplier for each bullet not shown"
+      ],
+      "formulaDisposition": "client_rank1_only",
+      "field": "Damage Per Instance"
+    },
+    {
+      "champion": "Lee Sin",
+      "slot": "r",
+      "name_fr": "Rage du dragon",
+      "screenshots": [
+        "1000011752.jpg",
+        "1000011750.jpg"
+      ],
+      "verified": {
+        "cooldown_s_by_rank": [
+          70,
+          60,
+          50
+        ],
+        "base_damage_by_rank": [
+          150,
+          375,
+          600
+        ],
+        "bonus_ad_ratio_pct": 190,
+        "bonus_health_percent_by_rank": [
+          12,
+          15,
+          18
+        ],
+        "bonus_health_owner": "not explicit in screenshot",
+        "physical_damage": true,
+        "knockback_primary_target": true,
+        "collision_airborne_duration_s": 1,
+        "rank1_collateral_displayed_damage": 150,
+        "rank1_collateral_tooltip_formula_base": 125,
+        "max_monster_damage": 800
+      },
+      "notVerified": [
+        "Whether bonus HP in tooltip is the target's or Lee Sin's",
+        "Collateral enemy damage line displays 150 but parentheses display 125 at rank 1"
+      ],
+      "formulaDisposition": "nonlinear_bonus_hp_unresolved",
+      "field": "Physical Damage"
+    }
+  ]
+}
