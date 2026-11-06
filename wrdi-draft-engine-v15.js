@@ -111,6 +111,18 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
  if(!conditional.ok)return fail('contingencies',conditional.reason);
  const rune=chooseRune({bridge:m.runeBridge,catalog:runes,advisor:m.runeAdvisor,needs:need,laneOpponent:names[7],items:main.main.items.map(x=>prepared.catalog.items.find(z=>z.id===x.id))});
  const notes=[...context.reasons];
+ if(main.main.offenseRole?.active){
+  const ap=main.main.offenseRole;
+  notes.push('Rôle identifié : Galio carry AP, car '+need.frontlineProvided+
+   ' alliés assurent déjà la première ligne et aucun autre carry AP n’est détecté.');
+  notes.push('Build de dégâts : '+ap.apItems+' objets AP, '+ap.effectiveAp.toFixed(1)+
+   ' AP issus des objets et passifs (hors statistiques de base) ; '+
+   'le multiplicateur de Rabadon est pris en compte lorsque présent.');
+  if(need.tank<2)notes.push('Liandry : ses dégâts sur PV max restent utiles, mais sans plusieurs tanks ennemis '+
+   'il ne doit pas automatiquement passer devant Rabadon ou des objets de burst.');
+  notes.push('Sécurité : une défense adaptée à '+names[7]+' reste possible, '+
+   'sans transformer Galio en deuxième ou troisième tank.');
+ }
  if(antihealPlanning?.ok&&urgentAntihealPlanning?.ok){
   const show=x=>x?.preferred?.third==='thornmail'?'Cotte épineuse':
    x?.preferred?.third==='morellonomicon'?'Morellonomicon':'Créateur de failles';
@@ -171,7 +183,7 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
     option.canTriggerOnOwnDamage?'dégâts infligés':'à confirmer'));
  }
  const selectedRune=rune.ok?([...runes.fundamental,...runes.minor].find(x=>x.name_fr===rune.page.keystone)):null;
- const runeRange=selectedRune&&calculator?.runeProcRange?.({rune:selectedRune,ap:main.main.stats?.ap||0});
+ const runeRange=selectedRune&&calculator?.runeProcRange?.({rune:selectedRune,ap:main.main.stats?.apAfterInteractions??main.main.stats?.ap??0});
  if(runeRange?.ok)notes.push(runeRange.name+' : dégâts par déclenchement théoriques '+
   runeRange.min.toFixed(1)+'–'+runeRange.max.toFixed(1)+' avec '+runeRange.ap+
   ' AP du build (avant résistances, proc non garanti)');
