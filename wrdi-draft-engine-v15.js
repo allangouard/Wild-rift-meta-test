@@ -35,7 +35,13 @@ function chooseRune({bridge,catalog,advisor,needs}){
   if(validation.valid)accepted.push({page,label:template.label,reason:template.pros?.[0]||'Interaction conditionnelle',id,legal:true});
  }
  if(!accepted.length)return {ok:false,reason:'Aucune page de runes du catalogue client entièrement valide'};
- return {ok:true,id:accepted[0].id,label:accepted[0].label,page:accepted[0].page,reason:accepted[0].reason,
+ const picked=accepted[0];
+ const why=offensiveDuty&&picked.id==='poke'?
+  'Galio est chargé d’apporter les dégâts magiques : sa compétence A peut déclencher Comète arcanique contre un mid à distance. Les touches et le délai ne sont pas garantis.':
+  offensiveDuty&&picked.id==='burst'?
+  'Galio joue dégâts AP : Électrocution peut renforcer un échange court après trois touches, si le combo atteint la cible.':
+  picked.reason;
+ return {ok:true,id:picked.id,label:picked.label,page:picked.page,reason:why,
   alternatives:accepted.slice(1),selection:'heuristique_tactique_non_certifiee'};
 }
 function analyze({picks,champions,championMeta,catalog,rules,runes,modules}={}){
