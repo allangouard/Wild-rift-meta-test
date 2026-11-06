@@ -93,3 +93,24 @@ test('original 7.3d client passive facts still source numeric scores',()=>{
  const heart=find('frozen_heart').passives.find(x=>x.mechanics?.enemy_attack_speed_reduction_pct);
  assert.equal(heart.mechanics.enemy_attack_speed_reduction_pct,25);
 });
+
+test('late Frozen Heart competes against Amaranth only when attack-speed pressure becomes confirmed',()=>{
+ const heartSwap=items(['hollow_radiance','unending_despair','riftmaker','oceanids_trident','frozen_heart']);
+ const baselineOriginal=optimizer.calculate(hybrid,t);
+ const baselineSwap=optimizer.calculate(heartSwap,t);
+ const changed={...t,attackSpeedPressureConfirmed:3,physicalThreatSevere:2};
+ const reactiveOriginal=optimizer.calculate(hybrid,changed);
+ const reactiveSwap=optimizer.calculate(heartSwap,changed);
+ const orderHybrid=order.order({prepared,items:hybrid,threats:t});
+ const orderSwap=order.order({prepared,items:heartSwap,threats:changed});
+ console.log('V166_LATE_ARMOR',JSON.stringify({
+  normal:{amaranth:baselineOriginal.score,heart:baselineSwap.score},
+  attackSpeedConfirmed:{amaranth:reactiveOriginal.score,heart:reactiveSwap.score},
+  buildNormal:orderHybrid.items.map(i=>i.id),
+  buildCounter:orderSwap.items.map(i=>i.id)
+ }));
+ assert.ok(reactiveSwap.score-baselineSwap.score>reactiveOriginal.score-baselineOriginal.score,
+  'specific attack-speed counter must gain relatively more from confirmation');
+ assert.ok(orderSwap.ok);
+ assert.ok(core.validateEquipment(orderSwap.items.map(i=>i.id),catalog,rules).valid);
+});
