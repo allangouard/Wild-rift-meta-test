@@ -9,7 +9,7 @@
  else root.WRDI_GalioFiveItemOptimizerV1429=api;
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
-const VERSION='15.4.0-alpha.1';
+const VERSION='15.6.0-alpha.1';
 const synergyEngine=(typeof require==='function'
  ? require('./wrdi-galio-kit-item-synergy-v1434.js')
  : (typeof globalThis!=='undefined'?globalThis.WRDI_GalioKitItemSynergyV1434:null));
@@ -59,7 +59,10 @@ function weights(threats={}){
   heal:Math.max(count(threats.heal),count(threats.sustain)>=2?1:0),
   shield:count(threats.shield),cc:count(threats.cc),burst:count(threats.burst),
   assassin:count(threats.assassin),crit:count(threats.crit),
-  frontlineNeed:count(threats.frontlineNeed),waveclearNeed:count(threats.waveclearNeed),
+  frontlineNeed:count(threats.frontlineNeed),frontlineProvided:count(threats.frontlineProvided),
+  damageDuty:count(threats.damageDuty),earlyStasisPriority:count(threats.earlyStasisPriority),
+  durableTargets:count(threats.tank)+Math.min(2,count(threats.sustain)),
+  waveclearNeed:count(threats.waveclearNeed),
   lanePhysical:count(threats.lanePhysical),laneMagic:count(threats.laneMagic),
   laneAllIn:count(threats.laneAllIn),jungleAllIn:count(threats.jungleAllIn),
   peelNeed:count(threats.peelNeed),critPotential:count(threats.critPotential)};
@@ -78,6 +81,18 @@ function calculate(items,threats){
  // Five-slot opportunity cost: overall team needs affect the AP/defense
  // balance. These weights are qualitative, not simulated damage.
  score+=ap/(frontline?70:41)+hp/(frontline?125:175)+ah/25;
+ // In a composition with multiple allied frontline champions and no other AP
+ // carry, a purely defensive Galio spends precious slots duplicating a job
+ // his teammates already fulfill. Reward actual spell power and damage passives,
+ // while preserving lane survival and legal equipment checks.
+ const damageDuty=t.damageDuty;
+ if(damageDuty){
+  score+=Math.min(280,total('ap'))*(damageDuty===2?0.040:0.020);
+  if(items.length>=4){
+   const apTarget=damageDuty===2?145:90;
+   score-=Math.max(0,apTarget-total('ap'))*(damageDuty===2?0.105:0.05);
+  }
+ }
  if(items.length>=3){
   if(ap<40)score-=frontline?1:5;
   if(hp<300)score-=frontline?8:5;
@@ -93,11 +108,18 @@ function calculate(items,threats){
  if(t.magic>=2&&mr>0)reasons.push('Résistance magique face aux menaces magiques');
  if(frontline&&hp>0)reasons.push('Première ligne renforcée pour les alliés');
  if(t.heal>0&&n('antiheal')){score+=3+Math.min(2,t.heal);reasons.push('Blessures graves contre les soins');}
- if(t.tank>=2&&n('maxHp')){score+=5;reasons.push('Effet documenté sur les PV max des tanks');}
- if(t.tank>=2&&n('ramp')){score+=2;reasons.push('Passif de combat prolongé');}
+ if(t.durableTargets>=2&&n('maxHp')){score+=4+Math.min(2,t.durableTargets);
+  reasons.push('Effet documenté sur les PV max des cibles durables');}
+ if(t.durableTargets>=2&&n('ramp')){score+=2;reasons.push('Passif de combat prolongé');}
  if(t.tank>=2&&n('shred')){score+=2;reasons.push('Réduction progressive de résistance magique');}
  if(t.shield>0&&n('shieldCut')){score+=3;reasons.push('Réduction de bouclier documentée');}
- if(assassination&&n('stasis')){score+=5;reasons.push('Stase active contre un engagement explosif');}
+ if(t.earlyStasisPriority>=2&&n('stasis')){
+  score+=5;reasons.push('Stase active face à plusieurs menaces de dive');
+ }else if(n('stasis')&&t.earlyStasisPriority===1&&damageDuty>=1){
+  score-=5;reasons.push('Stase à réserver en option face à un assassin isolé');
+ }else if(n('stasis')&&t.earlyStasisPriority===0){
+  score-=3;
+ }
  if(assassination&&hp>=550)score+=2;
  if(t.crit>0&&n('critMitigation')){score+=3+Math.min(2,t.crit);reasons.push('Réduction de dégâts critiques documentée');}
  // Context-sensitive passive: Randuin without confirmed critical attacks has
@@ -116,6 +138,15 @@ function calculate(items,threats){
  score-=Math.max(0,n('critMitigation')-1)*4;
  // Sustained tank Galio need not be punished for having only 1 AP item.
  if(!frontline&&items.length>=4&&total('ap')<90)score-=6;
+ // Non-AP armor/HP pieces should compete on concrete utility when frontline
+ // is already adequately covered; do not forbid them against genuine threats.
+ if(damageDuty>=2&&items.length>=4){
+  const pureDefense=fs.filter(x=>x.ap===0&&(x.armor>=40||x.mr>=40)).length;
+  score-=Math.max(0,pureDefense-1)*3;
+ }
+ if(damageDuty>=1&&n('slow')&&t.frontlineProvided>=2&&t.cc>=2){
+  score-=Math.min(2,n('slow'))*1.8;
+ }
  // Kit-to-passive compatibility: direct activations and conditional usefulness
  // use Galio's actual cast/taunt/knock-up/empowered attack/engage kit.
  // Nothing is assigned by the name of an enemy champion or popular build.
@@ -201,14 +232,14 @@ function reasonFor(item,threats){
   if(chosen)r.push(chosen.reason);
  }
  if(t.heal&&f.antiheal)r.push('Anti-soins');
- if(t.assassin>=2&&f.stasis)r.push('Stase contre assassins');
+ if(t.earlyStasisPriority>=2&&f.stasis)r.push('Stase contre plusieurs menaces d’engagement');
  if(t.crit&&f.critMitigation)r.push('Contre dégâts critiques confirmés');
  if(!t.crit&&f.critMitigation)r.push('Passif anti-critiques non confirmé (seule armure évaluée)');
  if(t.lanePhysical&&t.laneAllIn&&f.armor)r.push('Protection face au mid physique');
  if(t.laneMagic&&t.laneAllIn&&f.mr)r.push('Protection face au mid magique');
  if(t.frontlineNeed&&f.hybridDefense)r.push('Résistances pour première ligne');
  if(t.waveclearNeed&&f.waveclear)r.push('Nettoyage de vague');
- if(t.tank>=2&&f.maxHp)r.push('Contre les PV max');
+ if(t.durableTargets>=2&&f.maxHp)r.push('Contre les PV max des cibles durables');
  if(t.tank>=2&&f.shred)r.push('Réduction de RM');
  if(t.physical>=2&&f.armor)r.push('Protection physique');
  if(t.magic>=2&&f.mr)r.push('Protection magique');
