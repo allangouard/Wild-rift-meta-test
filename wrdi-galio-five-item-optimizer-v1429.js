@@ -56,7 +56,11 @@ function eligible(prepared){
 }
 function weights(threats={}){
  return {physical:count(threats.ad),magic:count(threats.ap),tank:count(threats.tank),
-  heal:Math.max(count(threats.heal),count(threats.sustain)>=2?1:0),
+  // Conditional healing (e.g. Kayn Darkin) is only a partial draft pressure;
+  // preserve legacy behavior when the newer evidence counters are unavailable.
+  heal:Object.hasOwn(threats,'confirmedHeal')&&Object.hasOwn(threats,'conditionalHeal')?
+   Math.min(5,count(threats.confirmedHeal)+0.35*count(threats.conditionalHeal)):
+   Math.max(count(threats.heal),count(threats.sustain)>=2?1:0),
   shield:count(threats.shield),cc:count(threats.cc),burst:count(threats.burst),
   assassin:count(threats.assassin),crit:count(threats.crit),
   frontlineNeed:count(threats.frontlineNeed),frontlineProvided:count(threats.frontlineProvided),
@@ -111,7 +115,10 @@ function calculate(items,threats){
  if(t.physical>=2&&armor>0)reasons.push('Armure face aux menaces physiques');
  if(t.magic>=2&&mr>0)reasons.push('Résistance magique face aux menaces magiques');
  if(frontline&&hp>0)reasons.push('Première ligne renforcée pour les alliés');
- if(t.heal>0&&n('antiheal')){score+=3+Math.min(2,t.heal);reasons.push('Blessures graves contre les soins');}
+ if(t.heal>0&&n('antiheal')){
+  score+=(3+Math.min(2,t.heal))*Math.min(1,t.heal);
+  reasons.push(t.heal<1?'Anti-soin conditionnel : valeur réduite tant que le déclenchement reste incertain':'Blessures graves contre les soins');
+ }
  if(t.durableTargets>=2&&n('maxHp')){score+=4+Math.min(2,t.durableTargets);
   reasons.push('Effet documenté sur les PV max des cibles durables');}
  if(t.durableTargets>=2&&n('ramp')){score+=2;reasons.push('Passif de combat prolongé');}
