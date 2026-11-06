@@ -340,9 +340,9 @@ function calculate(items,threats,combatModel=null){
  if(t.shield>=1.5&&n('shieldCut')){
   // One shielding support does not guarantee enough value to replace AP.
   const sources=Number(threats.alliedShieldSources)||0;
-  const value=sources>=2?3+Math.min(2,t.shield):sources===1?-3.0:0;
+  const value=sources>=2||Number(threats.observedShieldSeverity)>=2?3+Math.min(2,t.shield):sources===1?-3.0:0;
   score+=value;
-  if(sources===1)reasons.push('Trident : une seule source de boucliers alliés ; préférer l’option situationnelle avant preuve de gêne');
+  if(sources===1&&Number(threats.observedShieldSeverity)<2)reasons.push('Trident : une seule source de boucliers alliés ; préférer l’option situationnelle avant preuve de gêne');
   else if(value>0)reasons.push('Réduction de plusieurs boucliers sur alliés');
  }
  if(t.shield<1.5&&n('shieldCut'))score-=8;
