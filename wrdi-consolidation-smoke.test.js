@@ -12,9 +12,9 @@ test('production homepage is the standalone Galio draft V15 application',()=>{
  expected.splice(expected.indexOf('./wrdi-galio-purchase-order-v1432.js'),0,'./wrdi-productive-survival-v166.js');
  expected.splice(expected.indexOf('./wrdi-galio-purchase-order-v1432.js'),0,'./wrdi-antiheal-order-v169.js');
  expected.splice(expected.indexOf('./wrdi-draft-engine-v15.js'),0,'./wrdi-mechanics-calculator-v159.js','./wrdi-numeric-kits-v162.js');
- expected.splice(expected.indexOf('./wrdi-galio-contingencies-v1433.js'),0,'./wrdi-galio-role-planner-v18.js','./wrdi-galio-late-slots-v184.js','./wrdi-galio-data-readiness-v18.js','./wrdi-galio-boots-v18.js');
+ expected.splice(expected.indexOf('./wrdi-galio-contingencies-v1433.js'),0,'./wrdi-galio-role-planner-v18.js','./wrdi-galio-late-slots-v184.js','./wrdi-galio-condition-audit-v187.js','./wrdi-galio-data-readiness-v18.js','./wrdi-galio-boots-v18.js');
  assert.deepEqual(scripts(current),expected);
- assert.equal(scripts(current).length,26);
+ assert.equal(scripts(current).length,27);
  for(const forbidden of ['assets/app.js','wrdi-diagnostic-v14.js','wrdi-galio-item-comparator-v1428.js','wrdi-compact-dashboard-v1423.js','/api/build/'])assert.ok(!current.includes(forbidden),forbidden);
 });
 test('all clean runtime scripts exist and no script is loaded twice',()=>{
