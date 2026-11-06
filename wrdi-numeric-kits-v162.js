@@ -146,6 +146,7 @@ function summary(prepared,ids,{ap=0,ad=0,bonusAd=0}={}){
    name:sheet.skills[k].name,
    cooldowns:sheet.skills[k].stats.filter(x=>normalize(x.label).toUpperCase()==='COOLDOWN').map(x=>x.numericTokens),
    formulas:sheet.skills[k].formulas.length,
+   clientVerifiedMechanics:sheet.skills[k].clientVerified||null,
    directDamage:damageForSkill(sheet.skills[k],{ap,ad,bonusAd})
   }]));
   return {id:String(id),name:sheet.name,found:true,source:sheet.source,spells};
