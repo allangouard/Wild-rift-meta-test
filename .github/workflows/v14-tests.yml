@@ -3,6 +3,7 @@ name: Tests Wild Rift V14
 on:
   push:
     branches:
+      - main
       - v14-development
   workflow_dispatch:
 
@@ -249,3 +250,6 @@ jobs:
           node --check wrdi-galio-kit-item-synergy-v1434.js
           node --check wrdi-galio-five-item-optimizer-v1429.js
           node --test wrdi-galio-kit-item-synergy-v1434.test.js
+      - name: Tester l'entree canonique et les archives V14.34
+        run: |
+          node --test wrdi-consolidation-smoke.test.js
