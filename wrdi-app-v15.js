@@ -5,40 +5,47 @@
 'use strict';
 const SLOT_NAMES=['Top allié','Jungle allié','Galio · Mid','ADC allié','Support allié',
  'Top adverse','Jungle adverse','Mid adverse','ADC adverse','Support adverse'];
-const INDEX_URL='https://wrchina.gg/api/data.json';
+const CHAMPION_CATALOG='./data/champions-picker-v151.json';
 const STORAGE='wrdi_v15_draft';
 const el=(name,cls,text)=>{const n=document.createElement(name);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
 const $=id=>document.getElementById(id);
 const app=$('wrdi-v15'),message=$('wrdi-message'),go=$('wrdi-analyze'),clear=$('wrdi-clear');
 const root=window;
-const data={champions:{'10099':'Galio'},catalog:null,rules:null,runes:null,ready:false};
+const data={champions:{'10099':'Galio'},championList:[],catalog:null,rules:null,runes:null,ready:false};
+let pickerUI=null;
 const snapshot=()=>{try{const v=JSON.parse(localStorage.getItem(STORAGE)||'null');return Array.isArray(v)&&v.length===10?v.map(String):Array(10).fill('')}catch{return Array(10).fill('')}};
 let picks=snapshot(),epoch=0;
 picks[2]='10099';
 function status(messageText,type='muted'){message.textContent=messageText;message.className='notice '+type;}
-const labelText=(id)=>data.champions[id]||('ID '+id);
-function makeOptions(select,index){
- select.replaceChildren();
- const empty=el('option',null,'Choisir un champion…');empty.value='';select.append(empty);
- for(const [id,name] of Object.entries(data.champions).sort((a,b)=>a[1].localeCompare(b[1],'fr'))){
-  if(index!==2&&id==='10099')continue;
-  const opt=el('option',null,name);opt.value=id;select.append(opt);
- }
- select.value=picks[index]||'';
- if(!select.value)picks[index]='';
-}
 function renderSlots(){
  const allies=$('wrdi-allies'),enemies=$('wrdi-enemies');allies.replaceChildren();enemies.replaceChildren();
+ const byId=new Map(data.championList.map(c=>[String(c.id),c]));
  for(let i=0;i<10;i++){
-  const target=i<5?allies:enemies,row=el('label','pick'),txt=el('span','pick-label',SLOT_NAMES[i]);
-  const select=el('select','champ-select');select.id='wrdi-slot-'+i;
-  select.setAttribute('aria-label',SLOT_NAMES[i]);
-  if(i===2){const opt=el('option',null,'Galio');opt.value='10099';select.append(opt);select.disabled=true;}
-  else makeOptions(select,i);
-  select.addEventListener('change',()=>{picks[i]=select.value;localStorage.setItem(STORAGE,JSON.stringify(picks));$('wrdi-result').replaceChildren();status('Draft modifiée. Relance l’analyse pour une nouvelle recommandation.');});
-  row.append(txt,select);target.append(row);
+  const target=i<5?allies:enemies;
+  const champion=i===2?byId.get('10099')||{id:'10099',name:'Galio'}:byId.get(String(picks[i]));
+  if(i!==2&&picks[i]&&!champion)picks[i]='';
+  const button=el('button','wrdi-slot'+(champion?' selected':' empty'));
+  button.type='button';button.id='wrdi-slot-'+i;
+  button.setAttribute('aria-label',SLOT_NAMES[i]+' : '+(champion?.name||'Choisir un champion'));
+  if(i===2){button.disabled=true;button.classList.add('locked');}
+  const portrait=champion&&pickerUI?.portrait?pickerUI.portrait(champion,'slot-portrait'):el('span','wrdi-slot-plus',champion?.name?.slice(0,2)||'+');
+  const label=el('span','wrdi-slot-text');
+  label.append(el('span','wrdi-slot-role',SLOT_NAMES[i]),
+   el('strong','wrdi-slot-name',champion?.name||'Choisir…'));
+  button.append(portrait,label);
+  if(i!==2)button.addEventListener('click',()=>{if(pickerUI)pickerUI.show(i);});
+  target.append(button);
  }
- status(data.ready?'Données client chargées. Choisis les champions.':'Lecture du catalogue local et des noms de champions…');
+ if(data.ready)localStorage.setItem(STORAGE,JSON.stringify(picks));
+}
+function selectChampion(slot,id){
+ if(slot===2)return;
+ if(picks.some((other,i)=>i!==slot&&String(other)===String(id)))return;
+ const match=data.championList.find(c=>String(c.id)===String(id));
+ if(!match)return;
+ epoch++;picks[slot]=String(id);
+ localStorage.setItem(STORAGE,JSON.stringify(picks));renderSlots();
+ $('wrdi-result').replaceChildren();status(match.name+' sélectionné · '+picks.filter(Boolean).length+'/10 champions.','good');
 }
 function showResults(result){
  const box=$('wrdi-result');box.replaceChildren();
@@ -91,16 +98,25 @@ async function boot(){
    fetchJson('./data/items-client-7.3d-v12.json'),
    fetchJson('./data/item-restrictions-client-7.3d-v12.json'),
    fetchJson('./data/rune-catalog-client-v14.json'),
-   fetchJson(INDEX_URL)
+   fetchJson(CHAMPION_CATALOG)
   ]);
-  const ci=champData?.champ_index;
-  if(!ci||typeof ci!=='object'||Object.keys(ci).length<60)throw Error('Index des champions Wild Rift non exploitable');
-  data.champions=Object.fromEntries(Object.entries(ci).map(([id,x])=>[String(id),String(typeof x==='string'?x:(x?.name||x?.en||x?.champion||id))]));
-  data.champions['10099']='Galio';
-  data.catalog=catalog;data.rules=rules;data.runes=runes;data.ready=true;
-  renderSlots();go.disabled=false;
-  status('Catalogue client disponible : '+catalog.items?.length+' objets · '+Object.keys(data.champions).length+' champions · runes vérifiées.','good');
- }catch(e){go.disabled=true;status('Données requises indisponibles : '+String(e?.message||e)+'. Aucune recommandation inventée.','warning');}
+  const list=champData?.champions;
+  if(!Array.isArray(list)||list.length<100)throw Error('Catalogue de champions local incomplet');
+  if(list.some(c=>!c.id||!c.name||/^\d+$/.test(c.name)||!Array.isArray(c.lanes)||!Array.isArray(c.classes)))
+   throw Error('Le catalogue contient des noms ou rôles invalides');
+  if(new Set(list.map(c=>String(c.id))).size!==list.length)throw Error('Identifiants de champions dupliqués');
+  data.championList=list;
+  data.champions=Object.fromEntries(list.map(c=>[String(c.id),c.name]));
+  data.catalog=catalog;data.rules=rules;data.runes=runes;
+  pickerUI=root.WRDI_ChampionPickerV151?.init({
+   getChampions:()=>data.championList,getPicks:()=>picks,onSelect:selectChampion
+  });
+  if(!pickerUI?.ok)throw Error('Sélecteur mobile indisponible');
+  data.ready=true;renderSlots();go.disabled=false;
+  status(list.length+' champions disponibles · portraits, lanes et classes · catalogue client chargé.','good');
+ }catch(e){
+  go.disabled=true;status('Chargement interrompu : '+String(e?.message||e)+'. Aucune recommandation inventée.','warning');
+ }
 }
 go.addEventListener('click',()=>{
  if(!data.ready)return;
