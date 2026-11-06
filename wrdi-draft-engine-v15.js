@@ -44,7 +44,7 @@ function chooseRune({bridge,catalog,advisor,needs}){
  return {ok:true,id:picked.id,label:picked.label,page:picked.page,reason:why,
   alternatives:accepted.slice(1),selection:'heuristique_tactique_non_certifiee'};
 }
-function analyze({picks,champions,championMeta,officialKits,reviewedKits,numericKits,numericPatch,catalog,rules,runes,modules}={}){
+function analyze({picks,champions,championMeta,officialKits,reviewedKits,numericKits,numericPatch,numericClient,catalog,rules,runes,modules}={}){
  const fail=(stage,reason)=>({ok:false,stage,reason});
  if(!Array.isArray(picks)||picks.length!==10||picks.some(x=>!String(x||'').trim()))return fail('draft','Les dix champions sont requis');
  if(String(picks[2])!=='10099')return fail('draft','Galio mid uniquement pour le moment');
@@ -82,7 +82,7 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
  const need=context.threats;
  // Source-only WR numeric catalogue; patch overrides are validated field-by-field.
  const numeric=numericKits&&m.numericEngine?.prepare?
-  m.numericEngine.prepare(numericKits,numericPatch):null;
+  m.numericEngine.prepare(numericKits,numericPatch,numericClient):null;
  if(numericKits&&(!numeric?.ok||numeric.count<100))
   return fail('numeric_wild_rift',numeric?.reason||'Catalogue numérique WR incomplet');
  const combatModel=numeric&&m.numericEngine?.galioDirectModel?.(numeric);
@@ -100,7 +100,7 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
  const notes=[...context.reasons];
  if(numeric){
   notes.push('Compétences chiffrées WR : '+numeric.numericAbilityCoverage+' entrées collectées ; '+
-   numeric.patchOverlayApplied+' corrections officielles appliquées ; '+numeric.patchConflicts+
+   numeric.patchOverlayApplied+' corrections officielles appliquées ; '+numeric.clientVerificationsCount+' compétences vérifiées sur client ; '+numeric.patchConflicts+
    ' écarts de patch à examiner. Couverture patch 7.3d non certifiée.');
   for(const conflict of numeric.patchOutcomes.filter(x=>x.status==='source_conflict').slice(0,5))
    notes.push('Différence '+conflict.champion+' '+conflict.slot.toUpperCase()+' : Wiki = '+
@@ -148,7 +148,7 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
    numericDraft:numericDraft?.ok?numericDraft:null,
    numericGalio,
    numericCoverage:numeric?{champions:numeric.count,abilities:numeric.numericAbilityCoverage,
-    patchCorrections:numeric.patchOverlayApplied,patchConflicts:numeric.patchConflicts,
+    patchCorrections:numeric.patchOverlayApplied,clientVerifications:numeric.clientVerificationsCount,patchConflicts:numeric.patchConflicts,
     patchOutcomes:numeric.patchOutcomes,patchComplete:numeric.unreviewedPatchSections.length===0}:null},
   methods:{kitPassiveSynergy:'inferred_from_client_text',championThreatSource:official?'official_wild_rift_abilities':'legacy_profiles_only',selection:'qualitative_heuristic',
    exactOptimalityProven:false,liveTracking:false,numericCombatInputs:numeric?'wiki_wr_and_riot_patch_layer':'not_loaded'},
