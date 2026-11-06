@@ -125,4 +125,7 @@ go.addEventListener('click',()=>{
 });
 clear.addEventListener('click',()=>{epoch++;picks=Array(10).fill('');picks[2]='10099';localStorage.removeItem(STORAGE);renderSlots();$('wrdi-result').replaceChildren();go.disabled=!data.ready;});
 boot();
+if('serviceWorker' in navigator){
+ navigator.serviceWorker.register('./sw.js').catch(()=>{});
+}
 })();
