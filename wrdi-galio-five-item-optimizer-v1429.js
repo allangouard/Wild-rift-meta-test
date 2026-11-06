@@ -9,13 +9,19 @@
  else root.WRDI_GalioFiveItemOptimizerV1429=api;
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
-const VERSION='15.3.0-alpha.1';
+const VERSION='15.4.0-alpha.1';
 const synergyEngine=(typeof require==='function'
  ? require('./wrdi-galio-kit-item-synergy-v1434.js')
  : (typeof globalThis!=='undefined'?globalThis.WRDI_GalioKitItemSynergyV1434:null));
 const defenseBalance=(typeof require==='function'
  ? require('./wrdi-galio-defense-balance-v153.js')
  : (typeof globalThis!=='undefined'?globalThis.WRDI_GalioDefenseBalanceV153:null));
+const purchaseOrder=(typeof require==='function'
+ ? require('./wrdi-galio-purchase-order-v1432.js')
+ : null);
+function firstItemModule(){
+ return purchaseOrder||(typeof globalThis!=='undefined'?globalThis.WRDI_GalioPurchaseOrderV1432:null);
+}
 const num=v=>typeof v==='number'&&Number.isFinite(v)?Math.max(0,v):0;
 const count=v=>Math.min(5,num(v));
 const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9]/g,'');
@@ -128,8 +134,25 @@ function calculate(items,threats){
   score+=balance.score;
   if(items.length===5)reasons.push(...balance.reasons.slice(0,2));
  }
+ // An excellent eventual five-item combination is insufficient if Galio
+ // cannot safely farm the initial mid matchup. Favor a strong accessible
+ // first completed item before evaluating later teamfight coverage.
+ // This works on ITEM MECHANICS and lane threat categories, not champion names.
+ const ordering=firstItemModule();
+ let laneOpening=null;
+ if(ordering?.stageScore&&items.length){
+  const rated=items.map(item=>({item,assessment:ordering.stageScore(item,threats,0)}))
+   .sort((a,b)=>b.assessment.score-a.assessment.score);
+  laneOpening={id:rated[0].item.id,score:rated[0].assessment.score,
+   reason:rated[0].assessment.reason};
+  // The opening phase matters most when evaluating sets containing five items.
+  // Retain the reward during partial beam exploration to avoid pruning
+  // otherwise strategically strong lane-oriented combinations.
+  score+=laneOpening.score*2.3;
+  if(items.length===5)reasons.push('Premier achat étudié pour la lane : '+laneOpening.reason);
+ }
  const stats={hp:total('hp'),ap:total('ap'),armor,mr,ah:total('ah')};
- return {score:Math.round(score*100)/100,reasons,stats,needs:t,synergy,balance};
+ return {score:Math.round(score*100)/100,reasons,stats,needs:t,synergy,balance,laneOpening};
 }
 function optimize({prepared,threats={},slots=5,beamWidth=100}={}){
  if(!prepared?.ok||!prepared.core?.validateEquipment)return {ok:false,reason:'Catalogue client indisponible'};
