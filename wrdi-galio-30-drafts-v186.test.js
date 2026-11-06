@@ -89,6 +89,10 @@ for(const s of fixtures.scenarios){
   }else{
    assert.equal(result.runes.page.keystone,'Souverain des glaces',s.id+' control keystone');
   }
+  if(['B02','H02','H08','T08'].includes(s.id)){
+   assert.ok(result.draft.threats.conditionalShieldSources>=1,s.id+' Soraka overheal shield must be conditional');
+   assert.ok(result.draft.threats.shieldPressure<1.5,s.id+' conditional overheal alone must not justify anti-shield');
+  }
   if(result.draft.threats.shieldPressure<1.5){
    assert.ok(!ids.includes('oceanids_trident'),s.id+' Trident with isolated weak shielding');
   }
