@@ -107,6 +107,15 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
     conflict.sourceValue+' ; Riot avant = '+conflict.patchExpectedBefore+' ; après = '+conflict.patchExpectedAfter);
  }
  const numericDraft=numeric&&m.numericEngine?.summary?.(numeric,picks);
+ // Client-confirmed conditional damage, not guessed as a guaranteed proc.
+ if(numericDraft?.ok)for(const champion of numericDraft.champions){
+  const shyvana=champion.name==='Shyvana'&&champion.spells?.e?.clientVerifiedMechanics;
+  if(shyvana)notes.push('Shyvana E (client WR) : marque pendant '+shyvana.scorched_mark_duration_s+
+    ' s ; attaques sur cible marquée : +'+shyvana.basic_attack_vs_scorched_target_max_health_damage_pct+
+    ' % PV max ; zone de forme dragon '+shyvana.dragon_form_burning_ground_duration_s+
+    ' s ; dégâts bruts sur cibles marquées uniquement après '+shyvana.dragon_lineage_stacks_for_true_damage+
+    ' charges de Lignée draconique.');
+ }
  const numericGalio=combatModel?.directDamageAt?.({ap:main.main.stats?.ap||0})||null;
  if(numericGalio)notes.push('Galio A/Z/E (rangs 4/1/4 de comparaison) : '+numericGalio.total.toFixed(1)+
   ' dégâts bruts directs avec '+numericGalio.ap+' AP des objets, sans tornade, passif, résistances ni procs');

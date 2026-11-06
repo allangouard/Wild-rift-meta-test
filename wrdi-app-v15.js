@@ -175,7 +175,7 @@ async function boot(){
    fetchJson('./data/champion-kits-official-fr-v1.json'),
    fetchJson('./data/champion-ability-numeric-wiki-wr-v1.json'),
    fetchJson('./data/wr-champion-numeric-patch-overrides-v1.json'),
-   fetchJson('./data/wr-client-verified-samira-leesin-7.3d.json')
+   fetchJson('./data/wr-client-verified-abilities-7.3d.json')
   ]);
   const list=champData?.champions;
   if(!Array.isArray(list)||list.length<100)throw Error('Catalogue de champions local incomplet');
