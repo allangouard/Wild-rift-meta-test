@@ -65,6 +65,10 @@ test('third and fourth purchases are real legal candidate scenarios, not forced 
   assert.ok(result.scenarios.every(x=>x.legal&&
     prepared.core.validateEquipment(x.items,catalog,rules).valid));
   assert.ok(result.scenarios.every(x=>x.items.length===4));
+  assert.ok(result.scenarios.some(x=>x.third==='riftmaker'&&x.fourth==='oceanids_trident'),
+   'third Riftmaker can be followed by shield cut instead of forced antiheal');
+  assert.ok(result.scenarios.some(x=>x.third==='thornmail'&&x.fourth==='riftmaker'),
+   'urgent armor/heal choice can delay Riftmaker to fourth');
  }
  console.log('V169_PATHS',JSON.stringify({
   baseline:baseline.scenarios.map(x=>({third:x.third,fourth:x.fourth,score:x.score})),
