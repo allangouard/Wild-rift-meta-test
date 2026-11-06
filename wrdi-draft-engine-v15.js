@@ -116,6 +116,15 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
     ' s ; dégâts bruts sur cibles marquées uniquement après '+shyvana.dragon_lineage_stacks_for_true_damage+
     ' charges de Lignée draconique.');
  }
+ const productivity=main.main.productivity||null;
+ if(productivity?.ok){
+  notes.push('Survie productive : priorité aux objets permettant de contrôler et d’infliger des dégâts pendant les engagements.');
+  notes.push('Pression conditionnelle '+productivity.short.pressure.toFixed(2)+' à 2,5 s / '+
+   productivity.long.pressure.toFixed(2)+' à 8 s (scores relatifs, pas DPS).');
+  notes.push(...productivity.long.parts.slice(0,3));
+  if(!need.attackSpeedPressureConfirmed)
+   notes.push('Cœur gelé : réponse à envisager si les attaques rapides deviennent une menace confirmée, pas un achat automatique précoce.');
+ }
  const interactions=main.main.interaction||null;
  if(interactions?.ok){
   notes.push('Passifs comparés sur 2,5 s et 8 s : scénarios conditionnels, et non dégâts réels garantis.');
@@ -163,6 +172,7 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
    numericDraft:numericDraft?.ok?numericDraft:null,
    numericGalio,
    combatScenarios:interactions?.ok?interactions:null,
+   productiveSurvival:productivity?.ok?productivity:null,
    numericCoverage:numeric?{champions:numeric.count,abilities:numeric.numericAbilityCoverage,
     patchCorrections:numeric.patchOverlayApplied,clientVerifications:numeric.clientVerificationsCount,patchConflicts:numeric.patchConflicts,
     patchOutcomes:numeric.patchOutcomes,patchComplete:numeric.unreviewedPatchSections.length===0}:null},
