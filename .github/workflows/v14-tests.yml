@@ -281,3 +281,8 @@ jobs:
           node --check wrdi-galio-five-item-optimizer-v1429.js
           node --check wrdi-galio-purchase-order-v1432.js
           node --test wrdi-galio-lane-first-v154.test.js
+      - name: Tester la securite du farm Galio melee V15.5
+        run: |
+          node --check wrdi-galio-team-context-v1431.js
+          node --check wrdi-galio-purchase-order-v1432.js
+          node --test wrdi-galio-melee-farm-v155.test.js
