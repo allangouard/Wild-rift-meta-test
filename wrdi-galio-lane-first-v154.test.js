@@ -60,3 +60,14 @@ test('physical-vs-magic lane change does not alter five-item compatibility rules
   assert.equal(core.validateEquipment(ordered.items.map(x=>x.id),catalog,rules).valid,true);
  }
 });
+
+test('published app explains purchase phases instead of unlabeled item order',()=>{
+ const fs=require('node:fs');
+ const html=fs.readFileSync('index-v154.html','utf8');
+ const app=fs.readFileSync('wrdi-app-v15.js','utf8');
+ assert.ok(html.includes('wrdi-buy-phase'));
+ assert.ok(html.indexOf('wrdi-galio-purchase-order-v1432.js')<
+  html.indexOf('wrdi-galio-five-item-optimizer-v1429.js'));
+ for(const phase of ['Phase de lane','Sortie de lane','Escarmouches','Combats d’équipe'])
+  assert.ok(app.includes(phase),phase);
+});
