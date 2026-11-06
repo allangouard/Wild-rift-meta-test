@@ -11,7 +11,8 @@ const el=(name,cls,text)=>{const n=document.createElement(name);if(cls)n.classNa
 const $=id=>document.getElementById(id);
 const app=$('wrdi-v15'),message=$('wrdi-message'),go=$('wrdi-analyze'),clear=$('wrdi-clear');
 const root=window;
-const data={champions:{'10099':'Galio'},championList:[],catalog:null,rules:null,runes:null,ready:false};
+const data={champions:{'10099':'Galio'},championList:[],catalog:null,rules:null,runes:null,
+ officialKits:null,reviewedKits:null,ready:false};
 let pickerUI=null;
 const snapshot=()=>{try{const v=JSON.parse(localStorage.getItem(STORAGE)||'null');return Array.isArray(v)&&v.length===10?v.map(String):Array(10).fill('')}catch{return Array(10).fill('')}};
 let picks=snapshot(),epoch=0;
@@ -141,11 +142,13 @@ async function fetchJson(url){
 async function boot(){
  renderSlots();
  try{
-  const [catalog,rules,runes,champData]=await Promise.all([
+  const [catalog,rules,runes,champData,officialKits,reviewedKits]=await Promise.all([
    fetchJson('./data/items-client-7.3d-v12.json'),
    fetchJson('./data/item-restrictions-client-7.3d-v12.json'),
    fetchJson('./data/rune-catalog-client-v14.json'),
-   fetchJson(CHAMPION_CATALOG)
+   fetchJson(CHAMPION_CATALOG),
+   fetchJson('./data/champion-ability-extract-official-v1.json'),
+   fetchJson('./data/champion-kits-official-fr-v1.json')
   ]);
   const list=champData?.champions;
   if(!Array.isArray(list)||list.length<100)throw Error('Catalogue de champions local incomplet');
@@ -154,13 +157,16 @@ async function boot(){
   if(new Set(list.map(c=>String(c.id))).size!==list.length)throw Error('Identifiants de champions dupliqués');
   data.championList=list;
   data.champions=Object.fromEntries(list.map(c=>[String(c.id),c.name]));
+  if(!root.WRDI_OfficialKitIntelligenceV158?.prepare(officialKits)?.ok)
+   throw Error('Compétences officielles Wild Rift indisponibles ou invalides');
   data.catalog=catalog;data.rules=rules;data.runes=runes;
+  data.officialKits=officialKits;data.reviewedKits=reviewedKits;
   pickerUI=root.WRDI_ChampionPickerV151?.init({
    getChampions:()=>data.championList,getPicks:()=>picks,onSelect:selectChampion
   });
   if(!pickerUI?.ok)throw Error('Sélecteur mobile indisponible');
   data.ready=true;renderSlots();go.disabled=false;
-  status(list.length+' champions disponibles · portraits, lanes et classes · catalogue client chargé.','good');
+  status(list.length+' champions · '+officialKits.entries.length+' fiches Riot Wild Rift · catalogue client chargé.','good');
  }catch(e){
   go.disabled=true;status('Chargement interrompu : '+String(e?.message||e)+'. Aucune recommandation inventée.','warning');
  }
@@ -172,14 +178,16 @@ go.addEventListener('click',()=>{
   guard:root.WRDI_GalioItemGuardV1424,core:root.WRDI_CoreV14,
   optimizer:root.WRDI_GalioFiveItemOptimizerV1429,order:root.WRDI_GalioPurchaseOrderV1432,
   contingency:root.WRDI_GalioContingenciesV1433,runeBridge:root.WRDI_RuneBridgeV14,
-  runeAdvisor:root.WRDI_GalioRuneAdvisorV1411};
+  runeAdvisor:root.WRDI_GalioRuneAdvisorV1411,
+  kitIntelligence:root.WRDI_OfficialKitIntelligenceV158};
  go.disabled=true;status('Analyse du build principal, de l’ordre et des situations possibles…');
  // Yield a frame so the status is visible before the local-only computation.
  setTimeout(()=>{
   if(token!==epoch)return;
   try{
    const r=root.WRDI_DraftEngineV15.analyze({picks,champions:data.champions,
-    catalog:data.catalog,rules:data.rules,runes:data.runes,championMeta:data.championList,modules:mod});
+    catalog:data.catalog,rules:data.rules,runes:data.runes,championMeta:data.championList,
+    officialKits:data.officialKits,reviewedKits:data.reviewedKits,modules:mod});
    if(r.ok){showResults(r);status('Analyse terminée. Une seule recommandation, préparée avant la partie.','good');}
    else{$('wrdi-result').replaceChildren();status(r.reason,'warning');}
   }catch(e){$('wrdi-result').replaceChildren();status('Calcul interrompu : '+String(e?.message||e),'warning');}
