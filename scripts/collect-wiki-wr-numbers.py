@@ -15,6 +15,7 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 from bs4 import BeautifulSoup
+from bs4.element import Tag
 
 ROOT=Path(__file__).resolve().parents[1]
 ROSTER=json.loads((ROOT/'data/champions-picker-v151.json').read_text())['champions']
@@ -68,7 +69,15 @@ def parse_html(content):
   # (e.g. Galio passive scaling), without copying long-form Wiki descriptions.
   numericalEffects=[]
   dedup=set()
-  for desc in section.select('.ability-info-description'):
+  # Descriptive subblocks often follow the header as siblings.
+  # Stop at the next skill header to avoid mixing champion abilities.
+  descriptions=[]
+  for element in header.next_elements:
+   if not isinstance(element,Tag):continue
+   classes=element.get('class',[])
+   if element is not header and 'skill_header' in classes:break
+   if 'ability-info-description' in classes:descriptions.append(element)
+  for desc in descriptions:
    plain=text(desc)
    for hit in re.finditer(r'(?<![\\w.])\\d+(?:\\.\\d+)?(?!\\w)',plain):
     suffix=plain[hit.end():hit.end()+28]
