@@ -11,7 +11,7 @@
 'use strict';
 const VERSION='15.8.0';
 const has=(arr,key)=>arr.includes(key);
-function make({enemies,allies,lookup}={}){
+function make({enemies,allies,lookup,shieldInfo}={}){
  if(!Array.isArray(enemies)||enemies.length!==5||!Array.isArray(allies)||allies.length!==5||typeof lookup!=='function')
   return {ok:false,reason:'Composition de cinq adversaires et cinq alliés requise'};
  const resolve=(name,role)=>({name:String(name||''),role,traits:Array.isArray(lookup(name))?lookup(name).filter(t=>typeof t==='string'):[]});
@@ -36,8 +36,14 @@ function make({enemies,allies,lookup}={}){
  const enemyCritPotential=enemy.filter(x=>has(x.traits,'crit')).length;
  // A single self-shield on an enemy mage is not a team-wide shielding draft.
  // Two or more shield kits, or a shielding support, make shield-cut materially relevant.
- const shieldingSupport=has(enemy[4].traits,'shield')?1:0;
- const shieldPressure=counts.shield>=2?counts.shield:shieldingSupport?2:counts.shield*0.25;
+ const shieldFacts=typeof shieldInfo==='function'?enemy.map(x=>shieldInfo(x.name)):null;
+ const shieldsWithEvidence=shieldFacts&&shieldFacts.every(x=>x&&typeof x.hasShield==='boolean'&&typeof x.protectsAllies==='boolean');
+ const alliedShieldSources=shieldsWithEvidence?shieldFacts.filter(x=>x.protectsAllies).length:0;
+ const personalShieldSources=shieldsWithEvidence?shieldFacts.filter(x=>x.hasShield&&!x.protectsAllies).length:0;
+ const shieldingSupport=shieldsWithEvidence?(shieldFacts[4].protectsAllies?1:0):(has(enemy[4].traits,'shield')?1:0);
+ const shieldPressure=shieldsWithEvidence?(alliedShieldSources>0?
+  Math.min(5,2*alliedShieldSources):personalShieldSources>=3?2:personalShieldSources*0.25):
+  (counts.shield>=2?counts.shield:shieldingSupport?2:counts.shield*0.25);
  const teamTank=knownAllies.filter(x=>has(x.traits,'tank')).length;
  const teamEngage=knownAllies.filter(x=>has(x.traits,'engage')||has(x.traits,'tank')).length;
  const backline=own.filter(x=>['ADC allié','Support allié'].includes(x.role)&&
@@ -74,7 +80,7 @@ function make({enemies,allies,lookup}={}){
   // No verified enemy-item builds were supplied, so confirmed crit stays zero.
   crit:0,lanePhysical,laneMagic,laneAllIn,lanePoke,jungleAllIn,
   frontlineNeed,frontlineProvided,teamTank,teamEngage,alliedApCarry,
-  damageDuty,shieldPressure,shieldingSupport,midAssassin,jungleAssassin,earlyDive,earlyStasisPriority,
+  damageDuty,shieldPressure,shieldingSupport,alliedShieldSources,personalShieldSources,midAssassin,jungleAssassin,earlyDive,earlyStasisPriority,
   peelNeed,enemyProfileCoverage:5-unknownEnemy.length,
   alliesProfileComplete:alliesComplete};
  const reasons=[];
@@ -87,6 +93,7 @@ function make({enemies,allies,lookup}={}){
  if(damageDuty>=2)reasons.push('Équipe : plusieurs tanks alliés, Galio peut privilégier les dégâts magiques');
  if(earlyStasisPriority===1)reasons.push('Une menace d’assassin identifiée : stase à garder situationnelle');
  if(peelNeed)reasons.push('Protection des alliés vulnérables à l’engagement');
+ if(shieldsWithEvidence&&personalShieldSources>0&&alliedShieldSources===0)reasons.push('Boucliers personnels isolés : anti-bouclier non prioritaire sans protection d’équipe');
  if(enemyCritPotential)reasons.push('Critiques possibles selon les archétypes, pas confirmés par un build adverse');
  return {ok:true,version:VERSION,game:'Wild Rift mobile',threats,reasons,
   enemy,allies:own,missingEnemyRoles:unknownEnemy,
