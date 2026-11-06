@@ -17,14 +17,15 @@ function audit({officialKits,items,runes}={}){
  const fundamentals=runes?.fundamental,minors=runes?.minor;
  if(!Array.isArray(entries)||!Array.isArray(inventory)||!Array.isArray(fundamentals)||!Array.isArray(minors))
   return {ok:false,reason:'Une des trois familles de fiches est absente'};
- const mechanics={},missing=[],truncated=[];
+ const mechanics={},missing=[],truncated=[],missingFull=[];
  let abilities=0,skillsWithMechanics=0;
  for(const c of entries){
   for(const slot of slots){
    const s=c.skills?.[slot];
    if(!s?.name||typeof s.excerpt_fr!=='string'){missing.push(c.name+':'+slot);continue;}
    abilities++;
-   if(s.descriptionTruncated)truncated.push(c.name+':'+slot);
+   if(s.descriptionTruncated&&!s.description_fr)truncated.push(c.name+':'+slot);
+   if(typeof s.description_fr!=='string'||!s.description_fr.trim())missingFull.push(c.name+':'+slot);
    const flags=Array.isArray(s.detected_mechanics)?s.detected_mechanics:[];
    if(flags.length)skillsWithMechanics++;
    for(const flag of flags)mechanics[flag]=(mechanics[flag]||0)+1;
@@ -39,7 +40,8 @@ function audit({officialKits,items,runes}={}){
  for(const r of [...fundamentals,...minors])for(const {path} of leafPaths(r.effect||{}))
   runeFields[path]=(runeFields[path]||0)+1;
  return {ok:true,version:VERSION,champions:entries.length,abilities,expectedAbilities:entries.length*5,
-  mechanics,skillsWithMechanics,missing,truncatedDescriptions:truncated.length,
+  mechanics,skillsWithMechanics,missing,missingFullDescriptions:missingFull,
+  fullDescriptions:abilities-missingFull.length,truncatedDescriptions:truncated.length,
   items:inventory.length,itemStatFields:itemStats,itemPassiveFields,
   runes:fundamentals.length+minors.length,runeEffectFields:runeFields,
   ratiosFromChampionSkillsVerified:false,completeCombatSimulation:false,
