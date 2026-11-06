@@ -257,6 +257,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
+            "cc",
             "magic_damage",
             "aoe"
           ]
@@ -338,7 +339,9 @@
           "excerpt_fr": "Ambessa se téléporte sur l'ennemi le plus éloigné sur une ligne droite de son choix, ce qui le neutralise à son arrivée. Elle le",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -425,6 +428,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "cc",
             "aoe"
           ]
         },
@@ -434,6 +438,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
+            "cc",
             "aoe"
           ]
         },
@@ -453,6 +458,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "cc",
             "mobility",
             "aoe"
           ]
@@ -474,7 +480,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc",
+            "slow",
             "crit"
           ]
         },
@@ -562,6 +568,7 @@
           "descriptionTruncated": true,
           "detected_mechanics": [
             "cc",
+            "slow",
             "magic_damage",
             "aoe"
           ]
@@ -606,6 +613,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
+            "cc",
             "crit"
           ]
         },
@@ -662,7 +670,6 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc",
             "magic_damage",
             "burn",
             "aoe"
@@ -702,6 +709,7 @@
           "descriptionTruncated": false,
           "detected_mechanics": [
             "shield",
+            "cc",
             "magic_damage"
           ]
         },
@@ -730,6 +738,7 @@
           "descriptionTruncated": true,
           "detected_mechanics": [
             "cc",
+            "slow",
             "aoe"
           ]
         }
@@ -777,7 +786,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "slow"
           ]
         },
         "r": {
@@ -834,6 +844,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
+            "cc",
             "mobility"
           ]
         },
@@ -883,7 +894,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc",
+            "slow",
             "aoe"
           ]
         },
@@ -938,7 +949,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "cc"
+            "slow"
           ]
         },
         "e": {
@@ -1165,6 +1176,7 @@
           "detected_mechanics": [
             "shield",
             "cc",
+            "slow",
             "magic_damage"
           ]
         },
@@ -1226,6 +1238,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "cc",
             "mobility"
           ]
         },
@@ -1377,7 +1390,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "slow"
           ]
         },
         "e": {
@@ -1386,7 +1400,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "cc",
+            "slow",
             "crit"
           ]
         },
@@ -1449,6 +1463,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "cc",
             "magic_damage",
             "aoe"
           ]
@@ -1490,6 +1505,7 @@
           "descriptionTruncated": false,
           "detected_mechanics": [
             "cc",
+            "slow",
             "aoe"
           ]
         },
@@ -1498,7 +1514,9 @@
           "excerpt_fr": "Galio fait un pas en arrière et charge, blessant et projetant en l'air le premier champion ennemi qu'il touche.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc"
+          ]
         },
         "r": {
           "name": "ENTRÉE HÉROÏQUE",
@@ -1507,6 +1525,7 @@
           "descriptionTruncated": true,
           "detected_mechanics": [
             "shield",
+            "cc",
             "magic_damage",
             "aoe"
           ]
@@ -1593,7 +1612,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc",
+            "slow",
             "aoe"
           ]
         },
@@ -1623,6 +1642,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "cc",
             "aoe"
           ]
         }
@@ -1789,7 +1809,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc",
+            "slow",
             "magic_damage"
           ]
         }
@@ -1896,7 +1916,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "slow"
           ]
         },
         "r": {
@@ -1953,7 +1974,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "slow"
           ]
         }
       },
@@ -1981,7 +2002,9 @@
           "excerpt_fr": "Janna invoque une tornade qui inflige des dégâts et projette dans les airs les ennemis sur son passage.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc"
+          ]
         },
         "w": {
           "name": "Alizé",
@@ -2034,6 +2057,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "cc",
             "physical_damage"
           ]
         },
@@ -2153,7 +2177,6 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc",
             "aoe",
             "repeated_hits"
           ]
@@ -2221,7 +2244,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc",
+            "slow",
             "aoe",
             "untargetable"
           ]
@@ -2232,7 +2255,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc",
+            "slow",
             "long_range",
             "crit"
           ]
@@ -2272,7 +2295,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "cc"
+            "slow"
           ]
         },
         "e": {
@@ -2369,7 +2392,9 @@
           "excerpt_fr": "Kalista projette une lance rapide qui traverse les ennemis ainsi tués.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc"
+          ]
         },
         "w": {
           "name": "SENTINELLE",
@@ -2493,7 +2518,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc",
+            "slow",
             "magic_damage",
             "aoe"
           ]
@@ -2657,7 +2682,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "cc"
+            "slow"
           ]
         },
         "e": {
@@ -2746,7 +2771,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc",
+            "slow",
             "magic_damage"
           ]
         },
@@ -2897,6 +2922,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "cc",
             "physical_damage"
           ]
         }
@@ -3008,7 +3034,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "slow"
           ]
         },
         "r": {
@@ -3037,6 +3063,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "slow",
             "magic_damage",
             "aoe",
             "conditional_form"
@@ -3048,6 +3075,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "cc",
             "mobility",
             "magic_damage"
           ]
@@ -3157,7 +3185,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "cc"
+            "slow"
           ]
         },
         "w": {
@@ -3181,6 +3209,7 @@
           "descriptionTruncated": true,
           "detected_mechanics": [
             "cc",
+            "slow",
             "aoe"
           ]
         }
@@ -3397,7 +3426,9 @@
           "excerpt_fr": "Maître Yi se déplace avec une agilité sans pareille, ce qui augmente ses vitesses de déplacement et d'attaque et le rend temporairement insensible aux",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "slow"
+          ]
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
@@ -3616,6 +3647,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "slow",
             "mobility",
             "aoe"
           ]
@@ -3654,7 +3686,9 @@
           "excerpt_fr": "Projette un flux d'eau qui rebondit sur les champions alliés et ennemis, soignant les alliés et blessant les ennemis.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc"
+          ]
         },
         "e": {
           "name": "Bénédiction de l'Aquamancienne",
@@ -3671,7 +3705,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "cc",
+            "slow"
           ]
         }
       },
@@ -3705,7 +3740,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "cc"
+            "slow"
           ]
         },
         "e": {
@@ -3774,7 +3809,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "cc",
+            "slow",
             "aoe"
           ]
         },
@@ -3893,7 +3928,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "cc",
+            "slow",
             "aoe"
           ]
         }
@@ -3987,7 +4022,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc",
+            "slow",
             "magic_damage",
             "aoe"
           ]
@@ -4007,6 +4042,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "cc",
             "magic_damage",
             "aoe"
           ]
@@ -4035,7 +4071,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "slow"
           ]
         },
         "w": {
@@ -4145,7 +4181,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "cc",
+            "slow",
             "aoe"
           ]
         },
@@ -4268,6 +4304,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
+            "cc",
             "mobility",
             "aoe"
           ]
@@ -4341,6 +4378,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "slow",
             "mobility"
           ]
         }
@@ -4432,7 +4470,6 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc",
             "aoe"
           ]
         },
@@ -4556,7 +4593,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc",
+            "slow",
             "mobility",
             "magic_damage",
             "aoe"
@@ -4568,7 +4605,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "cc"
+            "slow"
           ]
         }
       },
@@ -4612,6 +4649,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "cc",
             "aoe"
           ]
         },
@@ -4708,6 +4746,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "cc",
             "aoe"
           ]
         },
@@ -4774,6 +4813,7 @@
           "descriptionTruncated": true,
           "detected_mechanics": [
             "cc",
+            "slow",
             "magic_damage"
           ]
         },
@@ -4924,7 +4964,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "slow"
           ]
         },
         "w": {
@@ -4991,7 +5031,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "cc",
+            "slow",
             "aoe"
           ]
         },
@@ -5000,7 +5040,9 @@
           "excerpt_fr": "Blesse l'ennemi et le projette derrière Singed. Si la cible projetée par Singed atterrit dans Attrape-mouche, elle est aussi immobilisée.",
           "descriptionPresent": true,
           "descriptionTruncated": false,
-          "detected_mechanics": []
+          "detected_mechanics": [
+            "cc"
+          ]
         },
         "r": {
           "name": "Potion de démence",
@@ -5056,7 +5098,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "slow"
           ]
         },
         "r": {
@@ -5266,7 +5308,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "cc"
+            "slow"
           ]
         },
         "e": {
@@ -5284,7 +5326,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc",
+            "slow",
             "conditional_form"
           ]
         }
@@ -5383,6 +5425,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "cc",
+            "slow",
             "physical_damage"
           ]
         },
@@ -5401,6 +5445,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "cc",
             "mobility",
             "physical_damage",
             "aoe",
@@ -5458,7 +5503,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc",
+            "slow",
             "burn"
           ]
         }
@@ -5511,7 +5556,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "cc"
+            "slow"
           ]
         }
       },
@@ -5652,6 +5697,7 @@
           "descriptionTruncated": true,
           "detected_mechanics": [
             "cc",
+            "slow",
             "aoe"
           ]
         },
@@ -5704,6 +5750,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
+            "cc",
             "aoe"
           ]
         },
@@ -5749,7 +5796,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "cc",
+            "slow",
             "physical_damage",
             "aoe"
           ]
@@ -5760,7 +5807,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc",
+            "slow",
             "aoe"
           ]
         },
@@ -5770,7 +5817,8 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "shield"
+            "shield",
+            "cc"
           ]
         },
         "r": {
@@ -5993,7 +6041,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": false,
           "detected_mechanics": [
-            "cc",
+            "slow",
             "aoe"
           ]
         },
@@ -6055,6 +6103,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "cc",
             "mobility"
           ]
         }
@@ -6146,7 +6195,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc"
+            "slow"
           ]
         },
         "e": {
@@ -6155,7 +6204,6 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc",
             "magic_damage"
           ]
         },
@@ -6518,6 +6566,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
+            "cc",
             "repeated_hits"
           ]
         },
@@ -6634,7 +6683,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc",
+            "slow",
             "magic_damage"
           ]
         },
@@ -6666,7 +6715,7 @@
           "detected_mechanics": [
             "healing",
             "shield",
-            "cc",
+            "slow",
             "magic_damage"
           ]
         }
@@ -6747,7 +6796,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc",
+            "slow",
             "magic_damage",
             "physical_damage"
           ]
@@ -6758,7 +6807,7 @@
           "descriptionPresent": true,
           "descriptionTruncated": true,
           "detected_mechanics": [
-            "cc",
+            "slow",
             "long_range",
             "conditional_form"
           ]
@@ -6777,9 +6826,7 @@
           "excerpt_fr": "Zeri provoque une nova d'électricité et se surcharge : elle inflige plus de dégâts et gagne un bonus cumulable en vitesse d'attaque qui s'actualise",
           "descriptionPresent": true,
           "descriptionTruncated": true,
-          "detected_mechanics": [
-            "cc"
-          ]
+          "detected_mechanics": []
         }
       },
       "confidence": "official_page_extracted_not_client_verified",
