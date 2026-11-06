@@ -16,7 +16,7 @@ function chooseRune({bridge,catalog,advisor,needs={},laneOpponent,items=[],role}
  // Wild Rift client rune used as a tactical burst/poke option, NOT a claimed
  // top-player frequency. Preserve V16.8 Comet for typical AP poke Galio.
  const burstAllIn=fullAp&&Number(needs.laneAllIn||0)>0&&Number(needs.earlyDive||0)>=2;
- const order=fullAp?(burstAllIn?['burst','poke','engage']:['poke','burst','engage']):
+ const order=fullAp?(burstAllIn?['burst','poke','engage']:['poke','engage','burst']):
   ['engage','poke','burst'];
  const candidates=[];
  for(const id of order){
@@ -30,8 +30,10 @@ function chooseRune({bridge,catalog,advisor,needs={},laneOpponent,items=[],role}
  }
  if(!candidates.length)return {ok:false,reason:'Aucune page parmi les trois profils Galio autorisée par le client'};
  const picked=candidates[0];
- return {ok:true,id:picked.id,label:picked.label,page:picked.page,reason:picked.reason,
-  alternatives:candidates.slice(1,3),mode:fullAp?'ap_burst':'hybrid_control',
+ const explanation=fullAp?picked.reason+' Comète arcanique est privilégiée pour le poke AP lorsque les échanges courts ne garantissent pas Électrocution.':
+  picked.reason+' Poigne nécessite une attaque de base préparée ; Électrocution exige trois touches rapprochées, contrairement au contrôle répété de Galio.';
+ return {ok:true,id:picked.id,label:picked.label,page:picked.page,reason:explanation,
+  alternatives:candidates.slice(1,3),mode:fullAp?'ap_poke':'hybrid_control',
   apItems:apItems.length,apBase,
   selection:'three_client_validated_galio_pages_cn_guide_for_engage_and_electrocute_no_claim_for_comet_frequency'};
 }
