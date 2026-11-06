@@ -27,3 +27,15 @@ test('Three rune pages max, all legal, with client Comet AP and Chinese Ice hybr
  const hybrid=engine.chooseRune({...base,role:'hybrid_offensive',needs:{}});
  assert.equal(hybrid.page.keystone,'Souverain des glaces');
 });
+
+test('Rune page changes minor slot only when mid matchup warrants it',()=>{
+ const base={bridge,catalog:runes,advisor:templates,role:'ap_burst'};
+ const poke=engine.chooseRune({...base,needs:{lanePoke:1,laneAllIn:0}});
+ const allIn=engine.chooseRune({...base,needs:{lanePoke:0,laneAllIn:1,earlyDive:1}});
+ assert.equal(poke.page.secondary,'Second souffle');
+ assert.equal(allIn.page.secondary,"Plaque d'os");
+ for(const x of [poke,allIn])assert.equal(bridge.validate(x.page,runes).valid,true);
+ const engage=engine.chooseRune({...base,role:'hybrid_offensive',needs:{lanePoke:0,laneAllIn:1,frontlineNeed:1}});
+ assert.equal(engage.page.primary[1],"Plaque d'os");
+ assert.equal(bridge.validate(engage.page,runes).valid,true);
+});
