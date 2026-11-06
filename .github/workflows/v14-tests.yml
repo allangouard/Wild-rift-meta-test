@@ -276,3 +276,8 @@ jobs:
           node --check wrdi-galio-five-item-optimizer-v1429.js
           node --check wrdi-draft-engine-v15.js
           node --test wrdi-galio-defense-balance-v153.test.js
+      - name: Tester l'achat lane puis teamfight V15.4
+        run: |
+          node --check wrdi-galio-five-item-optimizer-v1429.js
+          node --check wrdi-galio-purchase-order-v1432.js
+          node --test wrdi-galio-lane-first-v154.test.js
