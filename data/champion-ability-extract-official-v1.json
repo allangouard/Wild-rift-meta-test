@@ -2192,13 +2192,17 @@
       },
       "confidence": "player_client_screenshots_full_ability_group_descriptions",
       "currentPatchVerified": false,
-      "clientObservedPatch": "7.3d",
-      "numericRatiosVerified": true,
+      "clientObservedPatch": "not_visible_in_screenshots",
+      "numericRatiosVerified": false,
       "allowedForScoring": false,
-      "numericUse": "client_screenshots_structured_but_not_yet_approved_for_direct_combat_calculation",
+      "numericUse": "descriptive_only_until_client_vs_riot_7_3b_ee_conflict_resolved",
       "limitations": [
         "q_w_e_each_have_three_subspells_grouped_in_one_base_ability",
         "not_all_subspell_interactions_verified_in_combat"
+      ],
+      "numericRatiosPartiallyVerified": true,
+      "unresolvedPatchConflicts": [
+        "e.ee.damageBase"
       ]
     },
     {
