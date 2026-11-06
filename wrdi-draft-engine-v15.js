@@ -278,7 +278,7 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
     option.canTriggerOnOwnDamage?'dégâts infligés':'à confirmer'));
  }
  const releaseAudit=m.releaseAudit?.inspect?.({catalog,runes,bootsCatalog,championMeta,
-  result:{build:{legal:true,lateSlots},runes:rune,draft:{officialKitCoverage:official?names.filter(n=>evidence[n]?.ok).length:0}}})||null;
+  result:{build:{legal:true,lateSlots,conditionAudit},runes:rune,draft:{officialKitCoverage:official?names.filter(n=>evidence[n]?.ok).length:0}}})||null;
  if(releaseAudit?.warnings?.length)notes.push('V19 : résultats expérimentaux ; '+releaseAudit.warnings.join(' '));
  const selectedRune=rune.ok?([...runes.fundamental,...runes.minor].find(x=>x.name_fr===rune.page.keystone)):null;
  const runeRange=selectedRune&&calculator?.runeProcRange?.({rune:selectedRune,ap:main.main.stats?.apAfterInteractions??main.main.stats?.ap??0});
