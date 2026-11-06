@@ -72,7 +72,7 @@ def parse_html(content):
    plain=text(desc)
    for hit in re.finditer(r'(?<![\\w.])\\d+(?:\\.\\d+)?(?!\\w)',plain):
     suffix=plain[hit.end():hit.end()+28]
-    unit_match=re.match(r'\\s*(%|seconds?|sec|s|AP|AD|bonus AD|bonus MR|mana|health|HP|per level|per 100 AP|per 100 bonus health)\\b?',suffix,re.I)
+    unit_match=re.match(r'\\s*(%|seconds?|sec|s|AP|AD|bonus AD|bonus MR|mana|health|HP|per level|per 100 AP|per 100 bonus health)',suffix,re.I)
     unit=(unit_match.group(1) if unit_match else '').strip()
     label=(hit.group(),unit)
     if label in dedup:continue
