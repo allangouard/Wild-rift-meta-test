@@ -139,6 +139,64 @@ function coreFit(items,threats={}){
  }
  return {score,hybrid:true,reasons,role:'hybrid_offensive_control'};
 }
+/* WRDI 17.3: burst Galio is a different combat goal from contact-tank Galio.
+ * Qualitative priority is based on verified WR client procs. Not pick/win-rate.
+ * Favor short-range damage events, damage multipliers and execute pressure,
+ * rather than surviving four seconds to trigger a sustain passive.
+ */
+function burstProfile(item){
+ const p=(item.passives||[]).map(x=>x.mechanics||{});
+ const stats=item.stats||{};
+ const instant=p.some(m=>typeof m.base_damage==='string'&&m.cooldown_s>0&&m.max_secondary_targets>=1);
+ const execute=p.some(m=>m.condition==='target_hp_pct < 40'&&m.eligible?.includes('abilities'));
+ const amplify=p.some(m=>m.effect==='ap_multiplier'&&Number(m.value)>1);
+ const shieldReduction=p.some(m=>typeof m.shield_reduction_aoe_pct_formula==='string');
+ const delayed=p.some(m=>Number(m.tick_s)>=4&&Number(m.heal_multiplier_of_damage_dealt)>0);
+ const percentBurn=p.some(m=>String(m.damage_per_tick_formula||'').includes('target_max_hp'));
+ const resist=(Number(stats.armor)||0)+(Number(stats.mr)||0);
+ return {instant,execute,amplify,shieldReduction,delayed,percentBurn,
+  ap:Number(stats.ap)||0,armor:Number(stats.armor)||0,mr:Number(stats.mr)||0,
+  resist,pen:Number(stats.mpen_flat)||0};
+}
+function burstFit(items,threats={}){
+ const t=threats||{};
+ const active=Number(t.damageDuty)>=2&&Number(t.frontlineProvided)>=2&&
+  Number(t.alliedApCarry)===0;
+ const profiles=items.map(burstProfile);
+ const count=key=>profiles.filter(p=>p[key]).length;
+ const immediate=count('instant'),execute=count('execute'),amplify=count('amplify');
+ const defensive=profiles.filter(p=>p.resist>=35).length;
+ const delayed=count('delayed'),burn=count('percentBurn');
+ const totalAp=profiles.reduce((a,p)=>a+p.ap,0);
+ const shieldCut=profiles.filter(p=>p.shieldReduction).length;
+ const squishy=Number(t.tank)<2;
+ let score=0;
+ if(active){
+  // Mechanic-based burst triangle: spell hit burst + raw AP multiplier +
+  // execute below 40% HP. An incomplete triangle still gets useful credit
+  // during beam search, so the eventual best candidate isn't pruned.
+  score+=immediate*10+amplify*7.5+execute*7.5;
+  if(immediate&&amplify)score+=7.5;
+  if(immediate&&execute)score+=6;
+  if(amplify&&execute)score+=5;
+  if(immediate&&execute&&amplify)score+=10;
+  score+=Math.min(450,totalAp)*0.052;
+  // A reactive shield cut is valuable into real shield archetypes, but not
+  // a mandatory second purchase on every AP-carry draft.
+  if(shieldCut&&Number(t.shield)>=1)score+=2.5;
+  if(items.length>=3){
+   score-=defensive*(items.length>=5?13:10);
+   score-=delayed*7.5;
+   if(squishy)score-=burn*10;
+  }
+  // Respect short engagement windows: 4s periodic healing is not the
+  // goal of Galio AP burst, unlike Galio hybrid sustained combat.
+  if(items.length===5&&(!immediate||!execute||!amplify))score-=17;
+ }
+ return {active,mode:active?'ap_burst':'contextual_hybrid',score:Math.round(score*100)/100,
+  immediate,execute,amplify,defensive,delayed,burn,shieldCut,totalAp,
+  reason:active?'Burst AP : dégâts immédiats sur les sorts, multiplication de la puissance et exécution; survie prolongée non prioritaire':'Rôle Galio contextuel'};
+}
 function offensiveDutyFit(items,threats={},effectiveAp=null){
  const rawDuty=Number(threats.damageDuty)||0;
  const alliedFrontline=Number(threats.frontlineProvided)||0;
@@ -337,7 +395,7 @@ function calculate(items,threats,combatModel=null){
  const interaction=interactionEngine?.compare?.(items,{...threats,...t});
  if(interaction?.ok){
   // Timed passive opportunity with unobserved contact, not a win-rate forecast.
-  score+=interaction.score*1.65;
+  score+=interaction.score*(Number(threats.damageDuty)>=2&&Number(threats.frontlineProvided)>=2?0.65:1.65);
   if(items.length===5)reasons.push(...interaction.combinations.slice(0,3));
  }
  const effective=interaction?.short?.stats;
@@ -345,13 +403,16 @@ function calculate(items,threats,combatModel=null){
  if(productivity?.ok){
   // Survival is valuable if it preserves damage and control uptime. Pure
   // armor auras still win when confirmed attack-speed / physical danger merits them.
-  score+=productivity.score*1.8;
+  // Productive SURVIVAL has no purchase goal in an immediate burst strategy.
+  score+=productivity.score*(Number(threats.damageDuty)>=2&&Number(threats.frontlineProvided)>=2?0.2:1.8);
   if(items.length===5)reasons.push(...productivity.long.parts.slice(0,3));
  }
+ const burst=burstFit(items,threats);
+ score+=burst.score;
  const core=coreFit(items,threats);
  // A hybrid core is valuable for actual frontline duties, not a fixed default
  // when Galio is the only practical AP carry behind three allied tanks.
- score+=core.score*(t.damageDuty>=2&&t.frontlineProvided>=2?0.15:1);
+ score+=core.score*(burst.active?0:1);
  if(items.length===5&&core.reasons.length)reasons.push(...core.reasons);
  const offenseRole=offensiveDutyFit(items,threats,effective?.apAfterInteractions);
  score+=offenseRole.score;
@@ -360,7 +421,7 @@ function calculate(items,threats,combatModel=null){
   apAfterInteractions:effective?.apAfterInteractions??total('ap'),
   riftBonusAp:effective?.riftBonusAp||0};
  return {score:Math.round(score*100)/100,reasons,stats,needs:t,synergy,balance,laneOpening,
-  interaction:interaction?.ok?interaction:null,productivity:productivity?.ok?productivity:null,core,offenseRole};
+  interaction:interaction?.ok?interaction:null,productivity:productivity?.ok?productivity:null,core,offenseRole,burst};
 }
 function optimize({prepared,threats={},slots=5,beamWidth=100,combatModel=null}={}){
  if(!prepared?.ok||!prepared.core?.validateEquipment)return {ok:false,reason:'Catalogue client indisponible'};
@@ -392,7 +453,7 @@ function optimize({prepared,threats={},slots=5,beamWidth=100,combatModel=null}={
   id:item.id,name:item.name_fr,priceGold:num(item.price_gold)||null,
   slot:i+1,reason:reasonFor(item,threats)})),
   suitability:x.score,reasons:x.measure.reasons,stats:x.measure.stats,
-  interaction:x.measure.interaction,productivity:x.measure.productivity,offenseRole:x.measure.offenseRole,
+  interaction:x.measure.interaction,productivity:x.measure.productivity,offenseRole:x.measure.offenseRole,burst:x.measure.burst,
   legal:true,source:'player_client_items_only'});
  return {ok:true,game:'Wild Rift mobile',version:VERSION,
   main:result(winner),alternatives:others.map(result),
@@ -426,5 +487,5 @@ function reasonFor(item,threats){
  if(f.ah)r.push('Disponibilité des contrôles');
  return r.slice(0,2).join(' · ')||'Utilité situationnelle documentée';
 }
-return Object.freeze({VERSION,features,eligible,weights,coreFit,offensiveDutyFit,calculate,optimize,reasonFor});
+return Object.freeze({VERSION,features,eligible,weights,coreFit,offensiveDutyFit,burstProfile,burstFit,calculate,optimize,reasonFor});
 });
