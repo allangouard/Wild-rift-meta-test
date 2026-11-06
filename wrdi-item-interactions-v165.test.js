@@ -100,3 +100,41 @@ test('known five-item scenario can be compared to a no-purpose antiheal set',()=
  assert.ok(a.interaction.score>b.interaction.score);
  assert.equal(a.stats.apAfterInteractions,181);
 });
+
+test('main pregame pipeline explains 2.5s/8s item interactions for the exact draft',()=>{
+ const engine=require('./wrdi-draft-engine-v15.js');
+ const roster=require('./data/champions-picker-v151.json').champions;
+ const names=['Fiora','Lillia','Galio','Samira','Alistar','Gnar','Vi','Lux','Lucian','Lulu'];
+ const picks=names.map(n=>roster.find(x=>x.name===n)?.id);
+ assert.ok(picks.every(Boolean));
+ const answer=engine.analyze({
+  picks,champions:Object.fromEntries(roster.map(x=>[x.id,x.name])),
+  championMeta:roster,
+  officialKits:require('./data/champion-ability-extract-official-v1.json'),
+  reviewedKits:require('./data/champion-kits-official-fr-v1.json'),
+  numericKits:require('./data/champion-ability-numeric-wiki-wr-v1.json'),
+  numericPatch:require('./data/wr-champion-numeric-patch-overrides-v1.json'),
+  numericClient:require('./data/wr-client-verified-abilities-7.3d.json'),
+  catalog,rules,runes:require('./data/rune-catalog-client-v14.json'),
+  modules:{
+   profiles:profile,team,
+   guard,core,optimizer,
+   order:require('./wrdi-galio-purchase-order-v1432.js'),
+   contingency:require('./wrdi-galio-contingencies-v1433.js'),
+   runeBridge:require('./wrdi-rune-bridge-v14.js'),
+   runeAdvisor:require('./wrdi-galio-rune-advisor-v1411.js'),
+   kitIntelligence:require('./wrdi-official-kit-intelligence-v158.js'),
+   mechanicsCalculator:require('./wrdi-mechanics-calculator-v159.js'),
+   numericEngine:require('./wrdi-numeric-kits-v162.js')
+  }
+ });
+ assert.equal(answer.ok,true,JSON.stringify(answer));
+ assert.equal(answer.build.items.length,5);
+ assert.equal(answer.calculations.combatScenarios.ok,true);
+ assert.ok(answer.draft.notes.some(x=>x.includes('Passifs comparés sur 2,5 s')));
+ assert.equal(answer.methods.exactOptimalityProven,false);
+ assert.ok(answer.calculations.numericGalio.ap>=0);
+ console.log('DRAFT_PIPELINE_V165',JSON.stringify({items:answer.build.items.map(x=>x.id),
+  scenarios:answer.calculations.combatScenarios.combinations,
+  rune:answer.runes.page?.keystone}));
+});
