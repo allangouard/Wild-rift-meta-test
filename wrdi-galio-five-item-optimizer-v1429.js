@@ -72,9 +72,10 @@ function weights(threats={}){
  return {physical:count(threats.ad),magic:count(threats.ap),tank:count(threats.tank),
   // Conditional healing (e.g. Kayn Darkin) is only a partial draft pressure;
   // preserve legacy behavior when the newer evidence counters are unavailable.
-  heal:Object.hasOwn(threats,'confirmedHeal')&&Object.hasOwn(threats,'conditionalHeal')?
-   Math.min(5,count(threats.confirmedHeal)+0.35*count(threats.conditionalHeal)):
-   Math.max(count(threats.heal),count(threats.sustain)>=2?1:0),
+  heal:Number.isFinite(threats.healPressure)?count(threats.healPressure):
+   Object.hasOwn(threats,'confirmedHeal')&&Object.hasOwn(threats,'conditionalHeal')?
+    Math.min(5,count(threats.confirmedHeal)+0.35*count(threats.conditionalHeal)):
+    Math.max(count(threats.heal),count(threats.sustain)>=2?1:0),
   shield:count(threats.shieldPressure??threats.shield),cc:count(threats.cc),burst:count(threats.burst),
   assassin:count(threats.assassin),crit:count(threats.crit),
   frontlineNeed:count(threats.frontlineNeed),frontlineProvided:count(threats.frontlineProvided),
