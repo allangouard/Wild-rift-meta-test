@@ -16,6 +16,9 @@ const synergyEngine=(typeof require==='function'
 const defenseBalance=(typeof require==='function'
  ? require('./wrdi-galio-defense-balance-v153.js')
  : (typeof globalThis!=='undefined'?globalThis.WRDI_GalioDefenseBalanceV153:null));
+const interactionEngine=(typeof require==='function'
+ ? require('./wrdi-item-interactions-v165.js')
+ : (typeof globalThis!=='undefined'?globalThis.WRDI_ItemInteractionsV165:null));
 const purchaseOrder=(typeof require==='function'
  ? require('./wrdi-galio-purchase-order-v1432.js')
  : null);
@@ -224,8 +227,18 @@ function calculate(items,threats,combatModel=null){
    if(items.length===5)reasons.push('Dégâts AP directs A/Z/E évalués avec les ratios WR sourcés (sans résistances ni passifs)');
   }
  }
- const stats={hp:total('hp'),ap:total('ap'),armor,mr,ah:total('ah')};
- return {score:Math.round(score*100)/100,reasons,stats,needs:t,synergy,balance,laneOpening};
+ const interaction=interactionEngine?.compare?.(items,{...threats,...t});
+ if(interaction?.ok){
+  // Timed passive opportunity with unobserved contact, not a win-rate forecast.
+  score+=interaction.score*1.65;
+  if(items.length===5)reasons.push(...interaction.combinations.slice(0,3));
+ }
+ const effective=interaction?.short?.stats;
+ const stats={hp:total('hp'),ap:total('ap'),armor,mr,ah:total('ah'),
+  apAfterInteractions:effective?.apAfterInteractions??total('ap'),
+  riftBonusAp:effective?.riftBonusAp||0};
+ return {score:Math.round(score*100)/100,reasons,stats,needs:t,synergy,balance,laneOpening,
+  interaction:interaction?.ok?interaction:null};
 }
 function optimize({prepared,threats={},slots=5,beamWidth=100,combatModel=null}={}){
  if(!prepared?.ok||!prepared.core?.validateEquipment)return {ok:false,reason:'Catalogue client indisponible'};
@@ -257,12 +270,12 @@ function optimize({prepared,threats={},slots=5,beamWidth=100,combatModel=null}={
   id:item.id,name:item.name_fr,priceGold:num(item.price_gold)||null,
   slot:i+1,reason:reasonFor(item,threats)})),
   suitability:x.score,reasons:x.measure.reasons,stats:x.measure.stats,
-  legal:true,source:'player_client_items_only'});
+  interaction:x.measure.interaction,legal:true,source:'player_client_items_only'});
  return {ok:true,game:'Wild Rift mobile',version:VERSION,
   main:result(winner),alternatives:others.map(result),
   evaluatedPool:pool.length,slots:5,bootsSeparate:true,
   noPopularityData:true,noDamageForecast:true,winRate:null,activeItemsInFive:true,
-  theoreticalOnly:true,method:'legal_five_item_beam_search'};
+  theoreticalOnly:true,method:'legal_five_item_beam_search_with_conditional_passive_scenarios'};
 }
 function reasonFor(item,threats){
  const f=item.feature||features(item),t=weights(threats),r=[];
