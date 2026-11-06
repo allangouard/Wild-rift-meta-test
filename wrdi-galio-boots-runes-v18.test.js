@@ -18,10 +18,12 @@ test('Mercury and Steelcaps win against their respective concentrated threats',(
  const physical=advisor.select({bootsCatalog,role:'hybrid_offensive',threats:{ad:5,lanePhysical:1,critPotential:2}});
  assert.equal(physical.recommended.name,'Coques en acier');
 });
-test('Three rune pages max, all legal, with client Comet AP and Chinese Ice hybrid',()=>{
+test('Three rune pages max, all legal, with buffed Electrocute AP and Chinese Ice hybrid',()=>{
  const base={bridge,catalog:runes,advisor:templates};
  const ap=engine.chooseRune({...base,role:'ap_burst',needs:{laneAllIn:0,earlyDive:0}});
- assert.equal(ap.ok,true);assert.equal(ap.page.keystone,'Comète arcanique');
+ assert.equal(ap.ok,true);assert.equal(ap.page.keystone,'Électrocution');
+ assert.equal(ap.alternatives[0].page.keystone,'Comète arcanique');
+ assert.equal(ap.keystonePatchEvidence,'riot_wild_rift_7_3b_electrocute_40_to_60_minimum_base_damage');
  assert.equal(ap.alternatives.length,2);
  for(const x of [ap,...ap.alternatives])assert.equal(bridge.validate(x.page,runes).valid,true);
  const hybrid=engine.chooseRune({...base,role:'hybrid_offensive',needs:{}});
@@ -38,4 +40,16 @@ test('Rune page changes minor slot only when mid matchup warrants it',()=>{
  const engage=engine.chooseRune({...base,role:'hybrid_offensive',needs:{lanePoke:0,laneAllIn:1,frontlineNeed:1}});
  assert.equal(engage.page.primary[1],"Plaque d'os");
  assert.equal(bridge.validate(engage.page,runes).valid,true);
+});
+
+test('Specialized sustained poke can select Comet without replacing Electrocute burst priority',()=>{
+ const base={bridge,catalog:runes,advisor:templates,role:'ap_burst'};
+ const burst=engine.chooseRune({...base,needs:{lanePoke:1,laneAllIn:0}});
+ assert.equal(burst.page.keystone,'Électrocution');
+ const poke=engine.chooseRune({...base,needs:{lanePoke:2,laneAllIn:0}});
+ assert.equal(poke.page.keystone,'Comète arcanique');
+ assert.equal(poke.alternatives[0].page.keystone,'Électrocution');
+ assert.equal(bridge.validate(poke.page,runes).valid,true);
+ const clientElectrocute=runes.fundamental.find(x=>x.name_fr==='Électrocution');
+ assert.deepEqual(clientElectrocute.effect.damage_base_range,{min:60,max:210});
 });
