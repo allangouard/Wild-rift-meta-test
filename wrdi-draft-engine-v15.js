@@ -35,7 +35,7 @@ function chooseRune({bridge,catalog,advisor,needs}){
   if(validation.valid)accepted.push({page,label:template.label,reason:template.pros?.[0]||'Interaction conditionnelle',id,legal:true});
  }
  if(!accepted.length)return {ok:false,reason:'Aucune page de runes du catalogue client entièrement valide'};
- return {ok:true,page:accepted[0].page,reason:accepted[0].reason,
+ return {ok:true,id:accepted[0].id,label:accepted[0].label,page:accepted[0].page,reason:accepted[0].reason,
   alternatives:accepted.slice(1),selection:'heuristique_tactique_non_certifiee'};
 }
 function analyze({picks,champions,championMeta,catalog,rules,runes,modules}={}){
