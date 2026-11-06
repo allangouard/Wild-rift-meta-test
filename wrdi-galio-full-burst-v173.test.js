@@ -34,6 +34,9 @@ test('full burst draft selects Luden Rabadon and Orb together, not Despair',()=>
   assert.ok(ids.includes(id),'Missing burst core '+id+' in '+ids.join(','));
  assert.ok(!ids.includes('unending_despair'),'Four-second tank sustain is not first-choice burst');
  assert.equal(seq.items[0].id,'ludens_echo','Luden priority in short-engagement AP build');
+ assert.deepEqual(seq.items.slice(0,3).map(x=>x.id),
+  ['ludens_echo','rabadons_deathcap','infinity_orb'],
+  'Burst opening should combine spell proc, AP multiplier and execute before sustained effects');
  assert.ok(seq.items.findIndex(x=>x.id==='rabadons_deathcap')<=3);
  assert.ok(r.main.burst.active);
 });
