@@ -11,6 +11,12 @@ Date de départ : 6 novembre 2026. La version du client de référence pour les 
 
 **Interdit pour les données de gameplay :** Data Dragon League of Legends PC, compétences/ratios PC, builds populaires, chiffres non datés présentés comme garantis.
 
+## Mise à jour V16 — 6 novembre 2026
+
+La collecte a été relancée depuis les pages officielles Riot Wild Rift : **125 champions et 625 descriptions complètes** sont désormais conservés sous `skills[passive|q|w|e|r].description_fr` dans `data/champion-ability-extract-official-v1.json`. Les 24 premiers mots restent dans `excerpt_fr` pour compatibilité d’affichage. `wrdi-official-kit-intelligence-v158.js` lit d’abord la description complète ; pour un catalogue de 125 fiches, l’absence d’une seule description complète bloque l’analyse afin d’éviter une fausse couverture.
+
+La présence du texte complet ne prouve pas que Riot fournit toutes les valeurs de niveaux, ratios, portées, durées, cooldowns et conditions du client. Ces détails restent **non vérifiés**, et ne sont jamais déduits de League of Legends PC. Le client Wild Rift fourni par l’utilisateur reste nécessaire pour les chiffres manquants. Les lignes historiques ci-dessous retracent l’état antérieur de la collecte.
+
 ## État de la base
 
 1. `data/champions-picker-v151.json` — 125 identités et voies historiques provenant d'un index de 2025. Ce n'est pas une garantie de catalogue Wild Rift complet en 2026.
