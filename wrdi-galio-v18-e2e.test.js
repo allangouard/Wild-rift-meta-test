@@ -27,7 +27,8 @@ const modules={
  mechanicsCalculator:require('./wrdi-mechanics-calculator-v159.js'),
  rolePlanner:require('./wrdi-galio-role-planner-v18.js'),
  readiness:require('./wrdi-galio-data-readiness-v18.js'),
- bootAdvisor:require('./wrdi-galio-boots-v18.js')
+ bootAdvisor:require('./wrdi-galio-boots-v18.js'),
+ lateSlots:require('./wrdi-galio-late-slots-v184.js')
 };
 function draft(names){
  const byName=new Map(champs.map(c=>[c.name.toLowerCase(),c]));
@@ -50,6 +51,9 @@ test('V18 end-to-end: three allied frontliners -> Galio AP burst, legal five ite
  assert.ok(r.boots.candidates.length<=3);
  assert.ok(r.runes.alternatives.length<=2);
  assert.equal(r.dataReadiness.fullyDescribed,10);
+ assert.equal(r.build.lateSlots.ok,true);
+ assert.ok(r.build.lateSlots.evaluatedPairs>10);
+ assert.deepEqual(r.build.items.slice(0,3).map(x=>x.id),r.build.lateSlots.coreIds);
  assert.ok(r.build.strategy.candidateIds.includes('oceanids_trident'));
  assert.ok(!r.build.items.some(x=>x.id==='unending_despair'),'Burst must not waste a slot on prolonged sustain');
 });

@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - v18-4-galio-late-slot-optimizer
       - v18-3-galio-electrocute-burst
       - v18-2-galio-open-ap-pool
       - v18-galio-role-first-shortlist
@@ -49,6 +50,8 @@ jobs:
           node --check wrdi-galio-boots-v18.js
           node --test wrdi-galio-boots-runes-v18.test.js
           node --test wrdi-galio-v18-e2e.test.js
+          node --check wrdi-galio-late-slots-v184.js
+          node --test wrdi-galio-late-slots-v184.test.js
       - name: Verifier les trois divergences avec les captures client
         run: node --test wrdi-client-verifications-v163.test.js
       - name: Verifier le E de Shyvana avec les captures du client
