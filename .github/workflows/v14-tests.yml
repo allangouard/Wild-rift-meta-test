@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - v18-galio-role-first-shortlist
+      - v18-1-galio-item-impact
       - v14-development
       - v160-full-official-ability-text
       - v162-wiki-wr-numeric-catalog

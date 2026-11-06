@@ -81,7 +81,21 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
   if(enrichment.intel?.ok)evidence[name]=enrichment.intel;
   return enrichment.traits;
  };
- const context=team.make({allies:names.slice(0,5),enemies:names.slice(5),lookup});
+ // Use the complete sourced Wild Rift descriptions to distinguish shields
+ // placed on allies from personal shields. A personal shield on Annie or
+ // Ambessa does not justify buying Trident for a burst Galio by itself.
+ const rawSheets=new Map((officialKits?.entries||[]).map(x=>[String(x.id),x]));
+ const shieldInfo=name=>{
+  const meta=metadataByName.get(String(name).toLocaleLowerCase('fr'));
+  const sheet=rawSheets.get(String(meta?.id||''));
+  if(!sheet)return null;
+  const descriptions=Object.values(sheet.skills||{}).map(x=>String(x?.description_fr||'').toLowerCase());
+  const shieldSkills=descriptions.filter(x=>/bouclier|protéger un allié|protéger une alliée|protège un allié|protège une alliée/.test(x));
+  const protectsAllies=shieldSkills.some(x=>/allié|alliés|alliée|alliées|coéquipier|coéquipiers/.test(x));
+  return {hasShield:shieldSkills.length>0,protectsAllies};
+ };
+ const context=team.make({allies:names.slice(0,5),enemies:names.slice(5),lookup,
+  shieldInfo:officialKits?shieldInfo:null});
  if(!context.ok)return fail('threats',context.reason);
  const prepared=guard.prepare({catalog,rules,core,livePatch:catalog?.patch_claimed_by_client_user});
  if(!prepared.ok)return fail('client_catalogue',prepared.reason);
