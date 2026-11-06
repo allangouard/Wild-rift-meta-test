@@ -64,7 +64,12 @@ function prepare(catalog,patch,client){
     screenshotReferences:check.screenshots||[]};
    // Source formulas remain accessible, but cannot be used when the client
    // verifies a different ratio or a nonlinear effect.
-   field.conflictedWithClient=client.targetPatch;
+   if(check.formulaDisposition==='client_confirms_patch'&&
+      normalize(field.formula)===normalize(check.expectedPatchedFormula)){
+    field.clientVerified=client.targetPatch;
+   }else{
+    field.conflictedWithClient=client.targetPatch;
+   }
    field.clientEvidenceStatus=check.formulaDisposition||'manual_verification_required';
    const previous=outcomes.find(x=>x.champion===check.champion&&x.slot===check.slot&&
     normalize(x.label)===normalize(check.field)&&x.status==='source_conflict');
@@ -94,12 +99,19 @@ function linearFormula(value){
  // Only fully defined single-hit linear base + AP/AD expressions are calculated.
  // Percent HP, scaling-by-level, conditional repeats, multipliers and durations excluded.
  const raw=normalize(value);
- const m=raw.match(/^(\d+(?:\.\d+)?(?:\s*\/\s*\d+(?:\.\d+)?)*)\s*(?:\(\+\s*(\d+(?:\.\d+)?)% AP\))?\s*(?:\(\+\s*(\d+(?:\.\d+)?)% (bonus )?AD\))?$/i);
+ const m=raw.match(/^(\d+(?:\.\d+)?(?:\s*\/\s*\d+(?:\.\d+)?)*)((?:\s*\(\+\s*\d+(?:\.\d+)?% (?:AP|(?:bonus )?AD)\))*)$/i);
  if(!m)return null;
  const bases=m[1].split('/').map(x=>Number(x.trim()));
  if(!bases.length||bases.some(n=>!finite(n)))return null;
- return {bases,apRatio:m[2]?Number(m[2])/100:0,adRatio:m[3]?Number(m[3])/100:0,
-  adType:m[4]?'bonus':'total',sourceFormula:raw};
+ const terms=[...m[2].matchAll(/\(\+\s*(\d+(?:\.\d+)?)% (AP|(?:bonus )?AD)\)/gi)];
+ if(terms.length>2)return null;
+ let apRatio=0,adRatio=0,adType='total';
+ for(const term of terms){
+  const type=term[2].toLowerCase(),ratio=Number(term[1])/100;
+  if(type==='ap'){if(apRatio)return null;apRatio=ratio;}
+  else{if(adRatio)return null;adRatio=ratio;adType=type.includes('bonus')?'bonus':'total';}
+ }
+ return {bases,apRatio,adRatio,adType,sourceFormula:raw};
 }
 function damageForSkill(skill,{ap=0,ad=0,bonusAd=0}={}){
  if(!skill||![ap,ad,bonusAd].every(x=>finite(x)&&x>=0))return [];
