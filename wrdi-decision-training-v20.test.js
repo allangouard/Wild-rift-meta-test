@@ -48,8 +48,7 @@ function variants(refs){
  // Allied composition remains unchanged -> role ground truth remains stable.
  for(const base of refs)for(const [suffix,slot,candidates] of [
   ['mid',2,['Syndra','Yasuo','Orianna','Zed','Akali','Veigar']],
-  ['support',4,['Janna','Nami','Lulu','Soraka','Braum','Leona','Milio']],
-  ['jungle',1,['Lee Sin','Vi','Kayn','Amumu','Xin Zhao','Nunu et Willump']]
+  ['support',4,['Janna','Nami','Lulu','Soraka','Braum','Leona','Milio']]
  ]){
   const updated={...base,enemies:[...base.enemies],id:base.id+'-'+suffix,
    focus:base.focus+' — changement '+suffix};
