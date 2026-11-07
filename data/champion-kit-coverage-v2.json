@@ -245,7 +245,11 @@
       "activeAbilityExcerptsPresent": true,
       "clientScreenshotSkillsPresent": true,
       "eligibleForScoring": false,
-      "fiveSlotDescriptionsSummarized": true
+      "fiveSlotDescriptionsSummarized": true,
+      "screenshotRankTablesAvailable": true,
+      "screenshotTableStatus": "visually_transcribed_numeric_not_patch_certified",
+      "screenshotRankTableFile": "data/wild-rift-client-rank-tables-v195.json",
+      "verifiedForDamageSimulation": false
     },
     {
       "id": "10060",
@@ -615,7 +619,11 @@
       "activeAbilityExcerptsPresent": true,
       "clientScreenshotSkillsPresent": true,
       "eligibleForScoring": false,
-      "fiveSlotDescriptionsSummarized": true
+      "fiveSlotDescriptionsSummarized": true,
+      "screenshotRankTablesAvailable": true,
+      "screenshotTableStatus": "visually_transcribed_numeric_not_patch_certified",
+      "screenshotRankTableFile": "data/wild-rift-client-rank-tables-v195.json",
+      "verifiedForDamageSimulation": false
     },
     {
       "id": "10026",
@@ -760,7 +768,11 @@
       "activeAbilityExcerptsPresent": true,
       "clientScreenshotSkillsPresent": true,
       "eligibleForScoring": false,
-      "fiveSlotDescriptionsSummarized": true
+      "fiveSlotDescriptionsSummarized": true,
+      "screenshotRankTablesAvailable": true,
+      "screenshotTableStatus": "visually_transcribed_numeric_not_patch_certified",
+      "screenshotRankTableFile": "data/wild-rift-client-rank-tables-v195.json",
+      "verifiedForDamageSimulation": false
     },
     {
       "id": "10059",
@@ -905,7 +917,11 @@
       "activeAbilityExcerptsPresent": true,
       "clientScreenshotSkillsPresent": true,
       "eligibleForScoring": false,
-      "fiveSlotDescriptionsSummarized": true
+      "fiveSlotDescriptionsSummarized": true,
+      "screenshotRankTablesAvailable": true,
+      "screenshotTableStatus": "visually_transcribed_numeric_not_patch_certified",
+      "screenshotRankTableFile": "data/wild-rift-client-rank-tables-v195.json",
+      "verifiedForDamageSimulation": false
     },
     {
       "id": "10108",
@@ -1011,7 +1027,11 @@
       "activeAbilityExcerptsPresent": true,
       "clientScreenshotSkillsPresent": true,
       "eligibleForScoring": false,
-      "fiveSlotDescriptionsSummarized": true
+      "fiveSlotDescriptionsSummarized": true,
+      "screenshotRankTablesAvailable": true,
+      "screenshotTableStatus": "visually_transcribed_numeric_not_patch_certified",
+      "screenshotRankTableFile": "data/wild-rift-client-rank-tables-v195.json",
+      "verifiedForDamageSimulation": false
     },
     {
       "id": "10027",
@@ -1039,7 +1059,11 @@
       "activeAbilityExcerptsPresent": true,
       "clientScreenshotSkillsPresent": true,
       "eligibleForScoring": false,
-      "fiveSlotDescriptionsSummarized": true
+      "fiveSlotDescriptionsSummarized": true,
+      "screenshotRankTablesAvailable": true,
+      "screenshotTableStatus": "visually_transcribed_numeric_not_patch_certified",
+      "screenshotRankTableFile": "data/wild-rift-client-rank-tables-v195.json",
+      "verifiedForDamageSimulation": false
     },
     {
       "id": "11107",
@@ -1054,7 +1078,11 @@
       "activeAbilityExcerptsPresent": true,
       "clientScreenshotSkillsPresent": true,
       "eligibleForScoring": false,
-      "fiveSlotDescriptionsSummarized": true
+      "fiveSlotDescriptionsSummarized": true,
+      "screenshotRankTablesAvailable": true,
+      "screenshotTableStatus": "visually_transcribed_numeric_not_patch_certified",
+      "screenshotRankTableFile": "data/wild-rift-client-rank-tables-v195.json",
+      "verifiedForDamageSimulation": false
     },
     {
       "id": "10008",
@@ -1186,7 +1214,11 @@
       "activeAbilityExcerptsPresent": true,
       "clientScreenshotSkillsPresent": true,
       "eligibleForScoring": false,
-      "fiveSlotDescriptionsSummarized": true
+      "fiveSlotDescriptionsSummarized": true,
+      "screenshotRankTablesAvailable": true,
+      "screenshotTableStatus": "visually_transcribed_numeric_not_patch_certified",
+      "screenshotRankTableFile": "data/wild-rift-client-rank-tables-v195.json",
+      "verifiedForDamageSimulation": false
     },
     {
       "id": "10121",
@@ -1383,7 +1415,11 @@
       "activeAbilityExcerptsPresent": true,
       "clientScreenshotSkillsPresent": true,
       "eligibleForScoring": false,
-      "fiveSlotDescriptionsSummarized": true
+      "fiveSlotDescriptionsSummarized": true,
+      "screenshotRankTablesAvailable": true,
+      "screenshotTableStatus": "visually_transcribed_numeric_not_patch_certified",
+      "screenshotRankTableFile": "data/wild-rift-client-rank-tables-v195.json",
+      "verifiedForDamageSimulation": false
     },
     {
       "id": "11110",
@@ -1398,7 +1434,11 @@
       "activeAbilityExcerptsPresent": true,
       "clientScreenshotSkillsPresent": true,
       "eligibleForScoring": false,
-      "fiveSlotDescriptionsSummarized": true
+      "fiveSlotDescriptionsSummarized": true,
+      "screenshotRankTablesAvailable": true,
+      "screenshotTableStatus": "visually_transcribed_numeric_not_patch_certified",
+      "screenshotRankTableFile": "data/wild-rift-client-rank-tables-v195.json",
+      "verifiedForDamageSimulation": false
     },
     {
       "id": "10047",
@@ -1465,7 +1505,11 @@
       "activeAbilityExcerptsPresent": true,
       "clientScreenshotSkillsPresent": true,
       "eligibleForScoring": false,
-      "fiveSlotDescriptionsSummarized": true
+      "fiveSlotDescriptionsSummarized": true,
+      "screenshotRankTablesAvailable": true,
+      "screenshotTableStatus": "visually_transcribed_numeric_not_patch_certified",
+      "screenshotRankTableFile": "data/wild-rift-client-rank-tables-v195.json",
+      "verifiedForDamageSimulation": false
     },
     {
       "id": "10128",
@@ -1623,7 +1667,11 @@
       "activeAbilityExcerptsPresent": true,
       "clientScreenshotSkillsPresent": true,
       "eligibleForScoring": false,
-      "fiveSlotDescriptionsSummarized": true
+      "fiveSlotDescriptionsSummarized": true,
+      "screenshotRankTablesAvailable": true,
+      "screenshotTableStatus": "visually_transcribed_numeric_not_patch_certified",
+      "screenshotRankTableFile": "data/wild-rift-client-rank-tables-v195.json",
+      "verifiedForDamageSimulation": false
     },
     {
       "id": "10141",
@@ -1794,7 +1842,11 @@
       "activeAbilityExcerptsPresent": true,
       "clientScreenshotSkillsPresent": true,
       "eligibleForScoring": false,
-      "fiveSlotDescriptionsSummarized": true
+      "fiveSlotDescriptionsSummarized": true,
+      "screenshotRankTablesAvailable": true,
+      "screenshotTableStatus": "visually_transcribed_numeric_not_patch_certified",
+      "screenshotRankTableFile": "data/wild-rift-client-rank-tables-v195.json",
+      "verifiedForDamageSimulation": false
     },
     {
       "id": "10020",
@@ -1861,7 +1913,11 @@
       "activeAbilityExcerptsPresent": true,
       "clientScreenshotSkillsPresent": true,
       "eligibleForScoring": false,
-      "fiveSlotDescriptionsSummarized": true
+      "fiveSlotDescriptionsSummarized": true,
+      "screenshotRankTablesAvailable": true,
+      "screenshotTableStatus": "visually_transcribed_numeric_not_patch_certified",
+      "screenshotRankTableFile": "data/wild-rift-client-rank-tables-v195.json",
+      "verifiedForDamageSimulation": false
     },
     {
       "id": "10014",
@@ -1892,5 +1948,10 @@
   ],
   "clientScreenshotDescriptions": 17,
   "clientScreenshotSummarizedProfiles": 14,
-  "clientScreenshotPartialProfiles": 1
+  "clientScreenshotPartialProfiles": 1,
+  "screenshotRankTableRowsCaptured": 149,
+  "screenshotRankCellsCaptured": 561,
+  "screenshotTooltipSlotsCaptured": 70,
+  "screenshotRankTableChampions": 14,
+  "screenshotRankValuesSourcePatchVerified": false
 }
