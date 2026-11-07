@@ -27,7 +27,10 @@ function evaluate(item,role,t={}){
  const needHeal=Number.isFinite(t.healPressure)?n(t.healPressure):
   n(t.confirmedHeal)+0.35*n(t.conditionalHeal)+0.2*n(t.heal);
  const needShield=n(t.shieldPressure??t.shield),needCrit=n(t.crit),needCritPotential=n(t.critPotential);
- const pressurePhysical=n(t.ad)+n(t.lanePhysical)*1.5,pressureMagic=n(t.ap)+n(t.laneMagic)*1.5;
+ // Documented spell damage channels supplement broad AD/AP champion archetypes.
+ // Each distinct client-screened champion counts once, not each spell hit.
+ const pressurePhysical=n(t.ad)+n(t.lanePhysical)*1.5+Math.max(0,n(t.enemyPhysicalDamageSources)-1)*0.3;
+ const pressureMagic=n(t.ap)+n(t.laneMagic)*1.5+Math.max(0,n(t.enemyMagicDamageSources)-1)*0.3;
  let score=0;const why=[];
  const add=(points,reason)=>{score+=points;if(points>0)why.push(reason);};
  if(role==='ap_burst'){
