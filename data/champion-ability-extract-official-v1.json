@@ -3,11 +3,11 @@
   "date": "2026-11-06",
   "source": "https://wildrift.leagueoflegends.com/fr-fr/champions/",
   "coverage": {
-    "attempted": 126,
-    "extracted": 126,
+    "attempted": 127,
+    "extracted": 127,
     "failed": 0
   },
-  "restrictions": "Full official skill descriptions kept; numeric ratios and patch validity not automatically confirmed; Hwei descriptions from Wild Rift player screenshots, not the Riot website extraction",
+  "restrictions": "Full official skill descriptions kept; numeric ratios and patch validity not automatically confirmed; Hwei descriptions from Wild Rift player screenshots, not the Riot website extraction; Aurora descriptions from client screenshots 2026-11-07, not Riot website extraction",
   "entries": [
     {
       "id": "10002",
@@ -629,6 +629,89 @@
       "currentPatchVerified": false,
       "numericRatiosVerified": false,
       "allowedForScoring": false
+    },
+    {
+      "id": "10893",
+      "name": "Aurora",
+      "source_url": "https://wildrift.leagueoflegends.com/fr-fr/champions/aurora/",
+      "source_type": "player_client_tooltips_not_official_website_extraction",
+      "source_detail": "user_uploaded_wild_rift_client_screenshots_2026_11_07",
+      "clientObservedPatch": "not_visible_in_screenshots",
+      "skills": {
+        "passive": {
+          "name": "ABJURATION SPIRITUELLE",
+          "description_fr": "Si Aurora blesse un ennemi trois fois avec des compétences ou des attaques, elle l'exorcise et lui inflige des dégâts magiques égaux à (2,5 % + 2 % de sa puissance) des PV max de la cible. Contre un champion, elle libère un esprit qui la suit 4 sec et lui rend des PV chaque seconde (de 1 à 18 selon le niveau + 2 % de sa puissance). Jusqu'à quatre esprits peuvent la suivre.",
+          "excerpt_fr": "Si Aurora blesse un ennemi trois fois avec des compétences ou des attaques, elle l'exorcise et lui inflige des dégâts magiques égaux à (2,5",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "magic_damage",
+            "max_hp_damage",
+            "self_healing",
+            "repeated_hits"
+          ]
+        },
+        "q": {
+          "name": "MALÉFICE",
+          "description_fr": "Aurora lance un trait qui inflige 40/70/100/130 (+33 % de la puissance) dégâts magiques aux ennemis, et les maudit pendant 3,5 sec. Elle réactive le sort pour blesser les ennemis traversés de 40/70/100/130 (+33 % de la puissance) dégâts magiques avec jusqu'à 50 % de dégâts supplémentaires selon leurs PV manquants. Les projectiles supplémentaires ne font que 20 % des dégâts au-delà du premier. Contre les sbires et monstres, les dégâts sont réduits à 40 %. Le sort se relance automatiquement à la fin de sa durée.",
+          "excerpt_fr": "Aurora lance un trait qui inflige 40/70/100/130 (+33 % de la puissance) dégâts magiques aux ennemis, et les maudit pendant 3,5 sec. Elle réactive",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "magic_damage",
+            "aoe",
+            "recast",
+            "execute",
+            "missing_hp_scaling"
+          ]
+        },
+        "w": {
+          "name": "DERRIÈRE LE VOILE",
+          "description_fr": "Aurora bondit et devient invisible temporairement à l'atterrissage (1/1,2/1,4/1,6 sec selon le rang), recevant Passe-royaume : 25/30/35/40 % de vitesse de déplacement, pendant 4 sec. Participer à l'élimination d'un champion ennemi réinitialise le délai de récupération de cette compétence.",
+          "excerpt_fr": "Aurora bondit et devient invisible temporairement à l'atterrissage (1/1,2/1,4/1,6 sec selon le rang), recevant Passe-royaume : 25/30/35/40 % de vitesse de déplacement, pendant 4",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "mobility",
+            "invisibility",
+            "movement_speed",
+            "takedown_reset"
+          ]
+        },
+        "e": {
+          "name": "SORTILÈGE",
+          "description_fr": "Aurora fait converger les royaumes et inflige aux ennemis dans une zone 80/130/180/230 (+65 % de la puissance) dégâts magiques et un ralentissement initial de 80 %, décroissant sur 1 sec. Elle bondit légèrement en arrière après la compétence.",
+          "excerpt_fr": "Aurora fait converger les royaumes et inflige aux ennemis dans une zone 80/130/180/230 (+65 % de la puissance) dégâts magiques et un ralentissement initial",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "magic_damage",
+            "aoe",
+            "slow",
+            "mobility"
+          ]
+        },
+        "r": {
+          "name": "ENTRE LES MONDES",
+          "description_fr": "Aurora bondit dans une direction, infligeant à l'atterrissage 150/250/350 (+50 % de la puissance) dégâts magiques de zone, et ralentit les ennemis touchés de 30 % pendant 2 sec. La zone de convergence dure 2,5/3,25/4 sec et permet à Aurora de se téléporter d'un bord à l'autre. Les ennemis qui essaient d'entrer ou sortir de la zone sont ralentis de 50 % pendant 1,5/1,75/2 sec. Une réactivation met fin à la zone.",
+          "excerpt_fr": "Aurora bondit dans une direction, infligeant à l'atterrissage 150/250/350 (+50 % de la puissance) dégâts magiques de zone, et ralentit les ennemis touchés de",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "magic_damage",
+            "aoe",
+            "slow",
+            "mobility",
+            "realm_teleport"
+          ]
+        }
+      },
+      "confidence": "player_client_screenshots_full_five_ability_descriptions",
+      "currentPatchVerified": false,
+      "numericRatiosVerified": false,
+      "numericRatiosPartiallyVerified": true,
+      "allowedForScoring": false,
+      "numericUse": "client_screenshots_structured_but_not_yet_approved_for_direct_combat_calculation"
     },
     {
       "id": "10033",

@@ -2,7 +2,7 @@
   "schema": "wrdi-champion-picker-v151",
   "source": "ry2x/WildRift-Champs gh-pages hero.json (archived 2025)",
   "sourceDate": "2025-05",
-  "note": "Static Wild Rift champion identities, lane and class flags. Supplemental new champion data must be verified before adding. Portrait CDN separate from build calculations. | Hwei added from client screenshots 2026-11-07; 10910 is WRDI local identifier, not claimed to be the official Wild Rift internal ID.",
+  "note": "Static Wild Rift champion identities, lane and class flags. Supplemental new champion data must be verified before adding. Portrait CDN separate from build calculations. | Hwei added from client screenshots 2026-11-07; 10910 is WRDI local identifier, not claimed to be the official Wild Rift internal ID. | Aurora added from user Wild Rift client screenshot set 2026-11-07; 10893 is a WRDI-local picker identifier.",
   "champions": [
     {
       "id": "10002",
@@ -146,6 +146,22 @@
         "Mage"
       ],
       "portrait": "https://cdn.communitydragon.org/latest/champion/136/square"
+    },
+    {
+      "id": "10893",
+      "name": "Aurora",
+      "riotId": "Aurora",
+      "riotKey": 893,
+      "lanes": [
+        "Mid",
+        "Top"
+      ],
+      "classes": [
+        "Mage",
+        "Assassin"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/893/square",
+      "idOrigin": "wrdi_internal_id_using_riot_champion_key_not_verified_game_object_id"
     },
     {
       "id": "10033",

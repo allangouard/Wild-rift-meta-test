@@ -2,7 +2,7 @@
   "schema": "wrdi-official-wild-rift-abilities-v1",
   "description": "First verified batch: official ability names and passive mechanics for 20 champions. Not full champion sheets and not wired into build decision. Missing values are explicit null. No League PC data.",
   "verifiedOn": "2026-11-06",
-  "totalCatalogChampions": 126,
+  "totalCatalogChampions": 127,
   "profiles": [
     {
       "id": "10099",
@@ -932,6 +932,52 @@
         "passive_summary": "client_verified",
         "active_ability_descriptions": "client_screenshots",
         "numeric_values": "client_visible_partial_except_ee_damage_conflict_with_7_3b",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10893",
+      "champion": "Aurora",
+      "riotId": "Aurora",
+      "source": {
+        "type": "user_wild_rift_client_screenshots_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/aurora/",
+        "checkedOn": "2026-11-07"
+      },
+      "kit": {
+        "passive": {
+          "name": "Abjuration spirituelle",
+          "summary_fr": "Trois attaques ou sorts sur une cible déclenchent dégâts magiques de PV max et soin personnel conditionnel après exorcisme.",
+          "mechanics_from_passive": [
+            "magic_damage",
+            "target_max_hp_damage",
+            "conditional_self_healing",
+            "three_hit_condition"
+          ]
+        },
+        "q": {
+          "name": "Maléfice",
+          "description_fr": "Aurora lance un trait qui inflige 40/70/100/130 (+33 % de la puissance) dégâts magiques aux ennemis, et les maudit pendant 3,5 sec. Elle réactive le sort pour blesser les ennemis traversés de 40/70/100/130 (+33 % de la puissance) dégâts magiques avec jusqu'à 50 % de dégâts supplémentaires selon leurs PV manquants. Les projectiles supplémentaires ne font que 20 % des dégâts au-delà du premier. Contre les sbires et monstres, les dégâts sont réduits à 40 %. Le sort se relance automatiquement à la fin de sa durée."
+        },
+        "w": {
+          "name": "Derrière le voile",
+          "description_fr": "Aurora bondit et devient invisible temporairement à l'atterrissage (1/1,2/1,4/1,6 sec selon le rang), recevant Passe-royaume : 25/30/35/40 % de vitesse de déplacement, pendant 4 sec. Participer à l'élimination d'un champion ennemi réinitialise le délai de récupération de cette compétence."
+        },
+        "e": {
+          "name": "Sortilège",
+          "description_fr": "Aurora fait converger les royaumes et inflige aux ennemis dans une zone 80/130/180/230 (+65 % de la puissance) dégâts magiques et un ralentissement initial de 80 %, décroissant sur 1 sec. Elle bondit légèrement en arrière après la compétence."
+        },
+        "r": {
+          "name": "Entre les mondes",
+          "description_fr": "Aurora bondit dans une direction, infligeant à l'atterrissage 150/250/350 (+50 % de la puissance) dégâts magiques de zone, et ralentit les ennemis touchés de 30 % pendant 2 sec. La zone de convergence dure 2,5/3,25/4 sec et permet à Aurora de se téléporter d'un bord à l'autre. Les ennemis qui essaient d'entrer ou sortir de la zone sont ralentis de 50 % pendant 1,5/1,75/2 sec. Une réactivation met fin à la zone."
+        }
+      },
+      "coverage": {
+        "ability_names": "client_verified",
+        "passive_summary": "client_verified",
+        "active_ability_descriptions": "client_screenshots",
+        "numeric_values": "partially_client_verified_patch_not_visible",
         "wildRiftOnly": true
       },
       "allowedForEngine": false

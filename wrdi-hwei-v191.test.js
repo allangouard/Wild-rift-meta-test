@@ -59,9 +59,9 @@ test('Hwei has one unique local picker ID, a verified Riot key and Wild Rift scr
  assert.equal(hwei.id,'10910');
  assert.equal(hwei.riotKey,910);
  assert.ok(hwei.idOrigin.includes('internal'));
- assert.equal(champs.length,126);
- assert.equal(officialKits.entries.length,126);
- assert.equal(officialKits.coverage.extracted,126);
+ assert.equal(champs.length,127);
+ assert.equal(officialKits.entries.length,127);
+ assert.equal(officialKits.coverage.extracted,127);
  assert.equal(hweiSheet.source_type,'player_client_tooltips_not_official_website_extraction');
  assert.equal(hweiSheet.allowedForScoring,false);
  assert.deepEqual(Object.keys(hweiSheet.skills).sort(),['e','passive','q','r','w']);
@@ -83,7 +83,7 @@ test('Hwei shield is an actual ally shield while max-health damage and control r
  assert.equal(ev.healing.ally,false,'Hwei mana recovery must not be classified as ally healing');
  const n=modules.kitIntelligence.prepare(officialKits);
  assert.equal(n.ok,true,n.reason);
- assert.equal(n.count,126);
+ assert.equal(n.count,127);
  const x=n.find(hwei.id);assert.ok(x);
  const derived=modules.kitIntelligence.analyze(x);
  assert.equal(derived.ok,true);
@@ -123,8 +123,9 @@ test('Hwei support is also selectable in a legal ten-champion draft',()=>{
 test('Official current Wild Rift roster gap ledger remains honest after integrating Hwei',()=>{
  const gaps=require('./data/wild-rift-roster-gaps-v191.json');
  assert.equal(gaps.localPickerCountAfterHwei,126);
+ assert.equal(gaps.localPickerCountAfterAurora,127);
  assert.equal(gaps.officialDirectoryChampionCountAtCheck,142);
- assert.equal(gaps.missingCount,16);
+ assert.equal(gaps.missingCount,15);
  assert.ok(!gaps.missingChampions.some(x=>x.name==='Hwei'));
  assert.ok(gaps.missingChampions.every(x=>!champs.some(c=>c.name===x.name)));
  assert.ok(gaps.missingChampions.every(x=>x.pcLeagueDataAllowed===false));
