@@ -60,8 +60,8 @@ test('Exactly 14 client-screened champions have sourced rank tables and five too
  const r=clientModule.prepare(clientRankTables,clientTooltipFacts);
  assert.equal(r.ok,true,JSON.stringify(r).slice(0,500));
  assert.equal(r.count,14);
- assert.equal(r.rankRows,149);
- assert.equal(r.rankCells,561);
+ assert.equal(r.rankRows,150);
+ assert.equal(r.rankCells,564);
  assert.equal(r.tooltipSlots,70);
  assert.equal(r.observedCoefficients,70);
  assert.equal(r.patchConfirmed,false);
@@ -70,8 +70,8 @@ test('Exactly 14 client-screened champions have sourced rank tables and five too
  assert.equal(clientRankTables.sourceArchiveSha256,'57d87f830d7955c9155d1bc00e8a43d66a375be55d9c78cb9b859222c7c7a505');
  assert.equal(clientRankTables.sourceScreenshotJpegs,122);
  const data=require('./data/champion-kit-coverage-v2.json');
- assert.equal(data.screenshotRankTableRowsCaptured,149);
- assert.equal(data.screenshotRankCellsCaptured,561);
+ assert.equal(data.screenshotRankTableRowsCaptured,150);
+ assert.equal(data.screenshotRankCellsCaptured,564);
  assert.equal(data.numericStatsVerified,0,'Full patch certification is still separate from source transcription');
 });
 test('Critical four-rank values are preserved exactly from client screenshots',()=>{
@@ -87,6 +87,7 @@ test('Critical four-rank values are preserved exactly from client screenshots',(
  assert.deepEqual(vals('Skarner','q','cooldown_s'),[6.8,5.5,4.3,3]);
  assert.deepEqual(vals('Smolder','r','self_healing_base'),[100,135,170]);
  assert.deepEqual(vals('Taliyah','q','base_magic_damage_worked_ground'),[100,140,180,220]);
+ assert.deepEqual(vals('Taliyah','r','cooldown_s'),[100,90,80]);
  assert.deepEqual(vals("Vel'Koz",'r','total_base_magic_damage'),[450,625,800]);
  assert.deepEqual(vals('Yunara','e','movement_speed_toward_visible_champions_pct'),[45,52.5,60,67.5]);
  assert.deepEqual(vals('Zilean','r','revive_base_heal'),[600,850,1100]);
