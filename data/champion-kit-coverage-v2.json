@@ -1953,5 +1953,6 @@
   "screenshotRankCellsCaptured": 561,
   "screenshotTooltipSlotsCaptured": 70,
   "screenshotRankTableChampions": 14,
-  "screenshotRankValuesSourcePatchVerified": false
+  "screenshotRankValuesSourcePatchVerified": false,
+  "screenshotTooltipCoefficientsCaptured": 70
 }
