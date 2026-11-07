@@ -270,6 +270,9 @@ class OverlayService : Service() {
                         """.trimIndent(),
                         null
                     )
+                    // Mini presentation is an asset: no changes to existing analysis code.
+                    val miniJs = assets.open("wrdi-mini-ui.js").bufferedReader(Charsets.UTF_8).use { it.readText() }
+                    view?.evaluateJavascript(miniJs, null)
                 }
 
                 override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
