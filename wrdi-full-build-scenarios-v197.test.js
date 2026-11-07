@@ -47,7 +47,8 @@ test('offense/defense tradeoff is explicit and not mislabeled as win rate',()=>{
  const b=sim.evaluate(frontline,sim.PROFILES[2],spell);
  assert.ok(b.survival.hpRemainingWithoutHealing>a.survival.hpRemainingWithoutHealing);
  assert.equal(a.modelStatus,'illustrative_conditions_not_predicted_winrate');
- assert.equal(a.damage.excludes.includes('Galio ultimate'),true);
+ assert.equal(a.damage.excludes.includes('Galio passive'),true);
+ assert.equal(a.damage.galioUltimateAssumedHit,true);
 });
 test('Trident shield reduction is tracked separately from champion HP damage',()=>{
  const antiShield=items('ludens_echo','rabadons_deathcap','infinity_orb','void_staff','oceanids_trident');
@@ -85,7 +86,8 @@ test('Sunfire and Blackfire magic ticks need an active contact or spell',()=>{
 test('non-simulated client passives remain explicitly reported',()=>{
  const build=items('lich_bane','rabadons_deathcap','infinity_orb','void_staff','morellonomicon');
  const result=sim.evaluate(build,sim.PROFILES[0],spell);
- assert.ok(result.unmodeledItemPassives.includes('lich_bane'));
+ assert.equal(result.procs.some(x=>x.id==='lich_bane_missing_base_ad'),true);
+ assert.equal(result.procs.find(x=>x.id==='lich_bane').eligible,false);
 });
 
 test('enemy AD/AP composition changes incoming damage mix without inventing total damage',()=>{
@@ -96,4 +98,44 @@ test('enemy AD/AP composition changes incoming damage mix without inventing tota
  assert.ok(x.assumptions.incomingMagic<y.assumptions.incomingMagic);
  assert.equal(x.assumptions.incomingPhysical+x.assumptions.incomingMagic,
   y.assumptions.incomingPhysical+y.assumptions.incomingMagic);
+});
+
+test('boots add AP before Rabadon and magic penetration, or resistances for survival',()=>{
+ const boots=require('./data/stage-a-boots-details-batch1-2026-11-05.json').records;
+ const mana=boots.find(x=>x.name_fr==='Bottes de mana');
+ const steel=boots.find(x=>x.name_fr==='Coques en acier');
+ const baseline=sim.evaluate(burst,sim.PROFILES[0],spell);
+ const apBoots=sim.evaluate(burst,sim.PROFILES[0],spell,{boots:mana});
+ assert.equal(apBoots.stats.ap,baseline.stats.ap+25*1.3);
+ assert.equal(apBoots.damage.targetMrAfterPenetration,Math.max(0,45*.6-15-8));
+ const tankBase=sim.evaluate(frontline,sim.PROFILES[1],spell);
+ const tankBoots=sim.evaluate(frontline,sim.PROFILES[1],spell,{boots:steel});
+ assert.ok(tankBoots.survival.hpRemainingWithoutHealing>tankBase.survival.hpRemainingWithoutHealing);
+});
+test('Electrocution only fires on three timely hits; Comet is a separate conditional effect',()=>{
+ const runes=require('./data/rune-catalog-client-v14.json').fundamental;
+ const electrocute=runes.find(x=>x.name_fr==='Électrocution');
+ const comet=runes.find(x=>x.name_fr==='Comète arcanique');
+ const e=sim.evaluate(burst,sim.PROFILES[0],spell,{keystone:electrocute});
+ assert.equal(e.procs.find(x=>x.id==='rune_electrocute').eligible,true);
+ const noHits=sim.evaluate(burst,{...sim.PROFILES[0],spellHits:2},spell,{keystone:electrocute});
+ assert.equal(noHits.procs.find(x=>x.id==='rune_electrocute').eligible,false);
+ const c=sim.evaluate(burst,sim.PROFILES[0],spell,{keystone:comet});
+ assert.ok(c.procs.find(x=>x.id==='rune_comet').countedDamage>0);
+});
+test('Galio ultimate is conditional and added only when the WR source model exists',()=>{
+ const model={...spell,ultimateDamageAt:({ap,rank})=>({rawDamage:(rank===2?250:150)+.7*ap})};
+ const a=sim.evaluate(burst,sim.PROFILES[0],model);
+ const b=sim.evaluate(burst,sim.PROFILES[2],model);
+ assert.equal(a.procs.find(x=>x.id==='galio_ultimate').eligible,false);
+ assert.equal(b.procs.find(x=>x.id==='galio_ultimate').eligible,true);
+ assert.equal(b.damage.galioUltimateIfHit,250+.7*sim.stats(burst).ap);
+});
+test('A build comparison explicitly includes chosen boots and keystone',()=>{
+ const boots=require('./data/stage-a-boots-details-batch1-2026-11-05.json').records[1];
+ const rune=require('./data/rune-catalog-client-v14.json').fundamental.find(x=>x.name_fr==='Électrocution');
+ const c=sim.compare({primaryItems:burst,combatModel:spell,boots,keystone:rune});
+ assert.equal(c.bootsIncluded,true);
+ assert.equal(c.keystoneIncluded,true);
+ assert.equal(c.winner.scenarios.length,3);
 });
