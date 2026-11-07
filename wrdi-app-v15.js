@@ -5,7 +5,7 @@
 'use strict';
 const SLOT_NAMES=['Top allié','Jungle allié','Galio · Mid','ADC allié','Support allié',
  'Top adverse','Jungle adverse','Mid adverse','ADC adverse','Support adverse'];
-const CHAMPION_CATALOG='./data/champions-picker-v151.json';
+const CHAMPION_CATALOG='./data/champions-picker-v151.json?v=1910';
 const STORAGE='wrdi_v15_draft';
 const el=(name,cls,text)=>{const n=document.createElement(name);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
 const $=id=>document.getElementById(id);

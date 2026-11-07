@@ -2,7 +2,7 @@
   "schema": "wrdi-champion-picker-v151",
   "source": "ry2x/WildRift-Champs gh-pages hero.json (archived 2025)",
   "sourceDate": "2025-05",
-  "note": "Static Wild Rift champion identities, lane and class flags. Supplemental new champion data must be verified before adding. Portrait CDN separate from build calculations.",
+  "note": "Static Wild Rift champion identities, lane and class flags. Supplemental new champion data must be verified before adding. Portrait CDN separate from build calculations. | Hwei added from client screenshots 2026-11-07; 10910 is WRDI local identifier, not claimed to be the official Wild Rift internal ID.",
   "champions": [
     {
       "id": "10002",
@@ -493,6 +493,22 @@
         "Support"
       ],
       "portrait": "https://cdn.communitydragon.org/latest/champion/74/square"
+    },
+    {
+      "id": "10910",
+      "name": "Hwei",
+      "riotId": "Hwei",
+      "riotKey": 910,
+      "lanes": [
+        "Mid",
+        "Support"
+      ],
+      "classes": [
+        "Mage",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/910/square",
+      "idOrigin": "wrdi_internal_id_using_riot_champion_key_not_verified_game_object_id"
     },
     {
       "id": "10094",

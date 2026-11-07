@@ -1,7 +1,7 @@
 {
   "schema": "wrdi-champion-coverage-v1",
-  "asOf": "2026-11-06",
-  "totalLocalChampions": 125,
+  "asOf": "2026-11-07",
+  "totalLocalChampions": 126,
   "officialPartialProfiles": 20,
   "unresearched": 105,
   "entries": [
@@ -310,6 +310,19 @@
       "fullFiveSkillDescriptionsVerified": false,
       "allRatiosAndCooldownsVerified": false,
       "source": null
+    },
+    {
+      "id": "10910",
+      "name": "Hwei",
+      "riotId": "Hwei",
+      "officialKitStatus": "full_client_screenshot_ability_descriptions",
+      "fullFiveSkillDescriptionsVerified": true,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "user_wild_rift_client_screenshots_2026_11_07",
+      "sourceUrl": "https://wildrift.leagueoflegends.com/fr-fr/champions/hwei/",
+      "unresolvedPatchConflicts": [
+        "e.ee.damageBase"
+      ]
     },
     {
       "id": "10094",
@@ -1130,5 +1143,6 @@
       "allRatiosAndCooldownsVerified": false,
       "source": null
     }
-  ]
+  ],
+  "clientScreenshotCompleteProfiles": 1
 }

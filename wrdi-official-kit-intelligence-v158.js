@@ -1,5 +1,5 @@
 /* WRDI V15.8 — Wild Rift official five-ability text -> evidence-backed draft mechanics.
- * Reads ONLY manually sourced Riot Wild Rift FR descriptions (125 champions).
+ * Reads sourced Riot Wild Rift FR descriptions and separately marked player-client tooltips.
  * Strong matches are explicitly quoted in evidence. No invented ratios, champion
  * builds, PC LoL kits, durations or precise damage magnitudes.
  */
@@ -64,7 +64,7 @@ function analyze(record){
    totals[rule.flag]=(totals[rule.flag]||0)+1;
    evidence.push({flag:rule.flag,tag:rule.tag,spell:slot,spellName:skill.name,
     match:match?.[0]||'official_full_text_rule',
-    explanation:rule.why,source:record.source_url,
+    explanation:rule.why,source:record.source_type==='player_client_tooltips_not_official_website_extraction'?'user_wild_rift_client_screenshots':record.source_url,
     fromFullDescription:!match&&full,
     truncated:skill.descriptionTruncated===true&&!skill.description_fr});
   }
@@ -73,7 +73,11 @@ function analyze(record){
  // do not turn "crit" into an assumed crit-item build.
  const traits=[...new Set(evidence.filter(x=>x.tag).map(x=>x.tag))];
  return {ok:true,id:String(record.id),name:record.name,traits,flags,totals,evidence,
-  source:record.source_url,confidence:Object.values(record.skills||{}).every(s=>s.description_fr)?'explicit_full_official_text':'explicit_official_excerpt_only',
+  source:record.source_type==='player_client_tooltips_not_official_website_extraction'?
+   'user_wild_rift_client_screenshots':record.source_url,
+  confidence:record.source_type==='player_client_tooltips_not_official_website_extraction'?
+   'player_client_full_descriptions_patch_not_exhaustively_verified':
+   Object.values(record.skills||{}).every(s=>s.description_fr)?'explicit_full_official_text':'explicit_official_excerpt_only',
   patchVerified:false,damageQuantified:false,formVerified:false};
 }
 function enrich(base=[],record,reviewed=null){

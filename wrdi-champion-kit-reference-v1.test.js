@@ -8,16 +8,22 @@ const client=require('./data/champions-picker-v151.json');
 test('official Wild Rift kit batch is sourced and names all five skills',()=>{
  const compiled=reference.prepare(data);
  assert.equal(compiled.ok,true,compiled.reason);
- assert.equal(compiled.size,20);
- assert.equal(new Set(data.profiles.map(x=>x.id)).size,20);
+ assert.equal(compiled.size,21);
+ assert.equal(new Set(data.profiles.map(x=>x.id)).size,21);
  for(const p of data.profiles){
-  assert.equal(p.source.type,'riot_wild_rift_official_fr');
+  if(p.champion==='Hwei')assert.equal(p.source.type,'user_wild_rift_client_screenshots_fr');
+  else assert.equal(p.source.type,'riot_wild_rift_official_fr');
   assert.ok(p.source.url.startsWith('https://wildrift.leagueoflegends.com/fr-fr/champions/'),p.champion);
   assert.deepEqual(['passive','q','w','e','r'].map(k=>typeof p.kit[k].name),Array(5).fill('string'));
-  assert.equal(p.coverage.numeric_values,'not_yet_verified');
-  assert.equal(p.coverage.active_ability_descriptions,'not_yet_verified');
+  if(p.champion==='Hwei')assert.equal(p.coverage.numeric_values,'client_visible_partial_except_ee_damage_conflict_with_7_3b');
+  else assert.equal(p.coverage.numeric_values,'not_yet_verified');
+  if(p.champion==='Hwei')assert.equal(p.coverage.active_ability_descriptions,'client_screenshots');
+  else assert.equal(p.coverage.active_ability_descriptions,'not_yet_verified');
   assert.equal(p.allowedForEngine,false);
-  for(const k of ['q','w','e','r'])assert.equal(p.kit[k].description_fr,null);
+  for(const k of ['q','w','e','r']){
+   if(p.champion==='Hwei')assert.ok(p.kit[k].description_fr.length>25);
+   else assert.equal(p.kit[k].description_fr,null);
+  }
  }
 });
 test('all champion IDs match local Wild Rift picker; coverage exposes all pending records',()=>{
@@ -25,11 +31,12 @@ test('all champion IDs match local Wild Rift picker; coverage exposes all pendin
  for(const p of data.profiles)assert.equal(map.get(p.id),p.champion);
  assert.equal(coverage.totalLocalChampions,client.champions.length);
  assert.equal(coverage.entries.length,client.champions.length);
- assert.equal(coverage.officialPartialProfiles,data.profiles.length);
+ assert.equal(coverage.officialPartialProfiles,data.profiles.filter(p=>p.source.type==='riot_wild_rift_official_fr').length);
+ assert.equal(coverage.clientScreenshotCompleteProfiles,1);
  assert.equal(coverage.unresearched,coverage.entries.length-data.profiles.length);
  for(const row of coverage.entries){
   assert.ok(map.has(row.id));
-  assert.equal(row.fullFiveSkillDescriptionsVerified,false);
+  assert.equal(row.fullFiveSkillDescriptionsVerified,row.name==='Hwei');
   assert.equal(row.allRatiosAndCooldownsVerified,false);
  }
 });

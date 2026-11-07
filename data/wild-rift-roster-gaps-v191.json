@@ -1,0 +1,133 @@
+{
+  "schema": "wrdi.wild_rift_roster_gaps.v191",
+  "checkedOn": "2026-11-07",
+  "officialChampionDirectory": "https://wildrift.leagueoflegends.com/fr-fr/champions/",
+  "officialDirectoryChampionCountAtCheck": 142,
+  "localPickerCountAfterHwei": 126,
+  "missingCount": 16,
+  "note": "Missing champions are listed here instead of added to an operational picker without their five complete Wild Rift skill descriptions. The current engine intentionally blocks incomplete picks.",
+  "missingChampions": [
+    {
+      "name": "Aurora",
+      "reason": "needs_wild_rift_five_skill_descriptions",
+      "status": "not_selectable_in_draft_engine_yet",
+      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
+      "pcLeagueDataAllowed": false
+    },
+    {
+      "name": "Bard",
+      "reason": "needs_wild_rift_five_skill_descriptions",
+      "status": "not_selectable_in_draft_engine_yet",
+      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
+      "pcLeagueDataAllowed": false
+    },
+    {
+      "name": "Cho'Gath",
+      "reason": "needs_wild_rift_five_skill_descriptions",
+      "status": "not_selectable_in_draft_engine_yet",
+      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
+      "pcLeagueDataAllowed": false
+    },
+    {
+      "name": "K'Sante",
+      "reason": "needs_wild_rift_five_skill_descriptions",
+      "status": "not_selectable_in_draft_engine_yet",
+      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
+      "pcLeagueDataAllowed": false
+    },
+    {
+      "name": "Kog'Maw",
+      "reason": "needs_wild_rift_five_skill_descriptions",
+      "status": "not_selectable_in_draft_engine_yet",
+      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
+      "pcLeagueDataAllowed": false
+    },
+    {
+      "name": "Mel",
+      "reason": "needs_wild_rift_five_skill_descriptions",
+      "status": "not_selectable_in_draft_engine_yet",
+      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
+      "pcLeagueDataAllowed": false
+    },
+    {
+      "name": "Nidalee",
+      "reason": "needs_wild_rift_five_skill_descriptions",
+      "status": "not_selectable_in_draft_engine_yet",
+      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
+      "pcLeagueDataAllowed": false
+    },
+    {
+      "name": "Nocturne",
+      "reason": "needs_wild_rift_five_skill_descriptions",
+      "status": "not_selectable_in_draft_engine_yet",
+      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
+      "pcLeagueDataAllowed": false
+    },
+    {
+      "name": "Norra",
+      "reason": "needs_wild_rift_five_skill_descriptions",
+      "status": "not_selectable_in_draft_engine_yet",
+      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
+      "pcLeagueDataAllowed": false
+    },
+    {
+      "name": "Rell",
+      "reason": "needs_wild_rift_five_skill_descriptions",
+      "status": "not_selectable_in_draft_engine_yet",
+      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
+      "pcLeagueDataAllowed": false
+    },
+    {
+      "name": "Skarner",
+      "reason": "needs_wild_rift_five_skill_descriptions",
+      "status": "not_selectable_in_draft_engine_yet",
+      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
+      "pcLeagueDataAllowed": false
+    },
+    {
+      "name": "Smolder",
+      "reason": "needs_wild_rift_five_skill_descriptions",
+      "status": "not_selectable_in_draft_engine_yet",
+      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
+      "pcLeagueDataAllowed": false
+    },
+    {
+      "name": "Taliyah",
+      "reason": "needs_wild_rift_five_skill_descriptions",
+      "status": "not_selectable_in_draft_engine_yet",
+      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
+      "pcLeagueDataAllowed": false
+    },
+    {
+      "name": "Vel'Koz",
+      "reason": "needs_wild_rift_five_skill_descriptions",
+      "status": "not_selectable_in_draft_engine_yet",
+      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
+      "pcLeagueDataAllowed": false
+    },
+    {
+      "name": "Yunara",
+      "reason": "needs_wild_rift_five_skill_descriptions",
+      "status": "not_selectable_in_draft_engine_yet",
+      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
+      "pcLeagueDataAllowed": false
+    },
+    {
+      "name": "Zilean",
+      "reason": "needs_wild_rift_five_skill_descriptions",
+      "status": "not_selectable_in_draft_engine_yet",
+      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
+      "pcLeagueDataAllowed": false
+    }
+  ],
+  "recentlyAdded": [
+    {
+      "name": "Hwei",
+      "source": "user_wild_rift_client_screenshots_2026_11_07",
+      "dataFile": "data/hwei-client-abilities-7.3d-v191.json",
+      "numericConflicts": [
+        "e.ee.damageBase"
+      ]
+    }
+  ]
+}
