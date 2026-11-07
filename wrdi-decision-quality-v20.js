@@ -27,19 +27,22 @@ function review({result,reference}={}){
   result.build?.lateSlots?.coreProtected===true&&ids.slice(0,3).join('|')===result.build.lateSlots.coreIds.join('|'),8,true);
  add('lateItems','Build légal après optimisation',result.build?.legal===true,7,true);
  const shield=Number(t.shieldPressure)||0,healing=Number(t.healPressure)||0;
+ const weakHealing=burst&&healing<1.5&&ids.includes('morellonomicon');
  add('situational','Pas de Trident sans boucliers collectifs documentés',
   shield>=1.5||!ids.includes('oceanids_trident'),5,true);
  add('situational','Pas de Désespoir en burst AP',
-  !burst||!ids.includes('unending_despair'),5,true);
+  !burst||!ids.includes('unending_despair'),4,true);
  // Do not ban Morellonomicon on drafts alone; its AP and stats retain value.
  // Record potentially unnecessary antiheal for targeted review, not as a truth.
- const weakHealing=burst&&healing<1.5&&ids.includes('morellonomicon');
  add('situational','Options situationnelles légales',
-  (result.build?.alternatives||[]).every(x=>x.protectedCorePreserved),5);
+  (result.build?.alternatives||[]).every(x=>x.protectedCorePreserved),3);
+ add('situational','Pas de Morellonomicon réflexe lorsque les soins sont faibles',
+  !weakHealing,3);
  if(weakHealing)notes.push('À expertiser : Morellonomicon malgré pression de soins < 1,5');
  add('runesBoots','Runes complètes et reconnues',result.runes?.ok===true,6,true);
  add('runesBoots','Rune fondamentale adaptée au rôle',
-  result.runes?.page?.keystone===(burst?'Électrocution':'Souverain des glaces'),5);
+  (burst?['Électrocution','Comète arcanique','Premier coup']:
+   ['Souverain des glaces',"Poigne de l'immortel"]).includes(result.runes?.page?.keystone),5);
  add('runesBoots','Bottes recommandées avec source client',
   result.boots?.ok===true&&Boolean(result.boots?.recommended?.name),4,true);
  const score=sum(checks.filter(x=>x.pass).map(x=>x.points));
