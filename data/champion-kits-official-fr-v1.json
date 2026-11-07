@@ -2,53 +2,8 @@
   "schema": "wrdi-official-wild-rift-abilities-v1",
   "description": "First verified batch: official ability names and passive mechanics for 20 champions. Not full champion sheets and not wired into build decision. Missing values are explicit null. No League PC data.",
   "verifiedOn": "2026-11-06",
-  "totalCatalogChampions": 127,
+  "totalCatalogChampions": 141,
   "profiles": [
-    {
-      "id": "10099",
-      "champion": "Galio",
-      "riotId": "Galio",
-      "source": {
-        "type": "riot_wild_rift_official_fr",
-        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/galio/",
-        "checkedOn": "2026-11-06"
-      },
-      "kit": {
-        "passive": {
-          "name": "Frappe colossale",
-          "summary_fr": "Attaque renforcée en zone et recharge réduite en touchant un champion ou monstre épique.",
-          "mechanics_from_passive": [
-            "magic_damage",
-            "aoe_auto",
-            "spell_procs"
-          ]
-        },
-        "q": {
-          "name": "Vents de guerre",
-          "description_fr": null
-        },
-        "w": {
-          "name": "Bouclier de Durand",
-          "description_fr": null
-        },
-        "e": {
-          "name": "Horion de la justice",
-          "description_fr": null
-        },
-        "r": {
-          "name": "Entrée héroïque",
-          "description_fr": null
-        }
-      },
-      "coverage": {
-        "ability_names": "official_confirmed",
-        "passive_summary": "official_paraphrase",
-        "active_ability_descriptions": "not_yet_verified",
-        "numeric_values": "not_yet_verified",
-        "wildRiftOnly": true
-      },
-      "allowedForEngine": false
-    },
     {
       "id": "10002",
       "champion": "Aatrox",
@@ -82,95 +37,6 @@
         },
         "r": {
           "name": "Fossoyeur des mondes",
-          "description_fr": null
-        }
-      },
-      "coverage": {
-        "ability_names": "official_confirmed",
-        "passive_summary": "official_paraphrase",
-        "active_ability_descriptions": "not_yet_verified",
-        "numeric_values": "not_yet_verified",
-        "wildRiftOnly": true
-      },
-      "allowedForEngine": false
-    },
-    {
-      "id": "10005",
-      "champion": "Kayn",
-      "riotId": "Kayn",
-      "source": {
-        "type": "riot_wild_rift_official_fr",
-        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/kayn/",
-        "checkedOn": "2026-11-06"
-      },
-      "kit": {
-        "passive": {
-          "name": "Faux des Darkin",
-          "summary_fr": "Sa forme Darkin soigne via les dégâts de compétences; la forme Assassin de l'ombre augmente les dégâts en début de combat.",
-          "mechanics_from_passive": [
-            "form_dependent",
-            "conditional_self_healing",
-            "conditional_burst"
-          ]
-        },
-        "q": {
-          "name": "Moisson cruelle",
-          "description_fr": null
-        },
-        "w": {
-          "name": "Entaille sombre",
-          "description_fr": null
-        },
-        "e": {
-          "name": "Passe-muraille",
-          "description_fr": null
-        },
-        "r": {
-          "name": "Intrusion obscure",
-          "description_fr": null
-        }
-      },
-      "coverage": {
-        "ability_names": "official_confirmed",
-        "passive_summary": "official_paraphrase",
-        "active_ability_descriptions": "not_yet_verified",
-        "numeric_values": "not_yet_verified",
-        "wildRiftOnly": true
-      },
-      "allowedForEngine": false
-    },
-    {
-      "id": "10012",
-      "champion": "Orianna",
-      "riotId": "Orianna",
-      "source": {
-        "type": "riot_wild_rift_official_fr",
-        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/orianna/",
-        "checkedOn": "2026-11-06"
-      },
-      "kit": {
-        "passive": {
-          "name": "Remontoir",
-          "summary_fr": "Ses attaques infligent des dégâts magiques qui augmentent en ciblant plusieurs fois la même unité.",
-          "mechanics_from_passive": [
-            "magic_on_hit",
-            "repeated_target_damage"
-          ]
-        },
-        "q": {
-          "name": "Ordre : Attaque",
-          "description_fr": null
-        },
-        "w": {
-          "name": "Ordre : Dissonance",
-          "description_fr": null
-        },
-        "e": {
-          "name": "Ordre : Protection",
-          "description_fr": null
-        },
-        "r": {
-          "name": "Ordre : Onde de choc",
           "description_fr": null
         }
       },
@@ -229,139 +95,6 @@
       "allowedForEngine": false
     },
     {
-      "id": "10039",
-      "champion": "Zed",
-      "riotId": "Zed",
-      "source": {
-        "type": "riot_wild_rift_official_fr",
-        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/zed/",
-        "checkedOn": "2026-11-06"
-      },
-      "kit": {
-        "passive": {
-          "name": "Mépris des faibles",
-          "summary_fr": "Ses attaques infligent des dégâts magiques additionnels aux cibles déjà affaiblies.",
-          "mechanics_from_passive": [
-            "execute_pressure",
-            "mixed_instance_magic_damage"
-          ]
-        },
-        "q": {
-          "name": "Shuriken-rasoir",
-          "description_fr": null
-        },
-        "w": {
-          "name": "Ombre vivante",
-          "description_fr": null
-        },
-        "e": {
-          "name": "Taillade des ombres",
-          "description_fr": null
-        },
-        "r": {
-          "name": "Marque de la mort",
-          "description_fr": null
-        }
-      },
-      "coverage": {
-        "ability_names": "official_confirmed",
-        "passive_summary": "official_paraphrase",
-        "active_ability_descriptions": "not_yet_verified",
-        "numeric_values": "not_yet_verified",
-        "wildRiftOnly": true
-      },
-      "allowedForEngine": false
-    },
-    {
-      "id": "10073",
-      "champion": "Kindred",
-      "riotId": "Kindred",
-      "source": {
-        "type": "riot_wild_rift_official_fr",
-        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/kindred/",
-        "checkedOn": "2026-11-06"
-      },
-      "kit": {
-        "passive": {
-          "name": "Marque de Kindred",
-          "summary_fr": "La chasse aux cibles marquées renforce leurs compétences; la portée augmente après plusieurs marques.",
-          "mechanics_from_passive": [
-            "conditional_scaling",
-            "range_growth"
-          ]
-        },
-        "q": {
-          "name": "Danse des flèches",
-          "description_fr": null
-        },
-        "w": {
-          "name": "Frénésie de Loup",
-          "description_fr": null
-        },
-        "e": {
-          "name": "Terreur mortelle",
-          "description_fr": null
-        },
-        "r": {
-          "name": "Repos d'Agneau",
-          "description_fr": null
-        }
-      },
-      "coverage": {
-        "ability_names": "official_confirmed",
-        "passive_summary": "official_paraphrase",
-        "active_ability_descriptions": "not_yet_verified",
-        "numeric_values": "not_yet_verified",
-        "wildRiftOnly": true
-      },
-      "allowedForEngine": false
-    },
-    {
-      "id": "10022",
-      "champion": "Jhin",
-      "riotId": "Jhin",
-      "source": {
-        "type": "riot_wild_rift_official_fr",
-        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/jhin/",
-        "checkedOn": "2026-11-06"
-      },
-      "kit": {
-        "passive": {
-          "name": "Murmure",
-          "summary_fr": "La quatrième balle est toujours critique et reçoit un bonus de dégâts, même sans objets de critique.",
-          "mechanics_from_passive": [
-            "guaranteed_fourth_shot_crit",
-            "reload_window",
-            "attack_pattern"
-          ]
-        },
-        "q": {
-          "name": "Grenade dansante",
-          "description_fr": null
-        },
-        "w": {
-          "name": "Floraison mortelle",
-          "description_fr": null
-        },
-        "e": {
-          "name": "Public captif",
-          "description_fr": null
-        },
-        "r": {
-          "name": "Rappel de rideau",
-          "description_fr": null
-        }
-      },
-      "coverage": {
-        "ability_names": "official_confirmed",
-        "passive_summary": "official_paraphrase",
-        "active_ability_descriptions": "not_yet_verified",
-        "numeric_values": "not_yet_verified",
-        "wildRiftOnly": true
-      },
-      "allowedForEngine": false
-    },
-    {
       "id": "10081",
       "champion": "Alistar",
       "riotId": "Alistar",
@@ -393,315 +126,6 @@
         },
         "r": {
           "name": "Volonté de fer",
-          "description_fr": null
-        }
-      },
-      "coverage": {
-        "ability_names": "official_confirmed",
-        "passive_summary": "official_paraphrase",
-        "active_ability_descriptions": "not_yet_verified",
-        "numeric_values": "not_yet_verified",
-        "wildRiftOnly": true
-      },
-      "allowedForEngine": false
-    },
-    {
-      "id": "10136",
-      "champion": "Ornn",
-      "riotId": "Ornn",
-      "source": {
-        "type": "riot_wild_rift_official_fr",
-        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/ornn/",
-        "checkedOn": "2026-11-06"
-      },
-      "kit": {
-        "passive": {
-          "name": "Forgeron ambulant",
-          "summary_fr": "Augmente ses résistances bonus et permet des achats d'objets loin de la base, sous conditions.",
-          "mechanics_from_passive": [
-            "bonus_resistance_scaling",
-            "remote_shop_utility"
-          ]
-        },
-        "q": {
-          "name": "Fracture magmatique",
-          "description_fr": null
-        },
-        "w": {
-          "name": "Fournaise",
-          "description_fr": null
-        },
-        "e": {
-          "name": "Ruée ardente",
-          "description_fr": null
-        },
-        "r": {
-          "name": "Appel du dieu de la forge",
-          "description_fr": null
-        }
-      },
-      "coverage": {
-        "ability_names": "official_confirmed",
-        "passive_summary": "official_paraphrase",
-        "active_ability_descriptions": "not_yet_verified",
-        "numeric_values": "not_yet_verified",
-        "wildRiftOnly": true
-      },
-      "allowedForEngine": false
-    },
-    {
-      "id": "10064",
-      "champion": "Rammus",
-      "riotId": "Rammus",
-      "source": {
-        "type": "riot_wild_rift_official_fr",
-        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/rammus/",
-        "checkedOn": "2026-11-06"
-      },
-      "kit": {
-        "passive": {
-          "name": "Tatou blindé",
-          "summary_fr": "Sa vitesse de déplacement augmente hors combat, puis cet effet cesse lorsqu'il engage.",
-          "mechanics_from_passive": [
-            "out_of_combat_mobility",
-            "engage_condition"
-          ]
-        },
-        "q": {
-          "name": "Démolisseur",
-          "description_fr": null
-        },
-        "w": {
-          "name": "Boule défensive",
-          "description_fr": null
-        },
-        "e": {
-          "name": "Provocation frénétique",
-          "description_fr": null
-        },
-        "r": {
-          "name": "Frappe ascendante",
-          "description_fr": null
-        }
-      },
-      "coverage": {
-        "ability_names": "official_confirmed",
-        "passive_summary": "official_paraphrase",
-        "active_ability_descriptions": "not_yet_verified",
-        "numeric_values": "not_yet_verified",
-        "wildRiftOnly": true
-      },
-      "allowedForEngine": false
-    },
-    {
-      "id": "10066",
-      "champion": "Miss Fortune",
-      "riotId": "MissFortune",
-      "source": {
-        "type": "riot_wild_rift_official_fr",
-        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/miss-fortune/",
-        "checkedOn": "2026-11-06"
-      },
-      "kit": {
-        "passive": {
-          "name": "Cœur volage",
-          "summary_fr": "Attaquer une nouvelle cible inflige des dégâts physiques supplémentaires.",
-          "mechanics_from_passive": [
-            "physical_damage",
-            "target_switch_damage"
-          ]
-        },
-        "q": {
-          "name": "Doublé",
-          "description_fr": null
-        },
-        "w": {
-          "name": "Fanfaronne",
-          "description_fr": null
-        },
-        "e": {
-          "name": "Pluie de balles",
-          "description_fr": null
-        },
-        "r": {
-          "name": "Barrage de plomb",
-          "description_fr": null
-        }
-      },
-      "coverage": {
-        "ability_names": "official_confirmed",
-        "passive_summary": "official_paraphrase",
-        "active_ability_descriptions": "not_yet_verified",
-        "numeric_values": "not_yet_verified",
-        "wildRiftOnly": true
-      },
-      "allowedForEngine": false
-    },
-    {
-      "id": "10044",
-      "champion": "Leona",
-      "riotId": "Leona",
-      "source": {
-        "type": "riot_wild_rift_official_fr",
-        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/leona/",
-        "checkedOn": "2026-11-06"
-      },
-      "kit": {
-        "passive": {
-          "name": "Rayon de soleil",
-          "summary_fr": "Ses sorts marquent des ennemis; un allié peut consommer la marque pour des dégâts magiques bonus.",
-          "mechanics_from_passive": [
-            "ally_follow_up",
-            "magic_damage_proc"
-          ]
-        },
-        "q": {
-          "name": "Bouclier de l'aube",
-          "description_fr": null
-        },
-        "w": {
-          "name": "Éclipse",
-          "description_fr": null
-        },
-        "e": {
-          "name": "Lame du zénith",
-          "description_fr": null
-        },
-        "r": {
-          "name": "Éruption solaire",
-          "description_fr": null
-        }
-      },
-      "coverage": {
-        "ability_names": "official_confirmed",
-        "passive_summary": "official_paraphrase",
-        "active_ability_descriptions": "not_yet_verified",
-        "numeric_values": "not_yet_verified",
-        "wildRiftOnly": true
-      },
-      "allowedForEngine": false
-    },
-    {
-      "id": "10024",
-      "champion": "Syndra",
-      "riotId": "Syndra",
-      "source": {
-        "type": "riot_wild_rift_official_fr",
-        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/syndra/",
-        "checkedOn": "2026-11-06"
-      },
-      "kit": {
-        "passive": {
-          "name": "Transcendance",
-          "summary_fr": "Accumule des éclats en touchant avec ses sorts et en montant ses compétences, puis renforce ses sorts.",
-          "mechanics_from_passive": [
-            "spell_hit_scaling",
-            "late_power"
-          ]
-        },
-        "q": {
-          "name": "Sphère noire",
-          "description_fr": null
-        },
-        "w": {
-          "name": "Force de la volonté",
-          "description_fr": null
-        },
-        "e": {
-          "name": "Dispersion des faibles",
-          "description_fr": null
-        },
-        "r": {
-          "name": "Déchaînement de puissance",
-          "description_fr": null
-        }
-      },
-      "coverage": {
-        "ability_names": "official_confirmed",
-        "passive_summary": "official_paraphrase",
-        "active_ability_descriptions": "not_yet_verified",
-        "numeric_values": "not_yet_verified",
-        "wildRiftOnly": true
-      },
-      "allowedForEngine": false
-    },
-    {
-      "id": "10119",
-      "champion": "Brand",
-      "riotId": "Brand",
-      "source": {
-        "type": "riot_wild_rift_official_fr",
-        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/brand/",
-        "checkedOn": "2026-11-06"
-      },
-      "kit": {
-        "passive": {
-          "name": "Flammes",
-          "summary_fr": "Ses sorts infligent une brûlure cumulable et peuvent déclencher une explosion en zone.",
-          "mechanics_from_passive": [
-            "spell_burn",
-            "aoe_explosion",
-            "stack_condition"
-          ]
-        },
-        "q": {
-          "name": "Brûlure",
-          "description_fr": null
-        },
-        "w": {
-          "name": "Colonne de flammes",
-          "description_fr": null
-        },
-        "e": {
-          "name": "Conflagration",
-          "description_fr": null
-        },
-        "r": {
-          "name": "Pyrolyse",
-          "description_fr": null
-        }
-      },
-      "coverage": {
-        "ability_names": "official_confirmed",
-        "passive_summary": "official_paraphrase",
-        "active_ability_descriptions": "not_yet_verified",
-        "numeric_values": "not_yet_verified",
-        "wildRiftOnly": true
-      },
-      "allowedForEngine": false
-    },
-    {
-      "id": "10079",
-      "champion": "Ashe",
-      "riotId": "Ashe",
-      "source": {
-        "type": "riot_wild_rift_official_fr",
-        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/ashe/",
-        "checkedOn": "2026-11-06"
-      },
-      "kit": {
-        "passive": {
-          "name": "Tir givrant",
-          "summary_fr": "Les attaques ralentissent; les coups critiques renforcent le ralentissement sans bonus habituel de dégâts critiques.",
-          "mechanics_from_passive": [
-            "slow",
-            "special_crit_interaction"
-          ]
-        },
-        "q": {
-          "name": "Concentration du ranger",
-          "description_fr": null
-        },
-        "w": {
-          "name": "Salve",
-          "description_fr": null
-        },
-        "e": {
-          "name": "Rapace",
-          "description_fr": null
-        },
-        "r": {
-          "name": "Flèche de cristal enchantée",
           "description_fr": null
         }
       },
@@ -760,36 +184,37 @@
       "allowedForEngine": false
     },
     {
-      "id": "10030",
-      "champion": "Pantheon",
-      "riotId": "Pantheon",
+      "id": "10079",
+      "champion": "Ashe",
+      "riotId": "Ashe",
       "source": {
         "type": "riot_wild_rift_official_fr",
-        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/pantheon/",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/ashe/",
         "checkedOn": "2026-11-06"
       },
       "kit": {
         "passive": {
-          "name": "Ardeur mortelle",
-          "summary_fr": "Après une série d'attaques et de sorts, renforce sa prochaine compétence.",
+          "name": "Tir givrant",
+          "summary_fr": "Les attaques ralentissent; les coups critiques renforcent le ralentissement sans bonus habituel de dégâts critiques.",
           "mechanics_from_passive": [
-            "stacked_spell_empowerment"
+            "slow",
+            "special_crit_interaction"
           ]
         },
         "q": {
-          "name": "Lance astrale",
+          "name": "Concentration du ranger",
           "description_fr": null
         },
         "w": {
-          "name": "Assaut martial",
+          "name": "Salve",
           "description_fr": null
         },
         "e": {
-          "name": "Égide impénétrable",
+          "name": "Rapace",
           "description_fr": null
         },
         "r": {
-          "name": "Météore",
+          "name": "Flèche de cristal enchantée",
           "description_fr": null
         }
       },
@@ -803,37 +228,84 @@
       "allowedForEngine": false
     },
     {
-      "id": "10059",
-      "champion": "Lee Sin",
-      "riotId": "LeeSin",
+      "id": "10893",
+      "champion": "Aurora",
+      "riotId": "Aurora",
+      "source": {
+        "type": "user_wild_rift_client_screenshots_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/aurora/",
+        "checkedOn": "2026-11-07"
+      },
+      "kit": {
+        "passive": {
+          "name": "Abjuration spirituelle",
+          "summary_fr": "Trois attaques ou sorts sur une cible déclenchent dégâts magiques de PV max et soin personnel conditionnel après exorcisme.",
+          "mechanics_from_passive": [
+            "magic_damage",
+            "target_max_hp_damage",
+            "conditional_self_healing",
+            "three_hit_condition"
+          ]
+        },
+        "q": {
+          "name": "Maléfice",
+          "description_fr": "Aurora lance un trait qui inflige 40/70/100/130 (+33 % de la puissance) dégâts magiques aux ennemis, et les maudit pendant 3,5 sec. Elle réactive le sort pour blesser les ennemis traversés de 40/70/100/130 (+33 % de la puissance) dégâts magiques avec jusqu'à 50 % de dégâts supplémentaires selon leurs PV manquants. Les projectiles supplémentaires ne font que 20 % des dégâts au-delà du premier. Contre les sbires et monstres, les dégâts sont réduits à 40 %. Le sort se relance automatiquement à la fin de sa durée."
+        },
+        "w": {
+          "name": "Derrière le voile",
+          "description_fr": "Aurora bondit et devient invisible temporairement à l'atterrissage (1/1,2/1,4/1,6 sec selon le rang), recevant Passe-royaume : 25/30/35/40 % de vitesse de déplacement, pendant 4 sec. Participer à l'élimination d'un champion ennemi réinitialise le délai de récupération de cette compétence."
+        },
+        "e": {
+          "name": "Sortilège",
+          "description_fr": "Aurora fait converger les royaumes et inflige aux ennemis dans une zone 80/130/180/230 (+65 % de la puissance) dégâts magiques et un ralentissement initial de 80 %, décroissant sur 1 sec. Elle bondit légèrement en arrière après la compétence."
+        },
+        "r": {
+          "name": "Entre les mondes",
+          "description_fr": "Aurora bondit dans une direction, infligeant à l'atterrissage 150/250/350 (+50 % de la puissance) dégâts magiques de zone, et ralentit les ennemis touchés de 30 % pendant 2 sec. La zone de convergence dure 2,5/3,25/4 sec et permet à Aurora de se téléporter d'un bord à l'autre. Les ennemis qui essaient d'entrer ou sortir de la zone sont ralentis de 50 % pendant 1,5/1,75/2 sec. Une réactivation met fin à la zone."
+        }
+      },
+      "coverage": {
+        "ability_names": "client_verified",
+        "passive_summary": "client_verified",
+        "active_ability_descriptions": "client_screenshots",
+        "numeric_values": "partially_client_verified_patch_not_visible",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10119",
+      "champion": "Brand",
+      "riotId": "Brand",
       "source": {
         "type": "riot_wild_rift_official_fr",
-        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/lee-sin/",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/brand/",
         "checkedOn": "2026-11-06"
       },
       "kit": {
         "passive": {
-          "name": "Rafale",
-          "summary_fr": "Après un sort, deux attaques gagnent en vitesse et restaurent de l'énergie.",
+          "name": "Flammes",
+          "summary_fr": "Ses sorts infligent une brûlure cumulable et peuvent déclencher une explosion en zone.",
           "mechanics_from_passive": [
-            "spell_auto_cycle",
-            "energy_restore"
+            "spell_burn",
+            "aoe_explosion",
+            "stack_condition"
           ]
         },
         "q": {
-          "name": "Onde sonore/Coup résonant",
+          "name": "Brûlure",
           "description_fr": null
         },
         "w": {
-          "name": "Rempart/Force d'âme",
+          "name": "Colonne de flammes",
           "description_fr": null
         },
         "e": {
-          "name": "Trombe/Fracture",
+          "name": "Conflagration",
           "description_fr": null
         },
         "r": {
-          "name": "Rage du dragon",
+          "name": "Pyrolyse",
           "description_fr": null
         }
       },
@@ -842,6 +314,51 @@
         "passive_summary": "official_paraphrase",
         "active_ability_descriptions": "not_yet_verified",
         "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "11101",
+      "champion": "Cho'Gath",
+      "riotId": "ChoGath",
+      "source": {
+        "type": "user_wild_rift_client_screenshots_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/chogath/",
+        "checkedOn": "2026-11-07",
+        "archive": "Champ.zip"
+      },
+      "kit": {
+        "passive": {
+          "name": "Carnivore",
+          "summary_fr": "Tuer une unité rend des PV et du mana à Cho'Gath ; la restauration est doublée sur champion, tourelle ou monstre épique.",
+          "mechanics_from_passive": [
+            "self_healing",
+            "mana_restore"
+          ]
+        },
+        "q": {
+          "name": "Rupture",
+          "description_fr": "Cho'Gath fracture le sol et projette les ennemis en l'air pendant 1 seconde, leur infligeant des dégâts magiques puis les ralentissant."
+        },
+        "w": {
+          "name": "Cri sauvage",
+          "description_fr": "Cho'Gath pousse un cri dans une zone devant lui, inflige des dégâts magiques et réduit les ennemis au silence pendant une durée qui augmente avec le rang."
+        },
+        "e": {
+          "name": "Piques vorpales",
+          "description_fr": "Ses trois prochaines attaques lancent des piques qui infligent des dégâts magiques supplémentaires selon les PV max de la cible et ralentissent. L'amplitude et la portée grandissent avec sa taille."
+        },
+        "r": {
+          "name": "Festin",
+          "description_fr": "Cho'Gath dévore un ennemi, inflige des dégâts bruts importants, augmentés sur sbires et monstres. Une élimination octroie des cumuls de Festin, augmentant ses PV max et sa taille."
+        }
+      },
+      "coverage": {
+        "ability_names": "client_verified",
+        "passive_summary": "client_paraphrase",
+        "active_ability_descriptions": "client_screenshot_curated",
+        "numeric_values": "not_yet_certified",
         "wildRiftOnly": true
       },
       "allowedForEngine": false
@@ -878,6 +395,51 @@
         },
         "r": {
           "name": "Arc térébrant",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10099",
+      "champion": "Galio",
+      "riotId": "Galio",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/galio/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Frappe colossale",
+          "summary_fr": "Attaque renforcée en zone et recharge réduite en touchant un champion ou monstre épique.",
+          "mechanics_from_passive": [
+            "magic_damage",
+            "aoe_auto",
+            "spell_procs"
+          ]
+        },
+        "q": {
+          "name": "Vents de guerre",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Bouclier de Durand",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Horion de la justice",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Entrée héroïque",
           "description_fr": null
         }
       },
@@ -937,47 +499,1124 @@
       "allowedForEngine": false
     },
     {
-      "id": "10893",
-      "champion": "Aurora",
-      "riotId": "Aurora",
+      "id": "10022",
+      "champion": "Jhin",
+      "riotId": "Jhin",
       "source": {
-        "type": "user_wild_rift_client_screenshots_fr",
-        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/aurora/",
-        "checkedOn": "2026-11-07"
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/jhin/",
+        "checkedOn": "2026-11-06"
       },
       "kit": {
         "passive": {
-          "name": "Abjuration spirituelle",
-          "summary_fr": "Trois attaques ou sorts sur une cible déclenchent dégâts magiques de PV max et soin personnel conditionnel après exorcisme.",
+          "name": "Murmure",
+          "summary_fr": "La quatrième balle est toujours critique et reçoit un bonus de dégâts, même sans objets de critique.",
           "mechanics_from_passive": [
-            "magic_damage",
-            "target_max_hp_damage",
-            "conditional_self_healing",
-            "three_hit_condition"
+            "guaranteed_fourth_shot_crit",
+            "reload_window",
+            "attack_pattern"
           ]
         },
         "q": {
-          "name": "Maléfice",
-          "description_fr": "Aurora lance un trait qui inflige 40/70/100/130 (+33 % de la puissance) dégâts magiques aux ennemis, et les maudit pendant 3,5 sec. Elle réactive le sort pour blesser les ennemis traversés de 40/70/100/130 (+33 % de la puissance) dégâts magiques avec jusqu'à 50 % de dégâts supplémentaires selon leurs PV manquants. Les projectiles supplémentaires ne font que 20 % des dégâts au-delà du premier. Contre les sbires et monstres, les dégâts sont réduits à 40 %. Le sort se relance automatiquement à la fin de sa durée."
+          "name": "Grenade dansante",
+          "description_fr": null
         },
         "w": {
-          "name": "Derrière le voile",
-          "description_fr": "Aurora bondit et devient invisible temporairement à l'atterrissage (1/1,2/1,4/1,6 sec selon le rang), recevant Passe-royaume : 25/30/35/40 % de vitesse de déplacement, pendant 4 sec. Participer à l'élimination d'un champion ennemi réinitialise le délai de récupération de cette compétence."
+          "name": "Floraison mortelle",
+          "description_fr": null
         },
         "e": {
-          "name": "Sortilège",
-          "description_fr": "Aurora fait converger les royaumes et inflige aux ennemis dans une zone 80/130/180/230 (+65 % de la puissance) dégâts magiques et un ralentissement initial de 80 %, décroissant sur 1 sec. Elle bondit légèrement en arrière après la compétence."
+          "name": "Public captif",
+          "description_fr": null
         },
         "r": {
-          "name": "Entre les mondes",
-          "description_fr": "Aurora bondit dans une direction, infligeant à l'atterrissage 150/250/350 (+50 % de la puissance) dégâts magiques de zone, et ralentit les ennemis touchés de 30 % pendant 2 sec. La zone de convergence dure 2,5/3,25/4 sec et permet à Aurora de se téléporter d'un bord à l'autre. Les ennemis qui essaient d'entrer ou sortir de la zone sont ralentis de 50 % pendant 1,5/1,75/2 sec. Une réactivation met fin à la zone."
+          "name": "Rappel de rideau",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "11102",
+      "champion": "K'Sante",
+      "riotId": "KSante",
+      "source": {
+        "type": "user_wild_rift_client_screenshots_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/ksante/",
+        "checkedOn": "2026-11-07",
+        "archive": "Champ.zip"
+      },
+      "kit": {
+        "passive": {
+          "name": "Instinct intrépide",
+          "summary_fr": "Les compétences blessantes marquent les ennemis. Les attaques sur les cibles marquées consomment la marque pour infliger des dégâts physiques selon leurs PV max. En Grand jeu, les dégâts et ratios évoluent.",
+          "mechanics_from_passive": [
+            "physical_damage",
+            "max_hp_damage",
+            "conditional_form"
+          ]
+        },
+        "q": {
+          "name": "Coups de ntofo",
+          "description_fr": "Frappe physique qui ralentit. Après deux impacts sur des cibles, K'Santé projette une onde de choc attirant et étourdissant ; en Grand jeu, le sort est renforcé."
+        },
+        "w": {
+          "name": "Pour Nazumah !",
+          "description_fr": "K'Santé se prépare, réduit les dégâts subis, devient difficile à interrompre, puis fonce et repousse les ennemis en leur infligeant des dégâts physiques selon leurs PV max ; peut étourdir."
+        },
+        "e": {
+          "name": "Jeu de jambes",
+          "description_fr": "K'Santé se rue vers une direction et obtient un bouclier ; sa ruée est plus longue vers un allié, qui reçoit alors également le même bouclier."
+        },
+        "r": {
+          "name": "Grand jeu",
+          "description_fr": "K'Santé repousse un champion ennemi et entre temporairement en Grand jeu. Les interactions avec les murs renforcent son contrôle. Il gagne de la puissance offensive en échange d'une partie de sa durabilité."
         }
       },
       "coverage": {
         "ability_names": "client_verified",
-        "passive_summary": "client_verified",
-        "active_ability_descriptions": "client_screenshots",
-        "numeric_values": "partially_client_verified_patch_not_visible",
+        "passive_summary": "client_paraphrase",
+        "active_ability_descriptions": "client_screenshot_curated",
+        "numeric_values": "not_yet_certified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10005",
+      "champion": "Kayn",
+      "riotId": "Kayn",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/kayn/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Faux des Darkin",
+          "summary_fr": "Sa forme Darkin soigne via les dégâts de compétences; la forme Assassin de l'ombre augmente les dégâts en début de combat.",
+          "mechanics_from_passive": [
+            "form_dependent",
+            "conditional_self_healing",
+            "conditional_burst"
+          ]
+        },
+        "q": {
+          "name": "Moisson cruelle",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Entaille sombre",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Passe-muraille",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Intrusion obscure",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10073",
+      "champion": "Kindred",
+      "riotId": "Kindred",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/kindred/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Marque de Kindred",
+          "summary_fr": "La chasse aux cibles marquées renforce leurs compétences; la portée augmente après plusieurs marques.",
+          "mechanics_from_passive": [
+            "conditional_scaling",
+            "range_growth"
+          ]
+        },
+        "q": {
+          "name": "Danse des flèches",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Frénésie de Loup",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Terreur mortelle",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Repos d'Agneau",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "11103",
+      "champion": "Kog'Maw",
+      "riotId": "KogMaw",
+      "source": {
+        "type": "user_wild_rift_client_screenshots_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/kogmaw/",
+        "checkedOn": "2026-11-07",
+        "archive": "Champ.zip"
+      },
+      "kit": {
+        "passive": {
+          "name": "Surprise d'Icathia",
+          "summary_fr": "Après sa mort, Kog'Maw continue de se déplacer pendant quatre secondes, accélère puis explose en infligeant des dégâts bruts de zone.",
+          "mechanics_from_passive": [
+            "true_damage",
+            "death_passive",
+            "aoe"
+          ]
+        },
+        "q": {
+          "name": "Bave caustique",
+          "description_fr": "Lance un projectile magique qui inflige des dégâts et réduit temporairement l'armure et la résistance magique de l'ennemi touché."
+        },
+        "w": {
+          "name": "Barrage bio-arcanique",
+          "description_fr": "Augmente la portée d'attaque de Kog'Maw. Les attaques infligent des dégâts magiques supplémentaires selon les PV max de la cible."
+        },
+        "e": {
+          "name": "Limon du Néant",
+          "description_fr": "Crache de la bile magique en ligne, infligeant des dégâts et laissant une zone qui ralentit les ennemis."
+        },
+        "r": {
+          "name": "Artillerie vivante",
+          "description_fr": "Tir d'acide à longue portée qui révèle une zone puis blesse les ennemis ; dégâts augmentés sur cibles à faibles PV. Les tirs successifs coûtent davantage de mana."
+        }
+      },
+      "coverage": {
+        "ability_names": "client_verified",
+        "passive_summary": "client_paraphrase",
+        "active_ability_descriptions": "client_screenshot_curated",
+        "numeric_values": "not_yet_certified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10059",
+      "champion": "Lee Sin",
+      "riotId": "LeeSin",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/lee-sin/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Rafale",
+          "summary_fr": "Après un sort, deux attaques gagnent en vitesse et restaurent de l'énergie.",
+          "mechanics_from_passive": [
+            "spell_auto_cycle",
+            "energy_restore"
+          ]
+        },
+        "q": {
+          "name": "Onde sonore/Coup résonant",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Rempart/Force d'âme",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Trombe/Fracture",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Rage du dragon",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10044",
+      "champion": "Leona",
+      "riotId": "Leona",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/leona/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Rayon de soleil",
+          "summary_fr": "Ses sorts marquent des ennemis; un allié peut consommer la marque pour des dégâts magiques bonus.",
+          "mechanics_from_passive": [
+            "ally_follow_up",
+            "magic_damage_proc"
+          ]
+        },
+        "q": {
+          "name": "Bouclier de l'aube",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Éclipse",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Lame du zénith",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Éruption solaire",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "11104",
+      "champion": "Mel",
+      "riotId": "Mel",
+      "source": {
+        "type": "user_wild_rift_client_screenshots_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/mel/",
+        "checkedOn": "2026-11-07",
+        "archive": "Champ.zip"
+      },
+      "kit": {
+        "passive": {
+          "name": "Luminescence incandescente",
+          "summary_fr": "Attaques et compétences appliquent Accablement. Si les dégâts accumulés dépassent la protection et les PV actuels, une exécution est déclenchée. Les compétences génèrent des projectiles supplémentaires pour une attaque suivante.",
+          "mechanics_from_passive": [
+            "magic_damage",
+            "execute",
+            "stacking_damage"
+          ]
+        },
+        "q": {
+          "name": "Salve radieuse",
+          "description_fr": "Tire une rafale de projectiles magiques explosant dans une zone ; le nombre de projectiles et les dégâts progressent avec le rang du sort."
+        },
+        "w": {
+          "name": "Réfutation",
+          "description_fr": "Crée une barrière autour de Mel qui renvoie les projectiles des champions ennemis à leur envoyeur, la rend invulnérable pendant une courte durée et augmente brièvement sa vitesse de déplacement."
+        },
+        "e": {
+          "name": "Piège solaire",
+          "description_fr": "Lance un orbe magique qui immobilise les ennemis touchés au centre et crée une zone qui les ralentit et inflige des dégâts magiques répétés."
+        },
+        "r": {
+          "name": "Éclipse dorée",
+          "description_fr": "Passive : augmente les dégâts des effets Accablement. Active : libère sa puissance sur les ennemis portant Accablement, provoquant des dégâts magiques augmentés par leurs cumuls."
+        }
+      },
+      "coverage": {
+        "ability_names": "client_verified",
+        "passive_summary": "client_paraphrase",
+        "active_ability_descriptions": "client_screenshot_curated",
+        "numeric_values": "not_yet_certified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10066",
+      "champion": "Miss Fortune",
+      "riotId": "MissFortune",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/miss-fortune/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Cœur volage",
+          "summary_fr": "Attaquer une nouvelle cible inflige des dégâts physiques supplémentaires.",
+          "mechanics_from_passive": [
+            "physical_damage",
+            "target_switch_damage"
+          ]
+        },
+        "q": {
+          "name": "Doublé",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Fanfaronne",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Pluie de balles",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Barrage de plomb",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "11105",
+      "champion": "Nidalee",
+      "riotId": "Nidalee",
+      "source": {
+        "type": "user_wild_rift_client_screenshots_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/nidalee/",
+        "checkedOn": "2026-11-07",
+        "archive": "Champ.zip"
+      },
+      "kit": {
+        "passive": {
+          "name": "Prédateur",
+          "summary_fr": "Dans les hautes herbes, Nidalee gagne de la vitesse. Toucher avec Javelot ou Guérilla marque une cible comme Chassée et la révèle brièvement, améliorant sa poursuite et ses compétences de couguar.",
+          "mechanics_from_passive": [
+            "mobility",
+            "reveal",
+            "hunted_mark"
+          ]
+        },
+        "q": {
+          "name": "Javelot / Mise à terre",
+          "description_fr": "Forme humaine : javelot infligeant des dégâts magiques croissants selon la distance. Forme couguar : Mise à terre, attaque de mêlée renforcée sur la cible Chassée. Les valeurs de couguar ne figurent pas sur les captures fournies."
+        },
+        "w": {
+          "name": "Guérilla / Bond",
+          "description_fr": "Forme humaine : piège invisible infligeant des dégâts magiques sur la durée et marquant la cible. Forme couguar : Bond permet à Nidalee de se déplacer et d'attaquer à courte portée, avec interactions de Chasse."
+        },
+        "e": {
+          "name": "Charge primale / Balayage",
+          "description_fr": "Forme humaine : soigne Nidalee ou un allié et augmente sa vitesse d'attaque. Forme couguar : Balayage inflige des dégâts magiques dans une zone proche."
+        },
+        "r": {
+          "name": "Aspect du couguar",
+          "description_fr": "Nidalee alterne entre forme humaine à distance et forme couguar au corps à corps. La forme couguar renforce ses attaques et les compétences de base sont remplacées par leurs variantes de mêlée."
+        }
+      },
+      "coverage": {
+        "ability_names": "client_verified",
+        "passive_summary": "client_paraphrase",
+        "active_ability_descriptions": "client_screenshots_plus_riot_supplement_partial",
+        "numeric_values": "not_yet_certified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "11106",
+      "champion": "Nocturne",
+      "riotId": "Nocturne",
+      "source": {
+        "type": "user_wild_rift_client_screenshots_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/nocturne/",
+        "checkedOn": "2026-11-07",
+        "archive": "Champ.zip"
+      },
+      "kit": {
+        "passive": {
+          "name": "Lames d'ombre",
+          "summary_fr": "Périodiquement, sa prochaine attaque blesse les ennemis proches et rend des PV à Nocturne ; les attaques réduisent le délai de cette attaque renforcée.",
+          "mechanics_from_passive": [
+            "physical_damage",
+            "self_healing",
+            "aoe"
+          ]
+        },
+        "q": {
+          "name": "Crépuscule",
+          "description_fr": "Lance une traînée d'ombre, inflige des dégâts physiques et donne des bonus de dégâts d'attaque et de vitesse de déplacement lorsqu'il se déplace sur la traînée."
+        },
+        "w": {
+          "name": "Linceul des ténèbres",
+          "description_fr": "Passivement, Nocturne gagne de la vitesse d'attaque. Activée, une barrière bloque la prochaine compétence ennemie ; un blocage accroît temporairement le bonus de vitesse d'attaque."
+        },
+        "e": {
+          "name": "Horreur indicible",
+          "description_fr": "Implante un cauchemar dans une cible, inflige des dégâts magiques et la terrifie si elle reste à portée pendant la durée de l'effet ; augmente la vitesse vers les ennemis effrayés."
+        },
+        "r": {
+          "name": "Paranoïa",
+          "description_fr": "Réduit fortement le champ de vision des champions ennemis et supprime la vision de leurs alliés ; réactivation permet de foncer vers un ennemi en infligeant des dégâts physiques."
+        }
+      },
+      "coverage": {
+        "ability_names": "client_verified",
+        "passive_summary": "client_paraphrase",
+        "active_ability_descriptions": "client_screenshot_curated",
+        "numeric_values": "not_yet_certified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "11107",
+      "champion": "Norra",
+      "riotId": "Norra",
+      "source": {
+        "type": "user_wild_rift_client_screenshots_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/norra/",
+        "checkedOn": "2026-11-07",
+        "archive": "Champ.zip"
+      },
+      "kit": {
+        "passive": {
+          "name": "Reliques adorées",
+          "summary_fr": "Périodiquement la prochaine compétence laisse au sol une babiole qui se déclenche lorsqu'un ennemi la touche, lui infligeant des dégâts magiques ; toucher un champion avec une compétence réduit le délai de récupération.",
+          "mechanics_from_passive": [
+            "magic_damage",
+            "trap",
+            "ability_haste_conditional"
+          ]
+        },
+        "q": {
+          "name": "Boîte à souvenirs",
+          "description_fr": "Norra charge un projectile magique, puis le lance ; la charge peut accroître la portée et les dégâts et interagit avec les babioles créées par son passif."
+        },
+        "w": {
+          "name": "Voyage dimensionnel",
+          "description_fr": "Crée un portail qui blesse et bannit brièvement les ennemis dans une autre dimension. Ils peuvent se déplacer, mais ni attaquer ni lancer de compétences avant de revenir ralentis."
+        },
+        "e": {
+          "name": "Trame du retour",
+          "description_fr": "Un portail relie deux extrémités et inflige des dégâts magiques aux ennemis entre elles. Les ennemis marqués sont ralentis et subissent une augmentation temporaire de leur taille."
+        },
+        "r": {
+          "name": "Afflux de portails",
+          "description_fr": "Crée une zone de téléportation autour des unités prises. Des projectiles magiques traversent la zone, ralentissent et infligent des dégâts, avec puissance augmentée au fil des tirs."
+        }
+      },
+      "coverage": {
+        "ability_names": "client_verified",
+        "passive_summary": "client_paraphrase",
+        "active_ability_descriptions": "client_screenshot_curated",
+        "numeric_values": "not_yet_certified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10012",
+      "champion": "Orianna",
+      "riotId": "Orianna",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/orianna/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Remontoir",
+          "summary_fr": "Ses attaques infligent des dégâts magiques qui augmentent en ciblant plusieurs fois la même unité.",
+          "mechanics_from_passive": [
+            "magic_on_hit",
+            "repeated_target_damage"
+          ]
+        },
+        "q": {
+          "name": "Ordre : Attaque",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Ordre : Dissonance",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Ordre : Protection",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Ordre : Onde de choc",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10136",
+      "champion": "Ornn",
+      "riotId": "Ornn",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/ornn/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Forgeron ambulant",
+          "summary_fr": "Augmente ses résistances bonus et permet des achats d'objets loin de la base, sous conditions.",
+          "mechanics_from_passive": [
+            "bonus_resistance_scaling",
+            "remote_shop_utility"
+          ]
+        },
+        "q": {
+          "name": "Fracture magmatique",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Fournaise",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Ruée ardente",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Appel du dieu de la forge",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10030",
+      "champion": "Pantheon",
+      "riotId": "Pantheon",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/pantheon/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Ardeur mortelle",
+          "summary_fr": "Après une série d'attaques et de sorts, renforce sa prochaine compétence.",
+          "mechanics_from_passive": [
+            "stacked_spell_empowerment"
+          ]
+        },
+        "q": {
+          "name": "Lance astrale",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Assaut martial",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Égide impénétrable",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Météore",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10064",
+      "champion": "Rammus",
+      "riotId": "Rammus",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/rammus/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Tatou blindé",
+          "summary_fr": "Sa vitesse de déplacement augmente hors combat, puis cet effet cesse lorsqu'il engage.",
+          "mechanics_from_passive": [
+            "out_of_combat_mobility",
+            "engage_condition"
+          ]
+        },
+        "q": {
+          "name": "Démolisseur",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Boule défensive",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Provocation frénétique",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Frappe ascendante",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "11108",
+      "champion": "Rell",
+      "riotId": "Rell",
+      "source": {
+        "type": "user_wild_rift_client_screenshots_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/rell/",
+        "checkedOn": "2026-11-07",
+        "archive": "Champ.zip"
+      },
+      "kit": {
+        "passive": {
+          "name": "Mise en pièces",
+          "summary_fr": "Les attaques et compétences de Rell volent temporairement une partie de l'armure et de la résistance magique ennemies, renforçant ses propres résistances ; ses attaques infligent également des dégâts magiques.",
+          "mechanics_from_passive": [
+            "armor_shred",
+            "mr_shred",
+            "tank_resistance",
+            "magic_damage"
+          ]
+        },
+        "q": {
+          "name": "Frappe dislocatrice",
+          "description_fr": "Coup d'estoc magique qui étourdit brièvement les ennemis et détruit leurs boucliers."
+        },
+        "w": {
+          "name": "Ferromancie : descendre en piqué",
+          "description_fr": "Rell descend de sa monture, blesse et projette les ennemis en l'air. Elle gagne un bouclier durable et devient plus lente, jusqu'à son remontage."
+        },
+        "e": {
+          "name": "Joute endiablée",
+          "description_fr": "Améliore la vitesse d'un allié et de Rell lorsqu'ils sont proches. La prochaine attaque de Rell ou Frappe dislocatrice provoque des dégâts magiques de zone selon les PV max."
+        },
+        "r": {
+          "name": "Tempête magnétique",
+          "description_fr": "Rell attire les ennemis autour d'elle puis les attire continuellement pendant quelques secondes, leur infligeant des dégâts magiques."
+        }
+      },
+      "coverage": {
+        "ability_names": "client_verified",
+        "passive_summary": "client_paraphrase",
+        "active_ability_descriptions": "client_screenshot_curated",
+        "numeric_values": "not_yet_certified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "11109",
+      "champion": "Skarner",
+      "riotId": "Skarner",
+      "source": {
+        "type": "user_wild_rift_client_screenshots_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/skarner/",
+        "checkedOn": "2026-11-07",
+        "archive": "Champ.zip"
+      },
+      "kit": {
+        "passive": {
+          "name": "Échos des vibrations",
+          "summary_fr": "Les attaques et compétences concernées appliquent des cumuls de Tectonique. À trois cumuls, la cible subit des dégâts magiques selon ses PV max au fil du temps.",
+          "mechanics_from_passive": [
+            "magic_damage",
+            "max_hp_damage",
+            "damage_over_time"
+          ]
+        },
+        "q": {
+          "name": "Terre brisée",
+          "description_fr": "Skarner arrache un rocher, renforce ses attaques et lance le rocher lors d'une réactivation. Les impacts et le projectile infligent des dégâts physiques selon les PV max et ralentissent."
+        },
+        "w": {
+          "name": "Bastion sismique",
+          "description_fr": "Skarner obtient un bouclier calculé selon ses PV max, provoque un séisme qui inflige des dégâts magiques et ralentit les ennemis."
+        },
+        "e": {
+          "name": "Impact d'Ixtal",
+          "description_fr": "Charge en ignorant des obstacles, entraîne un ennemi touché et peut l'étourdir contre un mur ; la collision inflige des dégâts physiques selon les PV max de Skarner."
+        },
+        "r": {
+          "name": "Empalement",
+          "description_fr": "Skarner attaque frontalement et neutralise jusqu'à trois champions ennemis, les entraîne avec lui pendant une brève durée et gagne de la vitesse si un champion est touché."
+        }
+      },
+      "coverage": {
+        "ability_names": "client_verified",
+        "passive_summary": "client_paraphrase",
+        "active_ability_descriptions": "client_screenshot_curated",
+        "numeric_values": "not_yet_certified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "11110",
+      "champion": "Smolder",
+      "riotId": "Smolder",
+      "source": {
+        "type": "user_wild_rift_client_screenshots_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/smolder/",
+        "checkedOn": "2026-11-07",
+        "archive": "Champ.zip"
+      },
+      "kit": {
+        "passive": {
+          "name": "Dragon en herbe",
+          "summary_fr": "Les dégâts sur champions et les éliminations accumulent des effets qui améliorent progressivement les autres compétences de Smolder ; des seuils de cumul renforcent les explosions et peuvent déclencher exécution.",
+          "mechanics_from_passive": [
+            "stacking_damage",
+            "execute",
+            "scaling"
+          ]
+        },
+        "q": {
+          "name": "Boule de feu draconique",
+          "description_fr": "Crache du feu en infligeant des dégâts physiques et magiques. Avec les effets de Dragon en herbe, l'attaque peut exploser, projeter d'autres flammes, appliquer des dégâts bruts sur la durée et exécuter les cibles à faibles PV."
+        },
+        "w": {
+          "name": "Atchoum !",
+          "description_fr": "Projette une boule de flammes qui inflige des dégâts physiques et ralentit ; elle peut exploser en infligeant des dégâts supplémentaires dans une zone et accorder des cumuls de Dragon en herbe."
+        },
+        "e": {
+          "name": "Flap, flap, flap !",
+          "description_fr": "Smolder vole brièvement, gagne de la vitesse et traverse le terrain ; pendant le vol, il attaque automatiquement un ennemi proche, avec priorité aux champions révélés."
+        },
+        "r": {
+          "name": "Mamaaan !",
+          "description_fr": "La mère de Smolder lance un souffle de feu qui blesse les ennemis sur sa trajectoire et ralentit ceux proches du centre ; elle soigne Smolder si elle le touche."
+        }
+      },
+      "coverage": {
+        "ability_names": "client_verified",
+        "passive_summary": "client_paraphrase",
+        "active_ability_descriptions": "client_screenshot_curated",
+        "numeric_values": "not_yet_certified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10024",
+      "champion": "Syndra",
+      "riotId": "Syndra",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/syndra/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Transcendance",
+          "summary_fr": "Accumule des éclats en touchant avec ses sorts et en montant ses compétences, puis renforce ses sorts.",
+          "mechanics_from_passive": [
+            "spell_hit_scaling",
+            "late_power"
+          ]
+        },
+        "q": {
+          "name": "Sphère noire",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Force de la volonté",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Dispersion des faibles",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Déchaînement de puissance",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "11111",
+      "champion": "Taliyah",
+      "riotId": "Taliyah",
+      "source": {
+        "type": "user_wild_rift_client_screenshots_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/taliyah/",
+        "checkedOn": "2026-11-07",
+        "archive": "Champ.zip"
+      },
+      "kit": {
+        "passive": {
+          "name": "Surf tellurique",
+          "summary_fr": "Taliyah gagne de la vitesse de déplacement près des murs lorsqu'elle n'est pas en combat.",
+          "mechanics_from_passive": [
+            "mobility"
+          ]
+        },
+        "q": {
+          "name": "Rafale filée",
+          "description_fr": "Tire une série de pierres magiques en direction choisie, ralentissant les cibles et créant un sol ouvragé. Sur ce terrain, un rocher renforcé blesse et ralentit davantage."
+        },
+        "w": {
+          "name": "Poussée sismique",
+          "description_fr": "Fait surgir une zone de terre qui projette les ennemis dans la direction choisie."
+        },
+        "e": {
+          "name": "Défilage tellurique",
+          "description_fr": "Déploie des pierres infligeant des dégâts magiques et ralentissant les ennemis ; les ennemis projetés ou se ruant à travers les pierres subissent des explosions pouvant les étourdir."
+        },
+        "r": {
+          "name": "Mur de la tisseuse",
+          "description_fr": "Crée un long mur de terre qui gêne ou repousse les ennemis traversés et que Taliyah peut chevaucher pour se déplacer rapidement ; se termine après utilisation ou réactivation."
+        }
+      },
+      "coverage": {
+        "ability_names": "client_verified",
+        "passive_summary": "client_paraphrase",
+        "active_ability_descriptions": "client_screenshot_curated",
+        "numeric_values": "not_yet_certified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "11112",
+      "champion": "Vel'Koz",
+      "riotId": "VelKoz",
+      "source": {
+        "type": "user_wild_rift_client_screenshots_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/velkoz/",
+        "checkedOn": "2026-11-07",
+        "archive": "Champ.zip"
+      },
+      "kit": {
+        "passive": {
+          "name": "Décomposition organique",
+          "summary_fr": "Les compétences appliquent des effets de Décomposition ; trois cumuls consomment les marques et infligent des dégâts bruts. Les attaques de base rafraîchissent leur durée.",
+          "mechanics_from_passive": [
+            "true_damage",
+            "stacking_damage"
+          ]
+        },
+        "q": {
+          "name": "Fission du plasma",
+          "description_fr": "Projectile magique ralentissant et pouvant être séparé en deux projectiles à angle droit, permettant d'atteindre des ennemis à distance."
+        },
+        "w": {
+          "name": "Faille du Néant",
+          "description_fr": "Ouvre une faille sous les ennemis, infligeant des dégâts magiques lors de l'ouverture puis de l'explosion, avec deux charges stockables."
+        },
+        "e": {
+          "name": "Dislocation tectonique",
+          "description_fr": "Fait exploser une zone, projetant les ennemis touchés en l'air ou repoussant les ennemis proches de Vel'Koz."
+        },
+        "r": {
+          "name": "Désintégrateur de formes de vie",
+          "description_fr": "Canalise un rayon magique de longue portée et ralentit. Les ennemis ayant accumulé les marques de Décomposition subissent à la place des dégâts bruts."
+        }
+      },
+      "coverage": {
+        "ability_names": "client_verified",
+        "passive_summary": "client_paraphrase",
+        "active_ability_descriptions": "client_screenshot_curated",
+        "numeric_values": "not_yet_certified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "11113",
+      "champion": "Yunara",
+      "riotId": "Yunara",
+      "source": {
+        "type": "user_wild_rift_client_screenshots_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/yunara/",
+        "checkedOn": "2026-11-07",
+        "archive": "Champ.zip"
+      },
+      "kit": {
+        "passive": {
+          "name": "Serment aux terres premières",
+          "summary_fr": "Les coups critiques de Yunara infligent des dégâts magiques supplémentaires.",
+          "mechanics_from_passive": [
+            "critical",
+            "magic_damage"
+          ]
+        },
+        "q": {
+          "name": "Déchaînement spirituel",
+          "description_fr": "Les attaques accumulent des effets permettant d'activer temporairement une vitesse d'attaque accrue ; elles infligent alors des dégâts magiques supplémentaires et peuvent rebondir sur les ennemis."
+        },
+        "w": {
+          "name": "Arc du jugement",
+          "description_fr": "Lance un projectile magique ralentissant les ennemis traversés ; en Transe, le projectile devient un rayon infligeant des dégâts plus importants."
+        },
+        "e": {
+          "name": "Célérité des kanmei",
+          "description_fr": "Gagne brièvement de la vitesse de déplacement et se repositionne ; en Transe, la compétence devient une ruée améliorée."
+        },
+        "r": {
+          "name": "Transe",
+          "description_fr": "Yunara entre dans une forme temporaire qui renforce ses compétences de base et réduit certains délais de récupération, avec une puissance offensive accrue."
+        }
+      },
+      "coverage": {
+        "ability_names": "client_verified",
+        "passive_summary": "client_paraphrase",
+        "active_ability_descriptions": "client_screenshot_curated",
+        "numeric_values": "not_yet_certified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "10039",
+      "champion": "Zed",
+      "riotId": "Zed",
+      "source": {
+        "type": "riot_wild_rift_official_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/zed/",
+        "checkedOn": "2026-11-06"
+      },
+      "kit": {
+        "passive": {
+          "name": "Mépris des faibles",
+          "summary_fr": "Ses attaques infligent des dégâts magiques additionnels aux cibles déjà affaiblies.",
+          "mechanics_from_passive": [
+            "execute_pressure",
+            "mixed_instance_magic_damage"
+          ]
+        },
+        "q": {
+          "name": "Shuriken-rasoir",
+          "description_fr": null
+        },
+        "w": {
+          "name": "Ombre vivante",
+          "description_fr": null
+        },
+        "e": {
+          "name": "Taillade des ombres",
+          "description_fr": null
+        },
+        "r": {
+          "name": "Marque de la mort",
+          "description_fr": null
+        }
+      },
+      "coverage": {
+        "ability_names": "official_confirmed",
+        "passive_summary": "official_paraphrase",
+        "active_ability_descriptions": "not_yet_verified",
+        "numeric_values": "not_yet_verified",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "11114",
+      "champion": "Zilean",
+      "riotId": "Zilean",
+      "source": {
+        "type": "user_wild_rift_client_screenshots_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/zilean/",
+        "checkedOn": "2026-11-07",
+        "archive": "Champ.zip"
+      },
+      "kit": {
+        "passive": {
+          "name": "Temps dans une bouteille",
+          "summary_fr": "Stocke de l'expérience au fil du temps et peut la transférer à un allié proche lorsque cela suffit à lui faire gagner un niveau. L'opération peut être interrompue.",
+          "mechanics_from_passive": [
+            "ally_experience",
+            "utility"
+          ]
+        },
+        "q": {
+          "name": "Bombe à retardement",
+          "description_fr": "Attache une bombe à une cible ; après un délai, elle explose et inflige des dégâts magiques de zone. Une deuxième bombe sur la même cible déclenche l'explosion prématurément et étourdit les ennemis."
+        },
+        "w": {
+          "name": "Flux temporel torturé",
+          "description_fr": "Accélère Zilean ou un allié, octroie un bouclier et amplifie la vitesse de déplacement ; récompenser les projectiles permet d'améliorer la protection."
+        },
+        "e": {
+          "name": "Mirage temporel",
+          "description_fr": "Crée une zone où les champions ennemis sont ralentis et leurs projectiles sont ralentis."
+        },
+        "r": {
+          "name": "Retour temporel",
+          "description_fr": "Place sur Zilean ou un champion allié une protection temporaire contre la mort. Si la cible subit des dégâts mortels, elle est réanimée et récupère des PV."
+        }
+      },
+      "coverage": {
+        "ability_names": "client_verified",
+        "passive_summary": "client_paraphrase",
+        "active_ability_descriptions": "client_screenshot_curated",
+        "numeric_values": "not_yet_certified",
         "wildRiftOnly": true
       },
       "allowedForEngine": false
