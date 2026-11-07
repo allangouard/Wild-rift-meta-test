@@ -1,0 +1,76 @@
+/* WRDI — Esport Premium / Étape 1 — couche visuelle non intrusive.
+   Ne touche ni aux données, ni aux calculs, ni aux identifiants DOM du moteur. */
+:root{
+ --ep-bg:#091620;--ep-panel:#112936;--ep-panel-raised:#183644;
+ --ep-line:#30505f;--ep-text:#eff8fa;--ep-muted:#b4cbd2;
+ --ep-teal:#6fe2d2;--ep-gold:#d8b978;--ep-danger:#ef8087;
+ font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+ color:var(--ep-text);background:var(--ep-bg);
+}
+html{scroll-behavior:smooth}
+body{background:radial-gradient(ellipse at 50% -160px,rgba(58,143,146,.23),transparent 520px),var(--ep-bg);min-height:100dvh}
+header{background:linear-gradient(115deg,#102e3a,#0c202d 68%);border-bottom:1px solid #355963;padding:21px 16px 19px}
+header .inner{max-width:950px}
+.wrdi-brand-eyebrow{display:block;margin-bottom:6px;color:var(--ep-teal);font-size:10px;font-weight:800;letter-spacing:.18em}
+header h1{font-size:clamp(22px,5.6vw,32px);font-weight:850;letter-spacing:-.045em;margin:0 0 5px}
+header h1 .wrdi-brand-accent{color:var(--ep-gold)}
+header p{font-size:12px;color:var(--ep-muted);margin:0}
+main{padding:18px 13px 64px}
+.card{background:linear-gradient(150deg,rgba(24,55,68,.97),rgba(15,39,52,.98));border:1px solid var(--ep-line);border-radius:20px;padding:17px;box-shadow:0 12px 34px rgba(0,0,0,.12)}
+.card h2{font-size:20px;letter-spacing:-.025em;margin:0 0 8px}
+.muted,.caption{color:var(--ep-muted)}
+.team h3{font-size:14px;letter-spacing:.015em}
+.team.ally h3{color:var(--ep-teal)}
+.team.enemy h3{color:var(--ep-danger)}
+.draft-grid{gap:11px}
+.wrdi-slot{background:var(--ep-panel);border:1px solid #355563;border-radius:14px;min-height:70px;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+.wrdi-slot.selected{border-color:#55b8aa;background:#1b3c49}
+.wrdi-slot:focus-visible,.wrdi-champion-card:focus-visible,button:focus-visible,.wrdi-filter-chip:focus-visible{outline:3px solid var(--ep-gold);outline-offset:3px}
+.wrdi-slot-name{color:var(--ep-text);font-weight:750}
+.wrdi-slot-role{color:var(--ep-muted);font-size:10px}
+.wrdi-slot-plus{border-color:#638995;color:var(--ep-teal)}
+.actions{margin-top:18px}
+button{touch-action:manipulation}
+button.primary{background:linear-gradient(110deg,#79e7d6,#4ccab7);color:#092b30;border-color:#68dfce;box-shadow:0 6px 24px rgba(91,214,190,.15);font-weight:800}
+button.secondary{background:#163341;border-color:#4c6e79}
+button:not(:disabled):active{transform:translateY(1px)}
+.notice{line-height:1.5}
+#wrdi-result:empty{display:none}
+.result-section{border-top-color:#355763}
+.result-section h3{color:#edf9f9}
+.build-list{list-style:decimal}
+.build-item{padding:12px 0;border-bottom-color:#30515e}
+.build-item::marker{color:var(--ep-gold)}
+.item-icon{width:50px;height:50px;border:1px solid #4e727d;border-radius:11px;background:#173440}
+.item-name{color:#f3faf9}
+.alternative{border-left-color:var(--ep-gold);background:rgba(216,185,120,.045);border-radius:0 9px 9px 0}
+.wrdi-swap-card{background:linear-gradient(135deg,#1b3c4a,#112c39);border-color:#426470}
+.wrdi-swap-condition{border-left-color:var(--ep-gold)}
+.wrdi-rune-keystone{background:#1c3b49;border-color:#496b77}
+.wrdi-rune-kicker{color:var(--ep-gold)}
+.wrdi-rune-note{border-left-color:var(--ep-teal)}
+.wrdi-picker-sheet{background:#0b202b;border-color:#476e7a}
+.wrdi-picker-sticky{background:#102c38;border-color:#3b5d68}
+.wrdi-picker-overline{color:var(--ep-gold)}
+.wrdi-picker-search{background:#183744;border-color:#5b7f8a}
+.wrdi-filter-chip.active{background:var(--ep-teal);border-color:var(--ep-teal);color:#092c30}
+.wrdi-champion-card{background:#173744;border-color:#375967}
+.wrdi-champion-card:active{border-color:var(--ep-teal)}
+footer{color:#8fabb5;line-height:1.5}
+@media(max-width:430px){
+ main{padding:13px 10px 50px}
+ .card{padding:12px;border-radius:16px}
+ .draft-grid{gap:8px}
+ .wrdi-slot{padding:7px;gap:7px;min-height:64px}
+ .slot-portrait,.wrdi-slot-plus{width:40px;height:40px}
+ .wrdi-slot-name{font-size:12px}
+ .team h3{font-size:13px}
+}
+@media(max-width:350px){
+ .draft-grid{grid-template-columns:1fr}
+ .wrdi-slot{min-height:54px}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ button:not(:disabled):active{transform:none}
+}
