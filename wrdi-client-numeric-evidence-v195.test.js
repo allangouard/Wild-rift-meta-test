@@ -21,6 +21,7 @@ const modules={
  clientNumericEvidence:clientModule,
  clientCombat:require('./wrdi-client-combat-v196.js'),
  fullBuildScenarios:require('./wrdi-full-build-scenarios-v197.js'),
+ passiveCoverage:require('./wrdi-passive-coverage-v199.js'),
  profiles:require('./wrdi-champion-profiles-v15.js'),
  team:require('./wrdi-galio-team-context-v1431.js'),
  guard:require('./wrdi-galio-item-guard-v1424.js'),
@@ -170,4 +171,15 @@ test('V19.8 draft comparison uses the actual recommended boots and runes',()=>{
  assert.equal(r.calculations.fullBuildScenarios.bootsIncluded,true);
  assert.equal(r.calculations.fullBuildScenarios.keystoneIncluded,true);
  assert.equal(r.calculations.fullBuildScenarios.winner.scenarios.length,3);
+});
+
+test('V19.9 integrates all client passive records in a real Galio draft',()=>{
+ const r=analyze({id:'V199-full-passives',
+  allies:['Ornn','Amumu','Galio','Caitlyn','Leona'],
+  enemies:["Cho'Gath",'Skarner','Mel',"Kog'Maw",'Zilean']});
+ assert.equal(r.ok,true,JSON.stringify(r).slice(0,900));
+ assert.equal(r.calculations.passiveCatalogAudit?.itemCount,catalog.items.length);
+ assert.equal(r.calculations.passiveLoadoutAudit?.ok,true);
+ assert.equal(r.calculations.passiveLoadoutAudit.selectedItems.length,5);
+ assert.equal(r.calculations.passiveLoadoutAudit.unknownEffectsNotSilentlyScored,true);
 });
