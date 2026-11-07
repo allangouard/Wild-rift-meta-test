@@ -89,17 +89,19 @@ class OverlayService : Service() {
             gravity = Gravity.CENTER_VERTICAL
         }
 
-    private fun removeWindow() {
+    private fun removeWindow(keepBrowser: Boolean = false) {
         val old = window
         window = null
         params = null
         if (old != null) runCatching { manager.removeView(old) }
-        webView?.apply {
-            stopLoading()
-            loadUrl("about:blank")
-            destroy()
+        if (!keepBrowser) {
+            webView?.apply {
+                stopLoading()
+                loadUrl("about:blank")
+                destroy()
+            }
+            webView = null
         }
-        webView = null
     }
 
     private fun addWindow(view: View, width: Int, height: Int, focusable: Boolean) {
@@ -157,7 +159,8 @@ class OverlayService : Service() {
     }
 
     private fun showBubble() {
-        removeWindow()
+        webView?.let { browser -> (browser.parent as? android.view.ViewGroup)?.removeView(browser) }
+        removeWindow(keepBrowser = true)
         expanded = false
         val bubble = TextView(this).apply {
             text = "⚔"
@@ -172,7 +175,7 @@ class OverlayService : Service() {
     }
 
     private fun showPanel() {
-        removeWindow()
+        removeWindow(keepBrowser = true)
         expanded = true
         val root = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
@@ -206,7 +209,7 @@ class OverlayService : Service() {
             LinearLayout.LayoutParams(dp(43), dp(41)))
         root.addView(header)
 
-        val browser = WebView(this).apply {
+        val browser = webView ?: WebView(this).apply {
             setBackgroundColor(Color.rgb(9, 27, 38))
             settings.javaScriptEnabled = true
             settings.domStorageEnabled = true
@@ -279,6 +282,7 @@ class OverlayService : Service() {
             loadUrl(APP_URL)
         }
         webView = browser
+        (browser.parent as? android.view.ViewGroup)?.removeView(browser)
         root.addView(browser, LinearLayout.LayoutParams(-1, 0, 1f))
         val width = min(dp(355), resources.displayMetrics.widthPixels - dp(20))
         val height = min(dp(590), resources.displayMetrics.heightPixels - dp(90))
