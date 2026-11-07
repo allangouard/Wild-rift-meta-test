@@ -55,6 +55,30 @@ function clearChampion(slot){
  $('wrdi-result').replaceChildren();
  status('Case libérée · '+picks.filter(Boolean).length+'/10 champions.','good');
 }
+const HISTORY_KEY='wrdi_v159_history';
+function saveHistory(result){
+ try{
+  const entries=JSON.parse(localStorage.getItem(HISTORY_KEY)||'[]');
+  const list=Array.isArray(entries)?entries:[];
+  const saved={id:Date.now().toString(36),at:new Date().toISOString(),picks:picks.slice(),
+   names:picks.map(id=>data.champions[String(id)]||''),patch:String(result.patch||'')};
+  const deduplicated=list.filter(e=>Array.isArray(e?.picks)&&e.picks.join(',')!==saved.picks.join(','));
+  localStorage.setItem(HISTORY_KEY,JSON.stringify([saved,...deduplicated].slice(0,20)));
+  window.dispatchEvent(new CustomEvent('wrdi:history-updated'));
+ }catch(e){console.warn('Historique local indisponible',e);}
+}
+window.addEventListener('wrdi:restore-draft',event=>{
+ if(!data.ready)return;
+ const saved=event.detail?.picks;
+ if(!Array.isArray(saved)||saved.length!==10||String(saved[2])!=='10099')return;
+ const ids=saved.map(String);
+ if(ids.some(id=>id&&!data.champions[id]))return;
+ const active=ids.filter(Boolean);
+ if(new Set(active).size!==active.length)return;
+ epoch++;picks=ids;localStorage.setItem(STORAGE,JSON.stringify(picks));
+ renderSlots();$('wrdi-result').replaceChildren();
+ status('Draft restaurée : lance une nouvelle analyse avec les données actuelles.','good');
+});
 function showResults(result){
  const box=$('wrdi-result');box.replaceChildren();
  const headline=el('h2',null,'Recommandation Galio · Mid');box.append(headline);
@@ -195,7 +219,7 @@ go.addEventListener('click',()=>{
    const r=root.WRDI_DraftEngineV15.analyze({picks,champions:data.champions,
     catalog:data.catalog,rules:data.rules,runes:data.runes,championMeta:data.championList,
     officialKits:data.officialKits,reviewedKits:data.reviewedKits,modules:mod});
-   if(r.ok){showResults(r);status('Analyse terminée. Une seule recommandation, préparée avant la partie.','good');}
+   if(r.ok){showResults(r);saveHistory(r);status('Analyse terminée. Une seule recommandation, préparée avant la partie.','good');}
    else{$('wrdi-result').replaceChildren();status(r.reason,'warning');}
   }catch(e){$('wrdi-result').replaceChildren();status('Calcul interrompu : '+String(e?.message||e),'warning');}
   finally{go.disabled=false;}
