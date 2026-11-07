@@ -8,8 +8,8 @@ const client=require('./data/champions-picker-v151.json');
 test('official Wild Rift kit batch is sourced and names all five skills',()=>{
  const compiled=reference.prepare(data);
  assert.equal(compiled.ok,true,compiled.reason);
- assert.equal(compiled.size,36);
- assert.equal(new Set(data.profiles.map(x=>x.id)).size,36);
+ assert.equal(compiled.size,37);
+ assert.equal(new Set(data.profiles.map(x=>x.id)).size,37);
  for(const p of data.profiles){
   if(p.source.type==='user_wild_rift_client_screenshots_fr')assert.equal(p.source.type,'user_wild_rift_client_screenshots_fr');
   else assert.equal(p.source.type,'riot_wild_rift_official_fr');
