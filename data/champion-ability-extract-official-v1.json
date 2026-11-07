@@ -3,11 +3,11 @@
   "date": "2026-11-06",
   "source": "https://wildrift.leagueoflegends.com/fr-fr/champions/",
   "coverage": {
-    "attempted": 141,
-    "extracted": 141,
+    "attempted": 142,
+    "extracted": 142,
     "failed": 0
   },
-  "restrictions": "Full official skill descriptions kept; numeric ratios and patch validity not automatically confirmed; Hwei descriptions from Wild Rift player screenshots, not the Riot website extraction; Aurora descriptions from client screenshots 2026-11-07, not Riot website extraction; 14 additional champion records are paraphrased from user-provided Wild Rift screenshots, not Riot website extractions; Nidalee Cougar variants partially documented.",
+  "restrictions": "Full official skill descriptions kept; numeric ratios and patch validity not automatically confirmed; Hwei descriptions from Wild Rift player screenshots, not the Riot website extraction; Aurora descriptions from client screenshots 2026-11-07, not Riot website extraction; 14 additional champion records are paraphrased from user-provided Wild Rift screenshots, not Riot website extractions; Nidalee Cougar variants partially documented.; Bard sourced from player client screenshots, patch version not visible, numeric calculations disabled",
   "entries": [
     {
       "id": "10002",
@@ -712,6 +712,89 @@
       "numericRatiosPartiallyVerified": true,
       "allowedForScoring": false,
       "numericUse": "client_screenshots_structured_but_not_yet_approved_for_direct_combat_calculation"
+    },
+    {
+      "id": "11115",
+      "name": "Bard",
+      "source_url": "https://wildrift.leagueoflegends.com/fr-fr/champions/bard/",
+      "source_type": "player_client_tooltips_not_official_website_extraction",
+      "source_detail": "user_wild_rift_client_screenshots_2026_11_07",
+      "skills": {
+        "passive": {
+          "name": "INSTINCT DU VOYAGEUR",
+          "description_fr": "Bard collecte des carillons sur la carte et obtient de la vitesse de déplacement hors combat, de l'expérience et du mana. Il invoque des Meeps pour renforcer sa prochaine attaque avec des dégâts magiques. Selon le nombre de carillons collectés, les Meeps ralentissent les ennemis et infligent des dégâts dans une zone derrière la cible.",
+          "excerpt_fr": "Bard collecte des carillons sur la carte et obtient de la vitesse de déplacement hors combat, de l'expérience et du mana. Il invoque des",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "magic_damage",
+            "slow",
+            "scaling",
+            "movement_speed",
+            "mana_restore",
+            "experience_gain"
+          ]
+        },
+        "q": {
+          "name": "LIEN COSMIQUE",
+          "description_fr": "Bard tire un projectile qui inflige des dégâts magiques et ralentit le premier ennemi touché. Le projectile continue derrière la cible ; s'il touche un deuxième ennemi ou un mur, les ennemis concernés sont étourdis. L'étourdissement est conditionnel au second impact ou au terrain.",
+          "excerpt_fr": "Bard tire un projectile qui inflige des dégâts magiques et ralentit le premier ennemi touché. Le projectile continue derrière la cible ; s'il touche",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "magic_damage",
+            "slow",
+            "conditional_stun",
+            "hard_control",
+            "terrain_interaction"
+          ]
+        },
+        "w": {
+          "name": "DON DU GARDIEN",
+          "description_fr": "Bard crée un sanctuaire de soins qui grandit pendant cinq secondes. Le sanctuaire soigne le premier champion allié qui le ramasse et lui octroie de la vitesse de déplacement. Il peut conserver deux charges et jusqu'à trois sanctuaires actifs. Un champion ennemi peut détruire un sanctuaire en marchant dessus.",
+          "excerpt_fr": "Bard crée un sanctuaire de soins qui grandit pendant cinq secondes. Le sanctuaire soigne le premier champion allié qui le ramasse et lui octroie",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "ally_healing",
+            "movement_speed",
+            "charge_system",
+            "sanctuary",
+            "counterplay_destroyable"
+          ]
+        },
+        "e": {
+          "name": "ROUTE MAGIQUE",
+          "description_fr": "Bard ouvre pendant dix secondes un portail à sens unique dans un élément de décor. Les alliés et les ennemis peuvent traverser le portail ; les alliés de Bard le traversent cinquante pour cent plus vite que les ennemis. Cette compétence permet les rotations et les déplacements à travers le terrain.",
+          "excerpt_fr": "Bard ouvre pendant dix secondes un portail à sens unique dans un élément de décor. Les alliés et les ennemis peuvent traverser le portail",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "portal",
+            "terrain_mobility",
+            "team_rotation"
+          ]
+        },
+        "r": {
+          "name": "DESTIN TEMPÉRÉ",
+          "description_fr": "Bard projette une énergie protectrice dans une zone, mettant en stase toutes les unités et tous les bâtiments touchés pendant deux virgule cinq secondes. La stase rend les cibles invulnérables, impossibles à cibler et incapables d'agir. Elle n'accorde pas de bouclier et peut également toucher des alliés.",
+          "excerpt_fr": "Bard projette une énergie protectrice dans une zone, mettant en stase toutes les unités et tous les bâtiments touchés pendant deux virgule cinq secondes.",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "stasis",
+            "aoe_control",
+            "invulnerability",
+            "untargetability",
+            "structure_interaction"
+          ]
+        }
+      },
+      "confidence": "client_screenshots_5_slots_complete_ability_descriptions",
+      "currentPatchVerified": false,
+      "numericRatiosVerified": false,
+      "allowedForScoring": false,
+      "clientScreenshotData": "data/bard-client-abilities-v194.json"
     },
     {
       "id": "10033",
