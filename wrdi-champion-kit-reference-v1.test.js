@@ -18,11 +18,11 @@ test('official Wild Rift kit batch is sourced and names all five skills',()=>{
   if(p.champion==='Hwei')assert.equal(p.coverage.numeric_values,'client_visible_partial_except_ee_damage_conflict_with_7_3b');
   else if(p.champion==='Aurora')assert.equal(p.coverage.numeric_values,'partially_client_verified_patch_not_visible');
   else assert.equal(p.coverage.numeric_values,'not_yet_verified');
-  if(p.champion==='Hwei')assert.equal(p.coverage.active_ability_descriptions,'client_screenshots');
+  if(['Hwei','Aurora'].includes(p.champion))assert.equal(p.coverage.active_ability_descriptions,'client_screenshots');
   else assert.equal(p.coverage.active_ability_descriptions,'not_yet_verified');
   assert.equal(p.allowedForEngine,false);
   for(const k of ['q','w','e','r']){
-   if(p.champion==='Hwei')assert.ok(p.kit[k].description_fr.length>25);
+   if(['Hwei','Aurora'].includes(p.champion))assert.ok(p.kit[k].description_fr.length>25);
    else assert.equal(p.kit[k].description_fr,null);
   }
  }
