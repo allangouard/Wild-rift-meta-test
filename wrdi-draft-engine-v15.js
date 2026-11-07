@@ -267,9 +267,12 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
    .map(x=>x.ids.map(id=>byId.get(id))).filter(x=>x.every(Boolean));
   const bootRecord=(bootsCatalog?.records||[]).find(x=>x.name_fr===boots?.recommended?.name)||null;
   const runeRecord=[...(runes?.fundamental||[])].find(x=>x.name_fr===rune?.page?.keystone)||null;
+  const selectedMinorNames=[...(rune?.page?.primary||[]),rune?.page?.secondary].filter(Boolean);
+  const selectedMinors=selectedMinorNames.map(name=>
+   (runes?.minor||[]).find(x=>x.name_fr===name)).filter(Boolean);
   const combined=m.fullBuildScenarios.compare({
    primaryItems:chosen,candidateBuilds:options,combatModel,threats:need,
-   boots:bootRecord,keystone:runeRecord
+   boots:bootRecord,keystone:runeRecord,minorRunes:selectedMinors
   });
   if(combined?.ok)fullBuildScenarios=combined;
  }
