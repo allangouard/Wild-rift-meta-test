@@ -68,7 +68,7 @@ function showResults(result){
   const section=el('details','details');
   section.append(el('summary',null,'Valeurs et ratios relevés sur le client Wild Rift · V19.5'));
   section.append(el('p','muted',c.count+'/10 champions de cette draft ont des fiches complémentaires : '+
-   c.rankRows+' lignes de tableaux, '+c.rankValues+' valeurs par rang et '+c.tooltipSlots+' infobulles analysées.'));
+   c.rankRows+' lignes de tableaux, '+c.rankValues+' valeurs par rang, '+c.observedCoefficients+' coefficients et '+c.tooltipSlots+' infobulles analysées.'));
   section.append(el('p','caption','Ces tableaux sont relevés sur les captures du 7 novembre 2026. Le patch exact n’est pas visible ; ils ne sont pas utilisés pour simuler des dégâts certifiés.'));
   if(data.clientEvidence?.ok)for(const name of c.champions){
    const rec=data.clientEvidence.getChampion(name);if(!rec)continue;
@@ -78,8 +78,12 @@ function showResults(result){
     section.append(el('p','caption',slot.toUpperCase()+' · capture n°'+skill.sourceImageIndex+' · '+
      rows.map(([key,v])=>key.replace(/_/g,' ')+' : '+v.values.join(' / ')).join(' ; ')));
    }
-   const passive=rec.tooltipFacts.passive?.clientDescriptionFacts?.[0];
-   if(passive)section.append(el('p','muted','Passif : '+passive));
+   for(const [slot,fact] of Object.entries(rec.tooltipFacts)){
+    const ratios=(fact.observedCoefficients||[]).map(x=>
+     x.component.replace(/_/g,' ')+' : '+(x.coefficient*100).toLocaleString('fr-FR')+' % '+x.stat).join(' ; ');
+    section.append(el('p','caption',slot.toUpperCase()+' · description capture n°'+fact.sourceImageIndex+
+     ' · '+fact.clientDescriptionFacts.join(' ') + (ratios?' · Ratios affichés au rang 1 : '+ratios:'')));
+   }
   }
   box.append(section);
  }
