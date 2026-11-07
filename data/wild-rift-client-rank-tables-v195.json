@@ -1,0 +1,2003 @@
+{
+  "schema": "wrdi.wild_rift_client_rank_tables.v195",
+  "sourceArchive": "Champ.zip",
+  "screenshotIndexBasis": "1_based_JPEG_order_in_archive",
+  "sourceDate": "2026-11-07",
+  "sourcePatchVisible": false,
+  "game": "Wild Rift mobile — not League of Legends PC",
+  "dataKind": "visually_transcribed_rank_tables",
+  "clientRowsVerifiedVisually": true,
+  "currentPatchCompatibilityValidated": false,
+  "damageSimulationApproved": false,
+  "scale": "values at indicated ability ranks only",
+  "noExtrapolation": true,
+  "champions": [
+    {
+      "name": "Cho'Gath",
+      "abilities": {
+        "q": {
+          "sourceImageIndex": 3,
+          "rankCount": 4,
+          "statRows": {
+            "base_magic_damage": {
+              "values": [
+                80,
+                135,
+                190,
+                245
+              ],
+              "sourceImageIndex": 3,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "w": {
+          "sourceImageIndex": 5,
+          "rankCount": 4,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                12,
+                11,
+                10,
+                9
+              ],
+              "sourceImageIndex": 5,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "mana_cost": {
+              "values": [
+                70,
+                80,
+                90,
+                100
+              ],
+              "sourceImageIndex": 5,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_magic_damage": {
+              "values": [
+                80,
+                130,
+                180,
+                230
+              ],
+              "sourceImageIndex": 5,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "silence_duration_s": {
+              "values": [
+                1.4,
+                1.6,
+                1.8,
+                2
+              ],
+              "sourceImageIndex": 5,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "e": {
+          "sourceImageIndex": 7,
+          "rankCount": 4,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                7,
+                6,
+                5,
+                4
+              ],
+              "sourceImageIndex": 7,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_magic_damage": {
+              "values": [
+                20,
+                45,
+                70,
+                95
+              ],
+              "sourceImageIndex": 7,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "target_max_hp_magic_damage_pct": {
+              "values": [
+                2.3,
+                2.7,
+                3.1,
+                3.5
+              ],
+              "sourceImageIndex": 7,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "slow_pct": {
+              "values": [
+                30,
+                35,
+                40,
+                45
+              ],
+              "sourceImageIndex": 7,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "r": {
+          "sourceImageIndex": 9,
+          "rankCount": 3,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                70,
+                60,
+                50
+              ],
+              "sourceImageIndex": 9,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_true_damage": {
+              "values": [
+                300,
+                450,
+                600
+              ],
+              "sourceImageIndex": 9,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "max_hp_per_stack": {
+              "values": [
+                80,
+                120,
+                160
+              ],
+              "sourceImageIndex": 9,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "attack_range_with_stacks": {
+              "values": [
+                4.7,
+                6.2,
+                7.7
+              ],
+              "sourceImageIndex": 9,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "K'Sante",
+      "abilities": {
+        "q": {
+          "sourceImageIndex": 12,
+          "rankCount": 4,
+          "statRows": {
+            "base_physical_damage": {
+              "values": [
+                80,
+                120,
+                160,
+                200
+              ],
+              "sourceImageIndex": 12,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "w": {
+          "sourceImageIndex": 14,
+          "rankCount": 4,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                13,
+                12,
+                11,
+                10
+              ],
+              "sourceImageIndex": 14,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "mana_cost": {
+              "values": [
+                40,
+                45,
+                50,
+                55
+              ],
+              "sourceImageIndex": 14,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_physical_damage": {
+              "values": [
+                50,
+                80,
+                110,
+                140
+              ],
+              "sourceImageIndex": 14,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_damage_to_monsters": {
+              "values": [
+                180,
+                280,
+                380,
+                480
+              ],
+              "sourceImageIndex": 14,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "e": {
+          "sourceImageIndex": 16,
+          "rankCount": 4,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                11,
+                10,
+                9,
+                8
+              ],
+              "sourceImageIndex": 16,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "mana_cost": {
+              "values": [
+                40,
+                45,
+                50,
+                55
+              ],
+              "sourceImageIndex": 16,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_shield": {
+              "values": [
+                75,
+                120,
+                165,
+                210
+              ],
+              "sourceImageIndex": 16,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "r": {
+          "sourceImageIndex": 18,
+          "rankCount": 3,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                80,
+                70,
+                60
+              ],
+              "sourceImageIndex": 18,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_physical_damage": {
+              "values": [
+                80,
+                115,
+                150
+              ],
+              "sourceImageIndex": 18,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "terrain_collision_damage": {
+              "values": [
+                80,
+                115,
+                150
+              ],
+              "sourceImageIndex": 18,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "attack_speed_bonus_pct": {
+              "values": [
+                40,
+                60,
+                80
+              ],
+              "sourceImageIndex": 18,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Kog'Maw",
+      "abilities": {
+        "q": {
+          "sourceImageIndex": 21,
+          "rankCount": 4,
+          "statRows": {
+            "base_magic_damage": {
+              "values": [
+                90,
+                150,
+                210,
+                270
+              ],
+              "sourceImageIndex": 21,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "armor_reduction_pct": {
+              "values": [
+                20,
+                24,
+                28,
+                32
+              ],
+              "sourceImageIndex": 21,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "magic_resist_reduction_pct": {
+              "values": [
+                20,
+                24,
+                28,
+                32
+              ],
+              "sourceImageIndex": 21,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "w": {
+          "sourceImageIndex": 23,
+          "rankCount": 4,
+          "statRows": {
+            "target_max_hp_magic_damage_pct": {
+              "values": [
+                1.5,
+                2.5,
+                3.5,
+                4.5
+              ],
+              "sourceImageIndex": 23,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "attack_range_bonus": {
+              "values": [
+                90,
+                120,
+                150,
+                180
+              ],
+              "sourceImageIndex": 23,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "e": {
+          "sourceImageIndex": 25,
+          "rankCount": 4,
+          "statRows": {
+            "mana_cost": {
+              "values": [
+                40,
+                50,
+                60,
+                70
+              ],
+              "sourceImageIndex": 25,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_magic_damage": {
+              "values": [
+                80,
+                130,
+                180,
+                230
+              ],
+              "sourceImageIndex": 25,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "slow_pct": {
+              "values": [
+                45,
+                50,
+                55,
+                60
+              ],
+              "sourceImageIndex": 25,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "r": {
+          "sourceImageIndex": 27,
+          "rankCount": 3,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                2,
+                1.5,
+                1
+              ],
+              "sourceImageIndex": 27,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_magic_damage": {
+              "values": [
+                80,
+                120,
+                160
+              ],
+              "sourceImageIndex": 27,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "enhanced_base_magic_damage": {
+              "values": [
+                160,
+                240,
+                320
+              ],
+              "sourceImageIndex": 27,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "attack_speed_bonus_pct": {
+              "values": [
+                10,
+                20,
+                30
+              ],
+              "sourceImageIndex": 27,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Mel",
+      "abilities": {
+        "q": {
+          "sourceImageIndex": 30,
+          "rankCount": 4,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                9,
+                8,
+                7,
+                6
+              ],
+              "sourceImageIndex": 30,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "mana_cost": {
+              "values": [
+                70,
+                80,
+                90,
+                100
+              ],
+              "sourceImageIndex": 30,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "number_of_explosions": {
+              "values": [
+                7,
+                8,
+                9,
+                10
+              ],
+              "sourceImageIndex": 30,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "damage_per_explosion": {
+              "values": [
+                11,
+                14,
+                17,
+                20
+              ],
+              "sourceImageIndex": 30,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "sum_damage_from_all_explosions": {
+              "values": [
+                77,
+                112,
+                153,
+                200
+              ],
+              "sourceImageIndex": 30,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "w": {
+          "sourceImageIndex": 32,
+          "rankCount": 4,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                38,
+                36,
+                34,
+                32
+              ],
+              "sourceImageIndex": 32,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "mana_cost": {
+              "values": [
+                60,
+                40,
+                20,
+                0
+              ],
+              "sourceImageIndex": 32,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "reflected_projectile_damage_pct": {
+              "values": [
+                40,
+                45,
+                50,
+                55
+              ],
+              "sourceImageIndex": 32,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "e": {
+          "sourceImageIndex": 34,
+          "rankCount": 4,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                11.5,
+                11,
+                10.5,
+                10
+              ],
+              "sourceImageIndex": 34,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "mana_cost": {
+              "values": [
+                50,
+                55,
+                60,
+                65
+              ],
+              "sourceImageIndex": 34,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_magic_damage": {
+              "values": [
+                55,
+                110,
+                165,
+                220
+              ],
+              "sourceImageIndex": 34,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "root_duration_s": {
+              "values": [
+                1.2,
+                1.3,
+                1.4,
+                1.5
+              ],
+              "sourceImageIndex": 34,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "damage_per_second": {
+              "values": [
+                20,
+                40,
+                60,
+                80
+              ],
+              "sourceImageIndex": 34,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "r": {
+          "sourceImageIndex": 36,
+          "rankCount": 3,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                95,
+                80,
+                65
+              ],
+              "sourceImageIndex": 36,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "passive_base_magic_damage": {
+              "values": [
+                60,
+                70,
+                80
+              ],
+              "sourceImageIndex": 36,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "passive_damage_per_accablement_stack": {
+              "values": [
+                3,
+                4,
+                5
+              ],
+              "sourceImageIndex": 36,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "active_base_magic_damage": {
+              "values": [
+                100,
+                150,
+                200
+              ],
+              "sourceImageIndex": 36,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "active_damage_per_accablement_stack": {
+              "values": [
+                4,
+                7,
+                10
+              ],
+              "sourceImageIndex": 36,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Nidalee",
+      "abilities": {
+        "q": {
+          "sourceImageIndex": 40,
+          "rankCount": 4,
+          "statRows": {
+            "mana_cost": {
+              "values": [
+                50,
+                55,
+                60,
+                65
+              ],
+              "sourceImageIndex": 40,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_magic_damage": {
+              "values": [
+                90,
+                120,
+                150,
+                180
+              ],
+              "sourceImageIndex": 40,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "max_magic_damage_by_distance": {
+              "values": [
+                225,
+                300,
+                375,
+                450
+              ],
+              "sourceImageIndex": 40,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Nocturne",
+      "abilities": {
+        "w": {
+          "sourceImageIndex": 49,
+          "rankCount": 4,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                18,
+                16,
+                14,
+                12
+              ],
+              "sourceImageIndex": 49,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "passive_attack_speed_pct": {
+              "values": [
+                35,
+                40,
+                45,
+                50
+              ],
+              "sourceImageIndex": 49,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "boosted_attack_speed_pct": {
+              "values": [
+                70,
+                80,
+                90,
+                100
+              ],
+              "sourceImageIndex": 49,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "on_block_slow_pct": {
+              "values": [
+                20,
+                25,
+                30,
+                35
+              ],
+              "sourceImageIndex": 49,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "e": {
+          "sourceImageIndex": 48,
+          "rankCount": 4,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                14,
+                13,
+                12,
+                11
+              ],
+              "sourceImageIndex": 48,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "mana_cost": {
+              "values": [
+                60,
+                65,
+                70,
+                75
+              ],
+              "sourceImageIndex": 48,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_magic_damage": {
+              "values": [
+                80,
+                140,
+                200,
+                260
+              ],
+              "sourceImageIndex": 48,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "fear_duration_s": {
+              "values": [
+                1.2,
+                1.5,
+                1.8,
+                2.1
+              ],
+              "sourceImageIndex": 48,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "r": {
+          "sourceImageIndex": 51,
+          "rankCount": 3,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                120,
+                100,
+                80
+              ],
+              "sourceImageIndex": 51,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_physical_damage": {
+              "values": [
+                150,
+                275,
+                400
+              ],
+              "sourceImageIndex": 51,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Norra",
+      "abilities": {
+        "q": {
+          "sourceImageIndex": 53,
+          "rankCount": 4,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                7.5,
+                6.5,
+                5.5,
+                4.5
+              ],
+              "sourceImageIndex": 53,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "mana_cost": {
+              "values": [
+                50,
+                55,
+                60,
+                65
+              ],
+              "sourceImageIndex": 53,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_magic_damage": {
+              "values": [
+                55,
+                110,
+                165,
+                220
+              ],
+              "sourceImageIndex": 53,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "w": {
+          "sourceImageIndex": 55,
+          "rankCount": 4,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                23,
+                22,
+                21,
+                20
+              ],
+              "sourceImageIndex": 55,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "mana_cost": {
+              "values": [
+                75,
+                80,
+                85,
+                90
+              ],
+              "sourceImageIndex": 55,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_magic_damage": {
+              "values": [
+                65,
+                105,
+                145,
+                185
+              ],
+              "sourceImageIndex": 55,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "e": {
+          "sourceImageIndex": 57,
+          "rankCount": 4,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                12,
+                10.5,
+                9,
+                7.5
+              ],
+              "sourceImageIndex": 57,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_magic_damage": {
+              "values": [
+                70,
+                120,
+                170,
+                220
+              ],
+              "sourceImageIndex": 57,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "r": {
+          "sourceImageIndex": 59,
+          "rankCount": 3,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                105,
+                95,
+                85
+              ],
+              "sourceImageIndex": 59,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_magic_damage": {
+              "values": [
+                100,
+                140,
+                180
+              ],
+              "sourceImageIndex": 59,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Rell",
+      "abilities": {
+        "q": {
+          "sourceImageIndex": 62,
+          "rankCount": 4,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                11,
+                10,
+                9,
+                8
+              ],
+              "sourceImageIndex": 62,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_magic_damage": {
+              "values": [
+                70,
+                130,
+                190,
+                250
+              ],
+              "sourceImageIndex": 62,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "w": {
+          "sourceImageIndex": 64,
+          "rankCount": 4,
+          "statRows": {
+            "base_magic_damage": {
+              "values": [
+                70,
+                100,
+                130,
+                160
+              ],
+              "sourceImageIndex": 64,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_shield": {
+              "values": [
+                30,
+                60,
+                90,
+                120
+              ],
+              "sourceImageIndex": 64,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "movement_speed_value_displayed": {
+              "values": [
+                20,
+                25,
+                30,
+                35
+              ],
+              "sourceImageIndex": 64,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "e": {
+          "sourceImageIndex": 66,
+          "rankCount": 4,
+          "statRows": {
+            "target_max_hp_damage_pct": {
+              "values": [
+                5.5,
+                6,
+                6.5,
+                7
+              ],
+              "sourceImageIndex": 66,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "r": {
+          "sourceImageIndex": 68,
+          "rankCount": 3,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                75,
+                70,
+                65
+              ],
+              "sourceImageIndex": 68,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_magic_damage": {
+              "values": [
+                120,
+                200,
+                280
+              ],
+              "sourceImageIndex": 68,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Skarner",
+      "abilities": {
+        "q": {
+          "sourceImageIndex": 96,
+          "rankCount": 4,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                6.8,
+                5.5,
+                4.3,
+                3
+              ],
+              "sourceImageIndex": 96,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_physical_damage": {
+              "values": [
+                15,
+                30,
+                45,
+                60
+              ],
+              "sourceImageIndex": 96,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "attack_speed_bonus_pct": {
+              "values": [
+                25,
+                30,
+                35,
+                40
+              ],
+              "sourceImageIndex": 96,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "max_damage_to_monsters": {
+              "values": [
+                200,
+                250,
+                300,
+                350
+              ],
+              "sourceImageIndex": 96,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "w": {
+          "sourceImageIndex": 71,
+          "rankCount": 4,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                8,
+                7,
+                6,
+                5
+              ],
+              "sourceImageIndex": 71,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "mana_cost": {
+              "values": [
+                60,
+                65,
+                70,
+                75
+              ],
+              "sourceImageIndex": 71,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_magic_damage": {
+              "values": [
+                50,
+                70,
+                90,
+                110
+              ],
+              "sourceImageIndex": 71,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "e": {
+          "sourceImageIndex": 98,
+          "rankCount": 4,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                18,
+                16,
+                14,
+                12
+              ],
+              "sourceImageIndex": 98,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "mana_cost": {
+              "values": [
+                50,
+                55,
+                60,
+                65
+              ],
+              "sourceImageIndex": 98,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_physical_damage": {
+              "values": [
+                60,
+                90,
+                120,
+                150
+              ],
+              "sourceImageIndex": 98,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "r": {
+          "sourceImageIndex": 73,
+          "rankCount": 3,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                80,
+                70,
+                60
+              ],
+              "sourceImageIndex": 73,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_magic_damage": {
+              "values": [
+                150,
+                250,
+                350
+              ],
+              "sourceImageIndex": 73,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Smolder",
+      "abilities": {
+        "q": {
+          "sourceImageIndex": 101,
+          "rankCount": 4,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                5.5,
+                5,
+                4.5,
+                4
+              ],
+              "sourceImageIndex": 101,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_physical_damage": {
+              "values": [
+                45,
+                80,
+                115,
+                150
+              ],
+              "sourceImageIndex": 101,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "w": {
+          "sourceImageIndex": 75,
+          "rankCount": 4,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                12,
+                11,
+                10,
+                9
+              ],
+              "sourceImageIndex": 75,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "mana_cost": {
+              "values": [
+                50,
+                55,
+                60,
+                65
+              ],
+              "sourceImageIndex": 75,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_physical_damage": {
+              "values": [
+                65,
+                85,
+                105,
+                125
+              ],
+              "sourceImageIndex": 75,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_explosion_damage": {
+              "values": [
+                10,
+                35,
+                60,
+                85
+              ],
+              "sourceImageIndex": 75,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "e": {
+          "sourceImageIndex": 103,
+          "rankCount": 4,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                18,
+                16,
+                14,
+                12
+              ],
+              "sourceImageIndex": 103,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_damage_per_hit": {
+              "values": [
+                15,
+                20,
+                25,
+                30
+              ],
+              "sourceImageIndex": 103,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "r": {
+          "sourceImageIndex": 105,
+          "rankCount": 3,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                80,
+                70,
+                60
+              ],
+              "sourceImageIndex": 105,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_physical_damage": {
+              "values": [
+                200,
+                300,
+                400
+              ],
+              "sourceImageIndex": 105,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "centerline_base_damage": {
+              "values": [
+                300,
+                450,
+                600
+              ],
+              "sourceImageIndex": 105,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "self_healing_base": {
+              "values": [
+                100,
+                135,
+                170
+              ],
+              "sourceImageIndex": 105,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Taliyah",
+      "abilities": {
+        "q": {
+          "sourceImageIndex": 108,
+          "rankCount": 4,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                6,
+                5,
+                4,
+                3
+              ],
+              "sourceImageIndex": 108,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_magic_damage_first_rock": {
+              "values": [
+                40,
+                60,
+                80,
+                100
+              ],
+              "sourceImageIndex": 108,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_magic_damage_worked_ground": {
+              "values": [
+                100,
+                140,
+                180,
+                220
+              ],
+              "sourceImageIndex": 108,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "slow_pct": {
+              "values": [
+                25,
+                30,
+                35,
+                40
+              ],
+              "sourceImageIndex": 108,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "w": {
+          "sourceImageIndex": 78,
+          "rankCount": 4,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                14,
+                12,
+                10,
+                8
+              ],
+              "sourceImageIndex": 78,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "e": {
+          "sourceImageIndex": 109,
+          "rankCount": 4,
+          "statRows": {
+            "base_magic_damage": {
+              "values": [
+                65,
+                120,
+                175,
+                230
+              ],
+              "sourceImageIndex": 109,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_magic_damage_explosion": {
+              "values": [
+                20,
+                35,
+                50,
+                65
+              ],
+              "sourceImageIndex": 109,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Vel'Koz",
+      "abilities": {
+        "q": {
+          "sourceImageIndex": 113,
+          "rankCount": 4,
+          "statRows": {
+            "mana_cost": {
+              "values": [
+                40,
+                45,
+                50,
+                55
+              ],
+              "sourceImageIndex": 113,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_magic_damage": {
+              "values": [
+                80,
+                135,
+                190,
+                245
+              ],
+              "sourceImageIndex": 113,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "slow_duration_s": {
+              "values": [
+                1,
+                1.5,
+                2,
+                2.5
+              ],
+              "sourceImageIndex": 113,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "mana_restored_on_kill": {
+              "values": [
+                20,
+                23,
+                26,
+                29
+              ],
+              "sourceImageIndex": 113,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "w": {
+          "sourceImageIndex": 82,
+          "rankCount": 4,
+          "statRows": {
+            "mana_cost": {
+              "values": [
+                50,
+                55,
+                60,
+                65
+              ],
+              "sourceImageIndex": 82,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "initial_base_magic_damage": {
+              "values": [
+                30,
+                60,
+                90,
+                120
+              ],
+              "sourceImageIndex": 82,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "delayed_base_magic_damage": {
+              "values": [
+                45,
+                85,
+                125,
+                165
+              ],
+              "sourceImageIndex": 82,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "charge_recharge_s": {
+              "values": [
+                16,
+                15,
+                14,
+                13
+              ],
+              "sourceImageIndex": 82,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "e": {
+          "sourceImageIndex": 114,
+          "rankCount": 4,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                13,
+                12,
+                11,
+                10
+              ],
+              "sourceImageIndex": 114,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "mana_cost": {
+              "values": [
+                50,
+                55,
+                60,
+                65
+              ],
+              "sourceImageIndex": 114,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_magic_damage": {
+              "values": [
+                70,
+                110,
+                150,
+                190
+              ],
+              "sourceImageIndex": 114,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "r": {
+          "sourceImageIndex": 84,
+          "rankCount": 3,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                80,
+                70,
+                60
+              ],
+              "sourceImageIndex": 84,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "total_base_magic_damage": {
+              "values": [
+                450,
+                625,
+                800
+              ],
+              "sourceImageIndex": 84,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Yunara",
+      "abilities": {
+        "q": {
+          "sourceImageIndex": 86,
+          "rankCount": 4,
+          "statRows": {
+            "passive_magic_damage_on_hit": {
+              "values": [
+                5,
+                10,
+                15,
+                20
+              ],
+              "sourceImageIndex": 86,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "empowered_magic_damage_on_hit": {
+              "values": [
+                5,
+                10,
+                15,
+                20
+              ],
+              "sourceImageIndex": 86,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "attack_speed_bonus_pct": {
+              "values": [
+                25,
+                35,
+                45,
+                55
+              ],
+              "sourceImageIndex": 86,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "w": {
+          "sourceImageIndex": 117,
+          "rankCount": 4,
+          "statRows": {
+            "initial_magic_damage": {
+              "values": [
+                60,
+                110,
+                160,
+                210
+              ],
+              "sourceImageIndex": 117,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "damage_per_travel_tick": {
+              "values": [
+                8,
+                14,
+                20,
+                26
+              ],
+              "sourceImageIndex": 117,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "e": {
+          "sourceImageIndex": 118,
+          "rankCount": 4,
+          "statRows": {
+            "movement_speed_pct": {
+              "values": [
+                30,
+                35,
+                40,
+                45
+              ],
+              "sourceImageIndex": 118,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "movement_speed_toward_visible_champions_pct": {
+              "values": [
+                45,
+                52.5,
+                60,
+                67.5
+              ],
+              "sourceImageIndex": 118,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "r": {
+          "sourceImageIndex": 89,
+          "rankCount": 3,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                70,
+                65,
+                60
+              ],
+              "sourceImageIndex": 89,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Zilean",
+      "abilities": {
+        "q": {
+          "sourceImageIndex": 91,
+          "rankCount": 4,
+          "statRows": {
+            "mana_cost": {
+              "values": [
+                60,
+                65,
+                70,
+                75
+              ],
+              "sourceImageIndex": 91,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_magic_damage": {
+              "values": [
+                60,
+                125,
+                190,
+                255
+              ],
+              "sourceImageIndex": 91,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "stun_duration_s": {
+              "values": [
+                1.2,
+                1.3,
+                1.4,
+                1.5
+              ],
+              "sourceImageIndex": 91,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "charge_recharge_s": {
+              "values": [
+                13.5,
+                12.5,
+                11.5,
+                10.5
+              ],
+              "sourceImageIndex": 91,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "w": {
+          "sourceImageIndex": 122,
+          "rankCount": 4,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                14.5,
+                13.5,
+                12.5,
+                11.5
+              ],
+              "sourceImageIndex": 122,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "base_shield": {
+              "values": [
+                45,
+                70,
+                95,
+                120
+              ],
+              "sourceImageIndex": 122,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "movement_speed_bonus_pct": {
+              "values": [
+                25,
+                35,
+                45,
+                55
+              ],
+              "sourceImageIndex": 122,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "e": {
+          "sourceImageIndex": 93,
+          "rankCount": 4,
+          "statRows": {
+            "slow_pct": {
+              "values": [
+                20,
+                25,
+                30,
+                35
+              ],
+              "sourceImageIndex": 93,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        },
+        "r": {
+          "sourceImageIndex": 95,
+          "rankCount": 3,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                110,
+                95,
+                80
+              ],
+              "sourceImageIndex": 95,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "mana_cost": {
+              "values": [
+                125,
+                150,
+                175
+              ],
+              "sourceImageIndex": 95,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            },
+            "revive_base_heal": {
+              "values": [
+                600,
+                850,
+                1100
+              ],
+              "sourceImageIndex": 95,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
+        }
+      }
+    }
+  ],
+  "verifiedRowCount": 149,
+  "verifiedCellCount": 561,
+  "notes": [
+    "Rank tables are faithfully transcribed but do not include every tooltip ratio, which is stored in a separate companion dataset.",
+    "Only screenshot-visible values are written: a missing row does not imply zero and a table of 3 ranks is not extended to 4.",
+    "Game client patch is not shown; do not describe the collected numbers as current or patch-certified."
+  ]
+}
