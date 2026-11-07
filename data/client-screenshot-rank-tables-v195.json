@@ -1,0 +1,1187 @@
+{
+  "schema": "wrdi.wild_rift_client_numeric_rank_tables.v195",
+  "game": "Wild Rift mobile",
+  "source": "User Champ.zip (122 original screenshots 2026-11-07)",
+  "verification": "transcribed_by_visual_reading_of_original_client_rank_tables",
+  "patchVisibility": "not visible in screenshot; do not infer 7.3d or 7.3e",
+  "approvedForNumericalCombatSimulation": false,
+  "metricRules": "Rows are direct table transcriptions only. No PC statistics, no interpolation, no hidden level scaling. Array length is actual available spell ranks. Units pct and sec are explicit.",
+  "champions": {
+    "Cho'Gath": {
+      "q": {
+        "image": 3,
+        "rows": {
+          "baseMagicDamage": [
+            80,
+            135,
+            190,
+            245
+          ]
+        }
+      },
+      "w": {
+        "image": 5,
+        "rows": {
+          "cooldownSeconds": [
+            12,
+            11,
+            10,
+            9
+          ],
+          "manaCost": [
+            70,
+            80,
+            90,
+            100
+          ],
+          "baseMagicDamage": [
+            80,
+            130,
+            180,
+            230
+          ],
+          "silenceSeconds": [
+            1.4,
+            1.6,
+            1.8,
+            2
+          ]
+        }
+      },
+      "e": {
+        "image": 7,
+        "rows": {
+          "cooldownSeconds": [
+            7,
+            6,
+            5,
+            4
+          ],
+          "baseMagicDamage": [
+            20,
+            45,
+            70,
+            95
+          ],
+          "targetMaxHpDamagePct": [
+            2.3,
+            2.7,
+            3.1,
+            3.5
+          ],
+          "slowPct": [
+            30,
+            35,
+            40,
+            45
+          ]
+        }
+      },
+      "r": {
+        "image": 9,
+        "rows": {
+          "cooldownSeconds": [
+            70,
+            60,
+            50
+          ],
+          "baseTrueDamage": [
+            300,
+            450,
+            600
+          ],
+          "bonusMaxHp": [
+            80,
+            120,
+            160
+          ],
+          "attackRangeBonus": [
+            4.7,
+            6.2,
+            7.7
+          ]
+        }
+      }
+    },
+    "K'Sante": {
+      "q": {
+        "image": 12,
+        "rows": {
+          "basePhysicalDamage": [
+            80,
+            120,
+            160,
+            200
+          ]
+        }
+      },
+      "w": {
+        "image": 14,
+        "rows": {
+          "cooldownSeconds": [
+            13,
+            12,
+            11,
+            10
+          ],
+          "manaCost": [
+            40,
+            45,
+            50,
+            55
+          ],
+          "basePhysicalDamage": [
+            50,
+            80,
+            110,
+            140
+          ],
+          "maxDamageVsMonsters": [
+            180,
+            280,
+            380,
+            480
+          ]
+        }
+      },
+      "e": {
+        "image": 16,
+        "rows": {
+          "cooldownSeconds": [
+            11,
+            10,
+            9,
+            8
+          ],
+          "manaCost": [
+            40,
+            45,
+            50,
+            55
+          ],
+          "baseShield": [
+            75,
+            120,
+            165,
+            210
+          ]
+        }
+      },
+      "r": {
+        "image": 18,
+        "rows": {
+          "cooldownSeconds": [
+            80,
+            70,
+            60
+          ],
+          "basePhysicalDamage": [
+            80,
+            115,
+            150
+          ],
+          "damageOnWallCrossing": [
+            80,
+            115,
+            150
+          ],
+          "attackSpeedBonusPct": [
+            40,
+            60,
+            80
+          ]
+        }
+      }
+    },
+    "Kog'Maw": {
+      "q": {
+        "image": 21,
+        "rows": {
+          "baseMagicDamage": [
+            90,
+            150,
+            210,
+            270
+          ],
+          "armorReductionPct": [
+            20,
+            24,
+            28,
+            32
+          ],
+          "mrReductionPct": [
+            20,
+            24,
+            28,
+            32
+          ]
+        }
+      },
+      "w": {
+        "image": 23,
+        "rows": {
+          "targetMaxHpDamagePct": [
+            1.5,
+            2.5,
+            3.5,
+            4.5
+          ],
+          "attackRangeBonus": [
+            90,
+            120,
+            150,
+            180
+          ]
+        }
+      },
+      "e": {
+        "image": 25,
+        "rows": {
+          "manaCost": [
+            40,
+            50,
+            60,
+            70
+          ],
+          "baseMagicDamage": [
+            80,
+            130,
+            180,
+            230
+          ],
+          "slowPct": [
+            45,
+            50,
+            55,
+            60
+          ]
+        }
+      },
+      "r": {
+        "image": 27,
+        "rows": {
+          "cooldownSeconds": [
+            2,
+            1.5,
+            1
+          ],
+          "baseMagicDamage": [
+            80,
+            120,
+            160
+          ],
+          "enhancedDamage": [
+            160,
+            240,
+            320
+          ],
+          "attackSpeedBonusPct": [
+            10,
+            20,
+            30
+          ]
+        }
+      }
+    },
+    "Mel": {
+      "q": {
+        "image": 30,
+        "rows": {
+          "cooldownSeconds": [
+            9,
+            8,
+            7,
+            6
+          ],
+          "manaCost": [
+            70,
+            80,
+            90,
+            100
+          ],
+          "explosionCount": [
+            7,
+            8,
+            9,
+            10
+          ],
+          "damagePerProjectile": [
+            11,
+            14,
+            17,
+            20
+          ],
+          "totalExplosionDamage": [
+            77,
+            112,
+            153,
+            200
+          ]
+        }
+      },
+      "w": {
+        "image": 32,
+        "rows": {
+          "cooldownSeconds": [
+            38,
+            36,
+            34,
+            32
+          ],
+          "manaCost": [
+            60,
+            40,
+            20,
+            0
+          ],
+          "reflectedDamagePct": [
+            40,
+            45,
+            50,
+            55
+          ]
+        }
+      },
+      "e": {
+        "image": 34,
+        "rows": {
+          "cooldownSeconds": [
+            11.5,
+            11,
+            10.5,
+            10
+          ],
+          "manaCost": [
+            50,
+            55,
+            60,
+            65
+          ],
+          "baseMagicDamage": [
+            55,
+            110,
+            165,
+            220
+          ],
+          "rootSeconds": [
+            1.2,
+            1.3,
+            1.4,
+            1.5
+          ],
+          "damagePerSecond": [
+            20,
+            40,
+            60,
+            80
+          ]
+        }
+      },
+      "r": {
+        "image": 36,
+        "rows": {
+          "cooldownSeconds": [
+            95,
+            80,
+            65
+          ],
+          "passiveOverwhelmFixedDamage": [
+            60,
+            70,
+            80
+          ],
+          "passiveOverwhelmStackDamage": [
+            3,
+            4,
+            5
+          ],
+          "activeBaseDamage": [
+            100,
+            150,
+            200
+          ],
+          "activeDamagePerStack": [
+            4,
+            7,
+            10
+          ]
+        }
+      }
+    },
+    "Nidalee": {
+      "q": {
+        "image": 40,
+        "rows": {
+          "manaCost": [
+            50,
+            55,
+            60,
+            65
+          ],
+          "baseMagicDamage": [
+            90,
+            120,
+            150,
+            180
+          ],
+          "maxRangeDamage": [
+            225,
+            300,
+            375,
+            450
+          ]
+        }
+      },
+      "w": {
+        "image": 41,
+        "rows": {},
+        "sourceKind": "description_only",
+        "note": "No four-rank table supplied in screenshot"
+      },
+      "e": {
+        "image": 42,
+        "rows": {},
+        "sourceKind": "description_only",
+        "note": "No four-rank table supplied in screenshot"
+      },
+      "r": {
+        "image": 43,
+        "rows": {},
+        "sourceKind": "description_only",
+        "note": "Cougar form detail unavailable in uploaded source"
+      }
+    },
+    "Nocturne": {
+      "q": {
+        "image": 46,
+        "rows": {},
+        "sourceKind": "description_only",
+        "note": "Visible description; no rank table supplied"
+      },
+      "w": {
+        "image": 49,
+        "rows": {
+          "cooldownSeconds": [
+            18,
+            16,
+            14,
+            12
+          ],
+          "attackSpeedBonusPct": [
+            35,
+            40,
+            45,
+            50
+          ],
+          "bonusAttackSpeedOnSpellBlockPct": [
+            70,
+            80,
+            90,
+            100
+          ],
+          "slowPct": [
+            20,
+            25,
+            30,
+            35
+          ]
+        }
+      },
+      "e": {
+        "image": 48,
+        "rows": {
+          "cooldownSeconds": [
+            14,
+            13,
+            12,
+            11
+          ],
+          "manaCost": [
+            60,
+            65,
+            70,
+            75
+          ],
+          "baseMagicDamage": [
+            80,
+            140,
+            200,
+            260
+          ],
+          "fearSeconds": [
+            1.2,
+            1.5,
+            1.8,
+            2.1
+          ]
+        }
+      },
+      "r": {
+        "image": 51,
+        "rows": {
+          "cooldownSeconds": [
+            120,
+            100,
+            80
+          ],
+          "basePhysicalDamage": [
+            150,
+            275,
+            400
+          ]
+        }
+      }
+    },
+    "Norra": {
+      "q": {
+        "image": 53,
+        "rows": {
+          "cooldownSeconds": [
+            7.5,
+            6.5,
+            5.5,
+            4.5
+          ],
+          "manaCost": [
+            50,
+            55,
+            60,
+            65
+          ],
+          "baseMagicDamage": [
+            55,
+            110,
+            165,
+            220
+          ]
+        }
+      },
+      "w": {
+        "image": 55,
+        "rows": {
+          "cooldownSeconds": [
+            23,
+            22,
+            21,
+            20
+          ],
+          "manaCost": [
+            75,
+            80,
+            85,
+            90
+          ],
+          "baseMagicDamage": [
+            65,
+            105,
+            145,
+            185
+          ]
+        }
+      },
+      "e": {
+        "image": 57,
+        "rows": {
+          "cooldownSeconds": [
+            12,
+            10.5,
+            9,
+            7.5
+          ],
+          "baseMagicDamage": [
+            70,
+            120,
+            170,
+            220
+          ]
+        }
+      },
+      "r": {
+        "image": 59,
+        "rows": {
+          "cooldownSeconds": [
+            105,
+            95,
+            85
+          ],
+          "baseMagicDamage": [
+            100,
+            140,
+            180
+          ]
+        }
+      }
+    },
+    "Rell": {
+      "q": {
+        "image": 62,
+        "rows": {
+          "cooldownSeconds": [
+            11,
+            10,
+            9,
+            8
+          ],
+          "baseMagicDamage": [
+            70,
+            130,
+            190,
+            250
+          ]
+        }
+      },
+      "w": {
+        "image": 64,
+        "rows": {
+          "baseMagicDamage": [
+            70,
+            100,
+            130,
+            160
+          ],
+          "baseShield": [
+            30,
+            60,
+            90,
+            120
+          ],
+          "movementSpeedBonus": [
+            20,
+            25,
+            30,
+            35
+          ]
+        }
+      },
+      "e": {
+        "image": 66,
+        "rows": {
+          "damageVsMaxHpPct": [
+            5.5,
+            6,
+            6.5,
+            7
+          ]
+        }
+      },
+      "r": {
+        "image": 68,
+        "rows": {
+          "cooldownSeconds": [
+            75,
+            70,
+            65
+          ],
+          "baseMagicDamage": [
+            120,
+            200,
+            280
+          ]
+        }
+      }
+    },
+    "Skarner": {
+      "q": {
+        "image": 71,
+        "rows": {
+          "cooldownSeconds": [
+            6.8,
+            5.5,
+            4.3,
+            3
+          ],
+          "basePhysicalDamage": [
+            15,
+            30,
+            45,
+            60
+          ],
+          "attackSpeedBonus": [
+            25,
+            30,
+            35,
+            40
+          ],
+          "maxDamageVsMonsters": [
+            200,
+            250,
+            300,
+            350
+          ]
+        }
+      },
+      "w": {
+        "image": 73,
+        "rows": {
+          "cooldownSeconds": [
+            8,
+            7,
+            6,
+            5
+          ],
+          "manaCost": [
+            60,
+            65,
+            70,
+            75
+          ],
+          "baseMagicDamage": [
+            50,
+            70,
+            90,
+            110
+          ]
+        }
+      },
+      "e": {
+        "image": 75,
+        "rows": {
+          "cooldownSeconds": [
+            18,
+            16,
+            14,
+            12
+          ],
+          "manaCost": [
+            50,
+            55,
+            60,
+            65
+          ],
+          "basePhysicalDamage": [
+            60,
+            90,
+            120,
+            150
+          ]
+        }
+      },
+      "r": {
+        "image": 77,
+        "rows": {
+          "cooldownSeconds": [
+            80,
+            70,
+            60
+          ],
+          "baseMagicDamage": [
+            150,
+            250,
+            350
+          ]
+        }
+      }
+    },
+    "Smolder": {
+      "q": {
+        "image": 80,
+        "rows": {
+          "cooldownSeconds": [
+            5.5,
+            5,
+            4.5,
+            4
+          ],
+          "basePhysicalDamage": [
+            45,
+            80,
+            115,
+            150
+          ]
+        }
+      },
+      "w": {
+        "image": 82,
+        "rows": {
+          "cooldownSeconds": [
+            12,
+            11,
+            10,
+            9
+          ],
+          "manaCost": [
+            50,
+            55,
+            60,
+            65
+          ],
+          "basePhysicalDamage": [
+            65,
+            85,
+            105,
+            125
+          ],
+          "explosionDamage": [
+            10,
+            35,
+            60,
+            85
+          ]
+        }
+      },
+      "e": {
+        "image": 84,
+        "rows": {
+          "cooldownSeconds": [
+            18,
+            16,
+            14,
+            12
+          ],
+          "baseDamage": [
+            15,
+            20,
+            25,
+            30
+          ]
+        }
+      },
+      "r": {
+        "image": 86,
+        "rows": {
+          "cooldownSeconds": [
+            80,
+            70,
+            60
+          ],
+          "baseDamage": [
+            200,
+            300,
+            400
+          ],
+          "centerDamage": [
+            300,
+            450,
+            600
+          ],
+          "heal": [
+            100,
+            135,
+            170
+          ]
+        }
+      }
+    },
+    "Taliyah": {
+      "q": {
+        "image": 89,
+        "rows": {
+          "cooldownSeconds": [
+            6,
+            5,
+            4,
+            3
+          ],
+          "initialMagicDamage": [
+            40,
+            60,
+            80,
+            100
+          ],
+          "secondaryDamage": [
+            100,
+            140,
+            180,
+            220
+          ],
+          "slowPct": [
+            25,
+            30,
+            35,
+            40
+          ]
+        }
+      },
+      "w": {
+        "image": 91,
+        "rows": {
+          "cooldownSeconds": [
+            14,
+            12,
+            10,
+            8
+          ]
+        }
+      },
+      "e": {
+        "image": 93,
+        "rows": {
+          "baseMagicDamage": [
+            65,
+            120,
+            175,
+            230
+          ],
+          "explosionDamage": [
+            20,
+            35,
+            50,
+            65
+          ]
+        }
+      },
+      "r": {
+        "image": 95,
+        "rows": {
+          "cooldownSeconds": [
+            100,
+            90,
+            80
+          ]
+        }
+      }
+    },
+    "Vel'Koz": {
+      "q": {
+        "image": 98,
+        "rows": {
+          "manaCost": [
+            40,
+            45,
+            50,
+            55
+          ],
+          "baseMagicDamage": [
+            80,
+            135,
+            190,
+            245
+          ],
+          "slowSeconds": [
+            1,
+            1.5,
+            2,
+            2.5
+          ],
+          "manaRestored": [
+            20,
+            23,
+            26,
+            29
+          ]
+        }
+      },
+      "w": {
+        "image": 100,
+        "rows": {
+          "manaCost": [
+            50,
+            55,
+            60,
+            65
+          ],
+          "initialMagicDamage": [
+            30,
+            60,
+            90,
+            120
+          ],
+          "secondaryMagicDamage": [
+            45,
+            85,
+            125,
+            165
+          ],
+          "chargeRecoverySeconds": [
+            16,
+            15,
+            14,
+            13
+          ]
+        }
+      },
+      "e": {
+        "image": 102,
+        "rows": {
+          "cooldownSeconds": [
+            13,
+            12,
+            11,
+            10
+          ],
+          "manaCost": [
+            50,
+            55,
+            60,
+            65
+          ],
+          "baseMagicDamage": [
+            70,
+            110,
+            150,
+            190
+          ]
+        }
+      },
+      "r": {
+        "image": 104,
+        "rows": {
+          "cooldownSeconds": [
+            80,
+            70,
+            60
+          ],
+          "totalBaseDamage": [
+            450,
+            625,
+            800
+          ]
+        }
+      }
+    },
+    "Yunara": {
+      "q": {
+        "image": 107,
+        "rows": {
+          "passiveImpactDamage": [
+            5,
+            10,
+            15,
+            20
+          ],
+          "activeImpactDamage": [
+            5,
+            10,
+            15,
+            20
+          ],
+          "attackSpeedBonusPct": [
+            25,
+            35,
+            45,
+            55
+          ]
+        }
+      },
+      "w": {
+        "image": 109,
+        "rows": {
+          "initialMagicDamage": [
+            60,
+            110,
+            160,
+            210
+          ],
+          "additionalDamage": [
+            8,
+            14,
+            20,
+            26
+          ]
+        }
+      },
+      "e": {
+        "image": 111,
+        "rows": {
+          "movementSpeedBonusPct": [
+            30,
+            35,
+            40,
+            45
+          ],
+          "maxMovementSpeedBonusPct": [
+            45,
+            52.5,
+            60,
+            67.5
+          ]
+        }
+      },
+      "r": {
+        "image": 113,
+        "rows": {
+          "cooldownSeconds": [
+            70,
+            65,
+            60
+          ]
+        }
+      }
+    },
+    "Zilean": {
+      "q": {
+        "image": 116,
+        "rows": {
+          "manaCost": [
+            60,
+            65,
+            70,
+            75
+          ],
+          "baseMagicDamage": [
+            60,
+            125,
+            190,
+            255
+          ],
+          "stunSeconds": [
+            1.2,
+            1.3,
+            1.4,
+            1.5
+          ],
+          "chargeRecoverySeconds": [
+            13.5,
+            12.5,
+            11.5,
+            10.5
+          ]
+        }
+      },
+      "w": {
+        "image": 118,
+        "rows": {
+          "cooldownSeconds": [
+            14.5,
+            13.5,
+            12.5,
+            11.5
+          ],
+          "baseShield": [
+            45,
+            70,
+            95,
+            120
+          ],
+          "movementSpeedBonusPct": [
+            25,
+            35,
+            45,
+            55
+          ]
+        }
+      },
+      "e": {
+        "image": 120,
+        "rows": {
+          "slowPct": [
+            20,
+            25,
+            30,
+            35
+          ]
+        }
+      },
+      "r": {
+        "image": 122,
+        "rows": {
+          "cooldownSeconds": [
+            110,
+            95,
+            80
+          ],
+          "manaCost": [
+            125,
+            150,
+            175
+          ],
+          "reviveHeal": [
+            600,
+            850,
+            1100
+          ]
+        }
+      }
+    }
+  }
+}
