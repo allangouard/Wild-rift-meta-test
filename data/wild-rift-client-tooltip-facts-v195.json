@@ -1,0 +1,1842 @@
+{
+  "schema": "wrdi.wild_rift_tooltip_facts.v195",
+  "game": "Wild Rift mobile",
+  "sourceArchive": "Champ.zip",
+  "sourceDate": "2026-11-07",
+  "sourceImageIndexBasis": "1_based_JPEG_order_in_archive",
+  "patchVerified": false,
+  "numericScoringApproved": false,
+  "fullTooltipTranscription": false,
+  "description": "Manually inspected client tooltip text; preserves visible rank-one scalings, passives, active triggers, and caveats without extrapolating unshown ranks.",
+  "champions": [
+    {
+      "name": "Cho'Gath",
+      "abilities": {
+        "passive": {
+          "sourceImageIndex": 1,
+          "clientDescriptionFacts": [
+            "Carnivore : tuer une unité rend 18 PV (16 + 2 × niveau) et 4,35 mana (4 + 0,35 × niveau) ; valeurs doublées pour champions/tourelles/monstres épiques."
+          ],
+          "mechanics": [
+            "self_heal",
+            "mana_restore"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
+        },
+        "q": {
+          "sourceImageIndex": 2,
+          "clientDescriptionFacts": [
+            "Rupture : 80 dégâts magiques +100 % AP ; projection 1 s et ralentissement 60 % pendant 1,5 s."
+          ],
+          "mechanics": [
+            "ap_ratio_100pct",
+            "knockup",
+            "slow"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "direct_magic_damage",
+              "stat": "ap",
+              "coefficient": 1,
+              "sourceImageIndex": 2,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "w": {
+          "sourceImageIndex": 4,
+          "clientDescriptionFacts": [
+            "Cri sauvage : 80 dégâts magiques +70 % AP ; silence, durée par rang dans tableau."
+          ],
+          "mechanics": [
+            "ap_ratio_70pct",
+            "silence"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "direct_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.7,
+              "sourceImageIndex": 4,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "e": {
+          "sourceImageIndex": 6,
+          "clientDescriptionFacts": [
+            "Piques vorpales : trois prochaines attaques ; 20 dégâts magiques +30 % AP + dégâts de PV max de cible (tableau) ; ralentissement pendant 1,5 s."
+          ],
+          "mechanics": [
+            "ap_ratio_30pct",
+            "max_hp_damage",
+            "on_hit"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "spike_base_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.3,
+              "sourceImageIndex": 6,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "r": {
+          "sourceImageIndex": 8,
+          "clientDescriptionFacts": [
+            "Festin : 300 dégâts bruts +50 % AP +10 % PV bonus de Cho'Gath sur champions ; 1 200 dégâts bruts +50 % AP +10 % PV bonus contre sbires et monstres, au rang 1. Festin octroie des cumuls augmentant ses PV et sa taille."
+          ],
+          "mechanics": [
+            "true_damage",
+            "hp_scaling",
+            "stacking"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "champion_base_true_damage",
+              "stat": "ap",
+              "coefficient": 0.5,
+              "sourceImageIndex": 8,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "champion_base_true_damage",
+              "stat": "bonus_hp",
+              "coefficient": 0.1,
+              "sourceImageIndex": 8,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "K'Sante",
+      "abilities": {
+        "passive": {
+          "sourceImageIndex": 10,
+          "clientDescriptionFacts": [
+            "Instinct intrépide : marque appliquée par compétences ; attaque sur cible marquée déclenche dégâts physiques en pourcentage des PV max ; Grand jeu modifie les dégâts. Ratios de défenses conditionnels conservés comme texte, non simulés."
+          ],
+          "mechanics": [
+            "max_hp_damage",
+            "form_condition"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
+        },
+        "q": {
+          "sourceImageIndex": 11,
+          "clientDescriptionFacts": [
+            "Coups de ntofo : 80 dégâts physiques + bonus dépendant de l'armure et de la résistance magique bonus ; ralentissement de 80 % pendant 0,5 s. Après deux cumuls, onde qui attire et étourdit pendant 0,75 s."
+          ],
+          "mechanics": [
+            "slow",
+            "conditional_pull",
+            "armor_mr_scaling"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "base_physical_damage",
+              "stat": "bonus_armor",
+              "coefficient": 0.35,
+              "sourceImageIndex": 11,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "base_physical_damage",
+              "stat": "bonus_magic_resist",
+              "coefficient": 0.35,
+              "sourceImageIndex": 11,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "w": {
+          "sourceImageIndex": 13,
+          "clientDescriptionFacts": [
+            "Pour Nazumah ! : préparation 0,3–0,75 s, réduction des dégâts reçus 30 % ; repousse l'ennemi et peut l'étourdir 0,5–1,65 s ; dégâts physiques selon PV max de la cible et défenses bonus ; Grand jeu modifie le sort."
+          ],
+          "mechanics": [
+            "damage_reduction",
+            "max_hp_damage",
+            "knockback",
+            "form_condition"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
+        },
+        "e": {
+          "sourceImageIndex": 15,
+          "clientDescriptionFacts": [
+            "Jeu de jambes : bouclier 75 +15 % PV bonus pendant 2 s ; peut aussi protéger l'allié visé."
+          ],
+          "mechanics": [
+            "ally_shield",
+            "bonus_hp_scaling"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "shield",
+              "stat": "bonus_hp",
+              "coefficient": 0.15,
+              "sourceImageIndex": 15,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "r": {
+          "sourceImageIndex": 17,
+          "clientDescriptionFacts": [
+            "Grand jeu : repousse l'ennemi et change les propriétés des compétences pendant 15 s ; collision murale et statistiques supplémentaires conditionnelles."
+          ],
+          "mechanics": [
+            "form_change",
+            "knockback"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "wall_collision_damage",
+              "stat": "bonus_hp",
+              "coefficient": 0.05,
+              "sourceImageIndex": 17,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Kog'Maw",
+      "abilities": {
+        "passive": {
+          "sourceImageIndex": 19,
+          "clientDescriptionFacts": [
+            "Surprise d'Icathia : après la mort déplacement pendant 4 s, vitesse supplémentaire jusqu'à 50 % ; explosion de dégâts bruts de zone. Valeurs exactes par niveau non listées dans un tableau."
+          ],
+          "mechanics": [
+            "true_damage",
+            "post_death"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
+        },
+        "q": {
+          "sourceImageIndex": 20,
+          "clientDescriptionFacts": [
+            "Bave caustique : 90 dégâts magiques +65 % AP et réduit à la fois armure et résistance magique de la cible."
+          ],
+          "mechanics": [
+            "ap_ratio_65pct",
+            "armor_shred",
+            "mr_shred"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "base_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.65,
+              "sourceImageIndex": 20,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "w": {
+          "sourceImageIndex": 22,
+          "clientDescriptionFacts": [
+            "Barrage bio-arcanique : attaques + dégâts magiques selon PV max de la cible : 1,5 % + coefficient AP présenté dans l'info-bulle, valeurs par rang disponibles en tableau."
+          ],
+          "mechanics": [
+            "max_hp_damage",
+            "ap_scaling"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
+        },
+        "e": {
+          "sourceImageIndex": 24,
+          "clientDescriptionFacts": [
+            "Limon du Néant : 80 dégâts magiques +55 % AP et traînée ralentissante pendant 3,5 s."
+          ],
+          "mechanics": [
+            "ap_ratio_55pct",
+            "slow"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "base_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.55,
+              "sourceImageIndex": 24,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "r": {
+          "sourceImageIndex": 26,
+          "clientDescriptionFacts": [
+            "Artillerie vivante : inflige 80 dégâts magiques +25 % AP +75 % AD bonus (rang 1) ; dégâts augmentés selon PV manquants ; révélation, coût de mana augmentant pour tirs successifs."
+          ],
+          "mechanics": [
+            "ap_ratio_25pct",
+            "bonus_ad_ratio_75pct",
+            "execute",
+            "reveal"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "base_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.25,
+              "sourceImageIndex": 26,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "base_magic_damage",
+              "stat": "bonus_ad",
+              "coefficient": 0.75,
+              "sourceImageIndex": 26,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Mel",
+      "abilities": {
+        "passive": {
+          "sourceImageIndex": 28,
+          "clientDescriptionFacts": [
+            "Luminescence incandescente : Accablement emmagasine dégâts magiques et exécute si les dégâts cumulés dépassent boucliers + PV restants ; projectiles bonus pour une attaque suivante. Ratio AP et stacks visibles au rang de base."
+          ],
+          "mechanics": [
+            "execute",
+            "magic_damage",
+            "stacking"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "stacking_accablement",
+              "stat": "ap",
+              "coefficient": 0.08,
+              "sourceImageIndex": 28,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "q": {
+          "sourceImageIndex": 29,
+          "clientDescriptionFacts": [
+            "Salve radieuse : chaque explosion 11 dégâts magiques +6 % AP ; 7 explosions au rang 1, 77 dégâts magiques +42 % AP en cas d'impact complet."
+          ],
+          "mechanics": [
+            "ap_ratio_6pct_per_hit",
+            "ap_ratio_42pct_total_rank1",
+            "multi_hit"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "magic_damage_per_explosion",
+              "stat": "ap",
+              "coefficient": 0.06,
+              "sourceImageIndex": 29,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "w": {
+          "sourceImageIndex": 31,
+          "clientDescriptionFacts": [
+            "Réfutation : renvoie les projectiles ennemis, invulnérable pendant 1 s, donne +30 % vitesse de déplacement décroissante ; dégâts renvoyés déterminés par le projectile et par le rang."
+          ],
+          "mechanics": [
+            "projectile_reflect",
+            "invulnerability"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
+        },
+        "e": {
+          "sourceImageIndex": 33,
+          "clientDescriptionFacts": [
+            "Piège solaire : impact 55 dégâts magiques +50 % AP ; immobilisation conditionnelle 1,2 s au rang 1 ; zone inflige 20 dégâts magiques +6 % AP chaque seconde."
+          ],
+          "mechanics": [
+            "ap_ratio_50pct",
+            "ap_ratio_6pct_dot",
+            "root",
+            "slow"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "impact_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.5,
+              "sourceImageIndex": 33,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "damage_per_second",
+              "stat": "ap",
+              "coefficient": 0.06,
+              "sourceImageIndex": 33,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "r": {
+          "sourceImageIndex": 35,
+          "clientDescriptionFacts": [
+            "Éclipse dorée : dégâts de base passifs 60 +8 % AP et dégâts supplémentaires par cumul d'Accablement ; activation 100 dégâts magiques +25 % AP au rang 1, plus dégâts par cumul."
+          ],
+          "mechanics": [
+            "ap_ratio_8pct_passive",
+            "ap_ratio_25pct_active",
+            "stacking"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "passive_damage",
+              "stat": "ap",
+              "coefficient": 0.08,
+              "sourceImageIndex": 35,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "active_damage",
+              "stat": "ap",
+              "coefficient": 0.25,
+              "sourceImageIndex": 35,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "active_damage_per_stack",
+              "stat": "ap",
+              "coefficient": 0.025,
+              "sourceImageIndex": 35,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Nidalee",
+      "abilities": {
+        "passive": {
+          "sourceImageIndex": 37,
+          "clientDescriptionFacts": [
+            "Prédateur : vitesse +10 % dans les hautes herbes et jusqu'à +30 % en allant vers les champions ; marque Chassée 4 s par Javelot ou Guérilla, révélation."
+          ],
+          "mechanics": [
+            "mobility",
+            "reveal"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
+        },
+        "q": {
+          "sourceImageIndex": 39,
+          "clientDescriptionFacts": [
+            "Javelot : 90 dégâts magiques +50 % AP à distance minimale ; jusqu'à 225 dégâts magiques +125 % AP selon distance parcourue."
+          ],
+          "mechanics": [
+            "ap_ratio_50pct",
+            "max_ap_ratio_125pct"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "base_javelin",
+              "stat": "ap",
+              "coefficient": 0.5,
+              "sourceImageIndex": 39,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "max_distance_javelin",
+              "stat": "ap",
+              "coefficient": 1.25,
+              "sourceImageIndex": 39,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "w": {
+          "sourceImageIndex": 41,
+          "clientDescriptionFacts": [
+            "Guérilla : piège jusqu'à 120 s ; ennemis révélés ; inflige dégâts magiques périodiques et applique la chasse. Le tableau de rangs n'est pas présent dans ces captures."
+          ],
+          "mechanics": [
+            "trap",
+            "reveal",
+            "damage_over_time"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "trap_magic_damage_per_second",
+              "stat": "ap",
+              "coefficient": 0.04,
+              "sourceImageIndex": 41,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "e": {
+          "sourceImageIndex": 42,
+          "clientDescriptionFacts": [
+            "Charge primale : soigne 40 PV +30 % AP jusqu'à 80 PV +60 % AP selon PV manquants au rang 1 ; donne +30 % de vitesse d'attaque pendant 7 s."
+          ],
+          "mechanics": [
+            "ally_healing",
+            "ap_ratio_30pct",
+            "max_ap_ratio_60pct",
+            "attack_speed"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "base_heal",
+              "stat": "ap",
+              "coefficient": 0.3,
+              "sourceImageIndex": 42,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "max_heal_when_low_hp",
+              "stat": "ap",
+              "coefficient": 0.6,
+              "sourceImageIndex": 42,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "r": {
+          "sourceImageIndex": 43,
+          "clientDescriptionFacts": [
+            "Aspect du couguar : transformation à délai indiqué 3 s ; données par rang des compétences de couguar absentes des captures. À ne pas extrapoler."
+          ],
+          "mechanics": [
+            "form_change",
+            "missing_cougar_details"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
+        }
+      }
+    },
+    {
+      "name": "Nocturne",
+      "abilities": {
+        "passive": {
+          "sourceImageIndex": 44,
+          "clientDescriptionFacts": [
+            "Lames d'ombre : attaque de zone toutes les 12 s, 65 dégâts physiques +120 % AD ; soigne Nocturne selon nombre de cibles et attaques réduisent recharge."
+          ],
+          "mechanics": [
+            "physical_damage",
+            "self_healing"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "cleave_physical_damage",
+              "stat": "total_ad",
+              "coefficient": 1.2,
+              "sourceImageIndex": 44,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "q": {
+          "sourceImageIndex": 45,
+          "clientDescriptionFacts": [
+            "Crépuscule : 60 dégâts physiques +85 % AD bonus ; traînée accordant +10 AD et +20 % vitesse au rang 1, amélioration conditionnelle."
+          ],
+          "mechanics": [
+            "bonus_ad_ratio_85pct",
+            "movement_speed"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "projectile_physical_damage",
+              "stat": "bonus_ad",
+              "coefficient": 0.85,
+              "sourceImageIndex": 45,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "w": {
+          "sourceImageIndex": 46,
+          "clientDescriptionFacts": [
+            "Linceul des ténèbres : bloque une compétence avec barrière de 1,5 s, augmente temporairement vitesse d'attaque à l'activation du blocage ; n'est pas un bouclier absorbant les dégâts ordinaires."
+          ],
+          "mechanics": [
+            "spell_shield",
+            "attack_speed"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
+        },
+        "e": {
+          "sourceImageIndex": 47,
+          "clientDescriptionFacts": [
+            "Horreur indicible : 80 dégâts magiques +100 % AP sur 2 s ; peur si la cible reste liée, ralentissement 90 % pendant 1,2 s au rang 1."
+          ],
+          "mechanics": [
+            "ap_ratio_100pct",
+            "conditional_fear"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "fear_tether_magic_damage",
+              "stat": "ap",
+              "coefficient": 1,
+              "sourceImageIndex": 47,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "r": {
+          "sourceImageIndex": 50,
+          "clientDescriptionFacts": [
+            "Paranoïa : obscurcit vision ennemie pendant 6 s, fonce vers un champion et inflige 150 dégâts physiques +120 % AD bonus au rang 1."
+          ],
+          "mechanics": [
+            "bonus_ad_ratio_120pct",
+            "nearsight"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "dash_physical_damage",
+              "stat": "bonus_ad",
+              "coefficient": 1.2,
+              "sourceImageIndex": 50,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Norra",
+      "abilities": {
+        "passive": {
+          "sourceImageIndex": 52,
+          "clientDescriptionFacts": [
+            "Reliques adorées : laisse une babiole toutes les 21 s (selon niveau) ; frappe une cible pour dégâts magiques +20 % AP, et les sorts blessants réduisent le délai de recharge de 20 %."
+          ],
+          "mechanics": [
+            "ap_ratio_20pct",
+            "trap"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "bauble_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.2,
+              "sourceImageIndex": 52,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "q": {
+          "sourceImageIndex": 53,
+          "clientDescriptionFacts": [
+            "Boîte à souvenirs : rangs de dégâts et mana documentés dans le tableau ; aucune formule de ratio AP supplémentaire n'est présumée ici."
+          ],
+          "mechanics": [
+            "magic_damage",
+            "source_table"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
+        },
+        "w": {
+          "sourceImageIndex": 54,
+          "clientDescriptionFacts": [
+            "Voyage dimensionnel : 65 dégâts magiques +40 % AP au rang 1 ; bannit les cibles pendant 1,5 s ; cibles peuvent bouger mais ne peuvent ni attaquer ni lancer de sort, ralentissement de 80 %."
+          ],
+          "mechanics": [
+            "ap_ratio_40pct",
+            "banish"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "portal_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.4,
+              "sourceImageIndex": 54,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "e": {
+          "sourceImageIndex": 56,
+          "clientDescriptionFacts": [
+            "Trame du retour : 70 dégâts magiques +60 % AP au rang 1 ; marques appliquent ralentissement 20 % pendant 2 s."
+          ],
+          "mechanics": [
+            "ap_ratio_60pct",
+            "slow"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "thread_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.6,
+              "sourceImageIndex": 56,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "r": {
+          "sourceImageIndex": 58,
+          "clientDescriptionFacts": [
+            "Afflux de portails : 100 dégâts magiques +55 % AP au rang 1 ; ralentit le premier champion de 80 % pendant 0,5 s, projectile final inflige 40 % bonus."
+          ],
+          "mechanics": [
+            "ap_ratio_55pct",
+            "multi_hit"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "projectile_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.55,
+              "sourceImageIndex": 58,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Rell",
+      "abilities": {
+        "passive": {
+          "sourceImageIndex": 60,
+          "clientDescriptionFacts": [
+            "Mise en pièces : vole temporairement 2,5 % armure et 2,5 % résistance magique pendant 5 s, attaque supplémentaire magique ; ne vole pas aux monstres épiques."
+          ],
+          "mechanics": [
+            "armor_mr_shred",
+            "magic_damage"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
+        },
+        "q": {
+          "sourceImageIndex": 61,
+          "clientDescriptionFacts": [
+            "Frappe dislocatrice : 70 dégâts magiques +50 % AP et étourdit 0,65 s ; détruit les boucliers des cibles."
+          ],
+          "mechanics": [
+            "ap_ratio_50pct",
+            "stun",
+            "shield_break"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "q_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.5,
+              "sourceImageIndex": 61,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "w": {
+          "sourceImageIndex": 63,
+          "clientDescriptionFacts": [
+            "Ferromancie : descendre en piqué : 70 dégâts magiques +50 % AP au rang 1 et projection ; bouclier initial 30 +13 % PV max de Rell qui persiste jusqu'au remontage."
+          ],
+          "mechanics": [
+            "ap_ratio_50pct",
+            "self_shield",
+            "knockup"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "crash_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.5,
+              "sourceImageIndex": 63,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "dismount_shield",
+              "stat": "max_hp",
+              "coefficient": 0.13,
+              "sourceImageIndex": 63,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "e": {
+          "sourceImageIndex": 65,
+          "clientDescriptionFacts": [
+            "Joute endiablée : bonus vitesse aux alliés et à Rell ; prochaine attaque de Rell ou Q inflige dégâts magiques de zone équivalents à 5,5 % PV max de la cible au rang 1."
+          ],
+          "mechanics": [
+            "max_hp_damage",
+            "ally_mobility"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
+        },
+        "r": {
+          "sourceImageIndex": 67,
+          "clientDescriptionFacts": [
+            "Tempête magnétique : attire et continue de déplacer les ennemis pendant 2 s ; 120 dégâts magiques +100 % AP au rang 1."
+          ],
+          "mechanics": [
+            "ap_ratio_100pct",
+            "pull"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "r_magic_damage",
+              "stat": "ap",
+              "coefficient": 1,
+              "sourceImageIndex": 67,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Skarner",
+      "abilities": {
+        "passive": {
+          "sourceImageIndex": 69,
+          "clientDescriptionFacts": [
+            "Échos des vibrations : après 3 cumuls de Tectonique, dégâts magiques sur la durée équivalents à 5–10 % des PV max ennemis (niveau dépendant)."
+          ],
+          "mechanics": [
+            "max_hp_damage",
+            "dot"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
+        },
+        "q": {
+          "sourceImageIndex": 70,
+          "clientDescriptionFacts": [
+            "Terre brisée : attaques améliorées et rocher ; dégâts physiques initiaux avec ratios AD et PV bonus ; troisième attaque / projectile ajoute 11 % PV max de cible au rang 1."
+          ],
+          "mechanics": [
+            "max_hp_damage",
+            "physical_damage"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
+        },
+        "w": {
+          "sourceImageIndex": 97,
+          "clientDescriptionFacts": [
+            "Bastion sismique : bouclier personnel de 10 % des PV max pendant 2,5 s ; 50 dégâts magiques +80 % AP et ralentissement 25 % pendant 1 s."
+          ],
+          "mechanics": [
+            "self_shield",
+            "ap_ratio_80pct",
+            "slow"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "aoe_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.8,
+              "sourceImageIndex": 97,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "self_shield",
+              "stat": "max_hp",
+              "coefficient": 0.1,
+              "sourceImageIndex": 97,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "e": {
+          "sourceImageIndex": 72,
+          "clientDescriptionFacts": [
+            "Impact d'Ixtal : charge et entraîne un ennemi ; impact 60 dégâts physiques +120 % AD bonus +6 % PV max de Skarner au rang 1 ; obstacle peut étourdir."
+          ],
+          "mechanics": [
+            "bonus_ad_ratio_120pct",
+            "max_hp_scaling",
+            "stun"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "collision_physical_damage",
+              "stat": "bonus_ad",
+              "coefficient": 1.2,
+              "sourceImageIndex": 72,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "collision_physical_damage",
+              "stat": "max_hp",
+              "coefficient": 0.06,
+              "sourceImageIndex": 72,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "r": {
+          "sourceImageIndex": 99,
+          "clientDescriptionFacts": [
+            "Empalement : attaque frontale 150 dégâts magiques +100 % AP et neutralise jusqu'à 3 champions pendant 1,5 s ; les entraîne dans le déplacement."
+          ],
+          "mechanics": [
+            "ap_ratio_100pct",
+            "suppress"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "r_magic_damage",
+              "stat": "ap",
+              "coefficient": 1,
+              "sourceImageIndex": 99,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Smolder",
+      "abilities": {
+        "passive": {
+          "sourceImageIndex": 74,
+          "clientDescriptionFacts": [
+            "Dragon en herbe : cumuls renforcent Q, W et E ; paliers observés 25, 100, 175, effets de dégâts bruts et exécution conditionnels aux cumuls."
+          ],
+          "mechanics": [
+            "stacking",
+            "true_damage_conditional"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
+        },
+        "q": {
+          "sourceImageIndex": 100,
+          "clientDescriptionFacts": [
+            "Boule de feu draconique : 45 dégâts physiques +110 % AD bonus et 30 % de dégâts magiques supplémentaires (rang 1) ; soin de mana sur élimination, effets variables à 25/100/175 cumuls."
+          ],
+          "mechanics": [
+            "bonus_ad_ratio_110pct",
+            "stacking",
+            "true_damage_conditional"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "fire_physical_damage",
+              "stat": "bonus_ad",
+              "coefficient": 1.1,
+              "sourceImageIndex": 100,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "w": {
+          "sourceImageIndex": 102,
+          "clientDescriptionFacts": [
+            "Atchoum ! : 65 dégâts physiques +60 % AD bonus au rang 1 ; explosion inflige 10 dégâts physiques +55 % AD bonus +80 % AP et composante magique supplémentaire."
+          ],
+          "mechanics": [
+            "bonus_ad_ratio_60pct",
+            "ap_ratio_80pct_explosion",
+            "aoe"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "sneeze_base_physical_damage",
+              "stat": "bonus_ad",
+              "coefficient": 0.6,
+              "sourceImageIndex": 102,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "sneeze_explosion_physical_damage",
+              "stat": "bonus_ad",
+              "coefficient": 0.55,
+              "sourceImageIndex": 102,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "sneeze_explosion_magic_component",
+              "stat": "ap",
+              "coefficient": 0.8,
+              "sourceImageIndex": 102,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "e": {
+          "sourceImageIndex": 76,
+          "clientDescriptionFacts": [
+            "Flap, flap, flap ! : vol 1,25 s, vitesse +75 %, traverse le terrain ; tirs automatiques selon proximité et vie restante de la cible, dégâts physiques et magiques."
+          ],
+          "mechanics": [
+            "mobility",
+            "physical_magic_damage"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "flight_hit_physical_damage",
+              "stat": "bonus_ad",
+              "coefficient": 0.3,
+              "sourceImageIndex": 76,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "flight_hit_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.12,
+              "sourceImageIndex": 76,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "r": {
+          "sourceImageIndex": 104,
+          "clientDescriptionFacts": [
+            "Mamaaan ! : 200 dégâts physiques +110 % AD bonus +100 % AP (rang 1) ; 300 au centre avec ratios augmentés ; soin 100 PV +50 % AD bonus +75 % AP au rang 1."
+          ],
+          "mechanics": [
+            "bonus_ad_ratio_110pct",
+            "ap_ratio_100pct",
+            "self_healing"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "r_physical_damage",
+              "stat": "bonus_ad",
+              "coefficient": 1.1,
+              "sourceImageIndex": 104,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "r_additional_component",
+              "stat": "ap",
+              "coefficient": 1,
+              "sourceImageIndex": 104,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "self_healing",
+              "stat": "bonus_ad",
+              "coefficient": 0.5,
+              "sourceImageIndex": 104,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "self_healing",
+              "stat": "ap",
+              "coefficient": 0.75,
+              "sourceImageIndex": 104,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Taliyah",
+      "abilities": {
+        "passive": {
+          "sourceImageIndex": 106,
+          "clientDescriptionFacts": [
+            "Surf tellurique : +5 % de vitesse hors combat près d'un mur, selon niveau."
+          ],
+          "mechanics": [
+            "mobility"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
+        },
+        "q": {
+          "sourceImageIndex": 77,
+          "clientDescriptionFacts": [
+            "Rafale filée : 5 pierres, chacune 40 dégâts magiques +50 % AP au rang 1 ; dégâts réduits sur tirs suivants ; sur sol ouvragé, roche 100 dégâts magiques +80 % AP."
+          ],
+          "mechanics": [
+            "ap_ratio_50pct",
+            "worked_ground_ap_ratio_80pct",
+            "multi_hit"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "first_rock_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.5,
+              "sourceImageIndex": 77,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "worked_ground_rock_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.8,
+              "sourceImageIndex": 77,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "w": {
+          "sourceImageIndex": 108,
+          "clientDescriptionFacts": [
+            "Poussée sismique : projette les ennemis dans la direction choisie ; cooldown par rang documenté sans dégâts directs annoncés."
+          ],
+          "mechanics": [
+            "displacement"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
+        },
+        "e": {
+          "sourceImageIndex": 79,
+          "clientDescriptionFacts": [
+            "Défilage tellurique : 65 dégâts magiques +55 % AP, explosions de 20 +30 % AP au rang 1 ; ralentit, étourdit sous conditions de déplacement ou projection."
+          ],
+          "mechanics": [
+            "ap_ratio_55pct",
+            "explosion_ap_ratio_30pct",
+            "anti_dash"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "field_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.55,
+              "sourceImageIndex": 79,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "explosion_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.3,
+              "sourceImageIndex": 79,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "r": {
+          "sourceImageIndex": 110,
+          "clientDescriptionFacts": [
+            "Mur de la tisseuse : mur pendant 4 s, déplacement sur mur et gêne ennemie ; aucun dégât de base n'est indiqué dans les captures."
+          ],
+          "mechanics": [
+            "wall",
+            "mobility"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
+        }
+      }
+    },
+    {
+      "name": "Vel'Koz",
+      "abilities": {
+        "passive": {
+          "sourceImageIndex": 80,
+          "clientDescriptionFacts": [
+            "Décomposition organique : compétences appliquent des cumuls ; 3 cumuls infligent 28 dégâts bruts +45 % AP au rang de référence, attaques rafraîchissent la durée."
+          ],
+          "mechanics": [
+            "true_damage",
+            "ap_ratio_45pct"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "three_stack_true_damage",
+              "stat": "ap",
+              "coefficient": 0.45,
+              "sourceImageIndex": 80,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "q": {
+          "sourceImageIndex": 112,
+          "clientDescriptionFacts": [
+            "Fission du plasma : 80 dégâts magiques +75 % AP au rang 1 ; ralentit puis peut se diviser en deux projectiles."
+          ],
+          "mechanics": [
+            "ap_ratio_75pct",
+            "slow"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "plasma_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.75,
+              "sourceImageIndex": 112,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "w": {
+          "sourceImageIndex": 81,
+          "clientDescriptionFacts": [
+            "Faille du Néant : 30 dégâts magiques +20 % AP à l'ouverture et 45 +25 % AP après un délai au rang 1 ; deux charges."
+          ],
+          "mechanics": [
+            "ap_ratio_20pct",
+            "delayed_ap_ratio_25pct"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "rift_initial_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.2,
+              "sourceImageIndex": 81,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "rift_delayed_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.25,
+              "sourceImageIndex": 81,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "e": {
+          "sourceImageIndex": 83,
+          "clientDescriptionFacts": [
+            "Dislocation tectonique : 70 dégâts magiques +30 % AP au rang 1 et projection, conditionnelle à la distance."
+          ],
+          "mechanics": [
+            "ap_ratio_30pct",
+            "knockup"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "tectonic_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.3,
+              "sourceImageIndex": 83,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "r": {
+          "sourceImageIndex": 115,
+          "clientDescriptionFacts": [
+            "Désintégrateur de formes de vie : rayon canalisé 450 dégâts magiques +125 % AP sur 2,5 s au rang 1 ; dégâts bruts si cibles marquées Sujet d'étude."
+          ],
+          "mechanics": [
+            "ap_ratio_125pct",
+            "true_damage_conditional"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "beam_total_magic_damage",
+              "stat": "ap",
+              "coefficient": 1.25,
+              "sourceImageIndex": 115,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Yunara",
+      "abilities": {
+        "passive": {
+          "sourceImageIndex": 116,
+          "clientDescriptionFacts": [
+            "Serment aux terres premières : coups critiques infligent des dégâts magiques supplémentaires égaux à 8 % par tranche de 100 AP."
+          ],
+          "mechanics": [
+            "critical",
+            "magic_damage"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
+        },
+        "q": {
+          "sourceImageIndex": 85,
+          "clientDescriptionFacts": [
+            "Déchaînement spirituel : attaques ajoutent 5 dégâts magiques +20 % AP, accumulation puis activation qui accroît vitesse d'attaque et dégâts supplémentaires, rebond conditionnel."
+          ],
+          "mechanics": [
+            "ap_ratio_20pct",
+            "stacking_attack_speed"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "passive_magic_impact",
+              "stat": "ap",
+              "coefficient": 0.2,
+              "sourceImageIndex": 85,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "w": {
+          "sourceImageIndex": 87,
+          "clientDescriptionFacts": [
+            "Arc du jugement : au rang 1, explosion de 60 dégâts magiques avec ratios de dégâts bonus et AP ; projectile ralentissant et dégâts de trajet ; forme Transe modifie le sort."
+          ],
+          "mechanics": [
+            "magic_damage",
+            "conditional_form"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "judgement_magic_damage",
+              "stat": "bonus_ad",
+              "coefficient": 0.85,
+              "sourceImageIndex": 87,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "judgement_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.5,
+              "sourceImageIndex": 87,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "judgement_tick_magic_damage",
+              "stat": "bonus_ad",
+              "coefficient": 0.12,
+              "sourceImageIndex": 87,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "judgement_tick_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.075,
+              "sourceImageIndex": 87,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "e": {
+          "sourceImageIndex": 88,
+          "clientDescriptionFacts": [
+            "Célérité des kanmei : vitesse de déplacement 30 % au rang 1 pendant 1,5 s ; jusqu'à 45 % en direction d'un champion visible ; en Transe devient ruée."
+          ],
+          "mechanics": [
+            "movement_speed",
+            "dash_conditional"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
+        },
+        "r": {
+          "sourceImageIndex": 119,
+          "clientDescriptionFacts": [
+            "Transe : transformation pendant 15 s, renforce sorts et modifie leurs délais ; aucun dégât de base n'est indiqué dans cette compétence."
+          ],
+          "mechanics": [
+            "form_change"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
+        }
+      }
+    },
+    {
+      "name": "Zilean",
+      "abilities": {
+        "passive": {
+          "sourceImageIndex": 90,
+          "clientDescriptionFacts": [
+            "Temps dans une bouteille : stocke 20 XP toutes les 5 s ; échange expérience avec allié permettant un gain de niveau, interrompu par dégâts ou contrôle."
+          ],
+          "mechanics": [
+            "xp_utility"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
+        },
+        "q": {
+          "sourceImageIndex": 120,
+          "clientDescriptionFacts": [
+            "Bombe à retardement : 60 dégâts magiques +75 % AP au rang 1 ; seconde bombe fait exploser et étourdit pendant 1,2 s ; deux charges."
+          ],
+          "mechanics": [
+            "ap_ratio_75pct",
+            "stun"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "time_bomb_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.75,
+              "sourceImageIndex": 120,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "w": {
+          "sourceImageIndex": 121,
+          "clientDescriptionFacts": [
+            "Flux temporel torturé : 45 bouclier +45 % AP au rang 1, allié peut également bénéficier d'un bouclier ; augmente vitesse de déplacement ; effet accélération des compétences conditionnel."
+          ],
+          "mechanics": [
+            "ap_ratio_45pct_shield",
+            "ally_shield"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "support_shield",
+              "stat": "ap",
+              "coefficient": 0.45,
+              "sourceImageIndex": 121,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        },
+        "e": {
+          "sourceImageIndex": 92,
+          "clientDescriptionFacts": [
+            "Mirage temporel : zone ralentissante 20 % +5 % AP au rang 1 ; ralentit également les projectiles."
+          ],
+          "mechanics": [
+            "slow",
+            "projectile_slow"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
+        },
+        "r": {
+          "sourceImageIndex": 94,
+          "clientDescriptionFacts": [
+            "Retour temporel : protection contre mort sur soi ou allié pendant 5 s ; si elle déclenche, revient à la vie avec 600 PV +200 % AP au rang 1."
+          ],
+          "mechanics": [
+            "ap_ratio_200pct_heal",
+            "revive"
+          ],
+          "sourceStatus": "user_client_tooltip_visually_read",
+          "isLiteralFullTooltip": false,
+          "patchVersionVisible": false,
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "revive_healing",
+              "stat": "ap",
+              "coefficient": 2,
+              "sourceImageIndex": 94,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "notes": [
+    "Every fact references the exact screenshot index from the supplied ZIP. These are compact transcriptions of observed facts, not exact verbatim full descriptions.",
+    "If a formula is ambiguous or partly obscured, it is not converted into numeric executable coefficients.",
+    "This file complements the all-rank tables in wild-rift-client-rank-tables-v195.json."
+  ],
+  "sourceArchiveSha256": "57d87f830d7955c9155d1bc00e8a43d66a375be55d9c78cb9b859222c7c7a505",
+  "sourceArchiveBytes": 178369883,
+  "sourceScreenshotJpegs": 122,
+  "observedCoefficientCount": 70,
+  "ratioExtractionPolicy": "Only direct explicitly visible rank-one coefficient values; conditional scaling and all-rank constancy are not inferred."
+}

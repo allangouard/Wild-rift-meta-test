@@ -12,7 +12,7 @@ const $=id=>document.getElementById(id);
 const app=$('wrdi-v15'),message=$('wrdi-message'),go=$('wrdi-analyze'),clear=$('wrdi-clear');
 const root=window;
 const data={champions:{'10099':'Galio'},championList:[],catalog:null,rules:null,runes:null,
- officialKits:null,reviewedKits:null,numericKits:null,numericPatch:null,numericClient:null,bootsCatalog:null,ready:false};
+ officialKits:null,reviewedKits:null,numericKits:null,numericPatch:null,numericClient:null,clientRankTables:null,clientTooltipFacts:null,clientEvidence:null,bootsCatalog:null,ready:false};
 let pickerUI=null;
 const snapshot=()=>{try{const v=JSON.parse(localStorage.getItem(STORAGE)||'null');return Array.isArray(v)&&v.length===10?v.map(String):Array(10).fill('')}catch{return Array(10).fill('')}};
 let picks=snapshot(),epoch=0;
@@ -63,6 +63,30 @@ function showResults(result){
  }
  const sub=el('p','muted','Wild Rift mobile · Fiches du client '+result.patch+' · Calcul qualitatif avant la partie');
  box.append(sub);
+ if(result.calculations?.clientNumericEvidence?.ok){
+  const c=result.calculations.clientNumericEvidence;
+  const section=el('details','details');
+  section.append(el('summary',null,'Valeurs et ratios relevés sur le client Wild Rift · V19.5'));
+  section.append(el('p','muted',c.count+'/10 champions de cette draft ont des fiches complémentaires : '+
+   c.rankRows+' lignes de tableaux, '+c.rankValues+' valeurs par rang, '+c.observedCoefficients+' coefficients et '+c.tooltipSlots+' infobulles analysées.'));
+  section.append(el('p','caption','Ces tableaux sont relevés sur les captures du 7 novembre 2026. Le patch exact n’est pas visible ; ils ne sont pas utilisés pour simuler des dégâts certifiés.'));
+  if(data.clientEvidence?.ok)for(const name of c.champions){
+   const rec=data.clientEvidence.getChampion(name);if(!rec)continue;
+   section.append(el('h4',null,name));
+   for(const [slot,skill] of Object.entries(rec.rankTables)){
+    const rows=Object.entries(skill.statRows);
+    section.append(el('p','caption',slot.toUpperCase()+' · capture n°'+skill.sourceImageIndex+' · '+
+     rows.map(([key,v])=>key.replace(/_/g,' ')+' : '+v.values.join(' / ')).join(' ; ')));
+   }
+   for(const [slot,fact] of Object.entries(rec.tooltipFacts)){
+    const ratios=(fact.observedCoefficients||[]).map(x=>
+     x.component.replace(/_/g,' ')+' : '+(x.coefficient*100).toLocaleString('fr-FR')+' % '+x.stat).join(' ; ');
+    section.append(el('p','caption',slot.toUpperCase()+' · description capture n°'+fact.sourceImageIndex+
+     ' · '+fact.clientDescriptionFacts.join(' ') + (ratios?' · Ratios affichés au rang 1 : '+ratios:'')));
+   }
+  }
+  box.append(section);
+ }
  if(result.draft.threatEvidence?.ok){
   const e=result.draft.threatEvidence;
   const section=el('section','result-section');
@@ -297,7 +321,7 @@ async function fetchJson(url){
 async function boot(){
  renderSlots();
  try{
-  const [catalog,rules,runes,champData,officialKits,reviewedKits,numericKits,numericPatch,numericClient,bootsCatalog]=await Promise.all([
+  const [catalog,rules,runes,champData,officialKits,reviewedKits,numericKits,numericPatch,numericClient,bootsCatalog,clientRankTables,clientTooltipFacts]=await Promise.all([
    fetchJson('./data/items-client-7.3d-v12.json'),
    fetchJson('./data/item-restrictions-client-7.3d-v12.json'),
    fetchJson('./data/rune-catalog-client-v14.json'),
@@ -307,7 +331,9 @@ async function boot(){
    fetchJson('./data/champion-ability-numeric-wiki-wr-v1.json'),
    fetchJson('./data/wr-champion-numeric-patch-overrides-v1.json'),
    fetchJson('./data/wr-client-verified-abilities-7.3d.json'),
-   fetchJson('./data/stage-a-boots-details-batch1-2026-11-05.json')
+   fetchJson('./data/stage-a-boots-details-batch1-2026-11-05.json'),
+   fetchJson('./data/wild-rift-client-rank-tables-v195.json?v=1950'),
+   fetchJson('./data/wild-rift-client-tooltip-facts-v195.json?v=1950')
   ]);
   const list=champData?.champions;
   if(!Array.isArray(list)||list.length<100)throw Error('Catalogue de champions local incomplet');
@@ -320,8 +346,15 @@ async function boot(){
    throw Error('Compétences officielles Wild Rift indisponibles ou invalides');
   data.catalog=catalog;data.rules=rules;data.runes=runes;
   const numericCheck=root.WRDI_NumericKitsV162?.prepare?.(numericKits,numericPatch,numericClient);
-  if(!numericCheck?.ok||numericCheck.count!==list.length)
-   throw Error(numericCheck?.reason||'Catalogue numérique Wild Rift indisponible');
+  // The historical Wiki WR numerical catalog covers 125 champions while
+  // the current playable roster has 142. Partial sourced numbers are allowed,
+  // but never treat a missing formula as zero or as a blocker for drafting.
+  if(!numericCheck?.ok||numericCheck.count<100||numericCheck.count>list.length)
+   throw Error(numericCheck?.reason||'Catalogue numérique Wild Rift invalide');
+  const clientEvidence=root.WRDI_ClientNumericEvidenceV195?.prepare?.(clientRankTables,clientTooltipFacts);
+  if(!clientEvidence?.ok)throw Error(clientEvidence?.reason||'Données client V19.5 inaccessibles');
+  data.clientRankTables=clientRankTables;data.clientTooltipFacts=clientTooltipFacts;
+  data.clientEvidence=clientEvidence;
   data.officialKits=officialKits;data.reviewedKits=reviewedKits;
   data.numericKits=numericKits;data.numericPatch=numericPatch;data.numericClient=numericClient;
   data.bootsCatalog=bootsCatalog;
@@ -330,7 +363,7 @@ async function boot(){
   });
   if(!pickerUI?.ok)throw Error('Sélecteur mobile indisponible');
   data.ready=true;renderSlots();go.disabled=false;
-  status(list.length+' champions · '+officialKits.entries.length+' fiches Riot Wild Rift · catalogue client chargé.','good');
+  status(list.length+' champions · '+officialKits.entries.length+' kits sourcés · '+clientEvidence.rankCells+' valeurs de rangs relevées.','good');
  }catch(e){
   go.disabled=true;status('Chargement interrompu : '+String(e?.message||e)+'. Aucune recommandation inventée.','warning');
  }
@@ -353,7 +386,8 @@ go.addEventListener('click',()=>{
   runeAdvisor:root.WRDI_GalioRuneAdvisorV1411,
   kitIntelligence:root.WRDI_OfficialKitIntelligenceV158,
   mechanicsCalculator:root.WRDI_MechanicsCalculatorV159,
-  numericEngine:root.WRDI_NumericKitsV162};
+  numericEngine:root.WRDI_NumericKitsV162,
+  clientNumericEvidence:root.WRDI_ClientNumericEvidenceV195};
  go.disabled=true;status('Analyse du build principal, de l’ordre et des situations possibles…');
  // Yield a frame so the status is visible before the local-only computation.
  setTimeout(()=>{
@@ -362,7 +396,8 @@ go.addEventListener('click',()=>{
    const r=root.WRDI_DraftEngineV15.analyze({picks,champions:data.champions,
     catalog:data.catalog,rules:data.rules,runes:data.runes,bootsCatalog:data.bootsCatalog,championMeta:data.championList,
     officialKits:data.officialKits,reviewedKits:data.reviewedKits,
-    numericKits:data.numericKits,numericPatch:data.numericPatch,numericClient:data.numericClient,modules:mod});
+    numericKits:data.numericKits,numericPatch:data.numericPatch,numericClient:data.numericClient,
+    clientRankTables:data.clientRankTables,clientTooltipFacts:data.clientTooltipFacts,modules:mod});
    if(r.ok){showResults(r);status('Analyse terminée. Une seule recommandation, préparée avant la partie.','good');}
    else{$('wrdi-result').replaceChildren();status(r.reason,'warning');}
   }catch(e){$('wrdi-result').replaceChildren();status('Calcul interrompu : '+String(e?.message||e),'warning');}
