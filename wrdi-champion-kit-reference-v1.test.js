@@ -35,12 +35,12 @@ test('all champion IDs match local Wild Rift picker; coverage exposes all pendin
  assert.equal(coverage.totalLocalChampions,client.champions.length);
  assert.equal(coverage.entries.length,client.champions.length);
  assert.equal(coverage.officialPartialProfiles,data.profiles.filter(p=>p.source.type==='riot_wild_rift_official_fr').length);
- assert.equal(coverage.clientScreenshotCompleteProfiles,15);
+ assert.equal(coverage.clientScreenshotCompleteProfiles,2);
  assert.equal(coverage.clientScreenshotPartialProfiles,1);
  assert.equal(coverage.unresearched,coverage.entries.length-data.profiles.length);
  for(const row of coverage.entries){
   assert.ok(map.has(row.id));
-  assert.equal(row.fullFiveSkillDescriptionsVerified,row.officialKitStatus==='client_screenshot_curated_5_slots'||['Hwei','Aurora'].includes(row.name));
+  assert.equal(row.fullFiveSkillDescriptionsVerified,['Hwei','Aurora'].includes(row.name));
   assert.equal(row.allRatiosAndCooldownsVerified,false);
  }
 });
