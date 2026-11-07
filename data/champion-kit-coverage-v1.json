@@ -1,7 +1,7 @@
 {
   "schema": "wrdi-champion-coverage-v1",
   "asOf": "2026-11-07",
-  "totalLocalChampions": 141,
+  "totalLocalChampions": 142,
   "officialPartialProfiles": 20,
   "unresearched": 105,
   "entries": [
@@ -105,6 +105,16 @@
       "source": "user_wild_rift_client_screenshots_2026_11_07",
       "sourceUrl": "https://wildrift.leagueoflegends.com/fr-fr/champions/aurora/",
       "unresolvedPatchConflicts": []
+    },
+    {
+      "id": "11115",
+      "name": "Bard",
+      "riotId": "Bard",
+      "officialKitStatus": "client_screenshot_curated_5_slots",
+      "fullFiveSkillDescriptionsVerified": false,
+      "fiveSlotDescriptionsSummarized": true,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "user_wild_rift_client_screenshots_2026_11_07"
     },
     {
       "id": "10033",
@@ -1297,5 +1307,5 @@
   ],
   "clientScreenshotCompleteProfiles": 2,
   "clientScreenshotPartialProfiles": 1,
-  "clientScreenshotSummarizedProfiles": 13
+  "clientScreenshotSummarizedProfiles": 14
 }
