@@ -37,7 +37,7 @@ test('published coverage makes unverified numbers and descriptions explicit',()=
  assert.equal(coverage.clientScreenshotDescriptions,16);
  assert.equal(coverage.manuallyReviewedPassiveAndNames,20);
  assert.equal(coverage.numericStatsVerified,0);
- assert.equal(coverage.fullActiveDescriptionsValidated,15);
+ assert.equal(coverage.fullActiveDescriptionsValidated,2);
  assert.ok(coverage.entries.every(x=>!x.eligibleForScoring));
 });
 test('officially sourced conditional mechanics exist without hallucinating enemy builds',()=>{
