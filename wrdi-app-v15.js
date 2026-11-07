@@ -69,7 +69,7 @@ function showResults(result){
   section.append(el('summary',null,'Valeurs et ratios relevés sur le client Wild Rift · V19.5'));
   section.append(el('p','muted',c.count+'/10 champions de cette draft ont des fiches complémentaires : '+
    c.rankRows+' lignes de tableaux, '+c.rankValues+' valeurs par rang, '+c.observedCoefficients+' coefficients et '+c.tooltipSlots+' infobulles analysées.'));
-  section.append(el('p','caption','Ces tableaux sont relevés sur les captures du 7 novembre 2026. Le patch exact n’est pas visible ; ils ne sont pas utilisés pour simuler des dégâts certifiés.'));
+  section.append(el('p','caption','Valeurs du client intégrées aux calculs de rang et aux menaces numériques. Ratios observés au rang 1 supposés stables aux autres rangs ; dégâts conditionnels avant résistances.'));
   if(data.clientEvidence?.ok)for(const name of c.champions){
    const rec=data.clientEvidence.getChampion(name);if(!rec)continue;
    section.append(el('h4',null,name));
@@ -85,6 +85,18 @@ function showResults(result){
      ' · '+fact.clientDescriptionFacts.join(' ') + (ratios?' · Ratios affichés au rang 1 : '+ratios:'')));
    }
   }
+  box.append(section);
+ }
+ if(result.calculations?.clientCombat?.ok){
+  const c=result.calculations.clientCombat;
+  const section=el('section','result-section');
+  section.append(el('h3',null,'Mécaniques client utilisées · V19.6'));
+  section.append(el('p','muted',c.rankValues+' valeurs par rang · '+c.coefficients+
+   ' ratios lus · '+c.mappedCoefficients+' ratios rattachés à une ligne de calcul dans cette draft.'));
+  section.append(el('p','muted','Adversaires : '+c.enemyMaxHpSources+' sources de dégâts en % PV, '+
+   c.enemyTrueDamageSources+' de dégâts bruts, '+c.enemyAllyHealingSources+' de soins alliés, '+
+   c.enemyAllyShieldSources+' de boucliers alliés, '+c.enemyControlSources+' de contrôles.'));
+  section.append(el('p','caption','Les effets conditionnels, ratios sans base chiffrée et statistiques des objets adverses ne sont pas supposés actifs. Les chiffres client documentés restent consultables dans les fiches.'));
   box.append(section);
  }
  if(result.draft.threatEvidence?.ok){
@@ -387,7 +399,8 @@ go.addEventListener('click',()=>{
   kitIntelligence:root.WRDI_OfficialKitIntelligenceV158,
   mechanicsCalculator:root.WRDI_MechanicsCalculatorV159,
   numericEngine:root.WRDI_NumericKitsV162,
-  clientNumericEvidence:root.WRDI_ClientNumericEvidenceV195};
+  clientNumericEvidence:root.WRDI_ClientNumericEvidenceV195,
+  clientCombat:root.WRDI_ClientCombatV196};
  go.disabled=true;status('Analyse du build principal, de l’ordre et des situations possibles…');
  // Yield a frame so the status is visible before the local-only computation.
  setTimeout(()=>{

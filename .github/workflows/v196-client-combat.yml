@@ -1,0 +1,32 @@
+name: V19.6 client numeric combat and draft regressions
+on:
+  push:
+    branches:
+      - v19-6-client-numeric-combat
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  client-combat:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check modules
+        run: |
+          node --check wrdi-client-combat-v196.js
+          node --check wrdi-draft-engine-v15.js
+          node --check wrdi-galio-role-planner-v18.js
+          node --check wrdi-app-v15.js
+      - name: Client data and build regression tests
+        run: |
+          node --test wrdi-client-combat-v196.test.js
+          node --test wrdi-client-numeric-evidence-v195.test.js
+          node --test wrdi-galio-role-planner-v18.test.js
+          node --test wrdi-galio-v18-e2e.test.js
+          node --test wrdi-galio-30-drafts-v186.test.js

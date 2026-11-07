@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - v19-6-client-numeric-combat
       - v19-5-1-taliyah-ultimate-rank-fix
       - v19-5-client-122-numeric-extraction
       - v19-4-bard-complete-roster
@@ -68,6 +69,8 @@ jobs:
           node --test wrdi-bard-v194.test.js
           node --check wrdi-client-numeric-evidence-v195.js
           node --test wrdi-client-numeric-evidence-v195.test.js
+          node --check wrdi-client-combat-v196.js
+          node --test wrdi-client-combat-v196.test.js
           node --test wrdi-aurora-v192.test.js
           node --test wrdi-galio-v18-e2e.test.js
           node --check wrdi-galio-late-slots-v184.js
