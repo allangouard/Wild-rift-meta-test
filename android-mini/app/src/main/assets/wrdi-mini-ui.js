@@ -11,9 +11,11 @@
   styles.id = 'wrdi-native-mini-ui';
   styles.textContent = [
     'html.wrdi-native-mini #wrdi-v15{padding:4px!important}',
+    '.wrdi-native-mini [hidden]{display:none!important}',
     '.wrdi-native-mini .ep-result-hero{margin:0!important}',
     '.wrdi-native-mini .ep-full-report{display:none!important}',
     '.wrdi-native-mini .ep-why{display:none!important}',
+    '.wrdi-native-mini .ep-summary-section .wrdi-swap-card:nth-of-type(n+3){display:none!important}',
     '.wrdi-native-mini .ep-item-detail{display:none!important}',
     '.wrdi-native-mini .ep-source-info{display:none!important}',
     '.wrdi-native-mini .ep-threats{display:none!important}',
