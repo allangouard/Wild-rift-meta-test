@@ -67,3 +67,23 @@ test('invalid and duplicate five-item sets are rejected',()=>{
  assert.equal(sim.evaluate(burst.slice(0,4),sim.PROFILES[0],spell).ok,false);
  assert.equal(sim.evaluate([...burst.slice(0,4),burst[0]],sim.PROFILES[0],spell).ok,false);
 });
+
+test('Amaranth defense activates after five seconds and is applied to incoming hits',()=>{
+ const short=sim.evaluate(frontline,sim.PROFILES[0],spell);
+ const long=sim.evaluate(frontline,sim.PROFILES[2],spell);
+ assert.equal(short.procs.find(x=>x.id==='amaranths_twinguard').eligible,false);
+ assert.equal(long.procs.find(x=>x.id==='amaranths_twinguard').eligible,true);
+ assert.ok(long.procs.find(x=>x.id==='amaranths_twinguard').bonusArmor>0);
+});
+test('Sunfire and Blackfire magic ticks need an active contact or spell',()=>{
+ const core=['ludens_echo','rabadons_deathcap','infinity_orb','void_staff'];
+ const sun=sim.evaluate(items(...core,'sunfire_aegis'),sim.PROFILES[2],spell);
+ const fire=sim.evaluate(items(...core,'blackfire_torch'),sim.PROFILES[0],spell);
+ assert.ok(sun.procs.find(x=>x.id==='sunfire_aegis').countedDamage>0);
+ assert.ok(fire.procs.find(x=>x.id==='blackfire_torch').countedDamage>0);
+});
+test('non-simulated client passives remain explicitly reported',()=>{
+ const build=items('lich_bane','rabadons_deathcap','infinity_orb','void_staff','morellonomicon');
+ const result=sim.evaluate(build,sim.PROFILES[0],spell);
+ assert.ok(result.unmodeledItemPassives.includes('lich_bane'));
+});
