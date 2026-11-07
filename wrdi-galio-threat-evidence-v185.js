@@ -24,8 +24,11 @@ function evaluate(sheet){
   // are documented self-sustain expressions in the client descriptions.
   const heals=/\bsoign(?:e|ent|er|ant|es|eant)\b|\bsoins?\b|\brecuper(?:e|ent)\b.{0,35}\bpv\b|\bregen(?:ere|eration)\b|\brend\b.{0,20}\bpv\b|\bdrain(?:e|ent)\b.{0,30}\bpv\b|\brendent?\b.{0,30}\bpv\b/.test(d);
   const allyHeal=heals&&/\bsoign(?:e|ent|er|ant)\b.{0,65}\balli(?:e|es)\b|\bsoins?\b.{0,65}\balli(?:e|es)\b|\balli(?:e|es)\b.{0,65}\bsoign/.test(d);
-  const shields=/\bbouclier\b|\bboucliers\b/.test(d);
-  const allyShield=shields&&/\bbouclier\b.{0,100}\balli(?:e|es)\b|\balli(?:e|es)\b.{0,100}\bbouclier\b|\bbouclier\b.{0,100}\bcoequipier/.test(d);
+  // Negated descriptions like "n'accorde pas de bouclier" describe the
+  // ABSENCE of a shield. Do not convert that disclaimer into shield pressure.
+  const shieldText=d.replace(/\\b(?:n'accorde pas de|ne confere pas de|sans)\\s+boucliers?\\b/g,'');
+  const shields=/\\bbouclier\\b|\\bboucliers\\b/.test(shieldText);
+  const allyShield=shields&&/\\bbouclier\\b.{0,100}\\balli(?:e|es)\\b|\\balli(?:e|es)\\b.{0,100}\\bbouclier\\b|\\bbouclier\\b.{0,100}\\bcoequipier/.test(shieldText);
   if(heals){hits.healing.push(note);hits[allyHeal?'allyHealing':'selfHealing'].push(note);}
   if(shields){hits.shields.push(note);hits[allyShield?'allyShielding':'selfShielding'].push(note);}
   if(/\bpv max\b|\bpv maximum\b/.test(d)&&/\bdegat|\binflig|\bbless/.test(d))hits.maxHpDamage.push(note);
