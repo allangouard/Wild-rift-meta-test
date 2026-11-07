@@ -207,7 +207,22 @@ function compare({primaryItems,candidateBuilds=[],combatModel,threats={},profile
  }
  const role=n(threats.damageDuty)>=1&&n(threats.frontlineProvided)>=2?'ap_burst':n(threats.frontlineNeed)>0?'tank_utility':'hybrid_offensive';
  const evaluated=builds.map(({ids,items})=>{
-  const scenarios=profiles.map(p=>evaluate(items,{...p,shieldHp:n(threats.shieldPressure)>=1.5?p.shieldHp:0},combatModel,{role}));
+  const scenarios=profiles.map(p=>{
+   // Keep illustrative incoming damage total, adapt PHYSICAL/MAGIC share to
+   // the enemy champion archetype counts derived from the actual draft.
+   const physical=n(threats.ad)+n(threats.hybrid)*.5;
+   const magical=n(threats.ap)+n(threats.hybrid)*.5;
+   const total=physical+magical;
+   const physicalShare=total>0?clamp(physical/total,.05,.95):
+    p.incomingPhysical/(p.incomingPhysical+p.incomingMagic);
+   const incoming=p.incomingPhysical+p.incomingMagic;
+   const contextual={...p,shieldHp:n(threats.shieldPressure)>=1.5?p.shieldHp:0,
+    incomingPhysical:round(incoming*physicalShare),
+    incomingMagic:round(incoming*(1-physicalShare)),
+    autosReceived:physical>=1?p.autosReceived:0,
+    draftPhysicalShare:round(physicalShare)};
+   return evaluate(items,contextual,combatModel,{role});
+  });
   const all=scenarios.every(x=>x.ok);
   if(!all)return {ids,ok:false};
   // Normalized relative performance: never equate damage with durability.
