@@ -25,16 +25,16 @@ const lookup=name=>{
  return kit.enrich(profiles.lookup(name,meta),api.find(meta?.id||name),manual.get(meta?.id)).traits;
 };
 const prepare=guard.prepare({catalog:inventory,rules:restrictions,core,livePatch:'7.3d'});
-test('all 127 sourced Wild Rift entries support textual analysis, never numeric simulation',()=>{
+test('all 141 sourced Wild Rift entries support textual analysis, never numeric simulation',()=>{
  assert.equal(api.ok,true,api.reason);
- assert.equal(api.count,127);
+ assert.equal(api.count,141);
  for(const entry of official.entries){
   const r=kit.analyze(entry);
   assert.equal(r.ok,true);
   assert.equal(r.damageQuantified,false);
   assert.equal(r.patchVerified,false);
   for(const evidence of r.evidence)assert.equal(evidence.source,
-   ['Hwei','Aurora'].includes(entry.name)?'user_wild_rift_client_screenshots':entry.source_url);
+   entry.source_type==='player_client_tooltips_not_official_website_extraction'?'user_wild_rift_client_screenshots':entry.source_url);
  }
 });
 test('Aatrox healing from official skill, Kayn conditional healing from reviewed official passive',()=>{
