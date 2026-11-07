@@ -16,13 +16,13 @@ const select=(items,id)=>items.find(x=>x.id===id);
 const PROFILES=Object.freeze([
  {id:'burst',label:'Burst court contre cible fragile',seconds:2.5,targetHp:1900,targetArmor:55,targetMr:45,targetRemainingHpPct:85,
   galioBaseHp:2000,galioBaseArmor:65,galioBaseMr:45,incomingPhysical:650,incomingMagic:350,
-  spellHits:1,adjacentSeconds:1,autosReceived:0,shieldHp:0,skillsTrigger:true},
+  spellHits:3,adjacentSeconds:1,autosReceived:0,shieldHp:0,skillsTrigger:true,incomingAutoPhysicalFraction:.1},
  {id:'bruiser',label:'Escarmouche contre bruiser',seconds:5,targetHp:2900,targetArmor:115,targetMr:95,targetRemainingHpPct:65,
   galioBaseHp:2000,galioBaseArmor:65,galioBaseMr:45,incomingPhysical:1050,incomingMagic:850,
-  spellHits:2,adjacentSeconds:3,autosReceived:2,shieldHp:250,skillsTrigger:true},
+  spellHits:2,adjacentSeconds:3,autosReceived:2,shieldHp:250,skillsTrigger:true,incomingAutoPhysicalFraction:.35},
  {id:'tank',label:'Combat prolongé contre frontline',seconds:8,targetHp:3900,targetArmor:180,targetMr:160,targetRemainingHpPct:32,
   galioBaseHp:2000,galioBaseArmor:65,galioBaseMr:45,incomingPhysical:1750,incomingMagic:1550,
-  spellHits:2,adjacentSeconds:6,autosReceived:4,shieldHp:450,skillsTrigger:true,ultimateHits:true,ultimateRank:2}
+  spellHits:2,adjacentSeconds:6,autosReceived:4,shieldHp:450,skillsTrigger:true,incomingAutoPhysicalFraction:.55,ultimateHits:true,ultimateRank:2}
 ]);
 function stats(items,boots=null){
  const total={ap:0,hp:0,armor:0,mr:0,ah:0,mpenFlat:0,mpenPct:0};
