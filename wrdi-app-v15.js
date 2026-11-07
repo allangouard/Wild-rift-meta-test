@@ -109,6 +109,24 @@ function showResults(result){
   section.append(el('p','caption','Données issues des compétences Wild Rift, sans prédiction des objets adverses.'));
   box.append(section);
  }
+ if(result.calculations?.fullBuildScenarios?.ok){
+  const c=result.calculations.fullBuildScenarios;
+  const section=el('section','result-section');
+  section.append(el('h3',null,'Comparaison des builds complets · V19.7'));
+  section.append(el('p','muted',c.totalCompared+' builds de cinq objets comparés · '+(c.role==='ap_burst'?'objectif burst AP':c.role==='tank_utility'?'objectif résistance / contrôle':'objectif hybride')+'.'));
+  const best=c.winner;
+  if(best){
+   const names=new Map((data.catalog?.items||[]).map(x=>[x.id,x.name_fr]));
+   section.append(el('p','muted','Meilleur score de scénario : '+best.ids.map(x=>names.get(x)||x).join(' / ')+'.'));
+   for(const sc of best.scenarios){
+    const dmg=sc.damage.magicDamageToHpIfAllConditions;
+    section.append(el('p','caption',sc.label+' · '+(dmg===null?'Dégâts directs non calculables':Math.round(dmg)+' dégâts magiques conditionnels')+
+     ' · '+Math.round(sc.survival.hpRemainingWithoutHealing)+' PV restants après les dégâts du scénario (sans soin).'));
+   }
+  }
+  section.append(el('p','caption','Simulation illustrative : PV/résistances des cibles, statistiques de base Galio et dégâts entrants sont des hypothèses. Les dégâts des Q/Z/E sont partiels. Ne remplace pas encore automatiquement le build principal.'));
+  box.append(section);
+ }
  if(result.build.strategy){
   const plan=el('section','result-section');
   plan.append(el('h3',null,'Mission de Galio · '+({ap_burst:'AP burst',hybrid_offensive:'Hybride offensif',tank_utility:'Tank utilitaire'}[result.build.strategy.role]||result.build.strategy.role)));
