@@ -3,15 +3,15 @@
   "checkedOn": "2026-11-07",
   "officialChampionDirectory": "https://wildrift.leagueoflegends.com/fr-fr/champions/",
   "officialDirectoryChampionCountAtCheck": 142,
-  "localPickerCountAfterHwei": 141,
+  "localPickerCountAfterHwei": 126,
   "missingCount": 1,
   "note": "Current picker contains 141 of 142 champion names from the Riot 2026-11-07 roster snapshot. Bard is not in the 122 provided screenshots. Nidalee cougar form numerical details are incomplete.",
   "missingChampions": [
     {
       "name": "Bard",
-      "reason": "needs_wild_rift_five_skill_descriptions",
+      "reason": "screenshots_not_in_user_zip",
       "status": "not_selectable_in_draft_engine_yet",
-      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
+      "preferredSource": "Wild Rift FR client or official Riot Wild Rift champion page",
       "pcLeagueDataAllowed": false
     }
   ],
@@ -115,5 +115,8 @@
       "numericConflicts": []
     }
   ],
-  "localPickerCountAfterAurora": 127
+  "localPickerCountAfterAurora": 127,
+  "localPickerCountAfterBulk": 141,
+  "currentLocalPickerCount": 141,
+  "asOf": "2026-11-07"
 }
