@@ -76,3 +76,18 @@ test('role planner responds to real client-percent-HP pressure without changing 
  assert.ok(vs<base);
  assert.equal(planner.chooseRole({frontlineProvided:3,damageDuty:2,enemyMaxHpNumericSources:3}),'ap_burst');
 });
+
+test('Mel multihit uses real client hit count and per-hit AP without guaranteed hits',()=>{
+ const a=ready.ability('Mel','q',1,{ap:200});
+ assert.ok(a.multihit);
+ assert.equal(a.multihit.hits,7);
+ assert.equal(a.multihit.fullHitBase,77);
+ assert.equal(a.multihit.fullHitWithStats,161);
+ assert.equal(a.multihit.allHitsRequired,true);
+ assert.equal(a.multihit.matchesClientBase,true);
+});
+test('damage source channels are documented by client tables',()=>{
+ const x=ready.inspectDraft({names:['Ornn','Amumu','Galio','Caitlyn','Leona',"K'Sante",'Skarner','Mel',"Kog'Maw",'Smolder']});
+ assert.ok(x.enemyMagicDamageSources>=2);
+ assert.ok(x.enemyPhysicalDamageSources>=2);
+});
