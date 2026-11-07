@@ -33,7 +33,7 @@ function stageScore(item,needs,slot){
  // Always read the verified item card: other modules use a different
  // shape for item.feature (notably cost), which would produce NaN scores.
  const f=features(item),t=needs||{},early=slot===0,transition=slot===1,mid=slot===1||slot===2;
- const lanePhysical=c(t.lanePhysical)*(c(t.laneAllIn)?2:1),laneMagic=c(t.laneMagic)*(c(t.laneAllIn)?2:1);
+ const lanePhysical=c(t.lanePhysical)*(c(t.laneHardEngage??t.laneAllIn)?2:1),laneMagic=c(t.laneMagic)*(c(t.laneHardEngage??t.laneAllIn)?2:1);
  const gank=c(t.jungleAllIn),frontline=c(t.frontlineNeed),ad=c(t.ad),ap=c(t.ap),assassin=c(t.assassin),tank=c(t.tank),heal=c(t.heal),crit=c(t.crit);
  const poke=c(t.lanePoke);
  const burstMode=c(t.damageDuty)>=2&&c(t.frontlineProvided)>=2&&c(t.alliedApCarry)===0;
