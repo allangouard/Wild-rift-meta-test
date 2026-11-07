@@ -8,14 +8,15 @@ const client=require('./data/champions-picker-v151.json');
 test('official Wild Rift kit batch is sourced and names all five skills',()=>{
  const compiled=reference.prepare(data);
  assert.equal(compiled.ok,true,compiled.reason);
- assert.equal(compiled.size,21);
- assert.equal(new Set(data.profiles.map(x=>x.id)).size,21);
+ assert.equal(compiled.size,22);
+ assert.equal(new Set(data.profiles.map(x=>x.id)).size,22);
  for(const p of data.profiles){
-  if(p.champion==='Hwei')assert.equal(p.source.type,'user_wild_rift_client_screenshots_fr');
+  if(['Hwei','Aurora'].includes(p.champion))assert.equal(p.source.type,'user_wild_rift_client_screenshots_fr');
   else assert.equal(p.source.type,'riot_wild_rift_official_fr');
   assert.ok(p.source.url.startsWith('https://wildrift.leagueoflegends.com/fr-fr/champions/'),p.champion);
   assert.deepEqual(['passive','q','w','e','r'].map(k=>typeof p.kit[k].name),Array(5).fill('string'));
   if(p.champion==='Hwei')assert.equal(p.coverage.numeric_values,'client_visible_partial_except_ee_damage_conflict_with_7_3b');
+  else if(p.champion==='Aurora')assert.equal(p.coverage.numeric_values,'partially_client_verified_patch_not_visible');
   else assert.equal(p.coverage.numeric_values,'not_yet_verified');
   if(p.champion==='Hwei')assert.equal(p.coverage.active_ability_descriptions,'client_screenshots');
   else assert.equal(p.coverage.active_ability_descriptions,'not_yet_verified');
@@ -32,11 +33,11 @@ test('all champion IDs match local Wild Rift picker; coverage exposes all pendin
  assert.equal(coverage.totalLocalChampions,client.champions.length);
  assert.equal(coverage.entries.length,client.champions.length);
  assert.equal(coverage.officialPartialProfiles,data.profiles.filter(p=>p.source.type==='riot_wild_rift_official_fr').length);
- assert.equal(coverage.clientScreenshotCompleteProfiles,1);
+ assert.equal(coverage.clientScreenshotCompleteProfiles,2);
  assert.equal(coverage.unresearched,coverage.entries.length-data.profiles.length);
  for(const row of coverage.entries){
   assert.ok(map.has(row.id));
-  assert.equal(row.fullFiveSkillDescriptionsVerified,row.name==='Hwei');
+  assert.equal(row.fullFiveSkillDescriptionsVerified,['Hwei','Aurora'].includes(row.name));
   assert.equal(row.allRatiosAndCooldownsVerified,false);
  }
 });
