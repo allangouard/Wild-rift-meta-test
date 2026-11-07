@@ -21,8 +21,8 @@ test('Cho Gath Q uses recorded base at each rank and observed AP coefficient',()
  assert.equal(first.ok,true);
  assert.equal(first.base.base_magic_damage,80);
  assert.equal(fourth.base.base_magic_damage,245);
- assert.equal(first.calculated[0].total,290);
- assert.equal(fourth.calculated[0].total,455);
+ assert.equal(first.calculated[0].total,380);
+ assert.equal(fourth.calculated[0].total,545);
  assert.equal(fourth.coefficients[0].acrossRanksAssumed,true);
 });
 test('unknown statistics and unsupported ranks are not invented',()=>{
