@@ -128,3 +128,15 @@ test('V20: strong team healing remains actionable after weak-heal calibration',(
   alternatives.some(x=>antiheal.includes(x)),
   'B02: Soraka/Aatrox/Kayn healing must keep at least one legal antiheal choice');
 });
+
+test('V20: multiple enemy ally shields retain a legal anti-shield situational choice',()=>{
+ const base=fixtures.scenarios.find(x=>x.id==='B01');
+ const r=analyze(base);
+ assert.equal(r.ok,true);
+ assert.ok(r.draft.threats.shieldPressure>=1.5);
+ const inBuild=r.build.items.some(x=>x.id==='oceanids_trident');
+ const alternatives=(r.build.alternatives||[]).filter(x=>
+  x.add?.id==='oceanids_trident'&&x.verifiedLegal&&x.protectedCorePreserved);
+ assert.ok(inBuild||alternatives.length>=1,
+  'B01: Janna shield pressure should keep a legal Trident swap visible');
+});
