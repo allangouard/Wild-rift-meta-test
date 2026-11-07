@@ -1999,5 +1999,8 @@
     "Rank tables are faithfully transcribed but do not include every tooltip ratio, which is stored in a separate companion dataset.",
     "Only screenshot-visible values are written: a missing row does not imply zero and a table of 3 ranks is not extended to 4.",
     "Game client patch is not shown; do not describe the collected numbers as current or patch-certified."
-  ]
+  ],
+  "sourceArchiveSha256": "57d87f830d7955c9155d1bc00e8a43d66a375be55d9c78cb9b859222c7c7a505",
+  "sourceArchiveBytes": 178369883,
+  "sourceScreenshotJpegs": 122
 }
