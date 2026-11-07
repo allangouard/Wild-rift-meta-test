@@ -8,8 +8,8 @@ const client=require('./data/champions-picker-v151.json');
 test('official Wild Rift kit batch is sourced and names all five skills',()=>{
  const compiled=reference.prepare(data);
  assert.equal(compiled.ok,true,compiled.reason);
- assert.equal(compiled.size,36);
- assert.equal(new Set(data.profiles.map(x=>x.id)).size,36);
+ assert.equal(compiled.size,37);
+ assert.equal(new Set(data.profiles.map(x=>x.id)).size,37);
  for(const p of data.profiles){
   if(p.source.type==='user_wild_rift_client_screenshots_fr')assert.equal(p.source.type,'user_wild_rift_client_screenshots_fr');
   else assert.equal(p.source.type,'riot_wild_rift_official_fr');
@@ -17,6 +17,7 @@ test('official Wild Rift kit batch is sourced and names all five skills',()=>{
   assert.deepEqual(['passive','q','w','e','r'].map(k=>typeof p.kit[k].name),Array(5).fill('string'));
   if(p.champion==='Hwei')assert.equal(p.coverage.numeric_values,'client_visible_partial_except_ee_damage_conflict_with_7_3b');
   else if(p.champion==='Aurora')assert.equal(p.coverage.numeric_values,'partially_client_verified_patch_not_visible');
+  else if(p.champion==='Bard')assert.equal(p.coverage.numeric_values,'captured_not_approved_for_simulation');
   else if(p.source.type==='user_wild_rift_client_screenshots_fr')assert.equal(p.coverage.numeric_values,'not_yet_certified');
   else assert.equal(p.coverage.numeric_values,'not_yet_verified');
   if(['Hwei','Aurora'].includes(p.champion))assert.equal(p.coverage.active_ability_descriptions,'client_screenshots');

@@ -1,0 +1,132 @@
+{
+  "schema": "wrdi.wild_rift_client_ability_detail.v194",
+  "champion": "Bard",
+  "championInternalId": "11115",
+  "riotChampionKey": 432,
+  "game": "Wild Rift mobile",
+  "sourceType": "user_provided_client_screenshots_fr",
+  "sourceDate": "2026-11-07",
+  "sourcePatchVerified": false,
+  "numericSimulationApproved": false,
+  "notes": [
+    "Values transcribed from Bard client screenshots; patch version not visible.",
+    "Q stun requires second enemy or wall; not guaranteed on every hit.",
+    "W heals ally who picks up sanctuary; up to two charges and three sanctuaries, enemy can destroy.",
+    "R stasis is not a shield or healing and can affect allies, enemies and structures."
+  ],
+  "skills": {
+    "passive": {
+      "name": "Instinct du voyageur",
+      "chimes": {
+        "outOfCombatMovementSpeedPercent": 24,
+        "maxMovementSpeedPercentShown": 150,
+        "movementSpeedDurationSec": 20,
+        "xpGain": 400,
+        "manaRestoreMaxPercent": 12,
+        "collectibleLifeMinutes": 10,
+        "extraXpAfterMinutes": 5,
+        "extraXpPerMinute": 20
+      },
+      "meeps": {
+        "spawnEverySeconds": 7,
+        "maxInitial": 1,
+        "bonusDamageBase": 35,
+        "bonusDamageApRatio": 0.4,
+        "extraPerChimeBonusShown": 12,
+        "at3ChimesSlowPercent": 25,
+        "at3ChimesSlowDurationSec": 1,
+        "at9Chimes": "attack damages targets in a zone behind primary target",
+        "at27Chimes": "larger area"
+      }
+    },
+    "q": {
+      "name": "Lien cosmique",
+      "cooldownSec": [
+        10,
+        9,
+        8,
+        7
+      ],
+      "magicDamageBase": [
+        80,
+        130,
+        180,
+        230
+      ],
+      "apRatio": 0.8,
+      "slowPercent": 60,
+      "slowDurationSec": [
+        1.1,
+        1.3,
+        1.5,
+        1.7
+      ],
+      "conditionalStunDurationSec": [
+        1.1,
+        1.3,
+        1.5,
+        1.7
+      ],
+      "stunTrigger": "Projectile continues behind first enemy; second enemy or terrain collision stuns both enemy targets where applicable."
+    },
+    "w": {
+      "name": "Don du gardien",
+      "cooldownSec": [
+        15,
+        14.5,
+        14,
+        13.5
+      ],
+      "movementSpeedPercent": [
+        22.5,
+        25,
+        27.5,
+        30
+      ],
+      "movementSpeedDurationSec": 1.5,
+      "baseHeal": [
+        50,
+        80,
+        110,
+        140
+      ],
+      "minimumHealApRatio": 0.3,
+      "fullyChargedHealLevel1Shown": 100,
+      "fullyChargedHealApRatio": 0.6,
+      "chargeTimeSec": 5,
+      "charges": 2,
+      "maxActiveSanctuaries": 3,
+      "enemyCanDestroy": true,
+      "healTarget": "first ally to collect"
+    },
+    "e": {
+      "name": "Route magique",
+      "cooldownSec": [
+        19,
+        17.5,
+        16,
+        14.5
+      ],
+      "portalDurationSec": 10,
+      "allyTraverseSpeedMultiplierComparedToEnemy": 1.5,
+      "portalThroughTerrain": true,
+      "teamAndEnemiesCanTraverse": true
+    },
+    "r": {
+      "name": "Destin tempéré",
+      "cooldownSec": [
+        75,
+        65,
+        55
+      ],
+      "stasisDurationSec": 2.5,
+      "affects": "units and buildings in target zone",
+      "stasisProperties": [
+        "invulnerable",
+        "untargetable",
+        "unable_to_act"
+      ],
+      "doesNotGrantShield": true
+    }
+  }
+}

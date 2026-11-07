@@ -55,13 +55,13 @@ function analyze(scenario){
 const auroraSheet=officialKits.entries.find(x=>x.name==='Aurora');
 const aurora=champs.find(x=>x.name==='Aurora');
 const screenshot=require('./data/aurora-client-abilities-v192.json');
-test('Aurora is included in 141 valid Wild Rift champion identities, not as a PC import',()=>{
+test('Aurora is included in 142 valid Wild Rift champion identities, not as a PC import',()=>{
  assert.ok(aurora);assert.equal(aurora.id,'10893');
  assert.equal(aurora.riotKey,893);
  assert.ok(aurora.idOrigin.includes('internal'));
- assert.equal(champs.length,141);
- assert.equal(officialKits.entries.length,141);
- assert.equal(officialKits.coverage.extracted,141);
+ assert.equal(champs.length,142);
+ assert.equal(officialKits.entries.length,142);
+ assert.equal(officialKits.coverage.extracted,142);
  assert.equal(auroraSheet.source_type,'player_client_tooltips_not_official_website_extraction');
  assert.equal(auroraSheet.allowedForScoring,false);
  assert.deepEqual(Object.keys(auroraSheet.skills).sort(),['e','passive','q','r','w']);
@@ -82,7 +82,7 @@ test('Aurora has conditional personal healing, not allied healing, shield or a h
  assert.equal(ev.mechanics.hardControl,false,'Slow does not count as a hard stun');
  const ready=modules.kitIntelligence.prepare(officialKits);
  assert.equal(ready.ok,true,ready.reason);
- assert.equal(ready.count,141);
+ assert.equal(ready.count,142);
  const intel=modules.kitIntelligence.analyze(ready.find(aurora.id));
  assert.equal(intel.confidence,'player_client_full_descriptions_patch_not_exhaustively_verified');
  assert.equal(intel.patchVerified,false);
@@ -123,12 +123,12 @@ test('Aurora top versus Galio also works as one of five enemies',()=>{
  assert.equal(result.build.legal,true);
  assert.equal(result.draft.threatEvidence.ok,true);
 });
-test('Aurora removed from missing Wild Rift roster; only Bard remains pending',()=>{
+test('Aurora and Bard both included; no missing roster entries remain',()=>{
  const gap=require('./data/wild-rift-roster-gaps-v191.json');
  assert.equal(gap.localPickerCountAfterAurora,127);
- assert.equal(gap.missingCount,1);
+ assert.equal(gap.missingCount,0);
  assert.ok(!gap.missingChampions.some(x=>x.name==='Aurora'));
  assert.ok(gap.missingChampions.every(x=>!champs.some(c=>c.name===x.name)));
  const audit=modules.releaseAudit.inspect({championMeta:champs});
- assert.equal(audit.knownMissingChampionNames.length,1);
+ assert.equal(audit.knownMissingChampionNames.length,0);
 });

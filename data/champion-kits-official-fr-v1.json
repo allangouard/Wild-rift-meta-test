@@ -2,7 +2,7 @@
   "schema": "wrdi-official-wild-rift-abilities-v1",
   "description": "First verified batch: official ability names and passive mechanics for 20 champions. Not full champion sheets and not wired into build decision. Missing values are explicit null. No League PC data.",
   "verifiedOn": "2026-11-06",
-  "totalCatalogChampions": 141,
+  "totalCatalogChampions": 142,
   "profiles": [
     {
       "id": "10002",
@@ -269,6 +269,54 @@
         "passive_summary": "client_verified",
         "active_ability_descriptions": "client_screenshots",
         "numeric_values": "partially_client_verified_patch_not_visible",
+        "wildRiftOnly": true
+      },
+      "allowedForEngine": false
+    },
+    {
+      "id": "11115",
+      "champion": "Bard",
+      "riotId": "Bard",
+      "source": {
+        "type": "user_wild_rift_client_screenshots_fr",
+        "url": "https://wildrift.leagueoflegends.com/fr-fr/champions/bard/",
+        "checkedOn": "2026-11-07"
+      },
+      "kit": {
+        "passive": {
+          "name": "INSTINCT DU VOYAGEUR",
+          "summary_fr": "Bard collecte des carillons sur la carte et obtient de la vitesse de déplacement hors combat, de l'expérience et du mana. Il invoque des Meeps pour renforcer sa prochaine attaque avec des dégâts magiques. Selon le nombre de carillons collectés, les Meeps ralentissent les ennemis et infligent des dégâts dans une zone derrière la cible.",
+          "mechanics_from_passive": [
+            "magic_damage",
+            "slow",
+            "scaling",
+            "movement_speed",
+            "mana_restore",
+            "experience_gain"
+          ]
+        },
+        "q": {
+          "name": "LIEN COSMIQUE",
+          "description_fr": "Bard tire un projectile qui inflige des dégâts magiques et ralentit le premier ennemi touché. Le projectile continue derrière la cible ; s'il touche un deuxième ennemi ou un mur, les ennemis concernés sont étourdis. L'étourdissement est conditionnel au second impact ou au terrain."
+        },
+        "w": {
+          "name": "DON DU GARDIEN",
+          "description_fr": "Bard crée un sanctuaire de soins qui grandit pendant cinq secondes. Le sanctuaire soigne le premier champion allié qui le ramasse et lui octroie de la vitesse de déplacement. Il peut conserver deux charges et jusqu'à trois sanctuaires actifs. Un champion ennemi peut détruire un sanctuaire en marchant dessus."
+        },
+        "e": {
+          "name": "ROUTE MAGIQUE",
+          "description_fr": "Bard ouvre pendant dix secondes un portail à sens unique dans un élément de décor. Les alliés et les ennemis peuvent traverser le portail ; les alliés de Bard le traversent cinquante pour cent plus vite que les ennemis. Cette compétence permet les rotations et les déplacements à travers le terrain."
+        },
+        "r": {
+          "name": "DESTIN TEMPÉRÉ",
+          "description_fr": "Bard projette une énergie protectrice dans une zone, mettant en stase toutes les unités et tous les bâtiments touchés pendant deux virgule cinq secondes. La stase rend les cibles invulnérables, impossibles à cibler et incapables d'agir. Elle n'accorde pas de bouclier et peut également toucher des alliés."
+        }
+      },
+      "coverage": {
+        "ability_names": "client_verified",
+        "passive_summary": "client_screenshot_paraphrase",
+        "active_ability_descriptions": "client_screenshot_curated",
+        "numeric_values": "captured_not_approved_for_simulation",
         "wildRiftOnly": true
       },
       "allowedForEngine": false

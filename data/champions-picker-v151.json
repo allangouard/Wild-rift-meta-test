@@ -2,7 +2,7 @@
   "schema": "wrdi-champion-picker-v151",
   "source": "ry2x/WildRift-Champs gh-pages hero.json (archived 2025)",
   "sourceDate": "2025-05",
-  "note": "Static Wild Rift champion identities, lane and class flags. Supplemental new champion data must be verified before adding. Portrait CDN separate from build calculations. | Hwei added from client screenshots 2026-11-07; 10910 is WRDI local identifier, not claimed to be the official Wild Rift internal ID. | Aurora added from user Wild Rift client screenshot set 2026-11-07; 10893 is a WRDI-local picker identifier. | Fourteen additional player screenshot curated Wild Rift champion sheets added 2026-11-07. Bard remains missing.",
+  "note": "Static Wild Rift champion identities, lane and class flags. Supplemental new champion data must be verified before adding. Portrait CDN separate from build calculations. | Hwei added from client screenshots 2026-11-07; 10910 is WRDI local identifier, not claimed to be the official Wild Rift internal ID. | Aurora added from user Wild Rift client screenshot set 2026-11-07; 10893 is a WRDI-local picker identifier. | Fourteen additional player screenshot curated Wild Rift champion sheets added 2026-11-07. Bard integrated from client screenshots 2026-11-07.",
   "champions": [
     {
       "id": "10002",
@@ -162,6 +162,22 @@
       ],
       "portrait": "https://cdn.communitydragon.org/latest/champion/893/square",
       "idOrigin": "wrdi_internal_id_using_riot_champion_key_not_verified_game_object_id"
+    },
+    {
+      "id": "11115",
+      "name": "Bard",
+      "riotId": "Bard",
+      "riotKey": 432,
+      "lanes": [
+        "Support"
+      ],
+      "classes": [
+        "Support",
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/432/square",
+      "idOrigin": "wrdi_local_v194_not_riot_game_id",
+      "source": "user_wild_rift_client_screenshots_2026_11_07"
     },
     {
       "id": "10033",

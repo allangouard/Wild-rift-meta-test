@@ -24,10 +24,10 @@ test('V19 no longer reports Hwei as absent after client-backed catalogue integra
  const r=audit.inspect(base);
  assert.ok(!r.knownMissingChampionNames.includes('Hwei'));
  assert.ok(!r.warnings.some(x=>/Hwei figure/.test(x)));
- assert.equal(r.rosterCount,141);
- assert.equal(r.knownMissingChampionNames.length,1);
- assert.ok(r.knownMissingChampionNames.includes('Bard'));
- assert.ok(r.warnings.some(x=>/1 champions/.test(x)));
+ assert.equal(r.rosterCount,142);
+ assert.equal(r.knownMissingChampionNames.length,0);
+ assert.deepEqual(r.knownMissingChampionNames,[]);
+ assert.ok(!r.warnings.some(x=>/Catalogue incomplet/.test(x)));
 });
 test('V19 distinguishes hard legality failures from unverified efficacy',()=>{
  const legal=audit.inspect({...base,result:{build:{legal:true,lateSlots:{evaluatedPairs:150}},
