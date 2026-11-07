@@ -69,7 +69,7 @@ function showResults(result){
   section.append(el('summary',null,'Valeurs et ratios relevés sur le client Wild Rift · V19.5'));
   section.append(el('p','muted',c.count+'/10 champions de cette draft ont des fiches complémentaires : '+
    c.rankRows+' lignes de tableaux, '+c.rankValues+' valeurs par rang, '+c.observedCoefficients+' coefficients et '+c.tooltipSlots+' infobulles analysées.'));
-  section.append(el('p','caption','Ces tableaux sont relevés sur les captures du 7 novembre 2026. Le patch exact n’est pas visible ; ils ne sont pas utilisés pour simuler des dégâts certifiés.'));
+  section.append(el('p','caption','Valeurs du client intégrées aux calculs de rang et aux menaces numériques. Ratios observés au rang 1 supposés stables aux autres rangs ; dégâts conditionnels avant résistances.'));
   if(data.clientEvidence?.ok)for(const name of c.champions){
    const rec=data.clientEvidence.getChampion(name);if(!rec)continue;
    section.append(el('h4',null,name));
