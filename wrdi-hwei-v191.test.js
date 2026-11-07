@@ -123,8 +123,9 @@ test('Hwei support is also selectable in a legal ten-champion draft',()=>{
 test('Official current Wild Rift roster gap ledger remains honest after integrating Hwei',()=>{
  const gaps=require('./data/wild-rift-roster-gaps-v191.json');
  assert.equal(gaps.localPickerCountAfterHwei,126);
+ assert.equal(gaps.localPickerCountAfterAurora,127);
  assert.equal(gaps.officialDirectoryChampionCountAtCheck,142);
- assert.equal(gaps.missingCount,16);
+ assert.equal(gaps.missingCount,15);
  assert.ok(!gaps.missingChampions.some(x=>x.name==='Hwei'));
  assert.ok(gaps.missingChampions.every(x=>!champs.some(c=>c.name===x.name)));
  assert.ok(gaps.missingChampions.every(x=>x.pcLeagueDataAllowed===false));
