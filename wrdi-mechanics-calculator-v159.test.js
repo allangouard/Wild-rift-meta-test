@@ -10,11 +10,11 @@ const lookup=name=>official.entries.find(c=>c.name===name);
 test('all available champion/item/rune field families are inventoried',()=>{
  const a=calc.audit({officialKits:official,items,runes});
  assert.equal(a.ok,true);
- assert.equal(a.champions,125);
- assert.equal(a.abilities,625);
+ assert.equal(a.champions,142);
+ assert.equal(a.abilities,710);
  assert.equal(a.items,items.items.length);
  assert.equal(a.runes,runes.fundamental.length+runes.minor.length);
- assert.equal(a.fullDescriptions,625);
+ assert.equal(a.fullDescriptions,710);
  assert.equal(a.truncatedDescriptions,0);
  assert.ok(Object.keys(a.mechanics).length>=15);
  assert.ok(Object.keys(a.itemPassiveFields).length>20);
@@ -85,7 +85,7 @@ test('full Galio draft delivers audit and item/rune calculations',()=>{
   }
  });
  assert.equal(result.ok,true,JSON.stringify(result));
- assert.equal(result.calculations.inputAudit.abilities,625);
+ assert.equal(result.calculations.inputAudit.abilities,710);
  assert.equal(result.calculations.antiheal.items.some(x=>x.itemId==='morellonomicon'),true);
  assert.ok(result.draft.notes.some(x=>x.includes('Données inspectées')));
  assert.ok(result.draft.notes.some(x=>x.includes('Morellonomicon')));
