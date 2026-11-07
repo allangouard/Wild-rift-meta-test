@@ -123,12 +123,12 @@ test('Aurora top versus Galio also works as one of five enemies',()=>{
  assert.equal(result.build.legal,true);
  assert.equal(result.draft.threatEvidence.ok,true);
 });
-test('Aurora removed from missing Wild Rift roster; only Bard remains pending',()=>{
+test('Aurora and Bard both included; no missing roster entries remain',()=>{
  const gap=require('./data/wild-rift-roster-gaps-v191.json');
  assert.equal(gap.localPickerCountAfterAurora,127);
  assert.equal(gap.missingCount,0);
  assert.ok(!gap.missingChampions.some(x=>x.name==='Aurora'));
  assert.ok(gap.missingChampions.every(x=>!champs.some(c=>c.name===x.name)));
  const audit=modules.releaseAudit.inspect({championMeta:champs});
- assert.equal(audit.knownMissingChampionNames.length,1);
+ assert.equal(audit.knownMissingChampionNames.length,0);
 });
