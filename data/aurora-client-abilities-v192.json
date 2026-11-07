@@ -1,0 +1,160 @@
+{
+  "schema": "wrdi.wild_rift_player_client_ability_detail.v1",
+  "champion": "Aurora",
+  "championInternalId": "10893",
+  "game": "Wild Rift mobile, not League of Legends PC",
+  "sourceType": "user_provided_client_screenshots",
+  "collectedOn": "2026-11-07",
+  "clientPatchClaim": "not_visible_in_screenshots",
+  "sourcePatchVerified": false,
+  "approvedForNumericalCombatSimulation": false,
+  "notes": [
+    "The client screenshots display 5 ability categories (passive/Q/W/E/R).",
+    "The 3-hit passive heals Aurora only; it does not heal her allies.",
+    "W grants invisibility and speed, not invulnerability or a shield.",
+    "Q recast damage is conditional on missing target HP. Do not count its maximum on every use.",
+    "R boundary applies a slow and teleport to Aurora. It is not a hard stun/root or a guaranteed anti-escape wall."
+  ],
+  "slots": {
+    "passive": {
+      "name_fr": "Abjuration spirituelle",
+      "requiresHitCount": 3,
+      "triggerSources": [
+        "basic_attack",
+        "ability"
+      ],
+      "targetMaxHpDamageBasePercent": 2.5,
+      "targetMaxHpDamageAdditionalScalingText": "2 % de votre puissance (as shown in client, conversion to AP ratio not certified)",
+      "selfHeal": true,
+      "spiritsMax": 4,
+      "spiritDurationSeconds": 4,
+      "healBasePerSecondByLevelRange": [
+        1,
+        18
+      ],
+      "healApRatioDisplayed": 0.02,
+      "healCondition": "trigger_three_hits_on_enemy_champion",
+      "healsAllies": false,
+      "damageType": "magic"
+    },
+    "q": {
+      "name_fr": "Maléfice",
+      "cooldownSeconds": [
+        8,
+        7.5,
+        7,
+        6.5
+      ],
+      "firstHitBase": [
+        40,
+        70,
+        100,
+        130
+      ],
+      "recastBase": [
+        40,
+        70,
+        100,
+        130
+      ],
+      "firstHitApRatio": 0.33,
+      "recastApRatio": 0.33,
+      "recastOnDemand": true,
+      "autoRecastAtDurationEnd": true,
+      "curseDurationSeconds": 3.5,
+      "bonusDamageMaxPercentBasedOnMissingHp": 50,
+      "multipleProjectileDamageFractionBeyondFirst": 0.2,
+      "damageFractionToMinionsAndMonsters": 0.4,
+      "damageType": "magic"
+    },
+    "w": {
+      "name_fr": "Derrière le voile",
+      "cooldownSeconds": [
+        21,
+        20,
+        19,
+        18
+      ],
+      "invisibilityDurationSeconds": [
+        1,
+        1.2,
+        1.4,
+        1.6
+      ],
+      "movementSpeedBonusPercent": [
+        25,
+        30,
+        35,
+        40
+      ],
+      "movementSpeedDurationSeconds": 4,
+      "hasLeap": true,
+      "resetsOnChampionTakedown": true,
+      "shield": false
+    },
+    "e": {
+      "name_fr": "Sortilège",
+      "cooldownSeconds": [
+        13,
+        12,
+        11,
+        10
+      ],
+      "damageBase": [
+        80,
+        130,
+        180,
+        230
+      ],
+      "apRatio": 0.65,
+      "slowInitialPercent": 80,
+      "slowDecaySeconds": 1,
+      "backwardHop": true,
+      "damageType": "magic",
+      "aoe": true
+    },
+    "r": {
+      "name_fr": "Entre les mondes",
+      "cooldownSeconds": [
+        100,
+        90,
+        80
+      ],
+      "damageBase": [
+        150,
+        250,
+        350
+      ],
+      "apRatio": 0.5,
+      "initialSlowPercent": 30,
+      "initialSlowDurationSeconds": 2,
+      "realmZoneDurationSeconds": [
+        2.5,
+        3.25,
+        4
+      ],
+      "boundarySlowPercent": 50,
+      "boundarySlowDurationSeconds": [
+        1.5,
+        1.75,
+        2
+      ],
+      "allowsAuroraTeleportBetweenEdges": true,
+      "secondCastEndsZone": true,
+      "hardCrowdControl": false,
+      "damageType": "magic",
+      "aoe": true
+    }
+  },
+  "screenshots": [
+    "1000011945.jpg",
+    "1000011943.jpg",
+    "1000011941.jpg",
+    "1000011939.jpg",
+    "1000011937.jpg",
+    "1000011935.jpg",
+    "1000011933.jpg",
+    "1000011931.jpg",
+    "1000011929.jpg"
+  ]
+}
