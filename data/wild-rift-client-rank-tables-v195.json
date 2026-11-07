@@ -1556,6 +1556,22 @@
               "damageFormulaValidated": false
             }
           }
+        },
+        "r": {
+          "sourceImageIndex": 111,
+          "rankCount": 3,
+          "statRows": {
+            "cooldown_s": {
+              "values": [
+                100,
+                90,
+                80
+              ],
+              "sourceImageIndex": 111,
+              "verification": "visually_read_client_rank_table",
+              "damageFormulaValidated": false
+            }
+          }
         }
       }
     },
@@ -1993,12 +2009,13 @@
       }
     }
   ],
-  "verifiedRowCount": 149,
-  "verifiedCellCount": 561,
+  "verifiedRowCount": 150,
+  "verifiedCellCount": 564,
   "notes": [
     "Rank tables are faithfully transcribed but do not include every tooltip ratio, which is stored in a separate companion dataset.",
     "Only screenshot-visible values are written: a missing row does not imply zero and a table of 3 ranks is not extended to 4.",
-    "Game client patch is not shown; do not describe the collected numbers as current or patch-certified."
+    "Game client patch is not shown; do not describe the collected numbers as current or patch-certified.",
+    "2026-11-07 visual cross-check: Taliyah R Mur de la tisseuse cooldown 100/90/80 secs present in the original archive image #111 (20261107_080253), previously omitted."
   ],
   "sourceArchiveSha256": "57d87f830d7955c9155d1bc00e8a43d66a375be55d9c78cb9b859222c7c7a505",
   "sourceArchiveBytes": 178369883,
