@@ -333,6 +333,16 @@ function calculate(items,threats,combatModel=null){
    score-=1.2*antihealPressure;
   if(contactAccess&&t.frontlineNeed>0)score+=0.6*antihealPressure;
  }
+ // V20 calibration: an antiheal item is not an automatic last-slot pick
+ // just because a single champion has a weak or self-only heal.
+ // The item's AP/HP/haste remain scored; this is only its opportunity cost
+ // against more damaging choices when Galio's job is AP burst.
+ if(items.length>=4&&t.damageDuty>=2&&t.frontlineProvided>=2&&
+    t.heal<1.5&&items.some(x=>x.id==='morellonomicon')){
+  const opportunityCost=Math.min(13,(1.5-t.heal)*18);
+  score-=opportunityCost;
+  if(items.length===5)reasons.push('Anti-soin peu prioritaire dans cette draft : comparer Morello aux objets de dégâts');
+ }
  if(t.durableTargets>=2&&n('maxHp')){score+=4+Math.min(2,t.durableTargets);
   reasons.push('Effet documenté sur les PV max des cibles durables');}
  if(t.durableTargets>=2&&n('ramp')){score+=2;reasons.push('Passif de combat prolongé');}
