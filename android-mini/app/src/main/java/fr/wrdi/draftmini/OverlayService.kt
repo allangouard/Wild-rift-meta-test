@@ -33,6 +33,7 @@ class OverlayService : Service() {
     private var params: WindowManager.LayoutParams? = null
     private var webView: WebView? = null
     private var expanded = false
+    private var panelLarge = false
 
     override fun onBind(intent: Intent?): IBinder? = null
 
@@ -162,6 +163,7 @@ class OverlayService : Service() {
         webView?.let { browser -> (browser.parent as? android.view.ViewGroup)?.removeView(browser) }
         removeWindow(keepBrowser = true)
         expanded = false
+        panelLarge = false
         val bubble = TextView(this).apply {
             text = "⚔"
             textSize = 27f
@@ -201,6 +203,20 @@ class OverlayService : Service() {
                 background = rounded(Color.rgb(38, 74, 85), 10)
                 setOnClickListener { callback() }
             }
+        header.addView(action("□", "Agrandir ou réduire la fenêtre") {
+            panelLarge = !panelLarge
+            val layout = params
+            val panel = window
+            if (layout != null && panel != null) {
+                layout.width = min(dp(if (panelLarge) 355 else 310), resources.displayMetrics.widthPixels - dp(20))
+                layout.height = min(dp(if (panelLarge) 585 else 355), resources.displayMetrics.heightPixels - dp(90))
+                // Do not let enlarged window start outside the device screen.
+                layout.x = layout.x.coerceIn(0, (resources.displayMetrics.widthPixels - layout.width).coerceAtLeast(0))
+                layout.y = layout.y.coerceIn(0, (resources.displayMetrics.heightPixels - layout.height).coerceAtLeast(0))
+                manager.updateViewLayout(panel, layout)
+            }
+        }, LinearLayout.LayoutParams(dp(39), dp(41)))
+        header.addView(View(this), LinearLayout.LayoutParams(dp(5), dp(1)))
         header.addView(action("−", "Réduire en bulle") { showBubble() },
             LinearLayout.LayoutParams(dp(43), dp(41)))
         val spacer = View(this)
@@ -287,8 +303,8 @@ class OverlayService : Service() {
         webView = browser
         (browser.parent as? android.view.ViewGroup)?.removeView(browser)
         root.addView(browser, LinearLayout.LayoutParams(-1, 0, 1f))
-        val width = min(dp(355), resources.displayMetrics.widthPixels - dp(20))
-        val height = min(dp(590), resources.displayMetrics.heightPixels - dp(90))
+        val width = min(dp(if (panelLarge) 355 else 310), resources.displayMetrics.widthPixels - dp(20))
+        val height = min(dp(if (panelLarge) 585 else 355), resources.displayMetrics.heightPixels - dp(90))
         addWindow(root, width, height, true)
         draggable(title)
     }
