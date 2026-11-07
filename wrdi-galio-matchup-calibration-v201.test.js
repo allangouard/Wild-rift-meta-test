@@ -73,3 +73,26 @@ test('V20.1: role remains the principal determinant of core, not enemy mid name'
   assert.deepEqual(planner.CORES.ap_burst,['ludens_echo','rabadons_deathcap','infinity_orb']);
  }
 });
+
+test('V20.1: thornmail third is an exception only with AD autos, healing and frontline duty',()=>{
+ const order=require('./wrdi-galio-purchase-order-v1432.js');
+ const thorn=catalog.items.find(x=>x.id==='thornmail');
+ const severe={ad:4,lanePhysical:1,laneAutoAttackPressure:1,
+  frontlineNeed:2,healPressure:3,frontlineProvided:0};
+ const base=order.stageScore(thorn,{...severe,laneAutoAttackPressure:0},2);
+ const priority=order.stageScore(thorn,severe,2);
+ assert.ok(priority.score>=base.score+6,'Specific mid+draft pressure should advance Thornmail');
+ const irrelevant=order.stageScore(thorn,{...severe,frontlineNeed:0},2);
+ assert.ok(priority.score>irrelevant.score,'Do not advance pure defense for a Galio AP carry');
+ const noHeal=order.stageScore(thorn,{...severe,healPressure:0},2);
+ assert.ok(priority.score>noHeal.score);
+});
+test('V20.1: fourth physical or magic defense is paced before fifth when frontline',()=>{
+ const order=require('./wrdi-galio-purchase-order-v1432.js');
+ const armor=catalog.items.find(x=>x.id==='thornmail');
+ const magic=catalog.items.find(x=>x.id==='force_of_nature');
+ const ad={ad:4,ap:1,lanePhysical:1,frontlineNeed:2};
+ const ap={ad:1,ap:4,laneMagic:1,frontlineNeed:2};
+ assert.ok(order.stageScore(armor,ad,3).score>order.stageScore(armor,{...ad,lanePhysical:0},3).score);
+ assert.ok(order.stageScore(magic,ap,3).score>order.stageScore(magic,{...ap,laneMagic:0},3).score);
+});
