@@ -63,6 +63,7 @@ test('Exactly 14 client-screened champions have sourced rank tables and five too
  assert.equal(r.rankRows,149);
  assert.equal(r.rankCells,561);
  assert.equal(r.tooltipSlots,70);
+ assert.equal(r.observedCoefficients,70);
  assert.equal(r.patchConfirmed,false);
  assert.equal(r.approvedForNumericCombat,false);
  assert.equal(clientRankTables.sourceArchiveSha256,clientTooltipFacts.sourceArchiveSha256);
@@ -110,6 +111,7 @@ test('New client data enriches a complete Galio draft but never fabricates damag
  assert.equal(r.build.legal,true);
  assert.equal(r.calculations.clientNumericEvidence.ok,true);
  assert.equal(r.calculations.clientNumericEvidence.count,5);
+ assert.ok(r.calculations.clientNumericEvidence.observedCoefficients>=12);
  assert.ok(r.calculations.clientNumericEvidence.rankRows>=15);
  assert.ok(r.calculations.clientNumericEvidence.rankValues>60);
  assert.equal(r.methods.clientRankTablesPatchCertified,false);
@@ -124,4 +126,20 @@ test('Old 125-champion Wiki source does not block the 142-champion current clien
  assert.ok(app.includes('numericCheck.count<100||numericCheck.count>list.length'));
  assert.ok(!app.includes('numericCheck.count!==list.length'));
  assert.ok(app.includes('WRDI_ClientNumericEvidenceV195'));
+});
+
+test('No observed AP/AD/PV coefficient is promoted to certified combat input',()=>{
+ const x=clientModule.prepare(clientRankTables,clientTooltipFacts);
+ assert.equal(x.ok,true);
+ let count=0;
+ for(const champ of clientTooltipFacts.champions)
+  for(const ability of Object.values(champ.abilities))
+   for(const coefficient of ability.observedCoefficients){
+    assert.equal(coefficient.verifiedAtRank,'rank_1_tooltip_only');
+    assert.equal(coefficient.confirmedConstantAcrossRanks,false);
+    assert.equal(coefficient.enabledForCombat,false);
+    count++;
+   }
+ assert.equal(count,70);
+ assert.deepEqual(x.getChampion("Vel'Koz").tooltipFacts.r.observedCoefficients[0].coefficient,1.25);
 });
