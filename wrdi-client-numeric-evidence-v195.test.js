@@ -19,6 +19,7 @@ const clientTooltipFacts=require('./data/wild-rift-client-tooltip-facts-v195.jso
 const clientModule=require('./wrdi-client-numeric-evidence-v195.js');
 const modules={
  clientNumericEvidence:clientModule,
+ clientCombat:require('./wrdi-client-combat-v196.js'),
  profiles:require('./wrdi-champion-profiles-v15.js'),
  team:require('./wrdi-galio-team-context-v1431.js'),
  guard:require('./wrdi-galio-item-guard-v1424.js'),
@@ -116,7 +117,7 @@ test('New client data enriches a complete Galio draft but never fabricates damag
  assert.ok(r.calculations.clientNumericEvidence.rankRows>=15);
  assert.ok(r.calculations.clientNumericEvidence.rankValues>60);
  assert.equal(r.methods.clientRankTablesPatchCertified,false);
- assert.equal(r.methods.clientRankTablesUsedForDamage,false);
+ assert.equal(r.methods.clientRankTablesUsedForDamage,true);
  assert.equal(r.releaseAudit.status,'experimental');
  assert.equal(r.runes.ok,true);
  assert.equal(r.boots.ok,true);
