@@ -89,8 +89,8 @@ function evaluate(items,profile,combatModel,{role='hybrid_offensive'}={}){
  let conditionalHeal=0;
  if(despair){
   const m=passive(despair,'heal_multiplier_of_damage_dealt');
-  const ticks=n(m?.tick_s)>0?Math.floor(profile.seconds/m.tick_s):0;
-  const valid=m?.damage_formula==='0.03 * own_max_hp'&&ticks>0&&profile.adjacentSeconds>=m.tick_s;
+  const ticks=n(m?.tick_s)>0?Math.min(Math.floor(profile.seconds/m.tick_s),Math.floor(profile.adjacentSeconds/m.tick_s)):0;
+  const valid=m?.damage_formula==='0.03 * own_max_hp'&&ticks>0;
   const raw=ticks*.03*(profile.galioBaseHp+s.hp);
   extraRaw+=trigger('unending_despair',valid,
    'En combat >= 4 s, proche de cible au déclenchement, '+ticks+' proc(s)',raw);
@@ -173,7 +173,7 @@ function compare({primaryItems,candidateBuilds=[],combatModel,threats={},profile
  }
  const role=n(threats.damageDuty)>=1&&n(threats.frontlineProvided)>=2?'ap_burst':n(threats.frontlineNeed)>0?'tank_utility':'hybrid_offensive';
  const evaluated=builds.map(({ids,items})=>{
-  const scenarios=profiles.map(p=>evaluate(items,p,combatModel,{role}));
+  const scenarios=profiles.map(p=>evaluate(items,{...p,shieldHp:n(threats.shieldPressure)>=1.5?p.shieldHp:0},combatModel,{role}));
   const all=scenarios.every(x=>x.ok);
   if(!all)return {ids,ok:false};
   // Normalized relative performance: never equate damage with durability.
