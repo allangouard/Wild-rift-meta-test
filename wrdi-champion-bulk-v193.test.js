@@ -55,17 +55,17 @@ const batch=require('./data/wild-rift-screenshot-batch-v193.json');
 const coverage=require('./data/champion-kit-coverage-v2.json');
 const gaps=require('./data/wild-rift-roster-gaps-v191.json');
 const lookup=new Map(officialKits.entries.map(x=>[x.name,x]));
-test('141 champion records are mapped uniquely to 705 sourced descriptions, with Bard still missing',()=>{
- assert.equal(champs.length,141);
- assert.equal(officialKits.entries.length,141);
- assert.equal(officialKits.coverage.extracted,141);
- assert.equal(gaps.missingCount,1);
- assert.deepEqual(gaps.missingChampions.map(x=>x.name),['Bard']);
- assert.equal(new Set(champs.map(x=>x.id)).size,141);
+test('142 champion records are mapped uniquely to 710 sourced descriptions, with Bard now added',()=>{
+ assert.equal(champs.length,142);
+ assert.equal(officialKits.entries.length,142);
+ assert.equal(officialKits.coverage.extracted,142);
+ assert.equal(gaps.missingCount,0);
+ assert.deepEqual(gaps.missingChampions.map(x=>x.name),[]);
+ assert.equal(new Set(champs.map(x=>x.id)).size,142);
  assert.equal(batch.champions.length,14);
  assert.equal(batch.screenshotsTotal,122);
- assert.equal(coverage.catalogueCount,141);
- assert.equal(coverage.clientScreenshotDescriptions,16);
+ assert.equal(coverage.catalogueCount,142);
+ assert.equal(coverage.clientScreenshotDescriptions,17);
  assert.equal(coverage.fullActiveDescriptionsValidated,2);
  for(const champ of batch.champions){
   const source=lookup.get(champ.name),picker=byName.get(champ.name.toLowerCase());
