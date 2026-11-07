@@ -87,3 +87,13 @@ test('non-simulated client passives remain explicitly reported',()=>{
  const result=sim.evaluate(build,sim.PROFILES[0],spell);
  assert.ok(result.unmodeledItemPassives.includes('lich_bane'));
 });
+
+test('enemy AD/AP composition changes incoming damage mix without inventing total damage',()=>{
+ const ad=sim.compare({primaryItems:frontline,combatModel:spell,threats:{ad:4,ap:1,frontlineNeed:2}});
+ const ap=sim.compare({primaryItems:frontline,combatModel:spell,threats:{ad:1,ap:4,frontlineNeed:2}});
+ const x=ad.winner.scenarios[0],y=ap.winner.scenarios[0];
+ assert.ok(x.assumptions.incomingPhysical>y.assumptions.incomingPhysical);
+ assert.ok(x.assumptions.incomingMagic<y.assumptions.incomingMagic);
+ assert.equal(x.assumptions.incomingPhysical+x.assumptions.incomingMagic,
+  y.assumptions.incomingPhysical+y.assumptions.incomingMagic);
+});
