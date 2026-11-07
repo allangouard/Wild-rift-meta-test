@@ -257,6 +257,22 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
   items:main.main.items.map(x=>prepared.catalog.items.find(z=>z.id===x.id))});
  const boots=m.bootAdvisor?.select?.({bootsCatalog,threats:need,role:strategic?.role})||null;
  if(m.bootAdvisor&&!boots?.ok)return fail('boots',boots?.reason||'Sélection des bottes indisponible');
+ // Re-evaluate the same legal five-item shortlist with selected boots and
+ // client keystone mechanics, so the comparison reflects the actual loadout.
+ if(fullBuildScenarios?.ok&&m.fullBuildScenarios?.compare){
+  const byId=new Map(optimizer.eligible(prepared).map(x=>[x.id,x]));
+  const chosen=sequence.items.map(x=>byId.get(x.id));
+  const options=fullBuildScenarios.candidates.filter(x=>
+   x.ids.join('|')!==sequence.items.map(z=>z.id).join('|'))
+   .map(x=>x.ids.map(id=>byId.get(id))).filter(x=>x.every(Boolean));
+  const bootRecord=(bootsCatalog?.records||[]).find(x=>x.name_fr===boots?.recommended?.name)||null;
+  const runeRecord=[...(runes?.fundamental||[])].find(x=>x.name_fr===rune?.page?.keystone)||null;
+  const combined=m.fullBuildScenarios.compare({
+   primaryItems:chosen,candidateBuilds:options,combatModel,threats:need,
+   boots:bootRecord,keystone:runeRecord
+  });
+  if(combined?.ok)fullBuildScenarios=combined;
+ }
  const conditionAudit=m.conditionAudit?.inspect?.({
   items:main.main.items.map(x=>prepared.catalog.items.find(y=>y.id===x.id)).filter(Boolean)
    .map(x=>({...x,feature:optimizer.features(x)})),threats:need
