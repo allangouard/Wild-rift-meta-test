@@ -87,6 +87,18 @@ function showResults(result){
   }
   box.append(section);
  }
+ if(result.calculations?.clientCombat?.ok){
+  const c=result.calculations.clientCombat;
+  const section=el('section','result-section');
+  section.append(el('h3',null,'Mécaniques client utilisées · V19.6'));
+  section.append(el('p','muted',c.rankValues+' valeurs par rang · '+c.coefficients+
+   ' ratios lus · '+c.mappedCoefficients+' ratios rattachés à une ligne de calcul dans cette draft.'));
+  section.append(el('p','muted','Adversaires : '+c.enemyMaxHpSources+' sources de dégâts en % PV, '+
+   c.enemyTrueDamageSources+' de dégâts bruts, '+c.enemyAllyHealingSources+' de soins alliés, '+
+   c.enemyAllyShieldSources+' de boucliers alliés, '+c.enemyControlSources+' de contrôles.'));
+  section.append(el('p','caption','Les effets conditionnels, ratios sans base chiffrée et statistiques des objets adverses ne sont pas supposés actifs. Les chiffres client documentés restent consultables dans les fiches.'));
+  box.append(section);
+ }
  if(result.draft.threatEvidence?.ok){
   const e=result.draft.threatEvidence;
   const section=el('section','result-section');
