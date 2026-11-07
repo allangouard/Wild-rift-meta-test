@@ -11,7 +11,7 @@ const bootsCatalog=require('./data/stage-a-boots-details-batch1-2026-11-05.json'
 const catalog=require('./data/items-client-7.3d-v12.json');
 const burstItems=['ludens_echo','rabadons_deathcap','infinity_orb','riftmaker','morellonomicon'].map(id=>catalog.items.find(x=>x.id===id));
 const alliedBurst=['Ornn','Amumu','Galio','Caitlyn','Leona'];
-const alliedHybrid=['Riven','Viego','Galio','Miss Fortune','Thresh'];
+const alliedHybrid=['Riven','Viego','Galio','Miss Fortune','Nami'];
 function make(mid,allies=alliedBurst){
  const enemies=['Darius','Lee Sin',mid,'Jinx','Janna'];
  const r=team.make({allies,enemies,lookup:profiles.lookup});
