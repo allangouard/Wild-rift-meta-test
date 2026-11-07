@@ -7,7 +7,7 @@
 const VERSION='15.8.0';
 function chooseRune({bridge,catalog,advisor,needs={},laneOpponent,items=[],role}={}){
  if(!bridge?.audit?.(catalog)?.ok)return {ok:false,reason:'Catalogue des runes non valide'};
- const templates=(advisor?.STRATEGIES||[]).filter(x=>['engage','burst','poke'].includes(x.id));
+ const templates=(advisor?.STRATEGIES||[]).filter(x=>['engage','resilience','burst','poke'].includes(x.id));
  const apItems=items.filter(x=>Number(x?.stats?.ap||0)>=45);
  const apBase=items.reduce((sum,x)=>sum+Number(x?.stats?.ap||0),0);
  const defensiveItems=items.filter(x=>Number(x?.stats?.armor||0)>0||Number(x?.stats?.mr||0)>0);
@@ -21,20 +21,22 @@ function chooseRune({bridge,catalog,advisor,needs={},laneOpponent,items=[],role}
  // reflects this. Prioritize Electrocute for Galio AP burst rather than
  // requiring an enemy all-in; Comet remains a specialist sustained-poke
  // alternative when a verified strong poke-only plan is requested.
- const exceptionalPoke=fullAp&&Number(needs.lanePoke||0)>=2&&
-  Number(needs.laneAllIn||0)===0;
+ const exceptionalPoke=fullAp&&Number(needs.lanePoke||0)>=1&&
+  Number(needs.laneMagic||0)>=1&&Number(needs.laneHardEngage||0)===0;
+ const sustainedMelee=!fullAp&&Number(needs.laneTradeMelee||0)>0&&
+  Number(needs.laneAutoAttackPressure||0)>0&&Number(needs.frontlineNeed||0)>=1;
  const order=fullAp?(exceptionalPoke?['poke','burst','engage']:['burst','poke','engage']):
-  ['engage','poke','burst'];
+  (sustainedMelee?['resilience','engage','poke']:['engage','resilience','poke']);
  const candidates=[];
  for(const id of order){
   const t=templates.find(x=>x.id===id);if(!t)continue;
   const page={keystone:t.keystone,primaryTree:t.tree,primary:[...t.primary],secondary:t.secondary};
   // Rune slots stay client-legal: Volonté row 2 is interchangeable between
   // Second souffle (poke) and Plaque d'os (short all-in).
-  const heavyAllIn=Number(needs.laneAllIn||0)>0&&Number(needs.lanePoke||0)===0;
-  if(id==='engage') {
+  const heavyAllIn=Number((needs.laneHardEngage??needs.laneAllIn)||0)>0&&Number(needs.lanePoke||0)===0;
+  if(id==='engage'||id==='resilience') {
    if(heavyAllIn)page.primary[1]="Plaque d'os";
-   if(Number(needs.cc||0)<2&&Number(needs.frontlineNeed||0)>=1)page.primary[2]='Surcroissance';
+   if(id==='engage'&&Number(needs.cc||0)<2&&Number(needs.frontlineNeed||0)>=1)page.primary[2]='Surcroissance';
   }
   if(id==='poke'){
    // Comet users want lane durability if harassed or threatened with all-in.
@@ -48,7 +50,8 @@ function chooseRune({bridge,catalog,advisor,needs={},laneOpponent,items=[],role}
   }
   const validity=bridge.validate(page,catalog);
   if(validity.valid)candidates.push({id,label:t.label,page,legal:true,
-   reason:id==='engage'?'Contrôles et résistance : configuration chinoise fréquemment observée':
+   reason:id==='engage'?'Engagement et contrôle : Souverain des glaces':
+    id==='resilience'?'Échanges de mêlée soutenus : Poigne sous condition d’attaque préparée':
     id==='burst'?'Burst rapproché : trois touches nécessaires pour Électrocution':
     'Poke AP avec Comète : option tactique client vérifiée, fréquence chinoise inconnue'});
  }
@@ -62,7 +65,7 @@ function chooseRune({bridge,catalog,advisor,needs={},laneOpponent,items=[],role}
   alternatives:candidates.slice(1,3),mode:fullAp?(picked.id==='burst'?'ap_burst':'ap_poke'):'hybrid_control',
   apItems:apItems.length,apBase,
   keystonePatchEvidence:fullAp?'riot_wild_rift_7_3b_electrocute_40_to_60_minimum_base_damage':null,
-  selection:'galio_mid_build_role_coherence_client_runes_not_empirical_winrate',
+  selection:'galio_mid_role_plus_enemy_mid_poke_allin_autoattacks_client_runes',
   metaReference:'cn_galio_engage_electrocute_observed_comet_tactical_only'};
 }
 function analyze({picks,champions,championMeta,officialKits,reviewedKits,numericKits,numericPatch,numericClient,clientRankTables,clientTooltipFacts,catalog,rules,runes,bootsCatalog,modules}={}){

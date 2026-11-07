@@ -79,12 +79,19 @@ function make({enemies,allies,lookup,shieldInfo,threatEvidence}={}){
  // melee range for last hits but may use Q to manage the wave from farther.
  // No opponent-specific prescribed item or assumed enemy purchase.
  const lanePoke=has(mid.traits,'poke')?1:0;
+ // Categorical matchup cues, not assumed enemy items or exact damage.
+ const laneAutoAttackPressure=has(mid.traits,'ad')&&
+  (has(mid.traits,'onhit')||has(mid.traits,'crit'))?1:0;
+ const laneTradeMelee=new Set(['yasuo','yone','irelia','tryndamere','renekton','riven','sett','pantheon'])
+  .has(mid.name.toLowerCase());
+ const laneHardEngage=laneAllIn||laneAutoAttackPressure&&laneTradeMelee?1:0;
  const jungleAllIn=has(jungle.traits,'assassin')||has(jungle.traits,'burst')||has(jungle.traits,'engage')?1:0;
  const threats={...counts,conditionalSustain,confirmedSustain,conditionalHeal,confirmedHeal,
   physicalAssassins,magicAssassins,critPotential:enemyCritPotential,
   // Crit tag = potential based on kit archetype, never a confirmed item build.
   // No verified enemy-item builds were supplied, so confirmed crit stays zero.
-  crit:0,lanePhysical,laneMagic,laneAllIn,lanePoke,jungleAllIn,
+  crit:0,lanePhysical,laneMagic,laneAllIn,lanePoke,
+  laneAutoAttackPressure,laneTradeMelee:laneTradeMelee?1:0,laneHardEngage,jungleAllIn,
   frontlineNeed,frontlineProvided,teamTank,teamEngage,alliedApCarry,
   damageDuty,shieldPressure,shieldingSupport,alliedShieldSources,conditionalShieldSources,personalShieldSources,
   healPressure:threatEvidence?.ok?threatEvidence.healingPressure:undefined,
@@ -99,6 +106,7 @@ function make({enemies,allies,lookup,shieldInfo,threatEvidence}={}){
  if(lanePhysical&&laneAllIn)reasons.push('Midlane : menace physique d’engagement, achat défensif précoce à considérer');
  if(laneMagic&&laneAllIn)reasons.push('Midlane : menace magique d’engagement');
  if(lanePoke)reasons.push('Midlane : harcèlement possible, limiter l’exposition au farm');
+ if(laneAutoAttackPressure)reasons.push('Midlane : dégâts par attaques répétées possibles ; le blocage des attaques des Coques peut être pertinent');
  if(threatEvidence?.ok&&threatEvidence.alliedHealers>0)reasons.push('Soins sur les alliés adverses documentés : évaluer l’anti-soin selon la fréquence et la cible');
  if(threatEvidence?.ok&&threatEvidence.personalHealers>0&&threatEvidence.alliedHealers===0)reasons.push('Soins personnels : anti-soin conditionnel, ne pas supposer un besoin collectif automatique');
  if(threatEvidence?.ok&&threatEvidence.maxHpThreats>=2)reasons.push('Plusieurs sources documentées de dégâts en pourcentage de PV max');

@@ -33,7 +33,7 @@ function stageScore(item,needs,slot){
  // Always read the verified item card: other modules use a different
  // shape for item.feature (notably cost), which would produce NaN scores.
  const f=features(item),t=needs||{},early=slot===0,transition=slot===1,mid=slot===1||slot===2;
- const lanePhysical=c(t.lanePhysical)*(c(t.laneAllIn)?2:1),laneMagic=c(t.laneMagic)*(c(t.laneAllIn)?2:1);
+ const lanePhysical=c(t.lanePhysical)*(c(t.laneHardEngage??t.laneAllIn)?2:1),laneMagic=c(t.laneMagic)*(c(t.laneHardEngage??t.laneAllIn)?2:1);
  const gank=c(t.jungleAllIn),frontline=c(t.frontlineNeed),ad=c(t.ad),ap=c(t.ap),assassin=c(t.assassin),tank=c(t.tank),heal=c(t.heal),crit=c(t.crit);
  const poke=c(t.lanePoke);
  const burstMode=c(t.damageDuty)>=2&&c(t.frontlineProvided)>=2&&c(t.alliedApCarry)===0;
@@ -83,6 +83,14 @@ function stageScore(item,needs,slot){
   // A single assassin in the jungle does not by itself warrant purchasing
   // Zhonya second when Galio has already secured the lane.
   if(transition&&f.stasis&&stasisPriority<2)score-=3.8;
+  // Third purchase is the earliest situational core exception. Galio must
+  // still own the relevant completed item; never force Thornmail from a tag
+  // when the build instead needs AP burst or the opponents won't autoattack.
+  const autoLane=c(t.laneAutoAttackPressure),physicalThreat=c(t.ad),
+   verifiedHeal=c(t.healPressure??t.heal),mustFrontline=c(t.frontlineNeed)>0;
+  if(slot===2&&item.id==='thornmail'&&mustFrontline&&autoLane&&
+     physicalThreat>=3&&verifiedHeal>=1.5)
+   add(6,'Troisième achat anti-attaques/anti-soins : mid de mêlée et forte pression AD documentés');
   if(f.ap>=40)add(1.1,'Puissance pour les combats intermédiaires');
   if(c(t.damageDuty)>=2&&f.ap>=65)add(2.5,
    'Galio peut apporter des dégâts AP : plusieurs tanks alliés gèrent déjà l’engagement');
@@ -95,6 +103,10 @@ function stageScore(item,needs,slot){
    'Puissance pour compléter les dégâts magiques de l’équipe');
   if(c(t.damageDuty)>=2&&f.ap===0&&c(t.frontlineProvided)>=2)
    score-=1.3;
+  if(slot===3&&frontline&&c(t.lanePhysical)&&c(t.ad)>=3&&f.armor>=30)
+   add(2,'Quatrième achat : protection physique utile avant le dernier objet');
+  if(slot===3&&frontline&&c(t.laneMagic)&&c(t.ap)>=3&&f.mr>=30)
+   add(2,'Quatrième achat : résistance magique utile avant le dernier objet');
   if(frontline&&f.hybrid)add(2,'Résistances mixtes pour les combats d’équipe');
   if(tank+c(t.sustain)>=2&&f.maxHp)add(2,'Passif contre les PV maximum');
   if(tank>=2&&f.ramp)add(1.3,'Passif de combat prolongé');

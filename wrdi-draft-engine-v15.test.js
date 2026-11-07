@@ -40,7 +40,7 @@ test('Galio draft rune advice validates against player client and never invents 
  assert.equal(r.ok,true,r.reason);
  assert.equal(r.runes.ok,true,JSON.stringify(r.runes));
  assert.equal(bridge.validate(r.runes.page,runes).valid,true);
- assert.equal(r.runes.selection,'galio_mid_build_role_coherence_client_runes_not_empirical_winrate');
+ assert.equal(r.runes.selection,'galio_mid_role_plus_enemy_mid_poke_allin_autoattacks_client_runes');
 });
 test('the old result cannot silently substitute a popular observed build if a module is missing',()=>{
  const bad={...modules,optimizer:null};

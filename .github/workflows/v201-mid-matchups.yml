@@ -1,0 +1,32 @@
+name: V20.1 Galio mid matchup runes boots and core stability
+on:
+  push:
+    branches:
+      - v20-1-mid-matchup-runes-boots
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  matchups:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate syntax
+        run: |
+          node --check wrdi-draft-engine-v15.js
+          node --check wrdi-galio-team-context-v1431.js
+          node --check wrdi-galio-boots-v18.js
+          node --check wrdi-galio-purchase-order-v1432.js
+      - name: Mid matchup selection and regression
+        run: |
+          node --test wrdi-galio-matchup-calibration-v201.test.js
+          node --test wrdi-galio-30-drafts-v186.test.js
+          node --test wrdi-galio-v18-e2e.test.js
+          node --test wrdi-decision-training-v20.test.js
