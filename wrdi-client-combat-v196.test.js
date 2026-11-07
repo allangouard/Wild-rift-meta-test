@@ -91,3 +91,15 @@ test('damage source channels are documented by client tables',()=>{
  assert.ok(x.enemyMagicDamageSources>=2);
  assert.ok(x.enemyPhysicalDamageSources>=2);
 });
+
+test('target max HP percentage comes from client rank, target HP must be provided',()=>{
+ const raw=ready.ability("Cho'Gath",'e',1);
+ const percent=raw.calculated.find(x=>x.field==='target_max_hp_magic_damage_pct');
+ assert.equal(percent.base,2.3);
+ assert.equal(percent.total,null);
+ assert.equal(percent.targetMaxHpRequired,true);
+ const dmg=ready.ability("Cho'Gath",'e',1,{target_max_hp:2000}).calculated.find(x=>x.field==='target_max_hp_magic_damage_pct');
+ assert.equal(dmg.total,46);
+ const kog=ready.ability("Kog'Maw",'w',4,{target_max_hp:2000}).calculated.find(x=>x.field==='target_max_hp_magic_damage_pct');
+ assert.equal(kog.total,90);
+});
