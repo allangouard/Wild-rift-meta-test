@@ -80,7 +80,7 @@ function makeBoots(boots){
  }
  for(const it of items){
   const row=make('div','ep-boot'+(it.preferred?' recommended':''));
-  row.append(make('span','ep-boot-icon','♜'));
+  row.append(make('span','ep-boot-icon','🥾'));
   const meta=make('div','ep-boot-meta');meta.append(make('small',null,it.preferred?'RECOMMANDÉES':'ALTERNATIVE'),make('strong',null,it.name));row.append(meta);
   const info=make('details','ep-boot-why');info.append(make('summary',null,'Détails'),make('p',null,it.reason));row.append(info);
   list.append(row);
