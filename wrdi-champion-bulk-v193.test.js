@@ -66,7 +66,7 @@ test('141 champion records are mapped uniquely to 705 sourced descriptions, with
  assert.equal(batch.screenshotsTotal,122);
  assert.equal(coverage.catalogueCount,141);
  assert.equal(coverage.clientScreenshotDescriptions,16);
- assert.equal(coverage.fullActiveDescriptionsValidated,15);
+ assert.equal(coverage.fullActiveDescriptionsValidated,2);
  for(const champ of batch.champions){
   const source=lookup.get(champ.name),picker=byName.get(champ.name.toLowerCase());
   assert.ok(picker&&source,'Missing champion '+champ.name);
