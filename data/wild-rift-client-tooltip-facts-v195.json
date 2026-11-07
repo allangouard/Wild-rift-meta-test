@@ -24,7 +24,8 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
         },
         "q": {
           "sourceImageIndex": 2,
@@ -39,7 +40,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "direct_magic_damage",
+              "stat": "ap",
+              "coefficient": 1,
+              "sourceImageIndex": 2,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "w": {
           "sourceImageIndex": 4,
@@ -53,7 +65,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "direct_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.7,
+              "sourceImageIndex": 4,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "e": {
           "sourceImageIndex": 6,
@@ -68,7 +91,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "spike_base_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.3,
+              "sourceImageIndex": 6,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "r": {
           "sourceImageIndex": 8,
@@ -83,7 +117,27 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "champion_base_true_damage",
+              "stat": "ap",
+              "coefficient": 0.5,
+              "sourceImageIndex": 8,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "champion_base_true_damage",
+              "stat": "bonus_hp",
+              "coefficient": 0.1,
+              "sourceImageIndex": 8,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         }
       }
     },
@@ -102,7 +156,8 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
         },
         "q": {
           "sourceImageIndex": 11,
@@ -117,7 +172,27 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "base_physical_damage",
+              "stat": "bonus_armor",
+              "coefficient": 0.35,
+              "sourceImageIndex": 11,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "base_physical_damage",
+              "stat": "bonus_magic_resist",
+              "coefficient": 0.35,
+              "sourceImageIndex": 11,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "w": {
           "sourceImageIndex": 13,
@@ -133,7 +208,8 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
         },
         "e": {
           "sourceImageIndex": 15,
@@ -147,7 +223,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "shield",
+              "stat": "bonus_hp",
+              "coefficient": 0.15,
+              "sourceImageIndex": 15,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "r": {
           "sourceImageIndex": 17,
@@ -161,7 +248,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "wall_collision_damage",
+              "stat": "bonus_hp",
+              "coefficient": 0.05,
+              "sourceImageIndex": 17,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         }
       }
     },
@@ -180,7 +278,8 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
         },
         "q": {
           "sourceImageIndex": 20,
@@ -195,7 +294,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "base_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.65,
+              "sourceImageIndex": 20,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "w": {
           "sourceImageIndex": 22,
@@ -209,7 +319,8 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
         },
         "e": {
           "sourceImageIndex": 24,
@@ -223,7 +334,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "base_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.55,
+              "sourceImageIndex": 24,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "r": {
           "sourceImageIndex": 26,
@@ -239,7 +361,27 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "base_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.25,
+              "sourceImageIndex": 26,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "base_magic_damage",
+              "stat": "bonus_ad",
+              "coefficient": 0.75,
+              "sourceImageIndex": 26,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         }
       }
     },
@@ -259,7 +401,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "stacking_accablement",
+              "stat": "ap",
+              "coefficient": 0.08,
+              "sourceImageIndex": 28,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "q": {
           "sourceImageIndex": 29,
@@ -274,7 +427,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "magic_damage_per_explosion",
+              "stat": "ap",
+              "coefficient": 0.06,
+              "sourceImageIndex": 29,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "w": {
           "sourceImageIndex": 31,
@@ -288,7 +452,8 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
         },
         "e": {
           "sourceImageIndex": 33,
@@ -304,7 +469,27 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "impact_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.5,
+              "sourceImageIndex": 33,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "damage_per_second",
+              "stat": "ap",
+              "coefficient": 0.06,
+              "sourceImageIndex": 33,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "r": {
           "sourceImageIndex": 35,
@@ -319,7 +504,36 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "passive_damage",
+              "stat": "ap",
+              "coefficient": 0.08,
+              "sourceImageIndex": 35,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "active_damage",
+              "stat": "ap",
+              "coefficient": 0.25,
+              "sourceImageIndex": 35,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "active_damage_per_stack",
+              "stat": "ap",
+              "coefficient": 0.025,
+              "sourceImageIndex": 35,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         }
       }
     },
@@ -338,7 +552,8 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
         },
         "q": {
           "sourceImageIndex": 39,
@@ -352,7 +567,27 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "base_javelin",
+              "stat": "ap",
+              "coefficient": 0.5,
+              "sourceImageIndex": 39,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "max_distance_javelin",
+              "stat": "ap",
+              "coefficient": 1.25,
+              "sourceImageIndex": 39,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "w": {
           "sourceImageIndex": 41,
@@ -367,7 +602,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "trap_magic_damage_per_second",
+              "stat": "ap",
+              "coefficient": 0.04,
+              "sourceImageIndex": 41,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "e": {
           "sourceImageIndex": 42,
@@ -383,7 +629,27 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "base_heal",
+              "stat": "ap",
+              "coefficient": 0.3,
+              "sourceImageIndex": 42,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "max_heal_when_low_hp",
+              "stat": "ap",
+              "coefficient": 0.6,
+              "sourceImageIndex": 42,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "r": {
           "sourceImageIndex": 43,
@@ -397,7 +663,8 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
         }
       }
     },
@@ -416,7 +683,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "cleave_physical_damage",
+              "stat": "total_ad",
+              "coefficient": 1.2,
+              "sourceImageIndex": 44,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "q": {
           "sourceImageIndex": 45,
@@ -430,7 +708,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "projectile_physical_damage",
+              "stat": "bonus_ad",
+              "coefficient": 0.85,
+              "sourceImageIndex": 45,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "w": {
           "sourceImageIndex": 46,
@@ -444,7 +733,8 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
         },
         "e": {
           "sourceImageIndex": 47,
@@ -458,7 +748,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "fear_tether_magic_damage",
+              "stat": "ap",
+              "coefficient": 1,
+              "sourceImageIndex": 47,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "r": {
           "sourceImageIndex": 50,
@@ -472,7 +773,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "dash_physical_damage",
+              "stat": "bonus_ad",
+              "coefficient": 1.2,
+              "sourceImageIndex": 50,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         }
       }
     },
@@ -491,7 +803,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "bauble_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.2,
+              "sourceImageIndex": 52,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "q": {
           "sourceImageIndex": 53,
@@ -505,7 +828,8 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
         },
         "w": {
           "sourceImageIndex": 54,
@@ -519,7 +843,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "portal_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.4,
+              "sourceImageIndex": 54,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "e": {
           "sourceImageIndex": 56,
@@ -533,7 +868,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "thread_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.6,
+              "sourceImageIndex": 56,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "r": {
           "sourceImageIndex": 58,
@@ -547,7 +893,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "projectile_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.55,
+              "sourceImageIndex": 58,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         }
       }
     },
@@ -566,7 +923,8 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
         },
         "q": {
           "sourceImageIndex": 61,
@@ -581,7 +939,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "q_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.5,
+              "sourceImageIndex": 61,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "w": {
           "sourceImageIndex": 63,
@@ -596,7 +965,27 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "crash_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.5,
+              "sourceImageIndex": 63,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "dismount_shield",
+              "stat": "max_hp",
+              "coefficient": 0.13,
+              "sourceImageIndex": 63,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "e": {
           "sourceImageIndex": 65,
@@ -610,7 +999,8 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
         },
         "r": {
           "sourceImageIndex": 67,
@@ -624,7 +1014,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "r_magic_damage",
+              "stat": "ap",
+              "coefficient": 1,
+              "sourceImageIndex": 67,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         }
       }
     },
@@ -643,7 +1044,8 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
         },
         "q": {
           "sourceImageIndex": 70,
@@ -657,7 +1059,8 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
         },
         "w": {
           "sourceImageIndex": 97,
@@ -672,7 +1075,27 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "aoe_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.8,
+              "sourceImageIndex": 97,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "self_shield",
+              "stat": "max_hp",
+              "coefficient": 0.1,
+              "sourceImageIndex": 97,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "e": {
           "sourceImageIndex": 72,
@@ -687,7 +1110,27 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "collision_physical_damage",
+              "stat": "bonus_ad",
+              "coefficient": 1.2,
+              "sourceImageIndex": 72,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "collision_physical_damage",
+              "stat": "max_hp",
+              "coefficient": 0.06,
+              "sourceImageIndex": 72,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "r": {
           "sourceImageIndex": 99,
@@ -701,7 +1144,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "r_magic_damage",
+              "stat": "ap",
+              "coefficient": 1,
+              "sourceImageIndex": 99,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         }
       }
     },
@@ -720,7 +1174,8 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
         },
         "q": {
           "sourceImageIndex": 100,
@@ -735,7 +1190,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "fire_physical_damage",
+              "stat": "bonus_ad",
+              "coefficient": 1.1,
+              "sourceImageIndex": 100,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "w": {
           "sourceImageIndex": 102,
@@ -750,7 +1216,36 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "sneeze_base_physical_damage",
+              "stat": "bonus_ad",
+              "coefficient": 0.6,
+              "sourceImageIndex": 102,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "sneeze_explosion_physical_damage",
+              "stat": "bonus_ad",
+              "coefficient": 0.55,
+              "sourceImageIndex": 102,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "sneeze_explosion_magic_component",
+              "stat": "ap",
+              "coefficient": 0.8,
+              "sourceImageIndex": 102,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "e": {
           "sourceImageIndex": 76,
@@ -764,7 +1259,27 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "flight_hit_physical_damage",
+              "stat": "bonus_ad",
+              "coefficient": 0.3,
+              "sourceImageIndex": 76,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "flight_hit_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.12,
+              "sourceImageIndex": 76,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "r": {
           "sourceImageIndex": 104,
@@ -779,7 +1294,45 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "r_physical_damage",
+              "stat": "bonus_ad",
+              "coefficient": 1.1,
+              "sourceImageIndex": 104,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "r_additional_component",
+              "stat": "ap",
+              "coefficient": 1,
+              "sourceImageIndex": 104,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "self_healing",
+              "stat": "bonus_ad",
+              "coefficient": 0.5,
+              "sourceImageIndex": 104,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "self_healing",
+              "stat": "ap",
+              "coefficient": 0.75,
+              "sourceImageIndex": 104,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         }
       }
     },
@@ -797,7 +1350,8 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
         },
         "q": {
           "sourceImageIndex": 77,
@@ -812,7 +1366,27 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "first_rock_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.5,
+              "sourceImageIndex": 77,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "worked_ground_rock_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.8,
+              "sourceImageIndex": 77,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "w": {
           "sourceImageIndex": 108,
@@ -825,7 +1399,8 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
         },
         "e": {
           "sourceImageIndex": 79,
@@ -840,7 +1415,27 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "field_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.55,
+              "sourceImageIndex": 79,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "explosion_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.3,
+              "sourceImageIndex": 79,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "r": {
           "sourceImageIndex": 110,
@@ -854,7 +1449,8 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
         }
       }
     },
@@ -873,7 +1469,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "three_stack_true_damage",
+              "stat": "ap",
+              "coefficient": 0.45,
+              "sourceImageIndex": 80,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "q": {
           "sourceImageIndex": 112,
@@ -887,7 +1494,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "plasma_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.75,
+              "sourceImageIndex": 112,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "w": {
           "sourceImageIndex": 81,
@@ -901,7 +1519,27 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "rift_initial_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.2,
+              "sourceImageIndex": 81,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "rift_delayed_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.25,
+              "sourceImageIndex": 81,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "e": {
           "sourceImageIndex": 83,
@@ -915,7 +1553,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "tectonic_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.3,
+              "sourceImageIndex": 83,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "r": {
           "sourceImageIndex": 115,
@@ -929,7 +1578,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "beam_total_magic_damage",
+              "stat": "ap",
+              "coefficient": 1.25,
+              "sourceImageIndex": 115,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         }
       }
     },
@@ -948,7 +1608,8 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
         },
         "q": {
           "sourceImageIndex": 85,
@@ -962,7 +1623,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "passive_magic_impact",
+              "stat": "ap",
+              "coefficient": 0.2,
+              "sourceImageIndex": 85,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "w": {
           "sourceImageIndex": 87,
@@ -976,7 +1648,45 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "judgement_magic_damage",
+              "stat": "bonus_ad",
+              "coefficient": 0.85,
+              "sourceImageIndex": 87,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "judgement_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.5,
+              "sourceImageIndex": 87,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "judgement_tick_magic_damage",
+              "stat": "bonus_ad",
+              "coefficient": 0.12,
+              "sourceImageIndex": 87,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            },
+            {
+              "component": "judgement_tick_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.075,
+              "sourceImageIndex": 87,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "e": {
           "sourceImageIndex": 88,
@@ -990,7 +1700,8 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
         },
         "r": {
           "sourceImageIndex": 119,
@@ -1003,7 +1714,8 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
         }
       }
     },
@@ -1021,7 +1733,8 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
         },
         "q": {
           "sourceImageIndex": 120,
@@ -1035,7 +1748,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "time_bomb_magic_damage",
+              "stat": "ap",
+              "coefficient": 0.75,
+              "sourceImageIndex": 120,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "w": {
           "sourceImageIndex": 121,
@@ -1049,7 +1773,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "support_shield",
+              "stat": "ap",
+              "coefficient": 0.45,
+              "sourceImageIndex": 121,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         },
         "e": {
           "sourceImageIndex": 92,
@@ -1063,7 +1798,8 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": []
         },
         "r": {
           "sourceImageIndex": 94,
@@ -1077,7 +1813,18 @@
           "sourceStatus": "user_client_tooltip_visually_read",
           "isLiteralFullTooltip": false,
           "patchVersionVisible": false,
-          "approvedForNumericCombat": false
+          "approvedForNumericCombat": false,
+          "observedCoefficients": [
+            {
+              "component": "revive_healing",
+              "stat": "ap",
+              "coefficient": 2,
+              "sourceImageIndex": 94,
+              "verifiedAtRank": "rank_1_tooltip_only",
+              "confirmedConstantAcrossRanks": false,
+              "enabledForCombat": false
+            }
+          ]
         }
       }
     }
@@ -1089,5 +1836,7 @@
   ],
   "sourceArchiveSha256": "57d87f830d7955c9155d1bc00e8a43d66a375be55d9c78cb9b859222c7c7a505",
   "sourceArchiveBytes": 178369883,
-  "sourceScreenshotJpegs": 122
+  "sourceScreenshotJpegs": 122,
+  "observedCoefficientCount": 70,
+  "ratioExtractionPolicy": "Only direct explicitly visible rank-one coefficient values; conditional scaling and all-rank constancy are not inferred."
 }
