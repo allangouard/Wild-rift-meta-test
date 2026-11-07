@@ -156,9 +156,10 @@
       "name": "Cho'Gath",
       "riotId": "ChoGath",
       "officialKitStatus": "client_screenshot_curated_5_slots",
-      "fullFiveSkillDescriptionsVerified": true,
+      "fullFiveSkillDescriptionsVerified": false,
       "allRatiosAndCooldownsVerified": false,
-      "source": "user_Champ.zip_2026_11_07"
+      "source": "user_Champ.zip_2026_11_07",
+      "fiveSlotDescriptionsSummarized": true
     },
     {
       "id": "10060",
@@ -412,9 +413,10 @@
       "name": "K'Sante",
       "riotId": "KSante",
       "officialKitStatus": "client_screenshot_curated_5_slots",
-      "fullFiveSkillDescriptionsVerified": true,
+      "fullFiveSkillDescriptionsVerified": false,
       "allRatiosAndCooldownsVerified": false,
-      "source": "user_Champ.zip_2026_11_07"
+      "source": "user_Champ.zip_2026_11_07",
+      "fiveSlotDescriptionsSummarized": true
     },
     {
       "id": "10026",
@@ -511,9 +513,10 @@
       "name": "Kog'Maw",
       "riotId": "KogMaw",
       "officialKitStatus": "client_screenshot_curated_5_slots",
-      "fullFiveSkillDescriptionsVerified": true,
+      "fullFiveSkillDescriptionsVerified": false,
       "allRatiosAndCooldownsVerified": false,
-      "source": "user_Champ.zip_2026_11_07"
+      "source": "user_Champ.zip_2026_11_07",
+      "fiveSlotDescriptionsSummarized": true
     },
     {
       "id": "10059",
@@ -610,9 +613,10 @@
       "name": "Mel",
       "riotId": "Mel",
       "officialKitStatus": "client_screenshot_curated_5_slots",
-      "fullFiveSkillDescriptionsVerified": true,
+      "fullFiveSkillDescriptionsVerified": false,
       "allRatiosAndCooldownsVerified": false,
-      "source": "user_Champ.zip_2026_11_07"
+      "source": "user_Champ.zip_2026_11_07",
+      "fiveSlotDescriptionsSummarized": true
     },
     {
       "id": "10108",
@@ -684,7 +688,8 @@
       "officialKitStatus": "partial_client_screenshots_plus_riot_wild_rift_page",
       "fullFiveSkillDescriptionsVerified": false,
       "allRatiosAndCooldownsVerified": false,
-      "source": "user_Champ.zip_2026_11_07"
+      "source": "user_Champ.zip_2026_11_07",
+      "fiveSlotDescriptionsSummarized": true
     },
     {
       "id": "10027",
@@ -700,18 +705,20 @@
       "name": "Nocturne",
       "riotId": "Nocturne",
       "officialKitStatus": "client_screenshot_curated_5_slots",
-      "fullFiveSkillDescriptionsVerified": true,
+      "fullFiveSkillDescriptionsVerified": false,
       "allRatiosAndCooldownsVerified": false,
-      "source": "user_Champ.zip_2026_11_07"
+      "source": "user_Champ.zip_2026_11_07",
+      "fiveSlotDescriptionsSummarized": true
     },
     {
       "id": "11107",
       "name": "Norra",
       "riotId": "Norra",
       "officialKitStatus": "client_screenshot_curated_5_slots",
-      "fullFiveSkillDescriptionsVerified": true,
+      "fullFiveSkillDescriptionsVerified": false,
       "allRatiosAndCooldownsVerified": false,
-      "source": "user_Champ.zip_2026_11_07"
+      "source": "user_Champ.zip_2026_11_07",
+      "fiveSlotDescriptionsSummarized": true
     },
     {
       "id": "10008",
@@ -799,9 +806,10 @@
       "name": "Rell",
       "riotId": "Rell",
       "officialKitStatus": "client_screenshot_curated_5_slots",
-      "fullFiveSkillDescriptionsVerified": true,
+      "fullFiveSkillDescriptionsVerified": false,
       "allRatiosAndCooldownsVerified": false,
-      "source": "user_Champ.zip_2026_11_07"
+      "source": "user_Champ.zip_2026_11_07",
+      "fiveSlotDescriptionsSummarized": true
     },
     {
       "id": "10121",
@@ -934,18 +942,20 @@
       "name": "Skarner",
       "riotId": "Skarner",
       "officialKitStatus": "client_screenshot_curated_5_slots",
-      "fullFiveSkillDescriptionsVerified": true,
+      "fullFiveSkillDescriptionsVerified": false,
       "allRatiosAndCooldownsVerified": false,
-      "source": "user_Champ.zip_2026_11_07"
+      "source": "user_Champ.zip_2026_11_07",
+      "fiveSlotDescriptionsSummarized": true
     },
     {
       "id": "11110",
       "name": "Smolder",
       "riotId": "Smolder",
       "officialKitStatus": "client_screenshot_curated_5_slots",
-      "fullFiveSkillDescriptionsVerified": true,
+      "fullFiveSkillDescriptionsVerified": false,
       "allRatiosAndCooldownsVerified": false,
-      "source": "user_Champ.zip_2026_11_07"
+      "source": "user_Champ.zip_2026_11_07",
+      "fiveSlotDescriptionsSummarized": true
     },
     {
       "id": "10047",
@@ -988,9 +998,10 @@
       "name": "Taliyah",
       "riotId": "Taliyah",
       "officialKitStatus": "client_screenshot_curated_5_slots",
-      "fullFiveSkillDescriptionsVerified": true,
+      "fullFiveSkillDescriptionsVerified": false,
       "allRatiosAndCooldownsVerified": false,
-      "source": "user_Champ.zip_2026_11_07"
+      "source": "user_Champ.zip_2026_11_07",
+      "fiveSlotDescriptionsSummarized": true
     },
     {
       "id": "10128",
@@ -1096,9 +1107,10 @@
       "name": "Vel'Koz",
       "riotId": "VelKoz",
       "officialKitStatus": "client_screenshot_curated_5_slots",
-      "fullFiveSkillDescriptionsVerified": true,
+      "fullFiveSkillDescriptionsVerified": false,
       "allRatiosAndCooldownsVerified": false,
-      "source": "user_Champ.zip_2026_11_07"
+      "source": "user_Champ.zip_2026_11_07",
+      "fiveSlotDescriptionsSummarized": true
     },
     {
       "id": "10141",
@@ -1213,9 +1225,10 @@
       "name": "Yunara",
       "riotId": "Yunara",
       "officialKitStatus": "client_screenshot_curated_5_slots",
-      "fullFiveSkillDescriptionsVerified": true,
+      "fullFiveSkillDescriptionsVerified": false,
       "allRatiosAndCooldownsVerified": false,
-      "source": "user_Champ.zip_2026_11_07"
+      "source": "user_Champ.zip_2026_11_07",
+      "fiveSlotDescriptionsSummarized": true
     },
     {
       "id": "10020",
@@ -1258,9 +1271,10 @@
       "name": "Zilean",
       "riotId": "Zilean",
       "officialKitStatus": "client_screenshot_curated_5_slots",
-      "fullFiveSkillDescriptionsVerified": true,
+      "fullFiveSkillDescriptionsVerified": false,
       "allRatiosAndCooldownsVerified": false,
-      "source": "user_Champ.zip_2026_11_07"
+      "source": "user_Champ.zip_2026_11_07",
+      "fiveSlotDescriptionsSummarized": true
     },
     {
       "id": "10014",
@@ -1281,6 +1295,7 @@
       "source": null
     }
   ],
-  "clientScreenshotCompleteProfiles": 15,
-  "clientScreenshotPartialProfiles": 1
+  "clientScreenshotCompleteProfiles": 2,
+  "clientScreenshotPartialProfiles": 1,
+  "clientScreenshotSummarizedProfiles": 13
 }
