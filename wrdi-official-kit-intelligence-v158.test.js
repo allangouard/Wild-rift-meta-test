@@ -25,9 +25,9 @@ const lookup=name=>{
  return kit.enrich(profiles.lookup(name,meta),api.find(meta?.id||name),manual.get(meta?.id)).traits;
 };
 const prepare=guard.prepare({catalog:inventory,rules:restrictions,core,livePatch:'7.3d'});
-test('all 141 sourced Wild Rift entries support textual analysis, never numeric simulation',()=>{
+test('all 142 sourced Wild Rift entries support textual analysis, never numeric simulation',()=>{
  assert.equal(api.ok,true,api.reason);
- assert.equal(api.count,141);
+ assert.equal(api.count,142);
  for(const entry of official.entries){
   const r=kit.analyze(entry);
   assert.equal(r.ok,true);
