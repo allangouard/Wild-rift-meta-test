@@ -108,3 +108,41 @@ footer{color:#8fabb5;line-height:1.5}
 .ep-expert>.result-section:first-of-type{border-top:0;padding-top:4px;margin-top:7px}
 @media(max-width:360px){.ep-item-row{gap:4px}.ep-item-label{font-size:9px}.ep-quick-intro{align-items:start;flex-direction:column;gap:4px}}
 @media(prefers-reduced-motion:reduce){.ep-progress-fill{transition:none}}
+
+/* Esport Premium v15.9 — fast champion selection */
+.ep-picker-sheet{height:min(94dvh,920px);border-color:#4e7181}
+.ep-picker-sticky{padding:10px 15px 11px;box-shadow:0 5px 20px rgba(0,0,0,.16);z-index:2}
+.ep-picker-context{font-size:12px;color:#b9d1d9;margin:5px 0 0}
+.ep-search-wrap{position:relative}
+.ep-search-wrap .wrdi-picker-search{padding-right:48px;min-height:48px;margin-top:12px}
+.ep-search-clear{position:absolute;right:7px;top:19px;min-width:34px;min-height:34px;background:#294b59;color:#d8ebed;border:0;border-radius:9px;padding:4px}
+.ep-search-clear[hidden],.ep-remove-pick[hidden]{display:none!important}
+.ep-picker-scroll{padding:12px 14px 34px}
+.ep-picker-filter-group{position:relative}
+.ep-picker-filter-group .wrdi-picker-label{margin-bottom:7px}
+.ep-picker-filter-group .wrdi-picker-filters{margin-bottom:3px;padding-bottom:7px}
+.ep-class-details{margin:3px 0 13px;border-bottom:1px solid #284a58;padding-bottom:8px}
+.ep-class-details>summary{font-size:12px;color:#bcd8de;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;min-height:32px}
+.ep-class-details>summary::after{content:'⌄';color:#d8b978;font-size:19px}
+.ep-class-details[open]>summary::after{content:'⌃'}
+.ep-class-details .wrdi-picker-filters{margin-top:9px;margin-bottom:0}
+.ep-quick-section{margin:0 0 16px}
+.ep-quick-section .wrdi-picker-label{color:#d8b978}
+.ep-quick-row{display:flex;gap:8px;overflow-x:auto;padding:1px 1px 9px;scrollbar-width:thin;scroll-snap-type:x proximity}
+.ep-quick-row .ep-picker-card-wrap{flex:0 0 83px;scroll-snap-align:start}
+.ep-picker-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.ep-picker-card-wrap{position:relative;min-width:0}
+.ep-picker-card-wrap .wrdi-champion-card{width:100%;height:100%;min-height:114px;padding:9px 5px 10px;border-radius:13px}
+.ep-picker-card-wrap.compact .wrdi-champion-card{min-height:96px;padding:10px 3px 7px}
+.ep-picker-card-wrap .card-portrait{width:min(100%,68px);border-radius:13px}
+.ep-picker-card-wrap.compact .card-portrait{width:51px}
+.ep-picker-card-wrap .wrdi-champion-name{font-weight:750;font-size:12px}
+.ep-picker-card-wrap .wrdi-champion-sub{font-size:9px}
+.ep-favorite{position:absolute;right:2px;top:2px;width:31px;height:31px;min-height:31px;border:1px solid #63838a;border-radius:9px;background:rgba(8,26,37,.92);color:#b5c5cc;padding:0;font-size:19px;line-height:1;z-index:1}
+.ep-favorite.is-active{color:#dfbc73;border-color:#b9944e;background:#2e3031}
+.ep-list-heading{margin-top:5px}
+.ep-remove-pick{display:block;width:100%;margin:18px 0 0;background:#3c2933;border:1px solid #875667;color:#ffb5bb;font-size:13px}
+.ep-picker-card-wrap:focus-within{outline:2px solid #d8b978;border-radius:14px}
+@media(min-width:600px){.ep-picker-grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media(max-width:350px){.ep-picker-grid{gap:6px}.ep-picker-card-wrap .wrdi-champion-card{min-height:103px}.ep-picker-card-wrap .card-portrait{width:58px}.ep-picker-card-wrap .wrdi-champion-name{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.ep-quick-row{scroll-snap-type:none}}
