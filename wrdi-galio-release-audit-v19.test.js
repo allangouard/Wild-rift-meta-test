@@ -26,7 +26,7 @@ test('V19 no longer reports Hwei as absent after client-backed catalogue integra
  assert.ok(!r.warnings.some(x=>/Hwei figure/.test(x)));
  assert.equal(r.rosterCount,142);
  assert.equal(r.knownMissingChampionNames.length,0);
- assert.ok(r.knownMissingChampionNames.includes('Bard'));
+ assert.deepEqual(r.knownMissingChampionNames,[]);
  assert.ok(r.warnings.some(x=>/0 champions/.test(x)));
 });
 test('V19 distinguishes hard legality failures from unverified efficacy',()=>{
