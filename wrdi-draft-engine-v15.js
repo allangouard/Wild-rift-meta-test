@@ -276,6 +276,18 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
   });
   if(combined?.ok)fullBuildScenarios=combined;
  }
+ const passiveCatalogAudit=m.passiveCoverage?.auditCatalog?.({
+  catalog,runes,bootsCatalog
+ })||null;
+ const selectedItemObjects=sequence.items.map(x=>
+  prepared.catalog.items.find(y=>y.id===x.id)).filter(Boolean);
+ const selectedBootRecord=(bootsCatalog?.records||[]).find(x=>x.name_fr===boots?.recommended?.name)||null;
+ const selectedScenario=fullBuildScenarios?.candidates?.find(x=>
+  x.ids.join('|')===sequence.items.map(y=>y.id).join('|'))?.scenarios?.[0]||null;
+ const passiveLoadoutAudit=m.passiveCoverage?.inspectLoadout?.({
+  items:selectedItemObjects,boots:selectedBootRecord,runePage:rune?.page,
+  runes,scenario:selectedScenario
+ })||null;
  const conditionAudit=m.conditionAudit?.inspect?.({
   items:main.main.items.map(x=>prepared.catalog.items.find(y=>y.id===x.id)).filter(Boolean)
    .map(x=>({...x,feature:optimizer.features(x)})),threats:need
@@ -284,6 +296,7 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
  if(conditionAudit?.ok)for(const entry of conditionAudit.entries)
   notes.push('V18.7 '+entry.id+' ['+entry.status+'] : '+entry.reason+' ; condition : '+entry.trigger);
  if(threatEvidence?.ok)notes.push('V18.5 : '+threatEvidence.alliedHealers+' sources de soin allié, '+threatEvidence.personalHealers+' sources de soin personnel, '+threatEvidence.maxHpThreats+' menaces de dégâts % PV max détectées dans les compétences officielles ; efficacité réelle non prédite.');
+ if(passiveLoadoutAudit?.ok)notes.push('V19.9 : '+passiveLoadoutAudit.totalPassives+' passifs parmi les cinq objets inventoriés ; '+passiveLoadoutAudit.numericallyModeled+' modélisés, les autres explicitement signalés.');
  if(fullBuildScenarios?.ok)notes.push('V19.7 : '+fullBuildScenarios.totalCompared+' builds complets comparés dans trois scénarios hypothétiques de dégâts et survie.');
  if(lateSlots?.ok)notes.push('V18.4 : '+lateSlots.evaluatedPairs+' duos légaux comparés sur les objets 4 et 5 ; '+lateSlots.explanation+' Valeurs qualitatives, pas des dégâts réels.');
  if(readiness?.ok)notes.push('Données contrôlées : '+readiness.fullyDescribed+'/10 kits, '+readiness.itemRecords+' objets, '+readiness.runeRecords+' runes et '+readiness.bootRecords+' fiches de bottes client disponibles.');
@@ -390,6 +403,12 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
   calculations:{clientNumericEvidence:clientDraftEvidence?.ok?clientDraftEvidence:null,
    clientCombat:clientCombatDraft?.ok?clientCombatDraft:null,
    fullBuildScenarios,
+   passiveCatalogAudit:passiveCatalogAudit?.ok?{
+    itemCount:passiveCatalogAudit.itemCount,itemPassiveCount:passiveCatalogAudit.itemPassiveCount,
+    runeCount:passiveCatalogAudit.runeCount,distinctPassiveFields:passiveCatalogAudit.distinctPassiveFields,
+    bootCount:passiveCatalogAudit.bootCount,allEffectsNumericallySimulated:false
+   }:null,
+   passiveLoadoutAudit:passiveLoadoutAudit?.ok?passiveLoadoutAudit:null,
    inputAudit:inputAudit?.ok?inputAudit:null,
    antiheal:antiheal?.ok?antiheal:null,runeProc:runeRange?.ok?runeRange:null,
    numericDraft:numericDraft?.ok?numericDraft:null,
