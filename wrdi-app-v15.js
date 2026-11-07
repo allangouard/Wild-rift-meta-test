@@ -387,7 +387,8 @@ go.addEventListener('click',()=>{
   kitIntelligence:root.WRDI_OfficialKitIntelligenceV158,
   mechanicsCalculator:root.WRDI_MechanicsCalculatorV159,
   numericEngine:root.WRDI_NumericKitsV162,
-  clientNumericEvidence:root.WRDI_ClientNumericEvidenceV195};
+  clientNumericEvidence:root.WRDI_ClientNumericEvidenceV195,
+  clientCombat:root.WRDI_ClientCombatV196};
  go.disabled=true;status('Analyse du build principal, de l’ordre et des situations possibles…');
  // Yield a frame so the status is visible before the local-only computation.
  setTimeout(()=>{
