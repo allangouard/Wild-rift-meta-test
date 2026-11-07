@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - v19-5-1-taliyah-ultimate-rank-fix
       - v19-5-client-122-numeric-extraction
       - v19-4-bard-complete-roster
       - v19-3-bulk-14-client-champions
