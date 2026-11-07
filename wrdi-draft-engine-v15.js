@@ -83,6 +83,8 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
  if(clientRankTables&&m.clientNumericEvidence&&!clientSource?.ok)
   return fail('client_numeric',clientSource?.reason||'Incohérence des tableaux client');
  const clientDraftEvidence=clientSource?.ok?clientSource.inspectDraft({names}):null;
+ const clientCombat=clientSource?.ok&&m.clientCombat?.prepare?m.clientCombat.prepare(clientSource):null;
+ const clientCombatDraft=clientCombat?.ok?clientCombat.inspectDraft({names}):null;
  const metadataByName=new Map((Array.isArray(championMeta)?championMeta:[])
   .filter(x=>x?.name).map(x=>[String(x.name).toLocaleLowerCase('fr'),x]));
  // Official Riot Wild Rift skill text is part of draft recognition, not
@@ -137,6 +139,12 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
  const prepared=guard.prepare({catalog,rules,core,livePatch:catalog?.patch_claimed_by_client_user});
  if(!prepared.ok)return fail('client_catalogue',prepared.reason);
  const need=context.threats;
+ // Values observed in the Wild Rift client feed draft counter-priorities.
+ // Only explicit percentage-HP/true-damage rank fields count; no inferred enemy items.
+ if(clientCombatDraft?.ok){
+  need.enemyMaxHpNumericSources=clientCombatDraft.enemyMaxHpNumericSources;
+  need.enemyTrueDamageNumericSources=clientCombatDraft.enemyTrueDamageNumericSources;
+ }
  // Source-only WR numeric catalogue; patch overrides are validated field-by-field.
  const numeric=numericKits&&m.numericEngine?.prepare?
   m.numericEngine.prepare(numericKits,numericPatch,numericClient):null;
@@ -310,6 +318,7 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
    sourced:'player_client_items_only',noPopularBuilds:true},
   runes:rune,boots,dataReadiness:readiness,releaseAudit:releaseAudit?.ok?releaseAudit:null,
   calculations:{clientNumericEvidence:clientDraftEvidence?.ok?clientDraftEvidence:null,
+   clientCombat:clientCombatDraft?.ok?clientCombatDraft:null,
    inputAudit:inputAudit?.ok?inputAudit:null,
    antiheal:antiheal?.ok?antiheal:null,runeProc:runeRange?.ok?runeRange:null,
    numericDraft:numericDraft?.ok?numericDraft:null,
@@ -326,7 +335,7 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
     patchCorrections:numeric.patchOverlayApplied,clientVerifications:numeric.clientVerificationsCount,patchConflicts:numeric.patchConflicts,
     patchOutcomes:numeric.patchOutcomes,patchComplete:numeric.unreviewedPatchSections.length===0}:null},
   methods:{clientRankTablesObserved:Boolean(clientDraftEvidence?.ok&&clientDraftEvidence.count),
-   clientRankTablesPatchCertified:false,clientRankTablesUsedForDamage:false,
+   clientRankTablesPatchCertified:false,clientRankTablesUsedForDamage:Boolean(clientCombatDraft?.ok&&clientCombatDraft.damageRows),
    kitPassiveSynergy:'inferred_from_client_text',championThreatSource:official?'official_wild_rift_abilities':'legacy_profiles_only',selection:'draft_weighted_mechanical_scenarios_and_qualitative_heuristic',
    exactOptimalityProven:false,liveTracking:false,numericCombatInputs:numeric?'wiki_wr_and_riot_patch_layer':'not_loaded'},
   warnings:rune.ok?[]:['Runes indisponibles : '+rune.reason]};
