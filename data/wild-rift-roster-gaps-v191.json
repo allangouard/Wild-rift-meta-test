@@ -3,9 +3,9 @@
   "checkedOn": "2026-11-07",
   "officialChampionDirectory": "https://wildrift.leagueoflegends.com/fr-fr/champions/",
   "officialDirectoryChampionCountAtCheck": 142,
-  "localPickerCountAfterHwei": 127,
+  "localPickerCountAfterHwei": 126,
   "missingCount": 15,
-  "note": "14? No: 15 champions remain absent after adding Aurora, pending 5 Wild Rift skill descriptions. Ids are not invented for unverified picks.",
+  "note": "15 champions remain absent after adding Aurora; all require Wild Rift five-skill descriptions before being enabled in draft calculations.",
   "missingChampions": [
     {
       "name": "Bard",
