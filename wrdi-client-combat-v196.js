@@ -96,12 +96,19 @@ function prepare(evidence){
     rankRows+=Object.keys(table.statRows||{}).length;
     rankValues+=Object.values(table.statRows||{}).reduce((s,r)=>s+r.values.length,0);
    }
-   for(const f of Object.values(c.tooltipFacts||{}))
+   const tooltipAbilities={};
+   for(const [slot,f] of Object.entries(c.tooltipFacts||{})){
+    tooltipAbilities[slot]={mechanics:f.mechanics||[],descriptionFacts:f.clientDescriptionFacts||[],
+     coefficients:(f.observedCoefficients||[]).map(x=>({component:x.component,stat:x.stat,ratio:x.coefficient,sourceImageIndex:x.sourceImageIndex})),
+     sourceImageIndex:f.sourceImageIndex};
     for(const [group,flags] of Object.entries(MECHANIC_GROUPS))
      if((f.mechanics||[]).some(x=>flags.includes(x)))effects[group]=true;
+   }
+   // Include passive/non-tabulated ratios in evidence, without inventing base damage.
+   coefficientCount=Object.values(tooltipAbilities).reduce((sum,x)=>sum+x.coefficients.length,0);
    if(maxHpRows)effects.maxHp=true;
    if(trueDamageRows)effects.trueDamage=true;
-   champions.push({name:c.name,abilities,effects,damageRows,maxHpRows,trueDamageRows,
+   champions.push({name:c.name,abilities,tooltipAbilities,effects,damageRows,maxHpRows,trueDamageRows,
     coefficientCount,mappedCoefficients,rankRows,rankValues,allTooltipSlots:Object.keys(c.tooltipFacts||{}).length});
   }
   const enemyNames=new Set(names.slice(5).map(norm));
