@@ -22,7 +22,7 @@ const PROFILES=Object.freeze([
   spellHits:2,adjacentSeconds:3,autosReceived:2,shieldHp:250,skillsTrigger:true},
  {id:'tank',label:'Combat prolongé contre frontline',seconds:8,targetHp:3900,targetArmor:180,targetMr:160,targetRemainingHpPct:32,
   galioBaseHp:2000,galioBaseArmor:65,galioBaseMr:45,incomingPhysical:1750,incomingMagic:1550,
-  spellHits:2,adjacentSeconds:6,autosReceived:4,shieldHp:450,skillsTrigger:true}
+  spellHits:2,adjacentSeconds:6,autosReceived:4,shieldHp:450,skillsTrigger:true,ultimateHits:true,ultimateRank:2}
 ]);
 function stats(items,boots=null){
  const total={ap:0,hp:0,armor:0,mr:0,ah:0,mpenFlat:0,mpenPct:0};
@@ -61,9 +61,17 @@ function evaluate(items,profile,combatModel,{role='hybrid_offensive',boots=null,
  const rawSpell=combatModel?.directDamageAt?.({ap:s.ap})||null;
  const spellRaw=rawSpell?rawSpell.total:null;
  const magic=(raw)=>defense(n(raw),targetMr);
- // Galio Q/W/E source model is a single-hit comparison; do not multiply the
+ // Conditional Galio R damage is separate from the sourced Q/W/E direct hit.
+ // Its rank-two formula comes from the existing WR numeric kit, not PC.
+ const ultimate=combatModel?.ultimateDamageAt?.({ap:s.ap,rank:profile.ultimateRank||2})||null;
+
  // whole combo by casts whose cooldowns and hit timing are not verified.
  let extraRaw=0,physicalRaw=0;
+ if(ultimate){
+  extraRaw+=trigger('galio_ultimate',Boolean(profile.ultimateHits),
+   'Galio R doit toucher un ennemi à l’atterrissage ; formule WR numérique non certifiée au patch',
+   ultimate.rawDamage);
+ }
  const luden=select(items,'ludens_echo');
  if(luden){
   const m=passive(luden,'base_damage');
@@ -248,7 +256,9 @@ function evaluate(items,profile,combatModel,{role='hybrid_offensive',boots=null,
   stats:s,damage:{rawGalioQWE:spellRaw,rawConditionalPassives:round(extraRaw),rawTotal:rawDirect===null?null:round(rawDirect),
    targetMrAfterPenetration:round(targetMr),magicDamageToHpIfAllConditions:magicDamage,
    shieldReduction:round(shieldReduced),physicalBonusNotModeled:true,
-   excludes:['Galio passive','Galio ultimate','Q tornado','rune procs','enemy spell shields']},
+   excludes:['Galio passive','Q tornado','enemy spell shields'],
+   galioUltimateIfHit:ultimate?.rawDamage??null,
+   galioUltimateAssumedHit:Boolean(profile.ultimateHits)},
   survival:{hpBeforeDamage:hp,incomingPhysicalAfterArmor:round(incomingPhysical),
    incomingMagicAfterMr:round(incomingMagic),incomingTotal:round(totalIncoming),hpRemainingWithoutHealing:round(remainingHp),
    survivesIncomingScenario:survived,conditionalHealNotCounted:round(conditionalHeal),
