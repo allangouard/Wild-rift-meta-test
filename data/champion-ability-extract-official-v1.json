@@ -3,11 +3,11 @@
   "date": "2026-11-06",
   "source": "https://wildrift.leagueoflegends.com/fr-fr/champions/",
   "coverage": {
-    "attempted": 127,
-    "extracted": 127,
+    "attempted": 141,
+    "extracted": 141,
     "failed": 0
   },
-  "restrictions": "Full official skill descriptions kept; numeric ratios and patch validity not automatically confirmed; Hwei descriptions from Wild Rift player screenshots, not the Riot website extraction; Aurora descriptions from client screenshots 2026-11-07, not Riot website extraction",
+  "restrictions": "Full official skill descriptions kept; numeric ratios and patch validity not automatically confirmed; Hwei descriptions from Wild Rift player screenshots, not the Riot website extraction; Aurora descriptions from client screenshots 2026-11-07, not Riot website extraction; 14 additional champion records are paraphrased from user-provided Wild Rift screenshots, not Riot website extractions; Nidalee Cougar variants partially documented.",
   "entries": [
     {
       "id": "10002",
@@ -1024,6 +1024,86 @@
       "currentPatchVerified": false,
       "numericRatiosVerified": false,
       "allowedForScoring": false
+    },
+    {
+      "id": "11101",
+      "name": "Cho'Gath",
+      "source_url": "https://wildrift.leagueoflegends.com/fr-fr/champions/chogath/",
+      "source_type": "player_client_tooltips_not_official_website_extraction",
+      "source_detail": "user_Champ.zip_2026_11_07",
+      "skills": {
+        "passive": {
+          "name": "CARNIVORE",
+          "description_fr": "Tuer une unité rend des PV et du mana à Cho'Gath ; la restauration est doublée sur champion, tourelle ou monstre épique.",
+          "excerpt_fr": "Tuer une unité rend des PV et du mana à Cho'Gath ; la restauration est doublée sur champion, tourelle ou monstre épique.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "self_healing",
+            "mana_restore"
+          ]
+        },
+        "q": {
+          "name": "RUPTURE",
+          "description_fr": "Cho'Gath fracture le sol et projette les ennemis en l'air pendant 1 seconde, leur infligeant des dégâts magiques puis les ralentissant.",
+          "excerpt_fr": "Cho'Gath fracture le sol et projette les ennemis en l'air pendant 1 seconde, leur infligeant des dégâts magiques puis les ralentissant.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "magic_damage",
+            "knockup",
+            "slow",
+            "aoe"
+          ]
+        },
+        "w": {
+          "name": "CRI SAUVAGE",
+          "description_fr": "Cho'Gath pousse un cri dans une zone devant lui, inflige des dégâts magiques et réduit les ennemis au silence pendant une durée qui augmente avec le rang.",
+          "excerpt_fr": "Cho'Gath pousse un cri dans une zone devant lui, inflige des dégâts magiques et réduit les ennemis au silence pendant une durée qui augmente",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "magic_damage",
+            "silence",
+            "aoe"
+          ]
+        },
+        "e": {
+          "name": "PIQUES VORPALES",
+          "description_fr": "Ses trois prochaines attaques lancent des piques qui infligent des dégâts magiques supplémentaires selon les PV max de la cible et ralentissent. L'amplitude et la portée grandissent avec sa taille.",
+          "excerpt_fr": "Ses trois prochaines attaques lancent des piques qui infligent des dégâts magiques supplémentaires selon les PV max de la cible et ralentissent. L'amplitude et",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "magic_damage",
+            "max_hp_damage",
+            "slow",
+            "empowered_attacks"
+          ]
+        },
+        "r": {
+          "name": "FESTIN",
+          "description_fr": "Cho'Gath dévore un ennemi, inflige des dégâts bruts importants, augmentés sur sbires et monstres. Une élimination octroie des cumuls de Festin, augmentant ses PV max et sa taille.",
+          "excerpt_fr": "Cho'Gath dévore un ennemi, inflige des dégâts bruts importants, augmentés sur sbires et monstres. Une élimination octroie des cumuls de Festin, augmentant ses PV",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "true_damage",
+            "max_hp_damage_bonus",
+            "stacking_hp"
+          ]
+        }
+      },
+      "confidence": "screenshot_curated_short_description",
+      "currentPatchVerified": false,
+      "numericRatiosVerified": false,
+      "allowedForScoring": false,
+      "screenshotIndices": [
+        1,
+        9
+      ],
+      "clientScreenshotData": "data/wild-rift-screenshot-batch-v193.json",
+      "incompleteVariants": []
     },
     {
       "id": "10060",
@@ -2711,6 +2791,90 @@
       "allowedForScoring": false
     },
     {
+      "id": "11102",
+      "name": "K'Sante",
+      "source_url": "https://wildrift.leagueoflegends.com/fr-fr/champions/ksante/",
+      "source_type": "player_client_tooltips_not_official_website_extraction",
+      "source_detail": "user_Champ.zip_2026_11_07",
+      "skills": {
+        "passive": {
+          "name": "INSTINCT INTRÉPIDE",
+          "description_fr": "Les compétences blessantes marquent les ennemis. Les attaques sur les cibles marquées consomment la marque pour infliger des dégâts physiques selon leurs PV max. En Grand jeu, les dégâts et ratios évoluent.",
+          "excerpt_fr": "Les compétences blessantes marquent les ennemis. Les attaques sur les cibles marquées consomment la marque pour infliger des dégâts physiques selon leurs PV max.",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "physical_damage",
+            "max_hp_damage",
+            "conditional_form"
+          ]
+        },
+        "q": {
+          "name": "COUPS DE NTOFO",
+          "description_fr": "Frappe physique qui ralentit. Après deux impacts sur des cibles, K'Santé projette une onde de choc attirant et étourdissant ; en Grand jeu, le sort est renforcé.",
+          "excerpt_fr": "Frappe physique qui ralentit. Après deux impacts sur des cibles, K'Santé projette une onde de choc attirant et étourdissant ; en Grand jeu, le",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "physical_damage",
+            "slow",
+            "pull",
+            "stun",
+            "conditional_form"
+          ]
+        },
+        "w": {
+          "name": "POUR NAZUMAH !",
+          "description_fr": "K'Santé se prépare, réduit les dégâts subis, devient difficile à interrompre, puis fonce et repousse les ennemis en leur infligeant des dégâts physiques selon leurs PV max ; peut étourdir.",
+          "excerpt_fr": "K'Santé se prépare, réduit les dégâts subis, devient difficile à interrompre, puis fonce et repousse les ennemis en leur infligeant des dégâts physiques selon",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "damage_reduction",
+            "physical_damage",
+            "max_hp_damage",
+            "knockback",
+            "stun"
+          ]
+        },
+        "e": {
+          "name": "JEU DE JAMBES",
+          "description_fr": "K'Santé se rue vers une direction et obtient un bouclier ; sa ruée est plus longue vers un allié, qui reçoit alors également le même bouclier.",
+          "excerpt_fr": "K'Santé se rue vers une direction et obtient un bouclier ; sa ruée est plus longue vers un allié, qui reçoit alors également le",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "shield",
+            "ally_shield",
+            "dash"
+          ]
+        },
+        "r": {
+          "name": "GRAND JEU",
+          "description_fr": "K'Santé repousse un champion ennemi et entre temporairement en Grand jeu. Les interactions avec les murs renforcent son contrôle. Il gagne de la puissance offensive en échange d'une partie de sa durabilité.",
+          "excerpt_fr": "K'Santé repousse un champion ennemi et entre temporairement en Grand jeu. Les interactions avec les murs renforcent son contrôle. Il gagne de la puissance",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "knockback",
+            "form_change",
+            "bonus_attack",
+            "conditional_form"
+          ]
+        }
+      },
+      "confidence": "screenshot_curated_short_description",
+      "currentPatchVerified": false,
+      "numericRatiosVerified": false,
+      "allowedForScoring": false,
+      "screenshotIndices": [
+        10,
+        18
+      ],
+      "clientScreenshotData": "data/wild-rift-screenshot-batch-v193.json",
+      "incompleteVariants": []
+    },
+    {
       "id": "10026",
       "name": "Kai'Sa",
       "source_url": "https://wildrift.leagueoflegends.com/fr-fr/champions/kaisa/",
@@ -3313,6 +3477,87 @@
       "currentPatchVerified": false,
       "numericRatiosVerified": false,
       "allowedForScoring": false
+    },
+    {
+      "id": "11103",
+      "name": "Kog'Maw",
+      "source_url": "https://wildrift.leagueoflegends.com/fr-fr/champions/kogmaw/",
+      "source_type": "player_client_tooltips_not_official_website_extraction",
+      "source_detail": "user_Champ.zip_2026_11_07",
+      "skills": {
+        "passive": {
+          "name": "SURPRISE D'ICATHIA",
+          "description_fr": "Après sa mort, Kog'Maw continue de se déplacer pendant quatre secondes, accélère puis explose en infligeant des dégâts bruts de zone.",
+          "excerpt_fr": "Après sa mort, Kog'Maw continue de se déplacer pendant quatre secondes, accélère puis explose en infligeant des dégâts bruts de zone.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "true_damage",
+            "death_passive",
+            "aoe"
+          ]
+        },
+        "q": {
+          "name": "BAVE CAUSTIQUE",
+          "description_fr": "Lance un projectile magique qui inflige des dégâts et réduit temporairement l'armure et la résistance magique de l'ennemi touché.",
+          "excerpt_fr": "Lance un projectile magique qui inflige des dégâts et réduit temporairement l'armure et la résistance magique de l'ennemi touché.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "magic_damage",
+            "armor_shred",
+            "mr_shred"
+          ]
+        },
+        "w": {
+          "name": "BARRAGE BIO-ARCANIQUE",
+          "description_fr": "Augmente la portée d'attaque de Kog'Maw. Les attaques infligent des dégâts magiques supplémentaires selon les PV max de la cible.",
+          "excerpt_fr": "Augmente la portée d'attaque de Kog'Maw. Les attaques infligent des dégâts magiques supplémentaires selon les PV max de la cible.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "magic_damage",
+            "max_hp_damage",
+            "attack_range",
+            "empowered_attacks"
+          ]
+        },
+        "e": {
+          "name": "LIMON DU NÉANT",
+          "description_fr": "Crache de la bile magique en ligne, infligeant des dégâts et laissant une zone qui ralentit les ennemis.",
+          "excerpt_fr": "Crache de la bile magique en ligne, infligeant des dégâts et laissant une zone qui ralentit les ennemis.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "magic_damage",
+            "slow",
+            "aoe"
+          ]
+        },
+        "r": {
+          "name": "ARTILLERIE VIVANTE",
+          "description_fr": "Tir d'acide à longue portée qui révèle une zone puis blesse les ennemis ; dégâts augmentés sur cibles à faibles PV. Les tirs successifs coûtent davantage de mana.",
+          "excerpt_fr": "Tir d'acide à longue portée qui révèle une zone puis blesse les ennemis ; dégâts augmentés sur cibles à faibles PV. Les tirs successifs",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "magic_damage",
+            "execute",
+            "reveal",
+            "long_range"
+          ]
+        }
+      },
+      "confidence": "screenshot_curated_short_description",
+      "currentPatchVerified": false,
+      "numericRatiosVerified": false,
+      "allowedForScoring": false,
+      "screenshotIndices": [
+        19,
+        27
+      ],
+      "clientScreenshotData": "data/wild-rift-screenshot-batch-v193.json",
+      "incompleteVariants": []
     },
     {
       "id": "10059",
@@ -3928,6 +4173,88 @@
       "allowedForScoring": false
     },
     {
+      "id": "11104",
+      "name": "Mel",
+      "source_url": "https://wildrift.leagueoflegends.com/fr-fr/champions/mel/",
+      "source_type": "player_client_tooltips_not_official_website_extraction",
+      "source_detail": "user_Champ.zip_2026_11_07",
+      "skills": {
+        "passive": {
+          "name": "LUMINESCENCE INCANDESCENTE",
+          "description_fr": "Attaques et compétences appliquent Accablement. Si les dégâts accumulés dépassent la protection et les PV actuels, une exécution est déclenchée. Les compétences génèrent des projectiles supplémentaires pour une attaque suivante.",
+          "excerpt_fr": "Attaques et compétences appliquent Accablement. Si les dégâts accumulés dépassent la protection et les PV actuels, une exécution est déclenchée. Les compétences génèrent des",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "magic_damage",
+            "execute",
+            "stacking_damage"
+          ]
+        },
+        "q": {
+          "name": "SALVE RADIEUSE",
+          "description_fr": "Tire une rafale de projectiles magiques explosant dans une zone ; le nombre de projectiles et les dégâts progressent avec le rang du sort.",
+          "excerpt_fr": "Tire une rafale de projectiles magiques explosant dans une zone ; le nombre de projectiles et les dégâts progressent avec le rang du sort.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "magic_damage",
+            "multi_hit",
+            "aoe"
+          ]
+        },
+        "w": {
+          "name": "RÉFUTATION",
+          "description_fr": "Crée une barrière autour de Mel qui renvoie les projectiles des champions ennemis à leur envoyeur, la rend invulnérable pendant une courte durée et augmente brièvement sa vitesse de déplacement.",
+          "excerpt_fr": "Crée une barrière autour de Mel qui renvoie les projectiles des champions ennemis à leur envoyeur, la rend invulnérable pendant une courte durée et",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "projectile_reflect",
+            "invulnerability",
+            "movement_speed",
+            "magic_damage"
+          ]
+        },
+        "e": {
+          "name": "PIÈGE SOLAIRE",
+          "description_fr": "Lance un orbe magique qui immobilise les ennemis touchés au centre et crée une zone qui les ralentit et inflige des dégâts magiques répétés.",
+          "excerpt_fr": "Lance un orbe magique qui immobilise les ennemis touchés au centre et crée une zone qui les ralentit et inflige des dégâts magiques répétés.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "magic_damage",
+            "root",
+            "slow",
+            "aoe",
+            "damage_over_time"
+          ]
+        },
+        "r": {
+          "name": "ÉCLIPSE DORÉE",
+          "description_fr": "Passive : augmente les dégâts des effets Accablement. Active : libère sa puissance sur les ennemis portant Accablement, provoquant des dégâts magiques augmentés par leurs cumuls.",
+          "excerpt_fr": "Passive : augmente les dégâts des effets Accablement. Active : libère sa puissance sur les ennemis portant Accablement, provoquant des dégâts magiques augmentés par",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "magic_damage",
+            "execute",
+            "global_target_conditional"
+          ]
+        }
+      },
+      "confidence": "screenshot_curated_short_description",
+      "currentPatchVerified": false,
+      "numericRatiosVerified": false,
+      "allowedForScoring": false,
+      "screenshotIndices": [
+        28,
+        36
+      ],
+      "clientScreenshotData": "data/wild-rift-screenshot-batch-v193.json",
+      "incompleteVariants": []
+    },
+    {
       "id": "10108",
       "name": "Milio",
       "source_url": "https://wildrift.leagueoflegends.com/fr-fr/champions/milio/",
@@ -4355,6 +4682,91 @@
       "allowedForScoring": false
     },
     {
+      "id": "11105",
+      "name": "Nidalee",
+      "source_url": "https://wildrift.leagueoflegends.com/fr-fr/champions/nidalee/",
+      "source_type": "player_client_tooltips_not_official_website_extraction",
+      "source_detail": "user_Champ.zip_2026_11_07",
+      "skills": {
+        "passive": {
+          "name": "PRÉDATEUR",
+          "description_fr": "Dans les hautes herbes, Nidalee gagne de la vitesse. Toucher avec Javelot ou Guérilla marque une cible comme Chassée et la révèle brièvement, améliorant sa poursuite et ses compétences de couguar.",
+          "excerpt_fr": "Dans les hautes herbes, Nidalee gagne de la vitesse. Toucher avec Javelot ou Guérilla marque une cible comme Chassée et la révèle brièvement, améliorant",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "mobility",
+            "reveal",
+            "hunted_mark"
+          ]
+        },
+        "q": {
+          "name": "JAVELOT / MISE À TERRE",
+          "description_fr": "Forme humaine : javelot infligeant des dégâts magiques croissants selon la distance. Forme couguar : Mise à terre, attaque de mêlée renforcée sur la cible Chassée. Les valeurs de couguar ne figurent pas sur les captures fournies.",
+          "excerpt_fr": "Forme humaine : javelot infligeant des dégâts magiques croissants selon la distance. Forme couguar : Mise à terre, attaque de mêlée renforcée sur la",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "magic_damage",
+            "execute",
+            "conditional_form"
+          ]
+        },
+        "w": {
+          "name": "GUÉRILLA / BOND",
+          "description_fr": "Forme humaine : piège invisible infligeant des dégâts magiques sur la durée et marquant la cible. Forme couguar : Bond permet à Nidalee de se déplacer et d'attaquer à courte portée, avec interactions de Chasse.",
+          "excerpt_fr": "Forme humaine : piège invisible infligeant des dégâts magiques sur la durée et marquant la cible. Forme couguar : Bond permet à Nidalee de",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "magic_damage",
+            "damage_over_time",
+            "trap",
+            "dash",
+            "conditional_form"
+          ]
+        },
+        "e": {
+          "name": "CHARGE PRIMALE / BALAYAGE",
+          "description_fr": "Forme humaine : soigne Nidalee ou un allié et augmente sa vitesse d'attaque. Forme couguar : Balayage inflige des dégâts magiques dans une zone proche.",
+          "excerpt_fr": "Forme humaine : soigne Nidalee ou un allié et augmente sa vitesse d'attaque. Forme couguar : Balayage inflige des dégâts magiques dans une zone",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "ally_healing",
+            "self_healing",
+            "attack_speed_buff",
+            "magic_damage",
+            "conditional_form"
+          ]
+        },
+        "r": {
+          "name": "ASPECT DU COUGUAR",
+          "description_fr": "Nidalee alterne entre forme humaine à distance et forme couguar au corps à corps. La forme couguar renforce ses attaques et les compétences de base sont remplacées par leurs variantes de mêlée.",
+          "excerpt_fr": "Nidalee alterne entre forme humaine à distance et forme couguar au corps à corps. La forme couguar renforce ses attaques et les compétences de",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "transformation",
+            "mobility",
+            "conditional_form"
+          ]
+        }
+      },
+      "confidence": "human_form_client_verified_cougar_details_from_riot_wild_rift_web_no_client_tooltips",
+      "currentPatchVerified": false,
+      "numericRatiosVerified": false,
+      "allowedForScoring": false,
+      "screenshotIndices": [
+        37,
+        43
+      ],
+      "clientScreenshotData": "data/wild-rift-screenshot-batch-v193.json",
+      "incompleteVariants": [
+        "cougar_subabilities"
+      ]
+    },
+    {
       "id": "10027",
       "name": "Nilah",
       "source_url": "https://wildrift.leagueoflegends.com/fr-fr/champions/nilah/",
@@ -4412,6 +4824,171 @@
       "currentPatchVerified": false,
       "numericRatiosVerified": false,
       "allowedForScoring": false
+    },
+    {
+      "id": "11106",
+      "name": "Nocturne",
+      "source_url": "https://wildrift.leagueoflegends.com/fr-fr/champions/nocturne/",
+      "source_type": "player_client_tooltips_not_official_website_extraction",
+      "source_detail": "user_Champ.zip_2026_11_07",
+      "skills": {
+        "passive": {
+          "name": "LAMES D'OMBRE",
+          "description_fr": "Périodiquement, sa prochaine attaque blesse les ennemis proches et rend des PV à Nocturne ; les attaques réduisent le délai de cette attaque renforcée.",
+          "excerpt_fr": "Périodiquement, sa prochaine attaque blesse les ennemis proches et rend des PV à Nocturne ; les attaques réduisent le délai de cette attaque renforcée.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "physical_damage",
+            "self_healing",
+            "aoe"
+          ]
+        },
+        "q": {
+          "name": "CRÉPUSCULE",
+          "description_fr": "Lance une traînée d'ombre, inflige des dégâts physiques et donne des bonus de dégâts d'attaque et de vitesse de déplacement lorsqu'il se déplace sur la traînée.",
+          "excerpt_fr": "Lance une traînée d'ombre, inflige des dégâts physiques et donne des bonus de dégâts d'attaque et de vitesse de déplacement lorsqu'il se déplace sur",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "physical_damage",
+            "attack_damage_buff",
+            "movement_speed"
+          ]
+        },
+        "w": {
+          "name": "LINCEUL DES TÉNÈBRES",
+          "description_fr": "Passivement, Nocturne gagne de la vitesse d'attaque. Activée, une barrière bloque la prochaine compétence ennemie ; un blocage accroît temporairement le bonus de vitesse d'attaque.",
+          "excerpt_fr": "Passivement, Nocturne gagne de la vitesse d'attaque. Activée, une barrière bloque la prochaine compétence ennemie ; un blocage accroît temporairement le bonus de vitesse",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "spell_shield",
+            "attack_speed_buff"
+          ]
+        },
+        "e": {
+          "name": "HORREUR INDICIBLE",
+          "description_fr": "Implante un cauchemar dans une cible, inflige des dégâts magiques et la terrifie si elle reste à portée pendant la durée de l'effet ; augmente la vitesse vers les ennemis effrayés.",
+          "excerpt_fr": "Implante un cauchemar dans une cible, inflige des dégâts magiques et la terrifie si elle reste à portée pendant la durée de l'effet ;",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "magic_damage",
+            "fear",
+            "conditional_cc",
+            "movement_speed"
+          ]
+        },
+        "r": {
+          "name": "PARANOÏA",
+          "description_fr": "Réduit fortement le champ de vision des champions ennemis et supprime la vision de leurs alliés ; réactivation permet de foncer vers un ennemi en infligeant des dégâts physiques.",
+          "excerpt_fr": "Réduit fortement le champ de vision des champions ennemis et supprime la vision de leurs alliés ; réactivation permet de foncer vers un ennemi",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "nearsight",
+            "dash",
+            "physical_damage",
+            "isolation"
+          ]
+        }
+      },
+      "confidence": "screenshot_curated_short_description",
+      "currentPatchVerified": false,
+      "numericRatiosVerified": false,
+      "allowedForScoring": false,
+      "screenshotIndices": [
+        44,
+        51
+      ],
+      "clientScreenshotData": "data/wild-rift-screenshot-batch-v193.json",
+      "incompleteVariants": []
+    },
+    {
+      "id": "11107",
+      "name": "Norra",
+      "source_url": "https://wildrift.leagueoflegends.com/fr-fr/champions/norra/",
+      "source_type": "player_client_tooltips_not_official_website_extraction",
+      "source_detail": "user_Champ.zip_2026_11_07",
+      "skills": {
+        "passive": {
+          "name": "RELIQUES ADORÉES",
+          "description_fr": "Périodiquement la prochaine compétence laisse au sol une babiole qui se déclenche lorsqu'un ennemi la touche, lui infligeant des dégâts magiques ; toucher un champion avec une compétence réduit le délai de récupération.",
+          "excerpt_fr": "Périodiquement la prochaine compétence laisse au sol une babiole qui se déclenche lorsqu'un ennemi la touche, lui infligeant des dégâts magiques ; toucher un",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "magic_damage",
+            "trap",
+            "ability_haste_conditional"
+          ]
+        },
+        "q": {
+          "name": "BOÎTE À SOUVENIRS",
+          "description_fr": "Norra charge un projectile magique, puis le lance ; la charge peut accroître la portée et les dégâts et interagit avec les babioles créées par son passif.",
+          "excerpt_fr": "Norra charge un projectile magique, puis le lance ; la charge peut accroître la portée et les dégâts et interagit avec les babioles créées",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "magic_damage",
+            "long_range",
+            "charged_spell",
+            "aoe"
+          ]
+        },
+        "w": {
+          "name": "VOYAGE DIMENSIONNEL",
+          "description_fr": "Crée un portail qui blesse et bannit brièvement les ennemis dans une autre dimension. Ils peuvent se déplacer, mais ni attaquer ni lancer de compétences avant de revenir ralentis.",
+          "excerpt_fr": "Crée un portail qui blesse et bannit brièvement les ennemis dans une autre dimension. Ils peuvent se déplacer, mais ni attaquer ni lancer de",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "magic_damage",
+            "banish",
+            "disarm",
+            "silence",
+            "slow",
+            "aoe"
+          ]
+        },
+        "e": {
+          "name": "TRAME DU RETOUR",
+          "description_fr": "Un portail relie deux extrémités et inflige des dégâts magiques aux ennemis entre elles. Les ennemis marqués sont ralentis et subissent une augmentation temporaire de leur taille.",
+          "excerpt_fr": "Un portail relie deux extrémités et inflige des dégâts magiques aux ennemis entre elles. Les ennemis marqués sont ralentis et subissent une augmentation temporaire",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "magic_damage",
+            "slow",
+            "area_control"
+          ]
+        },
+        "r": {
+          "name": "AFFLUX DE PORTAILS",
+          "description_fr": "Crée une zone de téléportation autour des unités prises. Des projectiles magiques traversent la zone, ralentissent et infligent des dégâts, avec puissance augmentée au fil des tirs.",
+          "excerpt_fr": "Crée une zone de téléportation autour des unités prises. Des projectiles magiques traversent la zone, ralentissent et infligent des dégâts, avec puissance augmentée au",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "magic_damage",
+            "slow",
+            "aoe",
+            "teleport",
+            "multi_hit"
+          ]
+        }
+      },
+      "confidence": "screenshot_curated_short_description",
+      "currentPatchVerified": false,
+      "numericRatiosVerified": false,
+      "allowedForScoring": false,
+      "screenshotIndices": [
+        52,
+        59
+      ],
+      "clientScreenshotData": "data/wild-rift-screenshot-batch-v193.json",
+      "incompleteVariants": []
     },
     {
       "id": "10008",
@@ -4967,6 +5544,88 @@
       "currentPatchVerified": false,
       "numericRatiosVerified": false,
       "allowedForScoring": false
+    },
+    {
+      "id": "11108",
+      "name": "Rell",
+      "source_url": "https://wildrift.leagueoflegends.com/fr-fr/champions/rell/",
+      "source_type": "player_client_tooltips_not_official_website_extraction",
+      "source_detail": "user_Champ.zip_2026_11_07",
+      "skills": {
+        "passive": {
+          "name": "MISE EN PIÈCES",
+          "description_fr": "Les attaques et compétences de Rell volent temporairement une partie de l'armure et de la résistance magique ennemies, renforçant ses propres résistances ; ses attaques infligent également des dégâts magiques.",
+          "excerpt_fr": "Les attaques et compétences de Rell volent temporairement une partie de l'armure et de la résistance magique ennemies, renforçant ses propres résistances ; ses",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "armor_shred",
+            "mr_shred",
+            "tank_resistance",
+            "magic_damage"
+          ]
+        },
+        "q": {
+          "name": "FRAPPE DISLOCATRICE",
+          "description_fr": "Coup d'estoc magique qui étourdit brièvement les ennemis et détruit leurs boucliers.",
+          "excerpt_fr": "Coup d'estoc magique qui étourdit brièvement les ennemis et détruit leurs boucliers.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "magic_damage",
+            "stun",
+            "shield_break"
+          ]
+        },
+        "w": {
+          "name": "FERROMANCIE : DESCENDRE EN PIQUÉ",
+          "description_fr": "Rell descend de sa monture, blesse et projette les ennemis en l'air. Elle gagne un bouclier durable et devient plus lente, jusqu'à son remontage.",
+          "excerpt_fr": "Rell descend de sa monture, blesse et projette les ennemis en l'air. Elle gagne un bouclier durable et devient plus lente, jusqu'à son remontage.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "magic_damage",
+            "knockup",
+            "shield",
+            "form_change"
+          ]
+        },
+        "e": {
+          "name": "JOUTE ENDIABLÉE",
+          "description_fr": "Améliore la vitesse d'un allié et de Rell lorsqu'ils sont proches. La prochaine attaque de Rell ou Frappe dislocatrice provoque des dégâts magiques de zone selon les PV max.",
+          "excerpt_fr": "Améliore la vitesse d'un allié et de Rell lorsqu'ils sont proches. La prochaine attaque de Rell ou Frappe dislocatrice provoque des dégâts magiques de",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "ally_speed_buff",
+            "magic_damage",
+            "max_hp_damage",
+            "aoe"
+          ]
+        },
+        "r": {
+          "name": "TEMPÊTE MAGNÉTIQUE",
+          "description_fr": "Rell attire les ennemis autour d'elle puis les attire continuellement pendant quelques secondes, leur infligeant des dégâts magiques.",
+          "excerpt_fr": "Rell attire les ennemis autour d'elle puis les attire continuellement pendant quelques secondes, leur infligeant des dégâts magiques.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "magic_damage",
+            "pull",
+            "aoe"
+          ]
+        }
+      },
+      "confidence": "screenshot_curated_short_description",
+      "currentPatchVerified": false,
+      "numericRatiosVerified": false,
+      "allowedForScoring": false,
+      "screenshotIndices": [
+        60,
+        68
+      ],
+      "clientScreenshotData": "data/wild-rift-screenshot-batch-v193.json",
+      "incompleteVariants": []
     },
     {
       "id": "10121",
@@ -5823,6 +6482,179 @@
       "allowedForScoring": false
     },
     {
+      "id": "11109",
+      "name": "Skarner",
+      "source_url": "https://wildrift.leagueoflegends.com/fr-fr/champions/skarner/",
+      "source_type": "player_client_tooltips_not_official_website_extraction",
+      "source_detail": "user_Champ.zip_2026_11_07",
+      "skills": {
+        "passive": {
+          "name": "ÉCHOS DES VIBRATIONS",
+          "description_fr": "Les attaques et compétences concernées appliquent des cumuls de Tectonique. À trois cumuls, la cible subit des dégâts magiques selon ses PV max au fil du temps.",
+          "excerpt_fr": "Les attaques et compétences concernées appliquent des cumuls de Tectonique. À trois cumuls, la cible subit des dégâts magiques selon ses PV max au",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "magic_damage",
+            "max_hp_damage",
+            "damage_over_time"
+          ]
+        },
+        "q": {
+          "name": "TERRE BRISÉE",
+          "description_fr": "Skarner arrache un rocher, renforce ses attaques et lance le rocher lors d'une réactivation. Les impacts et le projectile infligent des dégâts physiques selon les PV max et ralentissent.",
+          "excerpt_fr": "Skarner arrache un rocher, renforce ses attaques et lance le rocher lors d'une réactivation. Les impacts et le projectile infligent des dégâts physiques selon",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "physical_damage",
+            "max_hp_damage",
+            "slow",
+            "empowered_attacks"
+          ]
+        },
+        "w": {
+          "name": "BASTION SISMIQUE",
+          "description_fr": "Skarner obtient un bouclier calculé selon ses PV max, provoque un séisme qui inflige des dégâts magiques et ralentit les ennemis.",
+          "excerpt_fr": "Skarner obtient un bouclier calculé selon ses PV max, provoque un séisme qui inflige des dégâts magiques et ralentit les ennemis.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "shield",
+            "magic_damage",
+            "slow",
+            "max_hp_scaling"
+          ]
+        },
+        "e": {
+          "name": "IMPACT D'IXTAL",
+          "description_fr": "Charge en ignorant des obstacles, entraîne un ennemi touché et peut l'étourdir contre un mur ; la collision inflige des dégâts physiques selon les PV max de Skarner.",
+          "excerpt_fr": "Charge en ignorant des obstacles, entraîne un ennemi touché et peut l'étourdir contre un mur ; la collision inflige des dégâts physiques selon les",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "dash",
+            "physical_damage",
+            "max_hp_scaling",
+            "stun",
+            "displacement"
+          ]
+        },
+        "r": {
+          "name": "EMPALEMENT",
+          "description_fr": "Skarner attaque frontalement et neutralise jusqu'à trois champions ennemis, les entraîne avec lui pendant une brève durée et gagne de la vitesse si un champion est touché.",
+          "excerpt_fr": "Skarner attaque frontalement et neutralise jusqu'à trois champions ennemis, les entraîne avec lui pendant une brève durée et gagne de la vitesse si un",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "suppress",
+            "magic_damage",
+            "displacement",
+            "multi_target"
+          ]
+        }
+      },
+      "confidence": "screenshot_curated_short_description",
+      "currentPatchVerified": false,
+      "numericRatiosVerified": false,
+      "allowedForScoring": false,
+      "screenshotIndices": [
+        69,
+        73,
+        96,
+        99
+      ],
+      "clientScreenshotData": "data/wild-rift-screenshot-batch-v193.json",
+      "incompleteVariants": []
+    },
+    {
+      "id": "11110",
+      "name": "Smolder",
+      "source_url": "https://wildrift.leagueoflegends.com/fr-fr/champions/smolder/",
+      "source_type": "player_client_tooltips_not_official_website_extraction",
+      "source_detail": "user_Champ.zip_2026_11_07",
+      "skills": {
+        "passive": {
+          "name": "DRAGON EN HERBE",
+          "description_fr": "Les dégâts sur champions et les éliminations accumulent des effets qui améliorent progressivement les autres compétences de Smolder ; des seuils de cumul renforcent les explosions et peuvent déclencher exécution.",
+          "excerpt_fr": "Les dégâts sur champions et les éliminations accumulent des effets qui améliorent progressivement les autres compétences de Smolder ; des seuils de cumul renforcent",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "stacking_damage",
+            "execute",
+            "scaling"
+          ]
+        },
+        "q": {
+          "name": "BOULE DE FEU DRACONIQUE",
+          "description_fr": "Crache du feu en infligeant des dégâts physiques et magiques. Avec les effets de Dragon en herbe, l'attaque peut exploser, projeter d'autres flammes, appliquer des dégâts bruts sur la durée et exécuter les cibles à faibles PV.",
+          "excerpt_fr": "Crache du feu en infligeant des dégâts physiques et magiques. Avec les effets de Dragon en herbe, l'attaque peut exploser, projeter d'autres flammes, appliquer",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "physical_damage",
+            "magic_damage",
+            "true_damage",
+            "damage_over_time",
+            "execute",
+            "conditional_stacks"
+          ]
+        },
+        "w": {
+          "name": "ATCHOUM !",
+          "description_fr": "Projette une boule de flammes qui inflige des dégâts physiques et ralentit ; elle peut exploser en infligeant des dégâts supplémentaires dans une zone et accorder des cumuls de Dragon en herbe.",
+          "excerpt_fr": "Projette une boule de flammes qui inflige des dégâts physiques et ralentit ; elle peut exploser en infligeant des dégâts supplémentaires dans une zone",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "physical_damage",
+            "magic_damage",
+            "slow",
+            "aoe"
+          ]
+        },
+        "e": {
+          "name": "FLAP, FLAP, FLAP !",
+          "description_fr": "Smolder vole brièvement, gagne de la vitesse et traverse le terrain ; pendant le vol, il attaque automatiquement un ennemi proche, avec priorité aux champions révélés.",
+          "excerpt_fr": "Smolder vole brièvement, gagne de la vitesse et traverse le terrain ; pendant le vol, il attaque automatiquement un ennemi proche, avec priorité aux",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "mobility",
+            "physical_damage",
+            "magic_damage",
+            "targeting"
+          ]
+        },
+        "r": {
+          "name": "MAMAAAN !",
+          "description_fr": "La mère de Smolder lance un souffle de feu qui blesse les ennemis sur sa trajectoire et ralentit ceux proches du centre ; elle soigne Smolder si elle le touche.",
+          "excerpt_fr": "La mère de Smolder lance un souffle de feu qui blesse les ennemis sur sa trajectoire et ralentit ceux proches du centre ; elle",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "physical_damage",
+            "slow",
+            "self_healing",
+            "aoe"
+          ]
+        }
+      },
+      "confidence": "screenshot_curated_short_description",
+      "currentPatchVerified": false,
+      "numericRatiosVerified": false,
+      "allowedForScoring": false,
+      "screenshotIndices": [
+        74,
+        76,
+        100,
+        105
+      ],
+      "clientScreenshotData": "data/wild-rift-screenshot-batch-v193.json",
+      "incompleteVariants": []
+    },
+    {
       "id": "10047",
       "name": "Sona",
       "source_url": "https://wildrift.leagueoflegends.com/fr-fr/champions/sona/",
@@ -6067,6 +6899,87 @@
       "currentPatchVerified": false,
       "numericRatiosVerified": false,
       "allowedForScoring": false
+    },
+    {
+      "id": "11111",
+      "name": "Taliyah",
+      "source_url": "https://wildrift.leagueoflegends.com/fr-fr/champions/taliyah/",
+      "source_type": "player_client_tooltips_not_official_website_extraction",
+      "source_detail": "user_Champ.zip_2026_11_07",
+      "skills": {
+        "passive": {
+          "name": "SURF TELLURIQUE",
+          "description_fr": "Taliyah gagne de la vitesse de déplacement près des murs lorsqu'elle n'est pas en combat.",
+          "excerpt_fr": "Taliyah gagne de la vitesse de déplacement près des murs lorsqu'elle n'est pas en combat.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "mobility"
+          ]
+        },
+        "q": {
+          "name": "RAFALE FILÉE",
+          "description_fr": "Tire une série de pierres magiques en direction choisie, ralentissant les cibles et créant un sol ouvragé. Sur ce terrain, un rocher renforcé blesse et ralentit davantage.",
+          "excerpt_fr": "Tire une série de pierres magiques en direction choisie, ralentissant les cibles et créant un sol ouvragé. Sur ce terrain, un rocher renforcé blesse",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "magic_damage",
+            "slow",
+            "multi_hit",
+            "aoe"
+          ]
+        },
+        "w": {
+          "name": "POUSSÉE SISMIQUE",
+          "description_fr": "Fait surgir une zone de terre qui projette les ennemis dans la direction choisie.",
+          "excerpt_fr": "Fait surgir une zone de terre qui projette les ennemis dans la direction choisie.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "displacement",
+            "knockback"
+          ]
+        },
+        "e": {
+          "name": "DÉFILAGE TELLURIQUE",
+          "description_fr": "Déploie des pierres infligeant des dégâts magiques et ralentissant les ennemis ; les ennemis projetés ou se ruant à travers les pierres subissent des explosions pouvant les étourdir.",
+          "excerpt_fr": "Déploie des pierres infligeant des dégâts magiques et ralentissant les ennemis ; les ennemis projetés ou se ruant à travers les pierres subissent des",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "magic_damage",
+            "slow",
+            "stun",
+            "anti_dash",
+            "aoe"
+          ]
+        },
+        "r": {
+          "name": "MUR DE LA TISSEUSE",
+          "description_fr": "Crée un long mur de terre qui gêne ou repousse les ennemis traversés et que Taliyah peut chevaucher pour se déplacer rapidement ; se termine après utilisation ou réactivation.",
+          "excerpt_fr": "Crée un long mur de terre qui gêne ou repousse les ennemis traversés et que Taliyah peut chevaucher pour se déplacer rapidement ; se",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "wall",
+            "mobility",
+            "displacement"
+          ]
+        }
+      },
+      "confidence": "screenshot_curated_short_description",
+      "currentPatchVerified": false,
+      "numericRatiosVerified": false,
+      "allowedForScoring": false,
+      "screenshotIndices": [
+        77,
+        79,
+        106,
+        110
+      ],
+      "clientScreenshotData": "data/wild-rift-screenshot-batch-v193.json",
+      "incompleteVariants": []
     },
     {
       "id": "10128",
@@ -6732,6 +7645,90 @@
       "currentPatchVerified": false,
       "numericRatiosVerified": false,
       "allowedForScoring": false
+    },
+    {
+      "id": "11112",
+      "name": "Vel'Koz",
+      "source_url": "https://wildrift.leagueoflegends.com/fr-fr/champions/velkoz/",
+      "source_type": "player_client_tooltips_not_official_website_extraction",
+      "source_detail": "user_Champ.zip_2026_11_07",
+      "skills": {
+        "passive": {
+          "name": "DÉCOMPOSITION ORGANIQUE",
+          "description_fr": "Les compétences appliquent des effets de Décomposition ; trois cumuls consomment les marques et infligent des dégâts bruts. Les attaques de base rafraîchissent leur durée.",
+          "excerpt_fr": "Les compétences appliquent des effets de Décomposition ; trois cumuls consomment les marques et infligent des dégâts bruts. Les attaques de base rafraîchissent leur",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "true_damage",
+            "stacking_damage"
+          ]
+        },
+        "q": {
+          "name": "FISSION DU PLASMA",
+          "description_fr": "Projectile magique ralentissant et pouvant être séparé en deux projectiles à angle droit, permettant d'atteindre des ennemis à distance.",
+          "excerpt_fr": "Projectile magique ralentissant et pouvant être séparé en deux projectiles à angle droit, permettant d'atteindre des ennemis à distance.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "magic_damage",
+            "slow",
+            "projectile",
+            "long_range"
+          ]
+        },
+        "w": {
+          "name": "FAILLE DU NÉANT",
+          "description_fr": "Ouvre une faille sous les ennemis, infligeant des dégâts magiques lors de l'ouverture puis de l'explosion, avec deux charges stockables.",
+          "excerpt_fr": "Ouvre une faille sous les ennemis, infligeant des dégâts magiques lors de l'ouverture puis de l'explosion, avec deux charges stockables.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "magic_damage",
+            "aoe",
+            "multi_hit"
+          ]
+        },
+        "e": {
+          "name": "DISLOCATION TECTONIQUE",
+          "description_fr": "Fait exploser une zone, projetant les ennemis touchés en l'air ou repoussant les ennemis proches de Vel'Koz.",
+          "excerpt_fr": "Fait exploser une zone, projetant les ennemis touchés en l'air ou repoussant les ennemis proches de Vel'Koz.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "magic_damage",
+            "knockup",
+            "knockback",
+            "aoe"
+          ]
+        },
+        "r": {
+          "name": "DÉSINTÉGRATEUR DE FORMES DE VIE",
+          "description_fr": "Canalise un rayon magique de longue portée et ralentit. Les ennemis ayant accumulé les marques de Décomposition subissent à la place des dégâts bruts.",
+          "excerpt_fr": "Canalise un rayon magique de longue portée et ralentit. Les ennemis ayant accumulé les marques de Décomposition subissent à la place des dégâts bruts.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "magic_damage",
+            "true_damage",
+            "slow",
+            "channel",
+            "long_range"
+          ]
+        }
+      },
+      "confidence": "screenshot_curated_short_description",
+      "currentPatchVerified": false,
+      "numericRatiosVerified": false,
+      "allowedForScoring": false,
+      "screenshotIndices": [
+        80,
+        84,
+        112,
+        115
+      ],
+      "clientScreenshotData": "data/wild-rift-screenshot-batch-v193.json",
+      "incompleteVariants": []
     },
     {
       "id": "10141",
@@ -7455,6 +8452,88 @@
       "allowedForScoring": false
     },
     {
+      "id": "11113",
+      "name": "Yunara",
+      "source_url": "https://wildrift.leagueoflegends.com/fr-fr/champions/yunara/",
+      "source_type": "player_client_tooltips_not_official_website_extraction",
+      "source_detail": "user_Champ.zip_2026_11_07",
+      "skills": {
+        "passive": {
+          "name": "SERMENT AUX TERRES PREMIÈRES",
+          "description_fr": "Les coups critiques de Yunara infligent des dégâts magiques supplémentaires.",
+          "excerpt_fr": "Les coups critiques de Yunara infligent des dégâts magiques supplémentaires.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "critical",
+            "magic_damage"
+          ]
+        },
+        "q": {
+          "name": "DÉCHAÎNEMENT SPIRITUEL",
+          "description_fr": "Les attaques accumulent des effets permettant d'activer temporairement une vitesse d'attaque accrue ; elles infligent alors des dégâts magiques supplémentaires et peuvent rebondir sur les ennemis.",
+          "excerpt_fr": "Les attaques accumulent des effets permettant d'activer temporairement une vitesse d'attaque accrue ; elles infligent alors des dégâts magiques supplémentaires et peuvent rebondir sur",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "attack_speed_buff",
+            "magic_damage",
+            "ricochet",
+            "stacking"
+          ]
+        },
+        "w": {
+          "name": "ARC DU JUGEMENT",
+          "description_fr": "Lance un projectile magique ralentissant les ennemis traversés ; en Transe, le projectile devient un rayon infligeant des dégâts plus importants.",
+          "excerpt_fr": "Lance un projectile magique ralentissant les ennemis traversés ; en Transe, le projectile devient un rayon infligeant des dégâts plus importants.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "magic_damage",
+            "slow",
+            "long_range",
+            "conditional_form"
+          ]
+        },
+        "e": {
+          "name": "CÉLÉRITÉ DES KANMEI",
+          "description_fr": "Gagne brièvement de la vitesse de déplacement et se repositionne ; en Transe, la compétence devient une ruée améliorée.",
+          "excerpt_fr": "Gagne brièvement de la vitesse de déplacement et se repositionne ; en Transe, la compétence devient une ruée améliorée.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "mobility",
+            "dash",
+            "conditional_form"
+          ]
+        },
+        "r": {
+          "name": "TRANSE",
+          "description_fr": "Yunara entre dans une forme temporaire qui renforce ses compétences de base et réduit certains délais de récupération, avec une puissance offensive accrue.",
+          "excerpt_fr": "Yunara entre dans une forme temporaire qui renforce ses compétences de base et réduit certains délais de récupération, avec une puissance offensive accrue.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "form_change",
+            "empowered_attacks",
+            "mobility"
+          ]
+        }
+      },
+      "confidence": "screenshot_curated_short_description",
+      "currentPatchVerified": false,
+      "numericRatiosVerified": false,
+      "allowedForScoring": false,
+      "screenshotIndices": [
+        85,
+        89,
+        116,
+        119
+      ],
+      "clientScreenshotData": "data/wild-rift-screenshot-batch-v193.json",
+      "incompleteVariants": []
+    },
+    {
       "id": "10020",
       "name": "Yuumi",
       "source_url": "https://wildrift.leagueoflegends.com/fr-fr/champions/yuumi/",
@@ -7701,6 +8780,88 @@
       "currentPatchVerified": false,
       "numericRatiosVerified": false,
       "allowedForScoring": false
+    },
+    {
+      "id": "11114",
+      "name": "Zilean",
+      "source_url": "https://wildrift.leagueoflegends.com/fr-fr/champions/zilean/",
+      "source_type": "player_client_tooltips_not_official_website_extraction",
+      "source_detail": "user_Champ.zip_2026_11_07",
+      "skills": {
+        "passive": {
+          "name": "TEMPS DANS UNE BOUTEILLE",
+          "description_fr": "Stocke de l'expérience au fil du temps et peut la transférer à un allié proche lorsque cela suffit à lui faire gagner un niveau. L'opération peut être interrompue.",
+          "excerpt_fr": "Stocke de l'expérience au fil du temps et peut la transférer à un allié proche lorsque cela suffit à lui faire gagner un niveau.",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "ally_experience",
+            "utility"
+          ]
+        },
+        "q": {
+          "name": "BOMBE À RETARDEMENT",
+          "description_fr": "Attache une bombe à une cible ; après un délai, elle explose et inflige des dégâts magiques de zone. Une deuxième bombe sur la même cible déclenche l'explosion prématurément et étourdit les ennemis.",
+          "excerpt_fr": "Attache une bombe à une cible ; après un délai, elle explose et inflige des dégâts magiques de zone. Une deuxième bombe sur la",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "magic_damage",
+            "stun",
+            "aoe",
+            "delayed_damage"
+          ]
+        },
+        "w": {
+          "name": "FLUX TEMPOREL TORTURÉ",
+          "description_fr": "Accélère Zilean ou un allié, octroie un bouclier et amplifie la vitesse de déplacement ; récompenser les projectiles permet d'améliorer la protection.",
+          "excerpt_fr": "Accélère Zilean ou un allié, octroie un bouclier et amplifie la vitesse de déplacement ; récompenser les projectiles permet d'améliorer la protection.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "ally_shield",
+            "shield",
+            "movement_speed",
+            "utility"
+          ]
+        },
+        "e": {
+          "name": "MIRAGE TEMPOREL",
+          "description_fr": "Crée une zone où les champions ennemis sont ralentis et leurs projectiles sont ralentis.",
+          "excerpt_fr": "Crée une zone où les champions ennemis sont ralentis et leurs projectiles sont ralentis.",
+          "descriptionPresent": true,
+          "descriptionTruncated": false,
+          "detected_mechanics": [
+            "slow",
+            "projectile_slow",
+            "aoe"
+          ]
+        },
+        "r": {
+          "name": "RETOUR TEMPOREL",
+          "description_fr": "Place sur Zilean ou un champion allié une protection temporaire contre la mort. Si la cible subit des dégâts mortels, elle est réanimée et récupère des PV.",
+          "excerpt_fr": "Place sur Zilean ou un champion allié une protection temporaire contre la mort. Si la cible subit des dégâts mortels, elle est réanimée et",
+          "descriptionPresent": true,
+          "descriptionTruncated": true,
+          "detected_mechanics": [
+            "revive",
+            "ally_protection",
+            "self_protection"
+          ]
+        }
+      },
+      "confidence": "screenshot_curated_short_description",
+      "currentPatchVerified": false,
+      "numericRatiosVerified": false,
+      "allowedForScoring": false,
+      "screenshotIndices": [
+        90,
+        95,
+        120,
+        122
+      ],
+      "clientScreenshotData": "data/wild-rift-screenshot-batch-v193.json",
+      "incompleteVariants": []
     },
     {
       "id": "10014",

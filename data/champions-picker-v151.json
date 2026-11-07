@@ -2,7 +2,7 @@
   "schema": "wrdi-champion-picker-v151",
   "source": "ry2x/WildRift-Champs gh-pages hero.json (archived 2025)",
   "sourceDate": "2025-05",
-  "note": "Static Wild Rift champion identities, lane and class flags. Supplemental new champion data must be verified before adding. Portrait CDN separate from build calculations. | Hwei added from client screenshots 2026-11-07; 10910 is WRDI local identifier, not claimed to be the official Wild Rift internal ID. | Aurora added from user Wild Rift client screenshot set 2026-11-07; 10893 is a WRDI-local picker identifier.",
+  "note": "Static Wild Rift champion identities, lane and class flags. Supplemental new champion data must be verified before adding. Portrait CDN separate from build calculations. | Hwei added from client screenshots 2026-11-07; 10910 is WRDI local identifier, not claimed to be the official Wild Rift internal ID. | Aurora added from user Wild Rift client screenshot set 2026-11-07; 10893 is a WRDI-local picker identifier. | Fourteen additional player screenshot curated Wild Rift champion sheets added 2026-11-07. Bard remains missing.",
   "champions": [
     {
       "id": "10002",
@@ -233,6 +233,23 @@
         "Assassin"
       ],
       "portrait": "https://cdn.communitydragon.org/latest/champion/164/square"
+    },
+    {
+      "id": "11101",
+      "name": "Cho'Gath",
+      "riotId": "ChoGath",
+      "riotKey": 31,
+      "lanes": [
+        "Top"
+      ],
+      "classes": [
+        "Tank",
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/31/square",
+      "idOrigin": "wrdi_local_v193_not_riot_game_id",
+      "imageAvailability": "community_dragon_expected_not_verified",
+      "source": "user_wild_rift_client_screenshot_2026_11_07"
     },
     {
       "id": "10060",
@@ -627,6 +644,24 @@
       "portrait": "https://cdn.communitydragon.org/latest/champion/222/square"
     },
     {
+      "id": "11102",
+      "name": "K'Sante",
+      "riotId": "KSante",
+      "riotKey": 897,
+      "lanes": [
+        "Top",
+        "Jungle"
+      ],
+      "classes": [
+        "Tank",
+        "Combattant"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/897/square",
+      "idOrigin": "wrdi_local_v193_not_riot_game_id",
+      "imageAvailability": "community_dragon_expected_not_verified",
+      "source": "user_wild_rift_client_screenshot_2026_11_07"
+    },
+    {
       "id": "10026",
       "name": "Kai'Sa",
       "riotId": "Kaisa",
@@ -765,6 +800,23 @@
         "Tireur"
       ],
       "portrait": "https://cdn.communitydragon.org/latest/champion/203/square"
+    },
+    {
+      "id": "11103",
+      "name": "Kog'Maw",
+      "riotId": "KogMaw",
+      "riotKey": 96,
+      "lanes": [
+        "ADC"
+      ],
+      "classes": [
+        "Tireur",
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/96/square",
+      "idOrigin": "wrdi_local_v193_not_riot_game_id",
+      "imageAvailability": "community_dragon_expected_not_verified",
+      "source": "user_wild_rift_client_screenshot_2026_11_07"
     },
     {
       "id": "10059",
@@ -912,6 +964,22 @@
       "portrait": "https://cdn.communitydragon.org/latest/champion/11/square"
     },
     {
+      "id": "11104",
+      "name": "Mel",
+      "riotId": "Mel",
+      "riotKey": 800,
+      "lanes": [
+        "Mid"
+      ],
+      "classes": [
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/800/square",
+      "idOrigin": "wrdi_local_v193_not_riot_game_id",
+      "imageAvailability": "community_dragon_expected_not_verified",
+      "source": "user_wild_rift_client_screenshot_2026_11_07"
+    },
+    {
       "id": "10108",
       "name": "Milio",
       "riotId": "Milio",
@@ -1015,6 +1083,23 @@
       "portrait": "https://cdn.communitydragon.org/latest/champion/111/square"
     },
     {
+      "id": "11105",
+      "name": "Nidalee",
+      "riotId": "Nidalee",
+      "riotKey": 76,
+      "lanes": [
+        "Jungle"
+      ],
+      "classes": [
+        "Assassin",
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/76/square",
+      "idOrigin": "wrdi_local_v193_not_riot_game_id",
+      "imageAvailability": "community_dragon_expected_not_verified",
+      "source": "user_wild_rift_client_screenshot_2026_11_07"
+    },
+    {
       "id": "10027",
       "name": "Nilah",
       "riotId": "Nilah",
@@ -1027,6 +1112,39 @@
         "Assassin"
       ],
       "portrait": "https://cdn.communitydragon.org/latest/champion/895/square"
+    },
+    {
+      "id": "11106",
+      "name": "Nocturne",
+      "riotId": "Nocturne",
+      "riotKey": 56,
+      "lanes": [
+        "Jungle"
+      ],
+      "classes": [
+        "Assassin",
+        "Combattant"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/56/square",
+      "idOrigin": "wrdi_local_v193_not_riot_game_id",
+      "imageAvailability": "community_dragon_expected_not_verified",
+      "source": "user_wild_rift_client_screenshot_2026_11_07"
+    },
+    {
+      "id": "11107",
+      "name": "Norra",
+      "riotId": "Norra",
+      "riotKey": null,
+      "lanes": [
+        "Mid"
+      ],
+      "classes": [
+        "Mage"
+      ],
+      "portrait": null,
+      "idOrigin": "wrdi_local_v193_not_riot_game_id",
+      "imageAvailability": "missing_official_key",
+      "source": "user_wild_rift_client_screenshot_2026_11_07"
     },
     {
       "id": "10008",
@@ -1154,6 +1272,23 @@
         "Tank"
       ],
       "portrait": "https://cdn.communitydragon.org/latest/champion/33/square"
+    },
+    {
+      "id": "11108",
+      "name": "Rell",
+      "riotId": "Rell",
+      "riotKey": 526,
+      "lanes": [
+        "Support"
+      ],
+      "classes": [
+        "Tank",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/526/square",
+      "idOrigin": "wrdi_local_v193_not_riot_game_id",
+      "imageAvailability": "community_dragon_expected_not_verified",
+      "source": "user_wild_rift_client_screenshot_2026_11_07"
     },
     {
       "id": "10121",
@@ -1354,6 +1489,40 @@
       "portrait": "https://cdn.communitydragon.org/latest/champion/15/square"
     },
     {
+      "id": "11109",
+      "name": "Skarner",
+      "riotId": "Skarner",
+      "riotKey": 72,
+      "lanes": [
+        "Jungle"
+      ],
+      "classes": [
+        "Tank",
+        "Combattant"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/72/square",
+      "idOrigin": "wrdi_local_v193_not_riot_game_id",
+      "imageAvailability": "community_dragon_expected_not_verified",
+      "source": "user_wild_rift_client_screenshot_2026_11_07"
+    },
+    {
+      "id": "11110",
+      "name": "Smolder",
+      "riotId": "Smolder",
+      "riotKey": 901,
+      "lanes": [
+        "ADC"
+      ],
+      "classes": [
+        "Tireur",
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/901/square",
+      "idOrigin": "wrdi_local_v193_not_riot_game_id",
+      "imageAvailability": "community_dragon_expected_not_verified",
+      "source": "user_wild_rift_client_screenshot_2026_11_07"
+    },
+    {
       "id": "10047",
       "name": "Sona",
       "riotId": "Sona",
@@ -1408,6 +1577,22 @@
         "Mage"
       ],
       "portrait": "https://cdn.communitydragon.org/latest/champion/134/square"
+    },
+    {
+      "id": "11111",
+      "name": "Taliyah",
+      "riotId": "Taliyah",
+      "riotKey": 163,
+      "lanes": [
+        "Mid"
+      ],
+      "classes": [
+        "Mage"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/163/square",
+      "idOrigin": "wrdi_local_v193_not_riot_game_id",
+      "imageAvailability": "community_dragon_expected_not_verified",
+      "source": "user_wild_rift_client_screenshot_2026_11_07"
     },
     {
       "id": "10128",
@@ -1565,6 +1750,24 @@
         "Mage"
       ],
       "portrait": "https://cdn.communitydragon.org/latest/champion/45/square"
+    },
+    {
+      "id": "11112",
+      "name": "Vel'Koz",
+      "riotId": "VelKoz",
+      "riotKey": 161,
+      "lanes": [
+        "Mid",
+        "Top"
+      ],
+      "classes": [
+        "Mage",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/161/square",
+      "idOrigin": "wrdi_local_v193_not_riot_game_id",
+      "imageAvailability": "community_dragon_expected_not_verified",
+      "source": "user_wild_rift_client_screenshot_2026_11_07"
     },
     {
       "id": "10141",
@@ -1739,6 +1942,22 @@
       "portrait": "https://cdn.communitydragon.org/latest/champion/777/square"
     },
     {
+      "id": "11113",
+      "name": "Yunara",
+      "riotId": "Yunara",
+      "riotKey": 804,
+      "lanes": [
+        "ADC"
+      ],
+      "classes": [
+        "Tireur"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/804/square",
+      "idOrigin": "wrdi_local_v193_not_riot_game_id",
+      "imageAvailability": "community_dragon_expected_not_verified",
+      "source": "user_wild_rift_client_screenshot_2026_11_07"
+    },
+    {
       "id": "10020",
       "name": "Yuumi",
       "riotId": "Yuumi",
@@ -1792,6 +2011,24 @@
         "Mage"
       ],
       "portrait": "https://cdn.communitydragon.org/latest/champion/115/square"
+    },
+    {
+      "id": "11114",
+      "name": "Zilean",
+      "riotId": "Zilean",
+      "riotKey": 26,
+      "lanes": [
+        "Support",
+        "Mid"
+      ],
+      "classes": [
+        "Mage",
+        "Support"
+      ],
+      "portrait": "https://cdn.communitydragon.org/latest/champion/26/square",
+      "idOrigin": "wrdi_local_v193_not_riot_game_id",
+      "imageAvailability": "community_dragon_expected_not_verified",
+      "source": "user_wild_rift_client_screenshot_2026_11_07"
     },
     {
       "id": "10014",

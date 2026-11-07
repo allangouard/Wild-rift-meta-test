@@ -1,0 +1,943 @@
+{
+  "schema": "wrdi.client_screenshot_champion_batch.v193",
+  "source": "user_uploaded_Champ.zip",
+  "date": "2026-11-07",
+  "game": "Wild Rift mobile",
+  "screenshotsTotal": 122,
+  "champions": [
+    {
+      "name": "Cho'Gath",
+      "riotKey": 31,
+      "lanes": [
+        "Top"
+      ],
+      "classes": [
+        "Tank",
+        "Mage"
+      ],
+      "screenshotIndices": [
+        1,
+        9
+      ],
+      "skills": {
+        "passive": {
+          "name": "Carnivore",
+          "description_fr": "Tuer une unité rend des PV et du mana à Cho'Gath ; la restauration est doublée sur champion, tourelle ou monstre épique.",
+          "mechanics": [
+            "self_healing",
+            "mana_restore"
+          ]
+        },
+        "q": {
+          "name": "Rupture",
+          "description_fr": "Cho'Gath fracture le sol et projette les ennemis en l'air pendant 1 seconde, leur infligeant des dégâts magiques puis les ralentissant.",
+          "mechanics": [
+            "magic_damage",
+            "knockup",
+            "slow",
+            "aoe"
+          ]
+        },
+        "w": {
+          "name": "Cri sauvage",
+          "description_fr": "Cho'Gath pousse un cri dans une zone devant lui, inflige des dégâts magiques et réduit les ennemis au silence pendant une durée qui augmente avec le rang.",
+          "mechanics": [
+            "magic_damage",
+            "silence",
+            "aoe"
+          ]
+        },
+        "e": {
+          "name": "Piques vorpales",
+          "description_fr": "Ses trois prochaines attaques lancent des piques qui infligent des dégâts magiques supplémentaires selon les PV max de la cible et ralentissent. L'amplitude et la portée grandissent avec sa taille.",
+          "mechanics": [
+            "magic_damage",
+            "max_hp_damage",
+            "slow",
+            "empowered_attacks"
+          ]
+        },
+        "r": {
+          "name": "Festin",
+          "description_fr": "Cho'Gath dévore un ennemi, inflige des dégâts bruts importants, augmentés sur sbires et monstres. Une élimination octroie des cumuls de Festin, augmentant ses PV max et sa taille.",
+          "mechanics": [
+            "true_damage",
+            "max_hp_damage_bonus",
+            "stacking_hp"
+          ]
+        }
+      }
+    },
+    {
+      "name": "K'Sante",
+      "riotKey": 897,
+      "lanes": [
+        "Top",
+        "Jungle"
+      ],
+      "classes": [
+        "Tank",
+        "Combattant"
+      ],
+      "screenshotIndices": [
+        10,
+        18
+      ],
+      "skills": {
+        "passive": {
+          "name": "Instinct intrépide",
+          "description_fr": "Les compétences blessantes marquent les ennemis. Les attaques sur les cibles marquées consomment la marque pour infliger des dégâts physiques selon leurs PV max. En Grand jeu, les dégâts et ratios évoluent.",
+          "mechanics": [
+            "physical_damage",
+            "max_hp_damage",
+            "conditional_form"
+          ]
+        },
+        "q": {
+          "name": "Coups de ntofo",
+          "description_fr": "Frappe physique qui ralentit. Après deux impacts sur des cibles, K'Santé projette une onde de choc attirant et étourdissant ; en Grand jeu, le sort est renforcé.",
+          "mechanics": [
+            "physical_damage",
+            "slow",
+            "pull",
+            "stun",
+            "conditional_form"
+          ]
+        },
+        "w": {
+          "name": "Pour Nazumah !",
+          "description_fr": "K'Santé se prépare, réduit les dégâts subis, devient difficile à interrompre, puis fonce et repousse les ennemis en leur infligeant des dégâts physiques selon leurs PV max ; peut étourdir.",
+          "mechanics": [
+            "damage_reduction",
+            "physical_damage",
+            "max_hp_damage",
+            "knockback",
+            "stun"
+          ]
+        },
+        "e": {
+          "name": "Jeu de jambes",
+          "description_fr": "K'Santé se rue vers une direction et obtient un bouclier ; sa ruée est plus longue vers un allié, qui reçoit alors également le même bouclier.",
+          "mechanics": [
+            "shield",
+            "ally_shield",
+            "dash"
+          ]
+        },
+        "r": {
+          "name": "Grand jeu",
+          "description_fr": "K'Santé repousse un champion ennemi et entre temporairement en Grand jeu. Les interactions avec les murs renforcent son contrôle. Il gagne de la puissance offensive en échange d'une partie de sa durabilité.",
+          "mechanics": [
+            "knockback",
+            "form_change",
+            "bonus_attack",
+            "conditional_form"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Kog'Maw",
+      "riotKey": 96,
+      "lanes": [
+        "ADC"
+      ],
+      "classes": [
+        "Tireur",
+        "Mage"
+      ],
+      "screenshotIndices": [
+        19,
+        27
+      ],
+      "skills": {
+        "passive": {
+          "name": "Surprise d'Icathia",
+          "description_fr": "Après sa mort, Kog'Maw continue de se déplacer pendant quatre secondes, accélère puis explose en infligeant des dégâts bruts de zone.",
+          "mechanics": [
+            "true_damage",
+            "death_passive",
+            "aoe"
+          ]
+        },
+        "q": {
+          "name": "Bave caustique",
+          "description_fr": "Lance un projectile magique qui inflige des dégâts et réduit temporairement l'armure et la résistance magique de l'ennemi touché.",
+          "mechanics": [
+            "magic_damage",
+            "armor_shred",
+            "mr_shred"
+          ]
+        },
+        "w": {
+          "name": "Barrage bio-arcanique",
+          "description_fr": "Augmente la portée d'attaque de Kog'Maw. Les attaques infligent des dégâts magiques supplémentaires selon les PV max de la cible.",
+          "mechanics": [
+            "magic_damage",
+            "max_hp_damage",
+            "attack_range",
+            "empowered_attacks"
+          ]
+        },
+        "e": {
+          "name": "Limon du Néant",
+          "description_fr": "Crache de la bile magique en ligne, infligeant des dégâts et laissant une zone qui ralentit les ennemis.",
+          "mechanics": [
+            "magic_damage",
+            "slow",
+            "aoe"
+          ]
+        },
+        "r": {
+          "name": "Artillerie vivante",
+          "description_fr": "Tir d'acide à longue portée qui révèle une zone puis blesse les ennemis ; dégâts augmentés sur cibles à faibles PV. Les tirs successifs coûtent davantage de mana.",
+          "mechanics": [
+            "magic_damage",
+            "execute",
+            "reveal",
+            "long_range"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Mel",
+      "riotKey": 800,
+      "lanes": [
+        "Mid"
+      ],
+      "classes": [
+        "Mage"
+      ],
+      "screenshotIndices": [
+        28,
+        36
+      ],
+      "skills": {
+        "passive": {
+          "name": "Luminescence incandescente",
+          "description_fr": "Attaques et compétences appliquent Accablement. Si les dégâts accumulés dépassent la protection et les PV actuels, une exécution est déclenchée. Les compétences génèrent des projectiles supplémentaires pour une attaque suivante.",
+          "mechanics": [
+            "magic_damage",
+            "execute",
+            "stacking_damage"
+          ]
+        },
+        "q": {
+          "name": "Salve radieuse",
+          "description_fr": "Tire une rafale de projectiles magiques explosant dans une zone ; le nombre de projectiles et les dégâts progressent avec le rang du sort.",
+          "mechanics": [
+            "magic_damage",
+            "multi_hit",
+            "aoe"
+          ]
+        },
+        "w": {
+          "name": "Réfutation",
+          "description_fr": "Crée une barrière autour de Mel qui renvoie les projectiles des champions ennemis à leur envoyeur, la rend invulnérable pendant une courte durée et augmente brièvement sa vitesse de déplacement.",
+          "mechanics": [
+            "projectile_reflect",
+            "invulnerability",
+            "movement_speed",
+            "magic_damage"
+          ]
+        },
+        "e": {
+          "name": "Piège solaire",
+          "description_fr": "Lance un orbe magique qui immobilise les ennemis touchés au centre et crée une zone qui les ralentit et inflige des dégâts magiques répétés.",
+          "mechanics": [
+            "magic_damage",
+            "root",
+            "slow",
+            "aoe",
+            "damage_over_time"
+          ]
+        },
+        "r": {
+          "name": "Éclipse dorée",
+          "description_fr": "Passive : augmente les dégâts des effets Accablement. Active : libère sa puissance sur les ennemis portant Accablement, provoquant des dégâts magiques augmentés par leurs cumuls.",
+          "mechanics": [
+            "magic_damage",
+            "execute",
+            "global_target_conditional"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Nidalee",
+      "riotKey": 76,
+      "lanes": [
+        "Jungle"
+      ],
+      "classes": [
+        "Assassin",
+        "Mage"
+      ],
+      "screenshotIndices": [
+        37,
+        43
+      ],
+      "skills": {
+        "passive": {
+          "name": "Prédateur",
+          "description_fr": "Dans les hautes herbes, Nidalee gagne de la vitesse. Toucher avec Javelot ou Guérilla marque une cible comme Chassée et la révèle brièvement, améliorant sa poursuite et ses compétences de couguar.",
+          "mechanics": [
+            "mobility",
+            "reveal",
+            "hunted_mark"
+          ]
+        },
+        "q": {
+          "name": "Javelot / Mise à terre",
+          "description_fr": "Forme humaine : javelot infligeant des dégâts magiques croissants selon la distance. Forme couguar : Mise à terre, attaque de mêlée renforcée sur la cible Chassée. Les valeurs de couguar ne figurent pas sur les captures fournies.",
+          "mechanics": [
+            "magic_damage",
+            "execute",
+            "conditional_form"
+          ]
+        },
+        "w": {
+          "name": "Guérilla / Bond",
+          "description_fr": "Forme humaine : piège invisible infligeant des dégâts magiques sur la durée et marquant la cible. Forme couguar : Bond permet à Nidalee de se déplacer et d'attaquer à courte portée, avec interactions de Chasse.",
+          "mechanics": [
+            "magic_damage",
+            "damage_over_time",
+            "trap",
+            "dash",
+            "conditional_form"
+          ]
+        },
+        "e": {
+          "name": "Charge primale / Balayage",
+          "description_fr": "Forme humaine : soigne Nidalee ou un allié et augmente sa vitesse d'attaque. Forme couguar : Balayage inflige des dégâts magiques dans une zone proche.",
+          "mechanics": [
+            "ally_healing",
+            "self_healing",
+            "attack_speed_buff",
+            "magic_damage",
+            "conditional_form"
+          ]
+        },
+        "r": {
+          "name": "Aspect du couguar",
+          "description_fr": "Nidalee alterne entre forme humaine à distance et forme couguar au corps à corps. La forme couguar renforce ses attaques et les compétences de base sont remplacées par leurs variantes de mêlée.",
+          "mechanics": [
+            "transformation",
+            "mobility",
+            "conditional_form"
+          ]
+        }
+      },
+      "sourceCompleteness": "human_form_client_verified_cougar_details_from_riot_wild_rift_web_no_client_tooltips"
+    },
+    {
+      "name": "Nocturne",
+      "riotKey": 56,
+      "lanes": [
+        "Jungle"
+      ],
+      "classes": [
+        "Assassin",
+        "Combattant"
+      ],
+      "screenshotIndices": [
+        44,
+        51
+      ],
+      "skills": {
+        "passive": {
+          "name": "Lames d'ombre",
+          "description_fr": "Périodiquement, sa prochaine attaque blesse les ennemis proches et rend des PV à Nocturne ; les attaques réduisent le délai de cette attaque renforcée.",
+          "mechanics": [
+            "physical_damage",
+            "self_healing",
+            "aoe"
+          ]
+        },
+        "q": {
+          "name": "Crépuscule",
+          "description_fr": "Lance une traînée d'ombre, inflige des dégâts physiques et donne des bonus de dégâts d'attaque et de vitesse de déplacement lorsqu'il se déplace sur la traînée.",
+          "mechanics": [
+            "physical_damage",
+            "attack_damage_buff",
+            "movement_speed"
+          ]
+        },
+        "w": {
+          "name": "Linceul des ténèbres",
+          "description_fr": "Passivement, Nocturne gagne de la vitesse d'attaque. Activée, une barrière bloque la prochaine compétence ennemie ; un blocage accroît temporairement le bonus de vitesse d'attaque.",
+          "mechanics": [
+            "spell_shield",
+            "attack_speed_buff"
+          ]
+        },
+        "e": {
+          "name": "Horreur indicible",
+          "description_fr": "Implante un cauchemar dans une cible, inflige des dégâts magiques et la terrifie si elle reste à portée pendant la durée de l'effet ; augmente la vitesse vers les ennemis effrayés.",
+          "mechanics": [
+            "magic_damage",
+            "fear",
+            "conditional_cc",
+            "movement_speed"
+          ]
+        },
+        "r": {
+          "name": "Paranoïa",
+          "description_fr": "Réduit fortement le champ de vision des champions ennemis et supprime la vision de leurs alliés ; réactivation permet de foncer vers un ennemi en infligeant des dégâts physiques.",
+          "mechanics": [
+            "nearsight",
+            "dash",
+            "physical_damage",
+            "isolation"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Norra",
+      "riotKey": null,
+      "lanes": [
+        "Mid"
+      ],
+      "classes": [
+        "Mage"
+      ],
+      "screenshotIndices": [
+        52,
+        59
+      ],
+      "skills": {
+        "passive": {
+          "name": "Reliques adorées",
+          "description_fr": "Périodiquement la prochaine compétence laisse au sol une babiole qui se déclenche lorsqu'un ennemi la touche, lui infligeant des dégâts magiques ; toucher un champion avec une compétence réduit le délai de récupération.",
+          "mechanics": [
+            "magic_damage",
+            "trap",
+            "ability_haste_conditional"
+          ]
+        },
+        "q": {
+          "name": "Boîte à souvenirs",
+          "description_fr": "Norra charge un projectile magique, puis le lance ; la charge peut accroître la portée et les dégâts et interagit avec les babioles créées par son passif.",
+          "mechanics": [
+            "magic_damage",
+            "long_range",
+            "charged_spell",
+            "aoe"
+          ]
+        },
+        "w": {
+          "name": "Voyage dimensionnel",
+          "description_fr": "Crée un portail qui blesse et bannit brièvement les ennemis dans une autre dimension. Ils peuvent se déplacer, mais ni attaquer ni lancer de compétences avant de revenir ralentis.",
+          "mechanics": [
+            "magic_damage",
+            "banish",
+            "disarm",
+            "silence",
+            "slow",
+            "aoe"
+          ]
+        },
+        "e": {
+          "name": "Trame du retour",
+          "description_fr": "Un portail relie deux extrémités et inflige des dégâts magiques aux ennemis entre elles. Les ennemis marqués sont ralentis et subissent une augmentation temporaire de leur taille.",
+          "mechanics": [
+            "magic_damage",
+            "slow",
+            "area_control"
+          ]
+        },
+        "r": {
+          "name": "Afflux de portails",
+          "description_fr": "Crée une zone de téléportation autour des unités prises. Des projectiles magiques traversent la zone, ralentissent et infligent des dégâts, avec puissance augmentée au fil des tirs.",
+          "mechanics": [
+            "magic_damage",
+            "slow",
+            "aoe",
+            "teleport",
+            "multi_hit"
+          ]
+        }
+      },
+      "riotKeyUnverified": true
+    },
+    {
+      "name": "Rell",
+      "riotKey": 526,
+      "lanes": [
+        "Support"
+      ],
+      "classes": [
+        "Tank",
+        "Support"
+      ],
+      "screenshotIndices": [
+        60,
+        68
+      ],
+      "skills": {
+        "passive": {
+          "name": "Mise en pièces",
+          "description_fr": "Les attaques et compétences de Rell volent temporairement une partie de l'armure et de la résistance magique ennemies, renforçant ses propres résistances ; ses attaques infligent également des dégâts magiques.",
+          "mechanics": [
+            "armor_shred",
+            "mr_shred",
+            "tank_resistance",
+            "magic_damage"
+          ]
+        },
+        "q": {
+          "name": "Frappe dislocatrice",
+          "description_fr": "Coup d'estoc magique qui étourdit brièvement les ennemis et détruit leurs boucliers.",
+          "mechanics": [
+            "magic_damage",
+            "stun",
+            "shield_break"
+          ]
+        },
+        "w": {
+          "name": "Ferromancie : descendre en piqué",
+          "description_fr": "Rell descend de sa monture, blesse et projette les ennemis en l'air. Elle gagne un bouclier durable et devient plus lente, jusqu'à son remontage.",
+          "mechanics": [
+            "magic_damage",
+            "knockup",
+            "shield",
+            "form_change"
+          ]
+        },
+        "e": {
+          "name": "Joute endiablée",
+          "description_fr": "Améliore la vitesse d'un allié et de Rell lorsqu'ils sont proches. La prochaine attaque de Rell ou Frappe dislocatrice provoque des dégâts magiques de zone selon les PV max.",
+          "mechanics": [
+            "ally_speed_buff",
+            "magic_damage",
+            "max_hp_damage",
+            "aoe"
+          ]
+        },
+        "r": {
+          "name": "Tempête magnétique",
+          "description_fr": "Rell attire les ennemis autour d'elle puis les attire continuellement pendant quelques secondes, leur infligeant des dégâts magiques.",
+          "mechanics": [
+            "magic_damage",
+            "pull",
+            "aoe"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Skarner",
+      "riotKey": 72,
+      "lanes": [
+        "Jungle"
+      ],
+      "classes": [
+        "Tank",
+        "Combattant"
+      ],
+      "screenshotIndices": [
+        69,
+        73,
+        96,
+        99
+      ],
+      "skills": {
+        "passive": {
+          "name": "Échos des vibrations",
+          "description_fr": "Les attaques et compétences concernées appliquent des cumuls de Tectonique. À trois cumuls, la cible subit des dégâts magiques selon ses PV max au fil du temps.",
+          "mechanics": [
+            "magic_damage",
+            "max_hp_damage",
+            "damage_over_time"
+          ]
+        },
+        "q": {
+          "name": "Terre brisée",
+          "description_fr": "Skarner arrache un rocher, renforce ses attaques et lance le rocher lors d'une réactivation. Les impacts et le projectile infligent des dégâts physiques selon les PV max et ralentissent.",
+          "mechanics": [
+            "physical_damage",
+            "max_hp_damage",
+            "slow",
+            "empowered_attacks"
+          ]
+        },
+        "w": {
+          "name": "Bastion sismique",
+          "description_fr": "Skarner obtient un bouclier calculé selon ses PV max, provoque un séisme qui inflige des dégâts magiques et ralentit les ennemis.",
+          "mechanics": [
+            "shield",
+            "magic_damage",
+            "slow",
+            "max_hp_scaling"
+          ]
+        },
+        "e": {
+          "name": "Impact d'Ixtal",
+          "description_fr": "Charge en ignorant des obstacles, entraîne un ennemi touché et peut l'étourdir contre un mur ; la collision inflige des dégâts physiques selon les PV max de Skarner.",
+          "mechanics": [
+            "dash",
+            "physical_damage",
+            "max_hp_scaling",
+            "stun",
+            "displacement"
+          ]
+        },
+        "r": {
+          "name": "Empalement",
+          "description_fr": "Skarner attaque frontalement et neutralise jusqu'à trois champions ennemis, les entraîne avec lui pendant une brève durée et gagne de la vitesse si un champion est touché.",
+          "mechanics": [
+            "suppress",
+            "magic_damage",
+            "displacement",
+            "multi_target"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Smolder",
+      "riotKey": 901,
+      "lanes": [
+        "ADC"
+      ],
+      "classes": [
+        "Tireur",
+        "Mage"
+      ],
+      "screenshotIndices": [
+        74,
+        76,
+        100,
+        105
+      ],
+      "skills": {
+        "passive": {
+          "name": "Dragon en herbe",
+          "description_fr": "Les dégâts sur champions et les éliminations accumulent des effets qui améliorent progressivement les autres compétences de Smolder ; des seuils de cumul renforcent les explosions et peuvent déclencher exécution.",
+          "mechanics": [
+            "stacking_damage",
+            "execute",
+            "scaling"
+          ]
+        },
+        "q": {
+          "name": "Boule de feu draconique",
+          "description_fr": "Crache du feu en infligeant des dégâts physiques et magiques. Avec les effets de Dragon en herbe, l'attaque peut exploser, projeter d'autres flammes, appliquer des dégâts bruts sur la durée et exécuter les cibles à faibles PV.",
+          "mechanics": [
+            "physical_damage",
+            "magic_damage",
+            "true_damage",
+            "damage_over_time",
+            "execute",
+            "conditional_stacks"
+          ]
+        },
+        "w": {
+          "name": "Atchoum !",
+          "description_fr": "Projette une boule de flammes qui inflige des dégâts physiques et ralentit ; elle peut exploser en infligeant des dégâts supplémentaires dans une zone et accorder des cumuls de Dragon en herbe.",
+          "mechanics": [
+            "physical_damage",
+            "magic_damage",
+            "slow",
+            "aoe"
+          ]
+        },
+        "e": {
+          "name": "Flap, flap, flap !",
+          "description_fr": "Smolder vole brièvement, gagne de la vitesse et traverse le terrain ; pendant le vol, il attaque automatiquement un ennemi proche, avec priorité aux champions révélés.",
+          "mechanics": [
+            "mobility",
+            "physical_damage",
+            "magic_damage",
+            "targeting"
+          ]
+        },
+        "r": {
+          "name": "Mamaaan !",
+          "description_fr": "La mère de Smolder lance un souffle de feu qui blesse les ennemis sur sa trajectoire et ralentit ceux proches du centre ; elle soigne Smolder si elle le touche.",
+          "mechanics": [
+            "physical_damage",
+            "slow",
+            "self_healing",
+            "aoe"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Taliyah",
+      "riotKey": 163,
+      "lanes": [
+        "Mid"
+      ],
+      "classes": [
+        "Mage"
+      ],
+      "screenshotIndices": [
+        77,
+        79,
+        106,
+        110
+      ],
+      "skills": {
+        "passive": {
+          "name": "Surf tellurique",
+          "description_fr": "Taliyah gagne de la vitesse de déplacement près des murs lorsqu'elle n'est pas en combat.",
+          "mechanics": [
+            "mobility"
+          ]
+        },
+        "q": {
+          "name": "Rafale filée",
+          "description_fr": "Tire une série de pierres magiques en direction choisie, ralentissant les cibles et créant un sol ouvragé. Sur ce terrain, un rocher renforcé blesse et ralentit davantage.",
+          "mechanics": [
+            "magic_damage",
+            "slow",
+            "multi_hit",
+            "aoe"
+          ]
+        },
+        "w": {
+          "name": "Poussée sismique",
+          "description_fr": "Fait surgir une zone de terre qui projette les ennemis dans la direction choisie.",
+          "mechanics": [
+            "displacement",
+            "knockback"
+          ]
+        },
+        "e": {
+          "name": "Défilage tellurique",
+          "description_fr": "Déploie des pierres infligeant des dégâts magiques et ralentissant les ennemis ; les ennemis projetés ou se ruant à travers les pierres subissent des explosions pouvant les étourdir.",
+          "mechanics": [
+            "magic_damage",
+            "slow",
+            "stun",
+            "anti_dash",
+            "aoe"
+          ]
+        },
+        "r": {
+          "name": "Mur de la tisseuse",
+          "description_fr": "Crée un long mur de terre qui gêne ou repousse les ennemis traversés et que Taliyah peut chevaucher pour se déplacer rapidement ; se termine après utilisation ou réactivation.",
+          "mechanics": [
+            "wall",
+            "mobility",
+            "displacement"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Vel'Koz",
+      "riotKey": 161,
+      "lanes": [
+        "Mid",
+        "Top"
+      ],
+      "classes": [
+        "Mage",
+        "Support"
+      ],
+      "screenshotIndices": [
+        80,
+        84,
+        112,
+        115
+      ],
+      "skills": {
+        "passive": {
+          "name": "Décomposition organique",
+          "description_fr": "Les compétences appliquent des effets de Décomposition ; trois cumuls consomment les marques et infligent des dégâts bruts. Les attaques de base rafraîchissent leur durée.",
+          "mechanics": [
+            "true_damage",
+            "stacking_damage"
+          ]
+        },
+        "q": {
+          "name": "Fission du plasma",
+          "description_fr": "Projectile magique ralentissant et pouvant être séparé en deux projectiles à angle droit, permettant d'atteindre des ennemis à distance.",
+          "mechanics": [
+            "magic_damage",
+            "slow",
+            "projectile",
+            "long_range"
+          ]
+        },
+        "w": {
+          "name": "Faille du Néant",
+          "description_fr": "Ouvre une faille sous les ennemis, infligeant des dégâts magiques lors de l'ouverture puis de l'explosion, avec deux charges stockables.",
+          "mechanics": [
+            "magic_damage",
+            "aoe",
+            "multi_hit"
+          ]
+        },
+        "e": {
+          "name": "Dislocation tectonique",
+          "description_fr": "Fait exploser une zone, projetant les ennemis touchés en l'air ou repoussant les ennemis proches de Vel'Koz.",
+          "mechanics": [
+            "magic_damage",
+            "knockup",
+            "knockback",
+            "aoe"
+          ]
+        },
+        "r": {
+          "name": "Désintégrateur de formes de vie",
+          "description_fr": "Canalise un rayon magique de longue portée et ralentit. Les ennemis ayant accumulé les marques de Décomposition subissent à la place des dégâts bruts.",
+          "mechanics": [
+            "magic_damage",
+            "true_damage",
+            "slow",
+            "channel",
+            "long_range"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Yunara",
+      "riotKey": 804,
+      "lanes": [
+        "ADC"
+      ],
+      "classes": [
+        "Tireur"
+      ],
+      "screenshotIndices": [
+        85,
+        89,
+        116,
+        119
+      ],
+      "skills": {
+        "passive": {
+          "name": "Serment aux terres premières",
+          "description_fr": "Les coups critiques de Yunara infligent des dégâts magiques supplémentaires.",
+          "mechanics": [
+            "critical",
+            "magic_damage"
+          ]
+        },
+        "q": {
+          "name": "Déchaînement spirituel",
+          "description_fr": "Les attaques accumulent des effets permettant d'activer temporairement une vitesse d'attaque accrue ; elles infligent alors des dégâts magiques supplémentaires et peuvent rebondir sur les ennemis.",
+          "mechanics": [
+            "attack_speed_buff",
+            "magic_damage",
+            "ricochet",
+            "stacking"
+          ]
+        },
+        "w": {
+          "name": "Arc du jugement",
+          "description_fr": "Lance un projectile magique ralentissant les ennemis traversés ; en Transe, le projectile devient un rayon infligeant des dégâts plus importants.",
+          "mechanics": [
+            "magic_damage",
+            "slow",
+            "long_range",
+            "conditional_form"
+          ]
+        },
+        "e": {
+          "name": "Célérité des kanmei",
+          "description_fr": "Gagne brièvement de la vitesse de déplacement et se repositionne ; en Transe, la compétence devient une ruée améliorée.",
+          "mechanics": [
+            "mobility",
+            "dash",
+            "conditional_form"
+          ]
+        },
+        "r": {
+          "name": "Transe",
+          "description_fr": "Yunara entre dans une forme temporaire qui renforce ses compétences de base et réduit certains délais de récupération, avec une puissance offensive accrue.",
+          "mechanics": [
+            "form_change",
+            "empowered_attacks",
+            "mobility"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Zilean",
+      "riotKey": 26,
+      "lanes": [
+        "Support",
+        "Mid"
+      ],
+      "classes": [
+        "Mage",
+        "Support"
+      ],
+      "screenshotIndices": [
+        90,
+        95,
+        120,
+        122
+      ],
+      "skills": {
+        "passive": {
+          "name": "Temps dans une bouteille",
+          "description_fr": "Stocke de l'expérience au fil du temps et peut la transférer à un allié proche lorsque cela suffit à lui faire gagner un niveau. L'opération peut être interrompue.",
+          "mechanics": [
+            "ally_experience",
+            "utility"
+          ]
+        },
+        "q": {
+          "name": "Bombe à retardement",
+          "description_fr": "Attache une bombe à une cible ; après un délai, elle explose et inflige des dégâts magiques de zone. Une deuxième bombe sur la même cible déclenche l'explosion prématurément et étourdit les ennemis.",
+          "mechanics": [
+            "magic_damage",
+            "stun",
+            "aoe",
+            "delayed_damage"
+          ]
+        },
+        "w": {
+          "name": "Flux temporel torturé",
+          "description_fr": "Accélère Zilean ou un allié, octroie un bouclier et amplifie la vitesse de déplacement ; récompenser les projectiles permet d'améliorer la protection.",
+          "mechanics": [
+            "ally_shield",
+            "shield",
+            "movement_speed",
+            "utility"
+          ]
+        },
+        "e": {
+          "name": "Mirage temporel",
+          "description_fr": "Crée une zone où les champions ennemis sont ralentis et leurs projectiles sont ralentis.",
+          "mechanics": [
+            "slow",
+            "projectile_slow",
+            "aoe"
+          ]
+        },
+        "r": {
+          "name": "Retour temporel",
+          "description_fr": "Place sur Zilean ou un champion allié une protection temporaire contre la mort. Si la cible subit des dégâts mortels, elle est réanimée et récupère des PV.",
+          "mechanics": [
+            "revive",
+            "ally_protection",
+            "self_protection"
+          ]
+        }
+      }
+    }
+  ],
+  "unprovided": [
+    "Bard"
+  ],
+  "numericSimulationApproved": false,
+  "descriptionsType": "curated_paraphrase_from_client_screenshots",
+  "notes": [
+    "Short mechanics-focused descriptions are a human-vision interpretation of client screenshots; not a verbatim extraction.",
+    "Nidalee Cougar subspell detail supplemented from the Wild Rift official champion page; no invented values.",
+    "All local champion IDs are WRDI-specific and not Riot authoritative IDs.",
+    "Individual screenshot filenames are indexed by ordinal position within the ZIP sorted by capture timestamp.",
+    "No numerical values from PC League of Legends are used."
+  ]
+}

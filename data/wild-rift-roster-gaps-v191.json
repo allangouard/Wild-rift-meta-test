@@ -4,112 +4,14 @@
   "officialChampionDirectory": "https://wildrift.leagueoflegends.com/fr-fr/champions/",
   "officialDirectoryChampionCountAtCheck": 142,
   "localPickerCountAfterHwei": 126,
-  "missingCount": 15,
-  "note": "15 champions remain absent after adding Aurora; all require Wild Rift five-skill descriptions before being enabled in draft calculations.",
+  "missingCount": 1,
+  "note": "Current picker contains 141 of 142 champion names from the Riot 2026-11-07 roster snapshot. Bard is not in the 122 provided screenshots. Nidalee cougar form numerical details are incomplete.",
   "missingChampions": [
     {
       "name": "Bard",
-      "reason": "needs_wild_rift_five_skill_descriptions",
+      "reason": "screenshots_not_in_user_zip",
       "status": "not_selectable_in_draft_engine_yet",
-      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
-      "pcLeagueDataAllowed": false
-    },
-    {
-      "name": "Cho'Gath",
-      "reason": "needs_wild_rift_five_skill_descriptions",
-      "status": "not_selectable_in_draft_engine_yet",
-      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
-      "pcLeagueDataAllowed": false
-    },
-    {
-      "name": "K'Sante",
-      "reason": "needs_wild_rift_five_skill_descriptions",
-      "status": "not_selectable_in_draft_engine_yet",
-      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
-      "pcLeagueDataAllowed": false
-    },
-    {
-      "name": "Kog'Maw",
-      "reason": "needs_wild_rift_five_skill_descriptions",
-      "status": "not_selectable_in_draft_engine_yet",
-      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
-      "pcLeagueDataAllowed": false
-    },
-    {
-      "name": "Mel",
-      "reason": "needs_wild_rift_five_skill_descriptions",
-      "status": "not_selectable_in_draft_engine_yet",
-      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
-      "pcLeagueDataAllowed": false
-    },
-    {
-      "name": "Nidalee",
-      "reason": "needs_wild_rift_five_skill_descriptions",
-      "status": "not_selectable_in_draft_engine_yet",
-      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
-      "pcLeagueDataAllowed": false
-    },
-    {
-      "name": "Nocturne",
-      "reason": "needs_wild_rift_five_skill_descriptions",
-      "status": "not_selectable_in_draft_engine_yet",
-      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
-      "pcLeagueDataAllowed": false
-    },
-    {
-      "name": "Norra",
-      "reason": "needs_wild_rift_five_skill_descriptions",
-      "status": "not_selectable_in_draft_engine_yet",
-      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
-      "pcLeagueDataAllowed": false
-    },
-    {
-      "name": "Rell",
-      "reason": "needs_wild_rift_five_skill_descriptions",
-      "status": "not_selectable_in_draft_engine_yet",
-      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
-      "pcLeagueDataAllowed": false
-    },
-    {
-      "name": "Skarner",
-      "reason": "needs_wild_rift_five_skill_descriptions",
-      "status": "not_selectable_in_draft_engine_yet",
-      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
-      "pcLeagueDataAllowed": false
-    },
-    {
-      "name": "Smolder",
-      "reason": "needs_wild_rift_five_skill_descriptions",
-      "status": "not_selectable_in_draft_engine_yet",
-      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
-      "pcLeagueDataAllowed": false
-    },
-    {
-      "name": "Taliyah",
-      "reason": "needs_wild_rift_five_skill_descriptions",
-      "status": "not_selectable_in_draft_engine_yet",
-      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
-      "pcLeagueDataAllowed": false
-    },
-    {
-      "name": "Vel'Koz",
-      "reason": "needs_wild_rift_five_skill_descriptions",
-      "status": "not_selectable_in_draft_engine_yet",
-      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
-      "pcLeagueDataAllowed": false
-    },
-    {
-      "name": "Yunara",
-      "reason": "needs_wild_rift_five_skill_descriptions",
-      "status": "not_selectable_in_draft_engine_yet",
-      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
-      "pcLeagueDataAllowed": false
-    },
-    {
-      "name": "Zilean",
-      "reason": "needs_wild_rift_five_skill_descriptions",
-      "status": "not_selectable_in_draft_engine_yet",
-      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
+      "preferredSource": "Wild Rift FR client or official Riot Wild Rift champion page",
       "pcLeagueDataAllowed": false
     }
   ],
@@ -127,7 +29,94 @@
       "source": "user_wild_rift_client_screenshots_2026_11_07",
       "dataFile": "data/aurora-client-abilities-v192.json",
       "numericApproval": false
+    },
+    {
+      "name": "Cho'Gath",
+      "source": "user_Champ.zip_2026_11_07",
+      "dataFile": "data/wild-rift-screenshot-batch-v193.json",
+      "numericConflicts": []
+    },
+    {
+      "name": "K'Sante",
+      "source": "user_Champ.zip_2026_11_07",
+      "dataFile": "data/wild-rift-screenshot-batch-v193.json",
+      "numericConflicts": []
+    },
+    {
+      "name": "Kog'Maw",
+      "source": "user_Champ.zip_2026_11_07",
+      "dataFile": "data/wild-rift-screenshot-batch-v193.json",
+      "numericConflicts": []
+    },
+    {
+      "name": "Mel",
+      "source": "user_Champ.zip_2026_11_07",
+      "dataFile": "data/wild-rift-screenshot-batch-v193.json",
+      "numericConflicts": []
+    },
+    {
+      "name": "Nidalee",
+      "source": "user_Champ.zip_2026_11_07",
+      "dataFile": "data/wild-rift-screenshot-batch-v193.json",
+      "numericConflicts": []
+    },
+    {
+      "name": "Nocturne",
+      "source": "user_Champ.zip_2026_11_07",
+      "dataFile": "data/wild-rift-screenshot-batch-v193.json",
+      "numericConflicts": []
+    },
+    {
+      "name": "Norra",
+      "source": "user_Champ.zip_2026_11_07",
+      "dataFile": "data/wild-rift-screenshot-batch-v193.json",
+      "numericConflicts": []
+    },
+    {
+      "name": "Rell",
+      "source": "user_Champ.zip_2026_11_07",
+      "dataFile": "data/wild-rift-screenshot-batch-v193.json",
+      "numericConflicts": []
+    },
+    {
+      "name": "Skarner",
+      "source": "user_Champ.zip_2026_11_07",
+      "dataFile": "data/wild-rift-screenshot-batch-v193.json",
+      "numericConflicts": []
+    },
+    {
+      "name": "Smolder",
+      "source": "user_Champ.zip_2026_11_07",
+      "dataFile": "data/wild-rift-screenshot-batch-v193.json",
+      "numericConflicts": []
+    },
+    {
+      "name": "Taliyah",
+      "source": "user_Champ.zip_2026_11_07",
+      "dataFile": "data/wild-rift-screenshot-batch-v193.json",
+      "numericConflicts": []
+    },
+    {
+      "name": "Vel'Koz",
+      "source": "user_Champ.zip_2026_11_07",
+      "dataFile": "data/wild-rift-screenshot-batch-v193.json",
+      "numericConflicts": []
+    },
+    {
+      "name": "Yunara",
+      "source": "user_Champ.zip_2026_11_07",
+      "dataFile": "data/wild-rift-screenshot-batch-v193.json",
+      "numericConflicts": []
+    },
+    {
+      "name": "Zilean",
+      "source": "user_Champ.zip_2026_11_07",
+      "dataFile": "data/wild-rift-screenshot-batch-v193.json",
+      "numericConflicts": []
     }
   ],
-  "localPickerCountAfterAurora": 127
+  "localPickerCountAfterAurora": 127,
+  "localPickerCountAfterBulk": 141,
+  "currentLocalPickerCount": 141,
+  "asOf": "2026-11-07"
 }
