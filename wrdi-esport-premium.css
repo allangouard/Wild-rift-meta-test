@@ -146,3 +146,30 @@ footer{color:#8fabb5;line-height:1.5}
 @media(min-width:600px){.ep-picker-grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
 @media(max-width:350px){.ep-picker-grid{gap:6px}.ep-picker-card-wrap .wrdi-champion-card{min-height:103px}.ep-picker-card-wrap .card-portrait{width:58px}.ep-picker-card-wrap .wrdi-champion-name{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.ep-quick-row{scroll-snap-type:none}}
+
+/* Esport Premium v2.3 — navigation, welcome, draft history */
+.ep-page[hidden]{display:none!important}
+body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+.ep-bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:400;display:grid;grid-template-columns:repeat(3,1fr);gap:5px;padding:7px max(12px,calc((100vw - 700px)/2)) calc(6px + env(safe-area-inset-bottom,0px));background:rgba(8,29,40,.97);border-top:1px solid #36545f;box-shadow:0 -10px 25px rgba(0,0,0,.28)}
+.ep-nav-button{border:1px solid transparent;background:transparent;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:48px;padding:3px 7px;color:#acccd3;touch-action:manipulation}
+.ep-nav-button.active{background:#1a4350;border-color:#3f827d;color:#79e7d6}
+.ep-nav-icon{font-size:23px;line-height:1}
+.ep-nav-label{font-size:11px;line-height:1.2;font-weight:750}
+.ep-welcome{background:linear-gradient(125deg,#193d49,#102b39 70%);border:1px solid #406671;border-radius:20px;padding:24px 19px;box-shadow:0 12px 30px rgba(0,0,0,.15)}
+.ep-welcome h2{font-size:clamp(25px,6vw,34px);line-height:1.12;letter-spacing:-.045em;margin:15px 0 12px}
+.ep-welcome p{font-size:14px;color:#bed5db;line-height:1.55;margin:0}
+.ep-home-actions{display:grid;gap:10px;margin:15px 0 24px}
+.ep-home-actions button{min-height:52px}
+.ep-home-recents h3,.ep-history h2{font-size:21px;letter-spacing:-.02em;margin:12px 0}
+.ep-history>.ep-overline{display:block;margin:6px 0}
+.ep-history-help{color:#b5ccd3;font-size:13px;line-height:1.55;margin:9px 0 19px}
+.ep-history-list{display:grid;gap:10px;margin-top:14px}
+.ep-history-card{display:flex;flex-direction:column;gap:8px;padding:14px;background:linear-gradient(120deg,#173844,#102a36);border:1px solid #3a5d68;border-radius:14px}
+.ep-history-date{font-size:11px;color:#d8b978;letter-spacing:.015em}
+.ep-history-teams{font-size:13px;line-height:1.5;color:#eef8f7;overflow-wrap:anywhere}
+.ep-history-opponents{font-size:12px;line-height:1.45;color:#afcbd2;overflow-wrap:anywhere}
+.ep-history-load{width:100%;background:#214b50;border-color:#53867f;color:#d5f6ef;min-height:43px;font-size:13px;margin-top:3px}
+.ep-history-empty{color:#a8c6d0;font-size:13px;padding:22px 15px;background:#142f3c;border:1px dashed #476572;border-radius:13px}
+.ep-history-erase{margin-top:20px;background:#3a2935;border-color:#74505f;color:#ffc0c3;width:100%}
+.ep-history-erase[hidden]{display:none!important}
+@media(min-width:720px){.ep-home-actions{grid-template-columns:1fr 1fr}.ep-bottom-nav{left:50%;right:auto;transform:translateX(-50%);width:min(100%,950px);border-left:1px solid #36545f;border-right:1px solid #36545f;border-radius:16px 16px 0 0}}
