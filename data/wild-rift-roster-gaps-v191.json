@@ -4,17 +4,9 @@
   "officialChampionDirectory": "https://wildrift.leagueoflegends.com/fr-fr/champions/",
   "officialDirectoryChampionCountAtCheck": 142,
   "localPickerCountAfterHwei": 126,
-  "missingCount": 1,
-  "note": "Current picker contains 141 of 142 champion names from the Riot 2026-11-07 roster snapshot. Bard is not in the 122 provided screenshots. Nidalee cougar form numerical details are incomplete.",
-  "missingChampions": [
-    {
-      "name": "Bard",
-      "reason": "screenshots_not_in_user_zip",
-      "status": "not_selectable_in_draft_engine_yet",
-      "preferredSource": "Wild Rift FR client or official Riot Wild Rift champion page",
-      "pcLeagueDataAllowed": false
-    }
-  ],
+  "missingCount": 0,
+  "note": "All 142 champions from the Wild Rift official directory snapshot of 2026-11-07 now have five qualitative ability slots. Numeric and patch validation remain incomplete; Nidalee cougar variants are still incomplete.",
+  "missingChampions": [],
   "recentlyAdded": [
     {
       "name": "Hwei",
@@ -113,10 +105,17 @@
       "source": "user_Champ.zip_2026_11_07",
       "dataFile": "data/wild-rift-screenshot-batch-v193.json",
       "numericConflicts": []
+    },
+    {
+      "name": "Bard",
+      "source": "user_wild_rift_client_screenshots_2026_11_07",
+      "dataFile": "data/bard-client-abilities-v194.json",
+      "numericApproved": false
     }
   ],
   "localPickerCountAfterAurora": 127,
   "localPickerCountAfterBulk": 141,
-  "currentLocalPickerCount": 141,
-  "asOf": "2026-11-07"
+  "currentLocalPickerCount": 142,
+  "asOf": "2026-11-07",
+  "localPickerCountAfterBard": 142
 }
