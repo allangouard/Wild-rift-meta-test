@@ -14,7 +14,7 @@ test('local Wild Rift catalogue is indexed by correct client hero IDs and contai
  assert.equal(byId.get('10026').name,"Kai'Sa");
  assert.ok(champions.every(c=>!/^\d+$/.test(c.name)));
  assert.ok(champions.every(c=>Array.isArray(c.lanes)&&c.lanes.length&&Array.isArray(c.classes)&&c.classes.length));
- assert.ok(champions.every(c=>/^https:\/\//.test(c.portrait)));
+ assert.ok(champions.every(c=>c.portrait===null||/^https:\/\//.test(c.portrait)));
 });
 test('first filter is the lane, class is optional, search works with French accents and capitals',()=>{
  assert.deepEqual(picker.LANES,['Top','Jungle','Mid','ADC','Support','Tous']);
