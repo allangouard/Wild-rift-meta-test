@@ -160,3 +160,14 @@ test('V19.7 is connected to an actual ten-champion Galio draft',()=>{
  assert.equal(c.profilesHypothetical,true);
  assert.equal(r.build.legal,true);
 });
+
+test('V19.8 draft comparison uses the actual recommended boots and runes',()=>{
+ const r=analyze({id:'V198-full-loadout',
+  allies:['Ornn','Amumu','Galio','Caitlyn','Leona'],
+  enemies:["Cho'Gath",'Skarner','Mel',"Kog'Maw",'Zilean']});
+ assert.equal(r.ok,true,JSON.stringify(r).slice(0,800));
+ assert.equal(r.calculations.fullBuildScenarios?.ok,true);
+ assert.equal(r.calculations.fullBuildScenarios.bootsIncluded,true);
+ assert.equal(r.calculations.fullBuildScenarios.keystoneIncluded,true);
+ assert.equal(r.calculations.fullBuildScenarios.winner.scenarios.length,3);
+});

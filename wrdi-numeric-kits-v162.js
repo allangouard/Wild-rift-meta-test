@@ -166,7 +166,16 @@ function galioDirectModel(prepared){
   if(!model||model.apRatio<=0)return null;
   models.push({slot,...model,source:g.source});
  }
+ const ultimateFormula=g.skills?.r?.formulas?.find(f=>normalize(f.label)==='Magic Damage'&&!f.conflictedWithPatch&&!f.conflictedWithClient);
+ const ultimate=ultimateFormula?linearFormula(ultimateFormula.formula):null;
  return {source:g.source,slots:models,verifiedPatch:'source_wiki_plus_player_galio_crosscheck',
+  ultimateDamageAt({ap=0,rank=2}={}){
+   if(!ultimate||!finite(ap)||ap<0||!Number.isInteger(rank)||rank<1||rank>ultimate.bases.length)return null;
+   return {rawDamage:ultimate.bases[rank-1]+ultimate.apRatio*ap,
+    base:ultimate.bases[rank-1],apRatio:ultimate.apRatio,rank,
+    conditional:'R doit toucher un ennemi à atterrissage',
+    source:'wiki_wild_rift_ability_formula_patch_unconfirmed'};
+  },
   directDamageAt({ap=0,ranks={q:4,w:1,e:4}}={}){
    if(!finite(ap)||ap<0)return null;
    let total=0;const details=[];

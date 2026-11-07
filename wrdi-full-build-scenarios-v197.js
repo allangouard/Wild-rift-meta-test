@@ -6,7 +6,7 @@
  */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.WRDI_FullBuildScenariosV197=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
-const VERSION='19.7.0';
+const VERSION='19.8.0';
 const n=x=>typeof x==='number'&&Number.isFinite(x)?Math.max(0,x):0;
 const clamp=(x,lo,hi)=>Math.min(hi,Math.max(lo,x));
 const round=x=>Math.round(x*100)/100;
@@ -16,21 +16,26 @@ const select=(items,id)=>items.find(x=>x.id===id);
 const PROFILES=Object.freeze([
  {id:'burst',label:'Burst court contre cible fragile',seconds:2.5,targetHp:1900,targetArmor:55,targetMr:45,targetRemainingHpPct:85,
   galioBaseHp:2000,galioBaseArmor:65,galioBaseMr:45,incomingPhysical:650,incomingMagic:350,
-  spellHits:1,adjacentSeconds:1,autosReceived:0,shieldHp:0,skillsTrigger:true},
+  spellHits:3,adjacentSeconds:1,autosReceived:0,shieldHp:0,skillsTrigger:true,incomingAutoPhysicalFraction:.1},
  {id:'bruiser',label:'Escarmouche contre bruiser',seconds:5,targetHp:2900,targetArmor:115,targetMr:95,targetRemainingHpPct:65,
   galioBaseHp:2000,galioBaseArmor:65,galioBaseMr:45,incomingPhysical:1050,incomingMagic:850,
-  spellHits:2,adjacentSeconds:3,autosReceived:2,shieldHp:250,skillsTrigger:true},
+  spellHits:2,adjacentSeconds:3,autosReceived:2,shieldHp:250,skillsTrigger:true,incomingAutoPhysicalFraction:.35},
  {id:'tank',label:'Combat prolongé contre frontline',seconds:8,targetHp:3900,targetArmor:180,targetMr:160,targetRemainingHpPct:32,
   galioBaseHp:2000,galioBaseArmor:65,galioBaseMr:45,incomingPhysical:1750,incomingMagic:1550,
-  spellHits:2,adjacentSeconds:6,autosReceived:4,shieldHp:450,skillsTrigger:true}
+  spellHits:2,adjacentSeconds:6,autosReceived:4,shieldHp:450,skillsTrigger:true,incomingAutoPhysicalFraction:.55,ultimateHits:true,ultimateRank:2}
 ]);
-function stats(items){
+function stats(items,boots=null){
  const total={ap:0,hp:0,armor:0,mr:0,ah:0,mpenFlat:0,mpenPct:0};
  for(const it of items){
   const s=it.stats||{};
   for(const k of ['ap','hp','armor','mr','ah'])total[k]+=n(s[k]);
   total.mpenFlat+=n(s.mpen_flat);
   total.mpenPct+=n(s.mpen_pct);
+ }
+ if(boots?.stats){
+  const b=boots.stats;
+  total.ap+=n(b.ap);total.hp+=n(b.hp);total.armor+=n(b.armor);total.mr+=n(b.mr);
+  total.mpenFlat+=n(b.magic_pen_flat);
  }
  const rift=select(items,'riftmaker');
  const bonusAp=rift&&passive(rift,'bonus_ap_formula')?.bonus_ap_formula==='0.02 * bonus_hp'?total.hp*.02:0;
@@ -42,11 +47,11 @@ function stats(items){
  total.rabadonMultiplier=multiplier;
  return total;
 }
-function evaluate(items,profile,combatModel,{role='hybrid_offensive'}={}){
+function evaluate(items,profile,combatModel,{role='hybrid_offensive',boots=null,keystone=null,minorRunes=[]}={}){
  if(!Array.isArray(items)||items.length!==5||new Set(items.map(x=>x?.id)).size!==5)
   return {ok:false,reason:'Cinq objets uniques requis'};
  if(!profile||!['burst','bruiser','tank'].includes(profile.id))return {ok:false,reason:'Profil inconnu'};
- const s=stats(items),notes=[],procs=[];
+ const s=stats(items,boots),notes=[],procs=[];
  const trigger=(id,active,when,raw=0,kind='magic')=>{
   const amount=active?round(raw):0;
   procs.push({id,eligible:Boolean(active),condition:when,rawDamageIfTriggered:round(raw),countedDamage:amount,damageType:kind});
@@ -56,9 +61,17 @@ function evaluate(items,profile,combatModel,{role='hybrid_offensive'}={}){
  const rawSpell=combatModel?.directDamageAt?.({ap:s.ap})||null;
  const spellRaw=rawSpell?rawSpell.total:null;
  const magic=(raw)=>defense(n(raw),targetMr);
- // Galio Q/W/E source model is a single-hit comparison; do not multiply the
+ // Conditional Galio R damage is separate from the sourced Q/W/E direct hit.
+ // Its rank-two formula comes from the existing WR numeric kit, not PC.
+ const ultimate=combatModel?.ultimateDamageAt?.({ap:s.ap,rank:profile.ultimateRank||2})||null;
+
  // whole combo by casts whose cooldowns and hit timing are not verified.
  let extraRaw=0,physicalRaw=0;
+ if(ultimate){
+  extraRaw+=trigger('galio_ultimate',Boolean(profile.ultimateHits),
+   'Galio R doit toucher un ennemi à l’atterrissage ; formule WR numérique non certifiée au patch',
+   ultimate.rawDamage);
+ }
  const luden=select(items,'ludens_echo');
  if(luden){
   const m=passive(luden,'base_damage');
@@ -141,6 +154,61 @@ function evaluate(items,profile,combatModel,{role='hybrid_offensive'}={}){
   amp=(1+amp)*(1+liAmp)-1;
   procs.push({id:'liandry_ramp',eligible:liAmp>0,condition:'Maintien du combat pendant '+profile.seconds+' s',ampPct:round(liAmp*100)});
  }
+ // Additional client-sourced passives with explicit combat conditions.
+ const lich=select(items,'lich_bane');
+ if(lich){
+  const m=passive(lich,'damage_formula');
+  const active=m?.damage_formula==='0.75 * base_ad + 0.45 * ap'&&Boolean(profile.empoweredAutoAfterSpell);
+  const baseAd=Number.isFinite(profile.galioBaseAd)?profile.galioBaseAd:null;
+  const raw=baseAd===null?0:.75*baseAd+.45*s.ap;
+  extraRaw+=trigger('lich_bane',active&&baseAd!==null,
+   'Galio doit effectuer une attaque après un sort ; AD de base requis, un seul déclenchement',raw);
+  if(baseAd===null)procs.push({id:'lich_bane_missing_base_ad',eligible:false,condition:'AD de base Galio non fourni : pas de dégâts calculés'});
+ }
+ const abyss=select(items,'abyssal_mask'),abyssM=passive(abyss,'magic_damage_amp_pct');
+ const abyssAmp=abyssM&&profile.adjacentSeconds>0?n(abyssM.magic_damage_amp_pct)/100:0;
+ if(abyss)procs.push({id:'abyssal_mask',eligible:abyssAmp>0,ampPct:round(abyssAmp*100),
+  condition:'Cible à moins de '+n(abyssM?.radius)+' unités ; effet non cumulable'});
+ const storm=select(items,'stormsurge');
+ if(storm){
+  const triggerM=passive(storm,'trigger'),blast=passive(storm,'damage_formula');
+  const active=Boolean(storm)&&profile.seconds>=4.5&&Boolean(profile.skillsTrigger)&&
+   spellRaw!==null&&n(profile.targetHp)>0&&spellRaw/profile.targetHp>=.25&&
+   triggerM?.trigger==='damage_at_least_25pct_maxhp_within_2_5s'&&
+   blast?.damage_formula==='125 + 0.10 * ap';
+  extraRaw+=trigger('stormsurge',active,
+   '>=25 % PV max infligés en 2,5 s puis explosion retardée de 2 s ; un proc',
+   125+.1*s.ap);
+ }
+ const horizon=select(items,'horizon_focus'),horizonM=passive(horizon,'min_distance');
+ if(horizon)procs.push({id:'horizon_focus',eligible:Boolean(horizonM)&&n(profile.castDistance)>=n(horizonM.min_distance),
+  condition:'Sort à >= '+n(horizonM?.min_distance)+' unités ; distance du sort exigée',
+  ampPct:n(horizonM?.bonus_damage_pct)});
+ const torch=select(items,'blackfire_torch'),torchM=passive(torch,'ap_bonus_pct_per_affected_target');
+ if(torch)procs.push({id:'blackfire_bonus_ap',eligible:Boolean(torchM&&profile.skillsTrigger),
+  condition:'Augmentation AP par cible affectée, non incorporée au score si chronologie de touches inconnue',
+  apBonusPctPerTarget:n(torchM?.ap_bonus_pct_per_affected_target)});
+ // The rune's documented proc only counts when its exact condition is met.
+ const runeName=keystone?.name_fr,ef=keystone?.effect||{};
+ if(runeName==='Électrocution'){
+  const active=profile.spellHits>=n(ef.required_hits)&&profile.seconds>=0&&profile.seconds<=n(ef.window_seconds);
+  const damage=n(ef.damage_base_range?.min)+s.ap*n(ef.ap_ratio_pct)/100;
+  extraRaw+=trigger('rune_electrocute',active,
+   '3 touches sur la même cible en 3 s ; base minimale du client (niveau non défini)',damage);
+ }else if(runeName==='Comète arcanique'){
+  const active=Boolean(profile.skillsTrigger);
+  extraRaw+=trigger('rune_comet',active,
+   'Sort touche ; comète doit toucher ensuite ; base minimale sans niveau de champion',
+   n(ef.magic_damage_base_min)+s.ap*n(ef.damage_ap_pct)/100);
+ }else if(runeName==='Poigne de l\'immortel'){
+  const active=profile.seconds>=n(ef.in_combat_interval_seconds)&&Boolean(profile.empoweredAutoAfterSpell);
+  extraRaw+=trigger('rune_grasp',active,'Combat >=3 s puis attaque de base sur champion',
+   (n(profile.galioBaseHp)+s.hp)*n(ef.bonus_magic_damage_max_hp_pct)/100);
+ }else if(runeName==='Souverain des glaces'){
+  const active=Boolean(profile.skillsTrigger)&&Boolean(profile.ccTriggersRune);
+  extraRaw+=trigger('rune_glacial',active,'Immobilisation applicable, explosion conditionnelle, minimum de dégâts',
+   n(ef.explosion_magic_damage_base_min)+s.hp*n(ef.explosion_magic_damage_bonus_hp_pct)/100);
+ }
  let rawTotal=spellRaw===null?null:(spellRaw+extraRaw+physicalRaw)*(1+amp);
  const orb=select(items,'infinity_orb'),orbM=passive(orb,'damage_bonus_pct');
  const orbEligible=orbM?.condition==='target_hp_pct < 40'&&profile.targetRemainingHpPct<40;
@@ -148,6 +216,36 @@ function evaluate(items,profile,combatModel,{role='hybrid_offensive'}={}){
  // Orb only applies to eligible abilities, not all item passives.
  const bonusOrb=orbEligible&&spellRaw!==null?spellRaw*(1+amp)*n(orbM.damage_bonus_pct)/100:0;
  if(rawTotal!==null)rawTotal+=bonusOrb;
+ // Selected minor runes are audited one by one. Only effects with a
+ // satisfied and measurable scenario condition add direct damage.
+ let runeShield=0;
+ for(const minor of minorRunes){
+  const e=minor?.effect||{},name=minor?.name_fr||'';
+  let active=false,rawBonus=0,condition='Condition non entièrement définie dans ce scénario';
+  if(name==='Coup de grâce'){
+   active=profile.targetRemainingHpPct<n(e.target_hp_below_pct)&&spellRaw!==null;
+   rawBonus=active?spellRaw*n(e.damage_bonus_pct)/100:0;
+   condition='Cible sous '+n(e.target_hp_below_pct)+' % PV avant les compétences';
+  }else if(name==='Abattage'){
+   active=profile.targetRemainingHpPct>n(e.target_hp_above_pct)&&spellRaw!==null;
+   rawBonus=active?spellRaw*n(e.attack_damage_bonus_pct)/100:0;
+   condition='Cible au-dessus de '+n(e.target_hp_above_pct)+' % PV ; bonus sur dégâts directs du modèle';
+  }else if(name==='Zèle de combat'){
+   active=profile.seconds>=n(e.stack_interval_s)&&spellRaw!==null;
+   const stacks=Math.min(n(e.max_stacks),Math.floor(profile.seconds/n(e.stack_interval_s)||1));
+   rawBonus=active?spellRaw*stacks*n(e.base_ability_damage_amp_per_second_pct)/100:0;
+   condition=stacks+' charges selon durée du combat ; application simplifiée aux sorts directs';
+  }else if(name==='Courage du colosse'){
+   active=Boolean(profile.ccTriggersRune);
+   runeShield=active?n(e.shield_flat_min)+(profile.galioBaseHp+s.hp)*n(e.shield_max_health_pct)/100:0;
+   condition='Galio doit immobiliser un champion et recevoir des dégâts pendant le bouclier de 3 s';
+  }
+  if(rawBonus>0&&spellRaw!==null)rawTotal+=rawBonus*(1+amp);
+  procs.push({id:'minor_rune_'+name,eligible:active,condition,
+   rawDamageIfTriggered:round(rawBonus),countedDamage:round(rawBonus),
+   conditionalShield:round(name==='Courage du colosse'?runeShield:0),
+   unmodeled:!['Coup de grâce','Abattage','Zèle de combat','Courage du colosse'].includes(name)});
+ }
  let shieldReduced=0;
  const trident=select(items,'oceanids_trident');
  if(trident){
@@ -172,9 +270,13 @@ function evaluate(items,profile,combatModel,{role='hybrid_offensive'}={}){
    'Charges de combat atteintes après '+needed+' secondes, sans interruption',
    bonusArmor:round(bonusArmor),bonusMr:round(bonusMr)});
  }
- const incomingPhysical=defense(profile.incomingPhysical,profile.galioBaseArmor+s.armor+bonusArmor);
+ const steel=boots?.name_fr==='Coques en acier'&&boots.passives?.some(x=>x.champion_attack_damage_reduction_pct===10);
+ const attackFraction=clamp(n(profile.incomingAutoPhysicalFraction),0,1);
+ const incomingPhysical=defense(profile.incomingPhysical*(1-(steel?0.1*attackFraction:0)),profile.galioBaseArmor+s.armor+bonusArmor);
  const incomingMagic=defense(profile.incomingMagic,profile.galioBaseMr+s.mr+bonusMr);
  const totalIncoming=incomingPhysical+incomingMagic;
+ if(boots)procs.push({id:'boots',eligible:true,condition:boots.name_fr,
+  hp:n(boots.stats?.hp),armor:n(boots.stats?.armor),mr:n(boots.stats?.mr),ap:n(boots.stats?.ap)});
  const hp=profile.galioBaseHp+s.hp;
  const remainingHp=hp-totalIncoming;
  const rawDirect=rawTotal;
@@ -184,19 +286,23 @@ function evaluate(items,profile,combatModel,{role='hybrid_offensive'}={}){
   stats:s,damage:{rawGalioQWE:spellRaw,rawConditionalPassives:round(extraRaw),rawTotal:rawDirect===null?null:round(rawDirect),
    targetMrAfterPenetration:round(targetMr),magicDamageToHpIfAllConditions:magicDamage,
    shieldReduction:round(shieldReduced),physicalBonusNotModeled:true,
-   excludes:['Galio passive','Galio ultimate','Q tornado','rune procs','enemy spell shields']},
+   excludes:['Galio passive','Q tornado','enemy spell shields'],
+   galioUltimateIfHit:ultimate?.rawDamage??null,
+   galioUltimateAssumedHit:Boolean(profile.ultimateHits)},
   survival:{hpBeforeDamage:hp,incomingPhysicalAfterArmor:round(incomingPhysical),
    incomingMagicAfterMr:round(incomingMagic),incomingTotal:round(totalIncoming),hpRemainingWithoutHealing:round(remainingHp),
    survivesIncomingScenario:survived,conditionalHealNotCounted:round(conditionalHeal),
-   survivalMarginWithConditionalHeal:round(remainingHp+conditionalHeal),itemDefenseOnly:false},
+   survivalMarginWithConditionalHeal:round(remainingHp+conditionalHeal+runeShield),
+   conditionalRuneShieldNotCounted:round(runeShield),itemDefenseOnly:false},
   procs,unmodeledItemPassives:items.filter(it=>(it.passives||[]).length&&!new Set([
    'ludens_echo','liandrys_torment','hollow_radiance','unending_despair','dawnshroud','thornmail',
    'riftmaker','rabadons_deathcap','infinity_orb','oceanids_trident','morellonomicon',
-   'sunfire_aegis','blackfire_torch','amaranths_twinguard']).has(it.id)).map(it=>it.id),
+   'sunfire_aegis','blackfire_torch','amaranths_twinguard','lich_bane',
+   'abyssal_mask','stormsurge','horizon_focus']).has(it.id)).map(it=>it.id),
   assumptions:profile,modelStatus:'illustrative_conditions_not_predicted_winrate'};
  return result;
 }
-function compare({primaryItems,candidateBuilds=[],combatModel,threats={},profiles=PROFILES}={}){
+function compare({primaryItems,candidateBuilds=[],combatModel,threats={},profiles=PROFILES,boots=null,keystone=null,minorRunes=[]}={}){
  if(!Array.isArray(primaryItems)||primaryItems.length!==5)return {ok:false,reason:'Build principal absent'};
  const ids=new Set(),builds=[];
  for(const items of [primaryItems,...candidateBuilds]){
@@ -221,7 +327,7 @@ function compare({primaryItems,candidateBuilds=[],combatModel,threats={},profile
     incomingMagic:round(incoming*(1-physicalShare)),
     autosReceived:physical>=1?p.autosReceived:0,
     draftPhysicalShare:round(physicalShare)};
-   return evaluate(items,contextual,combatModel,{role});
+   return evaluate(items,contextual,combatModel,{role,boots,keystone,minorRunes});
   });
   const all=scenarios.every(x=>x.ok);
   if(!all)return {ids,ok:false};
@@ -244,7 +350,8 @@ function compare({primaryItems,candidateBuilds=[],combatModel,threats={},profile
   baselineScore:baseline?.score??null,winner:valid[0]||null,candidates:valid.slice(0,8),totalCompared:valid.length,
   weights:role==='ap_burst'?{damage:0.78,survival:0.22}:role==='tank_utility'?{damage:0.32,survival:0.68}:{damage:0.52,survival:0.48},
   exactOpponentStats:false,actualCombatPredicted:false,profilesHypothetical:true,
-  includesAllFiveItems:true,basis:'client_item_effects_and_Galio_QWE_partial_source_model'};
+  includesAllFiveItems:true,bootsIncluded:Boolean(boots),keystoneIncluded:Boolean(keystone),
+  minorRunesIncluded:minorRunes.map(x=>x.name_fr),basis:'client_item_effects_and_Galio_QWE_partial_source_model'};
 }
 return Object.freeze({VERSION,PROFILES,stats,evaluate,compare});
 });

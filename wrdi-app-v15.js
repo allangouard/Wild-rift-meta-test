@@ -112,12 +112,16 @@ function showResults(result){
  if(result.calculations?.fullBuildScenarios?.ok){
   const c=result.calculations.fullBuildScenarios;
   const section=el('section','result-section');
-  section.append(el('h3',null,'Comparaison des builds complets · V19.7'));
+  section.append(el('h3',null,'Comparaison des builds complets · V19.8'));
   section.append(el('p','muted',c.totalCompared+' builds de cinq objets comparés · '+(c.role==='ap_burst'?'objectif burst AP':c.role==='tank_utility'?'objectif résistance / contrôle':'objectif hybride')+'.'));
+  section.append(el('p','caption','Bottes incluses dans les statistiques : '+(c.bootsIncluded?'oui':'non')+
+   ' · Rune fondamentale intégrée aux déclenchements : '+(c.keystoneIncluded?'oui':'non')+'.'));
   const best=c.winner;
   if(best){
    const names=new Map((data.catalog?.items||[]).map(x=>[x.id,x.name_fr]));
    section.append(el('p','muted','Meilleur score de scénario : '+best.ids.map(x=>names.get(x)||x).join(' / ')+'.'));
+   const limitations=[...new Set(best.scenarios.flatMap(x=>x.unmodeledItemPassives||[]))];
+   if(limitations.length)section.append(el('p','caption','Passifs à approfondir : '+limitations.join(', ')+'.'));
    for(const sc of best.scenarios){
     const dmg=sc.damage.magicDamageToHpIfAllConditions;
     section.append(el('p','caption',sc.label+' · '+(dmg===null?'Dégâts directs non calculables':Math.round(dmg)+' dégâts magiques conditionnels')+
