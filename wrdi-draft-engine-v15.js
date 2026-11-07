@@ -65,7 +65,7 @@ function chooseRune({bridge,catalog,advisor,needs={},laneOpponent,items=[],role}
   selection:'galio_mid_build_role_coherence_client_runes_not_empirical_winrate',
   metaReference:'cn_galio_engage_electrocute_observed_comet_tactical_only'};
 }
-function analyze({picks,champions,championMeta,officialKits,reviewedKits,numericKits,numericPatch,numericClient,catalog,rules,runes,bootsCatalog,modules}={}){
+function analyze({picks,champions,championMeta,officialKits,reviewedKits,numericKits,numericPatch,numericClient,clientRankTables,clientTooltipFacts,catalog,rules,runes,bootsCatalog,modules}={}){
  const fail=(stage,reason)=>({ok:false,stage,reason});
  if(!Array.isArray(picks)||picks.length!==10||picks.some(x=>!String(x||'').trim()))return fail('draft','Les dix champions sont requis');
  if(String(picks[2])!=='10099')return fail('draft','Galio mid uniquement pour le moment');
@@ -78,6 +78,11 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
  if(m.readiness&&!readiness?.ok)return fail('data_readiness',readiness?.reasons?.join(' ; ')||'Données de draft incomplètes');
  const names=picks.map(id=>String(champions?.[String(id)]||''));
  if(names.some(x=>!x))return fail('champions','Un champion choisi n’est pas présent dans l’index des noms');
+ const clientSource=clientRankTables&&clientTooltipFacts&&m.clientNumericEvidence?.prepare?
+  m.clientNumericEvidence.prepare(clientRankTables,clientTooltipFacts):null;
+ if(clientRankTables&&m.clientNumericEvidence&&!clientSource?.ok)
+  return fail('client_numeric',clientSource?.reason||'Incohérence des tableaux client');
+ const clientDraftEvidence=clientSource?.ok?clientSource.inspectDraft({names}):null;
  const metadataByName=new Map((Array.isArray(championMeta)?championMeta:[])
   .filter(x=>x?.name).map(x=>[String(x.name).toLocaleLowerCase('fr'),x]));
  // Official Riot Wild Rift skill text is part of draft recognition, not
@@ -304,7 +309,8 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
    orderCertified:false,combinationsExamined:main.evaluatedPool,
    sourced:'player_client_items_only',noPopularBuilds:true},
   runes:rune,boots,dataReadiness:readiness,releaseAudit:releaseAudit?.ok?releaseAudit:null,
-  calculations:{inputAudit:inputAudit?.ok?inputAudit:null,
+  calculations:{clientNumericEvidence:clientDraftEvidence?.ok?clientDraftEvidence:null,
+   inputAudit:inputAudit?.ok?inputAudit:null,
    antiheal:antiheal?.ok?antiheal:null,runeProc:runeRange?.ok?runeRange:null,
    numericDraft:numericDraft?.ok?numericDraft:null,
    numericGalio,
@@ -319,7 +325,9 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
    numericCoverage:numeric?{champions:numeric.count,abilities:numeric.numericAbilityCoverage,
     patchCorrections:numeric.patchOverlayApplied,clientVerifications:numeric.clientVerificationsCount,patchConflicts:numeric.patchConflicts,
     patchOutcomes:numeric.patchOutcomes,patchComplete:numeric.unreviewedPatchSections.length===0}:null},
-  methods:{kitPassiveSynergy:'inferred_from_client_text',championThreatSource:official?'official_wild_rift_abilities':'legacy_profiles_only',selection:'draft_weighted_mechanical_scenarios_and_qualitative_heuristic',
+  methods:{clientRankTablesObserved:Boolean(clientDraftEvidence?.ok&&clientDraftEvidence.count),
+   clientRankTablesPatchCertified:false,clientRankTablesUsedForDamage:false,
+   kitPassiveSynergy:'inferred_from_client_text',championThreatSource:official?'official_wild_rift_abilities':'legacy_profiles_only',selection:'draft_weighted_mechanical_scenarios_and_qualitative_heuristic',
    exactOptimalityProven:false,liveTracking:false,numericCombatInputs:numeric?'wiki_wr_and_riot_patch_layer':'not_loaded'},
   warnings:rune.ok?[]:['Runes indisponibles : '+rune.reason]};
 }
