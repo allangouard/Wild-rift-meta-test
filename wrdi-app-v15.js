@@ -164,6 +164,8 @@ function showResults(result){
  result.draft.notes.forEach(t=>notes.append(el('p','muted',t)));
  notes.append(el('p','muted','Les choix restent heuristiques : aucun taux de victoire ni calcul de dégâts en partie n’est inventé.'));
  box.append(notes);
+ const lab=root.WRDI_EsportLabV24?.buildPanel(result,data.catalog);
+ if(lab)box.append(lab);
 }
 async function fetchJson(url){
  const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),14000);
