@@ -72,8 +72,17 @@ function prepare(evidence){
     sourceImageIndex:table.statRows[field]?.sourceImageIndex
    };
   });
+  const allHitCount=base.number_of_explosions;
+  const perHit=calculated.find(x=>x.field==='damage_per_explosion');
+  const multihit=Number.isInteger(allHitCount)&&allHitCount>0&&perHit?{
+   hits:allHitCount,perHitBase:perHit.base,
+   fullHitBase:perHit.base*allHitCount,
+   fullHitWithStats:finite(perHit.total)?perHit.total*allHitCount:null,
+   allHitsRequired:true,
+   matchesClientBase:base.sum_damage_from_all_explosions===perHit.base*allHitCount
+  }:null;
   return {ok:true,version:VERSION,champion:c.name,slot,rank,rankCount:table.rankCount,
-   base,coefficients,calculated,mechanics:facts?.mechanics||[],
+   base,coefficients,calculated,multihit,mechanics:facts?.mechanics||[],
    unmappedCoefficients:coefficients.filter(x=>!x.field),
    assumptions:coefficients.some(x=>x.acrossRanksAssumed)?['Ratios observés au rang 1 supposés constants pour ce calcul']:[],
    note:'Valeurs brutes, avant résistances ; dégâts multi-touches, déclenchements, soins, boucliers et formes conditionnels'};
@@ -123,6 +132,8 @@ function prepare(evidence){
    enemyMaxHpNumericSources:enemies.filter(x=>x.maxHpRows>0).length,
    enemyTrueDamageNumericSources:enemies.filter(x=>x.trueDamageRows>0).length,
    enemyMaxHpSources:count('maxHp'),enemyTrueDamageSources:count('trueDamage'),
+   enemyMagicDamageSources:enemies.filter(x=>Object.values(x.abilities).some(a=>Object.keys(a.base).some(k=>/magic_damage|magic_component/.test(k)))).length,
+   enemyPhysicalDamageSources:enemies.filter(x=>Object.values(x.abilities).some(a=>Object.keys(a.base).some(k=>/physical_damage/.test(k)))).length,
    enemyAllyHealingSources:count('allyHeal'),enemySelfHealingSources:count('selfHeal'),
    enemyAllyShieldSources:count('allyShield'),enemySelfShieldSources:count('selfShield'),
    enemyControlSources:count('control'),enemyReflectSources:count('reflect'),
