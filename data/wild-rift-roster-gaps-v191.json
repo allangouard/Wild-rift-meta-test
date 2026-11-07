@@ -3,17 +3,10 @@
   "checkedOn": "2026-11-07",
   "officialChampionDirectory": "https://wildrift.leagueoflegends.com/fr-fr/champions/",
   "officialDirectoryChampionCountAtCheck": 142,
-  "localPickerCountAfterHwei": 126,
-  "missingCount": 16,
-  "note": "Missing champions are listed here instead of added to an operational picker without their five complete Wild Rift skill descriptions. The current engine intentionally blocks incomplete picks.",
+  "localPickerCountAfterHwei": 127,
+  "missingCount": 15,
+  "note": "14? No: 15 champions remain absent after adding Aurora, pending 5 Wild Rift skill descriptions. Ids are not invented for unverified picks.",
   "missingChampions": [
-    {
-      "name": "Aurora",
-      "reason": "needs_wild_rift_five_skill_descriptions",
-      "status": "not_selectable_in_draft_engine_yet",
-      "preferredSource": "Riot Wild Rift FR champion page or user client screenshots",
-      "pcLeagueDataAllowed": false
-    },
     {
       "name": "Bard",
       "reason": "needs_wild_rift_five_skill_descriptions",
@@ -128,6 +121,13 @@
       "numericConflicts": [
         "e.ee.damageBase"
       ]
+    },
+    {
+      "name": "Aurora",
+      "source": "user_wild_rift_client_screenshots_2026_11_07",
+      "dataFile": "data/aurora-client-abilities-v192.json",
+      "numericApproval": false
     }
-  ]
+  ],
+  "localPickerCountAfterAurora": 127
 }
