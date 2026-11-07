@@ -9,7 +9,7 @@ const VERSION='19.6.1';
 const norm=x=>String(x||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 const finite=x=>typeof x==='number'&&Number.isFinite(x);
 const MECHANIC_GROUPS={
- maxHp:['max_hp_damage','max_hp_scaling'],
+ maxHp:['max_hp_damage'],
  trueDamage:['true_damage','true_damage_conditional'],
  allyHeal:['ally_healing'],
  selfHeal:['self_heal','self_healing'],
