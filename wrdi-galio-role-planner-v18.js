@@ -66,6 +66,10 @@ function evaluate(item,role,t={}){
  if(armor&&pressurePhysical>=2)add(Math.min(5,pressurePhysical),'Dégâts physiques adverses');
  if(mr&&pressureMagic>=2)add(Math.min(5,pressureMagic),'Dégâts magiques adverses');
  if(f.stasis&&n(t.earlyStasisPriority)>=2)add(4,'Menace de dive importante');
+ // Client-observed %HP damage makes stacking raw HP less attractive, without
+ // treating any conditional spell as a guaranteed hit or invented DPS.
+ if(n(t.enemyMaxHpNumericSources)>=2&&hp>=200&&role!=='ap_burst')
+  score-=Math.min(3,n(t.enemyMaxHpNumericSources));
  if(f.maxHp&&n(t.tank)>=2)add(2,'Anti-PV');
  if(f.shred&&n(t.tank)>=2)add(2,'Pénétration et réduction RM');
  if(f.attackSpeedAura&&n(t.attackSpeedPressureConfirmed)>0)add(4,'Attaques rapides confirmées');
