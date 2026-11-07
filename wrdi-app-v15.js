@@ -48,6 +48,13 @@ function selectChampion(slot,id){
  localStorage.setItem(STORAGE,JSON.stringify(picks));renderSlots();
  $('wrdi-result').replaceChildren();status(match.name+' sélectionné · '+picks.filter(Boolean).length+'/10 champions.','good');
 }
+function clearChampion(slot){
+ if(slot===2||slot<0||slot>9)return;
+ epoch++;picks[slot]='';
+ localStorage.setItem(STORAGE,JSON.stringify(picks));renderSlots();
+ $('wrdi-result').replaceChildren();
+ status('Case libérée · '+picks.filter(Boolean).length+'/10 champions.','good');
+}
 function showResults(result){
  const box=$('wrdi-result');box.replaceChildren();
  const headline=el('h2',null,'Recommandation Galio · Mid');box.append(headline);
@@ -162,7 +169,7 @@ async function boot(){
   data.catalog=catalog;data.rules=rules;data.runes=runes;
   data.officialKits=officialKits;data.reviewedKits=reviewedKits;
   pickerUI=root.WRDI_ChampionPickerV151?.init({
-   getChampions:()=>data.championList,getPicks:()=>picks,onSelect:selectChampion
+   getChampions:()=>data.championList,getPicks:()=>picks,onSelect:selectChampion,onClear:clearChampion
   });
   if(!pickerUI?.ok)throw Error('Sélecteur mobile indisponible');
   data.ready=true;renderSlots();go.disabled=false;
