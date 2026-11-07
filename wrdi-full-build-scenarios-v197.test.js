@@ -139,3 +139,26 @@ test('A build comparison explicitly includes chosen boots and keystone',()=>{
  assert.equal(c.keystoneIncluded,true);
  assert.equal(c.winner.scenarios.length,3);
 });
+
+test('selected minor runes are included and affect eligible conditional damage only',()=>{
+ const minor=require('./data/rune-catalog-client-v14.json').minor;
+ const coup=minor.find(x=>x.name_fr==='Coup de grâce');
+ const abat=minor.find(x=>x.name_fr==='Abattage');
+ const transcend=minor.find(x=>x.name_fr==='Transcendance');
+ const a=sim.evaluate(burst,sim.PROFILES[2],spell,{minorRunes:[coup,abat,transcend]});
+ assert.equal(a.procs.find(x=>x.id==='minor_rune_Coup de grâce').eligible,true);
+ assert.equal(a.procs.find(x=>x.id==='minor_rune_Abattage').eligible,false);
+ assert.equal(a.procs.find(x=>x.id==='minor_rune_Transcendance').unmodeled,true);
+ const b=sim.evaluate(burst,sim.PROFILES[0],spell,{minorRunes:[coup,abat]});
+ assert.equal(b.procs.find(x=>x.id==='minor_rune_Coup de grâce').eligible,false);
+ assert.equal(b.procs.find(x=>x.id==='minor_rune_Abattage').eligible,true);
+});
+test('CC-dependent shield does not become guaranteed survival',()=>{
+ const minor=require('./data/rune-catalog-client-v14.json').minor;
+ const courage=minor.find(x=>x.name_fr==='Courage du colosse');
+ const without=sim.evaluate(frontline,sim.PROFILES[1],spell,{minorRunes:[courage]});
+ const withCc=sim.evaluate(frontline,{...sim.PROFILES[1],ccTriggersRune:true},spell,{minorRunes:[courage]});
+ assert.equal(without.survival.conditionalRuneShieldNotCounted,0);
+ assert.ok(withCc.survival.conditionalRuneShieldNotCounted>0);
+ assert.equal(withCc.survival.hpRemainingWithoutHealing,without.survival.hpRemainingWithoutHealing);
+});
