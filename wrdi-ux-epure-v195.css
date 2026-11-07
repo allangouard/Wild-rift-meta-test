@@ -74,3 +74,6 @@ button:focus-visible,summary:focus-visible{outline:3px solid var(--ep-gold);outl
 .ep-report-content .build-item{font-size:12px}
 @media(max-width:370px){.ep-item-grid{gap:4px}.ep-build-name{font-size:9px}.ep-summary-section{padding:11px 8px}.ep-boot{grid-template-columns:34px minmax(0,1fr) auto;padding:8px;gap:7px}}
 @media(prefers-reduced-motion:reduce){.ep-progress-track>span{transition:none}}
+
+/* Cloned artwork must remain visible even before the original image load handlers run. */
+.ep-summary-section .wrdi-rune-portrait img,.ep-summary-section .wrdi-item-portrait img{opacity:1!important}
