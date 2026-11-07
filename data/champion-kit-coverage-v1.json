@@ -1,7 +1,7 @@
 {
   "schema": "wrdi-champion-coverage-v1",
   "asOf": "2026-11-07",
-  "totalLocalChampions": 126,
+  "totalLocalChampions": 127,
   "officialPartialProfiles": 20,
   "unresearched": 105,
   "entries": [
@@ -94,6 +94,17 @@
       "fullFiveSkillDescriptionsVerified": false,
       "allRatiosAndCooldownsVerified": false,
       "source": null
+    },
+    {
+      "id": "10893",
+      "name": "Aurora",
+      "riotId": "Aurora",
+      "officialKitStatus": "full_client_screenshot_ability_descriptions",
+      "fullFiveSkillDescriptionsVerified": true,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "user_wild_rift_client_screenshots_2026_11_07",
+      "sourceUrl": "https://wildrift.leagueoflegends.com/fr-fr/champions/aurora/",
+      "unresolvedPatchConflicts": []
     },
     {
       "id": "10033",
@@ -1144,5 +1155,5 @@
       "source": null
     }
   ],
-  "clientScreenshotCompleteProfiles": 1
+  "clientScreenshotCompleteProfiles": 2
 }
