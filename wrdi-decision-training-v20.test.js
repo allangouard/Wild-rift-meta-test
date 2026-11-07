@@ -112,4 +112,19 @@ test('V20: a weak-healing burst build gets a review flag, not an invented absolu
  assert.equal(check.dimensions.situational.total,15);
  assert.equal(check.dimensions.runesBoots.total,15);
  assert.equal(check.weakHealing,r.build.items.some(x=>x.id==='morellonomicon'));
+ assert.ok(!r.build.items.some(x=>x.id==='morellonomicon'),
+  'B09: Galio burst must not default to Morellonomicon against weak healing');
+ assert.deepEqual(r.build.items.slice(0,3).map(x=>x.id),
+  ['ludens_echo','rabadons_deathcap','infinity_orb']);
+});
+test('V20: strong team healing remains actionable after weak-heal calibration',()=>{
+ const base=fixtures.scenarios.find(x=>x.id==='B02');
+ const r=analyze(base);
+ assert.equal(r.ok,true);
+ assert.ok(r.draft.threats.healPressure>=2.5);
+ const antiheal=['morellonomicon','thornmail'];
+ const alternatives=(r.build.alternatives||[]).flatMap(x=>x.newIds||[]);
+ assert.ok(r.build.items.some(x=>antiheal.includes(x.id))||
+  alternatives.some(x=>antiheal.includes(x)),
+  'B02: Soraka/Aatrox/Kayn healing must keep at least one legal antiheal choice');
 });
