@@ -65,10 +65,13 @@ function prepare(evidence){
     amount:finite(stats[x.stat])?x.ratio*stats[x.stat]:null
    }));
    const missing=contributions.some(x=>x.amount===null);
+   const hpPercent=/^target_max_hp_(?:magic_)?damage_pct$/.test(field);
+   const baseAmount=hpPercent?(finite(stats.target_max_hp)?stats.target_max_hp*value/100:null):value;
    return {field,base:value,contributions,
-    total:missing?null:value+contributions.reduce((s,x)=>s+x.amount,0),
+    total:baseAmount===null||missing?null:baseAmount+contributions.reduce((s,x)=>s+x.amount,0),
     completeRatioMapping:matched.length>0,conditional:true,
-    basis:matched.length?'base_plus_mapped_tooltip_coefficients':'observed_base_only',
+    basis:hpPercent?'target_max_hp_percent':matched.length?'base_plus_mapped_tooltip_coefficients':'observed_base_only',
+    targetMaxHpRequired:hpPercent,
     sourceImageIndex:table.statRows[field]?.sourceImageIndex
    };
   });
