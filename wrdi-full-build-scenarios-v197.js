@@ -85,6 +85,24 @@ function evaluate(items,profile,combatModel,{role='hybrid_offensive'}={}){
   extraRaw+=trigger('hollow_radiance',valid&&ticks>0,'Cible au contact pendant '+ticks+' secondes ; base basse 20 du client',
     ticks*(20+0.01*s.hp));
  }
+ const sunfire=select(items,'sunfire_aegis');
+ if(sunfire){
+  const m=passive(sunfire,'base_magic_dps');
+  const ticks=Math.min(Math.floor(profile.seconds),Math.floor(profile.adjacentSeconds));
+  const active=m?.base_magic_dps===20&&ticks>0;
+  extraRaw+=trigger('sunfire_aegis',active,
+   'Cible proche pendant '+ticks+' seconde(s) : 20 + 1,5 % PV bonus/s',
+   ticks*(n(m?.base_magic_dps)+n(m?.bonus_hp_ratio)*s.hp));
+ }
+ const blackfire=select(items,'blackfire_torch');
+ if(blackfire){
+  const m=passive(blackfire,'damage_vs_champion_per_tick');
+  const ticks=Math.min(3,Math.floor(profile.seconds));
+  const active=m?.damage_vs_champion_per_tick==='20 + 0.02 * ap'&&profile.skillsTrigger&&ticks>0;
+  extraRaw+=trigger('blackfire_torch',active,
+   'Une brûlure de sort sur champion, '+ticks+' ticks, aucun renouvellement supposé',
+   ticks*(20+.02*s.ap));
+ }
  const despair=select(items,'unending_despair');
  let conditionalHeal=0;
  if(despair){
@@ -142,8 +160,20 @@ function evaluate(items,profile,combatModel,{role='hybrid_offensive'}={}){
  const antiheal=items.filter(x=>['morellonomicon','thornmail'].includes(x.id));
  for(const it of antiheal)procs.push({id:it.id+'_grievous',eligible:it.id==='morellonomicon'?profile.skillsTrigger:profile.skillsTrigger||profile.autosReceived>0,
   condition:'Blessures graves si contact magique/attaque selon déclencheur ; aucun soin adverse chiffré',healingReductionNotDamage:true});
- const incomingPhysical=defense(profile.incomingPhysical,profile.galioBaseArmor+s.armor);
- const incomingMagic=defense(profile.incomingMagic,profile.galioBaseMr+s.mr);
+ const amaranth=select(items,'amaranths_twinguard');
+ let bonusArmor=0,bonusMr=0;
+ if(amaranth){
+  const m=passive(amaranth,'stacks_max');
+  const needed=n(m?.stacks_max)*n(m?.stack_interval_s);
+  const active=needed>0&&profile.seconds>=needed;
+  bonusArmor=active?s.armor*n(m?.bonus_armor_at_max_pct)/100:0;
+  bonusMr=active?s.mr*n(m?.bonus_mr_at_max_pct)/100:0;
+  procs.push({id:'amaranths_twinguard',eligible:active,condition:
+   'Charges de combat atteintes après '+needed+' secondes, sans interruption',
+   bonusArmor:round(bonusArmor),bonusMr:round(bonusMr)});
+ }
+ const incomingPhysical=defense(profile.incomingPhysical,profile.galioBaseArmor+s.armor+bonusArmor);
+ const incomingMagic=defense(profile.incomingMagic,profile.galioBaseMr+s.mr+bonusMr);
  const totalIncoming=incomingPhysical+incomingMagic;
  const hp=profile.galioBaseHp+s.hp;
  const remainingHp=hp-totalIncoming;
@@ -159,7 +189,11 @@ function evaluate(items,profile,combatModel,{role='hybrid_offensive'}={}){
    incomingMagicAfterMr:round(incomingMagic),incomingTotal:round(totalIncoming),hpRemainingWithoutHealing:round(remainingHp),
    survivesIncomingScenario:survived,conditionalHealNotCounted:round(conditionalHeal),
    survivalMarginWithConditionalHeal:round(remainingHp+conditionalHeal),itemDefenseOnly:false},
-  procs,assumptions:profile,modelStatus:'illustrative_conditions_not_predicted_winrate'};
+  procs,unmodeledItemPassives:items.filter(it=>(it.passives||[]).length&&!new Set([
+   'ludens_echo','liandrys_torment','hollow_radiance','unending_despair','dawnshroud','thornmail',
+   'riftmaker','rabadons_deathcap','infinity_orb','oceanids_trident','morellonomicon',
+   'sunfire_aegis','blackfire_torch','amaranths_twinguard']).has(it.id)).map(it=>it.id),
+  assumptions:profile,modelStatus:'illustrative_conditions_not_predicted_winrate'};
  return result;
 }
 function compare({primaryItems,candidateBuilds=[],combatModel,threats={},profiles=PROFILES}={}){
