@@ -1,0 +1,29 @@
+name: V20 Draft decision training (100 Galio drafts)
+on:
+  push:
+    branches:
+      - v20-draft-decision-training
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate scoring code
+        run: |
+          node --check wrdi-decision-quality-v20.js
+          node --check wrdi-decision-training-v20.test.js
+      - name: Benchmark 100 drafts + legacy recommendations
+        run: |
+          node --test wrdi-decision-training-v20.test.js
+          node --test wrdi-galio-v18-e2e.test.js
+          node --test wrdi-galio-30-drafts-v186.test.js
