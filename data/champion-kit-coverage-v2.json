@@ -1,10 +1,10 @@
 {
   "schema": "wrdi-champion-coverage-v2",
   "asOf": "2026-11-07",
-  "catalogueCount": 141,
+  "catalogueCount": 142,
   "officialAutoExtracted": 125,
   "manuallyReviewedPassiveAndNames": 20,
-  "missingOfficialAutoExtract": 16,
+  "missingOfficialAutoExtract": 17,
   "numericStatsVerified": 0,
   "fullActiveDescriptionsValidated": 2,
   "entries": [
@@ -144,6 +144,21 @@
       "riotId": "Aurora",
       "officialKitStatus": "client_player_screenshots_full_kit",
       "fullFiveSkillDescriptionsVerified": true,
+      "allRatiosAndCooldownsVerified": false,
+      "source": "user_wild_rift_client_screenshots_2026_11_07",
+      "officialAutoExtract": "not_auto_extracted_client_screenshot_instead",
+      "officialAutoSource": null,
+      "activeAbilityExcerptsPresent": true,
+      "clientScreenshotSkillsPresent": true,
+      "eligibleForScoring": false
+    },
+    {
+      "id": "11115",
+      "name": "Bard",
+      "riotId": "Bard",
+      "officialKitStatus": "client_screenshot_curated_5_slots",
+      "fullFiveSkillDescriptionsVerified": false,
+      "fiveSlotDescriptionsSummarized": true,
       "allRatiosAndCooldownsVerified": false,
       "source": "user_wild_rift_client_screenshots_2026_11_07",
       "officialAutoExtract": "not_auto_extracted_client_screenshot_instead",
@@ -1875,7 +1890,7 @@
       "eligibleForScoring": false
     }
   ],
-  "clientScreenshotDescriptions": 16,
-  "clientScreenshotSummarizedProfiles": 13,
+  "clientScreenshotDescriptions": 17,
+  "clientScreenshotSummarizedProfiles": 14,
   "clientScreenshotPartialProfiles": 1
 }
