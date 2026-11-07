@@ -1,0 +1,29 @@
+name: V19.7 complete build comparison
+on:
+  push:
+    branches:
+      - v19-7-full-build-scenarios
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  full-builds:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate calculator and draft integration
+        run: |
+          node --check wrdi-full-build-scenarios-v197.js
+          node --check wrdi-draft-engine-v15.js
+          node --check wrdi-app-v15.js
+          node --test wrdi-full-build-scenarios-v197.test.js
+          node --test wrdi-client-combat-v196.test.js
+          node --test wrdi-client-numeric-evidence-v195.test.js
+          node --test wrdi-galio-v18-e2e.test.js
+          node --test wrdi-galio-30-drafts-v186.test.js

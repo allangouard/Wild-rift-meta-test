@@ -214,6 +214,31 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
    reason:i<3?previous[i].reason:order.stageScore(x,need,i).reason})),
    lateSlotsReoptimized:true,originalOrderPreservedThroughThird:true};
  }
+ // V19.7 complete legal five-item comparison using hypothetical scenarios.
+ let fullBuildScenarios=null;
+ if(m.fullBuildScenarios?.compare){
+  const candidateMap=new Map(optimizer.eligible(prepared).map(x=>[x.id,x]));
+  const selectedIds=sequence.items.map(x=>x.id);
+  const coreIds=selectedIds.slice(0,3);
+  const candidatePairs=[lateSlots?.topPair,...(lateSlots?.alternatives||[]).map(x=>x.lastTwo)]
+   .filter(x=>Array.isArray(x)&&x.length===2);
+  const candidates=[];
+  const seen=new Set([selectedIds.join('|')]);
+  for(const lastTwo of candidatePairs){
+   const ids=[...coreIds,...lastTwo];
+   const key=ids.join('|');
+   if(seen.has(key)||ids.some(x=>!candidateMap.has(x)))continue;
+   if(!prepared.core.validateEquipment(ids,prepared.catalog,prepared.rules).valid)continue;
+   seen.add(key);candidates.push(ids.map(id=>candidateMap.get(id)));
+  }
+  const primary=selectedIds.map(id=>candidateMap.get(id));
+  if(primary.every(Boolean)){
+   const compared=m.fullBuildScenarios.compare({
+    primaryItems:primary,candidateBuilds:candidates,combatModel,threats:need
+   });
+   if(compared?.ok)fullBuildScenarios=compared;
+  }
+ }
  // Distinct purchase-3/4 pathways, never pretend draft kit healing proves
  // that heal is decisive in a live match.
  const antihealPlanning=m.antihealOrder?.candidates?.({
@@ -240,6 +265,7 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
  if(conditionAudit?.ok)for(const entry of conditionAudit.entries)
   notes.push('V18.7 '+entry.id+' ['+entry.status+'] : '+entry.reason+' ; condition : '+entry.trigger);
  if(threatEvidence?.ok)notes.push('V18.5 : '+threatEvidence.alliedHealers+' sources de soin allié, '+threatEvidence.personalHealers+' sources de soin personnel, '+threatEvidence.maxHpThreats+' menaces de dégâts % PV max détectées dans les compétences officielles ; efficacité réelle non prédite.');
+ if(fullBuildScenarios?.ok)notes.push('V19.7 : '+fullBuildScenarios.totalCompared+' builds complets comparés dans trois scénarios hypothétiques de dégâts et survie.');
  if(lateSlots?.ok)notes.push('V18.4 : '+lateSlots.evaluatedPairs+' duos légaux comparés sur les objets 4 et 5 ; '+lateSlots.explanation+' Valeurs qualitatives, pas des dégâts réels.');
  if(readiness?.ok)notes.push('Données contrôlées : '+readiness.fullyDescribed+'/10 kits, '+readiness.itemRecords+' objets, '+readiness.runeRecords+' runes et '+readiness.bootRecords+' fiches de bottes client disponibles.');
  if(strategic?.ok)notes.unshift('V18 : '+strategic.rationale+' ; '+strategic.shortlisted+'/'+strategic.evaluated+' objets candidats évalués en détail. Core de référence : '+strategic.coreReference.join(' / ')+'.');
@@ -344,6 +370,7 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
   runes:rune,boots,dataReadiness:readiness,releaseAudit:releaseAudit?.ok?releaseAudit:null,
   calculations:{clientNumericEvidence:clientDraftEvidence?.ok?clientDraftEvidence:null,
    clientCombat:clientCombatDraft?.ok?clientCombatDraft:null,
+   fullBuildScenarios,
    inputAudit:inputAudit?.ok?inputAudit:null,
    antiheal:antiheal?.ok?antiheal:null,runeProc:runeRange?.ok?runeRange:null,
    numericDraft:numericDraft?.ok?numericDraft:null,

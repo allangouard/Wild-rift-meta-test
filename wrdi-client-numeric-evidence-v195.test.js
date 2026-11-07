@@ -20,6 +20,7 @@ const clientModule=require('./wrdi-client-numeric-evidence-v195.js');
 const modules={
  clientNumericEvidence:clientModule,
  clientCombat:require('./wrdi-client-combat-v196.js'),
+ fullBuildScenarios:require('./wrdi-full-build-scenarios-v197.js'),
  profiles:require('./wrdi-champion-profiles-v15.js'),
  team:require('./wrdi-galio-team-context-v1431.js'),
  guard:require('./wrdi-galio-item-guard-v1424.js'),
@@ -144,4 +145,18 @@ test('No observed AP/AD/PV coefficient is promoted to certified combat input',()
    }
  assert.equal(count,70);
  assert.deepEqual(x.getChampion("Vel'Koz").tooltipFacts.r.observedCoefficients[0].coefficient,1.25);
+});
+
+test('V19.7 is connected to an actual ten-champion Galio draft',()=>{
+ const r=analyze({id:'V197-live-pipeline',
+  allies:['Ornn','Amumu','Galio','Caitlyn','Leona'],
+  enemies:["Cho'Gath",'Skarner','Mel',"Kog'Maw",'Zilean']});
+ assert.equal(r.ok,true,JSON.stringify(r).slice(0,1000));
+ const c=r.calculations.fullBuildScenarios;
+ assert.ok(c?.ok,'V19.7 full-build scenario result missing');
+ assert.ok(c.totalCompared>=1);
+ assert.equal(c.primaryIds.length,5);
+ assert.equal(c.winner.scenarios.length,3);
+ assert.equal(c.profilesHypothetical,true);
+ assert.equal(r.build.legal,true);
 });
