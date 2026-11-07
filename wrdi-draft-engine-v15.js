@@ -147,6 +147,8 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
   need.enemyTrueDamageNumericSources=n.enemyTrueDamageNumericSources;
   need.enemyMaxHpSources=n.enemyMaxHpSources;
   need.enemyTrueDamageSources=n.enemyTrueDamageSources;
+  need.enemyMagicDamageSources=n.enemyMagicDamageSources;
+  need.enemyPhysicalDamageSources=n.enemyPhysicalDamageSources;
   need.enemyAllyHealingSources=n.enemyAllyHealingSources;
   need.enemySelfHealingSources=n.enemySelfHealingSources;
   need.enemyAllyShieldSources=n.enemyAllyShieldSources;
