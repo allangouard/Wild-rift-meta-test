@@ -5,7 +5,7 @@
 'use strict';
 const SLOT_NAMES=['Top allié','Jungle allié','Galio · Mid','ADC allié','Support allié',
  'Top adverse','Jungle adverse','Mid adverse','ADC adverse','Support adverse'];
-const CHAMPION_CATALOG='./data/champions-picker-v151.json?v=1930';
+const CHAMPION_CATALOG='./data/champions-picker-v151.json?v=1940';
 const STORAGE='wrdi_v15_draft';
 const el=(name,cls,text)=>{const n=document.createElement(name);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
 const $=id=>document.getElementById(id);
@@ -302,8 +302,8 @@ async function boot(){
    fetchJson('./data/item-restrictions-client-7.3d-v12.json'),
    fetchJson('./data/rune-catalog-client-v14.json'),
    fetchJson(CHAMPION_CATALOG),
-   fetchJson('./data/champion-ability-extract-official-v1.json?v=1930'),
-   fetchJson('./data/champion-kits-official-fr-v1.json?v=1930'),
+   fetchJson('./data/champion-ability-extract-official-v1.json?v=1940'),
+   fetchJson('./data/champion-kits-official-fr-v1.json?v=1940'),
    fetchJson('./data/champion-ability-numeric-wiki-wr-v1.json'),
    fetchJson('./data/wr-champion-numeric-patch-overrides-v1.json'),
    fetchJson('./data/wr-client-verified-abilities-7.3d.json'),
