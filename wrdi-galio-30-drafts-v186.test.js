@@ -97,10 +97,16 @@ for(const s of fixtures.scenarios){
     assert.notEqual(note.status,'relevant',s.id+' single shield must be flagged uncertain');
   }
   if(result.build.strategy.role==='ap_burst'){
-   assert.equal(result.runes.page.keystone,'Électrocution',s.id+' AP burst keystone');
+   const needs=result.draft.threats;
+   const pokeOnly=needs.lanePoke>=1&&needs.laneMagic>=1&&!needs.laneHardEngage;
+   assert.equal(result.runes.page.keystone,pokeOnly?'Comète arcanique':'Électrocution',
+    s.id+' matchup-conditioned AP keystone');
    assert.ok(!ids.includes('unending_despair'),s.id+' should not waste burst slots on Despair');
   }else{
-   assert.equal(result.runes.page.keystone,'Souverain des glaces',s.id+' control keystone');
+   const needs=result.draft.threats;
+   const meleeTrade=needs.laneTradeMelee&&needs.laneAutoAttackPressure&&needs.frontlineNeed>=1;
+   assert.equal(result.runes.page.keystone,meleeTrade?"Poigne de l'immortel":'Souverain des glaces',
+    s.id+' matchup-conditioned tank/hybrid keystone');
   }
   if(['B02','H02','H08','T08'].includes(s.id)){
    assert.ok(result.draft.threats.conditionalShieldSources>=1,s.id+' Soraka overheal shield must be conditional');
