@@ -131,6 +131,24 @@ function showResults(result){
   section.append(el('p','caption','Simulation illustrative : PV/résistances des cibles, statistiques de base Galio et dégâts entrants sont des hypothèses. Les dégâts des Q/Z/E sont partiels. Ne remplace pas encore automatiquement le build principal.'));
   box.append(section);
  }
+ if(result.calculations?.passiveLoadoutAudit?.ok){
+  const a=result.calculations.passiveLoadoutAudit,coverage=result.calculations.passiveCatalogAudit;
+  const section=el('details','details');
+  section.append(el('summary',null,'Inventaire complet des passifs, bottes et runes · V19.9'));
+  if(coverage)section.append(el('p','muted','Catalogue : '+coverage.itemCount+' objets, '+
+   coverage.itemPassiveCount+' passifs, '+coverage.runeCount+' runes et '+coverage.bootCount+' fiches de bottes.'));
+  section.append(el('p','muted','Build retenu : '+a.totalPassives+' passifs enregistrés, '+
+   a.numericallyModeled+' couverts par les formules actuelles.'));
+  for(const p of a.passives){
+   const state=p.modeled?'Modélisé sous condition':'Encore non simulé';
+   section.append(el('p','caption',p.itemName+' — '+p.passiveName+' : '+state+
+    (p.trigger?' · déclenchement : '+(Array.isArray(p.trigger)?p.trigger.join(', '):p.trigger):'')));
+  }
+  if(a.boots)section.append(el('p','caption','Bottes : '+a.boots.name+' · '+a.boots.passives.length+' passifs enregistrés.'));
+  section.append(el('p','caption','Runes : '+a.runes.map(x=>x.name+(x.numericallyModeled?' (calcul conditionnel)':' (référence)')).join(' · ')));
+  section.append(el('p','caption','Un passif enregistré mais non simulé reste visible, sans bonus fictif attribué.'));
+  box.append(section);
+ }
  if(result.build.strategy){
   const plan=el('section','result-section');
   plan.append(el('h3',null,'Mission de Galio · '+({ap_burst:'AP burst',hybrid_offensive:'Hybride offensif',tank_utility:'Tank utilitaire'}[result.build.strategy.role]||result.build.strategy.role)));
@@ -423,7 +441,8 @@ go.addEventListener('click',()=>{
   numericEngine:root.WRDI_NumericKitsV162,
   clientNumericEvidence:root.WRDI_ClientNumericEvidenceV195,
   clientCombat:root.WRDI_ClientCombatV196,
-  fullBuildScenarios:root.WRDI_FullBuildScenariosV197};
+  fullBuildScenarios:root.WRDI_FullBuildScenariosV197,
+  passiveCoverage:root.WRDI_PassiveCoverageV199};
  go.disabled=true;status('Analyse du build principal, de l’ordre et des situations possibles…');
  // Yield a frame so the status is visible before the local-only computation.
  setTimeout(()=>{

@@ -1,0 +1,30 @@
+name: V19.9 full passive and loadout inventory
+on:
+  push:
+    branches:
+      - v19-9-full-passive-audit
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  passives:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JS syntax
+        run: |
+          node --check wrdi-passive-coverage-v199.js
+          node --check wrdi-draft-engine-v15.js
+          node --check wrdi-app-v15.js
+      - name: Test passive registry and Galio drafts
+        run: |
+          node --test wrdi-passive-coverage-v199.test.js
+          node --test wrdi-full-build-scenarios-v197.test.js
+          node --test wrdi-client-numeric-evidence-v195.test.js
+          node --test wrdi-galio-30-drafts-v186.test.js
