@@ -11,7 +11,7 @@ function prepare(tables,facts){
   return {ok:false,reason:'Fichiers client V19.5 invalides'};
  if(tables.game!=='Wild Rift mobile — not League of Legends PC'||facts.game!=='Wild Rift mobile')
   return {ok:false,reason:'Une source non Wild Rift a été détectée'};
- const map=new Map(),seenSources=new Set();let rows=0,cells=0,tooltips=0;
+ const map=new Map(),seenSources=new Set();let rows=0,cells=0,tooltips=0,coefficients=0;
  for(const c of tables.champions||[]){
   const name=fold(c.name);if(!name||map.has(name))return {ok:false,reason:'Champion dupliqué'};
   const record={name:c.name,rankTables:c.abilities||{},tooltipFacts:{},numericStatus:'source_observed_patch_unconfirmed'};
@@ -36,20 +36,28 @@ function prepare(tables,facts){
    if(!SLOTS.includes(slot)||!Number.isInteger(ab.sourceImageIndex)||ab.sourceImageIndex<1||ab.sourceImageIndex>122
     ||!Array.isArray(ab.clientDescriptionFacts)||!ab.clientDescriptionFacts.length||ab.approvedForNumericCombat!==false)
     return {ok:false,reason:'Faits client non sourcés : '+c.name+'/'+slot};
+   for(const c of ab.observedCoefficients||[]){
+    if(!c.component||!['ap','bonus_ad','total_ad','bonus_hp','max_hp','bonus_armor','bonus_magic_resist'].includes(c.stat)
+     ||typeof c.coefficient!=='number'||!Number.isFinite(c.coefficient)
+     ||c.sourceImageIndex!==ab.sourceImageIndex||c.confirmedConstantAcrossRanks!==false||c.enabledForCombat!==false)
+     return {ok:false,reason:'Coefficient client sans preuve : '+record.name+'/'+slot};
+    coefficients++;
+   }
    record.tooltipFacts[slot]=ab;tooltips++;seenSources.add(ab.sourceImageIndex);
   }
  }
- if(map.size!==14||tooltips!==70||rows!==tables.verifiedRowCount||cells!==tables.verifiedCellCount)
+ if(map.size!==14||tooltips!==70||rows!==tables.verifiedRowCount||cells!==tables.verifiedCellCount||coefficients!==facts.observedCoefficientCount)
   return {ok:false,reason:'Volume de données V19.5 divergent'};
- return {ok:true,version:VERSION,count:map.size,rankRows:rows,rankCells:cells,tooltipSlots:tooltips,
+ return {ok:true,version:VERSION,count:map.size,rankRows:rows,rankCells:cells,tooltipSlots:tooltips,observedCoefficients:coefficients,
   sourceImagesUsed:seenSources.size,patchConfirmed:false,approvedForNumericCombat:false,
   getChampion:name=>map.get(fold(name))||null,
   inspectDraft:({names=[]}={})=>{
    const found=names.map(name=>map.get(fold(name))).filter(Boolean);
    const lineCount=found.reduce((s,c)=>s+Object.values(c.rankTables).reduce((n,slot)=>n+Object.keys(slot.statRows).length,0),0);
    const numericValues=found.reduce((s,c)=>s+Object.values(c.rankTables).reduce((n,slot)=>n+Object.values(slot.statRows).reduce((m,row)=>m+row.values.length,0),0),0);
+   const ratioCount=found.reduce((s,c)=>s+Object.values(c.tooltipFacts).reduce((n,skill)=>n+(skill.observedCoefficients||[]).length,0),0);
    return {ok:true,champions:found.map(x=>x.name),count:found.length,rankRows:lineCount,
-    rankValues:numericValues,tooltipSlots:found.length*5,allRanksPatchCertified:false,
+    rankValues:numericValues,tooltipSlots:found.length*5,observedCoefficients:ratioCount,allRanksPatchCertified:false,
     damageSimulationAllowed:false,source:'user_client_Champ_zip_2026_11_07'};
   }
  };
