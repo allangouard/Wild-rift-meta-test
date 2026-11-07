@@ -173,3 +173,28 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
 .ep-history-erase{margin-top:20px;background:#3a2935;border-color:#74505f;color:#ffc0c3;width:100%}
 .ep-history-erase[hidden]{display:none!important}
 @media(min-width:720px){.ep-home-actions{grid-template-columns:1fr 1fr}.ep-bottom-nav{left:50%;right:auto;transform:translateX(-50%);width:min(100%,950px);border-left:1px solid #36545f;border-right:1px solid #36545f;border-radius:16px 16px 0 0}}
+
+/* Esport Premium v2.4 — truthful build comparison */
+.ep-lab{margin:23px 0 0;border-top:1px solid #42626e;padding-top:20px}
+.ep-lab h3{font-size:20px;letter-spacing:-.03em;margin:8px 0}
+.ep-lab-sub{font-size:12px;line-height:1.6;color:#b9d2da;margin:5px 0 17px}
+.ep-lab-selector{display:flex;flex-direction:column;gap:7px}
+.ep-lab-label{font-size:12px;color:#d7ecec;font-weight:750}
+.ep-lab-select{display:block;width:100%;min-height:47px;padding:10px 12px;background:#193b49;color:#edf8f9;border:1px solid #6b8d94;border-radius:12px;font:inherit;font-size:13px}
+.ep-lab-condition{font-size:12px;color:#d3b978;line-height:1.55;border-left:3px solid #d8b978;background:rgba(216,185,120,.08);border-radius:0 8px 8px 0;padding:9px 12px;margin:13px 0}
+.ep-lab-comparison{overflow-x:auto;border:1px solid #3d5d69;border-radius:12px}
+.ep-lab-table{min-width:315px}
+.ep-lab-row{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,0.8fr));gap:6px;align-items:center;border-top:1px solid #2d4c58;padding:10px 8px;font-size:11px}
+.ep-lab-row:first-child{border-top:0}
+.ep-lab-row>span:not(:first-child){text-align:right;font-variant-numeric:tabular-nums}
+.ep-lab-row>span:first-child{color:#d6e8ea}
+.ep-lab-table-head{background:#1b4350;font-size:10px;font-weight:800;color:#9dded3}
+.ep-lab-delta{color:#d5e4e8;font-weight:750}
+.ep-lab-delta.plus{color:#7de4b9}
+.ep-lab-delta.minus{color:#f3b6a6}
+.ep-lab-icons{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;margin:13px 0 10px}
+.ep-lab-item{min-width:0;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;font-size:10px;color:#d7e9ed;line-height:1.25;overflow-wrap:anywhere}
+.ep-lab-item img{display:block;width:100%;max-width:56px;aspect-ratio:1;object-fit:contain;border:1px solid #527984;border-radius:10px;background:#173845}
+.ep-lab-item-placeholder{display:grid;place-items:center;width:100%;max-width:56px;aspect-ratio:1;border:1px solid #527984;border-radius:10px;background:#173845}
+.ep-lab-warning{font-size:12px;line-height:1.55;color:#b9cfd4;padding:10px 12px;background:#122d3a;border-radius:10px;margin:14px 0}
+@media(max-width:360px){.ep-lab-row{font-size:10px;gap:3px;padding:9px 5px}}
