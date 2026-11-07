@@ -37,7 +37,6 @@ jobs:
             cp -R /tmp/cmdline-tools/. "$ANDROID_HOME/cmdline-tools/latest/"
             SDK_MANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
           fi
-          chmod +x "$SDK_MANAGER"
           echo "SDK_MANAGER=$SDK_MANAGER" >> "$GITHUB_ENV"
           "$SDK_MANAGER" --version
       - name: Installer Android 35
