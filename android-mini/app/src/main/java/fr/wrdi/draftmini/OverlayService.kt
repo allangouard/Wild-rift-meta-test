@@ -213,6 +213,62 @@ class OverlayService : Service() {
             settings.allowFileAccess = false
             settings.allowContentAccess = false
             webViewClient = object : WebViewClient() {
+                override fun onPageFinished(view: WebView?, url: String?) {
+                    super.onPageFinished(view, url)
+                    // Presentation-only CSS. The full website scripts remain untouched.
+                    view?.evaluateJavascript(
+                        """
+                        (function() {
+                          if (document.getElementById('wrdi-mini-android-style')) return;
+                          const style = document.createElement('style');
+                          style.id = 'wrdi-mini-android-style';
+                          style.textContent = `
+                            html,body{width:100%;max-width:100%;overflow-x:hidden!important}
+                            body{background:#091b26!important;font-size:12px!important}
+                            header,footer{display:none!important}
+                            main{padding:7px!important;max-width:100%!important}
+                            .card{padding:9px!important;margin-bottom:10px!important;border-radius:12px!important}
+                            .card h2{font-size:16px!important;margin:2px 0 7px!important}
+                            section[aria-label="Saisie de la draft"]>p.muted{display:none!important}
+                            .draft-grid{grid-template-columns:1fr!important;gap:6px!important}
+                            .team{min-width:0}
+                            .team h3{font-size:12px!important;margin:5px 0 7px!important}
+                            #wrdi-allies,#wrdi-enemies{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}
+                            .wrdi-slot{position:relative!important;width:100%!important;min-width:0!important;
+                              padding:3px!important;min-height:54px!important;margin:0!important;
+                              flex-direction:column!important;justify-content:center!important;gap:2px!important}
+                            .wrdi-slot-text{display:none!important}
+                            .wrdi-slot-plus,.slot-portrait{width:38px!important;height:38px!important}
+                            .wrdi-slot::after{font-size:8px!important;color:#bfd4da!important}
+                            .wrdi-slot:nth-child(1)::after{content:"TOP"}
+                            .wrdi-slot:nth-child(2)::after{content:"JGL"}
+                            .wrdi-slot:nth-child(3)::after{content:"MID"}
+                            .wrdi-slot:nth-child(4)::after{content:"ADC"}
+                            .wrdi-slot:nth-child(5)::after{content:"SUP"}
+                            .actions{margin:9px 0 3px!important;gap:5px!important}
+                            .actions button{min-height:43px!important;font-size:13px!important;padding:8px!important}
+                            #wrdi-message{font-size:10px!important;line-height:1.35!important}
+                            #wrdi-result{padding:9px!important}
+                            .ep-result-layout{gap:7px!important}
+                            .ep-result-hero,.ep-summary-section{padding:9px!important;border-radius:11px!important}
+                            .ep-result-hero h2{font-size:17px!important}
+                            .ep-hero-caption{display:none!important}
+                            .ep-summary-section h3{font-size:14px!important;margin:0 0 7px!important}
+                            .ep-item-grid{gap:3px!important}
+                            .ep-build-name{font-size:9px!important}
+                            .ep-build-media{max-width:51px!important}
+                            .ep-full-report{margin-top:5px!important}
+                            .wrdi-picker-sheet{height:90dvh!important;width:100%!important}
+                            .wrdi-picker-scroll{padding:10px!important}
+                            .wrdi-picker-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+                          `;
+                          document.head.appendChild(style);
+                        })();
+                        """.trimIndent(),
+                        null
+                    )
+                }
+
                 override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
                     val uri = request?.url ?: return true
                     return uri.scheme != "https" ||
