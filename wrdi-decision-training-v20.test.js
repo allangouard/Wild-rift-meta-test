@@ -100,6 +100,10 @@ test('V20: benchmark 100 real engine drafts, report actionable purchase decision
  assert.equal(report.count,100);
  assert.deepEqual(report.blockers,[],'Failed critical core/order legality/role tests');
  assert.ok(report.avgScore>=92,'Draft quality baseline below 92 points');
+ assert.ok(report.differentCores<=6,
+  'Galio core changed too often: role-first stable core expected');
+ assert.ok(report.differentLatePairs>=12,
+  'Situational fourth and fifth items stopped adapting to drafts');
 });
 test('V20: a weak-healing burst build gets a review flag, not an invented absolute ban',()=>{
  const base=fixtures.scenarios.find(x=>x.id==='B09');
