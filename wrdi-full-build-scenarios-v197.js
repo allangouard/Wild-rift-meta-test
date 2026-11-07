@@ -47,7 +47,7 @@ function stats(items,boots=null){
  total.rabadonMultiplier=multiplier;
  return total;
 }
-function evaluate(items,profile,combatModel,{role='hybrid_offensive',boots=null,keystone=null}={}){
+function evaluate(items,profile,combatModel,{role='hybrid_offensive',boots=null,keystone=null,minorRunes=[]}={}){
  if(!Array.isArray(items)||items.length!==5||new Set(items.map(x=>x?.id)).size!==5)
   return {ok:false,reason:'Cinq objets uniques requis'};
  if(!profile||!['burst','bruiser','tank'].includes(profile.id))return {ok:false,reason:'Profil inconnu'};
@@ -216,6 +216,36 @@ function evaluate(items,profile,combatModel,{role='hybrid_offensive',boots=null,
  // Orb only applies to eligible abilities, not all item passives.
  const bonusOrb=orbEligible&&spellRaw!==null?spellRaw*(1+amp)*n(orbM.damage_bonus_pct)/100:0;
  if(rawTotal!==null)rawTotal+=bonusOrb;
+ // Selected minor runes are audited one by one. Only effects with a
+ // satisfied and measurable scenario condition add direct damage.
+ let runeShield=0;
+ for(const minor of minorRunes){
+  const e=minor?.effect||{},name=minor?.name_fr||'';
+  let active=false,rawBonus=0,condition='Condition non entièrement définie dans ce scénario';
+  if(name==='Coup de grâce'){
+   active=profile.targetRemainingHpPct<n(e.target_hp_below_pct)&&spellRaw!==null;
+   rawBonus=active?spellRaw*n(e.damage_bonus_pct)/100:0;
+   condition='Cible sous '+n(e.target_hp_below_pct)+' % PV avant les compétences';
+  }else if(name==='Abattage'){
+   active=profile.targetRemainingHpPct>n(e.target_hp_above_pct)&&spellRaw!==null;
+   rawBonus=active?spellRaw*n(e.attack_damage_bonus_pct)/100:0;
+   condition='Cible au-dessus de '+n(e.target_hp_above_pct)+' % PV ; bonus sur dégâts directs du modèle';
+  }else if(name==='Zèle de combat'){
+   active=profile.seconds>=n(e.stack_interval_s)&&spellRaw!==null;
+   const stacks=Math.min(n(e.max_stacks),Math.floor(profile.seconds/n(e.stack_interval_s)||1));
+   rawBonus=active?spellRaw*stacks*n(e.base_ability_damage_amp_per_second_pct)/100:0;
+   condition=stacks+' charges selon durée du combat ; application simplifiée aux sorts directs';
+  }else if(name==='Courage du colosse'){
+   active=Boolean(profile.ccTriggersRune);
+   runeShield=active?n(e.shield_flat_min)+(profile.galioBaseHp+s.hp)*n(e.shield_max_health_pct)/100:0;
+   condition='Galio doit immobiliser un champion et recevoir des dégâts pendant le bouclier de 3 s';
+  }
+  if(rawBonus>0&&spellRaw!==null)rawTotal+=rawBonus*(1+amp);
+  procs.push({id:'minor_rune_'+name,eligible:active,condition,
+   rawDamageIfTriggered:round(rawBonus),countedDamage:round(rawBonus),
+   conditionalShield:round(name==='Courage du colosse'?runeShield:0),
+   unmodeled:!['Coup de grâce','Abattage','Zèle de combat','Courage du colosse'].includes(name)});
+ }
  let shieldReduced=0;
  const trident=select(items,'oceanids_trident');
  if(trident){
@@ -262,7 +292,8 @@ function evaluate(items,profile,combatModel,{role='hybrid_offensive',boots=null,
   survival:{hpBeforeDamage:hp,incomingPhysicalAfterArmor:round(incomingPhysical),
    incomingMagicAfterMr:round(incomingMagic),incomingTotal:round(totalIncoming),hpRemainingWithoutHealing:round(remainingHp),
    survivesIncomingScenario:survived,conditionalHealNotCounted:round(conditionalHeal),
-   survivalMarginWithConditionalHeal:round(remainingHp+conditionalHeal),itemDefenseOnly:false},
+   survivalMarginWithConditionalHeal:round(remainingHp+conditionalHeal+runeShield),
+   conditionalRuneShieldNotCounted:round(runeShield),itemDefenseOnly:false},
   procs,unmodeledItemPassives:items.filter(it=>(it.passives||[]).length&&!new Set([
    'ludens_echo','liandrys_torment','hollow_radiance','unending_despair','dawnshroud','thornmail',
    'riftmaker','rabadons_deathcap','infinity_orb','oceanids_trident','morellonomicon',
@@ -271,7 +302,7 @@ function evaluate(items,profile,combatModel,{role='hybrid_offensive',boots=null,
   assumptions:profile,modelStatus:'illustrative_conditions_not_predicted_winrate'};
  return result;
 }
-function compare({primaryItems,candidateBuilds=[],combatModel,threats={},profiles=PROFILES,boots=null,keystone=null}={}){
+function compare({primaryItems,candidateBuilds=[],combatModel,threats={},profiles=PROFILES,boots=null,keystone=null,minorRunes=[]}={}){
  if(!Array.isArray(primaryItems)||primaryItems.length!==5)return {ok:false,reason:'Build principal absent'};
  const ids=new Set(),builds=[];
  for(const items of [primaryItems,...candidateBuilds]){
@@ -296,7 +327,7 @@ function compare({primaryItems,candidateBuilds=[],combatModel,threats={},profile
     incomingMagic:round(incoming*(1-physicalShare)),
     autosReceived:physical>=1?p.autosReceived:0,
     draftPhysicalShare:round(physicalShare)};
-   return evaluate(items,contextual,combatModel,{role,boots,keystone});
+   return evaluate(items,contextual,combatModel,{role,boots,keystone,minorRunes});
   });
   const all=scenarios.every(x=>x.ok);
   if(!all)return {ids,ok:false};
@@ -319,7 +350,8 @@ function compare({primaryItems,candidateBuilds=[],combatModel,threats={},profile
   baselineScore:baseline?.score??null,winner:valid[0]||null,candidates:valid.slice(0,8),totalCompared:valid.length,
   weights:role==='ap_burst'?{damage:0.78,survival:0.22}:role==='tank_utility'?{damage:0.32,survival:0.68}:{damage:0.52,survival:0.48},
   exactOpponentStats:false,actualCombatPredicted:false,profilesHypothetical:true,
-  includesAllFiveItems:true,bootsIncluded:Boolean(boots),keystoneIncluded:Boolean(keystone),basis:'client_item_effects_and_Galio_QWE_partial_source_model'};
+  includesAllFiveItems:true,bootsIncluded:Boolean(boots),keystoneIncluded:Boolean(keystone),
+  minorRunesIncluded:minorRunes.map(x=>x.name_fr),basis:'client_item_effects_and_Galio_QWE_partial_source_model'};
 }
 return Object.freeze({VERSION,PROFILES,stats,evaluate,compare});
 });
