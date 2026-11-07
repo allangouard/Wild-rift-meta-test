@@ -142,7 +142,7 @@ class OverlayService : Service() {
                         if (moved) {
                             p.x = (originX + dx.toInt()).coerceAtLeast(0)
                             p.y = (originY + dy.toInt()).coerceAtLeast(0)
-                            runCatching { manager.updateViewLayout(window, p) }
+                            window?.let { current -> runCatching { manager.updateViewLayout(current, p) } }
                         }
                         return true
                     }
