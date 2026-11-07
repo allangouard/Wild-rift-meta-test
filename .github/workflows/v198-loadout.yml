@@ -1,0 +1,32 @@
+name: V19.8 boots runes extended damage and item triggers
+on:
+  push:
+    branches:
+      - v19-8-runes-boots-procs
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  loadout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check source
+        run: |
+          node --check wrdi-full-build-scenarios-v197.js
+          node --check wrdi-numeric-kits-v162.js
+          node --check wrdi-draft-engine-v15.js
+          node --check wrdi-app-v15.js
+      - name: Test complete loadout and prior drafts
+        run: |
+          node --test wrdi-full-build-scenarios-v197.test.js
+          node --test wrdi-numeric-kits-v162.test.js
+          node --test wrdi-client-numeric-evidence-v195.test.js
+          node --test wrdi-galio-v18-e2e.test.js
+          node --test wrdi-galio-30-drafts-v186.test.js
