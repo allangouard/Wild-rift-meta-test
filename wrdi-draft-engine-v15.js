@@ -142,8 +142,30 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
  // Values observed in the Wild Rift client feed draft counter-priorities.
  // Only explicit percentage-HP/true-damage rank fields count; no inferred enemy items.
  if(clientCombatDraft?.ok){
-  need.enemyMaxHpNumericSources=clientCombatDraft.enemyMaxHpNumericSources;
-  need.enemyTrueDamageNumericSources=clientCombatDraft.enemyTrueDamageNumericSources;
+  const n=clientCombatDraft;
+  need.enemyMaxHpNumericSources=n.enemyMaxHpNumericSources;
+  need.enemyTrueDamageNumericSources=n.enemyTrueDamageNumericSources;
+  need.enemyMaxHpSources=n.enemyMaxHpSources;
+  need.enemyTrueDamageSources=n.enemyTrueDamageSources;
+  need.enemyAllyHealingSources=n.enemyAllyHealingSources;
+  need.enemySelfHealingSources=n.enemySelfHealingSources;
+  need.enemyAllyShieldSources=n.enemyAllyShieldSources;
+  need.enemySelfShieldSources=n.enemySelfShieldSources;
+  need.enemyControlSources=n.enemyControlSources;
+  need.enemyReflectSources=n.enemyReflectSources;
+  need.enemyInvulnerableSources=n.enemyInvulnerableSources;
+  need.enemyReviveSources=n.enemyReviveSources;
+  need.enemyExecuteSources=n.enemyExecuteSources;
+  // The screenshot-based facts are authoritative for those champions while
+  // existing sourced kit evidence remains available for all other picks.
+  // Multiple abilities of one champion count as one source, not five procs.
+  need.healPressure=Math.max(Number(need.healPressure||0),
+   Math.min(5,2*n.enemyAllyHealingSources+0.65*n.enemySelfHealingSources));
+  need.shieldPressure=Math.max(Number(need.shieldPressure||0),
+   Math.min(5,2*n.enemyAllyShieldSources+0.25*n.enemySelfShieldSources));
+  need.maxHpThreats=Math.max(Number(need.maxHpThreats||0),n.enemyMaxHpSources);
+  need.trueDamageThreats=Math.max(Number(need.trueDamageThreats||0),n.enemyTrueDamageSources);
+  need.cc=Math.max(Number(need.cc||0),n.enemyControlSources);
  }
  // Source-only WR numeric catalogue; patch overrides are validated field-by-field.
  const numeric=numericKits&&m.numericEngine?.prepare?
@@ -251,6 +273,7 @@ function analyze({picks,champions,championMeta,officialKits,reviewedKits,numeric
    notes.push('Différence '+conflict.champion+' '+conflict.slot.toUpperCase()+' : Wiki = '+
     conflict.sourceValue+' ; Riot avant = '+conflict.patchExpectedBefore+' ; après = '+conflict.patchExpectedAfter);
  }
+ if(clientCombatDraft?.ok)notes.push('V19.6 : '+clientCombatDraft.rankValues+' valeurs par rang et '+clientCombatDraft.coefficients+' coefficients du client consultés dans cette draft ; '+clientCombatDraft.enemyMaxHpSources+' adversaires avec dégâts % PV et '+clientCombatDraft.enemyAllyShieldSources+' sources de boucliers alliés détectés. Effets conditionnels non garantis.');
  const numericDraft=numeric&&m.numericEngine?.summary?.(numeric,picks);
  // Client-confirmed conditional damage, not guessed as a guaranteed proc.
  if(numericDraft?.ok)for(const champion of numericDraft.champions){
