@@ -1086,5 +1086,8 @@
     "Every fact references the exact screenshot index from the supplied ZIP. These are compact transcriptions of observed facts, not exact verbatim full descriptions.",
     "If a formula is ambiguous or partly obscured, it is not converted into numeric executable coefficients.",
     "This file complements the all-rank tables in wild-rift-client-rank-tables-v195.json."
-  ]
+  ],
+  "sourceArchiveSha256": "57d87f830d7955c9155d1bc00e8a43d66a375be55d9c78cb9b859222c7c7a505",
+  "sourceArchiveBytes": 178369883,
+  "sourceScreenshotJpegs": 122
 }
