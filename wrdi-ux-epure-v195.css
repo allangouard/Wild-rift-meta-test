@@ -1,0 +1,79 @@
+/* WRDI UX épurée V19.5 — 100% présentation, sans changement moteur */
+:root{--ep-bg:#081b25;--ep-panel:#112e3a;--ep-line:#355967;--ep-text:#f0f9f8;--ep-muted:#afcad1;--ep-teal:#6fe2d2;--ep-gold:#d8b978}
+body{background:var(--ep-bg);color:var(--ep-text)}
+header{background:linear-gradient(130deg,#103240,#0b202c);border-bottom:1px solid #395c66}
+header h1{letter-spacing:-.04em}
+.card{background:linear-gradient(130deg,#12323f,#0e2935);border-color:#355966;border-radius:18px}
+button.primary{background:linear-gradient(105deg,#73e4d3,#4bc9b6);border-color:#73e4d3;color:#082b30}
+button:focus-visible,summary:focus-visible{outline:3px solid var(--ep-gold);outline-offset:3px}
+.ep-draft-progress{margin:16px 0 18px}
+.ep-progress-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:11px;font-weight:800;letter-spacing:.09em;color:var(--ep-gold)}
+.ep-progress-row strong{font-size:14px;letter-spacing:0;color:var(--ep-teal)}
+.ep-progress-track{height:6px;border-radius:100px;background:#294a56;overflow:hidden}
+.ep-progress-track>span{display:block;width:10%;height:100%;background:linear-gradient(90deg,#6fe2d2,#d8b978);transition:width .2s}
+.wrdi-slot{border-color:#3c626d}
+.wrdi-slot.selected{background:#1b3f49;border-color:#49998e}
+#wrdi-result:empty{display:none}
+.ep-result-layout{display:flex;flex-direction:column;gap:14px}
+.ep-result-hero{padding:18px 15px;border-radius:17px;background:linear-gradient(120deg,#1d4852,#12313d);border:1px solid #518078}
+.ep-overline{color:var(--ep-gold);font-size:10px;letter-spacing:.16em;font-weight:850}
+.ep-result-hero h2{font-size:25px;letter-spacing:-.035em;margin:7px 0}
+.ep-mission{color:#7ce6d7;font-size:15px}
+.ep-hero-caption{font-size:13px;color:#c8dedf;line-height:1.55;margin:9px 0 0}
+.ep-source-info{margin-top:13px;border-top:1px solid #3b6470;padding-top:9px}
+.ep-source-info summary{font-size:11px;color:#d9bc86;cursor:pointer}
+.ep-source-info p{font-size:12px;line-height:1.55;color:#c1d6d9}
+.ep-summary-section{background:#14313e;border:1px solid #365d6b;border-radius:16px;padding:14px 12px}
+.ep-summary-section h3{font-size:17px;letter-spacing:-.02em;margin:0 0 14px;color:#f5fcfb}
+.ep-item-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}
+.ep-build-card{min-width:0;display:flex;align-items:center;flex-direction:column;gap:6px;text-align:center}
+.ep-build-media{position:relative;display:grid;place-items:center;width:100%;max-width:67px;aspect-ratio:1;background:#203f4b;border:1px solid #65818a;border-radius:11px;overflow:hidden}
+.ep-build-media img{width:100%;height:100%;display:block;object-fit:contain}
+.ep-build-media img.ep-missing{display:none}
+.ep-build-number{position:absolute;bottom:0;right:0;background:#102530;color:var(--ep-gold);font-weight:800;font-size:10px;padding:1px 5px;border-radius:5px 0 0}
+.ep-build-name{font-size:10px;line-height:1.25;overflow-wrap:anywhere;color:#f2f9fa}
+.ep-item-detail{width:100%;font-size:10px;color:#c4d9dd}
+.ep-item-detail summary{list-style:none;color:#7cddcb;cursor:pointer;font-weight:700;min-height:28px;display:grid;place-items:center}
+.ep-item-detail summary::before{content:'ⓘ ';white-space:pre}
+.ep-item-detail p{position:relative;z-index:1;background:#183b48;padding:8px;font-size:11px;text-align:left;color:#d2e5e8;border-radius:8px;line-height:1.45;overflow-wrap:anywhere}
+.ep-footnote{font-size:11px;color:#b3cdd3;line-height:1.45;margin:11px 0 0}
+.ep-boot-list{display:grid;gap:8px}
+.ep-boot{display:grid;grid-template-columns:40px minmax(0,1fr) auto;align-items:center;gap:9px;padding:11px;background:#102b38;border:1px solid #345965;border-radius:11px}
+.ep-boot.recommended{background:#1a4549;border-color:#63a99b}
+.ep-boot-icon{display:grid;place-items:center;background:#27505c;border-radius:10px;width:38px;height:38px;font-size:21px;color:#d8b978}
+.ep-boot-meta{display:flex;flex-direction:column;gap:3px;min-width:0}
+.ep-boot-meta small{color:#9bdccd;font-size:9px;letter-spacing:.06em}
+.ep-boot-meta strong{font-size:12px;line-height:1.25}
+.ep-boot-why{font-size:11px;color:#c7dcde;max-width:90px}
+.ep-boot-why summary{cursor:pointer;color:#d8b978}
+.ep-boot-why p{font-size:11px;line-height:1.45}
+.ep-summary-section .wrdi-rune-keystone{padding:10px;margin:0 0 10px}
+.ep-summary-section .wrdi-rune-portrait.is-large{width:58px;height:58px}
+.ep-summary-section .wrdi-rune-grid{gap:7px}
+.ep-summary-section .wrdi-rune-tile{padding:7px}
+.ep-summary-section .wrdi-rune-tile strong{font-size:11px}
+.ep-summary-section .wrdi-rune-sub{font-size:9px}
+.ep-why{margin-top:10px}
+.ep-why summary{font-size:12px;color:#d8b978;cursor:pointer}
+.ep-why p{font-size:12px;line-height:1.55;color:#c7dfe2}
+.ep-summary-section .wrdi-swap-card{padding:11px;margin-bottom:9px;border-radius:12px}
+.ep-summary-section .wrdi-swap-condition{font-size:12px;margin-bottom:10px}
+.ep-summary-section .wrdi-item-portrait{width:48px;height:48px}
+.ep-summary-section .wrdi-swap-item-name{font-size:11px;min-height:0}
+.ep-stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.ep-field{display:flex;flex-direction:column;gap:6px;min-width:0;border:1px solid #3b6470;background:#173e49;padding:12px 6px;border-radius:11px;text-align:center}
+.ep-field small{font-size:10px;line-height:1.2;color:#b8cfd5;overflow-wrap:anywhere}
+.ep-field strong{font-size:22px;color:#74e2cf}
+.ep-full-report{background:#0e2733;border:1px solid #436571;border-radius:14px;padding:12px 14px}
+.ep-full-report>summary{font-weight:750;color:#e5c68b;font-size:14px;cursor:pointer;min-height:37px;display:flex;align-items:center}
+.ep-report-content{padding-top:12px;border-top:1px solid #345663}
+.ep-report-content>h2{display:none}
+.ep-report-content>.result-section{margin:14px 0;padding-top:15px}
+.ep-report-content>.result-section h3{font-size:16px}
+.ep-report-content p{font-size:13px;line-height:1.55}
+.ep-report-content .build-item{font-size:12px}
+@media(max-width:370px){.ep-item-grid{gap:4px}.ep-build-name{font-size:9px}.ep-summary-section{padding:11px 8px}.ep-boot{grid-template-columns:34px minmax(0,1fr) auto;padding:8px;gap:7px}}
+@media(prefers-reduced-motion:reduce){.ep-progress-track>span{transition:none}}
+
+/* Cloned artwork must remain visible even before the original image load handlers run. */
+.ep-summary-section .wrdi-rune-portrait img,.ep-summary-section .wrdi-item-portrait img{opacity:1!important}
