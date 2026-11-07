@@ -27,7 +27,9 @@ function prepare(evidence){
   const calculated=[];
   for(const [field,value] of Object.entries(base)){
    if(!DAMAGE.test(field))continue;
-   const matching=coefficients.filter(c=>c.component===field);
+   const damageFields=Object.keys(base).filter(k=>DAMAGE.test(k));
+   const matching=coefficients.filter(c=>c.component===field||
+    (damageFields.length===1&&c.component==='direct_magic_damage'&&field==='base_magic_damage'));
    const contributions=matching.map(c=>({stat:c.stat,ratio:c.ratio,amount:valid(stats[c.stat])?stats[c.stat]*c.ratio:null}));
    calculated.push({field,base:value,contributions,
     total:contributions.every(c=>c.amount!==null)?value+contributions.reduce((sum,c)=>sum+c.amount,0):null,
