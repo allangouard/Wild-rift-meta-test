@@ -3,7 +3,7 @@
 <style>
 :root{color-scheme:dark;font-family:system-ui,Arial;background:#080e1d;color:#eaf6ff}*{box-sizing:border-box}body{margin:0;padding:16px;max-width:1050px;margin:auto}h1{font-size:1.5rem;margin:0;color:#f6cb72}p{color:#9db4c8}canvas{width:100%;aspect-ratio:16/9;border:1px solid #2a6685;border-radius:12px;background:#050c1c}section{background:#101b30;border:1px solid #23415d;border-radius:12px;padding:14px;margin:12px 0}label{display:block;font-size:.85rem;color:#afc8db;margin:8px 0}input,select{background:#091326;color:#fff;border:1px solid #31516e;border-radius:7px;padding:9px;width:100%}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}button{background:#00b5d6;color:#03131e;border:0;padding:12px 17px;border-radius:9px;font-weight:800;margin:4px;cursor:pointer}button.secondary{background:#273d56;color:white}button:disabled{opacity:.4}small{color:#91b3c7}#status{color:#e4b969} @media(max-width:600px){body{padding:8px}.grid{grid-template-columns:1fr}h1{font-size:1.2rem}}
 </style></head><body>
-<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v0.7</p>
+<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v0.8</p>
 <canvas id="stage" width="1280" height="720"></canvas>
 <div><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="12">FULL • 12s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export WebM (experimental)</button><span id="status"></span></div>
 <section><strong>MATCH SETTINGS</strong><div class="grid">
@@ -43,12 +43,34 @@ const im=itemImage(name);if(im&&im.complete&&im.naturalWidth){const side=75;ctx.
 function beam(x1,y1,x2,y2,t,color){ctx.save();ctx.strokeStyle=color;ctx.lineWidth=3;ctx.shadowColor=color;ctx.shadowBlur=18;ctx.globalAlpha=.55+.25*Math.sin(t*5);ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();ctx.restore()}
 function glowText(s,x,y,size,color,align='center'){ctx.save();ctx.shadowColor=color;ctx.shadowBlur=27;txt(s,x,y,size,color,900,align);ctx.restore()}
 
+const runeIcons={
+'conqueror':'Styles/Precision/Conqueror/Conqueror.png',
+'triumph':'Styles/Precision/Triumph.png',
+'last stand':'Styles/Sorcery/LastStand/LastStand.png',
+'legend: alacrity':'Styles/Precision/LegendAlacrity/LegendAlacrity.png',
+'electrocute':'Styles/Domination/Electrocute/Electrocute.png',
+'arcane comet':'Styles/Sorcery/ArcaneComet/ArcaneComet.png',
+'phase rush':'Styles/Sorcery/PhaseRush/PhaseRush.png',
+'grasp of the undying':'Styles/Resolve/GraspOfTheUndying/GraspOfTheUndying.png',
+'glacial augment':'Styles/Inspiration/GlacialAugment/GlacialAugment.png',
+'aftershock':'Styles/Resolve/VeteranAftershock/VeteranAftershock.png',
+'fleet footwork':'Styles/Precision/FleetFootwork/FleetFootwork.png',
+'first strike':'Styles/Inspiration/FirstStrike/FirstStrike.png',
+'sudden impact':'Styles/Domination/SuddenImpact/SuddenImpact.png',
+'eyeball collector':'Styles/Domination/EyeballCollection/EyeballCollection.png',
+'bone plating':'Styles/Resolve/BonePlating/BonePlating.png',
+'second wind':'Styles/Resolve/SecondWind/SecondWind.png',
+'overgrowth':'Styles/Resolve/Overgrowth/Overgrowth.png'
+};
+function runeImage(name){const path=runeIcons[name.toLowerCase().trim()];if(!path)return null;const key='rune:'+path;if(!imageCache.has(key)){const im=new Image();im.crossOrigin='anonymous';im.src='https://ddragon.leagueoflegends.com/cdn/img/perk-images/'+path;im.onload=()=>{if(!playing)draw(elapsed)};imageCache.set(key,im)}return imageCache.get(key)}
 function runeCard(name,x,y,w,h,index,primary){
-ctx.save();ctx.shadowColor=primary?'#f0bf5b':'#1fbad4';ctx.shadowBlur=primary?22:10;
-rect(x,y,w,h,primary?'#342817':'#0b2133',primary?'#e9b64d':'#237b9b');ctx.restore();
-ctx.save();ctx.beginPath();ctx.arc(x+57,y+h/2,primary?33:26,0,Math.PI*2);ctx.strokeStyle=primary?'#f2c96f':'#6be1ef';ctx.lineWidth=4;ctx.stroke();txt(primary?'✦':'◆',x+57,y+h/2+12,primary?37:29,primary?'#ffdc88':'#7fe8ff',900,'center');ctx.restore();
-txt(primary?'KEYSTONE':'RUNE '+index,x+108,y+29,17,primary?'#e8c47a':'#73cbe2',800);
-txt(name.slice(0,23).toUpperCase(),x+108,y+66,primary?24:20,'#ffffff',900);
+ctx.save();ctx.shadowColor=primary?'#e8b44f':'#13a6d7';ctx.shadowBlur=primary?22:10;
+rect(x,y,w,h,primary?'#292416':'#0b2133',primary?'#e9b64d':'#237b9b');ctx.restore();
+const im=runeImage(name),size=primary?88:78;
+if(im&&im.complete&&im.naturalWidth)ctx.drawImage(im,x+18,y+(h-size)/2,size,size);
+else{ctx.save();ctx.beginPath();ctx.arc(x+58,y+h/2,32,0,Math.PI*2);ctx.strokeStyle=primary?'#f2c96f':'#6be1ef';ctx.lineWidth=3;ctx.stroke();txt('◆',x+58,y+h/2+11,31,'#d7dfe9',900,'center');ctx.restore()}
+txt(primary?'KEYSTONE':'SECONDARY '+index,x+120,y+32,19,primary?'#e8c47a':'#73cbe2',800);
+txt(name.slice(0,26).toUpperCase(),x+120,y+72,primary?30:24,'#ffffff',900);
 }
 function scene(t){
 const w=1280,h=720,phase=t<1.5?0:t<4.5?1:t<8.5?2:3;
@@ -79,15 +101,14 @@ const threats=$('threats').value.split(';').map(x=>x.trim()).filter(Boolean);
 threats.slice(0,3).forEach((v,i)=>{const k=smooth((t-1.9-i*.28)/.28);alpha(k,()=>{const y=368+i*63;rect(95,y-34,1080*k,54,i===0?'#712c3b':'#1b2c40',i===0?'#ff6a75':'#41607b');txt((i===0?'⚠  ':'•  ')+v.slice(0,65),116,y+2,i===0?31:26,i===0?'#ffffff':'#cce5f3',800)})});
 if(q){pulse(1100,330,15,'#ff5269');beam(1070,332,1200,260,t,'#ff5366')}
 }else if(phase===2){
-const p=smooth((t-4.5)/.3);
-alpha(p,()=>{glowText('02 / BUILD + RUNES',640,150,49,'#f8c66c');txt('ACTUAL MATCH LOADOUT',640,190,20,'#9dd8eb',700,'center')});
 const items=split('items').slice(0,5),boots=$('boots').value.trim();
-items.forEach((name,i)=>{const k=smooth((t-4.8-i*.15)/.27);alpha(k,()=>itemTile(name,56+i*202,235+(1-k)*30,190,116,i+1,i===0))});
-if(boots){const k=smooth((t-5.55)/.28);alpha(k,()=>{itemTile(boots,1068,235+(1-k)*30,160,116,6,false);txt('BOOTS',1148,374,17,'#88dbea',800,'center')})}
-alpha(smooth((t-5.85)/.3),()=>{rect(58,404,1164,2,'#23617c');txt('RUNE PAGE',65,445,30,'#69ddf5',900)});
+items.forEach((name,i)=>{const k=smooth((t-4.53-i*.075)/.19);alpha(k,()=>itemTile(name,56+i*202,133+(1-k)*20,190,116,i+1,i===0))});
+if(boots){const k=smooth((t-4.75)/.2);alpha(k,()=>{itemTile(boots,1068,133+(1-k)*20,160,116,6,false);txt('BOOTS',1148,271,17,'#88dbea',800,'center')})}
+alpha(smooth((t-4.68)/.22),()=>{rect(58,292,1164,2,'#23617c');txt('RUNES',64,330,29,'#69ddf5',900)});
 const runes=split('runes').slice(0,5);
-runes.forEach((name,i)=>{const k=smooth((t-6.05-i*.22)/.28);const x=i===0?64:65+(i-1)*291,y=i===0?469:589;
-alpha(k,()=>{if(i===0)runeCard(name,64,468,1150,100,1,true);else runeCard(name,x,y,280,77,i,false)})});
+runes.forEach((name,i)=>{const k=smooth((t-4.83-i*.12)/.22);
+alpha(k,()=>{if(i===0)runeCard(name,64,347,1150,112,1,true);
+else{const x=64+((i-1)%2)*580,y=477+Math.floor((i-1)/2)*91;runeCard(name,x,y,560,82,i,false)}})});
 }else{
 const p=smooth((t-8.5)/.3);
 alpha(p*(1-out),()=>{panel(60,283,1160,284,'#20b9d3');rect(60,283,14,284,'#24d1eb');glowText('03  /  WIN CONDITION',93,333,40,'#72e8ff','left');glowText($('strategy').value.slice(0,42),640,445,47,'#ffdb8b');txt($('champion').value.toUpperCase()+'  •  '+$('role').value.toUpperCase(),640,520,29,'#f4fbff',800,'center')});
