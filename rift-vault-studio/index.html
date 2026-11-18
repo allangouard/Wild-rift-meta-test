@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RIFT VAULT STUDIO — Draft Intel</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,Arial;background:#080e1d;color:#eaf6ff}*{box-sizing:border-box}body{margin:0;padding:16px;max-width:1050px;margin:auto}h1{font-size:1.5rem;margin:0;color:#f6cb72}p{color:#9db4c8}canvas{width:100%;aspect-ratio:16/9;border:1px solid #2a6685;border-radius:12px;background:#050c1c}section{background:#101b30;border:1px solid #23415d;border-radius:12px;padding:14px;margin:12px 0}label{display:block;font-size:.85rem;color:#afc8db;margin:8px 0}input,select{background:#091326;color:#fff;border:1px solid #31516e;border-radius:7px;padding:9px;width:100%}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}button{background:#00b5d6;color:#03131e;border:0;padding:12px 17px;border-radius:9px;font-weight:800;margin:4px;cursor:pointer}button.secondary{background:#273d56;color:white}button:disabled{opacity:.4}small{color:#91b3c7}#status{color:#e4b969} @media(max-width:600px){body{padding:8px}.grid{grid-template-columns:1fr}h1{font-size:1.2rem}}
+</style></head><body>
+<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • 7-second animated intro • prototype v0.1</p>
+<canvas id="stage" width="1280" height="720"></canvas>
+<div><button id="play">▶ Preview 7s</button><button id="export" class="secondary">⬇ Export WebM (experimental)</button><span id="status"></span></div>
+<section><strong>MATCH SETTINGS</strong><div class="grid">
+<label>Champion played<input id="champion" value="Shyvana"></label>
+<label>Role<input id="role" value="JUNGLE"></label>
+<label>Rank<input id="rank" value="DIAMOND II"></label>
+<label>Patch<input id="patch" value="7.3F"></label>
+<label>Allied team (comma separated)<input id="allies" value="Garen,Shyvana,Syndra,Jhin,Leona"></label>
+<label>Enemy team (comma separated)<input id="enemies" value="Aatrox,Kayn,Annie,Ezreal,Lulu"></label>
+<label>Items used (comma separated)<input id="items" value="Trinity Force,Sterak's Gage,Death's Dance,Spirit Visage,Guardian Angel"></label>
+<label>Runes used (comma separated)<input id="runes" value="Conqueror,Triumph,Last Stand,Legend: Alacrity"></label>
+<label>Threats — review before publishing<input id="threats" value="HEALING • Aatrox / Kayn;BURST • Annie;CROWD CONTROL • Lulu"></label>
+<label>Win condition — review before publishing<input id="strategy" value="SCALE UP • CONTROL DRAGONS"></label>
+</div><small>Demo data only. This version does not yet infer accurate threats or builds automatically. Enter real match information.</small></section>
+<script>
+const c=document.getElementById('stage'),ctx=c.getContext('2d');let raf=0,start=0,elapsed=0,playing=false;
+const $=id=>document.getElementById(id), split=id=>$(id).value.split(',').map(s=>s.trim()).filter(Boolean);
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), smooth=x=>{x=clamp(x);return x*x*(3-2*x)};
+function rect(x,y,w,h,fill,stroke){ctx.fillStyle=fill;ctx.fillRect(x,y,w,h);if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=2;ctx.strokeRect(x,y,w,h)}}
+function txt(s,x,y,size=22,color='#fff',weight=700,align='left'){ctx.font=weight+' '+size+'px system-ui,Arial';ctx.textAlign=align;ctx.fillStyle=color;ctx.fillText(String(s),x,y)}
+function panel(x,y,w,h,stroke='#168fba'){rect(x,y,w,h,'#0a192be8',stroke)}
+function line(x,y,w,col){rect(x,y,w,3,col)}
+function alpha(a,fn){ctx.save();ctx.globalAlpha=clamp(a);fn();ctx.restore()}
+function chip(s,x,y,w,color){rect(x,y,w,43,'#132b42',color);txt(s,x+10,y+28,18,'#f5f9ff',700)}
+function portrait(name,x,y,w,h,accent){panel(x,y,w,h,accent);txt(name.slice(0,9).toUpperCase(),x+w/2,y+h/2+5,Math.min(16,w/7),'#e4edf5',700,'center')}
+function scene(t){
+const w=1280,h=720;ctx.clearRect(0,0,w,h);
+const bg=ctx.createLinearGradient(0,0,w,h);bg.addColorStop(0,'#061b35');bg.addColorStop(.5,'#050b19');bg.addColorStop(1,'#211323');rect(0,0,w,h,bg);
+for(let i=0;i<15;i++){ctx.strokeStyle=i%2?'#0a4e7040':'#b7782040';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(i*135-250,0);ctx.lineTo(i*135+250,720);ctx.stroke()}
+txt('RIFT',40,60,42,'#d8f8ff',900);txt('VAULT',170,60,42,'#e8b754',900);txt('DRAFT INTEL',640,64,34,'#f4fbff',900,'center');
+txt($('rank').value+'   •   PATCH '+$('patch').value,1235,45,20,'#b7d5e9',700,'right');
+line(40,82,1200,'#1bbde0');
+const a=split('allies'),b=split('enemies');
+alpha(smooth((t-.2)/.7),()=>{
+txt('YOUR TEAM',44,120,21,'#2cc9ff');txt('ENEMY TEAM',1238,120,21,'#ff6974',700,'right');
+a.slice(0,5).forEach((name,i)=>portrait(name,42+i*118,140,108,86,'#16a5d8'));
+b.slice(0,5).forEach((name,i)=>portrait(name,652+i*118,140,108,86,'#d34859'));
+txt('VS',640,196,35,'#f1bb56',900,'center')
+});
+alpha(smooth((t-1.35)/.55),()=>{
+panel(42,265,540,154,'#db6959');txt('THREAT DETECTED',62,300,25,'#ff887c',900);
+$('threats').value.split(';').slice(0,3).forEach((s,i)=>{const v=s.trim();if(v)txt('⚠ '+v.slice(0,43),62,337+i*30,20,'#f1e7e5',700)});
+});
+alpha(smooth((t-2.5)/.65),()=>{
+panel(610,265,628,154,'#d9a64d');txt('BUILD RESPONSE',630,300,25,'#f7ca75',900);
+split('items').slice(0,5).forEach((s,i)=>{const x=630+i*119;rect(x,318,108,66,'#13243d','#d1a14e');txt(s.slice(0,13),x+54,345,13,'#fff',700,'center');});
+txt('RUNES: '+split('runes').join(' • ').slice(0,74),630,407,15,'#8fe0ef',600);
+});
+alpha(smooth((t-4.5)/.55),()=>{
+panel(42,454,1196,134,'#19b5d3');txt('WIN CONDITION',64,494,26,'#64d8f0',900);txt($('strategy').value.slice(0,65),64,550,37,'#f5d083',900);
+});
+alpha(smooth((t-5.8)/.35),()=>{txt($('champion').value.toUpperCase()+'  •  '+$('role').value.toUpperCase(),44,655,35,'#fff',900);txt('GAMEPLAY STARTS NOW',1235,655,26,'#6be4ee',800,'right')});
+rect(42,686,1196*clamp(t/7),5,'#e2b75a');
+}
+function draw(t){scene(t)}
+function play(){cancelAnimationFrame(raf);start=performance.now();playing=true;function frame(now){elapsed=Math.min(7,(now-start)/1000);draw(elapsed);if(elapsed<7)raf=requestAnimationFrame(frame);else playing=false}raf=requestAnimationFrame(frame)}
+$('play').onclick=play;document.querySelectorAll('input').forEach(el=>el.addEventListener('input',()=>{if(!playing)draw(elapsed)}));
+$('export').onclick=async()=>{
+if(!c.captureStream||!window.MediaRecorder){$('status').textContent='Recording not supported by this browser';return}
+const stream=c.captureStream(60),type=['video/webm;codecs=vp9','video/webm;codecs=vp8','video/webm'].find(x=>MediaRecorder.isTypeSupported(x));if(!type){$('status').textContent='WebM unsupported';return}
+const chunks=[],rec=new MediaRecorder(stream,{mimeType:type,videoBitsPerSecond:8000000});rec.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};rec.onstop=()=>{const blob=new Blob(chunks,{type});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='rift-vault-draft-intel.webm';a.click();setTimeout(()=>URL.revokeObjectURL(url),10000);$('status').textContent='WebM exported — MP4 not yet implemented'};
+rec.start();$('status').textContent='Recording 7 seconds…';play();setTimeout(()=>{if(rec.state==='recording')rec.stop()},7300)
+};draw(0);
+</script></body></html>
