@@ -3,7 +3,7 @@
 <style>
 :root{color-scheme:dark;font-family:system-ui,Arial;background:#080e1d;color:#eaf6ff}*{box-sizing:border-box}body{margin:0;padding:16px;max-width:1050px;margin:auto}h1{font-size:1.5rem;margin:0;color:#f6cb72}p{color:#9db4c8}canvas{width:100%;aspect-ratio:16/9;border:1px solid #2a6685;border-radius:12px;background:#050c1c}section{background:#101b30;border:1px solid #23415d;border-radius:12px;padding:14px;margin:12px 0}label{display:block;font-size:.85rem;color:#afc8db;margin:8px 0}input,select{background:#091326;color:#fff;border:1px solid #31516e;border-radius:7px;padding:9px;width:100%}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}button{background:#00b5d6;color:#03131e;border:0;padding:12px 17px;border-radius:9px;font-weight:800;margin:4px;cursor:pointer}button.secondary{background:#273d56;color:white}button:disabled{opacity:.4}small{color:#91b3c7}#status{color:#e4b969} @media(max-width:600px){body{padding:8px}.grid{grid-template-columns:1fr}h1{font-size:1.2rem}}
 </style></head><body>
-<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v0.8</p>
+<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v0.9</p>
 <canvas id="stage" width="1280" height="720"></canvas>
 <div><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="12">FULL • 12s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export WebM (experimental)</button><span id="status"></span></div>
 <section><strong>MATCH SETTINGS</strong><div class="grid">
@@ -14,7 +14,7 @@
 <label>Allied team (comma separated)<input id="allies" value="Garen,Shyvana,Syndra,Jhin,Leona"></label>
 <label>Enemy team (comma separated)<input id="enemies" value="Aatrox,Kayn,Annie,Ezreal,Lulu"></label>
 <label>Items used (comma separated)<input id="items" value="Trinity Force,Sterak's Gage,Death's Dance,Spirit Visage,Guardian Angel"></label>
-<label>Boots used<input id="boots" value="Plated Steelcaps"></label><label>Runes used (comma separated)<input id="runes" value="Conqueror,Triumph,Last Stand,Legend: Alacrity"></label>
+<label>Boots used<input id="boots" value="Plated Steelcaps"></label><label>Runes used (comma separated)<input id="runes" value="Conqueror,Triumph,Last Stand,Legend: Alacrity,Bone Plating"></label>
 <label>Threats — review before publishing<input id="threats" value="HEALING • Aatrox / Kayn;BURST • Annie;CROWD CONTROL • Lulu"></label>
 <label>Hook — match-specific question<input id="hook" value="CAN SHYVANA CONTROL THE DRAGONS?"></label><label>Key response — only if supported by actual items<input id="response" value="BUILD TO SURVIVE THEIR BURST"></label><label>Win condition — review before publishing<input id="strategy" value="SCALE UP • CONTROL DRAGONS"></label>
 </div><small>Demo data only. Champion and supported item icons use temporary League PC assets, not yet verified Wild Rift-specific. Unsupported items fall back to text. This version does not yet infer accurate threats or builds automatically. Enter real match information.</small></section>
@@ -63,13 +63,13 @@ const runeIcons={
 'overgrowth':'Styles/Resolve/Overgrowth/Overgrowth.png'
 };
 function runeImage(name){const path=runeIcons[name.toLowerCase().trim()];if(!path)return null;const key='rune:'+path;if(!imageCache.has(key)){const im=new Image();im.crossOrigin='anonymous';im.src='https://ddragon.leagueoflegends.com/cdn/img/perk-images/'+path;im.onload=()=>{if(!playing)draw(elapsed)};imageCache.set(key,im)}return imageCache.get(key)}
-function runeCard(name,x,y,w,h,index,primary){
+function runeCard(name,x,y,w,h,index,primary,secondary=false){
 ctx.save();ctx.shadowColor=primary?'#e8b44f':'#13a6d7';ctx.shadowBlur=primary?22:10;
-rect(x,y,w,h,primary?'#292416':'#0b2133',primary?'#e9b64d':'#237b9b');ctx.restore();
+rect(x,y,w,h,primary?'#292416':'#0b2133',primary?'#e9b64d':secondary?'#aa85e8':'#237b9b');ctx.restore();
 const im=runeImage(name),size=primary?88:78;
 if(im&&im.complete&&im.naturalWidth)ctx.drawImage(im,x+18,y+(h-size)/2,size,size);
 else{ctx.save();ctx.beginPath();ctx.arc(x+58,y+h/2,32,0,Math.PI*2);ctx.strokeStyle=primary?'#f2c96f':'#6be1ef';ctx.lineWidth=3;ctx.stroke();txt('◆',x+58,y+h/2+11,31,'#d7dfe9',900,'center');ctx.restore()}
-txt(primary?'KEYSTONE':'SECONDARY '+index,x+120,y+32,19,primary?'#e8c47a':'#73cbe2',800);
+txt(primary?'KEYSTONE':secondary?'SECONDARY TREE':'MAIN TREE • '+index,x+120,y+32,19,primary?'#e8c47a':secondary?'#c9a7ff':'#73cbe2',800);
 txt(name.slice(0,26).toUpperCase(),x+120,y+72,primary?30:24,'#ffffff',900);
 }
 function scene(t){
@@ -106,9 +106,13 @@ items.forEach((name,i)=>{const k=smooth((t-4.53-i*.075)/.19);alpha(k,()=>itemTil
 if(boots){const k=smooth((t-4.75)/.2);alpha(k,()=>{itemTile(boots,1068,133+(1-k)*20,160,116,6,false);txt('BOOTS',1148,271,17,'#88dbea',800,'center')})}
 alpha(smooth((t-4.68)/.22),()=>{rect(58,292,1164,2,'#23617c');txt('RUNES',64,330,29,'#69ddf5',900)});
 const runes=split('runes').slice(0,5);
-runes.forEach((name,i)=>{const k=smooth((t-4.83-i*.12)/.22);
+if(runes.length!==5){alpha(smooth((t-4.7)/.2),()=>{txt('ADD 5 RUNES: KEYSTONE + 3 MAIN + 1 SECONDARY',640,445,27,'#ff8d86',900,'center')})}
+else{
+runes.forEach((name,i)=>{const k=smooth((t-4.82-i*.10)/.2);
 alpha(k,()=>{if(i===0)runeCard(name,64,347,1150,112,1,true);
-else{const x=64+((i-1)%2)*580,y=477+Math.floor((i-1)/2)*91;runeCard(name,x,y,560,82,i,false)}})});
+else if(i<=3){const x=64+((i-1)%2)*580,y=477+Math.floor((i-1)/2)*91;runeCard(name,x,y,560,82,i,false,false)}
+else runeCard(name,644,568,570,82,1,false,true)})});
+}
 }else{
 const p=smooth((t-8.5)/.3);
 alpha(p*(1-out),()=>{panel(60,283,1160,284,'#20b9d3');rect(60,283,14,284,'#24d1eb');glowText('03  /  WIN CONDITION',93,333,40,'#72e8ff','left');glowText($('strategy').value.slice(0,42),640,445,47,'#ffdb8b');txt($('champion').value.toUpperCase()+'  •  '+$('role').value.toUpperCase(),640,520,29,'#f4fbff',800,'center')});
