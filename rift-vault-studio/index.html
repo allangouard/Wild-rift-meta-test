@@ -3,9 +3,9 @@
 <style>
 :root{color-scheme:dark;font-family:system-ui,Arial;background:#080e1d;color:#eaf6ff}*{box-sizing:border-box}body{margin:0;padding:16px;max-width:1050px;margin:auto}h1{font-size:1.5rem;margin:0;color:#f6cb72}p{color:#9db4c8}canvas{width:100%;aspect-ratio:16/9;border:1px solid #2a6685;border-radius:12px;background:#050c1c}section{background:#101b30;border:1px solid #23415d;border-radius:12px;padding:14px;margin:12px 0}label{display:block;font-size:.85rem;color:#afc8db;margin:8px 0}input,select{background:#091326;color:#fff;border:1px solid #31516e;border-radius:7px;padding:9px;width:100%}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}button{background:#00b5d6;color:#03131e;border:0;padding:12px 17px;border-radius:9px;font-weight:800;margin:4px;cursor:pointer}button.secondary{background:#273d56;color:white}button:disabled{opacity:.4}small{color:#91b3c7}#status{color:#e4b969} @media(max-width:600px){body{padding:8px}.grid{grid-template-columns:1fr}h1{font-size:1.2rem}}
 </style></head><body>
-<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v0.5</p>
+<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v0.6</p>
 <canvas id="stage" width="1280" height="720"></canvas>
-<div><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="12">FULL • 12s</option><option value="9">FAST • 9s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export WebM (experimental)</button><span id="status"></span></div>
+<div><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="12">FULL • 12s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export WebM (experimental)</button><span id="status"></span></div>
 <section><strong>MATCH SETTINGS</strong><div class="grid">
 <label>Champion played<input id="champion" value="Shyvana"></label>
 <label>Role<input id="role" value="JUNGLE"></label>
@@ -17,7 +17,7 @@
 <label>Runes used (comma separated)<input id="runes" value="Conqueror,Triumph,Last Stand,Legend: Alacrity"></label>
 <label>Threats — review before publishing<input id="threats" value="HEALING • Aatrox / Kayn;BURST • Annie;CROWD CONTROL • Lulu"></label>
 <label>Hook — match-specific question<input id="hook" value="CAN SHYVANA CONTROL THE DRAGONS?"></label><label>Key response — only if supported by actual items<input id="response" value="BUILD TO SURVIVE THEIR BURST"></label><label>Win condition — review before publishing<input id="strategy" value="SCALE UP • CONTROL DRAGONS"></label>
-</div><small>Demo data only. Champion portraits use temporary League PC icons, not yet Wild Rift-specific. Item/rune icons are not yet integrated. This version does not yet infer accurate threats or builds automatically. Enter real match information.</small></section>
+</div><small>Demo data only. Champion and supported item icons use temporary League PC assets, not yet verified Wild Rift-specific. Unsupported items fall back to text. This version does not yet infer accurate threats or builds automatically. Enter real match information.</small></section>
 <script>
 const c=document.getElementById('stage'),ctx=c.getContext('2d');let raf=0,start=0,elapsed=0,playing=false;const duration=()=>Number($('mode').value);
 const $=id=>document.getElementById(id), split=id=>$(id).value.split(',').map(s=>s.trim()).filter(Boolean);
@@ -31,15 +31,26 @@ function chip(s,x,y,w,color){rect(x,y,w,43,'#132b42',color);txt(s,x+10,y+28,18,'
 const imageCache=new Map();
 function champImg(name){const key=name.toLowerCase().replace(/[^a-z]/g,'');if(!imageCache.has(key)){const im=new Image();im.crossOrigin='anonymous';const mapped={wukong:'MonkeyKing',nunu:'Nunu',kaisa:'Kaisa',khazix:'Khazix',kogmaw:'KogMaw',reksai:'RekSai'};im.src='https://ddragon.leagueoflegends.com/cdn/14.24.1/img/champion/'+(mapped[key]||name.replace(/[^a-zA-Z]/g,''))+'.png';im.onload=()=>{if(!playing)draw(elapsed)};imageCache.set(key,im)}return imageCache.get(key)}
 function portrait(name,x,y,w,h,accent){ctx.save();ctx.shadowColor=accent;ctx.shadowBlur=16;panel(x,y,w,h,accent);ctx.restore();const im=champImg(name);if(im.complete&&im.naturalWidth){const side=Math.min(w-6,h-6);ctx.drawImage(im,x+(w-side)/2,y+(h-side)/2,side,side)}else txt(name.slice(0,9).toUpperCase(),x+w/2,y+h/2+5,Math.min(16,w/7),'#e4edf5',700,'center')}
+
+// Temporary PC item icon references: displayed only for explicitly mapped item names.
+const itemIds={'trinity force':'3078',"sterak's gage":'3053',"death's dance":'6333','spirit visage':'3065','guardian angel':'3026','thornmail':'3075','rabadons deathcap':'3089',"rabadon's deathcap":'3089','infinity edge':'3031','blade of the ruined king':'3153','nashors tooth':'3115',"nashor's tooth":'3115','randuins omen':'3143',"randuin's omen":'3143','force of nature':'4401','sunfire aegis':'3068','frozen heart':'3110','liandrys torment':'3151',"liandry's torment":'3151'};
+function itemImage(name){const key=name.toLowerCase().trim(),id=itemIds[key];if(!id)return null;const cacheKey='item:'+id;if(!imageCache.has(cacheKey)){const im=new Image();im.crossOrigin='anonymous';im.src='https://ddragon.leagueoflegends.com/cdn/14.24.1/img/item/'+id+'.png';im.onload=()=>{if(!playing)draw(elapsed)};imageCache.set(cacheKey,im)}return imageCache.get(cacheKey)}
+function itemTile(name,x,y,w,h,index,highlight){
+ctx.save();ctx.shadowColor=highlight?'#f6b950':'#21a9d3';ctx.shadowBlur=highlight?24:9;
+rect(x,y,w,h,highlight?'#483219':'#071c2c',highlight?'#eabf63':'#2b6686');ctx.restore();
+const im=itemImage(name);if(im&&im.complete&&im.naturalWidth){const side=75;ctx.drawImage(im,x+(w-side)/2,y+8,side,side);txt(name.slice(0,19).toUpperCase(),x+w/2,y+100,14,'#f4f5fa',800,'center')}else{txt(('0'+index),x+13,y+28,23,'#eac071',900);txt(name.slice(0,18),x+w/2,y+70,17,'#f4f5fa',800,'center')}
+}
+function beam(x1,y1,x2,y2,t,color){ctx.save();ctx.strokeStyle=color;ctx.lineWidth=3;ctx.shadowColor=color;ctx.shadowBlur=18;ctx.globalAlpha=.55+.25*Math.sin(t*5);ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();ctx.restore()}
+function glowText(s,x,y,size,color,align='center'){ctx.save();ctx.shadowColor=color;ctx.shadowBlur=27;txt(s,x,y,size,color,900,align);ctx.restore()}
 function scene(t){
 const w=1280,h=720,phase=t<1.5?0:t<4.5?1:t<8.5?2:3;
 ctx.clearRect(0,0,w,h);
 const bg=ctx.createRadialGradient(630,300,80,640,360,800);bg.addColorStop(0,'#092a49');bg.addColorStop(.6,'#030a17');bg.addColorStop(1,'#02040c');rect(0,0,w,h,bg);
-const sweep=(t*115)%1800;
+const sweep=(t*115)%1800;ctx.save();ctx.globalAlpha=.09;for(let j=0;j<4;j++){ctx.strokeStyle=j%2?'#efb64c':'#1bd7ff';ctx.lineWidth=2;ctx.strokeRect(12+j*9,12+j*9,1256-j*18,696-j*18)}ctx.restore();
 ctx.save();ctx.translate(sweep-600,0);ctx.rotate(-.25);rect(-45,-100,85,1100,'#176e9b17');rect(50,-100,15,1100,'#ffbb4515');ctx.restore();
 for(let i=0;i<13;i++){ctx.strokeStyle=i%2?'#0a7fb940':'#d99d3640';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(i*145-200,0);ctx.lineTo(i*145+180,720);ctx.stroke()}
 const pulse=(x,y,r,color)=>{ctx.save();ctx.globalAlpha=.17+.11*Math.sin(t*10);ctx.strokeStyle=color;ctx.lineWidth=7;ctx.beginPath();ctx.arc(x,y,r+6*Math.sin(t*8),0,Math.PI*2);ctx.stroke();ctx.restore()};
-txt('RIFT',42,62,42,'#d8f8ff',900);txt('VAULT',170,62,42,'#e8b754',900);
+glowText('RIFT',42,62,42,'#d8f8ff','left');glowText('VAULT',170,62,42,'#e8b754','left');
 txt('DRAFT INTEL',640,64,40,'#f4fbff',900,'center');
 txt($('rank').value+'   •   PATCH '+$('patch').value,1235,48,19,'#b7d5e9',700,'right');line(40,84,1200,'#1bbde0');
 const a=split('allies'),b=split('enemies');
@@ -53,19 +64,19 @@ const p=smooth((t-.3)/.35);
 alpha(p,()=>{txt($('hook').value.slice(0,40),640,350,44,'#ffffff',900,'center');txt('THE MATCHUP CHANGES EVERYTHING',640,412,27,'#ffb765',900,'center')});
 }else if(phase===1){
 const p=smooth((t-1.5)/.28),q=smooth((t-1.85)/.3);
-alpha(p,()=>{panel(60,277,1160,290,'#f35d65');rect(60,277,14,290,'#f35d65');txt('01  /  ENEMY THREATS',93,328,40,'#ff777c',900)});
+alpha(p,()=>{panel(60,277,1160,290,'#f35d65');rect(60,277,14,290,'#f35d65');glowText('01  /  ENEMY THREATS',93,328,40,'#ff777c','left')});
 const threats=$('threats').value.split(';').map(x=>x.trim()).filter(Boolean);
 threats.slice(0,3).forEach((v,i)=>{const k=smooth((t-1.9-i*.28)/.28);alpha(k,()=>{const y=368+i*63;rect(95,y-34,1080*k,54,i===0?'#712c3b':'#1b2c40',i===0?'#ff6a75':'#41607b');txt((i===0?'⚠  ':'•  ')+v.slice(0,65),116,y+2,i===0?31:26,i===0?'#ffffff':'#cce5f3',800)})});
-if(q) pulse(1100,330,15,'#ff5269');
+if(q){pulse(1100,330,15,'#ff5269');beam(1070,332,1200,260,t,'#ff5366')}
 }else if(phase===2){
 const p=smooth((t-4.5)/.32);
-alpha(p,()=>{panel(60,275,1160,312,'#e5ae51');rect(60,275,14,312,'#e5ae51');txt('02  /  YOUR ANSWER',93,328,40,'#ffcc72',900)});
-split('items').slice(0,5).forEach((name,i)=>{const k=smooth((t-4.85-i*.23)/.3);alpha(k,()=>{const x=94+i*223;rect(x,365+(1-k)*50,207,110,i===0?'#6c5028':'#17283b',i===0?'#ffcf6b':'#b78d47');txt(('0'+(i+1)).slice(-2),x+15,398,25,'#f7c66b',900);txt(name.slice(0,18),x+103,438,18,'#fff',700,'center')})});
-alpha(smooth((t-6.45)/.3),()=>{txt('RUNES  •  '+split('runes').join(' / ').slice(0,72),94,527,19,'#7ce7ff',800);txt($('response').value.slice(0,48),94,565,22,'#ffdb8b',900)});
+alpha(p,()=>{panel(60,275,1160,312,'#e5ae51');rect(60,275,14,312,'#e5ae51');glowText('02  /  YOUR ANSWER',93,328,40,'#ffcc72','left')});
+split('items').slice(0,5).forEach((name,i)=>{const k=smooth((t-4.85-i*.23)/.3);alpha(k,()=>{const x=94+i*223;itemTile(name,x,365+(1-k)*50,207,116,i+1,i===0)})});
+alpha(smooth((t-6.45)/.3),()=>{txt('RUNES  •  '+split('runes').join(' / ').slice(0,72),94,527,19,'#7ce7ff',800);glowText($('response').value.slice(0,48),94,565,22,'#ffdb8b','left')});
 }else{
 const p=smooth((t-8.5)/.3);
-alpha(p*(1-out),()=>{panel(60,283,1160,284,'#20b9d3');rect(60,283,14,284,'#24d1eb');txt('03  /  WIN CONDITION',93,333,40,'#72e8ff',900);txt($('strategy').value.slice(0,42),640,445,47,'#ffdb8b',900,'center');txt($('champion').value.toUpperCase()+'  •  '+$('role').value.toUpperCase(),640,520,29,'#f4fbff',800,'center')});
-alpha(out,()=>{txt('GAMEPLAY STARTS NOW',640,450,54,'#f6d27c',900,'center')});
+alpha(p*(1-out),()=>{panel(60,283,1160,284,'#20b9d3');rect(60,283,14,284,'#24d1eb');glowText('03  /  WIN CONDITION',93,333,40,'#72e8ff','left');glowText($('strategy').value.slice(0,42),640,445,47,'#ffdb8b');txt($('champion').value.toUpperCase()+'  •  '+$('role').value.toUpperCase(),640,520,29,'#f4fbff',800,'center')});
+alpha(out,()=>{glowText('GAMEPLAY STARTS NOW',640,450,54,'#f6d27c')});
 }
 rect(42,681,1196,6,'#183447');rect(42,681,1196*clamp(t/12),6,'#e2b75a');
 }
