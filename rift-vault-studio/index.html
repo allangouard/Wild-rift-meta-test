@@ -3,9 +3,9 @@
 <style>
 :root{color-scheme:dark;font-family:system-ui,Arial;background:#080e1d;color:#eaf6ff}*{box-sizing:border-box}body{margin:0;padding:16px;max-width:1050px;margin:auto}h1{font-size:1.5rem;margin:0;color:#f6cb72}p{color:#9db4c8}canvas{width:100%;aspect-ratio:16/9;border:1px solid #2a6685;border-radius:12px;background:#050c1c}section{background:#101b30;border:1px solid #23415d;border-radius:12px;padding:14px;margin:12px 0}label{display:block;font-size:.85rem;color:#afc8db;margin:8px 0}input,select{background:#091326;color:#fff;border:1px solid #31516e;border-radius:7px;padding:9px;width:100%}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}button{background:#00b5d6;color:#03131e;border:0;padding:12px 17px;border-radius:9px;font-weight:800;margin:4px;cursor:pointer}button.secondary{background:#273d56;color:white}button:disabled{opacity:.4}small{color:#91b3c7}#status{color:#e4b969} @media(max-width:600px){body{padding:8px}.grid{grid-template-columns:1fr}h1{font-size:1.2rem}}
 </style></head><body>
-<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • 12-second animated intro • prototype v0.4</p>
+<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v0.5</p>
 <canvas id="stage" width="1280" height="720"></canvas>
-<div><button id="play">▶ Preview 12s</button><button id="export" class="secondary">⬇ Export WebM (experimental)</button><span id="status"></span></div>
+<div><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="12">FULL • 12s</option><option value="9">FAST • 9s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export WebM (experimental)</button><span id="status"></span></div>
 <section><strong>MATCH SETTINGS</strong><div class="grid">
 <label>Champion played<input id="champion" value="Shyvana"></label>
 <label>Role<input id="role" value="JUNGLE"></label>
@@ -16,10 +16,10 @@
 <label>Items used (comma separated)<input id="items" value="Trinity Force,Sterak's Gage,Death's Dance,Spirit Visage,Guardian Angel"></label>
 <label>Runes used (comma separated)<input id="runes" value="Conqueror,Triumph,Last Stand,Legend: Alacrity"></label>
 <label>Threats — review before publishing<input id="threats" value="HEALING • Aatrox / Kayn;BURST • Annie;CROWD CONTROL • Lulu"></label>
-<label>Win condition — review before publishing<input id="strategy" value="SCALE UP • CONTROL DRAGONS"></label>
+<label>Hook — match-specific question<input id="hook" value="CAN SHYVANA CONTROL THE DRAGONS?"></label><label>Key response — only if supported by actual items<input id="response" value="BUILD TO SURVIVE THEIR BURST"></label><label>Win condition — review before publishing<input id="strategy" value="SCALE UP • CONTROL DRAGONS"></label>
 </div><small>Demo data only. Champion portraits use temporary League PC icons, not yet Wild Rift-specific. Item/rune icons are not yet integrated. This version does not yet infer accurate threats or builds automatically. Enter real match information.</small></section>
 <script>
-const c=document.getElementById('stage'),ctx=c.getContext('2d');let raf=0,start=0,elapsed=0,playing=false;
+const c=document.getElementById('stage'),ctx=c.getContext('2d');let raf=0,start=0,elapsed=0,playing=false;const duration=()=>Number($('mode').value);
 const $=id=>document.getElementById(id), split=id=>$(id).value.split(',').map(s=>s.trim()).filter(Boolean);
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), smooth=x=>{x=clamp(x);return x*x*(3-2*x)};
 function rect(x,y,w,h,fill,stroke){ctx.fillStyle=fill;ctx.fillRect(x,y,w,h);if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=2;ctx.strokeRect(x,y,w,h)}}
@@ -35,7 +35,7 @@ function scene(t){
 const w=1280,h=720,phase=t<1.5?0:t<4.5?1:t<8.5?2:3;
 ctx.clearRect(0,0,w,h);
 const bg=ctx.createRadialGradient(630,300,80,640,360,800);bg.addColorStop(0,'#092a49');bg.addColorStop(.6,'#030a17');bg.addColorStop(1,'#02040c');rect(0,0,w,h,bg);
-const sweep=(t*250)%1800;
+const sweep=(t*115)%1800;
 ctx.save();ctx.translate(sweep-600,0);ctx.rotate(-.25);rect(-45,-100,85,1100,'#176e9b17');rect(50,-100,15,1100,'#ffbb4515');ctx.restore();
 for(let i=0;i<13;i++){ctx.strokeStyle=i%2?'#0a7fb940':'#d99d3640';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(i*145-200,0);ctx.lineTo(i*145+180,720);ctx.stroke()}
 const pulse=(x,y,r,color)=>{ctx.save();ctx.globalAlpha=.17+.11*Math.sin(t*10);ctx.strokeStyle=color;ctx.lineWidth=7;ctx.beginPath();ctx.arc(x,y,r+6*Math.sin(t*8),0,Math.PI*2);ctx.stroke();ctx.restore()};
@@ -50,7 +50,7 @@ alpha(smooth((t-.35)/.25),()=>{txt('VS',640,211,42,'#f1bb56',900,'center');pulse
 const out=smooth((t-11.5)/.5);
 if(phase===0){
 const p=smooth((t-.3)/.35);
-alpha(p,()=>{txt('THE DRAFT DECIDES THE FIGHT',640,350,52,'#ffffff',900,'center');txt('WHO IS THE THREAT?',640,412,35,'#ffb765',900,'center')});
+alpha(p,()=>{txt($('hook').value.slice(0,40),640,350,44,'#ffffff',900,'center');txt('THE MATCHUP CHANGES EVERYTHING',640,412,27,'#ffb765',900,'center')});
 }else if(phase===1){
 const p=smooth((t-1.5)/.28),q=smooth((t-1.85)/.3);
 alpha(p,()=>{panel(60,277,1160,290,'#f35d65');rect(60,277,14,290,'#f35d65');txt('01  /  ENEMY THREATS',93,328,40,'#ff777c',900)});
@@ -59,9 +59,9 @@ threats.slice(0,3).forEach((v,i)=>{const k=smooth((t-1.9-i*.28)/.28);alpha(k,()=
 if(q) pulse(1100,330,15,'#ff5269');
 }else if(phase===2){
 const p=smooth((t-4.5)/.32);
-alpha(p,()=>{panel(60,275,1160,312,'#e5ae51');rect(60,275,14,312,'#e5ae51');txt('02  /  BUILD RESPONSE',93,328,40,'#ffcc72',900)});
+alpha(p,()=>{panel(60,275,1160,312,'#e5ae51');rect(60,275,14,312,'#e5ae51');txt('02  /  YOUR ANSWER',93,328,40,'#ffcc72',900)});
 split('items').slice(0,5).forEach((name,i)=>{const k=smooth((t-4.85-i*.23)/.3);alpha(k,()=>{const x=94+i*223;rect(x,365+(1-k)*50,207,110,i===0?'#6c5028':'#17283b',i===0?'#ffcf6b':'#b78d47');txt(('0'+(i+1)).slice(-2),x+15,398,25,'#f7c66b',900);txt(name.slice(0,18),x+103,438,18,'#fff',700,'center')})});
-alpha(smooth((t-6.45)/.3),()=>{txt('RUNES  •  '+split('runes').join(' / ').slice(0,72),94,541,22,'#7ce7ff',800)});
+alpha(smooth((t-6.45)/.3),()=>{txt('RUNES  •  '+split('runes').join(' / ').slice(0,72),94,527,19,'#7ce7ff',800);txt($('response').value.slice(0,48),94,565,22,'#ffdb8b',900)});
 }else{
 const p=smooth((t-8.5)/.3);
 alpha(p*(1-out),()=>{panel(60,283,1160,284,'#20b9d3');rect(60,283,14,284,'#24d1eb');txt('03  /  WIN CONDITION',93,333,40,'#72e8ff',900);txt($('strategy').value.slice(0,42),640,445,47,'#ffdb8b',900,'center');txt($('champion').value.toUpperCase()+'  •  '+$('role').value.toUpperCase(),640,520,29,'#f4fbff',800,'center')});
@@ -69,13 +69,13 @@ alpha(out,()=>{txt('GAMEPLAY STARTS NOW',640,450,54,'#f6d27c',900,'center')});
 }
 rect(42,681,1196,6,'#183447');rect(42,681,1196*clamp(t/12),6,'#e2b75a');
 }
-function draw(t){scene(t)}
-function play(){cancelAnimationFrame(raf);start=performance.now();playing=true;function frame(now){elapsed=Math.min(12,(now-start)/1000);draw(elapsed);if(elapsed<12)raf=requestAnimationFrame(frame);else playing=false}raf=requestAnimationFrame(frame)}
-$('play').onclick=play;document.querySelectorAll('input').forEach(el=>el.addEventListener('input',()=>{if(!playing)draw(elapsed)}));
+function draw(t){scene(t*12/duration())}
+function play(){cancelAnimationFrame(raf);start=performance.now();playing=true;function frame(now){elapsed=Math.min(duration(),(now-start)/1000);draw(elapsed);if(elapsed<duration())raf=requestAnimationFrame(frame);else playing=false}raf=requestAnimationFrame(frame)}
+$('play').onclick=play;document.querySelectorAll('input,select').forEach(el=>el.addEventListener('input',()=>{if(!playing)draw(elapsed)}));
 $('export').onclick=async()=>{
 if(!c.captureStream||!window.MediaRecorder){$('status').textContent='Recording not supported by this browser';return}
 const stream=c.captureStream(60),type=['video/webm;codecs=vp9','video/webm;codecs=vp8','video/webm'].find(x=>MediaRecorder.isTypeSupported(x));if(!type){$('status').textContent='WebM unsupported';return}
 const chunks=[],rec=new MediaRecorder(stream,{mimeType:type,videoBitsPerSecond:8000000});rec.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};rec.onstop=()=>{const blob=new Blob(chunks,{type});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='rift-vault-draft-intel.webm';a.click();setTimeout(()=>URL.revokeObjectURL(url),10000);$('status').textContent='WebM exported — MP4 not yet implemented'};
-rec.start();$('status').textContent='Recording 12 seconds…';play();setTimeout(()=>{if(rec.state==='recording')rec.stop()},12300)
+rec.start();$('status').textContent='Recording intro…';play();setTimeout(()=>{if(rec.state==='recording')rec.stop()},duration()*1000+300)
 };draw(0);
 </script></body></html>
