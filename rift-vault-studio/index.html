@@ -3,7 +3,7 @@
 <style>
 :root{color-scheme:dark;font-family:system-ui,Arial;background:#080e1d;color:#eaf6ff}*{box-sizing:border-box}body{margin:0;padding:16px;max-width:1050px;margin:auto}h1{font-size:1.5rem;margin:0;color:#f6cb72}p{color:#9db4c8}canvas{width:100%;aspect-ratio:16/9;border:1px solid #2a6685;border-radius:12px;background:#050c1c}section{background:#101b30;border:1px solid #23415d;border-radius:12px;padding:14px;margin:12px 0}label{display:block;font-size:.85rem;color:#afc8db;margin:8px 0}input,select{background:#091326;color:#fff;border:1px solid #31516e;border-radius:7px;padding:9px;width:100%}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}button{background:#00b5d6;color:#03131e;border:0;padding:12px 17px;border-radius:9px;font-weight:800;margin:4px;cursor:pointer}button.secondary{background:#273d56;color:white}button:disabled{opacity:.4}small{color:#91b3c7}#status{color:#e4b969} @media(max-width:600px){body{padding:8px}.grid{grid-template-columns:1fr}h1{font-size:1.2rem}}
 </style></head><body>
-<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v3.1</p>
+<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v3.2</p>
 <canvas id="stage" width="1280" height="720"></canvas>
 <div><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="12">FULL • 12s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export WebM (experimental)</button><span id="status"></span></div>
 <section><strong>MATCH SETTINGS</strong><div class="grid">
@@ -120,13 +120,14 @@ const old=v.split('•').map(x=>x.trim());return {category:old[0]||'THREAT',leve
 function fittedText(value,x,y,maxWidth,size,color,weight=900,align='center'){
 ctx.save();let sz=size;do{ctx.font=weight+' '+sz+'px system-ui,Arial';if(ctx.measureText(value).width<=maxWidth)break;sz-=2}while(sz>15);txt(value,x,y,sz,color,weight,align);ctx.restore();
 }
+const portraitFocus={garen:[.46,.32],shyvana:[.54,.34],syndra:[.46,.31],jhin:[.56,.34],leona:[.56,.30],aatrox:[.51,.30],kayn:[.49,.32],annie:[.55,.31],ezreal:[.56,.29],lulu:[.49,.32]};
 function cinematicDraftPortrait(name,x,y,w,h,accent,t,priority=false){
 const im=heroArt(name);
 ctx.save();
 ctx.beginPath();ctx.moveTo(x+24,y);ctx.lineTo(x+w,y);ctx.lineTo(x+w-24,y+h);ctx.lineTo(x,y+h);ctx.closePath();ctx.clip();
 rect(x,y,w,h,'#0a1726');
 if(im.complete&&im.naturalWidth){
-const cropW=im.width*.38,cropH=im.height*.78,srcX=Math.max(0,Math.min(im.width-cropW,im.width*.28+Math.sin(t*.3)*im.width*.012)),srcY=im.height*.1;
+const focus=portraitFocus[name.toLowerCase()]||[.5,.33];const cropH=im.height*.59,cropW=cropH*(w/h);const srcX=Math.max(0,Math.min(im.width-cropW,im.width*focus[0]-cropW*.5+Math.sin(t*.3)*im.width*.008)),srcY=Math.max(0,Math.min(im.height-cropH,im.height*focus[1]-cropH*.38));
 ctx.drawImage(im,srcX,srcY,cropW,cropH,x-4,y-4,w+8,h+8);
 }else{const fallback=champImg(name);if(fallback.complete&&fallback.naturalWidth)ctx.drawImage(fallback,x,y,w,h)}
 const tint=ctx.createLinearGradient(x,y,x,y+h);tint.addColorStop(0,'#00000000');tint.addColorStop(1,'#030913bd');rect(x,y,w,h,tint);
@@ -135,6 +136,14 @@ ctx.save();ctx.shadowColor=accent;ctx.shadowBlur=priority?25:13;ctx.strokeStyle=
 ctx.beginPath();ctx.moveTo(x+24,y);ctx.lineTo(x+w,y);ctx.lineTo(x+w-24,y+h);ctx.lineTo(x,y+h);ctx.closePath();ctx.stroke();ctx.restore();
 const g=ctx.createLinearGradient(x,y+h-39,x,y+h);g.addColorStop(0,'#02061100');g.addColorStop(1,'#020611e9');rect(x+10,y+h-40,w-22,38,g);
 fittedText(name.toUpperCase(),x+w/2,y+h-11,w-26,18,'#fff',900);
+}
+function draftAtmosphere(t){
+ctx.save();
+const l=ctx.createRadialGradient(175,245,30,175,245,640);l.addColorStop(0,'#1ba6f15c');l.addColorStop(.52,'#095b9d29');l.addColorStop(1,'#00000000');rect(0,85,680,580,l);
+const r=ctx.createRadialGradient(1120,260,20,1120,260,620);r.addColorStop(0,'#fc3d685d');r.addColorStop(.55,'#a0194729');r.addColorStop(1,'#00000000');rect(610,85,670,580,r);
+for(let i=0;i<28;i++){const x=(i*181.7+Math.sin(t*.38+i)*26)%1280,y=110+(i*89.3)%550;ctx.globalAlpha=.09+.11*(1+Math.sin(t*1.8+i))/2;ctx.fillStyle=i%2?'#ff9b89':'#8bd9f8';ctx.beginPath();ctx.arc(x,y,1.5+i%3,0,Math.PI*2);ctx.fill()}
+ctx.globalAlpha=.24;for(let i=0;i<7;i++){const x=i*235-120;const grad=ctx.createLinearGradient(x,160,x+150,680);grad.addColorStop(0,'#ffffff00');grad.addColorStop(.5,i%2?'#fa668b26':'#4fd7f32b');grad.addColorStop(1,'#ffffff00');ctx.fillStyle=grad;ctx.beginPath();ctx.moveTo(x+70,135);ctx.lineTo(x+110,135);ctx.lineTo(x+255,675);ctx.lineTo(x+200,675);ctx.fill()}
+ctx.restore();
 }
 function scene(t){
 const phase=t<1.1?0:t<3.2?1:t<9.1?2:3;
@@ -158,6 +167,7 @@ txt('DRAFT INTEL',640,53,24,'#eaf6ff',900,'center');
 txt($('rank').value+'  •  '+$('patch').value,1242,51,18,'#c6d6e2',800,'right');
 rect(38,78,1204,2,'#c69c5e7c');
 if(phase<=1){
+draftAtmosphere(t);
 const allies=split('allies'),enemies=split('enemies'),threats=threatEntries();
 const matched=threats.map(v=>v.sources.toLowerCase()).join(' / ');
 const leftGlow=ctx.createRadialGradient(240,250,10,240,250,530);leftGlow.addColorStop(0,'#0476ae75');leftGlow.addColorStop(1,'#00000000');rect(0,95,630,510,leftGlow);
