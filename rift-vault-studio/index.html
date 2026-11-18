@@ -3,7 +3,7 @@
 <style>
 :root{color-scheme:dark;font-family:system-ui,Arial;background:#080e1d;color:#eaf6ff}*{box-sizing:border-box}body{margin:0;padding:16px;max-width:1050px;margin:auto}h1{font-size:1.5rem;margin:0;color:#f6cb72}p{color:#9db4c8}canvas{width:100%;aspect-ratio:16/9;border:1px solid #2a6685;border-radius:12px;background:#050c1c}section{background:#101b30;border:1px solid #23415d;border-radius:12px;padding:14px;margin:12px 0}label{display:block;font-size:.85rem;color:#afc8db;margin:8px 0}input,select{background:#091326;color:#fff;border:1px solid #31516e;border-radius:7px;padding:9px;width:100%}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}button{background:#00b5d6;color:#03131e;border:0;padding:12px 17px;border-radius:9px;font-weight:800;margin:4px;cursor:pointer}button.secondary{background:#273d56;color:white}button:disabled{opacity:.4}small{color:#91b3c7}#status{color:#e4b969} @media(max-width:600px){body{padding:8px}.grid{grid-template-columns:1fr}h1{font-size:1.2rem}}
 </style></head><body>
-<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v1.5</p>
+<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v1.6</p>
 <canvas id="stage" width="1280" height="720"></canvas>
 <div><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="12">FULL • 12s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export WebM (experimental)</button><span id="status"></span></div>
 <section><strong>MATCH SETTINGS</strong><div class="grid">
@@ -33,7 +33,7 @@ function champImg(name){const key=name.toLowerCase().replace(/[^a-z]/g,'');if(!i
 function portrait(name,x,y,w,h,accent){ctx.save();ctx.shadowColor=accent;ctx.shadowBlur=16;panel(x,y,w,h,accent);ctx.restore();const im=champImg(name);if(im.complete&&im.naturalWidth){const side=Math.min(w-6,h-6);ctx.drawImage(im,x+(w-side)/2,y+(h-side)/2,side,side)}else txt(name.slice(0,9).toUpperCase(),x+w/2,y+h/2+5,Math.min(16,w/7),'#e4edf5',700,'center')}
 
 // Temporary PC item icon references: displayed only for explicitly mapped item names.
-const itemIds={'trinity force':'3078',"sterak's gage":'3053',"death's dance":'6333','spirit visage':'3065','guardian angel':'3026','thornmail':'3075','rabadons deathcap':'3089',"rabadon's deathcap":'3089','infinity edge':'3031','blade of the ruined king':'3153','nashors tooth':'3115',"nashor's tooth":'3115','randuins omen':'3143',"randuin's omen":'3143','force of nature':'4401','sunfire aegis':'3068','frozen heart':'3110','liandrys torment':'3151',"liandry's torment":'3151'};
+const itemIds={'trinity force':'3078',"sterak's gage":'3053',"death's dance":'6333','spirit visage':'3065','guardian angel':'3026','thornmail':'3075','rabadons deathcap':'3089',"rabadon's deathcap":'3089','infinity edge':'3031','blade of the ruined king':'3153','nashors tooth':'3115',"nashor's tooth":'3115','randuins omen':'3143',"randuin's omen":'3143','force of nature':'4401','plated steelcaps':'3047','mercurys treads':'3111',"mercury's treads":'3111','ionian boots of lucidity':'3158','berserkers greaves':'3006','sunfire aegis':'3068','frozen heart':'3110','liandrys torment':'3151',"liandry's torment":'3151'};
 function itemImage(name){const key=name.toLowerCase().trim(),id=itemIds[key];if(!id)return null;const cacheKey='item:'+id;if(!imageCache.has(cacheKey)){const im=new Image();im.crossOrigin='anonymous';im.src='https://ddragon.leagueoflegends.com/cdn/14.24.1/img/item/'+id+'.png';im.onload=()=>{if(!playing)draw(elapsed)};imageCache.set(cacheKey,im)}return imageCache.get(cacheKey)}
 function itemTile(name,x,y,w,h,index,highlight,t=0){
 ctx.save();
@@ -88,14 +88,14 @@ function heroArt(name){const key='splash:'+name.toLowerCase().replace(/[^a-z]/g,
 function cinematicArt(t,phase){
 const im=heroArt($('champion').value.trim());
 if(!(im.complete&&im.naturalWidth))return;
-const pan=Math.sin(t*.34)*18,scale=1.09;
-ctx.save();ctx.globalAlpha=phase===2?.42:.68;
+const pan=Math.sin(t*.34)*24,scale=1.17;
+ctx.save();ctx.globalAlpha=phase===2?.67:.83;
 const ratio=Math.max(1280/im.width,720/im.height)*scale;
 const iw=im.width*ratio,ih=im.height*ratio;
 ctx.drawImage(im,(1280-iw)/2+pan,(720-ih)/2,iw,ih);
 ctx.restore();
 const shade=ctx.createLinearGradient(0,0,1280,0);
-shade.addColorStop(0,phase===2?'#020710df':'#0207109b');shade.addColorStop(.5,'#030916c9');shade.addColorStop(1,phase===2?'#020710df':'#020710aa');
+shade.addColorStop(0,phase===2?'#020710b8':'#0207108b');shade.addColorStop(.5,phase===2?'#030916ac':'#030916a0');shade.addColorStop(1,phase===2?'#020710c9':'#020710a4');
 rect(0,0,1280,720,shade);
 }
 function slant(x,y,w,h,color){ctx.save();ctx.fillStyle=color;ctx.beginPath();ctx.moveTo(x+22,y);ctx.lineTo(x+w,y);ctx.lineTo(x+w-22,y+h);ctx.lineTo(x,y+h);ctx.closePath();ctx.fill();ctx.restore()}
@@ -122,7 +122,7 @@ const threats=$('threats').value.toLowerCase();
 const priority=b.map((n,i)=>({i,hit:threats.includes(n.toLowerCase())})).filter(x=>x.hit).map(x=>x.i);
 txt('BLUE SIDE',48,133,19,'#73dfff',900);txt('RED SIDE',1230,133,19,'#ff8796',900,'right');
 a.slice(0,5).forEach((name,i)=>{const p=smooth((t-.08-i*.065)/.28);alpha(p,()=>{const x=40+i*119;portrait(name,x,155+(1-p)*45,108,105,'#1b91c5');txt(name.toUpperCase().slice(0,11),x+54,282,15,'#c5e9f6',800,'center')})});
-b.slice(0,5).forEach((name,i)=>{const p=smooth((t-.12-i*.065)/.28),hit=priority.includes(i),x=650+i*119,boost=phase===1&&hit?1.16:1;alpha(p,()=>{ctx.save();ctx.translate(x+54,207);ctx.scale(boost,boost);ctx.translate(-(x+54),-207);portrait(name,x,155-(1-p)*45,108,105,hit?'#ffb960':'#b54b61');ctx.restore();txt(name.toUpperCase().slice(0,11),x+54,282,15,hit?'#ffcf83':'#cbd4e0',800,'center');if(hit&&phase===1){ctx.save();ctx.strokeStyle='#ffd27b';ctx.lineWidth=3;ctx.strokeRect(x-6,149,120,117);ctx.restore()}})});
+b.slice(0,5).forEach((name,i)=>{const p=smooth((t-.12-i*.065)/.28),hit=priority.includes(i),x=650+i*119,boost=phase===1&&hit?1.16:1;alpha(p,()=>{ctx.save();ctx.translate(x+54,207);ctx.scale(boost,boost);ctx.translate(-(x+54),-207);portrait(name,x,155-(1-p)*45,108,105,hit?'#ffb960':'#b54b61');ctx.restore();txt(name.toUpperCase().slice(0,11),x+54,282,15,hit?'#ffcf83':'#cbd4e0',800,'center');if(hit&&phase===1){ctx.save();ctx.strokeStyle='#ffd27b';ctx.lineWidth=3;ctx.strokeRect(x-6,149,120,117);ctx.restore();ctx.save();ctx.globalAlpha=.65+.25*Math.sin(t*8);rect(x-6,145,120,3,'#ffc56f');ctx.restore()}})});
 alpha(smooth((t-.3)/.25),()=>{glowText('VS',635,234,42,'#ffd17e')});
 }
 const out=smooth((t-11.65)/.35);
@@ -143,9 +143,10 @@ const runes=split('runes').slice(0,5);
 if(runes.length!==5){txt('SELECT 1 KEYSTONE + 3 MAIN + 1 SECONDARY',640,450,24,'#ff9c8c',800,'center')}
 else{runes.forEach((name,i)=>{const k=smooth((t-4.8-i*.13)/.25);alpha(k,()=>{const x=102+i*220,y=404+(1-k)*42,im=runeImage(name);ctx.save();ctx.shadowColor=i===0?'#eec16b':i===4?'#b28df6':'#42cbe4';ctx.shadowBlur=i===0?32:17;ctx.strokeStyle=i===0?'#eec16b':i===4?'#b28df6':'#42cbe4';ctx.lineWidth=i===0?3:2;ctx.beginPath();ctx.arc(x+98,y+64,i===0?62:54,0,Math.PI*2);ctx.stroke();ctx.restore();if(im&&im.complete&&im.naturalWidth)ctx.drawImage(im,x+51,y+17,94,94);else txt('◆',x+98,y+83,48,'#fff',900,'center');txt(i===0?'KEYSTONE':i===4?'SECONDARY':'MAIN '+i,x+98,548,16,i===0?'#eec16b':i===4?'#d5b9ff':'#8fe4ef',900,'center');txt(name.toUpperCase().slice(0,21),x+98,580,18,'#fff',800,'center')})})}
 }else{
-const p=smooth((t-9.1)/.25);
+const p=smooth((t-9.1)/.4);
+const reveal=smooth((t-9.15)/.7);ctx.save();ctx.globalAlpha=(1-out)*.34;ctx.fillStyle='#32d8f0';ctx.beginPath();ctx.moveTo(-180+reveal*240,170);ctx.lineTo(0+reveal*240,170);ctx.lineTo(540+reveal*240,720);ctx.lineTo(320+reveal*240,720);ctx.fill();ctx.restore();
 alpha(p*(1-out),()=>{slant(90,260,1100,72,'#0b7184a9');glowText('THE WIN CONDITION',640,318,40,'#a4f0f7');rect(200,350,880,2,'#dcb86c');glowText($('strategy').value.slice(0,42),640,444,48,'#ffe2a1');txt($('champion').value.toUpperCase()+'  /  '+$('role').value.toUpperCase(),640,513,26,'#f4fbff',800,'center')});
-alpha(out,()=>{glowText('GAMEPLAY STARTS NOW',640,450,54,'#f6d27c')});
+alpha(out,()=>{ctx.save();ctx.fillStyle='#020610';ctx.fillRect(0,95,1280,580);ctx.restore();glowText('GAMEPLAY STARTS NOW',640,397,54,'#f6d27c');txt('RIFT VAULT  /  EVERY MATCH HAS A STORY',640,467,22,'#a9ddeb',800,'center')});
 }
 rect(42,681,1196,6,'#183447');rect(42,681,1196*clamp(t/12),6,'#e2b75a');
 }
