@@ -3,7 +3,7 @@
 <style>
 :root{color-scheme:dark;font-family:system-ui,Arial;background:#080e1d;color:#eaf6ff}*{box-sizing:border-box}body{margin:0;padding:16px;max-width:1050px;margin:auto}h1{font-size:1.5rem;margin:0;color:#f6cb72}p{color:#9db4c8}canvas{width:100%;aspect-ratio:16/9;border:1px solid #2a6685;border-radius:12px;background:#050c1c}section{background:#101b30;border:1px solid #23415d;border-radius:12px;padding:14px;margin:12px 0}label{display:block;font-size:.85rem;color:#afc8db;margin:8px 0}input,select{background:#091326;color:#fff;border:1px solid #31516e;border-radius:7px;padding:9px;width:100%}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}button{background:#00b5d6;color:#03131e;border:0;padding:12px 17px;border-radius:9px;font-weight:800;margin:4px;cursor:pointer}button.secondary{background:#273d56;color:white}button:disabled{opacity:.4}small{color:#91b3c7}#status{color:#e4b969} @media(max-width:600px){body{padding:8px}.grid{grid-template-columns:1fr}h1{font-size:1.2rem}}
 </style></head><body>
-<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v2.0</p>
+<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v2.1</p>
 <canvas id="stage" width="1280" height="720"></canvas>
 <div><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="12">FULL • 12s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export WebM (experimental)</button><span id="status"></span></div>
 <section><strong>MATCH SETTINGS</strong><div class="grid">
@@ -15,7 +15,7 @@
 <label>Enemy team (comma separated)<input id="enemies" value="Aatrox,Kayn,Annie,Ezreal,Lulu"></label>
 <label>Items used (comma separated)<input id="items" value="Trinity Force,Sterak's Gage,Death's Dance,Spirit Visage,Guardian Angel"></label>
 <label>Boots used<input id="boots" value="Plated Steelcaps"></label><label>Runes used (comma separated)<input id="runes" value="Conqueror,Triumph,Last Stand,Legend: Alacrity,Bone Plating"></label>
-<label>Threats — review before publishing<input id="threats" value="HEALING • Aatrox / Kayn;BURST • Annie;CROWD CONTROL • Lulu"></label>
+<label>Top composition threats — CATEGORY | LEVEL | CHAMPIONS (semicolon separated)<input id="threats" value="SUSTAIN | HIGH | Aatrox / Kayn;AP BURST | HIGH | Annie;SHIELDS | MEDIUM | Lulu / Annie"></label>
 <label>Hook — match-specific question<input id="hook" value="CAN SHYVANA CONTROL THE DRAGONS?"></label><label>Key response — only if supported by actual items<input id="response" value="BUILD TO SURVIVE THEIR BURST"></label><label>Win condition — review before publishing<input id="strategy" value="SCALE UP • CONTROL DRAGONS"></label>
 </div><small>Demo data only. Champion and supported item icons use temporary League PC assets, not yet verified Wild Rift-specific. Unsupported items fall back to text. This version does not yet infer accurate threats or builds automatically. Enter real match information.</small></section>
 <script>
@@ -110,6 +110,16 @@ function loadoutIcon(name,x,y,size,accent,index){
 const im=itemImage(name);ctx.save();ctx.shadowColor=accent;ctx.shadowBlur=25;ctx.strokeStyle=accent;ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(x+12,y);ctx.lineTo(x+size,y);ctx.lineTo(x+size-12,y+size);ctx.lineTo(x,y+size);ctx.closePath();ctx.stroke();ctx.restore();
 if(im&&im.complete&&im.naturalWidth){ctx.save();ctx.beginPath();ctx.moveTo(x+12,y+3);ctx.lineTo(x+size-4,y+3);ctx.lineTo(x+size-16,y+size-3);ctx.lineTo(x+4,y+size-3);ctx.closePath();ctx.clip();ctx.drawImage(im,x,y,size,size);ctx.restore()}else{txt(String(index).padStart(2,'0'),x+size/2,y+size/2+11,33,accent,900,'center')}
 }
+function threatEntries(){
+return $('threats').value.split(';').map(v=>v.trim()).filter(Boolean).slice(0,3).map(v=>{
+const p=v.split('|').map(x=>x.trim());
+if(p.length>=3)return {category:p[0],level:p[1].toUpperCase(),sources:p.slice(2).join(' | ')};
+const old=v.split('•').map(x=>x.trim());return {category:old[0]||'THREAT',level:'REVIEW',sources:old.slice(1).join(' • ')};
+});
+}
+function fittedText(value,x,y,maxWidth,size,color,weight=900,align='center'){
+ctx.save();let sz=size;do{ctx.font=weight+' '+sz+'px system-ui,Arial';if(ctx.measureText(value).width<=maxWidth)break;sz-=2}while(sz>15);txt(value,x,y,sz,color,weight,align);ctx.restore();
+}
 function scene(t){
 const w=1280,h=720,phase=t<1.1?0:t<3.2?1:t<9.1?2:3;
 ctx.clearRect(0,0,w,h);
@@ -126,7 +136,7 @@ txt('DRAFT / INTEL',638,61,23,'#e4f2fa',900,'center');
 txt($('rank').value+'  /  '+$('patch').value,1238,59,19,'#bbd0dd',800,'right');
 rect(42,87,1196,2,'#ffffff24');rect(42,87,phase===1?330:phase===2?680:170,3,accent);
 if(phase<=1){
-const allies=split('allies'),enemies=split('enemies'),threats=$('threats').value.toLowerCase();
+const allies=split('allies'),enemies=split('enemies'),threats=threatEntries().map(v=>v.sources.toLowerCase()).join(' / ');
 const priority=enemies.map((n,i)=>threats.includes(n.toLowerCase())?i:-1).filter(i=>i>=0);
 alpha(smooth((t-.08)/.22),()=>{slant(36,120,555,40,'#075477a0');slant(688,120,555,40,'#7d263fa0');txt('YOUR SQUAD',62,150,26,'#95edff',900);txt('OPPOSITION',1216,150,26,'#ffb1b8',900,'right')});
 allies.slice(0,5).forEach((name,i)=>{const k=smooth((t-.1-i*.055)/.3);alpha(k,()=>draftPortrait(name,42+i*110,181+(1-k)*55,103,164,'#26a5d0'))});
@@ -136,11 +146,19 @@ alpha(smooth((t-.28)/.22),()=>glowText('VS',640,294,60,'#f3ce86'));
 const out=smooth((t-11.65)/.35);
 if(phase===0){
 const p=smooth((t-.3)/.35);
-alpha(p,()=>{txt($('hook').value.slice(0,40),640,350,44,'#ffffff',900,'center');txt('THE MATCHUP CHANGES EVERYTHING',640,412,27,'#ffb765',900,'center')});
+alpha(p,()=>{const g=ctx.createLinearGradient(0,376,0,550);g.addColorStop(0,'#04101bdd');g.addColorStop(1,'#04101b00');rect(75,380,1130,170,g);fittedText($('hook').value.slice(0,65),640,447,1050,47,'#ffffff');txt('EVERY MATCH HAS A STORY',640,493,22,'#ffcf82',900,'center')});
 }else if(phase===1){
-const threats=$('threats').value.split(';').map(x=>x.trim()).filter(Boolean);
-alpha(smooth((t-1.1)/.2),()=>{txt('THREAT ASSESSMENT',640,414,34,'#ffbfac',900,'center');rect(166,431,948,2,'#a74d5d')});
-threats.slice(0,3).forEach((v,i)=>{const k=smooth((t-1.34-i*.18)/.25);alpha(k,()=>{const x=178+i*310;slant(x,462,298,117,i===0?'#633142cf':'#14283bd9');txt('0'+(i+1),x+22,499,25,i===0?'#ffcf8e':'#77b8d2',900);const parts=v.toUpperCase().split('•');txt((parts[0]||'').trim().slice(0,17),x+22,533,23,'#fff',900);txt((parts[1]||'').trim().slice(0,20),x+22,561,18,'#e2c5bd',700)})});
+const threats=threatEntries();
+alpha(smooth((t-1.1)/.2),()=>{txt('ENEMY COMPOSITION',640,410,31,'#ffdbad',900,'center');rect(162,430,956,2,'#c47c6c')});
+threats.forEach((v,i)=>{const k=smooth((t-1.34-i*.18)/.25);alpha(k,()=>{
+const x=165+i*319,y=455,w=300,h=139,col=v.level==='HIGH'?'#f07972':v.level==='MEDIUM'?'#e4b96c':'#69c7dc';
+ctx.save();ctx.shadowColor=col;ctx.shadowBlur=i===0?18:9;slant(x,y,w,h,'#071a2bdb');ctx.restore();
+rect(x+15,y+13,5,101,col);txt('0'+(i+1),x+30,y+38,19,col,900);
+fittedText(v.category.toUpperCase(),x+30,y+72,246,29,'#fff',900,'left');
+fittedText(v.sources.toUpperCase(),x+30,y+100,246,18,'#b9d4e3',700,'left');
+const lvl=v.level==='HIGH'?'HIGH':v.level==='MEDIUM'?'MEDIUM':v.level==='LOW'?'LOW':'REVIEW';
+txt(lvl,x+30,y+126,15,col,900);rect(x+112,y+116,166,5,'#24404e');rect(x+112,y+116,166*(lvl==='HIGH'?.95:lvl==='MEDIUM'?.62:lvl==='LOW'?.32:0),5,col);
+})});
 }else if(phase===2){
 const items=split('items').slice(0,5),boots=$('boots').value.trim();
 alpha(smooth((t-3.25)/.3),()=>{txt('TACTICAL LOADOUT',640,147,35,'#ffe3a8',900,'center');rect(190,164,900,2,'#ad844a')});
