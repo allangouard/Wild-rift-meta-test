@@ -3,7 +3,7 @@
 <style>
 :root{color-scheme:dark;font-family:system-ui,Arial;background:#080e1d;color:#eaf6ff}*{box-sizing:border-box}body{margin:0;padding:16px;max-width:1050px;margin:auto}h1{font-size:1.5rem;margin:0;color:#f6cb72}p{color:#9db4c8}canvas{width:100%;aspect-ratio:16/9;border:1px solid #2a6685;border-radius:12px;background:#050c1c}section{background:#101b30;border:1px solid #23415d;border-radius:12px;padding:14px;margin:12px 0}label{display:block;font-size:.85rem;color:#afc8db;margin:8px 0}input,select{background:#091326;color:#fff;border:1px solid #31516e;border-radius:7px;padding:9px;width:100%}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}button{background:#00b5d6;color:#03131e;border:0;padding:12px 17px;border-radius:9px;font-weight:800;margin:4px;cursor:pointer}button.secondary{background:#273d56;color:white}button:disabled{opacity:.4}small{color:#91b3c7}#status{color:#e4b969} @media(max-width:600px){body{padding:8px}.grid{grid-template-columns:1fr}h1{font-size:1.2rem}}
 </style></head><body>
-<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • 7-second animated intro • prototype v0.1</p>
+<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • 7-second animated intro • prototype v0.2</p>
 <canvas id="stage" width="1280" height="720"></canvas>
 <div><button id="play">▶ Preview 7s</button><button id="export" class="secondary">⬇ Export WebM (experimental)</button><span id="status"></span></div>
 <section><strong>MATCH SETTINGS</strong><div class="grid">
@@ -17,7 +17,7 @@
 <label>Runes used (comma separated)<input id="runes" value="Conqueror,Triumph,Last Stand,Legend: Alacrity"></label>
 <label>Threats — review before publishing<input id="threats" value="HEALING • Aatrox / Kayn;BURST • Annie;CROWD CONTROL • Lulu"></label>
 <label>Win condition — review before publishing<input id="strategy" value="SCALE UP • CONTROL DRAGONS"></label>
-</div><small>Demo data only. This version does not yet infer accurate threats or builds automatically. Enter real match information.</small></section>
+</div><small>Demo data only. Champion portraits use temporary League PC icons, not yet Wild Rift-specific. Item/rune icons are not yet integrated. This version does not yet infer accurate threats or builds automatically. Enter real match information.</small></section>
 <script>
 const c=document.getElementById('stage'),ctx=c.getContext('2d');let raf=0,start=0,elapsed=0,playing=false;
 const $=id=>document.getElementById(id), split=id=>$(id).value.split(',').map(s=>s.trim()).filter(Boolean);
@@ -28,7 +28,9 @@ function panel(x,y,w,h,stroke='#168fba'){rect(x,y,w,h,'#0a192be8',stroke)}
 function line(x,y,w,col){rect(x,y,w,3,col)}
 function alpha(a,fn){ctx.save();ctx.globalAlpha=clamp(a);fn();ctx.restore()}
 function chip(s,x,y,w,color){rect(x,y,w,43,'#132b42',color);txt(s,x+10,y+28,18,'#f5f9ff',700)}
-function portrait(name,x,y,w,h,accent){panel(x,y,w,h,accent);txt(name.slice(0,9).toUpperCase(),x+w/2,y+h/2+5,Math.min(16,w/7),'#e4edf5',700,'center')}
+const imageCache=new Map();
+function champImg(name){const key=name.toLowerCase().replace(/[^a-z]/g,'');if(!imageCache.has(key)){const im=new Image();im.crossOrigin='anonymous';const mapped={wukong:'MonkeyKing',nunu:'Nunu',kaisa:'Kaisa',khazix:'Khazix',kogmaw:'KogMaw',reksai:'RekSai'};im.src='https://ddragon.leagueoflegends.com/cdn/14.24.1/img/champion/'+(mapped[key]||name.replace(/[^a-zA-Z]/g,''))+'.png';im.onload=()=>{if(!playing)draw(elapsed)};imageCache.set(key,im)}return imageCache.get(key)}
+function portrait(name,x,y,w,h,accent){ctx.save();ctx.shadowColor=accent;ctx.shadowBlur=16;panel(x,y,w,h,accent);ctx.restore();const im=champImg(name);if(im.complete&&im.naturalWidth){const side=Math.min(w-6,h-6);ctx.drawImage(im,x+(w-side)/2,y+(h-side)/2,side,side)}else txt(name.slice(0,9).toUpperCase(),x+w/2,y+h/2+5,Math.min(16,w/7),'#e4edf5',700,'center')}
 function scene(t){
 const w=1280,h=720;ctx.clearRect(0,0,w,h);
 const bg=ctx.createLinearGradient(0,0,w,h);bg.addColorStop(0,'#061b35');bg.addColorStop(.5,'#050b19');bg.addColorStop(1,'#211323');rect(0,0,w,h,bg);
