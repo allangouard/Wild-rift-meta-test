@@ -3,7 +3,7 @@
 <style>
 :root{color-scheme:dark;font-family:system-ui,Arial;background:#080e1d;color:#eaf6ff}*{box-sizing:border-box}body{margin:0;padding:16px;max-width:1050px;margin:auto}h1{font-size:1.5rem;margin:0;color:#f6cb72}p{color:#9db4c8}canvas{width:100%;aspect-ratio:16/9;border:1px solid #2a6685;border-radius:12px;background:#050c1c}section{background:#101b30;border:1px solid #23415d;border-radius:12px;padding:14px;margin:12px 0}label{display:block;font-size:.85rem;color:#afc8db;margin:8px 0}input,select{background:#091326;color:#fff;border:1px solid #31516e;border-radius:7px;padding:9px;width:100%}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}button{background:#00b5d6;color:#03131e;border:0;padding:12px 17px;border-radius:9px;font-weight:800;margin:4px;cursor:pointer}button.secondary{background:#273d56;color:white}button:disabled{opacity:.4}small{color:#91b3c7}#status{color:#e4b969} @media(max-width:600px){body{padding:8px}.grid{grid-template-columns:1fr}h1{font-size:1.2rem}}
 </style></head><body>
-<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v1.4</p>
+<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v1.5</p>
 <canvas id="stage" width="1280" height="720"></canvas>
 <div><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="12">FULL • 12s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export WebM (experimental)</button><span id="status"></span></div>
 <section><strong>MATCH SETTINGS</strong><div class="grid">
@@ -118,42 +118,33 @@ txt('DRAFT INTEL',640,65,35,'#f4fbff',900,'center');
 txt($('rank').value+'   •   PATCH '+$('patch').value,1235,48,19,'#b7d5e9',700,'right');rect(42,91,1196,2,'#1b7193');rect(42,91,290,3,'#d9a64b');rect(948,91,290,3,'#d9a64b');
 if(phase<=1){
 const a=split('allies'),b=split('enemies');
-txt('YOUR TEAM',44,124,21,'#2cc9ff');txt('ENEMY TEAM',1238,124,21,'#ff6974',700,'right');
-a.slice(0,5).forEach((name,i)=>{const p=smooth((t-.08-i*.075)/.34);alpha(p,()=>portrait(name,42+i*118,145+(1-p)*65,108,95,'#16a5d8'))});
-b.slice(0,5).forEach((name,i)=>{const p=smooth((t-.13-i*.075)/.34);alpha(p,()=>portrait(name,652+i*118,145-(1-p)*65,108,95,'#d34859'))});
-alpha(smooth((t-.35)/.25),()=>{txt('VS',640,211,42,'#f1bb56',900,'center');pulse(640,198,32,'#ffbf50')});
+const threats=$('threats').value.toLowerCase();
+const priority=b.map((n,i)=>({i,hit:threats.includes(n.toLowerCase())})).filter(x=>x.hit).map(x=>x.i);
+txt('BLUE SIDE',48,133,19,'#73dfff',900);txt('RED SIDE',1230,133,19,'#ff8796',900,'right');
+a.slice(0,5).forEach((name,i)=>{const p=smooth((t-.08-i*.065)/.28);alpha(p,()=>{const x=40+i*119;portrait(name,x,155+(1-p)*45,108,105,'#1b91c5');txt(name.toUpperCase().slice(0,11),x+54,282,15,'#c5e9f6',800,'center')})});
+b.slice(0,5).forEach((name,i)=>{const p=smooth((t-.12-i*.065)/.28),hit=priority.includes(i),x=650+i*119,boost=phase===1&&hit?1.16:1;alpha(p,()=>{ctx.save();ctx.translate(x+54,207);ctx.scale(boost,boost);ctx.translate(-(x+54),-207);portrait(name,x,155-(1-p)*45,108,105,hit?'#ffb960':'#b54b61');ctx.restore();txt(name.toUpperCase().slice(0,11),x+54,282,15,hit?'#ffcf83':'#cbd4e0',800,'center');if(hit&&phase===1){ctx.save();ctx.strokeStyle='#ffd27b';ctx.lineWidth=3;ctx.strokeRect(x-6,149,120,117);ctx.restore()}})});
+alpha(smooth((t-.3)/.25),()=>{glowText('VS',635,234,42,'#ffd17e')});
 }
 const out=smooth((t-11.65)/.35);
 if(phase===0){
 const p=smooth((t-.3)/.35);
 alpha(p,()=>{txt($('hook').value.slice(0,40),640,350,44,'#ffffff',900,'center');txt('THE MATCHUP CHANGES EVERYTHING',640,412,27,'#ffb765',900,'center')});
 }else if(phase===1){
-const p=smooth((t-1.1)/.22),q=smooth((t-1.35)/.24);
-alpha(p,()=>{slant(56,268,1165,72,'#661f35db');rect(60,346,8,218,'#ff6579');glowText('ENEMY THREATS',93,323,43,'#ff9b9d','left')});
 const threats=$('threats').value.split(';').map(x=>x.trim()).filter(Boolean);
-threats.slice(0,3).forEach((v,i)=>{const k=smooth((t-1.4-i*.22)/.23);alpha(k,()=>{const y=368+i*63;rect(95,y-34,1080*k,54,i===0?'#712c3b':'#1b2c40',i===0?'#ff6a75':'#41607b');txt((i===0?'⚠  ':'•  ')+v.slice(0,65),116,y+2,i===0?31:26,i===0?'#ffffff':'#cce5f3',800)})});
-if(q){pulse(1100,330,15,'#ff5269');beam(1070,332,1200,260,t,'#ff5366')}
+alpha(smooth((t-1.1)/.2),()=>{slant(50,318,1180,62,'#531d32dd');glowText('PRIORITY THREATS',640,363,37,'#ffb3ad')});
+threats.slice(0,3).forEach((v,i)=>{const k=smooth((t-1.35+i*-.18)/.26);alpha(k,()=>{const y=414+i*69;rect(95,y-34,8,52,i===0?'#ffb867':'#b94f65');txt(('0'+(i+1))+'  '+v.toUpperCase().slice(0,56),125,y,29,i===0?'#ffe2b2':'#e7eaf2',800)})});
 }else if(phase===2){
 const items=split('items').slice(0,5),boots=$('boots').value.trim();
-aura(640,270,570,'#d7a34920');
-alpha(smooth((t-3.25)/.28),()=>{slant(420,99,440,42,'#a7792b88');txt('MATCH LOADOUT',640,129,25,'#ffe3a4',900,'center')});
-items.forEach((name,i)=>{
-const entry=3.25+i*.26,k=smooth((t-entry)/.32);
-alpha(k,()=>{const x=56+i*202,y=164+(1-k)*90;
-ctx.save();ctx.translate(x+95,y+58);ctx.scale(.75+.25*k,.75+.25*k);ctx.translate(-(x+95),-(y+58));itemTile(name,x,y,190,116,i+1,i===0,t);ctx.restore()});
-if(t>entry&&t<entry+.35){ctx.save();ctx.globalAlpha=(1-smooth((t-entry)/.35))*.7;rect(56+i*202,159,190,4,'#f7d18b');ctx.restore()}
-});
-if(boots){const k=smooth((t-4.7)/.3);alpha(k,()=>{itemTile(boots,1068,164+(1-k)*55,160,116,6,false,t);txt('BOOTS',1148,305,17,'#88dbea',800,'center')})}
-alpha(smooth((t-4.45)/.25),()=>{rect(58,329,1164,2,'#c4934d');txt('RUNES',64,369,27,'#f3cb83',900)});
+alpha(smooth((t-3.25)/.28),()=>{txt('THE LOADOUT',640,133,29,'#ffe1a0',900,'center')});
+items.forEach((name,i)=>{const entry=3.25+i*.26,k=smooth((t-entry)/.34);alpha(k,()=>{const x=55+i*202,y=175+(1-k)*70;const im=itemImage(name);ctx.save();ctx.shadowColor=i===0?'#f5bf59':'#45d8ed';ctx.shadowBlur=i===0?35:22;rect(x,y,178,108,'#061421b8');ctx.restore();if(im&&im.complete&&im.naturalWidth)ctx.drawImage(im,x+47,y+3,84,84);else txt(('0'+(i+1)),x+89,y+69,40,'#f2cf83',900,'center');txt(name.toUpperCase().slice(0,20),x+89,y+131,15,'#fff',800,'center');rect(x,y+112,178,2,i===0?'#f5c66d':'#41bbd9')})});
+if(boots){const k=smooth((t-4.7)/.3);alpha(k,()=>{const x=1066,y=175+(1-k)*70,im=itemImage(boots);ctx.save();ctx.shadowColor='#45d8ed';ctx.shadowBlur=20;rect(x,y,160,108,'#061421b8');ctx.restore();if(im&&im.complete&&im.naturalWidth)ctx.drawImage(im,x+38,y+4,84,84);else txt('BOOTS',x+80,y+63,21,'#f7d39a',900,'center');txt(boots.toUpperCase().slice(0,19),x+80,y+131,14,'#fff',800,'center');rect(x,y+112,160,2,'#41bbd9')})}
+alpha(smooth((t-4.45)/.25),()=>{txt('RUNE CONFIGURATION',640,364,26,'#f8d38e',900,'center')});
 const runes=split('runes').slice(0,5);
-if(runes.length!==5){alpha(smooth((t-4.65)/.2),()=>txt('ADD 5 RUNES: KEYSTONE + 3 MAIN + 1 SECONDARY',640,440,26,'#ff8d86',900,'center'))}
-else{runes.forEach((name,i)=>{const k=smooth((t-4.8-i*.13)/.25);
-alpha(k,()=>{if(i===0)runeCard(name,64,385,1150,98,1,true);
-else if(i<=3){const x=64+((i-1)%2)*580,y=497+Math.floor((i-1)/2)*83;runeCard(name,x,y,560,75,i,false,false)}
-else runeCard(name,644,580,570,75,1,false,true)})})}
+if(runes.length!==5){txt('SELECT 1 KEYSTONE + 3 MAIN + 1 SECONDARY',640,450,24,'#ff9c8c',800,'center')}
+else{runes.forEach((name,i)=>{const k=smooth((t-4.8-i*.13)/.25);alpha(k,()=>{const x=102+i*220,y=404+(1-k)*42,im=runeImage(name);ctx.save();ctx.shadowColor=i===0?'#eec16b':i===4?'#b28df6':'#42cbe4';ctx.shadowBlur=i===0?32:17;ctx.strokeStyle=i===0?'#eec16b':i===4?'#b28df6':'#42cbe4';ctx.lineWidth=i===0?3:2;ctx.beginPath();ctx.arc(x+98,y+64,i===0?62:54,0,Math.PI*2);ctx.stroke();ctx.restore();if(im&&im.complete&&im.naturalWidth)ctx.drawImage(im,x+51,y+17,94,94);else txt('◆',x+98,y+83,48,'#fff',900,'center');txt(i===0?'KEYSTONE':i===4?'SECONDARY':'MAIN '+i,x+98,548,16,i===0?'#eec16b':i===4?'#d5b9ff':'#8fe4ef',900,'center');txt(name.toUpperCase().slice(0,21),x+98,580,18,'#fff',800,'center')})})}
 }else{
 const p=smooth((t-9.1)/.25);
-alpha(p*(1-out),()=>{slant(72,268,1135,72,'#0c6a87b8');glowText('THE WIN CONDITION',640,322,43,'#8beaff');rect(185,362,910,3,'#dcb86c');glowText($('strategy').value.slice(0,42),640,447,49,'#ffe1a1');txt($('champion').value.toUpperCase()+'  •  '+$('role').value.toUpperCase(),640,520,29,'#f4fbff',800,'center')});
+alpha(p*(1-out),()=>{slant(90,260,1100,72,'#0b7184a9');glowText('THE WIN CONDITION',640,318,40,'#a4f0f7');rect(200,350,880,2,'#dcb86c');glowText($('strategy').value.slice(0,42),640,444,48,'#ffe2a1');txt($('champion').value.toUpperCase()+'  /  '+$('role').value.toUpperCase(),640,513,26,'#f4fbff',800,'center')});
 alpha(out,()=>{glowText('GAMEPLAY STARTS NOW',640,450,54,'#f6d27c')});
 }
 rect(42,681,1196,6,'#183447');rect(42,681,1196*clamp(t/12),6,'#e2b75a');
