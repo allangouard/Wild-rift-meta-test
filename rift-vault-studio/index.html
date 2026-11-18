@@ -3,7 +3,7 @@
 <style>
 :root{color-scheme:dark;font-family:system-ui,Arial;background:#080e1d;color:#eaf6ff}*{box-sizing:border-box}body{margin:0;padding:16px;max-width:1050px;margin:auto}h1{font-size:1.5rem;margin:0;color:#f6cb72}p{color:#9db4c8}canvas{width:100%;aspect-ratio:16/9;border:1px solid #2a6685;border-radius:12px;background:#050c1c}section{background:#101b30;border:1px solid #23415d;border-radius:12px;padding:14px;margin:12px 0}label{display:block;font-size:.85rem;color:#afc8db;margin:8px 0}input,select{background:#091326;color:#fff;border:1px solid #31516e;border-radius:7px;padding:9px;width:100%}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}button{background:#00b5d6;color:#03131e;border:0;padding:12px 17px;border-radius:9px;font-weight:800;margin:4px;cursor:pointer}button.secondary{background:#273d56;color:white}button:disabled{opacity:.4}small{color:#91b3c7}#status{color:#e4b969} @media(max-width:600px){body{padding:8px}.grid{grid-template-columns:1fr}h1{font-size:1.2rem}}
 </style></head><body>
-<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v1.2</p>
+<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v1.3</p>
 <canvas id="stage" width="1280" height="720"></canvas>
 <div><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="12">FULL • 12s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export WebM (experimental)</button><span id="status"></span></div>
 <section><strong>MATCH SETTINGS</strong><div class="grid">
@@ -40,7 +40,7 @@ ctx.save();
 const gold=highlight?'#e9ba56':'#49c9ec';
 ctx.shadowColor=gold;ctx.shadowBlur=highlight?33:16;
 const g=ctx.createLinearGradient(x,y,x+w,y+h);g.addColorStop(0,highlight?'#4a361b':'#0b3045');g.addColorStop(1,'#050c18');
-rect(x,y,w,h,g,gold);ctx.restore();
+rect(x,y,w,h,g,gold);ctx.restore();ctx.save();ctx.fillStyle=gold;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+19,y);ctx.lineTo(x,y+19);ctx.fill();ctx.beginPath();ctx.moveTo(x+w,y+h);ctx.lineTo(x+w-19,y+h);ctx.lineTo(x+w,y+h-19);ctx.fill();ctx.restore();
 ctx.save();ctx.globalAlpha=.75;rect(x+5,y+5,w-10,3,highlight?'#e5bb62':'#4dbdd7');ctx.restore();
 const im=itemImage(name);
 if(im&&im.complete&&im.naturalWidth){
@@ -75,7 +75,7 @@ const runeIcons={
 function runeImage(name){const path=runeIcons[name.toLowerCase().trim()];if(!path)return null;const key='rune:'+path;if(!imageCache.has(key)){const im=new Image();im.crossOrigin='anonymous';im.src='https://ddragon.leagueoflegends.com/cdn/img/perk-images/'+path;im.onload=()=>{if(!playing)draw(elapsed)};imageCache.set(key,im)}return imageCache.get(key)}
 function runeCard(name,x,y,w,h,index,primary,secondary=false){
 ctx.save();ctx.shadowColor=primary?'#e8b44f':'#13a6d7';ctx.shadowBlur=primary?22:10;
-rect(x,y,w,h,primary?'#292416':'#0b2133',primary?'#e9b64d':secondary?'#aa85e8':'#237b9b');ctx.restore();
+const gr=ctx.createLinearGradient(x,y,x+w,y+h);gr.addColorStop(0,primary?'#49351a':secondary?'#231c39':'#0a2e43');gr.addColorStop(1,'#050d18');rect(x,y,w,h,gr,primary?'#e9b64d':secondary?'#aa85e8':'#237b9b');ctx.restore();
 const im=runeImage(name),size=primary?88:78;
 if(im&&im.complete&&im.naturalWidth)ctx.drawImage(im,x+18,y+(h-size)/2,size,size);
 else{ctx.save();ctx.beginPath();ctx.arc(x+58,y+h/2,32,0,Math.PI*2);ctx.strokeStyle=primary?'#f2c96f':'#6be1ef';ctx.lineWidth=3;ctx.stroke();txt('◆',x+58,y+h/2+11,31,'#d7dfe9',900,'center');ctx.restore()}
@@ -85,14 +85,19 @@ txt(name.slice(0,26).toUpperCase(),x+120,y+72,primary?30:24,'#ffffff',900);
 function scene(t){
 const w=1280,h=720,phase=t<1.1?0:t<3.2?1:t<9.1?2:3;
 ctx.clearRect(0,0,w,h);
-const bg=ctx.createRadialGradient(630,300,80,640,360,800);bg.addColorStop(0,'#092a49');bg.addColorStop(.6,'#030a17');bg.addColorStop(1,'#02040c');rect(0,0,w,h,bg);
-const sweep=(t*70)%1800;ctx.save();ctx.globalAlpha=.09;for(let j=0;j<4;j++){ctx.strokeStyle=j%2?'#efb64c':'#1bd7ff';ctx.lineWidth=2;ctx.strokeRect(12+j*9,12+j*9,1256-j*18,696-j*18)}ctx.restore();
-ctx.save();ctx.translate(sweep-600,0);ctx.rotate(-.25);rect(-45,-100,85,1100,'#176e9b17');rect(50,-100,15,1100,'#ffbb4515');ctx.restore();
-for(let i=0;i<13;i++){ctx.strokeStyle=i%2?'#0a7fb940':'#d99d3640';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(i*145-200,0);ctx.lineTo(i*145+180,720);ctx.stroke()}
+// RIFT VAULT visual identity: dark cinematic arena, asymmetric light, restrained particles
+const bg=ctx.createLinearGradient(0,0,1280,720);bg.addColorStop(0,'#02050d');bg.addColorStop(.5,'#071528');bg.addColorStop(1,'#01040a');rect(0,0,w,h,bg);
+function aura(x,y,r,col){const g=ctx.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,col);g.addColorStop(1,'#00000000');rect(x-r,y-r,2*r,2*r,g)}
+aura(120,340,470,'#0bb7ed32');aura(1160,320,480,'#d39a3430');aura(650,660,420,'#0d6c9d22');
+ctx.save();ctx.globalAlpha=.2;
+for(let i=0;i<8;i++){ctx.strokeStyle=i%2?'#19bde3':'#d7a448';ctx.lineWidth=i%2?2:1;ctx.beginPath();ctx.moveTo(i*210-350,720);ctx.lineTo(i*210+180,0);ctx.stroke()}
+ctx.restore();
+ctx.save();ctx.strokeStyle='#bd8b3d';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(23,118);ctx.lineTo(23,23);ctx.lineTo(250,23);ctx.moveTo(1030,23);ctx.lineTo(1257,23);ctx.lineTo(1257,118);ctx.stroke();ctx.strokeStyle='#2cc7e5';ctx.beginPath();ctx.moveTo(23,600);ctx.lineTo(23,697);ctx.lineTo(260,697);ctx.moveTo(1020,697);ctx.lineTo(1257,697);ctx.lineTo(1257,600);ctx.stroke();ctx.restore();
+for(let i=0;i<26;i++){const x=(i*199+Math.sin(t*.3+i)*23)%1280,y=(i*137+Math.cos(t*.5+i)*12)%720;ctx.save();ctx.globalAlpha=.13+.13*Math.sin(t*1.4+i);rect(x,y,i%4===0?3:2,i%4===0?3:2,i%2?'#d3b064':'#62cdeb');ctx.restore()}
 const pulse=(x,y,r,color)=>{ctx.save();ctx.globalAlpha=.17+.11*Math.sin(t*10);ctx.strokeStyle=color;ctx.lineWidth=7;ctx.beginPath();ctx.arc(x,y,r+6*Math.sin(t*8),0,Math.PI*2);ctx.stroke();ctx.restore()};
-glowText('RIFT',42,62,42,'#d8f8ff','left');glowText('VAULT',170,62,42,'#e8b754','left');
-txt('DRAFT INTEL',640,64,40,'#f4fbff',900,'center');
-txt($('rank').value+'   •   PATCH '+$('patch').value,1235,48,19,'#b7d5e9',700,'right');line(40,84,1200,'#1bbde0');
+glowText('RIFT',42,66,44,'#e5faff','left');glowText('VAULT',178,66,44,'#f4c773','left');
+txt('DRAFT INTEL',640,65,35,'#f4fbff',900,'center');
+txt($('rank').value+'   •   PATCH '+$('patch').value,1235,48,19,'#b7d5e9',700,'right');rect(42,91,1196,2,'#1b7193');rect(42,91,290,3,'#d9a64b');rect(948,91,290,3,'#d9a64b');
 if(phase<=1){
 const a=split('allies'),b=split('enemies');
 txt('YOUR TEAM',44,124,21,'#2cc9ff');txt('ENEMY TEAM',1238,124,21,'#ff6974',700,'right');
@@ -112,7 +117,7 @@ threats.slice(0,3).forEach((v,i)=>{const k=smooth((t-1.4-i*.22)/.23);alpha(k,()=
 if(q){pulse(1100,330,15,'#ff5269');beam(1070,332,1200,260,t,'#ff5366')}
 }else if(phase===2){
 const items=split('items').slice(0,5),boots=$('boots').value.trim();
-ctx.save();const aura=ctx.createRadialGradient(640,270,10,640,270,590);aura.addColorStop(0,'#d7a34926');aura.addColorStop(.48,'#1f8eae13');aura.addColorStop(1,'#00000000');rect(0,88,1280,600,aura);ctx.restore();
+aura(640,270,570,'#d7a34920');
 alpha(smooth((t-3.25)/.28),()=>{txt('MATCH LOADOUT',640,126,24,'#f2c46c',900,'center')});
 items.forEach((name,i)=>{
 const entry=3.25+i*.26,k=smooth((t-entry)/.32);
