@@ -3,7 +3,7 @@
 <style>
 :root{color-scheme:dark;font-family:system-ui,Arial;background:#080e1d;color:#eaf6ff}*{box-sizing:border-box}body{margin:0;padding:16px;max-width:1050px;margin:auto}h1{font-size:1.5rem;margin:0;color:#f6cb72}p{color:#9db4c8}canvas{width:100%;aspect-ratio:16/9;border:1px solid #2a6685;border-radius:12px;background:#050c1c}section{background:#101b30;border:1px solid #23415d;border-radius:12px;padding:14px;margin:12px 0}label{display:block;font-size:.85rem;color:#afc8db;margin:8px 0}input,select{background:#091326;color:#fff;border:1px solid #31516e;border-radius:7px;padding:9px;width:100%}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}button{background:#00b5d6;color:#03131e;border:0;padding:12px 17px;border-radius:9px;font-weight:800;margin:4px;cursor:pointer}button.secondary{background:#273d56;color:white}button:disabled{opacity:.4}small{color:#91b3c7}#status{color:#e4b969} @media(max-width:600px){body{padding:8px}.grid{grid-template-columns:1fr}h1{font-size:1.2rem}}
 </style></head><body>
-<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v0.9</p>
+<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v1.0</p>
 <canvas id="stage" width="1280" height="720"></canvas>
 <div><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="12">FULL • 12s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export WebM (experimental)</button><span id="status"></span></div>
 <section><strong>MATCH SETTINGS</strong><div class="grid">
@@ -35,10 +35,20 @@ function portrait(name,x,y,w,h,accent){ctx.save();ctx.shadowColor=accent;ctx.sha
 // Temporary PC item icon references: displayed only for explicitly mapped item names.
 const itemIds={'trinity force':'3078',"sterak's gage":'3053',"death's dance":'6333','spirit visage':'3065','guardian angel':'3026','thornmail':'3075','rabadons deathcap':'3089',"rabadon's deathcap":'3089','infinity edge':'3031','blade of the ruined king':'3153','nashors tooth':'3115',"nashor's tooth":'3115','randuins omen':'3143',"randuin's omen":'3143','force of nature':'4401','sunfire aegis':'3068','frozen heart':'3110','liandrys torment':'3151',"liandry's torment":'3151'};
 function itemImage(name){const key=name.toLowerCase().trim(),id=itemIds[key];if(!id)return null;const cacheKey='item:'+id;if(!imageCache.has(cacheKey)){const im=new Image();im.crossOrigin='anonymous';im.src='https://ddragon.leagueoflegends.com/cdn/14.24.1/img/item/'+id+'.png';im.onload=()=>{if(!playing)draw(elapsed)};imageCache.set(cacheKey,im)}return imageCache.get(cacheKey)}
-function itemTile(name,x,y,w,h,index,highlight){
-ctx.save();ctx.shadowColor=highlight?'#f6b950':'#21a9d3';ctx.shadowBlur=highlight?24:9;
-rect(x,y,w,h,highlight?'#483219':'#071c2c',highlight?'#eabf63':'#2b6686');ctx.restore();
-const im=itemImage(name);if(im&&im.complete&&im.naturalWidth){const side=75;ctx.drawImage(im,x+(w-side)/2,y+8,side,side);txt(name.slice(0,19).toUpperCase(),x+w/2,y+100,14,'#f4f5fa',800,'center')}else{txt(('0'+index),x+13,y+28,23,'#eac071',900);txt(name.slice(0,18),x+w/2,y+70,17,'#f4f5fa',800,'center')}
+function itemTile(name,x,y,w,h,index,highlight,t=0){
+ctx.save();
+const gold=highlight?'#e9ba56':'#49c9ec';
+ctx.shadowColor=gold;ctx.shadowBlur=highlight?33:16;
+const g=ctx.createLinearGradient(x,y,x+w,y+h);g.addColorStop(0,highlight?'#4a361b':'#0b3045');g.addColorStop(1,'#050c18');
+rect(x,y,w,h,g,gold);ctx.restore();
+ctx.save();ctx.globalAlpha=.75;rect(x+5,y+5,w-10,3,highlight?'#e5bb62':'#4dbdd7');ctx.restore();
+const im=itemImage(name);
+if(im&&im.complete&&im.naturalWidth){
+const side=highlight?86:78;ctx.save();ctx.shadowColor=gold;ctx.shadowBlur=highlight?20:9;
+ctx.drawImage(im,x+(w-side)/2,y+8,side,side);ctx.restore();
+txt(name.slice(0,18).toUpperCase(),x+w/2,y+105,14,'#f6f7fa',800,'center')
+}else{txt(('0'+index),x+15,y+32,26,'#eac071',900);txt(name.slice(0,18),x+w/2,y+77,17,'#f4f5fa',800,'center')}
+if(highlight){ctx.save();ctx.globalAlpha=.65+.2*Math.sin(t*4);ctx.strokeStyle='#ffd67a';ctx.lineWidth=3;ctx.strokeRect(x-3,y-3,w+6,h+6);ctx.restore()}
 }
 function beam(x1,y1,x2,y2,t,color){ctx.save();ctx.strokeStyle=color;ctx.lineWidth=3;ctx.shadowColor=color;ctx.shadowBlur=18;ctx.globalAlpha=.55+.25*Math.sin(t*5);ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();ctx.restore()}
 function glowText(s,x,y,size,color,align='center'){ctx.save();ctx.shadowColor=color;ctx.shadowBlur=27;txt(s,x,y,size,color,900,align);ctx.restore()}
@@ -102,17 +112,22 @@ threats.slice(0,3).forEach((v,i)=>{const k=smooth((t-1.9-i*.28)/.28);alpha(k,()=
 if(q){pulse(1100,330,15,'#ff5269');beam(1070,332,1200,260,t,'#ff5366')}
 }else if(phase===2){
 const items=split('items').slice(0,5),boots=$('boots').value.trim();
-items.forEach((name,i)=>{const k=smooth((t-4.53-i*.075)/.19);alpha(k,()=>itemTile(name,56+i*202,133+(1-k)*20,190,116,i+1,i===0))});
-if(boots){const k=smooth((t-4.75)/.2);alpha(k,()=>{itemTile(boots,1068,133+(1-k)*20,160,116,6,false);txt('BOOTS',1148,271,17,'#88dbea',800,'center')})}
-alpha(smooth((t-4.68)/.22),()=>{rect(58,292,1164,2,'#23617c');txt('RUNES',64,330,29,'#69ddf5',900)});
+ctx.save();const aura=ctx.createRadialGradient(640,270,10,640,270,590);aura.addColorStop(0,'#d7a34926');aura.addColorStop(.48,'#1f8eae13');aura.addColorStop(1,'#00000000');rect(0,88,1280,600,aura);ctx.restore();
+alpha(smooth((t-4.55)/.3),()=>{txt('MATCH LOADOUT',640,126,24,'#f2c46c',900,'center')});
+items.forEach((name,i)=>{
+const entry=4.55+i*.32,k=smooth((t-entry)/.32);
+alpha(k,()=>{const x=56+i*202,y=164+(1-k)*90;
+ctx.save();ctx.translate(x+95,y+58);ctx.scale(.75+.25*k,.75+.25*k);ctx.translate(-(x+95),-(y+58));itemTile(name,x,y,190,116,i+1,i===0,t);ctx.restore()});
+if(t>entry&&t<entry+.35){ctx.save();ctx.globalAlpha=(1-smooth((t-entry)/.35))*.7;rect(56+i*202,159,190,4,'#f7d18b');ctx.restore()}
+});
+if(boots){const k=smooth((t-6.15)/.32);alpha(k,()=>{itemTile(boots,1068,164+(1-k)*55,160,116,6,false,t);txt('BOOTS',1148,305,17,'#88dbea',800,'center')})}
+alpha(smooth((t-5.75)/.25),()=>{rect(58,329,1164,2,'#c4934d');txt('RUNES',64,369,27,'#f3cb83',900)});
 const runes=split('runes').slice(0,5);
-if(runes.length!==5){alpha(smooth((t-4.7)/.2),()=>{txt('ADD 5 RUNES: KEYSTONE + 3 MAIN + 1 SECONDARY',640,445,27,'#ff8d86',900,'center')})}
-else{
-runes.forEach((name,i)=>{const k=smooth((t-4.82-i*.10)/.2);
-alpha(k,()=>{if(i===0)runeCard(name,64,347,1150,112,1,true);
-else if(i<=3){const x=64+((i-1)%2)*580,y=477+Math.floor((i-1)/2)*91;runeCard(name,x,y,560,82,i,false,false)}
-else runeCard(name,644,568,570,82,1,false,true)})});
-}
+if(runes.length!==5){alpha(smooth((t-5.8)/.2),()=>txt('ADD 5 RUNES: KEYSTONE + 3 MAIN + 1 SECONDARY',640,440,26,'#ff8d86',900,'center'))}
+else{runes.forEach((name,i)=>{const k=smooth((t-5.95-i*.16)/.3);
+alpha(k,()=>{if(i===0)runeCard(name,64,385,1150,98,1,true);
+else if(i<=3){const x=64+((i-1)%2)*580,y=497+Math.floor((i-1)/2)*83;runeCard(name,x,y,560,75,i,false,false)}
+else runeCard(name,644,580,570,75,1,false,true)})})}
 }else{
 const p=smooth((t-8.5)/.3);
 alpha(p*(1-out),()=>{panel(60,283,1160,284,'#20b9d3');rect(60,283,14,284,'#24d1eb');glowText('03  /  WIN CONDITION',93,333,40,'#72e8ff','left');glowText($('strategy').value.slice(0,42),640,445,47,'#ffdb8b');txt($('champion').value.toUpperCase()+'  •  '+$('role').value.toUpperCase(),640,520,29,'#f4fbff',800,'center')});
