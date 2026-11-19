@@ -455,7 +455,7 @@ const path=runeIcons[name.toLowerCase()];return path?'https://ddragon.leagueofle
 }
 function pickerOptions(){
 if(pickerType==='champ')return pickerChampions;
-if(pickerType==='rune')return pickerSlot===0?wrRuneGroups.Keystone.split('|'):pickerRunes;
+if(pickerType==='rune')return pickerSlot===0?wrRuneGroups.Keystone.split('|'):pickerSlot>0?Object.entries(wrRuneGroups).filter(([tree])=>tree!=='Keystone').flatMap(([,names])=>names.split('|')):pickerRunes;
 return pickerField==='boots'?wrBoots:pickerItems;
 }
 function renderPicker(){
