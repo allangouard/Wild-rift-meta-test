@@ -29,7 +29,7 @@ h1{letter-spacing:.035em}.studio-layout{display:grid;grid-template-columns:minma
 .slot-editor{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;margin-top:9px}.slot-card{position:relative;min-width:0;background:#101f32;border:1px solid #31536b;border-radius:8px;padding:7px 3px 8px;color:#e8f5ff;display:flex;align-items:center;flex-direction:column;gap:5px;margin:0;min-height:96px}.slot-card img{width:42px;height:42px;object-fit:cover;border-radius:5px}.slot-card .slot-name{font-size:.65rem;line-height:1.15;overflow-wrap:anywhere;text-align:center}.slot-card .slot-number{font-size:.64rem;color:#e8c27c}.slot-card:focus-visible{outline:2px solid #6edbf2}.slot-hint{display:block;margin-top:6px;font-size:.74rem;color:#9bb8ca}@media(max-width:560px){.slot-card{min-height:85px;padding:5px 2px}.slot-card img{width:36px;height:36px}}
 .picker-filters{display:flex;gap:7px;overflow-x:auto;flex-shrink:0;padding:6px 0 10px;scrollbar-width:thin}.picker-filter{flex:0 0 auto;min-height:36px;margin:0;padding:7px 12px;border-radius:999px;background:#19374a;color:#cce5ef;border:1px solid #44697b;font-size:.79rem}.picker-filter.active{background:#1b7182;border-color:#7bd5e6;color:#fff}.picker-count{font-size:.75rem;color:#a7c8d9;margin:0 0 8px}.picker-dialog{max-height:92dvh}.picker-choice:disabled{opacity:.38}.picker-choice.selected{border-color:#f0c880;background:#344052}
 </style></head><body>
-<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v6.5</p>
+<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v6.6</p>
 <div class="studio-layout"><div class="studio-preview"><strong>LIVE PREVIEW · 12 SECONDS</strong><canvas id="stage" width="1280" height="720"></canvas>
 <div class="playbar"><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="12">FULL • 12s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export Full HD (MP4 / WebM)</button><span id="status"></span></div><div class="sequence-guide"><span><b>01</b> DRAFT<br>0–3.2s</span><span><b>02</b> BUILD & RUNES<br>3.2–9.1s</span><span><b>03</b> WIN CONDITION<br>9.1–12s</span></div></div><div class="studio-editor"><small id="catalogStatus">Chargement du catalogue Draft Intelligence…</small><nav class="editor-tabs" aria-label="Editor sections"><button class="active" type="button" data-tab="draft">01 Draft</button><button type="button" data-tab="build">02 Build & Runes</button><button type="button" data-tab="plan">03 Plan</button><button type="button" data-tab="projects">Projects & Art</button></nav><div class="tab-panel" data-panel="projects" hidden><section><strong>MY INTRO PROJECT</strong><p>Save the current match settings on this device, restore them later, or start a fresh intro. The validated 12-second design remains unchanged.</p><div class="grid"><label>Project name<input id="projectname" value="Shyvana — Dragon Control" placeholder="Match / champion name"></label><label>Saved projects<select id="projectlist"><option value="">Choose a saved project</option></select></label></div><div><button id="saveproject">💾 Save project</button><button id="loadproject" class="secondary">↩ Load selected</button><button id="newproject" class="secondary">＋ New intro</button><button id="deleteproject" class="secondary">Delete selected</button></div><small id="projectstatus">Projects are stored locally in this browser. Imported champion images must be selected again after reopening.</small></section>
 <section><strong>WILD RIFT ARTWORKS</strong><p>Import Wild Rift champion artworks as image files named Garen.jpg, Shyvana.png, etc. Files replace PC art for matching champion names in the draft and final scene.</p><label>Champion images (multiple files)<input id="artfiles" type="file" accept="image/*" multiple></label><small id="artstatus">PC placeholders remain for champions without imported images.</small></section></div><section><strong>MATCH SETTINGS</strong><div class="grid">
@@ -80,7 +80,22 @@ function portrait(name,x,y,w,h,accent){ctx.save();ctx.shadowColor=accent;ctx.sha
 
 // Temporary PC item icon references: displayed only for explicitly mapped item names.
 const itemIds={'trinity force':'3078',"sterak's gage":'3053',"death's dance":'6333','spirit visage':'3065','guardian angel':'3026','thornmail':'3075','rabadons deathcap':'3089',"rabadon's deathcap":'3089','infinity edge':'3031','blade of the ruined king':'3153','nashors tooth':'3115',"nashor's tooth":'3115','randuins omen':'3143',"randuin's omen":'3143','force of nature':'4401','plated steelcaps':'3047','mercurys treads':'3111',"mercury's treads":'3111','ionian boots of lucidity':'3158','berserkers greaves':'3006','sunfire aegis':'3068','frozen heart':'3110','liandrys torment':'3151',"liandry's torment":'3151'};
-function itemImage(name){const key=name.toLowerCase().trim(),id=itemIds[key];if(!id)return null;const cacheKey='item:'+id;if(!imageCache.has(cacheKey)){const im=new Image();im.crossOrigin='anonymous';im.src='https://ddragon.leagueoflegends.com/cdn/14.24.1/img/item/'+id+'.png';im.onload=()=>{if(!playing)draw(elapsed)};imageCache.set(cacheKey,im)}return imageCache.get(cacheKey)}
+function itemImage(name){
+const key=normalizeWRName(name),item=itemForName(name),pcId=itemIds[String(name||'').toLowerCase().trim()];
+const localId=item?.id;
+const cacheKey='wr-item:'+key;
+if(!imageCache.has(cacheKey)){
+const im=new Image();im.crossOrigin='anonymous';
+im.onload=()=>{if(!playing)draw(elapsed)};
+im.onerror=()=>{
+if(pcId&&im.dataset.fallback!=='pc'){im.dataset.fallback='pc';im.src='https://ddragon.leagueoflegends.com/cdn/14.24.1/img/item/'+pcId+'.png'}
+};
+if(localId&&localId!=='titanic_hydra')im.src='../assets/item-icons/'+localId+'.webp';
+else if(pcId)im.src='https://ddragon.leagueoflegends.com/cdn/14.24.1/img/item/'+pcId+'.png';
+imageCache.set(cacheKey,im);
+}
+return imageCache.get(cacheKey);
+}
 function itemTile(name,x,y,w,h,index,highlight,t=0){
 ctx.save();
 const gold=highlight?'#e9ba56':'#49c9ec';
@@ -459,7 +474,7 @@ function pickerSource(name,type){
 if(type==='champ')return championForName(name)?.portrait||'';
 if(type==='item'){
 const item=itemForName(name);
-if(item)return '../assets/item-icons/'+item.id+'.webp';
+if(item&&item.id!=='titanic_hydra')return '../assets/item-icons/'+item.id+'.webp';
 return '';
 }
 return '';
