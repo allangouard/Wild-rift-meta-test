@@ -3,7 +3,7 @@
 <style>
 :root{color-scheme:dark;font-family:system-ui,Arial;background:#080e1d;color:#eaf6ff}*{box-sizing:border-box}body{margin:0;padding:16px;max-width:1050px;margin:auto}h1{font-size:1.5rem;margin:0;color:#f6cb72}p{color:#9db4c8}canvas{width:100%;aspect-ratio:16/9;border:1px solid #2a6685;border-radius:12px;background:#050c1c}section{background:#101b30;border:1px solid #23415d;border-radius:12px;padding:14px;margin:12px 0}label{display:block;font-size:.85rem;color:#afc8db;margin:8px 0}input,select{background:#091326;color:#fff;border:1px solid #31516e;border-radius:7px;padding:9px;width:100%}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}button{background:#00b5d6;color:#03131e;border:0;padding:12px 17px;border-radius:9px;font-weight:800;margin:4px;cursor:pointer}button.secondary{background:#273d56;color:white}button:disabled{opacity:.4}small{color:#91b3c7}#status{color:#e4b969} @media(max-width:600px){body{padding:8px}.grid{grid-template-columns:1fr}h1{font-size:1.2rem}}
 </style></head><body>
-<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v4.7</p>
+<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v4.8</p>
 <canvas id="stage" width="1280" height="720"></canvas>
 <div><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="12">FULL • 12s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export WebM (experimental)</button><span id="status"></span></div>
 <section><strong>WILD RIFT ARTWORKS</strong><p>Import Wild Rift champion artworks as image files named Garen.jpg, Shyvana.png, etc. Files replace PC art for matching champion names in the draft and final scene.</p><label>Champion images (multiple files)<input id="artfiles" type="file" accept="image/*" multiple></label><small id="artstatus">PC placeholders remain for champions without imported images.</small></section><section><strong>MATCH SETTINGS</strong><div class="grid">
@@ -181,7 +181,7 @@ if(side==='left'){ctx.moveTo(x,y);ctx.lineTo(x+w,y);ctx.lineTo(x+w-65,y+h);ctx.l
 else{ctx.moveTo(x+65,y);ctx.lineTo(x+w,y);ctx.lineTo(x+w,y+h);ctx.lineTo(x,y+h)}
 ctx.closePath();ctx.clip();
 const grad=ctx.createLinearGradient(x,y,x+w,y+h);grad.addColorStop(0,side==='left'?'#084d72':'#691b3d');grad.addColorStop(1,'#07101c');rect(x,y,w,h,grad);
-if(im.complete&&im.naturalWidth){const scale=Math.max(w/im.width,h/im.height)*1.13,iw=im.width*scale,ih=im.height*scale;ctx.save();if(side==='right')ctx.filter='brightness(1.17) contrast(1.08) saturate(1.12)';const dx=x+(w-iw)*.5;const dy=y+(h-ih)*.5;ctx.drawImage(im,dx+Math.sin(t*.36)*5,dy,iw,ih);ctx.restore()}
+if(im.complete&&im.naturalWidth){const scale=Math.max(w/im.width,h/im.height)*(side==='right'?1.0:1.13),iw=im.width*scale,ih=im.height*scale;ctx.save();if(side==='right')ctx.filter='brightness(1.17) contrast(1.08) saturate(1.12)';const dx=x+(w-iw)*.5;const dy=side==='right'?y+(h-ih)*.5-Math.min(48,h*.13):y+(h-ih)*.5;ctx.drawImage(im,dx+Math.sin(t*.36)*5,dy,iw,ih);ctx.restore()}
 if(side==='right'){ctx.save();ctx.globalCompositeOperation='screen';const bloom=ctx.createRadialGradient(x+w*.55,y+h*.4,15,x+w*.55,y+h*.4,w*.65);bloom.addColorStop(0,'#ff7b9a39');bloom.addColorStop(1,'#00000000');rect(x,y,w,h,bloom);ctx.restore()}
 const shade=ctx.createLinearGradient(x,y+h*.35,x,y+h);shade.addColorStop(0,'#01071300');shade.addColorStop(1,side==='right'?'#01071378':'#010713b5');rect(x,y,w,h,shade);
 ctx.restore();
