@@ -31,7 +31,7 @@ h1{letter-spacing:.035em}.studio-layout{display:grid;grid-template-columns:minma
 </style></head><body>
 <h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v8.0</p>
 <div class="studio-layout"><div class="studio-preview"><strong>LIVE PREVIEW · 17 SECONDS</strong><canvas id="stage" width="1280" height="720"></canvas>
-<div class="playbar"><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="17">FULL • 17s</option></select></label><button id="play">▶ Preview</button><label style="display:inline-block;margin:0 8px">Audio <select id="audiomode" style="width:auto"><option value="design">Tactical SFX · soft</option><option value="upload">Imported soundtrack</option><option value="mute">Silent</option></select></label><label style="display:inline-block;margin:0 8px">Soundtrack <input id="soundfile" type="file" accept="audio/*" style="max-width:190px"></label><label style="display:inline-block;margin:0 8px">Volume <input id="soundvolume" type="range" min="0" max="100" value="55" style="width:85px;vertical-align:middle"></label><small id="soundstatus">Optional import · tactical sound design is selected by default</small><button id="export" class="secondary">⬇ Export Full HD (MP4 / WebM)</button><span id="status"></span></div><div class="sequence-guide"><span><b>01</b> DRAFT<br>0–4.5s</span><span><b>02</b> BUILD & RUNES<br>4.5–12.8s</span><span><b>03</b> WIN CONDITION<br>12.8–17s</span></div></div><div class="studio-editor"><small id="catalogStatus">Chargement du catalogue Draft Intelligence…</small><nav class="editor-tabs" aria-label="Editor sections"><button class="active" type="button" data-tab="draft">01 Draft</button><button type="button" data-tab="build">02 Build & Runes</button><button type="button" data-tab="plan">03 Plan</button><button type="button" data-tab="projects">Projects & Art</button></nav><div class="tab-panel" data-panel="projects" hidden><section><strong>MY INTRO PROJECT</strong><p>Save the current match settings on this device, restore them later, or start a fresh intro. The 17-second cinematic design is preserved. Tactical sound effects are reusable and automatically included in exports when selected.</p><div class="grid"><label>Project name<input id="projectname" value="Shyvana — Dragon Control" placeholder="Match / champion name"></label><label>Saved projects<select id="projectlist"><option value="">Choose a saved project</option></select></label></div><div><button id="saveproject">💾 Save project</button><button id="loadproject" class="secondary">↩ Load selected</button><button id="newproject" class="secondary">＋ New intro</button><button id="deleteproject" class="secondary">Delete selected</button></div><small id="projectstatus">Projects are stored locally in this browser. Imported champion images must be selected again after reopening.</small></section>
+<div class="playbar"><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="17">FULL • 17s</option></select></label><button id="play">▶ Preview</button><label style="display:inline-block;margin:0 8px">Audio <select id="audiomode" style="width:auto"><option value="design">Tactical SFX · synced</option><option value="upload">Imported soundtrack</option><option value="mute">Silent</option></select></label><label style="display:inline-block;margin:0 8px">Soundtrack <input id="soundfile" type="file" accept="audio/*" style="max-width:190px"></label><label style="display:inline-block;margin:0 8px">Volume <input id="soundvolume" type="range" min="0" max="100" value="55" style="width:85px;vertical-align:middle"></label><small id="soundstatus">Optional import · tactical sound design is selected by default</small><button id="export" class="secondary">⬇ Export Full HD (MP4 / WebM)</button><span id="status"></span></div><div class="sequence-guide"><span><b>01</b> DRAFT<br>0–4.5s</span><span><b>02</b> BUILD & RUNES<br>4.5–12.8s</span><span><b>03</b> WIN CONDITION<br>12.8–17s</span></div></div><div class="studio-editor"><small id="catalogStatus">Chargement du catalogue Draft Intelligence…</small><nav class="editor-tabs" aria-label="Editor sections"><button class="active" type="button" data-tab="draft">01 Draft</button><button type="button" data-tab="build">02 Build & Runes</button><button type="button" data-tab="plan">03 Plan</button><button type="button" data-tab="projects">Projects & Art</button></nav><div class="tab-panel" data-panel="projects" hidden><section><strong>MY INTRO PROJECT</strong><p>Save the current match settings on this device, restore them later, or start a fresh intro. The 17-second cinematic design is preserved. Tactical sound effects are reusable and automatically included in exports when selected.</p><div class="grid"><label>Project name<input id="projectname" value="Shyvana — Dragon Control" placeholder="Match / champion name"></label><label>Saved projects<select id="projectlist"><option value="">Choose a saved project</option></select></label></div><div><button id="saveproject">💾 Save project</button><button id="loadproject" class="secondary">↩ Load selected</button><button id="newproject" class="secondary">＋ New intro</button><button id="deleteproject" class="secondary">Delete selected</button></div><small id="projectstatus">Projects are stored locally in this browser. Imported champion images must be selected again after reopening.</small></section>
 <section><strong>TACTICAL NARRATOR · ENGLISH VOICEOVER</strong><p>Generate a concise 17-second narration from the actual Draft Intel fields. Review and edit before recording. No strategic claims are invented.</p><div><button type="button" id="generatenarration">✦ Generate narration</button><button type="button" class="secondary" id="speaknarration">▶ Listen (device voice)</button><button type="button" class="secondary" id="stopnarration">■ Stop voice</button></div><label>English narration · editable<textarea id="narration" rows="5" placeholder="Generate a narration from your draft, build and strategy"></textarea></label><small id="narrationstatus">Device voice is a preview only; to include narration in the exported MP4, record the voice and import the audio file using Soundtrack above.</small></section>
 <section><strong>WILD RIFT ARTWORKS</strong><p>Import Wild Rift champion artworks as image files named Garen.jpg, Shyvana.png, etc. Files replace PC art for matching champion names in the draft and final scene.</p><label>Champion images (multiple files)<input id="artfiles" type="file" accept="image/*" multiple></label><small id="artstatus">PC placeholders remain for champions without imported images.</small></section></div><section><strong>MATCH SETTINGS</strong><div class="grid">
 <label>Champion played<input id="champion" value="Shyvana"></label>
@@ -434,47 +434,65 @@ return 9.1+(seconds-12.8)*(2.9/4.2);
 function draw(t){scene(cinematicTimeline(t))}
 let recording=false;
 let soundtrackBuffer=null,soundtrackContext=null,soundtrackSource=null,soundtrackGain=null,tacticalBuffer=null;
+// Convert actual visual animation timestamps to the 17-second export clock.
+function soundAtVisualTime(t){
+ if(t<3.2)return t*4.5/3.2;
+ if(t<9.1)return 4.5+(t-3.2)*8.3/5.9;
+ return 12.8+(t-9.1)*4.2/2.9;
+}
 function tacticalSoundBuffer(ac){
- if(tacticalBuffer&&tacticalBuffer.sampleRate===ac.sampleRate)return tacticalBuffer;
- const sr=ac.sampleRate,len=Math.ceil(17*sr),buf=ac.createBuffer(2,len,sr);
- // Sparse, soft UI soundscape: intentional silence between short, gentle cues.
- // No continuous sub-bass, drones or synthetic low-frequency rumble.
- const cues=[
-  {at:.65,frequency:430,amp:.033,decay:.34},
-  {at:4.5,frequency:520,amp:.049,decay:.52},
-  {at:12.8,frequency:390,amp:.054,decay:.68},
-  {at:16.45,frequency:650,amp:.020,decay:.24}
- ];
- for(let k=0;k<5;k++)cues.push({at:5.35+k*.53,frequency:640+k*27,amp:.015,decay:.16});
- for(let k=0;k<4;k++)cues.push({at:8.55+k*.38,frequency:790-k*31,amp:.011,decay:.13});
+ const sr=ac.sampleRate,len=Math.ceil(duration()*sr),buf=ac.createBuffer(2,len,sr);
+ const events=[];
+ const add=(visual,kind,level=1)=>events.push({at:soundAtVisualTime(visual),kind,level});
+ // Exactly the same internal timestamps as scene(t) and cinematicTransition().
+ add(.09,'reveal',.9);add(.25,'portrait',.8);add(.55,'threat',.7);
+ for(let i=0;i<Math.min(3,threatEntries().length);i++)add(.62+i*.14,'threat',.55);
+ add(3.2,'transition',1);
+ const itemCount=Math.min(5,split('items').length);
+ for(let i=0;i<itemCount;i++)add(3.45+i*.31,'item',i===0?1:.73);
+ if($('boots').value.trim())add(4.95,'item',.75);
+ if(split('runes').length===5)for(let i=0;i<5;i++)add(5.15+i*.17,'rune',i===0?1:.65);
+ add(9.1,'transition',1.12);add(9.62,'strategy',1);add(10.02,'resolve',.7);
+ const profiles={
+  reveal:{freq:330,amp:.11,decay:.34},
+  portrait:{freq:485,amp:.075,decay:.19},
+  threat:{freq:270,amp:.07,decay:.18},
+  transition:{freq:225,amp:.17,decay:.55},
+  item:{freq:590,amp:.09,decay:.23},
+  rune:{freq:810,amp:.065,decay:.27},
+  strategy:{freq:385,amp:.14,decay:.47},
+  resolve:{freq:575,amp:.08,decay:.40}
+ };
  for(let channel=0;channel<2;channel++){
-  const data=buf.getChannelData(channel),phase=channel?.19:0;
-  for(const cue of cues){
-   const start=Math.max(0,Math.floor(cue.at*sr)),end=Math.min(len,start+Math.ceil(cue.decay*sr));
+  const data=buf.getChannelData(channel),phase=channel?.24:0;
+  for(const e of events){
+   const p=profiles[e.kind],start=Math.max(0,Math.floor(e.at*sr)),end=Math.min(len,Math.ceil((e.at+p.decay)*sr));
    for(let i=start;i<end;i++){
-    const dt=i/sr-cue.at;
-    if(dt<0)continue;
-    const envelope=Math.pow(Math.max(0,1-dt/cue.decay),2)*Math.min(1,dt/.018);
-    const tone=Math.sin(2*Math.PI*cue.frequency*dt+phase)*.72+
-      Math.sin(2*Math.PI*cue.frequency*1.505*dt+phase)*.15;
-    data[i]+=cue.amp*envelope*tone;
+    const dt=i/sr-e.at;if(dt<0)continue;
+    const env=Math.pow(Math.max(0,1-dt/p.decay),2)*Math.min(1,dt/.012);
+    const glide=e.kind==='transition'?(1-.24*dt/p.decay):1;
+    const freq=p.freq*glide;
+    const fundamental=Math.sin(2*Math.PI*freq*dt+phase);
+    const shimmer=Math.sin(2*Math.PI*(freq*1.498)*dt+phase)*.29;
+    const upper=Math.sin(2*Math.PI*(freq*2.02)*dt+phase)*.12;
+    data[i]+=p.amp*e.level*env*(fundamental*.62+shimmer+upper);
+   }
+   if(e.kind==='transition'){
+    // Airy rising whoosh exactly at the visual light sweep, no sustained bass.
+    let filtered=0,seed=channel?3413:917;
+    const begin=Math.max(0,Math.floor((e.at-.20)*sr)),finish=Math.min(len,Math.ceil((e.at+.16)*sr));
+    for(let i=begin;i<finish;i++){
+     const x=(i/sr-e.at+.20)/.36;
+     seed=(1664525*seed+1013904223)>>>0;
+     filtered=filtered*.72+((seed/2147483648)-1)*.28;
+     data[i]+=.042*Math.sin(Math.PI*Math.max(0,Math.min(1,x)))**2*filtered;
+    }
    }
   }
-  // A very light, filtered transition sweep; never a sustained sound bed.
-  for(const at of [4.5,12.8]){
-   let low=0,seed=channel?2137:1139;
-   const start=Math.max(0,Math.floor((at-.25)*sr)),end=Math.min(len,Math.ceil((at+.2)*sr));
-   for(let i=start;i<end;i++){
-    const dt=i/sr-at,x=(dt+.25)/.45;
-    seed=(1664525*seed+1013904223)>>>0;
-    const noise=(seed/2147483648-1);
-    low=low*.93+noise*.07;
-    const envelope=Math.sin(Math.PI*Math.max(0,Math.min(1,x)))**2;
-    data[i]+=.010*envelope*low;
-   }
-  }
+  // Gentle soft limiter avoids clipping if closely spaced reveal events overlap.
+  for(let i=0;i<len;i++)data[i]=Math.tanh(data[i]*1.25)*.83;
  }
- tacticalBuffer=buf;return buf;
+ return buf;
 }
 
 $('soundfile').addEventListener('change',async e=>{
