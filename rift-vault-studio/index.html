@@ -3,7 +3,7 @@
 <style>
 :root{color-scheme:dark;font-family:system-ui,Arial;background:#080e1d;color:#eaf6ff}*{box-sizing:border-box}body{margin:0;padding:16px;max-width:1050px;margin:auto}h1{font-size:1.5rem;margin:0;color:#f6cb72}p{color:#9db4c8}canvas{width:100%;aspect-ratio:16/9;border:1px solid #2a6685;border-radius:12px;background:#050c1c}section{background:#101b30;border:1px solid #23415d;border-radius:12px;padding:14px;margin:12px 0}label{display:block;font-size:.85rem;color:#afc8db;margin:8px 0}input,select{background:#091326;color:#fff;border:1px solid #31516e;border-radius:7px;padding:9px;width:100%}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}button{background:#00b5d6;color:#03131e;border:0;padding:12px 17px;border-radius:9px;font-weight:800;margin:4px;cursor:pointer}button.secondary{background:#273d56;color:white}button:disabled{opacity:.4}small{color:#91b3c7}#status{color:#e4b969} @media(max-width:600px){body{padding:8px}.grid{grid-template-columns:1fr}h1{font-size:1.2rem}}
 </style></head><body>
-<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v5.1</p>
+<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v5.2</p>
 <canvas id="stage" width="1280" height="720"></canvas>
 <div><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="12">FULL • 12s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export WebM (experimental)</button><span id="status"></span></div>
 <section><strong>WILD RIFT ARTWORKS</strong><p>Import Wild Rift champion artworks as image files named Garen.jpg, Shyvana.png, etc. Files replace PC art for matching champion names in the draft and final scene.</p><label>Champion images (multiple files)<input id="artfiles" type="file" accept="image/*" multiple></label><small id="artstatus">PC placeholders remain for champions without imported images.</small></section><section><strong>MATCH SETTINGS</strong><div class="grid">
@@ -281,9 +281,31 @@ txt(i===0?'KEYSTONE':i===4?'SECONDARY':'MAIN '+i,x+40,584,14,col,900,'center');
 fittedText(name.toUpperCase(),x+40,610,137,16,'#fff',800);
 })});
 }else{
-const k=smooth((t-9.1)/.4),out=smooth((t-11.75)/.25);
-alpha(k,()=>{txt('THE WIN CONDITION',72,240,33,'#91e8f6',900);rect(72,258,710,3,'#e3b568');fittedText($('strategy').value.toUpperCase(),72,353,720,53,'#ffe2a1',900,'left');txt($('champion').value.toUpperCase()+'  /  '+$('role').value.toUpperCase(),75,420,26,'#fff',800);txt('EVERY MATCH HAS A STORY',76,626,22,'#f4d49a',900)});
-alpha(out,()=>{const wipe=ctx.createLinearGradient(0,0,1280,0);wipe.addColorStop(0,'#f8d6a000');wipe.addColorStop(.5,'#ffdfa0aa');wipe.addColorStop(1,'#f8d6a000');rect(-1150+out*2300,0,170,720,wipe)});
+const enter=smooth((t-9.1)/.48),line=smooth((t-9.38)/.45),message=smooth((t-9.62)/.5),detail=smooth((t-10.02)/.38);
+const accent='#d9b16e';
+alpha(enter,()=>{
+const panel=ctx.createLinearGradient(0,0,1020,0);panel.addColorStop(0,'#040b18f7');panel.addColorStop(.75,'#071324e8');panel.addColorStop(1,'#07132400');rect(0,84,1000,575,panel);
+rect(72,163,5,68,accent);
+txt('MATCH STRATEGY',97,189,21,'#9bd8e5',900);
+txt('THE WIN CONDITION',97,230,36,'#f5d29a',900);
+});
+alpha(line,()=>{rect(97,251,Math.max(1,675*line),2,'#b8925d');rect(97+675*line-5,247,10,10,'#e8c88e')});
+alpha(message,()=>{
+const msg=$('strategy').value.toUpperCase().replace(/\s*•\s*/g,'  /  ');
+const words=msg.split(' '),max=690;let lines=[''];
+ctx.save();ctx.font='900 46px system-ui,Arial';
+for(const word of words){const idx=lines.length-1,trial=(lines[idx]+' '+word).trim();if(ctx.measureText(trial).width>max&&lines[idx])lines.push(word);else lines[idx]=trial}ctx.restore();
+lines.slice(0,3).forEach((line,i)=>fittedText(line,97,336+i*62,max,46,'#ffffff',900,'left'));
+});
+alpha(detail,()=>{
+txt($('champion').value.toUpperCase()+'  /  '+$('role').value.toUpperCase(),99,537,24,'#a9e3ec',900);
+rect(97,559,520,2,'#517080');
+txt('EVERY MATCH HAS A STORY',98,614,22,'#e7c78d',900);
+});
+const transition=smooth((t-11.55)/.45);
+alpha(transition*.72,()=>{
+const sweep=ctx.createLinearGradient(0,0,1280,0);sweep.addColorStop(0,'#07152300');sweep.addColorStop(.52,'#c4e8ef36');sweep.addColorStop(1,'#07152300');rect(-900+transition*2050,85,300,575,sweep);
+});
 }
 rect(40,684,1200,4,'#183f54');rect(40,684,1200*clamp(t/12),4,'#e4b975');
 }
