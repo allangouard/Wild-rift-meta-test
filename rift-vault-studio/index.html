@@ -433,7 +433,6 @@ return 9.1+(seconds-12.8)*(2.9/4.2);
 }
 function draw(t){scene(cinematicTimeline(t))}
 let recording=false;
-let soundtrackBuffer=null,soundtrackContext=null,soundtrackSource=null,soundtrackGain=null;
 let soundtrackBuffer=null,soundtrackContext=null,soundtrackSource=null,soundtrackGain=null,tacticalBuffer=null;
 function tacticalSoundBuffer(ac){
  if(tacticalBuffer&&tacticalBuffer.sampleRate===ac.sampleRate)return tacticalBuffer;
