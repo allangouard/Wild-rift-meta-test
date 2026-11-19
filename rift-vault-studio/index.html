@@ -28,7 +28,7 @@ h1{letter-spacing:.035em}.studio-layout{display:grid;grid-template-columns:minma
 .picker-footer{margin-top:10px;color:#9eb8c9;font-size:.78rem}
 .slot-editor{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;margin-top:9px}.slot-card{position:relative;min-width:0;background:#101f32;border:1px solid #31536b;border-radius:8px;padding:7px 3px 8px;color:#e8f5ff;display:flex;align-items:center;flex-direction:column;gap:5px;margin:0;min-height:96px}.slot-card img{width:42px;height:42px;object-fit:cover;border-radius:5px}.slot-card .slot-name{font-size:.65rem;line-height:1.15;overflow-wrap:anywhere;text-align:center}.slot-card .slot-number{font-size:.64rem;color:#e8c27c}.slot-card:focus-visible{outline:2px solid #6edbf2}.slot-hint{display:block;margin-top:6px;font-size:.74rem;color:#9bb8ca}@media(max-width:560px){.slot-card{min-height:85px;padding:5px 2px}.slot-card img{width:36px;height:36px}}
 </style></head><body>
-<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v6.3</p>
+<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v6.4</p>
 <div class="studio-layout"><div class="studio-preview"><strong>LIVE PREVIEW · 12 SECONDS</strong><canvas id="stage" width="1280" height="720"></canvas>
 <div class="playbar"><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="12">FULL • 12s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export Full HD (MP4 / WebM)</button><span id="status"></span></div><div class="sequence-guide"><span><b>01</b> DRAFT<br>0–3.2s</span><span><b>02</b> BUILD & RUNES<br>3.2–9.1s</span><span><b>03</b> WIN CONDITION<br>9.1–12s</span></div></div><div class="studio-editor"><nav class="editor-tabs" aria-label="Editor sections"><button class="active" type="button" data-tab="draft">01 Draft</button><button type="button" data-tab="build">02 Build & Runes</button><button type="button" data-tab="plan">03 Plan</button><button type="button" data-tab="projects">Projects & Art</button></nav><div class="tab-panel" data-panel="projects" hidden><section><strong>MY INTRO PROJECT</strong><p>Save the current match settings on this device, restore them later, or start a fresh intro. The validated 12-second design remains unchanged.</p><div class="grid"><label>Project name<input id="projectname" value="Shyvana — Dragon Control" placeholder="Match / champion name"></label><label>Saved projects<select id="projectlist"><option value="">Choose a saved project</option></select></label></div><div><button id="saveproject">💾 Save project</button><button id="loadproject" class="secondary">↩ Load selected</button><button id="newproject" class="secondary">＋ New intro</button><button id="deleteproject" class="secondary">Delete selected</button></div><small id="projectstatus">Projects are stored locally in this browser. Imported champion images must be selected again after reopening.</small></section>
 <section><strong>WILD RIFT ARTWORKS</strong><p>Import Wild Rift champion artworks as image files named Garen.jpg, Shyvana.png, etc. Files replace PC art for matching champion names in the draft and final scene.</p><label>Champion images (multiple files)<input id="artfiles" type="file" accept="image/*" multiple></label><small id="artstatus">PC placeholders remain for champions without imported images.</small></section></div><section><strong>MATCH SETTINGS</strong><div class="grid">
@@ -43,7 +43,7 @@ h1{letter-spacing:.035em}.studio-layout{display:grid;grid-template-columns:minma
 <label>Top composition threats — CATEGORY | LEVEL | CHAMPIONS (semicolon separated)<input id="threats" value="SUSTAIN | HIGH | Aatrox / Kayn;AP BURST | HIGH | Annie;SHIELDS | MEDIUM | Lulu / Annie"></label>
 <label>Hook — match-specific question<input id="hook" value="CAN SHYVANA CONTROL THE DRAGONS?"></label><label>Key response — only if supported by actual items<input id="response" value="BUILD TO SURVIVE THEIR BURST"></label><label>Win condition — review before publishing<input id="strategy" value="SCALE UP • CONTROL DRAGONS"></label>
 </div><small>Demo data only. Champion and supported item icons use temporary League PC assets, not yet verified Wild Rift-specific. Unsupported items fall back to text. This version does not yet infer accurate threats or builds automatically. Enter real match information.</small></section></div></div>
-<div id="pickerOverlay" class="picker-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="pickerTitle"><div class="picker-dialog"><div class="picker-head"><h2 id="pickerTitle">Choose an icon</h2><button type="button" id="pickerClose" class="secondary">✕ Close</button></div><p class="picker-help" id="pickerHelp"></p><input id="pickerSearch" class="picker-search" placeholder="Search by name…" autocomplete="off"><div class="picker-grid" id="pickerGrid"></div><div class="picker-footer">Temporary League PC icons. Type names directly in the fields for other Wild Rift entries.</div></div></div>
+<div id="pickerOverlay" class="picker-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="pickerTitle"><div class="picker-dialog"><div class="picker-head"><h2 id="pickerTitle">Choose an icon</h2><button type="button" id="pickerClose" class="secondary">✕ Close</button></div><p class="picker-help" id="pickerHelp"></p><input id="pickerSearch" class="picker-search" placeholder="Search by name…" autocomplete="off"><div class="picker-grid" id="pickerGrid"></div><div class="picker-footer">Wild Rift names; some icons are unavailable or use temporary PC art. Missing icons are shown as text, never substituted with another item.</div></div></div>
 <script>
 const tabFields={draft:['champion','role','rank','patch','allies','enemies','enemyjungler','threats'],build:['items','boots','runes'],plan:['hook','response','strategy']};
 const settingsSection=[...document.querySelectorAll('.studio-editor section')].find(el=>el.textContent.includes('MATCH SETTINGS'));
@@ -426,8 +426,23 @@ raf=requestAnimationFrame(recordFrame);
 };
 /* Visual selection uses the same underlying text fields, so saved projects and export stay compatible. */
 const pickerChampions='Aatrox,Ahri,Akali,Alistar,Ambessa,Amumu,Annie,Ashe,Aurelion Sol,Blitzcrank,Brand,Braum,Caitlyn,Camille,Corki,Darius,Diana,Draven,Ekko,Ezreal,Fiora,Fizz,Galio,Garen,Gnar,Gragas,Graves,Gwen,Hecarim,Irelia,Janna,Jarvan IV,Jax,Jhin,Jinx,Kaisa,Karma,Kassadin,Katarina,Kayn,Kennen,Khazix,Kindred,Lee Sin,Leona,Lillia,Lulu,Lux,Malphite,Master Yi,Miss Fortune,Morgana,Nami,Nasus,Nautilus,Nocturne,Olaf,Orianna,Ornn,Pantheon,Pyke,Rakan,Rammus,Renekton,Rengar,Riven,Samira,Senna,Seraphine,Sett,Shen,Shyvana,Singed,Sion,Sivir,Sona,Soraka,Swain,Syndra,Teemo,Thresh,Tristana,Tryndamere,Twisted Fate,Twitch,Urgot,Varus,Vayne,Veigar,Vi,Viego,Vladimir,Volibear,Warwick,Wukong,Xayah,Xin Zhao,Yasuo,Yone,Yuumi,Zed,Zeri,Ziggs,Zilean,Zoe,Zyra'.split(',');
-const pickerItems=Object.keys(itemIds).map(k=>k.replace(/\b\w/g,c=>c.toUpperCase())).filter((v,i,a)=>a.indexOf(v)===i);
-const pickerRunes=Object.keys(runeIcons).map(k=>k.replace(/\b\w/g,c=>c.toUpperCase()));
+// Wild Rift catalog names, grouped by current item/rune families. Icons are shown only when mapped; no invented artwork.
+const wrItemGroups={
+'Defense':"Amaranth's Twinguard|Iceborn Gauntlet|Unending Despair|Sunfire Aegis|Gargoyle Stoneplate|Warmog's Armor|Thornmail|Hollow Radiance|Randuin's Omen|Dead Man's Plate|Force of Nature|Heartsteel|Kaenic Rookern|Dawnshroud|Radiant Virtue|Winter's Approach|Frozen Heart|Mantle of the Twelfth Hour|Locket of the Iron Solari|Knight's Vow|Zeke's Convergence|Yordle Trap|Abyssal Mask",
+'Magic':"Rabadon's Deathcap|Zhonya's Hourglass|Infinity Orb|Riftmaker|Dusk and Dawn|Liandry's Torment|Archangel's Staff|Void Staff|Cosmic Drive|Banshee's Veil|Cryptbloom|Bloodletter's Curse|Lich Bane|Luden's Echo|Stormsurge|Blackfire Torch|Rylai's Crystal Scepter|Horizon Focus|Malignance|Hextech Rocketbelt|Rod of Ages|Imperial Mandate|Oceanid's Trident|Morellonomicon|Redemption|Whispering Circlet",
+'Physical':"Infinity Edge|Trinity Force|Death's Dance|Divine Sunderer|Dominik's Regards|Bloodthirster|Guardian Angel|Sterak's Gage|Overlord's Bloodmail|Blade of the Ruined King|Serylda's Grudge|Spear of Shojin|Stridebreaker|Goredrinker|Galeforce|Mercurial Scimitar|Hullbreaker|Edge of Night|Yun Tal Wildarrows|Maw of Malmortius|Mortal Reminder|Duskblade of Draktharr|Essence Reaver|Immortal Shieldbow|The Collector|Terminus|Stormrazor|Black Cleaver|Guinsoo's Rageblade|Titanic Hydra|Experimental Hexplate|Nashor's Tooth|Hexoptics C44|Statikk Shiv|Youmuu's Ghostblade|Manamune|Eclipse|Sundered Sky|Kraken Slayer|Chempunk Chainsword|Wit's End|Serpent's Fang|Fiendhunter Bolts|Rapid Firecannon|Runaan's Hurricane|Phantom Dancer|Navori Quickblades",
+'Support':"Harmonic Echo|Shurelya's Battlesong|Mikael's Blessing|Staff of Flowing Water|Echoes of Helia|Ardent Censer|Bulwark of the Mountain|Black Mist Scythe|Diadem of Songs|Seraph's Embrace|Muramana|Fimbulwinter"
+};
+const wrBoots="Gunmetal Greaves|Chainlaced Crushers|Armored Advance|Spellslinger's Shoes|Armorcrusher Boots|Crimson Lucidity|Immortal Boots|Berserker's Greaves|Mercury's Treads|Plated Steelcaps|Boots of Mana|Boots of Dynamism|Ionian Boots of Lucidity|Gluttonous Greaves".split('|');
+const wrRuneGroups={
+'Keystone':"Electrocute|Dark Harvest|Empowerment|Lethal Tempo|Fleet Footwork|Conqueror|Grasp of the Undying|Guardian|Aery|Arcane Comet|Phase Rush|First Strike|Ice Overlord",
+'Domination':"Cheap Shot|Sudden Impact|Empowered Attack|Chain Assault|Tyrant|Hubris|Eyeball Collection|Relentless Hunter|Zombie Ward",
+'Precision':"Brutal|Triumph|Battle Zeal|Last Stand|Cut Down|Coup de Grace|Legend: Alacrity|Legend: Bloodline|Legend: Haste",
+'Resolve':"Demolish|Font of Life|Courage of the Colossus|Unshakeable|Second Wind|Nullifying Orb|Bone Plating|Overgrowth|Revitalize|Perseverance",
+'Sorcery':"Axiom Arcanist|Manaflow Band|Botanist|Hextech Flashtraption|Transcendence|Celerity|Absolute Focus|Scorch|Nimbus Cloak|Gathering Storm|Ixtali Seedjar"
+};
+const pickerItems=Object.values(wrItemGroups).flatMap(v=>v.split('|'));
+const pickerRunes=Object.values(wrRuneGroups).flatMap(v=>v.split('|'));
 const pickerConfig={champion:['Champion played','champ'],allies:['Allied champions','champ'],enemies:['Enemy champions','champ'],enemyjungler:['Enemy jungler','champ'],items:['Build order','item'],boots:['Boots','item'],runes:['Runes','rune']};
 const pickerOverlay=document.getElementById('pickerOverlay'),pickerGrid=document.getElementById('pickerGrid'),pickerSearch=document.getElementById('pickerSearch');
 let pickerField='',pickerType='',pickerSlot=-1;
@@ -440,8 +455,8 @@ const path=runeIcons[name.toLowerCase()];return path?'https://ddragon.leagueofle
 }
 function pickerOptions(){
 if(pickerType==='champ')return pickerChampions;
-if(pickerType==='rune')return pickerRunes;
-return pickerField==='boots'?pickerItems.filter(n=>/boots|treads|greaves/i.test(n)):pickerItems.filter(n=>!/boots|treads|greaves/i.test(n));
+if(pickerType==='rune')return pickerSlot===0?wrRuneGroups.Keystone.split('|'):pickerRunes;
+return pickerField==='boots'?wrBoots:pickerItems;
 }
 function renderPicker(){
 const q=pickerSearch.value.trim().toLowerCase();pickerGrid.replaceChildren();
@@ -453,6 +468,7 @@ const src=pickerSource(name,pickerType);if(src){const im=document.createElement(
 const label=document.createElement('span');label.textContent=name;button.appendChild(label);
 button.onclick=()=>{
 const input=document.getElementById(pickerField);
+if(pickerField==='runes'&&pickerSlot===0&&!wrRuneGroups.Keystone.split('|').includes(name))return;
 if(pickerSingle.has(pickerField))input.value=name;
 else{const current=input.value.split(',').map(v=>v.trim()).filter(Boolean);if(pickerSlot>=0){while(current.length<pickerSlot)current.push('');current[pickerSlot]=name}else if(current.length<(pickerLimit[pickerField]||5))current.push(name);else current[current.length-1]=name;input.value=current.filter(Boolean).join(', ')}
 input.dispatchEvent(new Event('input',{bubbles:true}));document.getElementById('pickerHelp').textContent='Selected: '+input.value;
