@@ -26,8 +26,9 @@ h1{letter-spacing:.035em}.studio-layout{display:grid;grid-template-columns:minma
 .picker-choice{margin:0;padding:8px 4px;background:#14263c;color:#e9f4ff;border:1px solid #31516b;border-radius:9px;display:flex;flex-direction:column;align-items:center;gap:6px;min-height:104px}
 .picker-choice img{width:60px;height:60px;object-fit:cover;border-radius:6px}.picker-choice span{font-size:.72rem;overflow-wrap:anywhere;text-align:center}.picker-choice:active{border-color:#f3c982}
 .picker-footer{margin-top:10px;color:#9eb8c9;font-size:.78rem}
+.slot-editor{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;margin-top:9px}.slot-card{position:relative;min-width:0;background:#101f32;border:1px solid #31536b;border-radius:8px;padding:7px 3px 8px;color:#e8f5ff;display:flex;align-items:center;flex-direction:column;gap:5px;margin:0;min-height:96px}.slot-card img{width:42px;height:42px;object-fit:cover;border-radius:5px}.slot-card .slot-name{font-size:.65rem;line-height:1.15;overflow-wrap:anywhere;text-align:center}.slot-card .slot-number{font-size:.64rem;color:#e8c27c}.slot-card:focus-visible{outline:2px solid #6edbf2}.slot-hint{display:block;margin-top:6px;font-size:.74rem;color:#9bb8ca}@media(max-width:560px){.slot-card{min-height:85px;padding:5px 2px}.slot-card img{width:36px;height:36px}}
 </style></head><body>
-<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v6.2.1</p>
+<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v6.3</p>
 <div class="studio-layout"><div class="studio-preview"><strong>LIVE PREVIEW · 12 SECONDS</strong><canvas id="stage" width="1280" height="720"></canvas>
 <div class="playbar"><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="12">FULL • 12s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export Full HD (MP4 / WebM)</button><span id="status"></span></div><div class="sequence-guide"><span><b>01</b> DRAFT<br>0–3.2s</span><span><b>02</b> BUILD & RUNES<br>3.2–9.1s</span><span><b>03</b> WIN CONDITION<br>9.1–12s</span></div></div><div class="studio-editor"><nav class="editor-tabs" aria-label="Editor sections"><button class="active" type="button" data-tab="draft">01 Draft</button><button type="button" data-tab="build">02 Build & Runes</button><button type="button" data-tab="plan">03 Plan</button><button type="button" data-tab="projects">Projects & Art</button></nav><div class="tab-panel" data-panel="projects" hidden><section><strong>MY INTRO PROJECT</strong><p>Save the current match settings on this device, restore them later, or start a fresh intro. The validated 12-second design remains unchanged.</p><div class="grid"><label>Project name<input id="projectname" value="Shyvana — Dragon Control" placeholder="Match / champion name"></label><label>Saved projects<select id="projectlist"><option value="">Choose a saved project</option></select></label></div><div><button id="saveproject">💾 Save project</button><button id="loadproject" class="secondary">↩ Load selected</button><button id="newproject" class="secondary">＋ New intro</button><button id="deleteproject" class="secondary">Delete selected</button></div><small id="projectstatus">Projects are stored locally in this browser. Imported champion images must be selected again after reopening.</small></section>
 <section><strong>WILD RIFT ARTWORKS</strong><p>Import Wild Rift champion artworks as image files named Garen.jpg, Shyvana.png, etc. Files replace PC art for matching champion names in the draft and final scene.</p><label>Champion images (multiple files)<input id="artfiles" type="file" accept="image/*" multiple></label><small id="artstatus">PC placeholders remain for champions without imported images.</small></section></div><section><strong>MATCH SETTINGS</strong><div class="grid">
@@ -429,7 +430,7 @@ const pickerItems=Object.keys(itemIds).map(k=>k.replace(/\b\w/g,c=>c.toUpperCase
 const pickerRunes=Object.keys(runeIcons).map(k=>k.replace(/\b\w/g,c=>c.toUpperCase()));
 const pickerConfig={champion:['Champion played','champ'],allies:['Allied champions','champ'],enemies:['Enemy champions','champ'],enemyjungler:['Enemy jungler','champ'],items:['Build order','item'],boots:['Boots','item'],runes:['Runes','rune']};
 const pickerOverlay=document.getElementById('pickerOverlay'),pickerGrid=document.getElementById('pickerGrid'),pickerSearch=document.getElementById('pickerSearch');
-let pickerField='',pickerType='';
+let pickerField='',pickerType='',pickerSlot=-1;
 const pickerSingle=new Set(['champion','enemyjungler','boots']);
 const pickerLimit={allies:5,enemies:5,items:5,runes:5};
 function pickerSource(name,type){
@@ -453,9 +454,9 @@ const label=document.createElement('span');label.textContent=name;button.appendC
 button.onclick=()=>{
 const input=document.getElementById(pickerField);
 if(pickerSingle.has(pickerField))input.value=name;
-else{const current=input.value.split(',').map(v=>v.trim()).filter(Boolean);if(current.length>=(pickerLimit[pickerField]||5)){current.shift()}current.push(name);input.value=current.join(', ')}
+else{const current=input.value.split(',').map(v=>v.trim()).filter(Boolean);if(pickerSlot>=0){while(current.length<pickerSlot)current.push('');current[pickerSlot]=name}else if(current.length<(pickerLimit[pickerField]||5))current.push(name);else current[current.length-1]=name;input.value=current.filter(Boolean).join(', ')}
 input.dispatchEvent(new Event('input',{bubbles:true}));document.getElementById('pickerHelp').textContent='Selected: '+input.value;
-if(pickerSingle.has(pickerField))closePicker();
+refreshSlotEditors();closePicker();
 };
 pickerGrid.appendChild(button);
 }
@@ -468,8 +469,38 @@ pickerSearch.addEventListener('input',renderPicker);
 for(const [field,[title,type]] of Object.entries(pickerConfig)){
 const input=document.getElementById(field),label=input?.closest('label');if(!label)continue;
 const button=document.createElement('button');button.type='button';button.className='pick-trigger';button.textContent='▦ Choose visually';
-button.onclick=()=>{pickerField=field;pickerType=type;document.getElementById('pickerTitle').textContent=title;document.getElementById('pickerHelp').textContent=pickerSingle.has(field)?'Tap an icon to replace the current selection.':'Tap icons in order to add them (up to '+pickerLimit[field]+'). You can edit the text field to remove or reorder.';pickerOverlay.hidden=false;pickerSearch.value='';renderPicker();pickerSearch.focus()};
+button.onclick=()=>{pickerSlot=-1;pickerField=field;pickerType=type;document.getElementById('pickerTitle').textContent=title;document.getElementById('pickerHelp').textContent=pickerSingle.has(field)?'Tap an icon to replace the current selection.':'Tap icons in order to add them (up to '+pickerLimit[field]+'). You can edit the text field to remove or reorder.';pickerOverlay.hidden=false;pickerSearch.value='';renderPicker();pickerSearch.focus()};
 label.appendChild(button);
 }
+const slotFields=['allies','enemies','items','runes'];
+const slotEditors=new Map();
+function openSlotPicker(field,index){
+pickerField=field;pickerType=pickerConfig[field][1];pickerSlot=index;
+document.getElementById('pickerTitle').textContent=pickerConfig[field][0]+' — slot '+(index+1);
+document.getElementById('pickerHelp').textContent='Choose a replacement for slot '+(index+1)+'. Other slots will stay in place.';
+pickerOverlay.hidden=false;pickerSearch.value='';renderPicker();
+}
+function refreshSlotEditors(){
+for(const field of slotFields){
+const grid=slotEditors.get(field);if(!grid)continue;
+const values=document.getElementById(field).value.split(',').map(v=>v.trim()).filter(Boolean);
+grid.replaceChildren();
+for(let i=0;i<5;i++){
+const name=values[i]||'',button=document.createElement('button');
+button.type='button';button.className='slot-card';button.title='Replace slot '+(i+1);button.setAttribute('aria-label','Replace '+field+' slot '+(i+1)+(name?': '+name:''));
+const num=document.createElement('span');num.className='slot-number';num.textContent=String(i+1).padStart(2,'0');button.appendChild(num);
+if(name){const src=pickerSource(name,pickerConfig[field][1]);if(src){const im=document.createElement('img');im.src=src;im.alt='';im.loading='lazy';button.appendChild(im)}}
+const caption=document.createElement('span');caption.className='slot-name';caption.textContent=name||'+ Add';button.appendChild(caption);
+button.onclick=()=>openSlotPicker(field,i);grid.appendChild(button);
+}
+}
+}
+for(const field of slotFields){
+const input=document.getElementById(field),label=input.closest('label');
+const grid=document.createElement('div');grid.className='slot-editor';grid.setAttribute('aria-label',field+' slots');label.appendChild(grid);slotEditors.set(field,grid);
+const hint=document.createElement('small');hint.className='slot-hint';hint.textContent='Tap a slot to replace its selection. Edit the text above to remove or reorder.';label.appendChild(hint);
+input.addEventListener('input',refreshSlotEditors);
+}
+refreshSlotEditors();
 draw(0);
 </script></body></html>
