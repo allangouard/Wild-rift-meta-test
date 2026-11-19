@@ -3,7 +3,7 @@
 <style>
 :root{color-scheme:dark;font-family:system-ui,Arial;background:#080e1d;color:#eaf6ff}*{box-sizing:border-box}body{margin:0;padding:16px;max-width:1050px;margin:auto}h1{font-size:1.5rem;margin:0;color:#f6cb72}p{color:#9db4c8}canvas{width:100%;aspect-ratio:16/9;border:1px solid #2a6685;border-radius:12px;background:#050c1c}section{background:#101b30;border:1px solid #23415d;border-radius:12px;padding:14px;margin:12px 0}label{display:block;font-size:.85rem;color:#afc8db;margin:8px 0}input,select{background:#091326;color:#fff;border:1px solid #31516e;border-radius:7px;padding:9px;width:100%}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}button{background:#00b5d6;color:#03131e;border:0;padding:12px 17px;border-radius:9px;font-weight:800;margin:4px;cursor:pointer}button.secondary{background:#273d56;color:white}button:disabled{opacity:.4}small{color:#91b3c7}#status{color:#e4b969} @media(max-width:600px){body{padding:8px}.grid{grid-template-columns:1fr}h1{font-size:1.2rem}}
 </style></head><body>
-<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v5.0</p>
+<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v4.9</p>
 <canvas id="stage" width="1280" height="720"></canvas>
 <div><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="12">FULL • 12s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export WebM (experimental)</button><span id="status"></span></div>
 <section><strong>WILD RIFT ARTWORKS</strong><p>Import Wild Rift champion artworks as image files named Garen.jpg, Shyvana.png, etc. Files replace PC art for matching champion names in the draft and final scene.</p><label>Champion images (multiple files)<input id="artfiles" type="file" accept="image/*" multiple></label><small id="artstatus">PC placeholders remain for champions without imported images.</small></section><section><strong>MATCH SETTINGS</strong><div class="grid">
@@ -188,31 +188,17 @@ ctx.restore();
 ctx.save();ctx.strokeStyle=side==='left'?'#35d4ff':'#ff627e';ctx.shadowColor=ctx.strokeStyle;ctx.shadowBlur=23;ctx.lineWidth=3;ctx.beginPath();if(side==='left'){ctx.moveTo(x,y+h);ctx.lineTo(x+w-65,y+h)}else{ctx.moveTo(x+65,y+h);ctx.lineTo(x+w,y+h)}ctx.stroke();ctx.restore();
 }
 function electricTrace(x1,y1,x2,y2,t,seed=0,strength=1){
-const dx=x2-x1,dy=y2-y1,len=Math.hypot(dx,dy)||1,nx=-dy/len,ny=dx/len;
-const step=Math.floor(t*16),cycle=(step+seed*7)%23;
-if(cycle>15)return;
-const phase=cycle/16,head=Math.min(1,phase*1.9),tail=Math.max(0,head-.36);
-const segments=35;
-ctx.save();ctx.lineJoin='round';ctx.lineCap='round';
-for(let pass=0;pass<2;pass++){
-ctx.beginPath();
-for(let i=0;i<=segments;i++){
-const p=tail+(head-tail)*i/segments;
-const jitter=i===0||i===segments?0:(Math.sin(i*17.41+step*13.2+seed*5.4)*.6+Math.sin(i*37.2-step*7.3+seed)*.4)*9*strength;
-const px=x1+dx*p+nx*jitter,py=y1+dy*p+ny*jitter;
-if(i===0)ctx.moveTo(px,py);else ctx.lineTo(px,py)}
-ctx.strokeStyle=pass===0?'#00cfff':'#e4ffff';ctx.lineWidth=pass===0?5.5:1.45;ctx.shadowColor='#00ccff';ctx.shadowBlur=pass===0?17:7;ctx.globalAlpha=pass===0?.56:.95;ctx.stroke()}
-if(cycle<10){const p=tail+(head-tail)*.7;const bx=x1+dx*p,by=y1+dy*p;ctx.beginPath();ctx.moveTo(bx,by);ctx.lineTo(bx+nx*25+dx*.025,by+ny*25+dy*.025);ctx.strokeStyle='#8df6ff';ctx.lineWidth=1.5;ctx.shadowBlur=8;ctx.stroke()}
-ctx.restore()
-}
+ctx.save();const flicker=.36+.3*Math.sin(t*9+seed*2.1)+.2*Math.sin(t*17+seed);ctx.globalAlpha=Math.max(.08,flicker)*strength;ctx.strokeStyle='#5cefff';ctx.shadowColor='#00d9ff';ctx.shadowBlur=19;ctx.lineWidth=2.2;ctx.beginPath();const n=17;for(let i=0;i<=n;i++){const p=i/n;const x=x1+(x2-x1)*p,y=y1+(y2-y1)*p;const offset=(i===0||i===n)?0:Math.sin(i*13.7+seed*4+t*6)*4;const dx=y2-y1,dy=x1-x2,len=Math.hypot(dx,dy)||1;const xx=x+dx/len*offset,yy=y+dy/len*offset;if(i===0)ctx.moveTo(xx,yy);else ctx.lineTo(xx,yy)}ctx.stroke();ctx.restore()}
 function vaultElectric(t,phase){
-electricTrace(38,79,1242,79,t,1,.8);
-electricTrace(39,704,1241,704,t,3,.75);
-if(phase<=1){electricTrace(0,426,1280,426,t,4,.95);electricTrace(0,566,1280,566,t,6,.9);
-const xs=[42,185,328,471,671,814,957,1100];xs.forEach((x,i)=>{if((Math.floor(t*10)+i*3)%13<6){electricTrace(x+5,466,x+133,466,t,i+10,.7);electricTrace(x+133,466,x+117,559,t,i+13,.45)}})
-}else if(phase===2){electricTrace(407,147,1218,147,t,2,.85);electricTrace(408,371,1214,371,t,7,.75)}
-else electricTrace(72,258,782,258,t,8,.9)
-}
+ctx.save();ctx.globalCompositeOperation='screen';
+const flicker=.25+.15*Math.sin(t*7);
+const glow=ctx.createRadialGradient(640,40,20,640,40,470);glow.addColorStop(0,'#00c9ff'+Math.round(flicker*255).toString(16).padStart(2,'0'));glow.addColorStop(1,'#00000000');rect(0,0,1280,210,glow);
+electricTrace(38,79,1242,79,t,1,.72);
+electricTrace(39,704,1241,704,t,3,.5);
+if(phase<=1){electricTrace(0,426,1280,426,t,4,.9);electricTrace(0,566,1280,566,t,6,.75)}
+else if(phase===2){electricTrace(407,147,1218,147,t,2,.85);electricTrace(408,371,1214,371,t,7,.7)}
+else electricTrace(72,258,782,258,t,8,.85);
+ctx.restore()}
 function scene(t){
 const phase=t<1.1?0:t<3.2?1:t<9.1?2:3;
 ctx.clearRect(0,0,1280,720);
