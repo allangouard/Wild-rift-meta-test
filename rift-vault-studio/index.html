@@ -3,7 +3,7 @@
 <style>
 :root{color-scheme:dark;font-family:system-ui,Arial;background:#080e1d;color:#eaf6ff}*{box-sizing:border-box}body{margin:0;padding:16px;max-width:1050px;margin:auto}h1{font-size:1.5rem;margin:0;color:#f6cb72}p{color:#9db4c8}canvas{width:100%;aspect-ratio:16/9;border:1px solid #2a6685;border-radius:12px;background:#050c1c}section{background:#101b30;border:1px solid #23415d;border-radius:12px;padding:14px;margin:12px 0}label{display:block;font-size:.85rem;color:#afc8db;margin:8px 0}input,select{background:#091326;color:#fff;border:1px solid #31516e;border-radius:7px;padding:9px;width:100%}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}button{background:#00b5d6;color:#03131e;border:0;padding:12px 17px;border-radius:9px;font-weight:800;margin:4px;cursor:pointer}button.secondary{background:#273d56;color:white}button:disabled{opacity:.4}small{color:#91b3c7}#status{color:#e4b969} @media(max-width:600px){body{padding:8px}.grid{grid-template-columns:1fr}h1{font-size:1.2rem}}
 </style></head><body>
-<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v4.0</p>
+<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v4.1</p>
 <canvas id="stage" width="1280" height="720"></canvas>
 <div><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="12">FULL • 12s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export WebM (experimental)</button><span id="status"></span></div>
 <section><strong>WILD RIFT ARTWORKS</strong><p>Import Wild Rift champion artworks as image files named Garen.jpg, Shyvana.png, etc. Files replace PC art for matching champion names in the draft and final scene.</p><label>Champion images (multiple files)<input id="artfiles" type="file" accept="image/*" multiple></label><small id="artstatus">PC placeholders remain for champions without imported images.</small></section><section><strong>MATCH SETTINGS</strong><div class="grid">
@@ -12,7 +12,7 @@
 <label>Rank<input id="rank" value="DIAMOND II"></label>
 <label>Patch<input id="patch" value="7.3F"></label>
 <label>Allied team (comma separated)<input id="allies" value="Garen,Shyvana,Syndra,Jhin,Leona"></label>
-<label>Enemy team (comma separated)<input id="enemies" value="Aatrox,Kayn,Annie,Ezreal,Lulu"></label>
+<label>Enemy team (comma separated)<input id="enemies" value="Aatrox,Kayn,Annie,Ezreal,Lulu"></label><label>Enemy jungler — cinematic opponent<input id="enemyjungler" value="Kayn" placeholder="e.g. Kayn"></label>
 <label>Items used (comma separated)<input id="items" value="Trinity Force,Sterak's Gage,Death's Dance,Spirit Visage,Guardian Angel"></label>
 <label>Boots used<input id="boots" value="Plated Steelcaps"></label><label>Runes used (comma separated)<input id="runes" value="Conqueror,Triumph,Last Stand,Legend: Alacrity,Bone Plating"></label>
 <label>Top composition threats — CATEGORY | LEVEL | CHAMPIONS (semicolon separated)<input id="threats" value="SUSTAIN | HIGH | Aatrox / Kayn;AP BURST | HIGH | Annie;SHIELDS | MEDIUM | Lulu / Annie"></label>
@@ -170,6 +170,18 @@ ctx.restore();
 ctx.save();ctx.strokeStyle=accent;ctx.shadowColor=accent;ctx.shadowBlur=emphasis?22:9;ctx.lineWidth=emphasis?3:1.6;ctx.beginPath();ctx.moveTo(x+25,y);ctx.lineTo(x+w,y);ctx.lineTo(x+w-25,y+h);ctx.lineTo(x,y+h);ctx.closePath();ctx.stroke();ctx.restore();
 fittedText(name.toUpperCase(),x+w*.5,y+h-13,w-22,17,'#fff',900);
 }
+function cinematicFaceoffArt(name,x,y,w,h,t,side){
+const im=heroArt(name);
+ctx.save();ctx.beginPath();
+if(side==='left'){ctx.moveTo(x,y);ctx.lineTo(x+w,y);ctx.lineTo(x+w-65,y+h);ctx.lineTo(x,y+h)}
+else{ctx.moveTo(x+65,y);ctx.lineTo(x+w,y);ctx.lineTo(x+w,y+h);ctx.lineTo(x,y+h)}
+ctx.closePath();ctx.clip();
+const grad=ctx.createLinearGradient(x,y,x+w,y+h);grad.addColorStop(0,side==='left'?'#084d72':'#691b3d');grad.addColorStop(1,'#07101c');rect(x,y,w,h,grad);
+if(im.complete&&im.naturalWidth){const scale=Math.max(w/im.width,h/im.height)*1.13,iw=im.width*scale,ih=im.height*scale;const focus=side==='left'?.53:.47;ctx.drawImage(im,x+w*focus-iw*.5+Math.sin(t*.36)*9,y+(h-ih)*.43,iw,ih)}
+const shade=ctx.createLinearGradient(x,y+h*.35,x,y+h);shade.addColorStop(0,'#01071300');shade.addColorStop(1,'#010713b5');rect(x,y,w,h,shade);
+ctx.restore();
+ctx.save();ctx.strokeStyle=side==='left'?'#35d4ff':'#ff627e';ctx.shadowColor=ctx.strokeStyle;ctx.shadowBlur=23;ctx.lineWidth=3;ctx.beginPath();if(side==='left'){ctx.moveTo(x,y+h);ctx.lineTo(x+w-65,y+h)}else{ctx.moveTo(x+65,y+h);ctx.lineTo(x+w,y+h)}ctx.stroke();ctx.restore();
+}
 function scene(t){
 const phase=t<1.1?0:t<3.2?1:t<9.1?2:3;
 ctx.clearRect(0,0,1280,720);
@@ -194,25 +206,35 @@ rect(38,78,1204,2,'#c69c5e7c');
 if(phase<=1){
 draftAtmosphere(t);
 const allies=split('allies'),enemies=split('enemies'),threats=threatEntries();
-const glowL=ctx.createRadialGradient(250,300,20,250,300,540);glowL.addColorStop(0,'#086ca766');glowL.addColorStop(1,'#00000000');rect(0,90,640,510,glowL);
-const glowR=ctx.createRadialGradient(1030,300,20,1030,300,540);glowR.addColorStop(0,'#a81b4a6a');glowR.addColorStop(1,'#00000000');rect(640,90,640,510,glowR);
-ctx.save();ctx.globalAlpha=.24;ctx.fillStyle='#1298d3';ctx.beginPath();ctx.moveTo(0,150);ctx.lineTo(620,150);ctx.lineTo(555,390);ctx.lineTo(0,390);ctx.fill();ctx.fillStyle='#e23c69';ctx.beginPath();ctx.moveTo(660,150);ctx.lineTo(1280,150);ctx.lineTo(1280,390);ctx.lineTo(725,390);ctx.fill();ctx.restore();
-alpha(smooth((t-.05)/.2),()=>{txt('ALLIED LINEUP',54,142,25,'#9aefff',900);txt('ENEMY LINEUP',1225,142,25,'#ffb4c0',900,'right')});
-allies.slice(0,5).forEach((name,i)=>{const k=smooth((t-.08-i*.06)/.27);alpha(k,()=>draftStripPortrait(name,30+i*119,168+(1-k)*95,121,226,'#52d4f1',t,name.toLowerCase()===$('champion').value.trim().toLowerCase()))});
-enemies.slice(0,5).forEach((name,i)=>{const k=smooth((t-.1-i*.06)/.27);alpha(k,()=>draftStripPortrait(name,655+i*119,168-(1-k)*95,121,226,'#f86b88',t))});
-alpha(smooth((t-.25)/.25),()=>{ctx.save();ctx.shadowColor='#ffcf81';ctx.shadowBlur=40;txt('VS',638,306,61,'#ffdfa2',900,'center');ctx.restore()});
+const played=$('champion').value.trim(),requested=$('enemyjungler').value.trim();
+const enemyJungle=enemies.find(n=>n.toLowerCase()===requested.toLowerCase())||requested||enemies[1]||'';
+const otherAllies=allies.filter(n=>n.toLowerCase()!==played.toLowerCase()).slice(0,4);
+const otherEnemies=enemies.filter(n=>n.toLowerCase()!==enemyJungle.toLowerCase()).slice(0,4);
+alpha(smooth((t-.06)/.34),()=>{
+cinematicFaceoffArt(played,0,87,665,315,t,'left');
+cinematicFaceoffArt(enemyJungle,615,87,665,315,t,'right');
+const light=ctx.createRadialGradient(640,320,8,640,320,200);light.addColorStop(0,'#ffdf9b7c');light.addColorStop(1,'#00000000');rect(490,160,300,270,light);
+ctx.save();ctx.shadowColor='#fbc777';ctx.shadowBlur=36;txt('VS',640,348,68,'#ffe3a6',900,'center');ctx.restore();
+txt(played.toUpperCase(),58,381,27,'#d6f7ff',900);
+txt(enemyJungle.toUpperCase(),1222,381,27,'#ffe1e7',900,'right');
+});
+alpha(smooth((t-.2)/.28),()=>{
+rect(0,403,1280,6,'#d7a66b');
+txt('ALLIED TEAM',46,434,19,'#9deeff',900);
+txt('ENEMY TEAM',1230,434,19,'#ffacb9',900,'right');
+});
+otherAllies.forEach((name,i)=>{const k=smooth((t-.26-i*.055)/.25);alpha(k,()=>draftStripPortrait(name,40+i*144,445+(1-k)*45,140,103,'#3ccbe9',t))});
+otherEnemies.forEach((name,i)=>{const k=smooth((t-.3-i*.055)/.25);alpha(k,()=>draftStripPortrait(name,668+i*144,445-(1-k)*45,140,103,'#f16c82',t))});
 if(phase===0){
-alpha(smooth((t-.42)/.28),()=>{const g=ctx.createLinearGradient(0,403,0,605);g.addColorStop(0,'#06101a00');g.addColorStop(.3,'#06101af2');g.addColorStop(1,'#06101a80');rect(50,405,1180,178,g);fittedText($('hook').value.toUpperCase(),640,492,1070,45,'#fff');txt('EVERY MATCH HAS A STORY',640,543,22,'#f8ce8b',900,'center')});
+alpha(smooth((t-.44)/.25),()=>{const g=ctx.createLinearGradient(0,557,0,666);g.addColorStop(0,'#06101c00');g.addColorStop(.4,'#06101ce8');g.addColorStop(1,'#06101cd0');rect(0,556,1280,110,g);fittedText($('hook').value.toUpperCase(),640,615,1120,37,'#fff');txt('EVERY MATCH HAS A STORY',640,654,17,'#f9d59a',900,'center')});
 }else{
-alpha(smooth((t-1.12)/.2),()=>{txt('ENEMY COMPOSITION THREATS',640,448,27,'#ffdfac',900,'center');rect(90,467,1100,2,'#d6a477')});
-threats.forEach((v,i)=>{const k=smooth((t-1.34-i*.18)/.28);alpha(k,()=>{
-const x=85+i*375,y=485,col=v.level==='HIGH'?'#ff8188':v.level==='MEDIUM'?'#f1c27c':'#79d4e9';
-ctx.save();ctx.fillStyle='#081726d9';ctx.beginPath();ctx.moveTo(x+13,y);ctx.lineTo(x+365,y);ctx.lineTo(x+349,y+113);ctx.lineTo(x,y+113);ctx.closePath();ctx.fill();ctx.restore();
-rect(x+10,y+13,5,88,col);txt('0'+(i+1),x+29,y+29,17,col,900);
-fittedText(v.category.toUpperCase(),x+29,y+62,305,29,'#fff',900,'left');
-fittedText(v.sources.toUpperCase(),x+29,y+88,305,17,'#bcd7e7',800,'left');
-txt(v.level,x+282,y+29,15,col,900);
-rect(x+29,y+101,305,3,'#2a3e50');rect(x+29,y+101,305*(v.level==='HIGH'?.95:v.level==='MEDIUM'?.62:v.level==='LOW'?.32:0),3,col);
+alpha(smooth((t-1.12)/.18),()=>{rect(0,550,1280,125,'#050c19ec');txt('ENEMY COMPOSITION',170,577,21,'#ffd6a1',900)});
+threats.forEach((v,i)=>{const k=smooth((t-1.31-i*.17)/.22);alpha(k,()=>{
+const x=365+i*292,y=563,col=v.level==='HIGH'?'#ff7f87':v.level==='MEDIUM'?'#e9c077':'#6cd0e6';
+rect(x,y,3,85,col);
+fittedText(v.category.toUpperCase(),x+16,y+30,260,23,'#fff',900,'left');
+fittedText(v.sources.toUpperCase(),x+16,y+56,260,15,'#bed9e7',800,'left');
+txt(v.level,x+16,y+79,14,col,900);
 })});
 }
 }else if(phase===2){
