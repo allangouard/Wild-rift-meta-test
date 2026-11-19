@@ -135,7 +135,13 @@ const runeIcons={
 'second wind':'Styles/Resolve/SecondWind/SecondWind.png',
 'overgrowth':'Styles/Resolve/Overgrowth/Overgrowth.png'
 };
-function runeImage(name){const path=runeIcons[name.toLowerCase().trim()];if(!path)return null;const key='rune:'+path;if(!imageCache.has(key)){const im=new Image();im.crossOrigin='anonymous';im.src='https://ddragon.leagueoflegends.com/cdn/img/perk-images/'+path;im.onload=()=>{if(!playing)draw(elapsed)};imageCache.set(key,im)}return imageCache.get(key)}
+function runeImage(name){
+const url=runeIconURL(name)||(runeIcons[String(name||'').toLowerCase().trim()]?'https://ddragon.leagueoflegends.com/cdn/img/perk-images/'+runeIcons[String(name||'').toLowerCase().trim()]:'');
+if(!url)return null;
+const key='rune:'+url;
+if(!imageCache.has(key)){const im=new Image();im.crossOrigin='anonymous';im.src=url;im.onload=()=>{if(!playing)draw(elapsed)};imageCache.set(key,im)}
+return imageCache.get(key)
+}
 function runeCard(name,x,y,w,h,index,primary,secondary=false){
 ctx.save();ctx.shadowColor=primary?'#e8b44f':'#13a6d7';ctx.shadowBlur=primary?22:10;
 const gr=ctx.createLinearGradient(x,y,x+w,y+h);gr.addColorStop(0,primary?'#49351a':secondary?'#231c39':'#0a2e43');gr.addColorStop(1,'#050d18');rect(x,y,w,h,gr,primary?'#e9b64d':secondary?'#aa85e8':'#237b9b');ctx.restore();
