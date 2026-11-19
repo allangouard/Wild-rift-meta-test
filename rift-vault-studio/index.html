@@ -31,7 +31,7 @@ h1{letter-spacing:.035em}.studio-layout{display:grid;grid-template-columns:minma
 </style></head><body>
 <h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v8.0</p>
 <div class="studio-layout"><div class="studio-preview"><strong>LIVE PREVIEW · 17 SECONDS</strong><canvas id="stage" width="1280" height="720"></canvas>
-<div class="playbar"><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="17">FULL • 17s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export Full HD (MP4 / WebM)</button><span id="status"></span></div><div class="sequence-guide"><span><b>01</b> DRAFT<br>0–4.5s</span><span><b>02</b> BUILD & RUNES<br>4.5–12.8s</span><span><b>03</b> WIN CONDITION<br>12.8–17s</span></div></div><div class="studio-editor"><small id="catalogStatus">Chargement du catalogue Draft Intelligence…</small><nav class="editor-tabs" aria-label="Editor sections"><button class="active" type="button" data-tab="draft">01 Draft</button><button type="button" data-tab="build">02 Build & Runes</button><button type="button" data-tab="plan">03 Plan</button><button type="button" data-tab="projects">Projects & Art</button></nav><div class="tab-panel" data-panel="projects" hidden><section><strong>MY INTRO PROJECT</strong><p>Save the current match settings on this device, restore them later, or start a fresh intro. The validated 12-second design remains unchanged.</p><div class="grid"><label>Project name<input id="projectname" value="Shyvana — Dragon Control" placeholder="Match / champion name"></label><label>Saved projects<select id="projectlist"><option value="">Choose a saved project</option></select></label></div><div><button id="saveproject">💾 Save project</button><button id="loadproject" class="secondary">↩ Load selected</button><button id="newproject" class="secondary">＋ New intro</button><button id="deleteproject" class="secondary">Delete selected</button></div><small id="projectstatus">Projects are stored locally in this browser. Imported champion images must be selected again after reopening.</small></section>
+<div class="playbar"><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="17">FULL • 17s</option></select></label><button id="play">▶ Preview</button><label style="display:inline-block;margin:0 8px">Soundtrack <input id="soundfile" type="file" accept="audio/*" style="max-width:190px"></label><label style="display:inline-block;margin:0 8px">Volume <input id="soundvolume" type="range" min="0" max="100" value="55" style="width:85px;vertical-align:middle"></label><small id="soundstatus">Optional · use music you own or are licensed to use</small><button id="export" class="secondary">⬇ Export Full HD (MP4 / WebM)</button><span id="status"></span></div><div class="sequence-guide"><span><b>01</b> DRAFT<br>0–4.5s</span><span><b>02</b> BUILD & RUNES<br>4.5–12.8s</span><span><b>03</b> WIN CONDITION<br>12.8–17s</span></div></div><div class="studio-editor"><small id="catalogStatus">Chargement du catalogue Draft Intelligence…</small><nav class="editor-tabs" aria-label="Editor sections"><button class="active" type="button" data-tab="draft">01 Draft</button><button type="button" data-tab="build">02 Build & Runes</button><button type="button" data-tab="plan">03 Plan</button><button type="button" data-tab="projects">Projects & Art</button></nav><div class="tab-panel" data-panel="projects" hidden><section><strong>MY INTRO PROJECT</strong><p>Save the current match settings on this device, restore them later, or start a fresh intro. The current 17-second cinematic design is preserved.</p><div class="grid"><label>Project name<input id="projectname" value="Shyvana — Dragon Control" placeholder="Match / champion name"></label><label>Saved projects<select id="projectlist"><option value="">Choose a saved project</option></select></label></div><div><button id="saveproject">💾 Save project</button><button id="loadproject" class="secondary">↩ Load selected</button><button id="newproject" class="secondary">＋ New intro</button><button id="deleteproject" class="secondary">Delete selected</button></div><small id="projectstatus">Projects are stored locally in this browser. Imported champion images must be selected again after reopening.</small></section>
 <section><strong>WILD RIFT ARTWORKS</strong><p>Import Wild Rift champion artworks as image files named Garen.jpg, Shyvana.png, etc. Files replace PC art for matching champion names in the draft and final scene.</p><label>Champion images (multiple files)<input id="artfiles" type="file" accept="image/*" multiple></label><small id="artstatus">PC placeholders remain for champions without imported images.</small></section></div><section><strong>MATCH SETTINGS</strong><div class="grid">
 <label>Champion played<input id="champion" value="Shyvana"></label>
 <label>Role<input id="role" value="JUNGLE"></label>
@@ -432,14 +432,44 @@ return 9.1+(seconds-12.8)*(2.9/4.2);
 }
 function draw(t){scene(cinematicTimeline(t))}
 let recording=false;
+let soundtrackBuffer=null,soundtrackContext=null,soundtrackSource=null,soundtrackGain=null;
+$('soundfile').addEventListener('change',async e=>{
+ const file=e.target.files?.[0];soundtrackBuffer=null;stopSoundtrack();
+ if(!file){$('soundstatus').textContent='No soundtrack selected';return}
+ try{
+  soundtrackContext=soundtrackContext||new (window.AudioContext||window.webkitAudioContext)();
+  const data=await file.arrayBuffer();
+  soundtrackBuffer=await soundtrackContext.decodeAudioData(data);
+  $('soundstatus').textContent=file.name+' · '+Math.round(soundtrackBuffer.duration)+'s';
+ }catch(err){$('soundstatus').textContent='Audio unsupported: try MP3 or WAV'}
+});
+function stopSoundtrack(){
+ if(soundtrackSource){try{soundtrackSource.stop()}catch(e){}try{soundtrackSource.disconnect()}catch(e){}soundtrackSource=null}
+ if(soundtrackGain){try{soundtrackGain.disconnect()}catch(e){}soundtrackGain=null}
+}
+async function startSoundtrack(forExport=false){
+ stopSoundtrack();
+ if(!soundtrackBuffer)return null;
+ const ac=soundtrackContext;await ac.resume();
+ const source=ac.createBufferSource();source.buffer=soundtrackBuffer;
+ const gain=ac.createGain();gain.gain.value=Number($('soundvolume').value)/100;
+ source.connect(gain);
+ let destination=null;
+ if(forExport){destination=ac.createMediaStreamDestination();gain.connect(destination)}
+ else gain.connect(ac.destination);
+ source.start(0,0,Math.min(duration(),soundtrackBuffer.duration));
+ soundtrackSource=source;soundtrackGain=gain;
+ return destination;
+}
 function play(onComplete){
 if(recording&&!onComplete)return;
 cancelAnimationFrame(raf);start=performance.now();elapsed=0;playing=true;
+startSoundtrack(false).catch(()=>{$('soundstatus').textContent='Soundtrack preview unavailable'});
 function frame(now){
 elapsed=Math.min(duration(),(now-start)/1000);
 draw(elapsed);
 if(elapsed<duration())raf=requestAnimationFrame(frame);
-else{playing=false;if(typeof onComplete==='function')onComplete()}
+else{playing=false;stopSoundtrack();if(typeof onComplete==='function')onComplete()}
 }
 raf=requestAnimationFrame(frame);
 }
@@ -472,12 +502,14 @@ try{
 cancelAnimationFrame(raf);playing=false;elapsed=0;draw(0);
 outputCtx.drawImage(c,0,0,1920,1080);
 stream=output.captureStream(60);
+const audioDestination=await startSoundtrack(true);
+if(audioDestination)for(const track of audioDestination.stream.getAudioTracks())stream.addTrack(track);
 rec=new MediaRecorder(stream,{mimeType:type,videoBitsPerSecond:12000000});
-}catch(err){if(stream)stream.getTracks().forEach(tr=>tr.stop());$('status').textContent='Full HD recording unavailable: '+(err?.message||'browser restriction');return}
+}catch(err){stopSoundtrack();if(stream)stream.getTracks().forEach(tr=>tr.stop());$('status').textContent='Full HD recording unavailable: '+(err?.message||'browser restriction');return}
 const chunks=[];let failed=false;
 recording=true;$('export').disabled=true;$('play').disabled=true;
 $('status').textContent='Recording Full HD '+(mp4?'MP4':'WebM')+'… keep this tab visible';
-const cleanup=()=>{recording=false;$('export').disabled=false;$('play').disabled=false;stream.getTracks().forEach(tr=>tr.stop())};
+const cleanup=()=>{stopSoundtrack();recording=false;$('export').disabled=false;$('play').disabled=false;stream.getTracks().forEach(tr=>tr.stop())};
 rec.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};
 rec.onerror=()=>{failed=true;$('status').textContent='Full HD recording failed; try Chrome desktop';if(rec.state==='recording')rec.stop()};
 rec.onstop=()=>{
