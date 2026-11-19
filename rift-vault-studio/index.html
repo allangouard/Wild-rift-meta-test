@@ -15,8 +15,19 @@ h1{letter-spacing:.035em}.studio-layout{display:grid;grid-template-columns:minma
 .sequence-guide{display:flex;gap:7px;margin-top:12px}.sequence-guide span{flex:1;text-align:center;background:#101f32;border:1px solid #28425b;border-radius:7px;padding:9px 3px;font-size:.75rem;color:#c5d7e5}.sequence-guide b{color:#f4c780}
 @media(max-width:980px){body{padding:10px}.studio-layout{display:flex;flex-direction:column}.studio-preview{position:static;width:100%;order:0}.studio-editor{width:100%;order:1}.studio-editor .grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.studio-editor .grid{grid-template-columns:1fr}.studio-preview{padding:9px}.studio-preview .playbar button{flex:1;font-size:.83rem;padding:11px 7px}.editor-tabs button{font-size:.75rem}.sequence-guide span{font-size:.64rem}h1{font-size:1.2rem}}
+
+/* v6.2 compact touch-friendly visual pickers */
+.pick-trigger{width:100%;margin:6px 0 0;background:#15354a;color:#d5f5ff;border:1px solid #367a93;padding:9px;font-size:.83rem}
+.picker-overlay[hidden]{display:none!important}.picker-overlay{position:fixed;inset:0;z-index:1000;background:#010611d9;display:flex;align-items:center;justify-content:center;padding:14px}
+.picker-dialog{width:min(720px,100%);max-height:88dvh;display:flex;flex-direction:column;background:#0c192d;border:1px solid #4793b1;border-radius:16px;padding:16px;box-shadow:0 20px 70px #000a}
+.picker-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.picker-head h2{font-size:1.15rem;color:#f2c983;margin:0}.picker-head button{margin:0}
+.picker-help{color:#a9c2d3;font-size:.82rem;margin:7px 0}.picker-search{margin:8px 0 12px}
+.picker-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(95px,1fr));gap:9px;overflow:auto;padding:3px;min-height:80px}
+.picker-choice{margin:0;padding:8px 4px;background:#14263c;color:#e9f4ff;border:1px solid #31516b;border-radius:9px;display:flex;flex-direction:column;align-items:center;gap:6px;min-height:104px}
+.picker-choice img{width:60px;height:60px;object-fit:cover;border-radius:6px}.picker-choice span{font-size:.72rem;overflow-wrap:anywhere;text-align:center}.picker-choice:active{border-color:#f3c982}
+.picker-footer{margin-top:10px;color:#9eb8c9;font-size:.78rem}
 </style></head><body>
-<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v6.1</p>
+<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v6.2</p>
 <div class="studio-layout"><div class="studio-preview"><strong>LIVE PREVIEW · 12 SECONDS</strong><canvas id="stage" width="1280" height="720"></canvas>
 <div class="playbar"><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="12">FULL • 12s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export Full HD (MP4 / WebM)</button><span id="status"></span></div><div class="sequence-guide"><span><b>01</b> DRAFT<br>0–3.2s</span><span><b>02</b> BUILD & RUNES<br>3.2–9.1s</span><span><b>03</b> WIN CONDITION<br>9.1–12s</span></div></div><div class="studio-editor"><nav class="editor-tabs" aria-label="Editor sections"><button class="active" type="button" data-tab="draft">01 Draft</button><button type="button" data-tab="build">02 Build & Runes</button><button type="button" data-tab="plan">03 Plan</button><button type="button" data-tab="projects">Projects & Art</button></nav><div class="tab-panel" data-panel="projects" hidden><section><strong>MY INTRO PROJECT</strong><p>Save the current match settings on this device, restore them later, or start a fresh intro. The validated 12-second design remains unchanged.</p><div class="grid"><label>Project name<input id="projectname" value="Shyvana — Dragon Control" placeholder="Match / champion name"></label><label>Saved projects<select id="projectlist"><option value="">Choose a saved project</option></select></label></div><div><button id="saveproject">💾 Save project</button><button id="loadproject" class="secondary">↩ Load selected</button><button id="newproject" class="secondary">＋ New intro</button><button id="deleteproject" class="secondary">Delete selected</button></div><small id="projectstatus">Projects are stored locally in this browser. Imported champion images must be selected again after reopening.</small></section>
 <section><strong>WILD RIFT ARTWORKS</strong><p>Import Wild Rift champion artworks as image files named Garen.jpg, Shyvana.png, etc. Files replace PC art for matching champion names in the draft and final scene.</p><label>Champion images (multiple files)<input id="artfiles" type="file" accept="image/*" multiple></label><small id="artstatus">PC placeholders remain for champions without imported images.</small></section></div><section><strong>MATCH SETTINGS</strong><div class="grid">
@@ -31,6 +42,7 @@ h1{letter-spacing:.035em}.studio-layout{display:grid;grid-template-columns:minma
 <label>Top composition threats — CATEGORY | LEVEL | CHAMPIONS (semicolon separated)<input id="threats" value="SUSTAIN | HIGH | Aatrox / Kayn;AP BURST | HIGH | Annie;SHIELDS | MEDIUM | Lulu / Annie"></label>
 <label>Hook — match-specific question<input id="hook" value="CAN SHYVANA CONTROL THE DRAGONS?"></label><label>Key response — only if supported by actual items<input id="response" value="BUILD TO SURVIVE THEIR BURST"></label><label>Win condition — review before publishing<input id="strategy" value="SCALE UP • CONTROL DRAGONS"></label>
 </div><small>Demo data only. Champion and supported item icons use temporary League PC assets, not yet verified Wild Rift-specific. Unsupported items fall back to text. This version does not yet infer accurate threats or builds automatically. Enter real match information.</small></section></div></div>
+<div id="pickerOverlay" class="picker-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="pickerTitle"><div class="picker-dialog"><div class="picker-head"><h2 id="pickerTitle">Choose an icon</h2><button type="button" id="pickerClose" class="secondary">✕ Close</button></div><p class="picker-help" id="pickerHelp"></p><input id="pickerSearch" class="picker-search" placeholder="Search by name…" autocomplete="off"><div class="picker-grid" id="pickerGrid"></div><div class="picker-footer">Temporary League PC icons. Type names directly in the fields for other Wild Rift entries.</div></div></div>
 <script>
 const tabFields={draft:['champion','role','rank','patch','allies','enemies','enemyjungler','threats'],build:['items','boots','runes'],plan:['hook','response','strategy']};
 const settingsSection=[...document.querySelectorAll('.studio-editor section')].find(el=>el.textContent.includes('MATCH SETTINGS'));
@@ -50,6 +62,54 @@ document.querySelectorAll('[data-panel]').forEach(panel=>panel.hidden=panel.data
 document.querySelectorAll('[data-tab]').forEach(btn=>{const active=btn.dataset.tab===name;btn.classList.toggle('active',active);btn.setAttribute('aria-selected',String(active))});
 }
 document.querySelectorAll('[data-tab]').forEach(btn=>btn.addEventListener('click',()=>activateEditorTab(btn.dataset.tab)));
+/* Visual selection uses the same underlying text fields, so saved projects and export stay compatible. */
+const pickerChampions='Aatrox,Ahri,Akali,Alistar,Ambessa,Amumu,Annie,Ashe,Aurelion Sol,Blitzcrank,Brand,Braum,Caitlyn,Camille,Corki,Darius,Diana,Draven,Ekko,Ezreal,Fiora,Fizz,Galio,Garen,Gnar,Gragas,Graves,Gwen,Hecarim,Irelia,Janna,Jarvan IV,Jax,Jhin,Jinx,Kaisa,Karma,Kassadin,Katarina,Kayn,Kennen,Khazix,Kindred,Lee Sin,Leona,Lillia,Lulu,Lux,Malphite,Master Yi,Miss Fortune,Morgana,Nami,Nasus,Nautilus,Nocturne,Olaf,Orianna,Ornn,Pantheon,Pyke,Rakan,Rammus,Renekton,Rengar,Riven,Samira,Senna,Seraphine,Sett,Shen,Shyvana,Singed,Sion,Sivir,Sona,Soraka,Swain,Syndra,Teemo,Thresh,Tristana,Tryndamere,Twisted Fate,Twitch,Urgot,Varus,Vayne,Veigar,Vi,Viego,Vladimir,Volibear,Warwick,Wukong,Xayah,Xin Zhao,Yasuo,Yone,Yuumi,Zed,Zeri,Ziggs,Zilean,Zoe,Zyra'.split(',');
+const pickerItems=Object.keys(itemIds).map(k=>k.replace(/\b\w/g,c=>c.toUpperCase())).filter((v,i,a)=>a.indexOf(v)===i);
+const pickerRunes=Object.keys(runeIcons).map(k=>k.replace(/\b\w/g,c=>c.toUpperCase()));
+const pickerConfig={champion:['Champion played','champ'],allies:['Allied champions','champ'],enemies:['Enemy champions','champ'],enemyjungler:['Enemy jungler','champ'],items:['Build order','item'],boots:['Boots','item'],runes:['Runes','rune']};
+const pickerOverlay=document.getElementById('pickerOverlay'),pickerGrid=document.getElementById('pickerGrid'),pickerSearch=document.getElementById('pickerSearch');
+let pickerField='',pickerType='';
+const pickerSingle=new Set(['champion','enemyjungler','boots']);
+const pickerLimit={allies:5,enemies:5,items:5,runes:5};
+function pickerSource(name,type){
+if(type==='champ'){const mapped={wukong:'MonkeyKing',kaisa:'Kaisa',khazix:'Khazix',nunu:'Nunu',reksai:'RekSai',kogmaw:'KogMaw'};const key=name.toLowerCase().replace(/[^a-z]/g,'');return 'https://ddragon.leagueoflegends.com/cdn/14.24.1/img/champion/'+(mapped[key]||name.replace(/[^a-zA-Z]/g,''))+'.png'}
+if(type==='item'){const id=itemIds[name.toLowerCase()];return id?'https://ddragon.leagueoflegends.com/cdn/14.24.1/img/item/'+id+'.png':''}
+const path=runeIcons[name.toLowerCase()];return path?'https://ddragon.leagueoflegends.com/cdn/img/perk-images/'+path:'';
+}
+function pickerOptions(){
+if(pickerType==='champ')return pickerChampions;
+if(pickerType==='rune')return pickerRunes;
+return pickerField==='boots'?pickerItems.filter(n=>/boots|treads|greaves/i.test(n)):pickerItems.filter(n=>!/boots|treads|greaves/i.test(n));
+}
+function renderPicker(){
+const q=pickerSearch.value.trim().toLowerCase();pickerGrid.replaceChildren();
+const choices=pickerOptions().filter(n=>n.toLowerCase().includes(q)).slice(0,120);
+if(!choices.length){const msg=document.createElement('p');msg.textContent='No matching icon in this starter library. You can still type the name manually.';pickerGrid.appendChild(msg)}
+for(const name of choices){
+const button=document.createElement('button');button.type='button';button.className='picker-choice';
+const src=pickerSource(name,pickerType);if(src){const im=document.createElement('img');im.src=src;im.alt='';im.loading='lazy';button.appendChild(im)}
+const label=document.createElement('span');label.textContent=name;button.appendChild(label);
+button.onclick=()=>{
+const input=document.getElementById(pickerField);
+if(pickerSingle.has(pickerField))input.value=name;
+else{const current=input.value.split(',').map(v=>v.trim()).filter(Boolean);if(current.length>=(pickerLimit[pickerField]||5)){current.shift()}current.push(name);input.value=current.join(', ')}
+input.dispatchEvent(new Event('input',{bubbles:true}));document.getElementById('pickerHelp').textContent='Selected: '+input.value;
+if(pickerSingle.has(pickerField))closePicker();
+};
+pickerGrid.appendChild(button);
+}
+}
+function closePicker(){pickerOverlay.hidden=true;pickerSearch.value=''}
+document.getElementById('pickerClose').onclick=closePicker;
+pickerOverlay.addEventListener('click',e=>{if(e.target===pickerOverlay)closePicker()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!pickerOverlay.hidden)closePicker()});
+pickerSearch.addEventListener('input',renderPicker);
+for(const [field,[title,type]] of Object.entries(pickerConfig)){
+const input=document.getElementById(field),label=input?.closest('label');if(!label)continue;
+const button=document.createElement('button');button.type='button';button.className='pick-trigger';button.textContent='▦ Choose visually';
+button.onclick=()=>{pickerField=field;pickerType=type;document.getElementById('pickerTitle').textContent=title;document.getElementById('pickerHelp').textContent=pickerSingle.has(field)?'Tap an icon to replace the current selection.':'Tap icons in order to add them (up to '+pickerLimit[field]+'). You can edit the text field to remove or reorder.';pickerOverlay.hidden=false;pickerSearch.value='';renderPicker();pickerSearch.focus()};
+label.appendChild(button);
+}
 const c=document.getElementById('stage'),ctx=c.getContext('2d');let raf=0,start=0,elapsed=0,playing=false;const duration=()=>Number($('mode').value);
 const $=id=>document.getElementById(id), split=id=>$(id).value.split(',').map(s=>s.trim()).filter(Boolean);
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), smooth=x=>{x=clamp(x);return x*x*(3-2*x)};
