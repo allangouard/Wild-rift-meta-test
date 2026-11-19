@@ -3,9 +3,10 @@
 <style>
 :root{color-scheme:dark;font-family:system-ui,Arial;background:#080e1d;color:#eaf6ff}*{box-sizing:border-box}body{margin:0;padding:16px;max-width:1050px;margin:auto}h1{font-size:1.5rem;margin:0;color:#f6cb72}p{color:#9db4c8}canvas{width:100%;aspect-ratio:16/9;border:1px solid #2a6685;border-radius:12px;background:#050c1c}section{background:#101b30;border:1px solid #23415d;border-radius:12px;padding:14px;margin:12px 0}label{display:block;font-size:.85rem;color:#afc8db;margin:8px 0}input,select{background:#091326;color:#fff;border:1px solid #31516e;border-radius:7px;padding:9px;width:100%}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}button{background:#00b5d6;color:#03131e;border:0;padding:12px 17px;border-radius:9px;font-weight:800;margin:4px;cursor:pointer}button.secondary{background:#273d56;color:white}button:disabled{opacity:.4}small{color:#91b3c7}#status{color:#e4b969} @media(max-width:600px){body{padding:8px}.grid{grid-template-columns:1fr}h1{font-size:1.2rem}}
 </style></head><body>
-<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v5.4</p>
+<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v6.0</p>
 <canvas id="stage" width="1280" height="720"></canvas>
 <div><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="12">FULL • 12s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export Full HD (MP4 / WebM)</button><span id="status"></span></div>
+<section><strong>MY INTRO PROJECT</strong><p>Save the current match settings on this device, restore them later, or start a fresh intro. The validated 12-second design remains unchanged.</p><div class="grid"><label>Project name<input id="projectname" value="Shyvana — Dragon Control" placeholder="Match / champion name"></label><label>Saved projects<select id="projectlist"><option value="">Choose a saved project</option></select></label></div><div><button id="saveproject">💾 Save project</button><button id="loadproject" class="secondary">↩ Load selected</button><button id="newproject" class="secondary">＋ New intro</button><button id="deleteproject" class="secondary">Delete selected</button></div><small id="projectstatus">Projects are stored locally in this browser. Imported champion images must be selected again after reopening.</small></section>
 <section><strong>WILD RIFT ARTWORKS</strong><p>Import Wild Rift champion artworks as image files named Garen.jpg, Shyvana.png, etc. Files replace PC art for matching champion names in the draft and final scene.</p><label>Champion images (multiple files)<input id="artfiles" type="file" accept="image/*" multiple></label><small id="artstatus">PC placeholders remain for champions without imported images.</small></section><section><strong>MATCH SETTINGS</strong><div class="grid">
 <label>Champion played<input id="champion" value="Shyvana"></label>
 <label>Role<input id="role" value="JUNGLE"></label>
@@ -322,6 +323,16 @@ else{playing=false;if(typeof onComplete==='function')onComplete()}
 }
 raf=requestAnimationFrame(frame);
 }
+const projectFields=['champion','role','rank','patch','allies','enemies','enemyjungler','items','boots','runes','threats','hook','response','strategy'];
+const projectKey='rift-vault-studio-projects-v1';
+function readProjects(){try{return JSON.parse(localStorage.getItem(projectKey)||'{}')}catch{return {}}}
+function refreshProjects(selected=''){const select=$('projectlist');select.innerHTML='<option value="">Choose a saved project</option>';Object.keys(readProjects()).sort().forEach(name=>{const o=document.createElement('option');o.value=name;o.textContent=name;select.appendChild(o)});select.value=selected}
+function projectMessage(msg){$('projectstatus').textContent=msg}
+$('saveproject').onclick=()=>{const name=$('projectname').value.trim();if(!name){projectMessage('Enter a project name first');return}const data={};projectFields.forEach(id=>data[id]=$(id).value);try{const all=readProjects();all[name]=data;localStorage.setItem(projectKey,JSON.stringify(all));refreshProjects(name);projectMessage('Saved: '+name+' — on this browser only')}catch(e){projectMessage('Unable to save: browser storage unavailable')}};
+$('loadproject').onclick=()=>{const name=$('projectlist').value,data=readProjects()[name];if(!data){projectMessage('Select a saved project');return}projectFields.forEach(id=>{if(typeof data[id]==='string')$(id).value=data[id]});$('projectname').value=name;cancelAnimationFrame(raf);playing=false;elapsed=0;draw(0);projectMessage('Loaded: '+name+'. Reimport custom champion artwork if needed.')};
+$('newproject').onclick=()=>{if(recording)return;cancelAnimationFrame(raf);playing=false;elapsed=0;$('projectname').value='New intro';$('projectlist').value='';projectFields.forEach(id=>$(id).value='');$('rank').value='DIAMOND II';$('patch').value='7.3F';draw(0);projectMessage('New blank intro. Fill the match details before exporting.')};
+$('deleteproject').onclick=()=>{const name=$('projectlist').value;if(!name){projectMessage('Select a project to delete');return}const all=readProjects();delete all[name];try{localStorage.setItem(projectKey,JSON.stringify(all));refreshProjects();projectMessage('Deleted saved project: '+name)}catch{projectMessage('Unable to delete project')}};
+refreshProjects();
 $('play').onclick=()=>play();
 document.querySelectorAll('input,select').forEach(el=>el.addEventListener('input',()=>{if(!playing&&!recording)draw(elapsed)}));
 $('export').onclick=async()=>{
