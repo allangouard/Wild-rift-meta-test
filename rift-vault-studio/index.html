@@ -29,7 +29,7 @@ h1{letter-spacing:.035em}.studio-layout{display:grid;grid-template-columns:minma
 .slot-editor{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;margin-top:9px}.slot-card{position:relative;min-width:0;background:#101f32;border:1px solid #31536b;border-radius:8px;padding:7px 3px 8px;color:#e8f5ff;display:flex;align-items:center;flex-direction:column;gap:5px;margin:0;min-height:96px}.slot-card img{width:42px;height:42px;object-fit:cover;border-radius:5px}.slot-card .slot-name{font-size:.65rem;line-height:1.15;overflow-wrap:anywhere;text-align:center}.slot-card .slot-number{font-size:.64rem;color:#e8c27c}.slot-card:focus-visible{outline:2px solid #6edbf2}.slot-hint{display:block;margin-top:6px;font-size:.74rem;color:#9bb8ca}@media(max-width:560px){.slot-card{min-height:85px;padding:5px 2px}.slot-card img{width:36px;height:36px}}
 .picker-filters{display:flex;gap:7px;overflow-x:auto;flex-shrink:0;padding:6px 0 10px;scrollbar-width:thin}.picker-filter{flex:0 0 auto;min-height:36px;margin:0;padding:7px 12px;border-radius:999px;background:#19374a;color:#cce5ef;border:1px solid #44697b;font-size:.79rem}.picker-filter.active{background:#1b7182;border-color:#7bd5e6;color:#fff}.picker-count{font-size:.75rem;color:#a7c8d9;margin:0 0 8px}.picker-dialog{max-height:92dvh}.picker-choice:disabled{opacity:.38}.picker-choice.selected{border-color:#f0c880;background:#344052}
 </style></head><body>
-<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v7.7</p>
+<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v8.0</p>
 <div class="studio-layout"><div class="studio-preview"><strong>LIVE PREVIEW · 12 SECONDS</strong><canvas id="stage" width="1280" height="720"></canvas>
 <div class="playbar"><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="12">FULL • 12s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export Full HD (MP4 / WebM)</button><span id="status"></span></div><div class="sequence-guide"><span><b>01</b> DRAFT<br>0–3.2s</span><span><b>02</b> BUILD & RUNES<br>3.2–9.1s</span><span><b>03</b> WIN CONDITION<br>9.1–12s</span></div></div><div class="studio-editor"><small id="catalogStatus">Chargement du catalogue Draft Intelligence…</small><nav class="editor-tabs" aria-label="Editor sections"><button class="active" type="button" data-tab="draft">01 Draft</button><button type="button" data-tab="build">02 Build & Runes</button><button type="button" data-tab="plan">03 Plan</button><button type="button" data-tab="projects">Projects & Art</button></nav><div class="tab-panel" data-panel="projects" hidden><section><strong>MY INTRO PROJECT</strong><p>Save the current match settings on this device, restore them later, or start a fresh intro. The validated 12-second design remains unchanged.</p><div class="grid"><label>Project name<input id="projectname" value="Shyvana — Dragon Control" placeholder="Match / champion name"></label><label>Saved projects<select id="projectlist"><option value="">Choose a saved project</option></select></label></div><div><button id="saveproject">💾 Save project</button><button id="loadproject" class="secondary">↩ Load selected</button><button id="newproject" class="secondary">＋ New intro</button><button id="deleteproject" class="secondary">Delete selected</button></div><small id="projectstatus">Projects are stored locally in this browser. Imported champion images must be selected again after reopening.</small></section>
 <section><strong>WILD RIFT ARTWORKS</strong><p>Import Wild Rift champion artworks as image files named Garen.jpg, Shyvana.png, etc. Files replace PC art for matching champion names in the draft and final scene.</p><label>Champion images (multiple files)<input id="artfiles" type="file" accept="image/*" multiple></label><small id="artstatus">PC placeholders remain for champions without imported images.</small></section></div><section><strong>MATCH SETTINGS</strong><div class="grid">
@@ -255,6 +255,46 @@ const shade=ctx.createLinearGradient(x,y+h*.35,x,y+h);shade.addColorStop(0,'#010
 ctx.restore();
 ctx.save();ctx.strokeStyle=side==='left'?'#35d4ff':'#ff627e';ctx.shadowColor=ctx.strokeStyle;ctx.shadowBlur=23;ctx.lineWidth=3;ctx.beginPath();if(side==='left'){ctx.moveTo(x,y+h);ctx.lineTo(x+w-65,y+h)}else{ctx.moveTo(x+65,y+h);ctx.lineTo(x+w,y+h)}ctx.stroke();ctx.restore();
 }
+// V8 cinematic transitions: deterministic canvas-only motion (identical in preview and export).
+function cinematicTransition(t,at,label){
+const d=t-at;if(d<-.28||d>.48)return;
+const k=clamp((d+.28)/.76),ease=k*k*(3-2*k);
+const flash=Math.pow(Math.max(0,1-Math.abs(d)/.24),2);
+ctx.save();
+const veil=ctx.createLinearGradient(0,0,1280,0);
+veil.addColorStop(0,'#06132300');veil.addColorStop(.48,'#071b2c'+Math.round(flash*120).toString(16).padStart(2,'0'));veil.addColorStop(1,'#06132300');
+rect(0,0,1280,720,veil);
+ctx.globalAlpha=.7*flash;
+ctx.fillStyle='#d9b77e';ctx.fillRect(0,345,1280,2);
+ctx.globalAlpha=.45*flash;
+ctx.fillStyle='#5dd5e8';ctx.fillRect(0,350,1280,1);
+ctx.restore();
+const x=-500+ease*1950;
+ctx.save();ctx.beginPath();ctx.rect(0,80,1280,595);ctx.clip();
+const beam=ctx.createLinearGradient(x-180,0,x+180,0);
+beam.addColorStop(0,'#55d6e800');beam.addColorStop(.47,'#9de7ee'+Math.round((.15+.3*flash)*255).toString(16).padStart(2,'0'));beam.addColorStop(.52,'#f0c781'+Math.round((.28+.42*flash)*255).toString(16).padStart(2,'0'));beam.addColorStop(1,'#55d6e800');
+ctx.fillStyle=beam;ctx.beginPath();ctx.moveTo(x-130,80);ctx.lineTo(x+190,80);ctx.lineTo(x+130,675);ctx.lineTo(x-190,675);ctx.fill();ctx.restore();
+if(d>-.12&&d<.26){
+const a=Math.min(1,(d+.12)/.12,(.26-d)/.12);
+alpha(Math.max(0,a)*.85,()=>{
+rect(466,327,348,62,'#061524df','#b99a69');
+txt(label,640,367,22,'#f7e0b3',900,'center');
+});
+}
+}
+function cinematicFilmFinish(t){
+ctx.save();
+const vignette=ctx.createRadialGradient(640,340,235,640,360,790);
+vignette.addColorStop(0,'#00000000');vignette.addColorStop(.72,'#00000009');vignette.addColorStop(1,'#00000067');
+rect(0,0,1280,720,vignette);
+ctx.globalAlpha=.11;
+ctx.fillStyle='#b3d9ea';
+const drift=(t*11)%12;
+for(let y=96+drift;y<670;y+=12)ctx.fillRect(0,y,1280,.55);
+ctx.restore();
+cinematicTransition(t,3.2,'THE LOADOUT');
+cinematicTransition(t,9.1,'THE GAME PLAN');
+}
 function scene(t){
 const phase=t<1.1?0:t<3.2?1:t<9.1?2:3;
 ctx.clearRect(0,0,1280,720);
@@ -375,6 +415,7 @@ alpha(transition*.72,()=>{
 const sweep=ctx.createLinearGradient(0,0,1280,0);sweep.addColorStop(0,'#07152300');sweep.addColorStop(.52,'#c4e8ef36');sweep.addColorStop(1,'#07152300');rect(-900+transition*2050,85,300,575,sweep);
 });
 }
+cinematicFilmFinish(t);
 rect(40,684,1200,4,'#183f54');rect(40,684,1200*clamp(t/12),4,'#e4b975');
 }
 function draw(t){scene(t*12/duration())}
