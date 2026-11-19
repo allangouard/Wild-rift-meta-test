@@ -32,6 +32,7 @@ h1{letter-spacing:.035em}.studio-layout{display:grid;grid-template-columns:minma
 <h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v8.0</p>
 <div class="studio-layout"><div class="studio-preview"><strong>LIVE PREVIEW · 17 SECONDS</strong><canvas id="stage" width="1280" height="720"></canvas>
 <div class="playbar"><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="17">FULL • 17s</option></select></label><button id="play">▶ Preview</button><label style="display:inline-block;margin:0 8px">Soundtrack <input id="soundfile" type="file" accept="audio/*" style="max-width:190px"></label><label style="display:inline-block;margin:0 8px">Volume <input id="soundvolume" type="range" min="0" max="100" value="55" style="width:85px;vertical-align:middle"></label><small id="soundstatus">Optional · use music you own or are licensed to use</small><button id="export" class="secondary">⬇ Export Full HD (MP4 / WebM)</button><span id="status"></span></div><div class="sequence-guide"><span><b>01</b> DRAFT<br>0–4.5s</span><span><b>02</b> BUILD & RUNES<br>4.5–12.8s</span><span><b>03</b> WIN CONDITION<br>12.8–17s</span></div></div><div class="studio-editor"><small id="catalogStatus">Chargement du catalogue Draft Intelligence…</small><nav class="editor-tabs" aria-label="Editor sections"><button class="active" type="button" data-tab="draft">01 Draft</button><button type="button" data-tab="build">02 Build & Runes</button><button type="button" data-tab="plan">03 Plan</button><button type="button" data-tab="projects">Projects & Art</button></nav><div class="tab-panel" data-panel="projects" hidden><section><strong>MY INTRO PROJECT</strong><p>Save the current match settings on this device, restore them later, or start a fresh intro. The current 17-second cinematic design is preserved.</p><div class="grid"><label>Project name<input id="projectname" value="Shyvana — Dragon Control" placeholder="Match / champion name"></label><label>Saved projects<select id="projectlist"><option value="">Choose a saved project</option></select></label></div><div><button id="saveproject">💾 Save project</button><button id="loadproject" class="secondary">↩ Load selected</button><button id="newproject" class="secondary">＋ New intro</button><button id="deleteproject" class="secondary">Delete selected</button></div><small id="projectstatus">Projects are stored locally in this browser. Imported champion images must be selected again after reopening.</small></section>
+<section><strong>TACTICAL NARRATOR · ENGLISH VOICEOVER</strong><p>Generate a concise 17-second narration from the actual Draft Intel fields. Review and edit before recording. No strategic claims are invented.</p><div><button type="button" id="generatenarration">✦ Generate narration</button><button type="button" class="secondary" id="speaknarration">▶ Listen (device voice)</button><button type="button" class="secondary" id="stopnarration">■ Stop voice</button></div><label>English narration · editable<textarea id="narration" rows="5" placeholder="Generate a narration from your draft, build and strategy"></textarea></label><small id="narrationstatus">Device voice is a preview only; to include narration in the exported MP4, record the voice and import the audio file using Soundtrack above.</small></section>
 <section><strong>WILD RIFT ARTWORKS</strong><p>Import Wild Rift champion artworks as image files named Garen.jpg, Shyvana.png, etc. Files replace PC art for matching champion names in the draft and final scene.</p><label>Champion images (multiple files)<input id="artfiles" type="file" accept="image/*" multiple></label><small id="artstatus">PC placeholders remain for champions without imported images.</small></section></div><section><strong>MATCH SETTINGS</strong><div class="grid">
 <label>Champion played<input id="champion" value="Shyvana"></label>
 <label>Role<input id="role" value="JUNGLE"></label>
@@ -473,7 +474,36 @@ else{playing=false;stopSoundtrack();if(typeof onComplete==='function')onComplete
 }
 raf=requestAnimationFrame(frame);
 }
-const projectFields=['champion','role','rank','patch','allies','enemies','enemyjungler','items','boots','runes','threats','hook','response','strategy'];
+function cleanVoiceText(v){return String(v||'').replace(/[•|]/g,', ').replace(/[_]/g,' ').replace(/\\s+/g,' ').trim()}
+function generateTacticalNarration(){
+ const champion=cleanVoiceText($('champion').value)||'Our champion';
+ const entries=threatEntries();
+ const primary=entries.find(x=>x.level==='HIGH')||entries[0];
+ const enemy=split('enemies');
+ const firstItem=split('items')[0];
+ const firstRune=split('runes')[0];
+ const response=cleanVoiceText($('response').value);
+ const strategy=cleanVoiceText($('strategy').value);
+ const draft=primary?('Enemy threat: '+cleanVoiceText(primary.category).toLowerCase()+'.'):enemy.length?('Facing '+enemy.slice(0,2).join(' and ')+'.'):'The draft is set.';
+ const build=firstItem?('On '+champion+', the build starts with '+firstItem+'.'):('Now, the build.');
+ const rune=firstRune?(' '+firstRune+' is the key rune.'):''; 
+ const plan=strategy?('The plan: '+strategy.toLowerCase()+'.'):response?('The response: '+response.toLowerCase()+'.'):'Play to the win condition.';
+ return [draft,build+rune,plan].join(' ').replace(/\\s+/g,' ').trim();
+}
+$('generatenarration').onclick=()=>{
+ const script=generateTacticalNarration();$('narration').value=script;
+ const words=script.split(/\\s+/).length;
+ $('narrationstatus').textContent=words+' words · review wording and pacing for 17 seconds (aim for about 35–42 words). Device voice is preview-only.';
+};
+$('speaknarration').onclick=()=>{
+ if(!('speechSynthesis' in window)){$('narrationstatus').textContent='Speech preview is unavailable in this browser';return}
+ const script=$('narration').value.trim();if(!script){$('narrationstatus').textContent='Generate or enter a narration first';return}
+ speechSynthesis.cancel();const utterance=new SpeechSynthesisUtterance(script);utterance.lang='en-US';utterance.rate=1.08;utterance.pitch=.87;
+ const voices=speechSynthesis.getVoices();const english=voices.filter(v=>v.lang.toLowerCase().startsWith('en'));utterance.voice=english.find(v=>/male|daniel|david|guy/i.test(v.name))||english[0]||null;
+ speechSynthesis.speak(utterance);$('narrationstatus').textContent='Listening to device voice preview · this voice is NOT included in video export';
+};
+$('stopnarration').onclick=()=>{if('speechSynthesis' in window)speechSynthesis.cancel()};
+const projectFields=['narration','champion','role','rank','patch','allies','enemies','enemyjungler','items','boots','runes','threats','hook','response','strategy'];
 const projectKey='rift-vault-studio-projects-v1';
 function readProjects(){try{return JSON.parse(localStorage.getItem(projectKey)||'{}')}catch{return {}}}
 function refreshProjects(selected=''){const select=$('projectlist');select.innerHTML='<option value="">Choose a saved project</option>';Object.keys(readProjects()).sort().forEach(name=>{const o=document.createElement('option');o.value=name;o.textContent=name;select.appendChild(o)});select.value=selected}
