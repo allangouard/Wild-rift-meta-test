@@ -591,7 +591,7 @@ const count=document.createElement('div');count.className='picker-count';count.t
 if(!choices.length){const msg=document.createElement('p');msg.textContent='No matching icon in this starter library. You can still type the name manually.';pickerGrid.appendChild(msg)}
 for(const name of choices){
 const button=document.createElement('button');button.type='button';button.className='picker-choice';
-const src=pickerSource(name,pickerField==='boots'?'boots':pickerType);if(src){const im=document.createElement('img');im.alt='';im.loading='lazy';if(pickerType==='rune'||field==='runes'){attachRuneImageFallback(im,name)}else{im.src=src;im.onerror=()=>im.remove()}button.appendChild(im)}
+const src=pickerSource(name,pickerField==='boots'?'boots':pickerType);if(src){const im=document.createElement('img');im.alt='';im.loading='lazy';if(pickerType==='rune'){attachRuneImageFallback(im,name)}else{im.src=src;im.onerror=()=>im.remove()}button.appendChild(im)}
 const label=document.createElement('span');label.textContent=name;button.appendChild(label);
 if(pickerType==='champ'){const sub=document.createElement('span');sub.className='slot-number';sub.textContent=(championForName(name)?.lanes||[]).join(' · ');button.appendChild(sub)}
 if(pickerType==='rune'&&pickerSlot===4){const sub=document.createElement('span');sub.className='slot-number';sub.textContent=runeForName(name)?.tree||'';button.appendChild(sub)}
@@ -634,7 +634,7 @@ for(let i=0;i<5;i++){
 const name=values[i]||'',button=document.createElement('button');
 button.type='button';button.className='slot-card';button.title='Replace slot '+(i+1);button.setAttribute('aria-label','Replace '+field+' slot '+(i+1)+(name?': '+name:''));
 const num=document.createElement('span');num.className='slot-number';num.textContent=String(i+1).padStart(2,'0');button.appendChild(num);
-if(name){const src=pickerSource(name,pickerConfig[field][1]);if(src){const im=document.createElement('img');im.alt='';im.loading='lazy';if(pickerType==='rune'){attachRuneImageFallback(im,name)}else{im.src=src;im.onerror=()=>im.remove()}button.appendChild(im)}}
+if(name){const src=pickerSource(name,pickerConfig[field][1]);if(src){const im=document.createElement('img');im.alt='';im.loading='lazy';if(field==='runes'){attachRuneImageFallback(im,name)}else{im.src=src;im.onerror=()=>im.remove()}button.appendChild(im)}}
 const caption=document.createElement('span');caption.className='slot-name';caption.textContent=name||'+ Add';button.appendChild(caption);
 button.onclick=()=>openSlotPicker(field,i);grid.appendChild(button);
 }
