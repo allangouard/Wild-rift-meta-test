@@ -29,7 +29,7 @@ h1{letter-spacing:.035em}.studio-layout{display:grid;grid-template-columns:minma
 .slot-editor{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;margin-top:9px}.slot-card{position:relative;min-width:0;background:#101f32;border:1px solid #31536b;border-radius:8px;padding:7px 3px 8px;color:#e8f5ff;display:flex;align-items:center;flex-direction:column;gap:5px;margin:0;min-height:96px}.slot-card img{width:42px;height:42px;object-fit:cover;border-radius:5px}.slot-card .slot-name{font-size:.65rem;line-height:1.15;overflow-wrap:anywhere;text-align:center}.slot-card .slot-number{font-size:.64rem;color:#e8c27c}.slot-card:focus-visible{outline:2px solid #6edbf2}.slot-hint{display:block;margin-top:6px;font-size:.74rem;color:#9bb8ca}@media(max-width:560px){.slot-card{min-height:85px;padding:5px 2px}.slot-card img{width:36px;height:36px}}
 .picker-filters{display:flex;gap:7px;overflow-x:auto;flex-shrink:0;padding:6px 0 10px;scrollbar-width:thin}.picker-filter{flex:0 0 auto;min-height:36px;margin:0;padding:7px 12px;border-radius:999px;background:#19374a;color:#cce5ef;border:1px solid #44697b;font-size:.79rem}.picker-filter.active{background:#1b7182;border-color:#7bd5e6;color:#fff}.picker-count{font-size:.75rem;color:#a7c8d9;margin:0 0 8px}.picker-dialog{max-height:92dvh}.picker-choice:disabled{opacity:.38}.picker-choice.selected{border-color:#f0c880;background:#344052}
 </style></head><body>
-<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v6.6</p>
+<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v6.7</p>
 <div class="studio-layout"><div class="studio-preview"><strong>LIVE PREVIEW · 12 SECONDS</strong><canvas id="stage" width="1280" height="720"></canvas>
 <div class="playbar"><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="12">FULL • 12s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export Full HD (MP4 / WebM)</button><span id="status"></span></div><div class="sequence-guide"><span><b>01</b> DRAFT<br>0–3.2s</span><span><b>02</b> BUILD & RUNES<br>3.2–9.1s</span><span><b>03</b> WIN CONDITION<br>9.1–12s</span></div></div><div class="studio-editor"><small id="catalogStatus">Chargement du catalogue Draft Intelligence…</small><nav class="editor-tabs" aria-label="Editor sections"><button class="active" type="button" data-tab="draft">01 Draft</button><button type="button" data-tab="build">02 Build & Runes</button><button type="button" data-tab="plan">03 Plan</button><button type="button" data-tab="projects">Projects & Art</button></nav><div class="tab-panel" data-panel="projects" hidden><section><strong>MY INTRO PROJECT</strong><p>Save the current match settings on this device, restore them later, or start a fresh intro. The validated 12-second design remains unchanged.</p><div class="grid"><label>Project name<input id="projectname" value="Shyvana — Dragon Control" placeholder="Match / champion name"></label><label>Saved projects<select id="projectlist"><option value="">Choose a saved project</option></select></label></div><div><button id="saveproject">💾 Save project</button><button id="loadproject" class="secondary">↩ Load selected</button><button id="newproject" class="secondary">＋ New intro</button><button id="deleteproject" class="secondary">Delete selected</button></div><small id="projectstatus">Projects are stored locally in this browser. Imported champion images must be selected again after reopening.</small></section>
 <section><strong>WILD RIFT ARTWORKS</strong><p>Import Wild Rift champion artworks as image files named Garen.jpg, Shyvana.png, etc. Files replace PC art for matching champion names in the draft and final scene.</p><label>Champion images (multiple files)<input id="artfiles" type="file" accept="image/*" multiple></label><small id="artstatus">PC placeholders remain for champions without imported images.</small></section></div><section><strong>MATCH SETTINGS</strong><div class="grid">
@@ -80,6 +80,8 @@ function portrait(name,x,y,w,h,accent){ctx.save();ctx.shadowColor=accent;ctx.sha
 
 // Temporary PC item icon references: displayed only for explicitly mapped item names.
 const itemIds={'trinity force':'3078',"sterak's gage":'3053',"death's dance":'6333','spirit visage':'3065','guardian angel':'3026','thornmail':'3075','rabadons deathcap':'3089',"rabadon's deathcap":'3089','infinity edge':'3031','blade of the ruined king':'3153','nashors tooth':'3115',"nashor's tooth":'3115','randuins omen':'3143',"randuin's omen":'3143','force of nature':'4401','plated steelcaps':'3047','mercurys treads':'3111',"mercury's treads":'3111','ionian boots of lucidity':'3158','berserkers greaves':'3006','sunfire aegis':'3068','frozen heart':'3110','liandrys torment':'3151',"liandry's torment":'3151'};
+const wrExtraItemIcons={"youmuus_ghostblade":"3142","manamune":"3004","duskblade_of_draktharr":"6691","maw_of_malmortius":"3156","edge_of_night":"3814","the_collector":"6676","mercurial_scimitar":"3139","chempunk_chainsword":"6609","eclipse":"6692","sundered_sky":"6610","experimental_hexplate":"3073","black_cleaver":"3071","titanic_hydra":"3748","stridebreaker":"6631","goredrinker":"6630","blade_of_the_ruined_king":"3153","spear_of_shojin":"3161","hullbreaker":"3181","bloodthirster":"3072","divine_sunderer":"6632","trinity_force":"3078","rapid_firecannon":"3094","runaans_hurricane":"3085","phantom_dancer":"3046","navori_quickblades":"6675","wits_end":"3091","kraken_slayer":"6672","yun_tal_wildarrows":"3032","mortal_reminder":"3033","essence_reaver":"3508","immortal_shieldbow":"6673","terminus":"3302","stormrazor":"3095","galeforce":"6671","lord_dominiks_regards":"3036","infinity_edge":"3031"};
+function wrItemIconURL(item){if(!item)return '';if(item.id&&item.id!=='titanic_hydra'&&!item.shop_evidence)return '../assets/item-icons/'+item.id+'.webp';const id=wrExtraItemIcons[item.id];return id?'https://ddragon.leagueoflegends.com/cdn/14.24.1/img/item/'+id+'.png':''}
 function itemImage(name){
 const key=normalizeWRName(name),item=itemForName(name),pcId=itemIds[String(name||'').toLowerCase().trim()];
 const localId=item?.id;
@@ -90,7 +92,7 @@ im.onload=()=>{if(!playing)draw(elapsed)};
 im.onerror=()=>{
 if(pcId&&im.dataset.fallback!=='pc'){im.dataset.fallback='pc';im.src='https://ddragon.leagueoflegends.com/cdn/14.24.1/img/item/'+pcId+'.png'}
 };
-if(localId&&localId!=='titanic_hydra')im.src='../assets/item-icons/'+localId+'.webp';
+const src=wrItemIconURL(item);if(src)im.src=src;
 else if(pcId)im.src='https://ddragon.leagueoflegends.com/cdn/14.24.1/img/item/'+pcId+'.png';
 imageCache.set(cacheKey,im);
 }
@@ -443,7 +445,7 @@ raf=requestAnimationFrame(recordFrame);
 /* Visual selection uses the same underlying text fields, so saved projects and export stay compatible. */
 let pickerChampions=[],pickerItems=[],pickerRunes=[];
 let wrCatalog={champions:[],items:[],boots:[],runes:[],trees:[]},catalogLoaded=false;
-const wrCatalogPaths={champions:'../data/champions-picker-v151.json',items:'../data/items-client-7.3d-v12.json',runes:'../data/rune-catalog-client-v14.json',boots:'../data/stage-a-equipment-identity-crosswalk-v14.json'};
+const wrCatalogPaths={champions:'../data/champions-picker-v151.json',items:'../data/items-client-7.3d-v12.json',runes:'../data/rune-catalog-client-v14.json',boots:'../data/stage-a-equipment-identity-crosswalk-v14.json',assassin:'../data/stage-a-assassin-shop-evidence-2026-11-05.json',fighter:'../data/stage-a-fighter-shop-evidence-2026-11-05.json',marksman:'../data/stage-a-marksman-shop-evidence-2026-11-05.json'};
 function normalizeWRName(name){return String(name||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'')}
 function runeForName(name){return wrCatalog.runes.find(x=>normalizeWRName(x.name_fr)===normalizeWRName(name))}
 function itemForName(name){return wrCatalog.items.find(x=>normalizeWRName(x.name_fr)===normalizeWRName(name))}
@@ -453,7 +455,16 @@ try{
 const entries=await Promise.all(Object.entries(wrCatalogPaths).map(async ([key,url])=>{const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw Error(url+': HTTP '+response.status);return [key,await response.json()]}));
 const data=Object.fromEntries(entries);
 wrCatalog.champions=data.champions.champions||[];
-wrCatalog.items=(data.items.items||[]).filter(x=>x.item_type==='legendary'||x.item_type==='active');
+wrCatalog.items=(data.items.items||[]).filter(x=>x.item_type==='legendary'||x.item_type==='active').map(x=>({...x,shop_categories:[]}));
+for(const [key,category] of [['assassin','Assassin'],['fighter','Combattant'],['marksman','Tireur']]){
+for(const entry of data[key]?.entries||[]){
+const name=entry.name_fr;if(!name)continue;
+let item=wrCatalog.items.find(x=>normalizeWRName(x.name_fr)===normalizeWRName(name));
+if(!item){item={id:entry.candidate_id||entry.provisional_identity_candidate||'',name_fr:name,item_type:'legendary',shop_categories:[],shop_evidence:true};wrCatalog.items.push(item)}
+if(!item.shop_categories.includes(category))item.shop_categories.push(category);
+}
+}
+wrCatalog.items.sort((a,b)=>a.name_fr.localeCompare(b.name_fr,'fr'));
 wrCatalog.boots=(data.boots.records||[]).filter(x=>x.kind==='boots').map(x=>({name_fr:x.name_fr,kind:'boots'}));
 wrCatalog.runes=[...(data.runes.fundamental||[]),...(data.runes.minor||[])];
 wrCatalog.trees=data.runes.trees||[];
@@ -461,7 +472,7 @@ pickerChampions=wrCatalog.champions.map(x=>x.name);
 pickerItems=wrCatalog.items.map(x=>x.name_fr);
 pickerRunes=wrCatalog.runes.map(x=>x.name_fr);
 catalogLoaded=true;
-document.getElementById('catalogStatus').textContent='Draft Intelligence: '+pickerChampions.length+' champions · '+pickerItems.length+' objets · '+wrCatalog.boots.length+' bottes · '+pickerRunes.length+' runes. Données client historiques (7.3d), à vérifier pour le patch actuel.';
+document.getElementById('catalogStatus').textContent='Draft Intelligence: '+pickerChampions.length+' champions · '+pickerItems.length+' objets (dont boutiques Tireur, Assassin, Combattant) · '+wrCatalog.boots.length+' bottes · '+pickerRunes.length+' runes. Inventaire client 7.3d : identité et disponibilité actuelles non revérifiées.';
 refreshSlotEditors();
 }catch(e){catalogLoaded=false;document.getElementById('catalogStatus').textContent='Impossible de charger le catalogue Draft Intelligence : '+e.message+'. Vérifie la connexion et recharge la page.'}
 }
@@ -474,7 +485,7 @@ function pickerSource(name,type){
 if(type==='champ')return championForName(name)?.portrait||'';
 if(type==='item'){
 const item=itemForName(name);
-if(item&&item.id!=='titanic_hydra')return '../assets/item-icons/'+item.id+'.webp';
+if(item)return wrItemIconURL(item);
 return '';
 }
 return '';
@@ -500,7 +511,7 @@ if(pickerField==='boots')return wrCatalog.boots.map(x=>x.name_fr);
 return pickerItems;
 }
 const laneFilters=['Tous','Top','Jungle','Mid','ADC','Support'];
-const itemFilters=['Tous','Magie','Défense','Support','Combattant','Tireur','Actifs'];
+const itemFilters=['Tous','Magie','Défense','Support','Combattant','Tireur','Assassin','Actifs'];
 function pickerFiltersAvailable(){
 if(pickerType==='champ')return laneFilters;
 if(pickerType==='rune'){
@@ -514,6 +525,7 @@ return itemFilters;
 function itemCategory(name){
 const it=itemForName(name);if(!it)return 'Autres';
 if(it.item_type==='active')return 'Actifs';
+if(it.shop_categories?.length)return it.shop_categories[0];
 const id=it.id||'';
 if(/thornmail|armor|aegis|rookern|heartsteel|randuins|warmogs|frozen_heart|abyssal_mask|force_of_nature|twinguard|plate|dawnshroud|radiant_virtue|unending_despair|hollow_radiance|iceborn_gauntlet/.test(id))return 'Défense';
 if(/mandate|vow|zekes|redemption|circlet|dawn_and_dusk/.test(id))return 'Support';
@@ -535,7 +547,7 @@ function pickerMatchesFilter(name){
 if(pickerFilter==='Tous'||pickerFilter==='Fondamentales'||pickerFilter==='Bottes')return true;
 if(pickerType==='champ')return (championForName(name)?.lanes||[]).includes(pickerFilter);
 if(pickerType==='rune')return runeForName(name)?.tree===pickerFilter;
-if(pickerType==='item')return itemCategory(name)===pickerFilter;
+if(pickerType==='item')return itemCategory(name)===pickerFilter||!!itemForName(name)?.shop_categories?.includes(pickerFilter);
 return true;
 }
 function renderPicker(){
