@@ -2,12 +2,24 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RIFT VAULT STUDIO — Draft Intel</title>
 <style>
 :root{color-scheme:dark;font-family:system-ui,Arial;background:#080e1d;color:#eaf6ff}*{box-sizing:border-box}body{margin:0;padding:16px;max-width:1050px;margin:auto}h1{font-size:1.5rem;margin:0;color:#f6cb72}p{color:#9db4c8}canvas{width:100%;aspect-ratio:16/9;border:1px solid #2a6685;border-radius:12px;background:#050c1c}section{background:#101b30;border:1px solid #23415d;border-radius:12px;padding:14px;margin:12px 0}label{display:block;font-size:.85rem;color:#afc8db;margin:8px 0}input,select{background:#091326;color:#fff;border:1px solid #31516e;border-radius:7px;padding:9px;width:100%}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}button{background:#00b5d6;color:#03131e;border:0;padding:12px 17px;border-radius:9px;font-weight:800;margin:4px;cursor:pointer}button.secondary{background:#273d56;color:white}button:disabled{opacity:.4}small{color:#91b3c7}#status{color:#e4b969} @media(max-width:600px){body{padding:8px}.grid{grid-template-columns:1fr}h1{font-size:1.2rem}}
+
+/* v6.1 responsive studio workspace; video canvas remains unchanged */
+body{max-width:1480px;padding:18px 22px;background:radial-gradient(ellipse at 90% 0%,#10213a 0%,#080e1d 48%)}
+h1{letter-spacing:.035em}.studio-layout{display:grid;grid-template-columns:minmax(350px,1fr) minmax(430px,1.18fr);gap:18px;align-items:start}
+.studio-preview{grid-column:2;grid-row:1;position:sticky;top:12px;background:#0c182b;border:1px solid #285171;border-radius:14px;padding:14px;box-shadow:0 16px 48px #0005}
+.studio-editor{grid-column:1;grid-row:1;min-width:0}.studio-preview canvas{display:block;border-radius:9px}
+.studio-preview .playbar{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-top:10px}.studio-preview .playbar button{margin:0}.studio-preview #status{display:block;flex-basis:100%;font-size:.86rem;overflow-wrap:anywhere}
+.studio-editor section{margin:0 0 13px}.studio-editor section strong{color:#f1c987;letter-spacing:.035em}
+.editor-tabs{display:flex;gap:7px;overflow-x:auto;padding:0 0 12px;scrollbar-width:thin}.editor-tabs button{flex:1;white-space:nowrap;background:#172a41;color:#c9dce9;border:1px solid #35536b;margin:0;padding:11px 9px;font-size:.82rem}.editor-tabs button.active{background:#073e58;border-color:#48b8d1;color:#fff}
+.tab-panel[hidden]{display:none!important}.studio-editor label{line-height:1.4}.studio-editor input{min-width:0}.studio-editor section p{font-size:.9rem;line-height:1.45}
+.sequence-guide{display:flex;gap:7px;margin-top:12px}.sequence-guide span{flex:1;text-align:center;background:#101f32;border:1px solid #28425b;border-radius:7px;padding:9px 3px;font-size:.75rem;color:#c5d7e5}.sequence-guide b{color:#f4c780}
+@media(max-width:980px){body{padding:10px}.studio-layout{display:flex;flex-direction:column}.studio-preview{position:static;width:100%;order:0}.studio-editor{width:100%;order:1}.studio-editor .grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.studio-editor .grid{grid-template-columns:1fr}.studio-preview{padding:9px}.studio-preview .playbar button{flex:1;font-size:.83rem;padding:11px 7px}.editor-tabs button{font-size:.75rem}.sequence-guide span{font-size:.64rem}h1{font-size:1.2rem}}
 </style></head><body>
-<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v6.0</p>
-<canvas id="stage" width="1280" height="720"></canvas>
-<div><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="12">FULL • 12s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export Full HD (MP4 / WebM)</button><span id="status"></span></div>
-<section><strong>MY INTRO PROJECT</strong><p>Save the current match settings on this device, restore them later, or start a fresh intro. The validated 12-second design remains unchanged.</p><div class="grid"><label>Project name<input id="projectname" value="Shyvana — Dragon Control" placeholder="Match / champion name"></label><label>Saved projects<select id="projectlist"><option value="">Choose a saved project</option></select></label></div><div><button id="saveproject">💾 Save project</button><button id="loadproject" class="secondary">↩ Load selected</button><button id="newproject" class="secondary">＋ New intro</button><button id="deleteproject" class="secondary">Delete selected</button></div><small id="projectstatus">Projects are stored locally in this browser. Imported champion images must be selected again after reopening.</small></section>
-<section><strong>WILD RIFT ARTWORKS</strong><p>Import Wild Rift champion artworks as image files named Garen.jpg, Shyvana.png, etc. Files replace PC art for matching champion names in the draft and final scene.</p><label>Champion images (multiple files)<input id="artfiles" type="file" accept="image/*" multiple></label><small id="artstatus">PC placeholders remain for champions without imported images.</small></section><section><strong>MATCH SETTINGS</strong><div class="grid">
+<h1>⚡ RIFT VAULT STUDIO</h1><p>Draft Intel • animated story intro • prototype v6.1</p>
+<div class="studio-layout"><div class="studio-preview"><strong>LIVE PREVIEW · 12 SECONDS</strong><canvas id="stage" width="1280" height="720"></canvas>
+<div class="playbar"><label style="display:inline-block;margin-right:8px">Mode <select id="mode" style="width:auto"><option value="12">FULL • 12s</option></select></label><button id="play">▶ Preview</button><button id="export" class="secondary">⬇ Export Full HD (MP4 / WebM)</button><span id="status"></span></div><div class="sequence-guide"><span><b>01</b> DRAFT<br>0–3.2s</span><span><b>02</b> BUILD & RUNES<br>3.2–9.1s</span><span><b>03</b> WIN CONDITION<br>9.1–12s</span></div></div><div class="studio-editor"><nav class="editor-tabs" aria-label="Editor sections"><button class="active" type="button" data-tab="draft">01 Draft</button><button type="button" data-tab="build">02 Build & Runes</button><button type="button" data-tab="plan">03 Plan</button><button type="button" data-tab="projects">Projects & Art</button></nav><div class="tab-panel" data-panel="projects" hidden><section><strong>MY INTRO PROJECT</strong><p>Save the current match settings on this device, restore them later, or start a fresh intro. The validated 12-second design remains unchanged.</p><div class="grid"><label>Project name<input id="projectname" value="Shyvana — Dragon Control" placeholder="Match / champion name"></label><label>Saved projects<select id="projectlist"><option value="">Choose a saved project</option></select></label></div><div><button id="saveproject">💾 Save project</button><button id="loadproject" class="secondary">↩ Load selected</button><button id="newproject" class="secondary">＋ New intro</button><button id="deleteproject" class="secondary">Delete selected</button></div><small id="projectstatus">Projects are stored locally in this browser. Imported champion images must be selected again after reopening.</small></section>
+<section><strong>WILD RIFT ARTWORKS</strong><p>Import Wild Rift champion artworks as image files named Garen.jpg, Shyvana.png, etc. Files replace PC art for matching champion names in the draft and final scene.</p><label>Champion images (multiple files)<input id="artfiles" type="file" accept="image/*" multiple></label><small id="artstatus">PC placeholders remain for champions without imported images.</small></section></div><section><strong>MATCH SETTINGS</strong><div class="grid">
 <label>Champion played<input id="champion" value="Shyvana"></label>
 <label>Role<input id="role" value="JUNGLE"></label>
 <label>Rank<input id="rank" value="DIAMOND II"></label>
@@ -18,8 +30,26 @@
 <label>Boots used<input id="boots" value="Plated Steelcaps"></label><label>Runes used (comma separated)<input id="runes" value="Conqueror,Triumph,Last Stand,Legend: Alacrity,Bone Plating"></label>
 <label>Top composition threats — CATEGORY | LEVEL | CHAMPIONS (semicolon separated)<input id="threats" value="SUSTAIN | HIGH | Aatrox / Kayn;AP BURST | HIGH | Annie;SHIELDS | MEDIUM | Lulu / Annie"></label>
 <label>Hook — match-specific question<input id="hook" value="CAN SHYVANA CONTROL THE DRAGONS?"></label><label>Key response — only if supported by actual items<input id="response" value="BUILD TO SURVIVE THEIR BURST"></label><label>Win condition — review before publishing<input id="strategy" value="SCALE UP • CONTROL DRAGONS"></label>
-</div><small>Demo data only. Champion and supported item icons use temporary League PC assets, not yet verified Wild Rift-specific. Unsupported items fall back to text. This version does not yet infer accurate threats or builds automatically. Enter real match information.</small></section>
+</div><small>Demo data only. Champion and supported item icons use temporary League PC assets, not yet verified Wild Rift-specific. Unsupported items fall back to text. This version does not yet infer accurate threats or builds automatically. Enter real match information.</small></section></div></div>
 <script>
+const tabFields={draft:['champion','role','rank','patch','allies','enemies','enemyjungler','threats'],build:['items','boots','runes'],plan:['hook','response','strategy']};
+const settingsSection=[...document.querySelectorAll('.studio-editor section')].find(el=>el.textContent.includes('MATCH SETTINGS'));
+if(settingsSection){
+const labels=[...settingsSection.querySelectorAll('label')];const originalGrid=settingsSection.querySelector('.grid');
+for(const tab of ['draft','build','plan']){
+const section=document.createElement('section');section.className='tab-panel';section.dataset.panel=tab;section.hidden=tab!=='draft';
+const heading=document.createElement('strong');heading.textContent=tab==='draft'?'01 — DRAFT & THREATS':tab==='build'?'02 — BUILD & RUNES':'03 — MATCH STORY';section.appendChild(heading);
+const grid=document.createElement('div');grid.className='grid';section.appendChild(grid);
+for(const label of labels){const input=label.querySelector('input,select');if(input&&tabFields[tab].includes(input.id))grid.appendChild(label)}
+settingsSection.parentElement.insertBefore(section,settingsSection);
+}
+settingsSection.remove();
+}
+function activateEditorTab(name){
+document.querySelectorAll('[data-panel]').forEach(panel=>panel.hidden=panel.dataset.panel!==name);
+document.querySelectorAll('[data-tab]').forEach(btn=>{const active=btn.dataset.tab===name;btn.classList.toggle('active',active);btn.setAttribute('aria-selected',String(active))});
+}
+document.querySelectorAll('[data-tab]').forEach(btn=>btn.addEventListener('click',()=>activateEditorTab(btn.dataset.tab)));
 const c=document.getElementById('stage'),ctx=c.getContext('2d');let raf=0,start=0,elapsed=0,playing=false;const duration=()=>Number($('mode').value);
 const $=id=>document.getElementById(id), split=id=>$(id).value.split(',').map(s=>s.trim()).filter(Boolean);
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), smooth=x=>{x=clamp(x);return x*x*(3-2*x)};
